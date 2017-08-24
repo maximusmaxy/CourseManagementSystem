@@ -8,13 +8,18 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace CourseManagementSystem
+namespace CMS
 {
     public partial class TeacherForm : Form
     {
         public TeacherForm()
         {
             InitializeComponent();
+        }
+
+        private void TeacherForm_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

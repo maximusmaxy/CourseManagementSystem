@@ -696,6 +696,7 @@
             // 
             // txtDisabilityDescription
             // 
+            this.txtDisabilityDescription.Enabled = false;
             this.txtDisabilityDescription.Location = new System.Drawing.Point(211, 579);
             this.txtDisabilityDescription.Multiline = true;
             this.txtDisabilityDescription.Name = "txtDisabilityDescription";

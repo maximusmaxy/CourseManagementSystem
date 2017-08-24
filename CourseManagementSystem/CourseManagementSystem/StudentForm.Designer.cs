@@ -1,4 +1,4 @@
-﻿namespace CourseManagementSystem
+﻿namespace CMS
 {
     partial class StudentForm
     {
@@ -33,10 +33,16 @@
             this.panel7 = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
             this.panel8 = new System.Windows.Forms.Panel();
+            this.btnViewAll = new System.Windows.Forms.Button();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.btnDelete = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.btnUpdate = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.btnAdd = new System.Windows.Forms.Button();
             this.panel6 = new System.Windows.Forms.Panel();
+            this.btnSearch = new System.Windows.Forms.Button();
+            this.button5 = new System.Windows.Forms.Button();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.addToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -48,6 +54,12 @@
             this.mainMenuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.enrolmentsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.studentsCoursesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.enrolmentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.courseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.unitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.aSsessmentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.skillsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.globalSearchToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.label2 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
@@ -63,8 +75,8 @@
             this.label14 = new System.Windows.Forms.Label();
             this.txtPostCode = new System.Windows.Forms.TextBox();
             this.cmbState = new System.Windows.Forms.ComboBox();
-            this.txtAddress2 = new System.Windows.Forms.TextBox();
-            this.txtAddress1 = new System.Windows.Forms.TextBox();
+            this.txtStreet2 = new System.Windows.Forms.TextBox();
+            this.txtStreet1 = new System.Windows.Forms.TextBox();
             this.txtSuburb = new System.Windows.Forms.TextBox();
             this.txtId = new System.Windows.Forms.TextBox();
             this.txtFirstName = new System.Windows.Forms.TextBox();
@@ -82,12 +94,6 @@
             this.txtDisabilityDescription = new System.Windows.Forms.TextBox();
             this.label17 = new System.Windows.Forms.Label();
             this.pnlGender = new System.Windows.Forms.Panel();
-            this.btnViewAll = new System.Windows.Forms.Button();
-            this.btnDelete = new System.Windows.Forms.Button();
-            this.btnUpdate = new System.Windows.Forms.Button();
-            this.btnAdd = new System.Windows.Forms.Button();
-            this.btnSearch = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
             this.panel7.SuspendLayout();
             this.panel5.SuspendLayout();
             this.panel8.SuspendLayout();
@@ -143,6 +149,17 @@
             this.panel8.Size = new System.Drawing.Size(125, 50);
             this.panel8.TabIndex = 22;
             // 
+            // btnViewAll
+            // 
+            this.btnViewAll.BackColor = System.Drawing.Color.White;
+            this.btnViewAll.Image = global::CMS.Properties.Resources.ViewAllButton;
+            this.btnViewAll.Location = new System.Drawing.Point(3, 3);
+            this.btnViewAll.Name = "btnViewAll";
+            this.btnViewAll.Size = new System.Drawing.Size(120, 45);
+            this.btnViewAll.TabIndex = 20;
+            this.btnViewAll.UseVisualStyleBackColor = false;
+            this.btnViewAll.Click += new System.EventHandler(this.btnViewAll_Click);
+            // 
             // panel4
             // 
             this.panel4.BackColor = System.Drawing.Color.PaleGreen;
@@ -151,6 +168,17 @@
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(125, 50);
             this.panel4.TabIndex = 21;
+            // 
+            // btnDelete
+            // 
+            this.btnDelete.BackColor = System.Drawing.Color.White;
+            this.btnDelete.Image = global::CMS.Properties.Resources.DeleteButton;
+            this.btnDelete.Location = new System.Drawing.Point(3, 3);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(119, 44);
+            this.btnDelete.TabIndex = 19;
+            this.btnDelete.UseVisualStyleBackColor = false;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // panel3
             // 
@@ -161,6 +189,17 @@
             this.panel3.Size = new System.Drawing.Size(125, 50);
             this.panel3.TabIndex = 21;
             // 
+            // btnUpdate
+            // 
+            this.btnUpdate.BackColor = System.Drawing.Color.White;
+            this.btnUpdate.Image = global::CMS.Properties.Resources.UpdateButton;
+            this.btnUpdate.Location = new System.Drawing.Point(3, 3);
+            this.btnUpdate.Name = "btnUpdate";
+            this.btnUpdate.Size = new System.Drawing.Size(120, 45);
+            this.btnUpdate.TabIndex = 18;
+            this.btnUpdate.UseVisualStyleBackColor = false;
+            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
+            // 
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.PaleGreen;
@@ -170,6 +209,17 @@
             this.panel2.Size = new System.Drawing.Size(125, 50);
             this.panel2.TabIndex = 21;
             // 
+            // btnAdd
+            // 
+            this.btnAdd.BackColor = System.Drawing.Color.White;
+            this.btnAdd.Image = global::CMS.Properties.Resources.AddButton;
+            this.btnAdd.Location = new System.Drawing.Point(3, 3);
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.Size = new System.Drawing.Size(120, 45);
+            this.btnAdd.TabIndex = 16;
+            this.btnAdd.UseVisualStyleBackColor = false;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
+            // 
             // panel6
             // 
             this.panel6.BackColor = System.Drawing.Color.PaleGreen;
@@ -178,6 +228,27 @@
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(125, 50);
             this.panel6.TabIndex = 19;
+            // 
+            // btnSearch
+            // 
+            this.btnSearch.BackColor = System.Drawing.Color.White;
+            this.btnSearch.Image = global::CMS.Properties.Resources.SearchButton;
+            this.btnSearch.Location = new System.Drawing.Point(3, 3);
+            this.btnSearch.Name = "btnSearch";
+            this.btnSearch.Size = new System.Drawing.Size(120, 45);
+            this.btnSearch.TabIndex = 17;
+            this.btnSearch.UseVisualStyleBackColor = false;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
+            // 
+            // button5
+            // 
+            this.button5.BackColor = System.Drawing.Color.PaleGreen;
+            this.button5.Image = global::CMS.Properties.Resources.StudentButton;
+            this.button5.Location = new System.Drawing.Point(3, 3);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(125, 100);
+            this.button5.TabIndex = 5;
+            this.button5.UseVisualStyleBackColor = false;
             // 
             // menuStrip1
             // 
@@ -243,7 +314,13 @@
             this.formsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.mainMenuToolStripMenuItem,
             this.enrolmentsToolStripMenuItem,
-            this.studentsCoursesToolStripMenuItem});
+            this.studentsCoursesToolStripMenuItem,
+            this.enrolmentToolStripMenuItem,
+            this.courseToolStripMenuItem,
+            this.unitToolStripMenuItem,
+            this.aSsessmentToolStripMenuItem,
+            this.skillsToolStripMenuItem,
+            this.globalSearchToolStripMenuItem});
             this.formsToolStripMenuItem.Name = "formsToolStripMenuItem";
             this.formsToolStripMenuItem.Size = new System.Drawing.Size(52, 20);
             this.formsToolStripMenuItem.Text = "Forms";
@@ -251,50 +328,86 @@
             // mainMenuToolStripMenuItem
             // 
             this.mainMenuToolStripMenuItem.Name = "mainMenuToolStripMenuItem";
-            this.mainMenuToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
+            this.mainMenuToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
             this.mainMenuToolStripMenuItem.Text = "Main Menu";
             // 
             // enrolmentsToolStripMenuItem
             // 
             this.enrolmentsToolStripMenuItem.Name = "enrolmentsToolStripMenuItem";
-            this.enrolmentsToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
-            this.enrolmentsToolStripMenuItem.Text = "Student Enrolment";
+            this.enrolmentsToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
+            this.enrolmentsToolStripMenuItem.Text = "Student";
             // 
             // studentsCoursesToolStripMenuItem
             // 
             this.studentsCoursesToolStripMenuItem.Name = "studentsCoursesToolStripMenuItem";
-            this.studentsCoursesToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
-            this.studentsCoursesToolStripMenuItem.Text = "Student Courses";
+            this.studentsCoursesToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
+            this.studentsCoursesToolStripMenuItem.Text = "Teacher";
+            // 
+            // enrolmentToolStripMenuItem
+            // 
+            this.enrolmentToolStripMenuItem.Name = "enrolmentToolStripMenuItem";
+            this.enrolmentToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
+            this.enrolmentToolStripMenuItem.Text = "Enrolment";
+            // 
+            // courseToolStripMenuItem
+            // 
+            this.courseToolStripMenuItem.Name = "courseToolStripMenuItem";
+            this.courseToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
+            this.courseToolStripMenuItem.Text = "Course";
+            // 
+            // unitToolStripMenuItem
+            // 
+            this.unitToolStripMenuItem.Name = "unitToolStripMenuItem";
+            this.unitToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
+            this.unitToolStripMenuItem.Text = "Unit";
+            // 
+            // aSsessmentToolStripMenuItem
+            // 
+            this.aSsessmentToolStripMenuItem.Name = "aSsessmentToolStripMenuItem";
+            this.aSsessmentToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
+            this.aSsessmentToolStripMenuItem.Text = "Assessment";
+            // 
+            // skillsToolStripMenuItem
+            // 
+            this.skillsToolStripMenuItem.Name = "skillsToolStripMenuItem";
+            this.skillsToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
+            this.skillsToolStripMenuItem.Text = "Skills";
+            // 
+            // globalSearchToolStripMenuItem
+            // 
+            this.globalSearchToolStripMenuItem.Name = "globalSearchToolStripMenuItem";
+            this.globalSearchToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
+            this.globalSearchToolStripMenuItem.Text = "Global Search";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(116, 109);
+            this.label2.Location = new System.Drawing.Point(109, 109);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(91, 21);
+            this.label2.Size = new System.Drawing.Size(95, 21);
             this.label2.TabIndex = 20;
-            this.label2.Text = "Student ID";
+            this.label2.Text = "Student ID:";
             // 
             // label6
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(39, 406);
+            this.label6.Location = new System.Drawing.Point(94, 405);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(168, 21);
+            this.label6.Size = new System.Drawing.Size(110, 21);
             this.label6.TabIndex = 24;
-            this.label6.Text = "Student Date of Birth";
+            this.label6.Text = "Date of Birth:";
             // 
             // label7
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(94, 440);
+            this.label7.Location = new System.Drawing.Point(149, 440);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(113, 21);
+            this.label7.Size = new System.Drawing.Size(55, 21);
             this.label7.TabIndex = 25;
-            this.label7.Text = "Student Email";
+            this.label7.Text = "Email:";
             // 
             // label8
             // 
@@ -340,21 +453,21 @@
             // 
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(66, 177);
+            this.label12.Location = new System.Drawing.Point(127, 177);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(138, 21);
+            this.label12.Size = new System.Drawing.Size(77, 21);
             this.label12.TabIndex = 30;
-            this.label12.Text = "Student Address:";
+            this.label12.Text = "Address:";
             // 
             // label13
             // 
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(92, 142);
+            this.label13.Location = new System.Drawing.Point(114, 142);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(115, 21);
+            this.label13.Size = new System.Drawing.Size(90, 21);
             this.label13.TabIndex = 31;
-            this.label13.Text = "Student Name";
+            this.label13.Text = "Full Name:";
             // 
             // panel1
             // 
@@ -365,8 +478,8 @@
             this.panel1.Controls.Add(this.label14);
             this.panel1.Controls.Add(this.txtPostCode);
             this.panel1.Controls.Add(this.cmbState);
-            this.panel1.Controls.Add(this.txtAddress2);
-            this.panel1.Controls.Add(this.txtAddress1);
+            this.panel1.Controls.Add(this.txtStreet2);
+            this.panel1.Controls.Add(this.txtStreet1);
             this.panel1.Controls.Add(this.txtSuburb);
             this.panel1.Controls.Add(this.label10);
             this.panel1.Controls.Add(this.label11);
@@ -414,7 +527,7 @@
             this.txtPostCode.Name = "txtPostCode";
             this.txtPostCode.Size = new System.Drawing.Size(76, 20);
             this.txtPostCode.TabIndex = 8;
-            this.txtPostCode.Tag = "Post Code";
+            this.txtPostCode.Tag = "Postcode";
             this.ToolTips.SetToolTip(this.txtPostCode, "Insert the 4 Digit Post code for the provided suburb");
             // 
             // cmbState
@@ -427,24 +540,24 @@
             this.cmbState.Tag = "State";
             this.ToolTips.SetToolTip(this.cmbState, "Select the State the provided address is located in");
             // 
-            // txtAddress2
+            // txtStreet2
             // 
-            this.txtAddress2.Location = new System.Drawing.Point(113, 62);
-            this.txtAddress2.Name = "txtAddress2";
-            this.txtAddress2.Size = new System.Drawing.Size(217, 20);
-            this.txtAddress2.TabIndex = 5;
-            this.txtAddress2.Tag = "Address Line 2";
-            this.ToolTips.SetToolTip(this.txtAddress2, "Insert additional unit/apartment/place name and number here using 0-9 and A-Z cha" +
+            this.txtStreet2.Location = new System.Drawing.Point(113, 62);
+            this.txtStreet2.Name = "txtStreet2";
+            this.txtStreet2.Size = new System.Drawing.Size(217, 20);
+            this.txtStreet2.TabIndex = 5;
+            this.txtStreet2.Tag = "Street 2";
+            this.ToolTips.SetToolTip(this.txtStreet2, "Insert additional unit/apartment/place name and number here using 0-9 and A-Z cha" +
         "racters only, use a , to seperate details");
             // 
-            // txtAddress1
+            // txtStreet1
             // 
-            this.txtAddress1.Location = new System.Drawing.Point(113, 20);
-            this.txtAddress1.Name = "txtAddress1";
-            this.txtAddress1.Size = new System.Drawing.Size(217, 20);
-            this.txtAddress1.TabIndex = 4;
-            this.txtAddress1.Tag = "Address Line 1";
-            this.ToolTips.SetToolTip(this.txtAddress1, "Insert the street name and number here using 0-9 and A-Z characters only, use a ," +
+            this.txtStreet1.Location = new System.Drawing.Point(113, 20);
+            this.txtStreet1.Name = "txtStreet1";
+            this.txtStreet1.Size = new System.Drawing.Size(217, 20);
+            this.txtStreet1.TabIndex = 4;
+            this.txtStreet1.Tag = "Street 1";
+            this.ToolTips.SetToolTip(this.txtStreet1, "Insert the street name and number here using 0-9 and A-Z characters only, use a ," +
         " to seperate details");
             // 
             // txtSuburb
@@ -471,7 +584,7 @@
             this.txtFirstName.Name = "txtFirstName";
             this.txtFirstName.Size = new System.Drawing.Size(125, 20);
             this.txtFirstName.TabIndex = 2;
-            this.txtFirstName.Tag = "Student First Name";
+            this.txtFirstName.Tag = "First name";
             this.ToolTips.SetToolTip(this.txtFirstName, "Insert the First Name here, using A-Z characters Only!");
             // 
             // txtLastName
@@ -480,7 +593,7 @@
             this.txtLastName.Name = "txtLastName";
             this.txtLastName.Size = new System.Drawing.Size(125, 20);
             this.txtLastName.TabIndex = 3;
-            this.txtLastName.Tag = "Student Last Name";
+            this.txtLastName.Tag = "Last name";
             this.ToolTips.SetToolTip(this.txtLastName, "Insert the Last Name here, using A-Z characters Only!");
             // 
             // dtpDateOfBirth
@@ -488,9 +601,9 @@
             this.dtpDateOfBirth.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtpDateOfBirth.Location = new System.Drawing.Point(213, 406);
             this.dtpDateOfBirth.Name = "dtpDateOfBirth";
-            this.dtpDateOfBirth.Size = new System.Drawing.Size(107, 20);
+            this.dtpDateOfBirth.Size = new System.Drawing.Size(125, 20);
             this.dtpDateOfBirth.TabIndex = 9;
-            this.dtpDateOfBirth.Tag = "Student Date of Birth";
+            this.dtpDateOfBirth.Tag = "Date of birth";
             this.ToolTips.SetToolTip(this.dtpDateOfBirth, "Select Your Date of Birth from the Calendar provided");
             // 
             // txtEmail
@@ -499,18 +612,18 @@
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(200, 20);
             this.txtEmail.TabIndex = 10;
-            this.txtEmail.Text = "Student Email";
+            this.txtEmail.Text = "Email";
             this.ToolTips.SetToolTip(this.txtEmail, "Please insert the Student Email here, Must contain one @ symbol");
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(2, 475);
+            this.label3.Location = new System.Drawing.Point(61, 475);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(205, 21);
+            this.label3.Size = new System.Drawing.Size(147, 21);
             this.label3.TabIndex = 37;
-            this.label3.Text = "Student Country of Origin";
+            this.label3.Text = "Country of Origin:";
             // 
             // cmbCountryOfOrigin
             // 
@@ -519,27 +632,28 @@
             this.cmbCountryOfOrigin.Name = "cmbCountryOfOrigin";
             this.cmbCountryOfOrigin.Size = new System.Drawing.Size(125, 21);
             this.cmbCountryOfOrigin.TabIndex = 11;
-            this.cmbCountryOfOrigin.Tag = "Student Country of Origin";
+            this.cmbCountryOfOrigin.Text = "Country of origin";
             this.ToolTips.SetToolTip(this.cmbCountryOfOrigin, "Select the country of birth from the provided list");
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(80, 509);
+            this.label4.Location = new System.Drawing.Point(135, 509);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(127, 21);
+            this.label4.Size = new System.Drawing.Size(69, 21);
             this.label4.TabIndex = 39;
-            this.label4.Text = "Student Gender";
+            this.label4.Text = "Gender:";
             // 
             // rdbMale
             // 
             this.rdbMale.AutoSize = true;
-            this.rdbMale.Location = new System.Drawing.Point(3, 4);
+            this.rdbMale.Location = new System.Drawing.Point(3, 3);
             this.rdbMale.Name = "rdbMale";
             this.rdbMale.Size = new System.Drawing.Size(48, 17);
             this.rdbMale.TabIndex = 12;
             this.rdbMale.TabStop = true;
+            this.rdbMale.Tag = "Male";
             this.rdbMale.Text = "Male";
             this.ToolTips.SetToolTip(this.rdbMale, "Select this option if this person is a Male");
             this.rdbMale.UseVisualStyleBackColor = true;
@@ -547,11 +661,12 @@
             // rdbFemale
             // 
             this.rdbFemale.AutoSize = true;
-            this.rdbFemale.Location = new System.Drawing.Point(69, 4);
+            this.rdbFemale.Location = new System.Drawing.Point(76, 3);
             this.rdbFemale.Name = "rdbFemale";
             this.rdbFemale.Size = new System.Drawing.Size(59, 17);
             this.rdbFemale.TabIndex = 13;
             this.rdbFemale.TabStop = true;
+            this.rdbFemale.Tag = "Female";
             this.rdbFemale.Text = "Female";
             this.ToolTips.SetToolTip(this.rdbFemale, "Select this option if the person is a Female");
             this.rdbFemale.UseVisualStyleBackColor = true;
@@ -560,11 +675,11 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(19, 542);
+            this.label5.Location = new System.Drawing.Point(74, 542);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(188, 21);
+            this.label5.Size = new System.Drawing.Size(130, 21);
             this.label5.TabIndex = 43;
-            this.label5.Text = "Student Has a Disability";
+            this.label5.Text = "Has a Disability:";
             // 
             // chkDisability
             // 
@@ -573,7 +688,7 @@
             this.chkDisability.Name = "chkDisability";
             this.chkDisability.Size = new System.Drawing.Size(44, 17);
             this.chkDisability.TabIndex = 14;
-            this.chkDisability.Tag = "Student Disability";
+            this.chkDisability.Tag = "Disability";
             this.chkDisability.Text = "Yes";
             this.ToolTips.SetToolTip(this.chkDisability, "Select this option if the Student has a Disability");
             this.chkDisability.UseVisualStyleBackColor = true;
@@ -581,13 +696,12 @@
             // 
             // txtDisabilityDescription
             // 
-            this.txtDisabilityDescription.Enabled = false;
             this.txtDisabilityDescription.Location = new System.Drawing.Point(211, 579);
             this.txtDisabilityDescription.Multiline = true;
             this.txtDisabilityDescription.Name = "txtDisabilityDescription";
-            this.txtDisabilityDescription.Size = new System.Drawing.Size(193, 81);
-            this.txtDisabilityDescription.TabIndex = 16;
-            this.txtDisabilityDescription.Text = "Student Disability Description";
+            this.txtDisabilityDescription.Size = new System.Drawing.Size(317, 81);
+            this.txtDisabilityDescription.TabIndex = 15;
+            this.txtDisabilityDescription.Tag = "Disability Description";
             this.ToolTips.SetToolTip(this.txtDisabilityDescription, "Please describe the Disability here Only if you have selected Yes to having a Dis" +
         "ability");
             // 
@@ -597,86 +711,21 @@
             this.label17.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label17.Location = new System.Drawing.Point(34, 579);
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(170, 21);
+            this.label17.Size = new System.Drawing.Size(174, 21);
             this.label17.TabIndex = 46;
-            this.label17.Text = "Disability Description";
+            this.label17.Text = "Disability Description:";
             // 
             // pnlGender
             // 
-            this.pnlGender.Controls.Add(this.rdbMale);
             this.pnlGender.Controls.Add(this.rdbFemale);
-            this.pnlGender.Location = new System.Drawing.Point(213, 506);
+            this.pnlGender.Controls.Add(this.rdbMale);
+            this.pnlGender.Location = new System.Drawing.Point(210, 509);
             this.pnlGender.Name = "pnlGender";
-            this.pnlGender.Size = new System.Drawing.Size(136, 34);
+            this.pnlGender.Size = new System.Drawing.Size(138, 20);
             this.pnlGender.TabIndex = 47;
-            this.pnlGender.Tag = "Student Gender";
+            this.pnlGender.Tag = "Gender";
             // 
-            // btnViewAll
-            // 
-            this.btnViewAll.BackColor = System.Drawing.Color.White;
-            this.btnViewAll.Image = global::CourseManagementSystem.Properties.Resources.ViewAllButton;
-            this.btnViewAll.Location = new System.Drawing.Point(3, 3);
-            this.btnViewAll.Name = "btnViewAll";
-            this.btnViewAll.Size = new System.Drawing.Size(120, 45);
-            this.btnViewAll.TabIndex = 21;
-            this.btnViewAll.UseVisualStyleBackColor = false;
-            this.btnViewAll.Click += new System.EventHandler(this.btnViewAll_Click);
-            // 
-            // btnDelete
-            // 
-            this.btnDelete.BackColor = System.Drawing.Color.White;
-            this.btnDelete.Image = global::CourseManagementSystem.Properties.Resources.DeleteButton;
-            this.btnDelete.Location = new System.Drawing.Point(3, 3);
-            this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(119, 44);
-            this.btnDelete.TabIndex = 20;
-            this.btnDelete.UseVisualStyleBackColor = false;
-            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
-            // 
-            // btnUpdate
-            // 
-            this.btnUpdate.BackColor = System.Drawing.Color.White;
-            this.btnUpdate.Image = global::CourseManagementSystem.Properties.Resources.UpdateButton;
-            this.btnUpdate.Location = new System.Drawing.Point(3, 3);
-            this.btnUpdate.Name = "btnUpdate";
-            this.btnUpdate.Size = new System.Drawing.Size(120, 45);
-            this.btnUpdate.TabIndex = 19;
-            this.btnUpdate.UseVisualStyleBackColor = false;
-            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
-            // 
-            // btnAdd
-            // 
-            this.btnAdd.BackColor = System.Drawing.Color.White;
-            this.btnAdd.Image = global::CourseManagementSystem.Properties.Resources.AddButton;
-            this.btnAdd.Location = new System.Drawing.Point(3, 3);
-            this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(120, 45);
-            this.btnAdd.TabIndex = 17;
-            this.btnAdd.UseVisualStyleBackColor = false;
-            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
-            // 
-            // btnSearch
-            // 
-            this.btnSearch.BackColor = System.Drawing.Color.White;
-            this.btnSearch.Image = global::CourseManagementSystem.Properties.Resources.SearchButton;
-            this.btnSearch.Location = new System.Drawing.Point(3, 3);
-            this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(120, 45);
-            this.btnSearch.TabIndex = 18;
-            this.btnSearch.UseVisualStyleBackColor = false;
-            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
-            // 
-            // button5
-            // 
-            this.button5.BackColor = System.Drawing.Color.PaleGreen;
-            this.button5.Image = global::CourseManagementSystem.Properties.Resources.StudentButton;
-            this.button5.Location = new System.Drawing.Point(3, 3);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(125, 100);
-            this.button5.TabIndex = 5;
-            this.button5.UseVisualStyleBackColor = false;
-            // 
-            // Student
+            // StudentForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -705,7 +754,7 @@
             this.Controls.Add(this.panel7);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
-            this.Name = "Student";
+            this.Name = "StudentForm";
             this.Text = "Student";
             this.panel7.ResumeLayout(false);
             this.panel5.ResumeLayout(false);
@@ -754,8 +803,8 @@
         private System.Windows.Forms.DateTimePicker dtpDateOfBirth;
         private System.Windows.Forms.TextBox txtPostCode;
         private System.Windows.Forms.ComboBox cmbState;
-        private System.Windows.Forms.TextBox txtAddress2;
-        private System.Windows.Forms.TextBox txtAddress1;
+        private System.Windows.Forms.TextBox txtStreet2;
+        private System.Windows.Forms.TextBox txtStreet1;
         private System.Windows.Forms.TextBox txtSuburb;
         private System.Windows.Forms.TextBox txtEmail;
         private System.Windows.Forms.Label label3;
@@ -785,6 +834,12 @@
         private System.Windows.Forms.ToolStripMenuItem mainMenuToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem enrolmentsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem studentsCoursesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem enrolmentToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem courseToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem unitToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem aSsessmentToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem skillsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem globalSearchToolStripMenuItem;
         private System.Windows.Forms.Panel pnlGender;
     }
 }

@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using CmsLibrary;
 
-namespace CourseManagementSystem
+namespace CMS
 {
     public partial class StudentForm : Form
     {
@@ -24,14 +24,14 @@ namespace CourseManagementSystem
             if (!Validation.Many(
                 txtFirstName.ValidateWord(),
                 txtLastName.ValidateWord(),
-                txtAddress1.ValidateEmpty(),
-                txtAddress2.ValidateEmpty(),
+                txtStreet1.ValidateEmpty(),
+                txtStreet2.ValidateEmpty(),
                 txtSuburb.ValidateWord(),
                 cmbState,
                 txtPostCode.ValidateNumeric(),
                 txtEmail.ValidateEmail(),
                 cmbCountryOfOrigin,
-                pnlGender            
+                pnlGender
                 ))
             {
                 return;
@@ -39,8 +39,8 @@ namespace CourseManagementSystem
             //location
             Location location = new Location()
             {
-                AddressStreet1 = txtAddress1.Text,
-                AddressStreet2 = txtAddress2.Text,
+                AddressStreet1 = txtStreet1.Text,
+                AddressStreet2 = txtStreet2.Text,
                 AddressSuburb = txtSuburb.Text,
                 AddressState = cmbState.Text,
                 AddressPostCode = txtPostCode.Int()
@@ -91,8 +91,8 @@ namespace CourseManagementSystem
                 Location location = new Location(student.LocationId);
                 if (location.Search())
                 {
-                    txtAddress1.Text = location.AddressStreet1;
-                    txtAddress2.Text = location.AddressStreet2;
+                    txtStreet1.Text = location.AddressStreet1;
+                    txtStreet2.Text = location.AddressStreet2;
                     txtSuburb.Text = location.AddressState;
                     cmbState.Text = location.AddressState;
                     txtPostCode.Text = location.AddressPostCode.ToString();
@@ -107,8 +107,8 @@ namespace CourseManagementSystem
                 txtId.ValidateNumeric(),
                 txtFirstName.ValidateWord(),
                 txtLastName.ValidateWord(),
-                txtAddress1.ValidateEmpty(),
-                txtAddress2.ValidateEmpty(),
+                txtStreet1.ValidateEmpty(),
+                txtStreet2.ValidateEmpty(),
                 txtSuburb.ValidateWord(),
                 cmbState,
                 txtPostCode.ValidateNumeric(),
@@ -122,8 +122,8 @@ namespace CourseManagementSystem
             //location
             Location location = new Location()
             {
-                AddressStreet1 = txtAddress1.Text,
-                AddressStreet2 = txtAddress2.Text,
+                AddressStreet1 = txtStreet1.Text,
+                AddressStreet2 = txtStreet2.Text,
                 AddressSuburb = txtSuburb.Text,
                 AddressState = cmbState.Text,
                 AddressPostCode = txtPostCode.Int()
@@ -150,6 +150,7 @@ namespace CourseManagementSystem
             {
                 return;
             }
+            MessageBox.Show($"Student id: {student.Id} successfully deleted.");
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
@@ -161,20 +162,21 @@ namespace CourseManagementSystem
             }
             //student
             Student student = new Student(txtId.Int());
-            student.Delete();
+            if (!student.Delete())
+            {
+                return;
+            }
+            MessageBox.Show($"Student id: {student.Id} successfully deleted.");
+        }
+
+        private void chkDisability_CheckedChanged(object sender, EventArgs e)
+        {
+            txtDisabilityDescription.Enabled = chkDisability.Checked;
         }
 
         private void btnViewAll_Click(object sender, EventArgs e)
         {
             MessageBox.Show("Not Implemented.");
-        }
-
-        /// <summary>
-        /// Enables or disables the disability description text.
-        /// </summary>
-        private void chkDisability_CheckedChanged(object sender, EventArgs e)
-        {
-            txtDisabilityDescription.Enabled = chkDisability.Checked;
         }
     }
 }

@@ -9,11 +9,9 @@ using System.Data;
 
 namespace CmsLibrary
 {
-    public enum GenderType { Male = 1, Female = 2 }
-
     public class Student : IData
     {
-        public static string Table { get; set; } = "students";
+        public static string Table { get; set; } = "Students";
 
         private int id;
         private string firstName;
@@ -35,7 +33,6 @@ namespace CmsLibrary
 
         public Student(int id, string firstName, string lastName, int locationId, DateTime dateOfBirth, string email, string countryOfOrigin, int gender, bool disability, string disabilityDescription)
         {
-
             this.id = id;
             this.firstName = firstName;
             this.lastName = lastName;
@@ -188,13 +185,13 @@ namespace CmsLibrary
             return Database.Update(Table, "studentid", id,
                 "studentfirstname", firstName,
                 "studentlastname", lastName,
-                "studentlocationid", locationId,
+                "locationid", locationId,
                 "studentdateofbirth", dateOfBirth,
                 "studentemail", email,
                 "studentcountryoforigin", countryOfOrigin,
                 "studentgender", gender,
                 "studentdisability", disability,
-                "studentdisabilityspecs", disabilityDescription);
+                "studentdisabilitydescription", disabilityDescription);
         }
 
         public bool Delete()
@@ -207,15 +204,15 @@ namespace CmsLibrary
             DataRow dataRow;
             if (Database.Search(Table, out dataRow, "studentid", id))
             {
-                firstName = (string)dataRow[1];
-                lastName = (string)dataRow[2];
-                locationId = (int)dataRow[3];
-                dateOfBirth = (DateTime)dataRow[4];
-                email = (string)dataRow[5];
-                countryOfOrigin = (string)dataRow[6];
-                gender = (int)dataRow[7];
-                disability = (bool)dataRow[8];
-                disabilityDescription = (string)dataRow[9];
+                firstName = Convert.ToString(dataRow[1]);
+                lastName = Convert.ToString(dataRow[2]);
+                locationId = Convert.ToInt32(dataRow[3]);
+                dateOfBirth = Convert.ToDateTime(dataRow[4]);
+                email = Convert.ToString(dataRow[5]);
+                countryOfOrigin = Convert.ToString(dataRow[6]);
+                gender = Convert.ToInt32(dataRow[7]);
+                disability = Convert.ToBoolean(dataRow[8]);
+                disabilityDescription = Convert.ToString(dataRow[9]);
                 return true;
             }
             else

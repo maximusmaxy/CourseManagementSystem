@@ -8,7 +8,7 @@ using System.Windows.Forms;
 
 namespace CmsLibrary
 {
-    public enum ValidationType { Numeric, Word, Empty, Date, Email, Range, Length, UnitCode }
+    public enum ValidationType { Numeric, Word, Empty, Date, Email, Range, Length, UnitCode, NumericEmpty }
 
     public class Validation
     {
@@ -94,6 +94,14 @@ namespace CmsLibrary
                 return false;
             }
             return true;
+        }
+
+        public static bool NumericEmpty(Control control, string error = null)
+        {
+            if (string.IsNullOrEmpty(control.Text))
+                return true;
+            else
+                return Numeric(control, error);
         }
 
         public static bool Word(Control control, string error = null)
@@ -294,6 +302,10 @@ namespace CmsLibrary
                             break;
                         case ValidationType.UnitCode:
                             if (!UnitCode(text.Control, text.Error))
+                                return false;
+                            break;
+                        case ValidationType.NumericEmpty:
+                            if (!NumericEmpty(text.Control, text.Error))
                                 return false;
                             break;
                     }

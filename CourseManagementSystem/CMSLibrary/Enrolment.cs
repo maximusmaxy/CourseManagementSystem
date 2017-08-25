@@ -9,7 +9,7 @@ namespace CmsLibrary
 {
     public class Enrolment : IData
     {
-        public static string Table { get; set; } = "enrolments";
+        public static string Table { get; set; } = "Enrolments";
 
         private int id;
         private int studentId;

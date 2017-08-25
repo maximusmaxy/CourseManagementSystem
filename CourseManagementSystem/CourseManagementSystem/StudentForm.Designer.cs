@@ -533,6 +533,15 @@
             // cmbState
             // 
             this.cmbState.FormattingEnabled = true;
+            this.cmbState.Items.AddRange(new object[] {
+            "NSW",
+            "Queensland",
+            "Victoria",
+            "Northern Territory",
+            "South Australia",
+            "Western Australia ",
+            "Tasmania",
+            "ACT"});
             this.cmbState.Location = new System.Drawing.Point(113, 139);
             this.cmbState.Name = "cmbState";
             this.cmbState.Size = new System.Drawing.Size(125, 21);
@@ -612,7 +621,7 @@
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(200, 20);
             this.txtEmail.TabIndex = 10;
-            this.txtEmail.Text = "Email";
+            this.txtEmail.Tag = "Email";
             this.ToolTips.SetToolTip(this.txtEmail, "Please insert the Student Email here, Must contain one @ symbol");
             // 
             // label3
@@ -628,11 +637,13 @@
             // cmbCountryOfOrigin
             // 
             this.cmbCountryOfOrigin.FormattingEnabled = true;
+            this.cmbCountryOfOrigin.Items.AddRange(new object[] {
+            "Australia"});
             this.cmbCountryOfOrigin.Location = new System.Drawing.Point(213, 475);
             this.cmbCountryOfOrigin.Name = "cmbCountryOfOrigin";
             this.cmbCountryOfOrigin.Size = new System.Drawing.Size(125, 21);
             this.cmbCountryOfOrigin.TabIndex = 11;
-            this.cmbCountryOfOrigin.Text = "Country of origin";
+            this.cmbCountryOfOrigin.Tag = "Country of Origin";
             this.ToolTips.SetToolTip(this.cmbCountryOfOrigin, "Select the country of birth from the provided list");
             // 
             // label4

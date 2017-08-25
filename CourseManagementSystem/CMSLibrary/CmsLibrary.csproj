@@ -58,9 +58,15 @@
     <Compile Include="StudentCourse.cs" />
     <Compile Include="Teacher.cs" />
     <Compile Include="TeacherSkill.cs" />
+    <Compile Include="Types.cs" />
     <Compile Include="Unit.cs" />
     <Compile Include="UnitSkill.cs" />
     <Compile Include="Validation.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="CmsSql.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

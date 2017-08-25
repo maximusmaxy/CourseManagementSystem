@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using System.Data;
 using System.Data.SqlClient;
 using System.Windows.Forms;
-
+using System.IO;
 
 namespace CmsLibrary
 {
@@ -15,8 +15,9 @@ namespace CmsLibrary
         //These can be changed staticly using Database.ServerName = "localHost" or whatever.
         //home - MAXIMUMPENIS\\SQLEXPRESS
         //tafe - (local)
-        public static string ServerName = "(local)";
-        public static string DatabaseName = "cms";
+        public static string ServerName { get; set; } = "(local)";
+        public static string DatabaseName { get; set; } = "CourseManage";
+        public static string SqlFileName { get; set; } = "CmsSql.sql";
 
         /// <summary>
         /// Initializes a new Sql connection based on the static fields.
@@ -29,6 +30,22 @@ namespace CmsLibrary
             if (open)
                 connection.Open();
             return connection;
+        }
+
+        /// <summary>
+        /// Loads the database using sql file in the library
+        /// </summary>
+        public static void LoadDatabase()
+        {
+            string connectionString = $"server={ServerName};database=master;Trusted_Connection=yes";
+            string commandString = $"if db_id('{DatabaseName}') is null create database {DatabaseName};";
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            using (SqlCommand command = new SqlCommand(commandString, connection))
+            {
+                connection.Open();
+                command.ExecuteNonQuery();
+            }
+            ExecuteNonQuery(File.ReadAllText(SqlFileName));
         }
 
         /// <summary>
@@ -61,57 +78,30 @@ namespace CmsLibrary
         /// </summary>
         /// <param name="sql">Sql statement.</param>
         /// <returns></returns>
-        public static SqlDataReader ExecuteQuery(string sql)
+        public static IEnumerable<SqlDataReader> ExecuteQuery(string sql)
         {
-            try
+            using (SqlConnection connection = Connection())
+            using (SqlCommand command = new SqlCommand(sql, connection))
+            using (SqlDataReader dataReader = command.ExecuteReader())
             {
-                using (SqlConnection connection = Connection())
-                using (SqlCommand command = new SqlCommand(sql, connection))
+                while (dataReader.Read())
                 {
-                    SqlDataReader dataReader = command.ExecuteReader();
-                    return dataReader;
+                    yield return dataReader;
                 }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-                return null;
             }
         }
 
         /// <summary>
         /// Executes an sql query and returns the number of rows as an integer.
-        /// -1 indicates nothing was found or an Exception was thrown.
         /// </summary>
         /// <param name="sql">Sql statement.</param>
         /// <returns></returns>
-        public static bool ExecuteNonQuery(string sql)
+        public static int ExecuteNonQuery(string sql)
         {
-            try
+            using (SqlConnection connection = Connection())
+            using (SqlCommand command = new SqlCommand(sql, connection))
             {
-                using (SqlConnection connection = Connection())
-                using (SqlCommand command = new SqlCommand(sql, connection))
-                {
-                    command.ExecuteNonQuery();
-                    return true;
-                }
-            }
-            catch (SqlException es)
-            {
-                if (es.Number == 2627)
-                {
-                    MessageBox.Show("Primary Key Violated");
-                }
-                else if (es.Number == 547)
-                {
-                    MessageBox.Show("Foreign Key Violated");
-                }
-                return false;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-                return false;
+                return command.ExecuteNonQuery();
             }
         }
 
@@ -130,8 +120,9 @@ namespace CmsLibrary
             sql = $"select * from {table} where {idName} = {idValue}";
             if (idName2 != null)
                 sql += $" and {idName2} = {idValue2}";
-            using (SqlDataReader reader = ExecuteQuery(sql))
-                return reader.HasRows;
+            foreach (SqlDataReader dataReader in ExecuteQuery(sql))
+                return dataReader.HasRows;
+            return false;
         }
 
         /// <summary>
@@ -162,14 +153,14 @@ namespace CmsLibrary
             {
                 for (int i = 0; i < values.Length; i++)
                 {
-                    command.Parameters.AddWithValue($"@{i}", values[i]);
+                    command.Parameters.AddWithNullValue($"@{i}", values[i]);
                 }
                 using (SqlDataReader reader = command.ExecuteReader())
                 {
                     if (reader.HasRows)
                     {
                         reader.Read();
-                        id = reader.GetInt32(0);
+                        id = Convert.ToInt32(reader[0]);
                         return true;
                     }
                     else
@@ -216,7 +207,7 @@ namespace CmsLibrary
             {
                 for (int i = 0; i < values.Length; i++)
                 {
-                    command.Parameters.AddWithValue($"@{i}", values[i + 1]);
+                    command.Parameters.AddWithNullValue($"@{i}", values[i + 1]);
                     i++;
                 }
                 try
@@ -247,7 +238,7 @@ namespace CmsLibrary
                 return false;
             } 
             string sql = $"delete from {table} where {idName} = {idValue}";
-            return ExecuteNonQuery(sql);
+            return ExecuteNonQuery(sql) > 0;
         }
 
         /// <summary>
@@ -278,7 +269,7 @@ namespace CmsLibrary
             {
                 for (int i = 0; i < values.Length; i++)
                 {
-                    command.Parameters.AddWithValue($"@{i}", values[i + 1]);
+                    command.Parameters.AddWithNullValue($"@{i}", values[i + 1]);
                     i++;
                 }
                 try
@@ -315,22 +306,11 @@ namespace CmsLibrary
             List<string> strings = new List<string>();
             string sql = $"select * from {DatabaseName}.information_schema.columns where table_name = '{table}'";
             string column = "column_name";
-            using (SqlConnection connection = Connection())
-            using (SqlCommand command = new SqlCommand(sql, connection))
-            using (SqlDataReader reader = command.ExecuteReader())
+            foreach (SqlDataReader dataReader in ExecuteQuery(sql))
             {
-                if (reader.HasRows)
-                {
-                    while (reader.Read())
-                        strings.Add((string)reader[column]);
-                    return strings.ToArray();
-                }
-                else
-                {
-                    MessageBox.Show($"Error in retrieving column names from {table} table.");
-                    return null;
-                }
+                strings.Add((string)dataReader[column]);
             }
+            return strings.ToArray();
         }
 
         /// <summary>

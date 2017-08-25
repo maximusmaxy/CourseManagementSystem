@@ -8,7 +8,7 @@ namespace CmsLibrary
 {
     public class Skill : IData
     {
-        public static string Table { get; set; } = "skills";
+        public static string Table { get; set; } = "Skills";
 
         private int id;
         private string name;

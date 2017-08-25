@@ -6,11 +6,9 @@ using System.Threading.Tasks;
 
 namespace CmsLibrary
 {
-    enum UnitType { Core = 1, Elective = 2 }
-
     public class Unit : IData
     {
-        public static string Table { get; set; } = "units";
+        public static string Table { get; set; } = "Units";
 
         private int id;
         private int teacherId;

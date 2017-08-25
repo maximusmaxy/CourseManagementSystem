@@ -40,10 +40,38 @@ namespace CmsLibrary
         /// <summary>
         /// Parses the controls text into an integer.
         /// </summary>
-        /// <returns>The parsed int.</returns>
         public static int Int(this Control control)
         {
-            return int.Parse(control.Text);
+            return Convert.ToInt32(control.Text);
+        }
+
+        /// <summary>
+        /// Parses the controls text into a nullable integer.
+        /// </summary>
+        public static int? NullInt(this Control control)
+        {
+            return string.IsNullOrEmpty(control.Text) ? null : (int?) Convert.ToInt32(control.Text);
+        }
+
+        /// <summary>
+        /// Returns null if the string is empty.
+        /// </summary>
+        public static string NullString(this Control control)
+        {
+            if (control is ComboBox)
+            {
+                ComboBox cm = (ComboBox) control;
+                return cm.SelectedIndex == -1 ? null : control.Text;
+            }
+            return string.IsNullOrEmpty(control.Text) ? null : control.Text;
+        }
+
+        /// <summary>
+        /// Extends the add with value method to accept null values.
+        /// </summary>
+        public static SqlParameter AddWithNullValue(this SqlParameterCollection collection, string param, object value)
+        {
+            return collection.AddWithValue(param, value == null ? DBNull.Value : value );
         }
 
         /// <summary>

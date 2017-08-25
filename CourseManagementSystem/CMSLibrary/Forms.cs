@@ -47,6 +47,18 @@ namespace CmsLibrary
         }
 
         /// <summary>
+        /// Checks a specific radio button on a panel based on a value specified by a dictionary.
+        /// </summary>
+        /// <param name="pnl">The panel holding the radio buttons.</param>
+        /// <param name="dictionary">The dictionary to obtain the value from.</param>
+        /// <param name="value">The value to check.</param>
+        public static void CheckRadio(Panel pnl, Dictionary<string, int> dictionary, int value)
+        {
+            pnl.Controls.OfType<RadioButton>().
+                FirstOrDefault(r => dictionary[r.Text] == value).Checked = true;
+        }
+
+        /// <summary>
         /// Sets all checked values of radio buttons on a panel to false.
         /// </summary>
         /// <param name="pnl">The panel holding the radio buttons.</param>
@@ -65,6 +77,17 @@ namespace CmsLibrary
         public static int RadioValue(Panel pnl, Type enumType)
         {
             return (int)Enum.Parse(enumType, RadioString(pnl));
+        }
+
+        /// <summary>
+        /// Gets the value of a radio specified by the dictionary.
+        /// </summary>
+        /// <param name="pnl">The panel containing the radio buttons.</param>
+        /// <param name="dictionary">The dictionary supplying the values.</param>
+        /// <returns></returns>
+        public static int RadioValue(Panel pnl, Dictionary<string, int> dictionary)
+        {
+            return dictionary[RadioString(pnl)];
         }
     }
 }

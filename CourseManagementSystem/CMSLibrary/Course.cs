@@ -6,11 +6,9 @@ using System.Threading.Tasks;
 
 namespace CmsLibrary
 {
-    enum DeliveryType { Online = 1, FaceToFace = 2 }
-
     public class Course : IData
     {
-        public static string Table { get; set; } = "courses";
+        public static string Table { get; set; } = "Courses";
 
         private int id;
         private string name;
@@ -19,6 +17,8 @@ namespace CmsLibrary
         private DateTime startDate;
         private DateTime endDate;
         private int locationId;
+        private string areaOfStudy;
+        private string courseDescription;
 
         public Course() { }
 
@@ -27,7 +27,7 @@ namespace CmsLibrary
             this.id = id;
         }
 
-        public Course(int id, string name, double cost, int deliveryType, DateTime startDate, DateTime endDate, int locationId)
+        public Course(int id, string name, double cost, int deliveryType, DateTime startDate, DateTime endDate, int locationId, string areaOfStudy, string courseDescription)
         {
             this.id = id;
             this.name = name;
@@ -36,6 +36,8 @@ namespace CmsLibrary
             this.startDate = startDate;
             this.endDate = endDate;
             this.locationId = locationId;
+            this.areaOfStudy = areaOfStudy;
+            this.courseDescription = courseDescription;
         }
 
         public int Id
@@ -126,6 +128,30 @@ namespace CmsLibrary
             set
             {
                 locationId = value;
+            }
+        }
+
+        public string AreaOfStudy
+        {
+            get
+            {
+                return areaOfStudy;
+            }
+            set
+            {
+                areaOfStudy = value;
+            }
+        }
+
+        public string CourseDescription
+        {
+            get
+            {
+                return courseDescription;
+            }
+            set
+            {
+                courseDescription = value;
             }
         }
 

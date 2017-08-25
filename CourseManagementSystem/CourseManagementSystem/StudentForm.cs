@@ -16,6 +16,7 @@ namespace CMS
         public StudentForm()
         {
             InitializeComponent();
+            Database.ServerName = "MAXIMUMPENIS\\SQLEXPRESS";
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
@@ -25,10 +26,6 @@ namespace CMS
                 txtFirstName.ValidateWord(),
                 txtLastName.ValidateWord(),
                 txtStreet1.ValidateEmpty(),
-                txtStreet2.ValidateEmpty(),
-                txtSuburb.ValidateWord(),
-                cmbState,
-                txtPostCode.ValidateNumeric(),
                 txtEmail.ValidateEmail(),
                 cmbCountryOfOrigin,
                 pnlGender
@@ -40,10 +37,10 @@ namespace CMS
             Location location = new Location()
             {
                 AddressStreet1 = txtStreet1.Text,
-                AddressStreet2 = txtStreet2.Text,
-                AddressSuburb = txtSuburb.Text,
-                AddressState = cmbState.Text,
-                AddressPostCode = txtPostCode.Int()
+                AddressStreet2 = txtStreet2.NullString(),
+                AddressSuburb = txtSuburb.NullString(),
+                AddressState = cmbState.NullString(),
+                AddressPostCode = txtPostCode.NullInt()
             };
             if (!location.Add())
             {
@@ -58,7 +55,7 @@ namespace CMS
                 DateOfBirth = dtpDateOfBirth.Value,
                 Email = txtEmail.Text,
                 CountryOfOrigin = cmbCountryOfOrigin.Text,
-                Gender = Forms.RadioValue(pnlGender, typeof(GenderType)),
+                Gender = Forms.RadioValue(pnlGender, Types.GenderType),
                 Disability = chkDisability.Checked,
                 DisabilityDescription = chkDisability.Checked ? txtDisabilityDescription.Text : null
             };
@@ -68,6 +65,7 @@ namespace CMS
             }
             //success!
             MessageBox.Show($"Student id: {student.Id} added successfully.");
+            txtId.Text = student.Id.ToString();
         }
 
         private void btnSearch_Click(object sender, EventArgs e)
@@ -84,7 +82,7 @@ namespace CMS
                 dtpDateOfBirth.Value = student.DateOfBirth;
                 txtEmail.Text = student.Email;
                 cmbCountryOfOrigin.Text = student.CountryOfOrigin;
-                Forms.CheckRadio(pnlGender, typeof(GenderType), student.Gender);
+                Forms.CheckRadio(pnlGender, Types.GenderType, student.Gender);
                 chkDisability.Checked = student.Disability;
                 txtDisabilityDescription.Text = student.DisabilityDescription;
                 //location
@@ -93,7 +91,7 @@ namespace CMS
                 {
                     txtStreet1.Text = location.AddressStreet1;
                     txtStreet2.Text = location.AddressStreet2;
-                    txtSuburb.Text = location.AddressState;
+                    txtSuburb.Text = location.AddressSuburb;
                     cmbState.Text = location.AddressState;
                     txtPostCode.Text = location.AddressPostCode.ToString();
                 }
@@ -108,10 +106,6 @@ namespace CMS
                 txtFirstName.ValidateWord(),
                 txtLastName.ValidateWord(),
                 txtStreet1.ValidateEmpty(),
-                txtStreet2.ValidateEmpty(),
-                txtSuburb.ValidateWord(),
-                cmbState,
-                txtPostCode.ValidateNumeric(),
                 txtEmail.ValidateEmail(),
                 cmbCountryOfOrigin,
                 pnlGender
@@ -123,10 +117,10 @@ namespace CMS
             Location location = new Location()
             {
                 AddressStreet1 = txtStreet1.Text,
-                AddressStreet2 = txtStreet2.Text,
-                AddressSuburb = txtSuburb.Text,
-                AddressState = cmbState.Text,
-                AddressPostCode = txtPostCode.Int()
+                AddressStreet2 = txtStreet2.NullString(),
+                AddressSuburb = txtSuburb.NullString(),
+                AddressState = cmbState.NullString(),
+                AddressPostCode = txtPostCode.NullInt()
             };
             if (!location.Update())
             {
@@ -142,7 +136,7 @@ namespace CMS
                 DateOfBirth = dtpDateOfBirth.Value,
                 Email = txtEmail.Text,
                 CountryOfOrigin = cmbCountryOfOrigin.Text,
-                Gender = Forms.RadioValue(pnlGender, typeof(GenderType)),
+                Gender = Forms.RadioValue(pnlGender, Types.GenderType),
                 Disability = chkDisability.Checked,
                 DisabilityDescription = chkDisability.Checked ? txtDisabilityDescription.Text : null
             };
@@ -150,7 +144,7 @@ namespace CMS
             {
                 return;
             }
-            MessageBox.Show($"Student id: {student.Id} successfully deleted.");
+            MessageBox.Show($"Student id: {student.Id} successfully updated.");
         }
 
         private void btnDelete_Click(object sender, EventArgs e)

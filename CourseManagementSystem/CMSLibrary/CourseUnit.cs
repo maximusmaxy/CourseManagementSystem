@@ -8,7 +8,7 @@ namespace CmsLibrary
 {
     public class CourseUnit
     {
-        public static string Table { get; set; } = "course_units";
+        public static string Table { get; set; } = "Course_Units";
 
         private int courseId;
         private int unitId;

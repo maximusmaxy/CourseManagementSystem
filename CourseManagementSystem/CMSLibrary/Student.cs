@@ -11,8 +11,6 @@ namespace CmsLibrary
 {
     public class Student : IData
     {
-        public static string Table { get; set; } = "Students";
-
         private int id;
         private string firstName;
         private string lastName;
@@ -177,12 +175,12 @@ namespace CmsLibrary
 
         public bool Add()
         {
-            return Database.Add(Table, out id, firstName, lastName, locationId, dateOfBirth, email, countryOfOrigin, gender, disability, disabilityDescription);
+            return Database.Add("students", out id, firstName, lastName, locationId, dateOfBirth, email, countryOfOrigin, gender, disability, disabilityDescription);
         }
 
         public bool Update()
         {
-            return Database.Update(Table, "studentid", id,
+            return Database.Update("students", "studentid", id,
                 "studentfirstname", firstName,
                 "studentlastname", lastName,
                 "locationid", locationId,
@@ -196,13 +194,18 @@ namespace CmsLibrary
 
         public bool Delete()
         {
-            return Database.Delete(Table, "studentid", id);
+            return Database.Delete("students", "studentid", id);
         }
 
         public bool Search()
         {
+            return Search("studentid", id);
+        }
+
+        public bool Search(params object[] values)
+        {
             DataRow dataRow;
-            if (Database.Search(Table, out dataRow, "studentid", id))
+            if (Database.Search("students", out dataRow, values))
             {
                 firstName = Convert.ToString(dataRow[1]);
                 lastName = Convert.ToString(dataRow[2]);

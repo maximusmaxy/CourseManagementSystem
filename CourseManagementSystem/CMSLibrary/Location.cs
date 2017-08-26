@@ -10,8 +10,6 @@ namespace CmsLibrary
 {
     public class Location : IData
     {
-        public static string Table { get; set; } = "Locations";
-
         private int id;
         private string addressStreet1;
         private string addressStreet2;
@@ -147,7 +145,7 @@ namespace CmsLibrary
             using (SqlCommand command = new SqlCommand(sql, connection))
             {
 
-                command.Parameters.AddWithValue("@street1", addressStreet1);
+                command.Parameters.AddWithNullValue("@street1", addressStreet1);
                 command.Parameters.AddWithNullValue("@street2", addressStreet2);
                 command.Parameters.AddWithNullValue("@suburb", addressSuburb);
                 command.Parameters.AddWithNullValue("@state", addressState);
@@ -172,13 +170,18 @@ namespace CmsLibrary
 
         public bool Delete()
         {
-            return Database.Delete(Table, "locationid", id);
+            return Database.Delete("locations", "locationid", id);
         }
 
         public bool Search()
         {
+            return Search("locationid", id);
+        }
+
+        public bool Search(params object[] values)
+        {
             DataRow dataRow;
-            if (Database.Search(Table, out dataRow, "locationid", id))
+            if (Database.Search("locations", out dataRow, values))
             {
                 addressStreet1 = Convert.ToString(dataRow[1]);
                 addressStreet2 = Convert.ToString(dataRow[2]);

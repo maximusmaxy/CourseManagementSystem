@@ -16,7 +16,6 @@ namespace CMS
         public StudentForm()
         {
             InitializeComponent();
-            Database.ServerName = "MAXIMUMPENIS\\SQLEXPRESS";
         }
 
         private void btnAdd_Click(object sender, EventArgs e)

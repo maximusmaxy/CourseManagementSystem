@@ -155,16 +155,24 @@ namespace CmsLibrary
                 {
                     command.Parameters.AddWithNullValue($"@{i}", values[i]);
                 }
-                using (SqlDataReader reader = command.ExecuteReader())
+                try
                 {
-                    if (reader.HasRows)
+                    using (SqlDataReader reader = command.ExecuteReader())
                     {
-                        reader.Read();
-                        id = Convert.ToInt32(reader[0]);
-                        return true;
+                        if (reader.HasRows)
+                        {
+                            reader.Read();
+                            id = Convert.ToInt32(reader[0]);
+                            return true;
+                        }
+                        else
+                            return false;
                     }
-                    else
-                        return false;
+                }
+                catch (Exception ex)
+                { 
+                    MessageBox.Show(ex.Message);
+                    return false;
                 }
             }
         }
@@ -238,7 +246,17 @@ namespace CmsLibrary
                 return false;
             } 
             string sql = $"delete from {table} where {idName} = {idValue}";
-            return ExecuteNonQuery(sql) > 0;
+            try
+            {
+                int rows = ExecuteNonQuery(sql);
+                return rows > 0;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return false;
+            }
+            
         }
 
         /// <summary>

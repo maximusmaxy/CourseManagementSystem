@@ -35,7 +35,7 @@ addressState varchar(50),
 addressPostCode smallint);
 
 create table Skills(
-skillsId smallint primary key not null identity(1,1),
+skillId smallint primary key not null identity(1,1),
 skillName varchar(80) not null,
 skillDescription varchar(500) not null);
 
@@ -100,22 +100,23 @@ enrolmentDate date not null,
 completionDate date not null,
 enrolmentCost double precision not null,
 discountCost double precision not null,
-semester tinyint not null
+semester tinyint not null,
+constraint student_course_unique unique(studentId, courseId),
 constraint enrolment_student_fk foreign key (studentId) references Students(studentId),
 constraint enrolment_course_fk foreign key (courseId) references Courses(courseId)) ;
 
 create table Teacher_Skills(
 teacherId smallint not null,
-skillsId smallint not null
-primary key(teacherId,skillsId)
+skillId smallint not null,
+primary key(teacherId,skillId),
 constraint teacher_skill_teacher_fk foreign key (teacherId) references Teachers(teacherId),
-constraint teacher_skils_skill_fk foreign key (skillsId) references Skills(skillsId));
+constraint teacher_skill_skill_fk foreign key (skillId) references Skills(skillId));
 
 create table Unit_Skills(unitId smallint not null,
-skillsId smallint not null
-primary key(unitId, skillsId)
+skillId smallint not null
+primary key(unitId, skillId)
 constraint unit_skill_unit_fk foreign key (unitId) references Units(unitId),
-constraint unit_skill_skill_fk foreign key (skillsId) references Skills(skillsId));
+constraint unit_skill_skill_fk foreign key (skillId) references Skills(skillId));
 
 create table Course_Teachers(
 courseId smallint not null,
@@ -137,7 +138,7 @@ insert into Skills values('Java', 'being good at java');
 insert into Students values('bob','saget',1,'1995-05-15','bob-saget@live.com','Australia', 1, 1, 'Crippling Depression');
 insert into Courses values('Diploma of Software development',10000.00,2,'2017-06-10','2017-11-26', 1, 'IT','Final level of education provided at tafe regarding IT');
 insert into Teachers values(1,'Ned','Bond','JamesBondLover@gmail.com','IT');
-insert into Units values(1,'Optimising Search Functions','2',10,'Getting taught how to make and use search'); --Elective = 2
+insert into Units values(1,'Optimising Search Functions',2,10,'Getting taught how to make and use search'); --Elective = 2
 insert into Assessments values(1,1,'Create the search','2017-08-13','2017-09-01','students will be left alone to produce a fully function search feature');
 insert into Enrolments values(1,1,'2017-06-19','2017-11-15',10000.00,5000.00,2);
 insert into Teacher_Skills values(1,1);

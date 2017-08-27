@@ -156,7 +156,7 @@ namespace CmsLibrary
 
         public bool Add()
         {
-            return Database.Add("courses", out id, name, cost, deliveryType, startDate, endDate, locationId, areaOfStudy, Description)
+            return Database.Add("courses", out id, name, cost, deliveryType, startDate, endDate, locationId, areaOfStudy, Description);
         }
 
         public bool Update()
@@ -179,7 +179,7 @@ namespace CmsLibrary
 
         public bool Search()
         {
-            return Search("courseid", id)
+            return Search("courseid", id);
         }
 
         public bool Search(params object[] values)

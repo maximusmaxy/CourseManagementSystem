@@ -99,7 +99,7 @@ namespace CmsLibrary
         /// <param name="display">The name of the column in the database that represents the displayed value in the combo box.</param>
         /// <param name="value">The name of the column in the database that holds the underlying value of the combo box.</param>
         /// <param name="text">The text displayed in the combo box before an option has been selected.</param>
-        public static void FillData(ListControl control, string table, string display, string value)
+        public static DataTable FillData(ListControl control, string table, string display, string value)
         {
             if (control is ListBox)
             {
@@ -111,6 +111,7 @@ namespace CmsLibrary
             control.DataSource = dataTable;
             control.DisplayMember = display;
             control.ValueMember = value;
+            return dataTable;
         }
 
         /// <summary>

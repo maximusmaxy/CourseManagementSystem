@@ -1,49 +1,38 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace CmsLibrary
 {
     public class CourseTeacher : IData
     {
-        public static string Table { get; set; } = "Course_Teachers";
-
-        private int courseId;
-        private int teacherId;
+        private ListBox control;
+        private List<int> values;
 
         public CourseTeacher() { }
 
-        public CourseTeacher(int courseId, int teacherId)
+        public CourseTeacher(ListBox control)
         {
-            this.courseId = courseId;
-            this.teacherId = teacherId;
+            this.control = control;
+            DataTable table = (DataTable)control.DataSource;
+            for (int i = 0; i < table.Rows.Count; i++)
+                values.Add(Convert.ToInt32(table.Rows[i]));
+            
         }
 
-        public int CourseId
+        public ListBox Control
         {
             get
             {
-                return courseId;
+                return control;
             }
-
             set
             {
-                courseId = value;
-            }
-        }
-
-        public int TeacherId
-        {
-            get
-            {
-                return teacherId;
-            }
-
-            set
-            {
-                teacherId = value;
+                control = value;
             }
         }
 

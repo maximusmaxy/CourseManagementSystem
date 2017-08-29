@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,20 +9,29 @@ using System.Windows.Forms;
 
 namespace CmsLibrary
 {
-    public class CourseTeacher : IData
+    public class CourseTeacher : IBridgingData
     {
+        private int teacherId;
         private ListBox control;
-        private List<int> values;
 
         public CourseTeacher() { }
 
-        public CourseTeacher(ListBox control)
+        public CourseTeacher(int teacherId, ListBox control)
         {
+            this.teacherId = teacherId;
             this.control = control;
-            DataTable table = (DataTable)control.DataSource;
-            for (int i = 0; i < table.Rows.Count; i++)
-                values.Add(Convert.ToInt32(table.Rows[i]));
-            
+        }
+
+        public int TeacherId
+        {
+            get
+            {
+                return teacherId;
+            }
+            set
+            {
+                teacherId = value;
+            }
         }
 
         public ListBox Control
@@ -36,24 +46,9 @@ namespace CmsLibrary
             }
         }
 
-        public bool Add()
-        {
-            throw new NotImplementedException();
-        }
-
-        public bool Delete()
-        {
-            throw new NotImplementedException();
-        }
-
-        public bool Search()
-        {
-            throw new NotImplementedException();
-        }
-
         public bool Update()
         {
-            throw new NotImplementedException();
+            return Database.UpdateBridgingTable("course_teachers", "teacherid", teacherId, "courseid", control);
         }
     }
 }

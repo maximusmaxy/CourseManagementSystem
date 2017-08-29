@@ -314,6 +314,96 @@ namespace CmsLibrary
             }
         }
 
+        public static bool UpdateBridgingTable(string table, string idName, int idValue, string controlName, ListBox control)
+        {
+            List<int> adds = new List<int>();
+            List<int> deletes = new List<int>();
+            DataTable dataTable = (DataTable)control.DataSource;
+            for (int i = 0; i < dataTable.Rows.Count; i++)
+            {
+                if (control.GetSelected(i))
+                    adds.Add(Convert.ToInt32(dataTable.Rows[i]));
+            }
+            string sql = $"select {controlName} from {table} where {idName} = {idValue}";
+            try
+            {
+                foreach (SqlDataReader row in Database.ExecuteQuery(sql))
+                {
+                    int id = Convert.ToInt32(row[0]);
+                    if (adds.Contains(id))
+                        adds.Remove(id);
+                    else
+                        deletes.Add(id);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return false;
+            }
+            if (adds.Count == 0 && deletes.Count == 0)
+                return true;
+            StringBuilder sb = new StringBuilder();
+            if (adds.Count > 0)
+            {
+                sb.Append("insert into ");
+                sb.Append(table);
+                sb.Append(" values (");
+                sb.Append(idValue);
+                sb.Append(", @0)");
+                for (int i = 1; i < adds.Count; i++)
+                {
+                    sb.Append(", (");
+                    sb.Append(idValue);
+                    sb.Append(", @");
+                    sb.Append(i);
+                    sb.Append(")");
+                }
+                sb.Append(";");
+            }
+            if (deletes.Count > 0)
+            {
+                sb.Append("delete from ");
+                sb.Append(table);
+                sb.Append(" where idName = ");
+                sb.Append(idValue);
+                sb.Append(" and (");
+                sb.Append(controlName);
+                sb.Append(" = @");
+                sb.Append(adds.Count);
+                for (int i = 1; i < deletes.Count; i++)
+                {
+                    sb.Append(" or ");
+                    sb.Append(controlName);
+                    sb.Append(" = @");
+                    sb.Append(adds.Count + i);
+                }
+                sb.Append(");");
+            }
+            using (SqlConnection connection = Connection())
+            using (SqlCommand command = new SqlCommand(sb.ToString(), connection))
+            {
+                for (int i = 0; i < adds.Count; i++)
+                {
+                    command.Parameters.AddWithValue($"@{i}", adds[i]);
+                }
+                for (int i = 0; i < deletes.Count; i++)
+                {
+                    command.Parameters.AddWithValue($"@{adds.Count + i}", deletes[i]);
+                }
+                try
+                {
+                    command.ExecuteNonQuery();
+                    return true;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                    return false;
+                }
+            } 
+        }
+
         /// <summary>
         /// Returns the column names of a table without quering the entire table.
         /// </summary>

@@ -3,22 +3,21 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace CmsLibrary
 {
-    public class TeacherSkill : IData
+    public class TeacherSkill : IBridgingData
     {
-        public static string Table { get; set; } = "Teacher_Skills";
-
         private int teacherId;
-        private int skillId;
+        private ListBox control;
 
         public TeacherSkill() { }
 
-        public TeacherSkill(int teacherId, int skillId)
+        public TeacherSkill(int teacherId, ListBox control)
         {
             this.teacherId = teacherId;
-            this.skillId = skillId;
+            this.control = control;
         }
 
         public int TeacherId
@@ -34,37 +33,22 @@ namespace CmsLibrary
             }
         }
 
-        public int SkillId
+        public ListBox Control
         {
             get
             {
-                return skillId;
+                return control;
             }
 
             set
             {
-                skillId = value;
+                control = value;
             }
-        }
-
-        public bool Add()
-        {
-            throw new NotImplementedException();
         }
 
         public bool Update()
         {
-            throw new NotImplementedException();
-        }
-
-        public bool Delete()
-        {
-            throw new NotImplementedException();
-        }
-
-        public bool Search()
-        {
-            throw new NotImplementedException();
+            return Database.UpdateBridgingTable("teacher_skills", "teacherid", teacherId, "skillid", control);
         }
     }
 }

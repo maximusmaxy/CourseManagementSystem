@@ -525,7 +525,7 @@
             // 
             this.txtPostCode.Location = new System.Drawing.Point(113, 170);
             this.txtPostCode.Name = "txtPostCode";
-            this.txtPostCode.Size = new System.Drawing.Size(76, 20);
+            this.txtPostCode.Size = new System.Drawing.Size(217, 20);
             this.txtPostCode.TabIndex = 8;
             this.txtPostCode.Tag = "Postcode";
             this.ToolTips.SetToolTip(this.txtPostCode, "Insert the 4 Digit Post code for the provided suburb");
@@ -544,7 +544,7 @@
             "ACT"});
             this.cmbState.Location = new System.Drawing.Point(113, 139);
             this.cmbState.Name = "cmbState";
-            this.cmbState.Size = new System.Drawing.Size(125, 21);
+            this.cmbState.Size = new System.Drawing.Size(217, 21);
             this.cmbState.TabIndex = 7;
             this.cmbState.Tag = "State";
             this.ToolTips.SetToolTip(this.cmbState, "Select the State the provided address is located in");
@@ -573,7 +573,7 @@
             // 
             this.txtSuburb.Location = new System.Drawing.Point(113, 107);
             this.txtSuburb.Name = "txtSuburb";
-            this.txtSuburb.Size = new System.Drawing.Size(125, 20);
+            this.txtSuburb.Size = new System.Drawing.Size(217, 20);
             this.txtSuburb.TabIndex = 6;
             this.txtSuburb.Tag = "Suburb";
             this.ToolTips.SetToolTip(this.txtSuburb, "Insert the suburb of the home here using A-Z Characters Only!");
@@ -582,7 +582,7 @@
             // 
             this.txtId.Location = new System.Drawing.Point(213, 109);
             this.txtId.Name = "txtId";
-            this.txtId.Size = new System.Drawing.Size(125, 20);
+            this.txtId.Size = new System.Drawing.Size(174, 20);
             this.txtId.TabIndex = 1;
             this.txtId.Tag = "Student ID";
             this.ToolTips.SetToolTip(this.txtId, "Insert a Numeric value for the Student ID, using 0-9 numbers Only");
@@ -591,16 +591,16 @@
             // 
             this.txtFirstName.Location = new System.Drawing.Point(213, 142);
             this.txtFirstName.Name = "txtFirstName";
-            this.txtFirstName.Size = new System.Drawing.Size(125, 20);
+            this.txtFirstName.Size = new System.Drawing.Size(174, 20);
             this.txtFirstName.TabIndex = 2;
             this.txtFirstName.Tag = "First name";
             this.ToolTips.SetToolTip(this.txtFirstName, "Insert the First Name here, using A-Z characters Only!");
             // 
             // txtLastName
             // 
-            this.txtLastName.Location = new System.Drawing.Point(351, 142);
+            this.txtLastName.Location = new System.Drawing.Point(397, 142);
             this.txtLastName.Name = "txtLastName";
-            this.txtLastName.Size = new System.Drawing.Size(125, 20);
+            this.txtLastName.Size = new System.Drawing.Size(174, 20);
             this.txtLastName.TabIndex = 3;
             this.txtLastName.Tag = "Last name";
             this.ToolTips.SetToolTip(this.txtLastName, "Insert the Last Name here, using A-Z characters Only!");
@@ -610,16 +610,16 @@
             this.dtpDateOfBirth.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtpDateOfBirth.Location = new System.Drawing.Point(213, 406);
             this.dtpDateOfBirth.Name = "dtpDateOfBirth";
-            this.dtpDateOfBirth.Size = new System.Drawing.Size(125, 20);
+            this.dtpDateOfBirth.Size = new System.Drawing.Size(174, 20);
             this.dtpDateOfBirth.TabIndex = 9;
             this.dtpDateOfBirth.Tag = "Date of birth";
             this.ToolTips.SetToolTip(this.dtpDateOfBirth, "Select Your Date of Birth from the Calendar provided");
             // 
             // txtEmail
             // 
-            this.txtEmail.Location = new System.Drawing.Point(213, 442);
+            this.txtEmail.Location = new System.Drawing.Point(213, 443);
             this.txtEmail.Name = "txtEmail";
-            this.txtEmail.Size = new System.Drawing.Size(200, 20);
+            this.txtEmail.Size = new System.Drawing.Size(358, 20);
             this.txtEmail.TabIndex = 10;
             this.txtEmail.Tag = "Email";
             this.ToolTips.SetToolTip(this.txtEmail, "Please insert the Student Email here, Must contain one @ symbol");
@@ -650,7 +650,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(135, 509);
+            this.label4.Location = new System.Drawing.Point(358, 475);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(69, 21);
             this.label4.TabIndex = 39;
@@ -686,7 +686,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(74, 542);
+            this.label5.Location = new System.Drawing.Point(74, 510);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(130, 21);
             this.label5.TabIndex = 43;
@@ -695,7 +695,7 @@
             // chkDisability
             // 
             this.chkDisability.AutoSize = true;
-            this.chkDisability.Location = new System.Drawing.Point(213, 546);
+            this.chkDisability.Location = new System.Drawing.Point(213, 514);
             this.chkDisability.Name = "chkDisability";
             this.chkDisability.Size = new System.Drawing.Size(44, 17);
             this.chkDisability.TabIndex = 14;
@@ -708,10 +708,10 @@
             // txtDisabilityDescription
             // 
             this.txtDisabilityDescription.Enabled = false;
-            this.txtDisabilityDescription.Location = new System.Drawing.Point(211, 579);
+            this.txtDisabilityDescription.Location = new System.Drawing.Point(211, 544);
             this.txtDisabilityDescription.Multiline = true;
             this.txtDisabilityDescription.Name = "txtDisabilityDescription";
-            this.txtDisabilityDescription.Size = new System.Drawing.Size(317, 81);
+            this.txtDisabilityDescription.Size = new System.Drawing.Size(357, 81);
             this.txtDisabilityDescription.TabIndex = 15;
             this.txtDisabilityDescription.Tag = "Disability Description";
             this.ToolTips.SetToolTip(this.txtDisabilityDescription, "Please describe the Disability here Only if you have selected Yes to having a Dis" +
@@ -721,7 +721,7 @@
             // 
             this.label17.AutoSize = true;
             this.label17.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label17.Location = new System.Drawing.Point(34, 579);
+            this.label17.Location = new System.Drawing.Point(34, 544);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(174, 21);
             this.label17.TabIndex = 46;
@@ -731,9 +731,9 @@
             // 
             this.pnlGender.Controls.Add(this.rdbFemale);
             this.pnlGender.Controls.Add(this.rdbMale);
-            this.pnlGender.Location = new System.Drawing.Point(210, 509);
+            this.pnlGender.Location = new System.Drawing.Point(433, 475);
             this.pnlGender.Name = "pnlGender";
-            this.pnlGender.Size = new System.Drawing.Size(138, 20);
+            this.pnlGender.Size = new System.Drawing.Size(138, 21);
             this.pnlGender.TabIndex = 47;
             this.pnlGender.Tag = "Gender";
             // 

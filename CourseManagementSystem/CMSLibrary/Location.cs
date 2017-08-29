@@ -10,14 +10,12 @@ namespace CmsLibrary
 {
     public class Location : IData
     {
-        public static string Table { get; set; } = "locations";
-
         private int id;
         private string addressStreet1;
         private string addressStreet2;
         private string addressSuburb;
         private string addressState;
-        private int addressPostCode;
+        private int? addressPostCode;
 
         public Location() { }
 
@@ -26,7 +24,7 @@ namespace CmsLibrary
             this.id = id;
         }
 
-        public Location(int id, string addressStreet1, string addressStreet2, string addressSuburb, string addressState, int addressPostCode)
+        public Location(int id, string addressStreet1, string addressStreet2, string addressSuburb, string addressState, int? addressPostCode)
         {
             this.id = id;
             this.addressStreet1 = addressStreet1;
@@ -101,7 +99,7 @@ namespace CmsLibrary
             }
         }
 
-        public int AddressPostCode
+        public int? AddressPostCode
         {
             get
             {
@@ -114,13 +112,22 @@ namespace CmsLibrary
             }
         }
 
+        
+        public bool Add()
+        {
+            return AddUpdate();
+        }
+
+        public bool Update()
+        {
+            return AddUpdate();
+        }
+
         /// <summary>
         /// Adds a location to the database. 
         /// If it already exists it will return that location id. If not it will create it and return it.
         /// </summary>
-        /// <param name="locationid">The id of the newly inserted location.</param>
-        /// <returns>Whether the insert was successful.</returns>
-        public bool Add()
+        private bool AddUpdate()
         {
             string sql = @"select locationid from locations
                            where addressstreet1 = @street1
@@ -137,21 +144,23 @@ namespace CmsLibrary
             using (SqlConnection connection = Database.Connection())
             using (SqlCommand command = new SqlCommand(sql, connection))
             {
-                command.Parameters.AddWithValue("@street1", addressStreet1);
-                command.Parameters.AddWithValue("@street2", addressStreet2);
-                command.Parameters.AddWithValue("@suburb", addressSuburb);
-                command.Parameters.AddWithValue("@state", addressState);
-                command.Parameters.AddWithValue("@postcode", addressPostCode);
-                using (SqlDataReader dataReader = Database.ExecuteQuery(sql))
+
+                command.Parameters.AddWithNullValue("@street1", addressStreet1);
+                command.Parameters.AddWithNullValue("@street2", addressStreet2);
+                command.Parameters.AddWithNullValue("@suburb", addressSuburb);
+                command.Parameters.AddWithNullValue("@state", addressState);
+                command.Parameters.AddWithNullValue("@postcode", addressPostCode);
+                using (SqlDataReader dataReader = command.ExecuteReader())
                 {
-                    if (dataReader.Read())
+                    if (dataReader.HasRows)
                     {
-                        id = dataReader.GetInt32(0);
+                        id = Convert.ToInt32(dataReader[0]);
                         return true;
                     }
-                    if (dataReader.NextResult())
+                    else if (dataReader.NextResult())
                     {
-                        id = dataReader.GetInt32(0);
+                        dataReader.Read();
+                        id = Convert.ToInt32(dataReader[0]);
                         return true;
                     }
                     return false;
@@ -159,31 +168,26 @@ namespace CmsLibrary
             }
         }
 
-        public bool Update()
-        {
-            return Database.Update(Table, "locationid", id,
-                "addressstreet1", addressStreet1,
-                "addressstreet2", addressStreet2,
-                "addresssuburb", addressSuburb,
-                "addressstate", addressState,
-                "addresspostcode", addressPostCode);
-        }
-
         public bool Delete()
         {
-            return Database.Delete(Table, "locationid", id);
+            return Database.Delete("locations", "locationid", id);
         }
 
         public bool Search()
         {
+            return Search("locationid", id);
+        }
+
+        public bool Search(params object[] values)
+        {
             DataRow dataRow;
-            if (Database.Search(Table, out dataRow, "locationid", id))
+            if (Database.Search("locations", out dataRow, values))
             {
-                addressStreet1 = (string)dataRow[1];
-                addressStreet2 = (string)dataRow[2];
-                addressSuburb = (string)dataRow[3];
-                addressState = (string)dataRow[4];
-                addressPostCode = (int)dataRow[5];
+                addressStreet1 = Convert.ToString(dataRow[1]);
+                addressStreet2 = Convert.ToString(dataRow[2]);
+                addressSuburb = Convert.ToString(dataRow[3]);
+                addressState = Convert.ToString(dataRow[4]);
+                addressPostCode = Convert.ToInt32(dataRow[5]);
                 return true;
             }
             else

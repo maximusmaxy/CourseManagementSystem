@@ -3,22 +3,21 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace CmsLibrary
 {
-    public class CourseUnit
+    public class CourseUnit : IBridgingData
     {
-        public static string Table { get; set; } = "course_units";
-
         private int courseId;
-        private int unitId;
+        private ListBox control;
 
         public CourseUnit() { }
 
-        public CourseUnit(int courseId, int unitId)
+        public CourseUnit(int courseId, ListBox control)
         {
             this.courseId = courseId;
-            this.unitId = unitId;
+            this.control = control;
         }
 
         public int CourseId
@@ -34,17 +33,22 @@ namespace CmsLibrary
             }
         }
 
-        public int UnitId
+        public ListBox Control
         {
             get
             {
-                return unitId;
+                return control;
             }
 
             set
             {
-                unitId = value;
+                control = value;
             }
+        }
+
+        public bool Update()
+        {
+            return Database.UpdateBridgingTable("course_units", "courseid", courseId, "unitid", control);
         }
     }
 }

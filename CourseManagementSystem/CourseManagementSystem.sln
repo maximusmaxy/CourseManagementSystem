@@ -7,6 +7,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CourseManagementSystem", "C
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CmsLibrary", "CMSLibrary\CmsLibrary.csproj", "{B8A7D8B1-3E3C-412B-BD1D-8150C6E3348E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CmsConsoleDebug", "CmsConsoleDebug\CmsConsoleDebug.csproj", "{B1676746-661B-4279-9A6F-FD2C2D3725FA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CmsFormDebug", "CmsFormDebug\CmsFormDebug.csproj", "{53138C88-9167-41A3-B520-93C88D8E1454}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +25,14 @@ Global
 		{B8A7D8B1-3E3C-412B-BD1D-8150C6E3348E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B8A7D8B1-3E3C-412B-BD1D-8150C6E3348E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B8A7D8B1-3E3C-412B-BD1D-8150C6E3348E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B1676746-661B-4279-9A6F-FD2C2D3725FA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B1676746-661B-4279-9A6F-FD2C2D3725FA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B1676746-661B-4279-9A6F-FD2C2D3725FA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B1676746-661B-4279-9A6F-FD2C2D3725FA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{53138C88-9167-41A3-B520-93C88D8E1454}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{53138C88-9167-41A3-B520-93C88D8E1454}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{53138C88-9167-41A3-B520-93C88D8E1454}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{53138C88-9167-41A3-B520-93C88D8E1454}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

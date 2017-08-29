@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using System.Data;
 using System.Data.SqlClient;
 using System.Windows.Forms;
-
+using System.IO;
 
 namespace CmsLibrary
 {
@@ -15,8 +15,9 @@ namespace CmsLibrary
         //These can be changed staticly using Database.ServerName = "localHost" or whatever.
         //home - MAXIMUMPENIS\\SQLEXPRESS
         //tafe - (local)
-        public static string ServerName = "(local)";
-        public static string DatabaseName = "cms";
+        public static string ServerName { get; set; } = "(local)";
+        public static string DatabaseName { get; set; } = "CourseManage";
+        public static string SqlFileName { get; set; } = "CmsSql.sql";
 
         /// <summary>
         /// Initializes a new Sql connection based on the static fields.
@@ -29,6 +30,22 @@ namespace CmsLibrary
             if (open)
                 connection.Open();
             return connection;
+        }
+
+        /// <summary>
+        /// Loads the database using sql file in the library
+        /// </summary>
+        public static void LoadDatabase()
+        {
+            string connectionString = $"server={ServerName};database=master;Trusted_Connection=yes";
+            string commandString = $"if db_id('{DatabaseName}') is null create database {DatabaseName};";
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            using (SqlCommand command = new SqlCommand(commandString, connection))
+            {
+                connection.Open();
+                command.ExecuteNonQuery();
+            }
+            ExecuteNonQuery(File.ReadAllText(SqlFileName));
         }
 
         /// <summary>
@@ -61,57 +78,30 @@ namespace CmsLibrary
         /// </summary>
         /// <param name="sql">Sql statement.</param>
         /// <returns></returns>
-        public static SqlDataReader ExecuteQuery(string sql)
+        public static IEnumerable<SqlDataReader> ExecuteQuery(string sql)
         {
-            try
+            using (SqlConnection connection = Connection())
+            using (SqlCommand command = new SqlCommand(sql, connection))
+            using (SqlDataReader dataReader = command.ExecuteReader())
             {
-                using (SqlConnection connection = Connection())
-                using (SqlCommand command = new SqlCommand(sql, connection))
+                while (dataReader.Read())
                 {
-                    SqlDataReader dataReader = command.ExecuteReader();
-                    return dataReader;
+                    yield return dataReader;
                 }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-                return null;
             }
         }
 
         /// <summary>
         /// Executes an sql query and returns the number of rows as an integer.
-        /// -1 indicates nothing was found or an Exception was thrown.
         /// </summary>
         /// <param name="sql">Sql statement.</param>
         /// <returns></returns>
-        public static bool ExecuteNonQuery(string sql)
+        public static int ExecuteNonQuery(string sql)
         {
-            try
+            using (SqlConnection connection = Connection())
+            using (SqlCommand command = new SqlCommand(sql, connection))
             {
-                using (SqlConnection connection = Connection())
-                using (SqlCommand command = new SqlCommand(sql, connection))
-                {
-                    command.ExecuteNonQuery();
-                    return true;
-                }
-            }
-            catch (SqlException es)
-            {
-                if (es.Number == 2627)
-                {
-                    MessageBox.Show("Primary Key Violated");
-                }
-                else if (es.Number == 547)
-                {
-                    MessageBox.Show("Foreign Key Violated");
-                }
-                return false;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-                return false;
+                return command.ExecuteNonQuery();
             }
         }
 
@@ -130,8 +120,9 @@ namespace CmsLibrary
             sql = $"select * from {table} where {idName} = {idValue}";
             if (idName2 != null)
                 sql += $" and {idName2} = {idValue2}";
-            using (SqlDataReader reader = ExecuteQuery(sql))
-                return reader.HasRows;
+            foreach (SqlDataReader dataReader in ExecuteQuery(sql))
+                return dataReader.HasRows;
+            return false;
         }
 
         /// <summary>
@@ -162,18 +153,26 @@ namespace CmsLibrary
             {
                 for (int i = 0; i < values.Length; i++)
                 {
-                    command.Parameters.AddWithValue($"@{i}", values[i]);
+                    command.Parameters.AddWithNullValue($"@{i}", values[i]);
                 }
-                using (SqlDataReader reader = command.ExecuteReader())
+                try
                 {
-                    if (reader.HasRows)
+                    using (SqlDataReader reader = command.ExecuteReader())
                     {
-                        reader.Read();
-                        id = reader.GetInt32(0);
-                        return true;
+                        if (reader.HasRows)
+                        {
+                            reader.Read();
+                            id = Convert.ToInt32(reader[0]);
+                            return true;
+                        }
+                        else
+                            return false;
                     }
-                    else
-                        return false;
+                }
+                catch (Exception ex)
+                { 
+                    MessageBox.Show(ex.Message);
+                    return false;
                 }
             }
         }
@@ -216,7 +215,7 @@ namespace CmsLibrary
             {
                 for (int i = 0; i < values.Length; i++)
                 {
-                    command.Parameters.AddWithValue($"@{i}", values[i + 1]);
+                    command.Parameters.AddWithNullValue($"@{i}", values[i + 1]);
                     i++;
                 }
                 try
@@ -247,7 +246,17 @@ namespace CmsLibrary
                 return false;
             } 
             string sql = $"delete from {table} where {idName} = {idValue}";
-            return ExecuteNonQuery(sql);
+            try
+            {
+                int rows = ExecuteNonQuery(sql);
+                return rows > 0;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return false;
+            }
+            
         }
 
         /// <summary>
@@ -278,7 +287,7 @@ namespace CmsLibrary
             {
                 for (int i = 0; i < values.Length; i++)
                 {
-                    command.Parameters.AddWithValue($"@{i}", values[i + 1]);
+                    command.Parameters.AddWithNullValue($"@{i}", values[i + 1]);
                     i++;
                 }
                 try
@@ -305,6 +314,96 @@ namespace CmsLibrary
             }
         }
 
+        public static bool UpdateBridgingTable(string table, string idName, int idValue, string controlName, ListBox control)
+        {
+            List<int> adds = new List<int>();
+            List<int> deletes = new List<int>();
+            DataTable dataTable = (DataTable)control.DataSource;
+            for (int i = 0; i < dataTable.Rows.Count; i++)
+            {
+                if (control.GetSelected(i))
+                    adds.Add(Convert.ToInt32(dataTable.Rows[i]));
+            }
+            string sql = $"select {controlName} from {table} where {idName} = {idValue}";
+            try
+            {
+                foreach (SqlDataReader row in Database.ExecuteQuery(sql))
+                {
+                    int id = Convert.ToInt32(row[0]);
+                    if (adds.Contains(id))
+                        adds.Remove(id);
+                    else
+                        deletes.Add(id);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return false;
+            }
+            if (adds.Count == 0 && deletes.Count == 0)
+                return true;
+            StringBuilder sb = new StringBuilder();
+            if (adds.Count > 0)
+            {
+                sb.Append("insert into ");
+                sb.Append(table);
+                sb.Append(" values (");
+                sb.Append(idValue);
+                sb.Append(", @0)");
+                for (int i = 1; i < adds.Count; i++)
+                {
+                    sb.Append(", (");
+                    sb.Append(idValue);
+                    sb.Append(", @");
+                    sb.Append(i);
+                    sb.Append(")");
+                }
+                sb.Append(";");
+            }
+            if (deletes.Count > 0)
+            {
+                sb.Append("delete from ");
+                sb.Append(table);
+                sb.Append(" where idName = ");
+                sb.Append(idValue);
+                sb.Append(" and (");
+                sb.Append(controlName);
+                sb.Append(" = @");
+                sb.Append(adds.Count);
+                for (int i = 1; i < deletes.Count; i++)
+                {
+                    sb.Append(" or ");
+                    sb.Append(controlName);
+                    sb.Append(" = @");
+                    sb.Append(adds.Count + i);
+                }
+                sb.Append(");");
+            }
+            using (SqlConnection connection = Connection())
+            using (SqlCommand command = new SqlCommand(sb.ToString(), connection))
+            {
+                for (int i = 0; i < adds.Count; i++)
+                {
+                    command.Parameters.AddWithValue($"@{i}", adds[i]);
+                }
+                for (int i = 0; i < deletes.Count; i++)
+                {
+                    command.Parameters.AddWithValue($"@{adds.Count + i}", deletes[i]);
+                }
+                try
+                {
+                    command.ExecuteNonQuery();
+                    return true;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                    return false;
+                }
+            } 
+        }
+
         /// <summary>
         /// Returns the column names of a table without quering the entire table.
         /// </summary>
@@ -315,22 +414,11 @@ namespace CmsLibrary
             List<string> strings = new List<string>();
             string sql = $"select * from {DatabaseName}.information_schema.columns where table_name = '{table}'";
             string column = "column_name";
-            using (SqlConnection connection = Connection())
-            using (SqlCommand command = new SqlCommand(sql, connection))
-            using (SqlDataReader reader = command.ExecuteReader())
+            foreach (SqlDataReader dataReader in ExecuteQuery(sql))
             {
-                if (reader.HasRows)
-                {
-                    while (reader.Read())
-                        strings.Add((string)reader[column]);
-                    return strings.ToArray();
-                }
-                else
-                {
-                    MessageBox.Show($"Error in retrieving column names from {table} table.");
-                    return null;
-                }
+                strings.Add((string)dataReader[column]);
             }
+            return strings.ToArray();
         }
 
         /// <summary>

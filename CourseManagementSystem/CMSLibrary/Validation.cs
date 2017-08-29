@@ -8,7 +8,7 @@ using System.Windows.Forms;
 
 namespace CmsLibrary
 {
-    public enum ValidationType { Numeric, Word, Empty, Date, Email, Range, Length, UnitCode }
+    public enum ValidationType { Numeric, Word, Empty, Date, Email, Range, Length, UnitCode, NumericEmpty }
 
     public class Validation
     {
@@ -24,13 +24,6 @@ namespace CmsLibrary
             public ValidationType Type;
             public string Error;
 
-            public Text(Control control, ValidationType type)
-            {
-                Control = control;
-                Type = type;
-                Error = null;
-            }
-
             public Text(Control control, ValidationType type, string error)
             {
                 Control = control;
@@ -41,15 +34,17 @@ namespace CmsLibrary
 
         public struct IntRange
         {
-            public TextBox Control;
+            public Control Control;
             public int Min;
             public int Max;
+            public string Error;
 
-            public IntRange(TextBox control, int min, int max)
+            public IntRange(Control control, int min, int max, string error)
             {
                 Control = control;
                 Min = min;
                 Max = max;
+                Error = error;
             }
         }
 
@@ -57,11 +52,13 @@ namespace CmsLibrary
         {
             public Control Control;
             public int Length;
+            public string Error;
 
-            public Size(Control control, int length)
+            public Size(Control control, int length, string error)
             {
                 Control = control;
                 Length = length;
+                Error = error;
             }
         }
 
@@ -94,6 +91,14 @@ namespace CmsLibrary
                 return false;
             }
             return true;
+        }
+
+        public static bool NumericEmpty(Control control, string error = null)
+        {
+            if (string.IsNullOrEmpty(control.Text))
+                return true;
+            else
+                return Numeric(control, error);
         }
 
         public static bool Word(Control control, string error = null)
@@ -294,6 +299,10 @@ namespace CmsLibrary
                             break;
                         case ValidationType.UnitCode:
                             if (!UnitCode(text.Control, text.Error))
+                                return false;
+                            break;
+                        case ValidationType.NumericEmpty:
+                            if (!NumericEmpty(text.Control, text.Error))
                                 return false;
                             break;
                     }

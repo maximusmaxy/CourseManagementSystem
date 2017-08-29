@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,8 +10,6 @@ namespace CmsLibrary
 {
     public class Enrolment : IData
     {
-        public static string Table { get; set; } = "enrolments";
-
         private int id;
         private int studentId;
         private int courseId;
@@ -145,27 +144,47 @@ namespace CmsLibrary
 
         public bool Add()
         {
-            throw new NotImplementedException();
+            return Database.Add("enrolments", out id, studentId, courseId, enrolmentDate, completionDate, discountCost, semester);
         }
 
         public bool Update()
         {
-            throw new NotImplementedException();
-        }
-
-        public bool Search()
-        {
-            throw new NotImplementedException();
+            return Database.Update("enrolments", "enrolmentid", id,
+                "studentid", studentId,
+                "courseid", courseId,
+                "enrolmentDate", enrolmentDate,
+                "completionDate", completionDate,
+                "enrolmentCost", enrolmentCost,
+                "discountCost", discountCost,
+                "semester", semester);
         }
 
         public bool Delete()
         {
-            throw new NotImplementedException();
+            return Database.Delete("enrolments", "enrolmentid", id);
         }
 
-        public bool ViewAll(DataGridView dgv)
+        public bool Search()
         {
-            throw new NotImplementedException();
+            return Search("enrolmentid", id);
+        }
+
+        private bool Search(params object[] values)
+        {
+            DataRow dataRow;
+            if (Database.Search("enrolments", out dataRow, values))
+            {
+                studentId = Convert.ToInt32(dataRow[1]);
+                courseId = Convert.ToInt32(dataRow[2]);
+                enrolmentDate = Convert.ToDateTime(dataRow[3]);
+                completionDate = Convert.ToDateTime(dataRow[4]);
+                enrolmentCost = Convert.ToDouble(dataRow[5]);
+                discountCost = Convert.ToDouble(dataRow[6]);
+                semester = Convert.ToInt32(dataRow[7]);
+                return true;
+            }
+            else
+                return false;
         }
     }
 }

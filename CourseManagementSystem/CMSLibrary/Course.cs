@@ -1,17 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace CmsLibrary
 {
-    enum DeliveryType { Online = 1, FaceToFace = 2 }
-
     public class Course : IData
     {
-        public static string Table { get; set; } = "courses";
-
         private int id;
         private string name;
         private double cost;
@@ -19,6 +16,8 @@ namespace CmsLibrary
         private DateTime startDate;
         private DateTime endDate;
         private int locationId;
+        private string areaOfStudy;
+        private string description;
 
         public Course() { }
 
@@ -27,7 +26,7 @@ namespace CmsLibrary
             this.id = id;
         }
 
-        public Course(int id, string name, double cost, int deliveryType, DateTime startDate, DateTime endDate, int locationId)
+        public Course(int id, string name, double cost, int deliveryType, DateTime startDate, DateTime endDate, int locationId, string areaOfStudy, string description)
         {
             this.id = id;
             this.name = name;
@@ -36,6 +35,8 @@ namespace CmsLibrary
             this.startDate = startDate;
             this.endDate = endDate;
             this.locationId = locationId;
+            this.areaOfStudy = areaOfStudy;
+            this.description = description;
         }
 
         public int Id
@@ -129,24 +130,75 @@ namespace CmsLibrary
             }
         }
 
+        public string AreaOfStudy
+        {
+            get
+            {
+                return areaOfStudy;
+            }
+            set
+            {
+                areaOfStudy = value;
+            }
+        }
+
+        public string Description
+        {
+            get
+            {
+                return description;
+            }
+            set
+            {
+                description = value;
+            }
+        }
+
         public bool Add()
         {
-            throw new NotImplementedException();
+            return Database.Add("courses", out id, name, cost, deliveryType, startDate, endDate, locationId, areaOfStudy, Description);
         }
 
         public bool Update()
         {
-            throw new NotImplementedException();
+            return Database.Update("courses", "courseid", id,
+                "courseName", name,
+                "coursecost", cost,
+                "coursedeliverytype", deliveryType,
+                "coursestartdate", startDate,
+                "courseenddate", endDate,
+                "locationId", locationId,
+                "areaofstudy", areaOfStudy,
+                "coursedescription", description);
         }
 
         public bool Delete()
         {
-            throw new NotImplementedException();
+            return Database.Delete("courses", "courseid", id);
         }
 
         public bool Search()
         {
-            throw new NotImplementedException();
+            return Search("courseid", id);
+        }
+
+        public bool Search(params object[] values)
+        {
+            DataRow dataRow;
+            if (Database.Search("courses", out dataRow, values))
+            {
+                name = Convert.ToString(dataRow[1]);
+                cost = Convert.ToDouble(dataRow[2]);
+                deliveryType = Convert.ToInt32(dataRow[3]);
+                startDate = Convert.ToDateTime(dataRow[4]);
+                endDate = Convert.ToDateTime(dataRow[5]);
+                locationId = Convert.ToInt32(dataRow[6]);
+                areaOfStudy = Convert.ToString(dataRow[7]);
+                description = Convert.ToString(dataRow[8]);
+                return true;
+            }
+            else
+                return false;
         }
     }
 }

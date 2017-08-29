@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,10 +9,12 @@ namespace CmsLibrary
 {
     public class Teacher : IData
     {
-        public static string Table { get; set; } = "teachers";
-
         private int id;
-        private string name;
+        private int locationId;
+        private string firstName;
+        private string lastName;
+        private string email;
+        private string department;
 
         public Teacher() { }
 
@@ -20,10 +23,14 @@ namespace CmsLibrary
             this.id = id;
         }
 
-        public Teacher(int id, string name)
+        public Teacher(int id, int locationId, string firstName, string lastName, string email, string department)
         {
             this.id = id;
-            this.name = name;
+            this.locationId = locationId;
+            this.firstName = firstName;
+            this.lastName = lastName;
+            this.email = email;
+            this.department = department;
         }
 
         public int Id
@@ -39,37 +46,95 @@ namespace CmsLibrary
             }
         }
 
-        public string Name
+        public string FirstName
         {
             get
             {
-                return name;
+                return firstName;
             }
 
             set
             {
-                name = value;
+                firstName = value;
+            }
+        }
+
+        public string LastName
+        {
+            get
+            {
+                return lastName;
+            }
+            set
+            {
+                lastName = value;
+            }
+        }
+
+        public string Email
+        {
+            get
+            {
+                return email;
+            }
+            set
+            {
+                email = value;
+            }
+        }
+
+        public string Department
+        {
+            get
+            {
+                return department;
+            }
+            set
+            {
+                department = value;
             }
         }
 
         public bool Add()
         {
-            throw new NotImplementedException();
+            return Database.Add("teachers", out id, locationId, firstName, lastName, email, department);
+        }
+
+
+        public bool Update()
+        {
+            return Database.Update("teachers", "teacherid", id,
+                "locationid", locationId,
+                "teacherfirstName", firstName,
+                "teacherlastName", lastName,
+                "teacheremail", email,
+                "teacherdepartment", department);
         }
 
         public bool Delete()
         {
-            throw new NotImplementedException();
+            return Database.Delete("teachers", "teacherid", id);
         }
 
         public bool Search()
         {
-            throw new NotImplementedException();
+            return Search("teacherid", id);
         }
 
-        public bool Update()
+        public bool Search(params object[] values)
         {
-            throw new NotImplementedException();
+            DataRow dataRow;
+            if (Database.Search("teachers", out dataRow, values))
+            {
+                locationId = Convert.ToInt32(dataRow[1]);
+                firstName = Convert.ToString(dataRow[2]);
+                lastName = Convert.ToString(dataRow[3]);
+                email = Convert.ToString(dataRow[4]);
+                department = Convert.ToString(dataRow[5]);
+                return true;
+            }
+            else
+                return false;
         }
     }
 }

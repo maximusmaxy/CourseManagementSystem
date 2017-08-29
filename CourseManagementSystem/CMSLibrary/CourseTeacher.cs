@@ -1,37 +1,25 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace CmsLibrary
 {
-    public class CourseTeacher : IData
+    public class CourseTeacher : IBridgingData
     {
-        public static string Table { get; set; } = "course_teachers";
-
-        private int courseId;
         private int teacherId;
+        private ListBox control;
 
         public CourseTeacher() { }
 
-        public CourseTeacher(int courseId, int teacherId)
+        public CourseTeacher(int teacherId, ListBox control)
         {
-            this.courseId = courseId;
             this.teacherId = teacherId;
-        }
-
-        public int CourseId
-        {
-            get
-            {
-                return courseId;
-            }
-
-            set
-            {
-                courseId = value;
-            }
+            this.control = control;
         }
 
         public int TeacherId
@@ -40,31 +28,27 @@ namespace CmsLibrary
             {
                 return teacherId;
             }
-
             set
             {
                 teacherId = value;
             }
         }
 
-        public bool Add()
+        public ListBox Control
         {
-            throw new NotImplementedException();
-        }
-
-        public bool Delete()
-        {
-            throw new NotImplementedException();
-        }
-
-        public bool Search()
-        {
-            throw new NotImplementedException();
+            get
+            {
+                return control;
+            }
+            set
+            {
+                control = value;
+            }
         }
 
         public bool Update()
         {
-            throw new NotImplementedException();
+            return Database.UpdateBridgingTable("course_teachers", "teacherid", teacherId, "courseid", control);
         }
     }
 }

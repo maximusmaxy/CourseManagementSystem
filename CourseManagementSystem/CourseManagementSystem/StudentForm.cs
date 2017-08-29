@@ -18,6 +18,11 @@ namespace CMS
             InitializeComponent();
         }
 
+        private void StudentForm_Load(object sender, EventArgs e)
+        {
+            Database.LoadDatabase();
+        }
+
         private void btnAdd_Click(object sender, EventArgs e)
         {
             //validation
@@ -171,6 +176,18 @@ namespace CMS
         {
             MessageBox.Show("Not Implemented.");
         }
+
+        private void addToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            btnAdd_Click(sender, e);
+        }
+
+        private void searchToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            btnSearch_Click(sender, e);
+        }
+
+
         //comment
     }
 }

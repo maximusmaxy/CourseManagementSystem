@@ -10,6 +10,7 @@ namespace CmsLibrary
     public class Skill : IData
     {
         private int id;
+        private int departmentId;
         private string name;
         private string description;
 
@@ -20,9 +21,10 @@ namespace CmsLibrary
             this.id = id;
         }
 
-        public Skill(int id, string name, string description)
+        public Skill(int id, int departmentId, string name, string description)
         {
             this.id = id;
+            this.departmentId = departmentId;
             this.name = name;
             this.description = description;
         }
@@ -37,6 +39,18 @@ namespace CmsLibrary
             set
             {
                 id = value;
+            }
+        }
+
+        public int DepartmentId
+        {
+            get
+            {
+                return departmentId;
+            }
+            set
+            {
+                departmentId = value;
             }
         }
 
@@ -67,7 +81,7 @@ namespace CmsLibrary
 
         public bool Add()
         {
-            return Database.Add("skills", out id, name, description);
+            return Database.Add("skills", out id, departmentId, name, description);
         }
 
         public bool Delete()
@@ -78,6 +92,7 @@ namespace CmsLibrary
         public bool Update()
         {
             return Database.Update("skills", "skillid", id,
+                "departmentid", departmentId,
                 "skillname", name,
                 "description", description);
         }
@@ -92,8 +107,9 @@ namespace CmsLibrary
             DataRow dataRow;
             if (Database.Search("skills", out dataRow, values))
             {
-                name = Convert.ToString(dataRow[1]);
-                description = Convert.ToString(dataRow[2]);
+                departmentId = Convert.ToInt32(dataRow[1]);
+                name = Convert.ToString(dataRow[2]);
+                description = Convert.ToString(dataRow[3]);
                 return true;
             }
             else

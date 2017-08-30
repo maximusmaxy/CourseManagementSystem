@@ -130,15 +130,26 @@ namespace CmsLibrary
         }
 
         /// <summary>
-        /// Empties all form controls and sets indexes back to -1 and text back to default.
+        /// Empties all form controls, sets indexes back to -1, clears checkboxes and radios and text back to default.
         /// </summary>
-        public static void ClearControls(Form form)
+        /// /// <param name="form">The form to clear the controls from.</param>
+        public static void ClearControls(Control form)
         {
             foreach (Control control in form.Controls)
             {
                 if (control is TextBox)
                 {
                     control.Text = string.Empty;
+                }
+                else if (control is RadioButton)
+                {
+                    RadioButton rdb = (RadioButton)control;
+                    rdb.Checked = false;
+                }
+                else if (control is CheckBox)
+                {
+                    CheckBox cb = (CheckBox)control;
+                    cb.Checked = false;
                 }
                 else if (control is ComboBox)
                 {
@@ -148,9 +159,7 @@ namespace CmsLibrary
                 }
                 else if (control is Panel)
                 {
-                    Panel pnl = (Panel)control;
-                    foreach (RadioButton rdb in pnl.Controls.OfType<RadioButton>())
-                        rdb.Checked = false;
+                    ClearControls(control);
                 }
                 else if (control is ListBox)
                 {

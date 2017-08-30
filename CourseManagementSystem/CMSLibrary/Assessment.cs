@@ -10,13 +10,13 @@ namespace CmsLibrary
     public class Assessment : IData
     {
         private int id;
+        private int departmentId;
         private int unitId;
         private int teacherId;
         private string name;
         private DateTime startDate;
         private DateTime dueDate;
         private string description;
-
 
         public Assessment() { }
 
@@ -25,9 +25,10 @@ namespace CmsLibrary
             this.id = id;
         }
 
-        public Assessment(int id, int unitId, int teacherId, string name, DateTime startDate, DateTime dueDate, string description)
+        public Assessment(int id, int departmentId, int unitId, int teacherId, string name, DateTime startDate, DateTime dueDate, string description)
         {
             this.id = id;
+            this.departmentId = departmentId;
             this.unitId = unitId;
             this.teacherId = teacherId;
             this.name = name;
@@ -46,6 +47,18 @@ namespace CmsLibrary
             set
             {
                 id = value;
+            }
+        }
+
+        public int DepartmentId
+        {
+            get
+            {
+                return departmentId;
+            }
+            set
+            {
+                departmentId = value;
             }
         }
 
@@ -128,7 +141,7 @@ namespace CmsLibrary
 
         public bool Add()
         {
-            return Database.Add("assessments", out id, unitId, teacherId, name, startDate, dueDate, description);
+            return Database.Add("assessments", out id, unitId, teacherId, departmentId, name, startDate, dueDate, description);
         }
 
         public bool Update()
@@ -136,6 +149,7 @@ namespace CmsLibrary
             return Database.Update("assessments", "assessmentid", id,
                 "unitid", unitId,
                 "teacherid", teacherId,
+                "departmentid", departmentId,
                 "assessmentname", name,
                 "assessmentstartdate", startDate,
                 "assessmentduedate", dueDate,
@@ -158,10 +172,11 @@ namespace CmsLibrary
             {
                 unitId = Convert.ToInt32(dataRow[1]);
                 teacherId = Convert.ToInt32(dataRow[2]);
-                name = Convert.ToString(dataRow[3]);
-                startDate = Convert.ToDateTime(dataRow[4]);
-                dueDate = Convert.ToDateTime(dataRow[5]);
-                description = Convert.ToString(dataRow[6]);
+                departmentId = Convert.ToInt32(dataRow[3]);
+                name = Convert.ToString(dataRow[4]);
+                startDate = Convert.ToDateTime(dataRow[5]);
+                dueDate = Convert.ToDateTime(dataRow[6]);
+                description = Convert.ToString(dataRow[7]);
                 return true;
             }
             else

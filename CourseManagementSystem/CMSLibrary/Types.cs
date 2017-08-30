@@ -20,8 +20,19 @@ namespace CmsLibrary
         };
         public static Dictionary<string, int> DeliveryType { get; set; } = new Dictionary<string, int>()
         {
-            ["FTF"] = 1,
-            ["OTEN"] = 2
+            ["Face-To-Face"] = 1,
+            ["Online"] = 2
+        };
+        public static Dictionary<string, int> CourseResults { get; set; } = new Dictionary<string, int>()
+        {
+            ["Pass"] = 1,
+            ["Fail"] = 2,
+            ["Not Completed"] = 3
+        };
+        public static Dictionary<string, int> Semester { get; set; } = new Dictionary<string, int>()
+        {
+            ["One"] = 1,
+            ["Two"] = 2
         };
     }
 }

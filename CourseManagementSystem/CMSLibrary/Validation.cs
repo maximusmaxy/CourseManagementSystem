@@ -8,7 +8,7 @@ using System.Windows.Forms;
 
 namespace CmsLibrary
 {
-    public enum ValidationType { Numeric, Word, Empty, Date, Email, Range, Length, UnitCode, NumericEmpty }
+    public enum ValidationType { Numeric, Word, Empty, Date, Email, Range, Length, UnitCode, NumericEmpty, Cost }
 
     public class Validation
     {
@@ -17,6 +17,7 @@ namespace CmsLibrary
         static Regex dateRegex = new Regex(@"^(\d{1,2})([-/])(\d{1,2})\2(\d{4})$");
         static Regex emailRegex = new Regex(@"^[^@]+@(?<!\.@)[^\.@]+\.[^@]+$");
         static Regex unitCodeRegex = new Regex(@"^\w{6}\d{3}$");
+        static Regex costRegex = new Regex(@"^\$?\d+(?:\.\d{1,2})?$");
 
         public struct Text
         {
@@ -118,34 +119,14 @@ namespace CmsLibrary
             return true;
         }
 
-        public static bool Date(Control control, string error = null)
-        { 
-            if (!Empty(control))
+        public static bool Date(DateTimePicker dtp, string error = null)
+        {
+            if (dtp.Value.Date == DateTime.Now.Date)
             {
-                return false;
-            }
-            Match match = dateRegex.Match(control.Text);
-            if (!match.Success)
-            {
-                MessageBox.Show($"{control.Tag} is invalid. Date is not in the correct format (DD-MM-YYYY).");
-                return false;
-            }
-            int day = int.Parse(match.Groups[1].Value);
-            if (day < 1 || day > 31)
-            {
-                MessageBox.Show($"{control.Tag} is invalid. The day value is out of range.");
-                return false;
-            }
-            int month = int.Parse(match.Groups[3].Value);
-            if (month < 1 || month > 12)
-            {
-                MessageBox.Show($"{control.Tag} is invalid. The month value is out of range.");
-                return false;
-            }
-            int year = int.Parse(match.Groups[4].Value);
-            if (year < 0)
-            {
-                MessageBox.Show($"{control.Tag} is invalid. The year value is out of range.");
+                if (error == null)
+                    MessageBox.Show($"The date for {dtp.Tag} cannot be todays date.");
+                else
+                    MessageBox.Show(error);
                 return false;
             }
             return true;
@@ -161,6 +142,23 @@ namespace CmsLibrary
             {
                 if (error == null)
                     MessageBox.Show($"{control.Text} is an invalid email address. Must be in the format (someone@email.com)");
+                else
+                    MessageBox.Show(error);
+                return false;
+            }
+            return true;
+        }
+
+        public static bool Cost(Control control, string error = null)
+        {
+            if (!Empty(control))
+            {
+                return false;
+            }
+            if (!costRegex.IsMatch(control.Text))
+            {
+                if (error == null)
+                    MessageBox.Show($"{control.Tag} is invalid. A currency value is required.");
                 else
                     MessageBox.Show(error);
                 return false;
@@ -289,10 +287,6 @@ namespace CmsLibrary
                             if (!Empty(text.Control, text.Error))
                                 return false;
                             break;
-                        case ValidationType.Date:
-                            if (!Date(text.Control, text.Error))
-                                return false;
-                            break;
                         case ValidationType.Email:
                             if (!Email(text.Control, text.Error))
                                 return false;
@@ -319,6 +313,14 @@ namespace CmsLibrary
                 {
                     Panel pnl = (Panel)obj;
                     if (!Radio(pnl))
+                    {
+                        return false;
+                    }
+                }
+                else if (obj is DateTimePicker)
+                {
+                    DateTimePicker dtp = (DateTimePicker)obj;
+                    if (!Date(dtp))
                     {
                         return false;
                     }

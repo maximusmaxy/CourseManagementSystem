@@ -11,10 +11,10 @@ namespace CmsLibrary
     {
         private int id;
         private int locationId;
+        private int departmentId;
         private string firstName;
         private string lastName;
         private string email;
-        private string department;
 
         public Teacher() { }
 
@@ -23,14 +23,14 @@ namespace CmsLibrary
             this.id = id;
         }
 
-        public Teacher(int id, int locationId, string firstName, string lastName, string email, string department)
+        public Teacher(int id, int locationId, int departmentId, string firstName, string lastName, string email)
         {
             this.id = id;
             this.locationId = locationId;
+            this.departmentId = departmentId;
             this.firstName = firstName;
             this.lastName = lastName;
             this.email = email;
-            this.department = department;
         }
 
         public int Id
@@ -83,21 +83,21 @@ namespace CmsLibrary
             }
         }
 
-        public string Department
+        public int DepartmentId
         {
             get
             {
-                return department;
+                return departmentId;
             }
             set
             {
-                department = value;
+                departmentId = value;
             }
         }
 
         public bool Add()
         {
-            return Database.Add("teachers", out id, locationId, firstName, lastName, email, department);
+            return Database.Add("teachers", out id, locationId, departmentId, firstName, lastName, email);
         }
 
 
@@ -105,10 +105,10 @@ namespace CmsLibrary
         {
             return Database.Update("teachers", "teacherid", id,
                 "locationid", locationId,
+                "departmentid", departmentId,
                 "teacherfirstName", firstName,
                 "teacherlastName", lastName,
-                "teacheremail", email,
-                "teacherdepartment", department);
+                "teacheremail", email);
         }
 
         public bool Delete()
@@ -127,10 +127,10 @@ namespace CmsLibrary
             if (Database.Search("teachers", out dataRow, values))
             {
                 locationId = Convert.ToInt32(dataRow[1]);
-                firstName = Convert.ToString(dataRow[2]);
-                lastName = Convert.ToString(dataRow[3]);
-                email = Convert.ToString(dataRow[4]);
-                department = Convert.ToString(dataRow[5]);
+                departmentId = Convert.ToInt32(dataRow[2]);
+                firstName = Convert.ToString(dataRow[3]);
+                lastName = Convert.ToString(dataRow[4]);
+                email = Convert.ToString(dataRow[5]);
                 return true;
             }
             else

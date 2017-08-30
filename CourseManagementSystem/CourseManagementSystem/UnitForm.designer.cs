@@ -82,6 +82,7 @@
             this.label6 = new System.Windows.Forms.Label();
             this.cmbDepartment = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
+            this.allocationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel9.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
             this.panel5.SuspendLayout();
@@ -97,49 +98,49 @@
             // enrolmentsToolStripMenuItem
             // 
             this.enrolmentsToolStripMenuItem.Name = "enrolmentsToolStripMenuItem";
-            this.enrolmentsToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
+            this.enrolmentsToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.enrolmentsToolStripMenuItem.Text = "Student";
             // 
             // studentsCoursesToolStripMenuItem
             // 
             this.studentsCoursesToolStripMenuItem.Name = "studentsCoursesToolStripMenuItem";
-            this.studentsCoursesToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
+            this.studentsCoursesToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.studentsCoursesToolStripMenuItem.Text = "Teacher";
             // 
             // enrolmentToolStripMenuItem
             // 
             this.enrolmentToolStripMenuItem.Name = "enrolmentToolStripMenuItem";
-            this.enrolmentToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
+            this.enrolmentToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.enrolmentToolStripMenuItem.Text = "Enrolment";
             // 
             // courseToolStripMenuItem
             // 
             this.courseToolStripMenuItem.Name = "courseToolStripMenuItem";
-            this.courseToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
+            this.courseToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.courseToolStripMenuItem.Text = "Course";
             // 
             // unitToolStripMenuItem
             // 
             this.unitToolStripMenuItem.Name = "unitToolStripMenuItem";
-            this.unitToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
+            this.unitToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.unitToolStripMenuItem.Text = "Unit";
             // 
             // aSsessmentToolStripMenuItem
             // 
             this.aSsessmentToolStripMenuItem.Name = "aSsessmentToolStripMenuItem";
-            this.aSsessmentToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
+            this.aSsessmentToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.aSsessmentToolStripMenuItem.Text = "Assessment";
             // 
             // skillsToolStripMenuItem
             // 
             this.skillsToolStripMenuItem.Name = "skillsToolStripMenuItem";
-            this.skillsToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
+            this.skillsToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.skillsToolStripMenuItem.Text = "Skills";
             // 
             // globalSearchToolStripMenuItem
             // 
             this.globalSearchToolStripMenuItem.Name = "globalSearchToolStripMenuItem";
-            this.globalSearchToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
+            this.globalSearchToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.globalSearchToolStripMenuItem.Text = "Global Search";
             // 
             // label2
@@ -261,7 +262,7 @@
             // mainMenuToolStripMenuItem
             // 
             this.mainMenuToolStripMenuItem.Name = "mainMenuToolStripMenuItem";
-            this.mainMenuToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
+            this.mainMenuToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.mainMenuToolStripMenuItem.Text = "Main Menu";
             // 
             // formsToolStripMenuItem
@@ -275,6 +276,7 @@
             this.unitToolStripMenuItem,
             this.aSsessmentToolStripMenuItem,
             this.skillsToolStripMenuItem,
+            this.allocationToolStripMenuItem,
             this.globalSearchToolStripMenuItem});
             this.formsToolStripMenuItem.Name = "formsToolStripMenuItem";
             this.formsToolStripMenuItem.Size = new System.Drawing.Size(52, 20);
@@ -536,6 +538,12 @@
             this.label7.TabIndex = 105;
             this.label7.Text = "Area of Study:";
             // 
+            // allocationToolStripMenuItem
+            // 
+            this.allocationToolStripMenuItem.Name = "allocationToolStripMenuItem";
+            this.allocationToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.allocationToolStripMenuItem.Text = "Allocation";
+            // 
             // UnitForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -635,5 +643,6 @@
         private System.Windows.Forms.TextBox textBox4;
         private System.Windows.Forms.ComboBox cmbDepartment;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.ToolStripMenuItem allocationToolStripMenuItem;
     }
 }

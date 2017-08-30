@@ -78,6 +78,7 @@
             this.label7 = new System.Windows.Forms.Label();
             this.cmbDepartment = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
+            this.allocationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel8.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel7.SuspendLayout();
@@ -247,6 +248,7 @@
             this.unitToolStripMenuItem,
             this.assessmentToolStripMenuItem,
             this.skillsToolStripMenuItem,
+            this.allocationToolStripMenuItem,
             this.globalSearchToolStripMenuItem});
             this.formsToolStripMenuItem.Name = "formsToolStripMenuItem";
             this.formsToolStripMenuItem.Size = new System.Drawing.Size(52, 20);
@@ -489,6 +491,12 @@
             this.label3.TabIndex = 127;
             this.label3.Text = "Area of Study:";
             // 
+            // allocationToolStripMenuItem
+            // 
+            this.allocationToolStripMenuItem.Name = "allocationToolStripMenuItem";
+            this.allocationToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.allocationToolStripMenuItem.Text = "Allocation";
+            // 
             // AssessmentForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -580,5 +588,6 @@
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.ComboBox cmbDepartment;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.ToolStripMenuItem allocationToolStripMenuItem;
     }
 }

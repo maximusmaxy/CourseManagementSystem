@@ -46,6 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AllocationForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AllocationForm.Designer.cs">
+      <DependentUpon>AllocationForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="AssessmentForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -96,6 +102,9 @@
     <Compile Include="UnitForm.designer.cs">
       <DependentUpon>UnitForm.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="AllocationForm.resx">
+      <DependentUpon>AllocationForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="AssessmentForm.resx">
       <DependentUpon>AssessmentForm.cs</DependentUpon>
     </EmbeddedResource>

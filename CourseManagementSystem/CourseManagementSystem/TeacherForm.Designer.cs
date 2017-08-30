@@ -35,7 +35,6 @@
             this.label13 = new System.Windows.Forms.Label();
             this.ToolTips = new System.Windows.Forms.ToolTip(this.components);
             this.textBox5 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.backgroundWorker2 = new System.ComponentModel.BackgroundWorker();
@@ -75,6 +74,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.label4 = new System.Windows.Forms.Label();
+            this.cmbDepartment = new System.Windows.Forms.ComboBox();
             this.panel5.SuspendLayout();
             this.panel8.SuspendLayout();
             this.panel4.SuspendLayout();
@@ -127,15 +127,6 @@
             this.textBox5.Size = new System.Drawing.Size(313, 20);
             this.textBox5.TabIndex = 4;
             this.ToolTips.SetToolTip(this.textBox5, "Insert the Campus Suburb here using A-Z Characters Only!");
-            // 
-            // textBox4
-            // 
-            this.textBox4.Location = new System.Drawing.Point(184, 241);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(313, 20);
-            this.textBox4.TabIndex = 5;
-            this.ToolTips.SetToolTip(this.textBox4, "Insert the Department using A-Z Characters Only! (e.g. I.T Department, Engineerin" +
-        "g)");
             // 
             // listBox1
             // 
@@ -455,13 +446,21 @@
             this.label4.TabIndex = 71;
             this.label4.Text = "Department:";
             // 
+            // cmbDepartment
+            // 
+            this.cmbDepartment.FormattingEnabled = true;
+            this.cmbDepartment.Location = new System.Drawing.Point(185, 239);
+            this.cmbDepartment.Name = "cmbDepartment";
+            this.cmbDepartment.Size = new System.Drawing.Size(312, 21);
+            this.cmbDepartment.TabIndex = 72;
+            // 
             // TeacherForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Lavender;
             this.ClientSize = new System.Drawing.Size(744, 507);
-            this.Controls.Add(this.textBox4);
+            this.Controls.Add(this.cmbDepartment);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.listBox1);
@@ -539,6 +538,6 @@
         private System.Windows.Forms.ToolStripMenuItem skillsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem globalSearchToolStripMenuItem;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.ComboBox cmbDepartment;
     }
 }

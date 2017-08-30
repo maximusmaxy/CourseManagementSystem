@@ -45,6 +45,12 @@
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.panel9 = new System.Windows.Forms.Panel();
+            this.radioButton2 = new System.Windows.Forms.RadioButton();
+            this.radioButton1 = new System.Windows.Forms.RadioButton();
+            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.textBox4 = new System.Windows.Forms.TextBox();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.mainMenuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
@@ -71,15 +77,10 @@
             this.updateToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.viewAllToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.label3 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.panel9 = new System.Windows.Forms.Panel();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.label4 = new System.Windows.Forms.Label();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.panel9.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
             this.panel5.SuspendLayout();
             this.panel8.SuspendLayout();
@@ -89,7 +90,6 @@
             this.panel6.SuspendLayout();
             this.panel7.SuspendLayout();
             this.menuStrip1.SuspendLayout();
-            this.panel9.SuspendLayout();
             this.SuspendLayout();
             // 
             // enrolmentsToolStripMenuItem
@@ -144,7 +144,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(135, 145);
+            this.label2.Location = new System.Drawing.Point(112, 123);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(69, 21);
             this.label2.TabIndex = 92;
@@ -154,7 +154,7 @@
             // 
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(146, 177);
+            this.label13.Location = new System.Drawing.Point(123, 155);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(57, 21);
             this.label13.TabIndex = 95;
@@ -164,7 +164,7 @@
             // 
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(68, 377);
+            this.label12.Location = new System.Drawing.Point(45, 355);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(136, 21);
             this.label12.TabIndex = 94;
@@ -172,29 +172,89 @@
             // 
             // textBox3
             // 
-            this.textBox3.Location = new System.Drawing.Point(212, 377);
+            this.textBox3.Location = new System.Drawing.Point(189, 355);
             this.textBox3.Multiline = true;
             this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(238, 111);
+            this.textBox3.Size = new System.Drawing.Size(315, 111);
             this.textBox3.TabIndex = 87;
             this.ToolTips.SetToolTip(this.textBox3, "Insert a Small description on what this unit will be about and what tasks may inc" +
         "lude");
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(212, 178);
+            this.textBox2.Location = new System.Drawing.Point(189, 156);
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(125, 20);
+            this.textBox2.Size = new System.Drawing.Size(315, 20);
             this.textBox2.TabIndex = 86;
             this.ToolTips.SetToolTip(this.textBox2, "Insert the Name of the Unit using Alphabetical Characters Only");
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(212, 145);
+            this.textBox1.Location = new System.Drawing.Point(189, 123);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(125, 20);
+            this.textBox1.Size = new System.Drawing.Size(315, 20);
             this.textBox1.TabIndex = 85;
             this.ToolTips.SetToolTip(this.textBox1, "Insert a Numeric value for the Unit ID, using 0-9 numbers Only");
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(189, 275);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(315, 21);
+            this.comboBox1.TabIndex = 98;
+            this.ToolTips.SetToolTip(this.comboBox1, "Select the Required Skill the Teacher will need to perform this Unit");
+            // 
+            // panel9
+            // 
+            this.panel9.Controls.Add(this.radioButton2);
+            this.panel9.Controls.Add(this.radioButton1);
+            this.panel9.Location = new System.Drawing.Point(189, 194);
+            this.panel9.Name = "panel9";
+            this.panel9.Size = new System.Drawing.Size(315, 21);
+            this.panel9.TabIndex = 99;
+            this.ToolTips.SetToolTip(this.panel9, "Select the Type of unit from the provided, Core or Elective");
+            // 
+            // radioButton2
+            // 
+            this.radioButton2.AutoSize = true;
+            this.radioButton2.Location = new System.Drawing.Point(76, 3);
+            this.radioButton2.Name = "radioButton2";
+            this.radioButton2.Size = new System.Drawing.Size(63, 17);
+            this.radioButton2.TabIndex = 13;
+            this.radioButton2.TabStop = true;
+            this.radioButton2.Text = "Elective";
+            this.ToolTips.SetToolTip(this.radioButton2, "Select this option if the person is a Female");
+            this.radioButton2.UseVisualStyleBackColor = true;
+            // 
+            // radioButton1
+            // 
+            this.radioButton1.AutoSize = true;
+            this.radioButton1.Location = new System.Drawing.Point(3, 3);
+            this.radioButton1.Name = "radioButton1";
+            this.radioButton1.Size = new System.Drawing.Size(47, 17);
+            this.radioButton1.TabIndex = 12;
+            this.radioButton1.TabStop = true;
+            this.radioButton1.Text = "Core";
+            this.ToolTips.SetToolTip(this.radioButton1, "Select this option if this person is a Male");
+            this.radioButton1.UseVisualStyleBackColor = true;
+            // 
+            // comboBox2
+            // 
+            this.comboBox2.FormattingEnabled = true;
+            this.comboBox2.Location = new System.Drawing.Point(189, 315);
+            this.comboBox2.Name = "comboBox2";
+            this.comboBox2.Size = new System.Drawing.Size(315, 21);
+            this.comboBox2.TabIndex = 102;
+            this.ToolTips.SetToolTip(this.comboBox2, "Select the Teacher who will be Teaching this Unit");
+            // 
+            // textBox4
+            // 
+            this.textBox4.Location = new System.Drawing.Point(189, 235);
+            this.textBox4.Name = "textBox4";
+            this.textBox4.Size = new System.Drawing.Size(315, 20);
+            this.textBox4.TabIndex = 103;
+            this.ToolTips.SetToolTip(this.textBox4, "Insert the Number of Hours this unit will take, Use Whole Numeric Values Only ");
             // 
             // mainMenuToolStripMenuItem
             // 
@@ -420,79 +480,27 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(86, 298);
+            this.label3.Location = new System.Drawing.Point(63, 276);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(119, 21);
             this.label3.TabIndex = 97;
             this.label3.Text = "Skill Required:";
             // 
-            // comboBox1
-            // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(212, 297);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(125, 21);
-            this.comboBox1.TabIndex = 98;
-            this.ToolTips.SetToolTip(this.comboBox1, "Select the Required Skill the Teacher will need to perform this Unit");
-            // 
-            // panel9
-            // 
-            this.panel9.Controls.Add(this.radioButton2);
-            this.panel9.Controls.Add(this.radioButton1);
-            this.panel9.Location = new System.Drawing.Point(212, 216);
-            this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(138, 20);
-            this.panel9.TabIndex = 99;
-            this.ToolTips.SetToolTip(this.panel9, "Select the Type of unit from the provided, Core or Elective");
-            // 
-            // radioButton2
-            // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(76, 3);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(63, 17);
-            this.radioButton2.TabIndex = 13;
-            this.radioButton2.TabStop = true;
-            this.radioButton2.Text = "Elective";
-            this.ToolTips.SetToolTip(this.radioButton2, "Select this option if the person is a Female");
-            this.radioButton2.UseVisualStyleBackColor = true;
-            // 
-            // radioButton1
-            // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Location = new System.Drawing.Point(3, 3);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(47, 17);
-            this.radioButton1.TabIndex = 12;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "Core";
-            this.ToolTips.SetToolTip(this.radioButton1, "Select this option if this person is a Male");
-            this.radioButton1.UseVisualStyleBackColor = true;
-            // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(151, 216);
+            this.label4.Location = new System.Drawing.Point(128, 194);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(52, 21);
             this.label4.TabIndex = 100;
             this.label4.Text = "Type:";
             // 
-            // comboBox2
-            // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(212, 337);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(125, 21);
-            this.comboBox2.TabIndex = 102;
-            this.ToolTips.SetToolTip(this.comboBox2, "Select the Teacher who will be Teaching this Unit");
-            // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(130, 337);
+            this.label5.Location = new System.Drawing.Point(107, 315);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(73, 21);
             this.label5.TabIndex = 101;
@@ -502,19 +510,11 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(57, 256);
+            this.label6.Location = new System.Drawing.Point(34, 234);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(146, 21);
             this.label6.TabIndex = 104;
             this.label6.Text = "Number of Hours:";
-            // 
-            // textBox4
-            // 
-            this.textBox4.Location = new System.Drawing.Point(212, 257);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(125, 20);
-            this.textBox4.TabIndex = 103;
-            this.ToolTips.SetToolTip(this.textBox4, "Insert the Number of Hours this unit will take, Use Whole Numeric Values Only ");
             // 
             // UnitForm
             // 
@@ -541,6 +541,8 @@
             this.Controls.Add(this.menuStrip1);
             this.Name = "UnitForm";
             this.Text = "UnitForm";
+            this.panel9.ResumeLayout(false);
+            this.panel9.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
             this.panel5.ResumeLayout(false);
             this.panel8.ResumeLayout(false);
@@ -551,8 +553,6 @@
             this.panel7.ResumeLayout(false);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
-            this.panel9.ResumeLayout(false);
-            this.panel9.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -55,7 +55,7 @@
             this.button6 = new System.Windows.Forms.Button();
             this.globalSearchToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.skillsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.aSsessmentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.assessmentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.button3 = new System.Windows.Forms.Button();
             this.unitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.label1 = new System.Windows.Forms.Label();
@@ -71,13 +71,13 @@
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.addToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.searchToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.deleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.updateToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.deleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.viewAllToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.formsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mainMenuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.enrolmentsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.studentsCoursesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.studentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.teacherCoursesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.label6 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
@@ -240,7 +240,7 @@
             // enrolmentToolStripMenuItem
             // 
             this.enrolmentToolStripMenuItem.Name = "enrolmentToolStripMenuItem";
-            this.enrolmentToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
+            this.enrolmentToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.enrolmentToolStripMenuItem.Text = "Enrolment";
             // 
             // button1
@@ -266,7 +266,7 @@
             // courseToolStripMenuItem
             // 
             this.courseToolStripMenuItem.Name = "courseToolStripMenuItem";
-            this.courseToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
+            this.courseToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.courseToolStripMenuItem.Text = "Course";
             // 
             // button4
@@ -292,20 +292,20 @@
             // globalSearchToolStripMenuItem
             // 
             this.globalSearchToolStripMenuItem.Name = "globalSearchToolStripMenuItem";
-            this.globalSearchToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
+            this.globalSearchToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.globalSearchToolStripMenuItem.Text = "Global Search";
             // 
             // skillsToolStripMenuItem
             // 
             this.skillsToolStripMenuItem.Name = "skillsToolStripMenuItem";
-            this.skillsToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
+            this.skillsToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.skillsToolStripMenuItem.Text = "Skills";
             // 
-            // aSsessmentToolStripMenuItem
+            // assessmentToolStripMenuItem
             // 
-            this.aSsessmentToolStripMenuItem.Name = "aSsessmentToolStripMenuItem";
-            this.aSsessmentToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
-            this.aSsessmentToolStripMenuItem.Text = "Assessment";
+            this.assessmentToolStripMenuItem.Name = "assessmentToolStripMenuItem";
+            this.assessmentToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.assessmentToolStripMenuItem.Text = "Assessment";
             // 
             // button3
             // 
@@ -320,7 +320,7 @@
             // unitToolStripMenuItem
             // 
             this.unitToolStripMenuItem.Name = "unitToolStripMenuItem";
-            this.unitToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
+            this.unitToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.unitToolStripMenuItem.Text = "Unit";
             // 
             // label1
@@ -429,8 +429,8 @@
             this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.addToolStripMenuItem,
             this.searchToolStripMenuItem,
-            this.deleteToolStripMenuItem,
             this.updateToolStripMenuItem,
+            this.deleteToolStripMenuItem,
             this.viewAllToolStripMenuItem});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
             this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
@@ -450,19 +450,19 @@
             this.searchToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
             this.searchToolStripMenuItem.Text = "&Search";
             // 
-            // deleteToolStripMenuItem
-            // 
-            this.deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
-            this.deleteToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.U)));
-            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
-            this.deleteToolStripMenuItem.Text = "&Update";
-            // 
             // updateToolStripMenuItem
             // 
             this.updateToolStripMenuItem.Name = "updateToolStripMenuItem";
-            this.updateToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.D)));
+            this.updateToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.U)));
             this.updateToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
-            this.updateToolStripMenuItem.Text = "&Delete";
+            this.updateToolStripMenuItem.Text = "&Update";
+            // 
+            // deleteToolStripMenuItem
+            // 
+            this.deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
+            this.deleteToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.D)));
+            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
+            this.deleteToolStripMenuItem.Text = "&Delete";
             // 
             // viewAllToolStripMenuItem
             // 
@@ -475,12 +475,12 @@
             // 
             this.formsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.mainMenuToolStripMenuItem,
-            this.enrolmentsToolStripMenuItem,
-            this.studentsCoursesToolStripMenuItem,
+            this.studentToolStripMenuItem,
+            this.teacherCoursesToolStripMenuItem,
             this.enrolmentToolStripMenuItem,
             this.courseToolStripMenuItem,
             this.unitToolStripMenuItem,
-            this.aSsessmentToolStripMenuItem,
+            this.assessmentToolStripMenuItem,
             this.skillsToolStripMenuItem,
             this.globalSearchToolStripMenuItem});
             this.formsToolStripMenuItem.Name = "formsToolStripMenuItem";
@@ -490,20 +490,20 @@
             // mainMenuToolStripMenuItem
             // 
             this.mainMenuToolStripMenuItem.Name = "mainMenuToolStripMenuItem";
-            this.mainMenuToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
+            this.mainMenuToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.mainMenuToolStripMenuItem.Text = "Main Menu";
             // 
-            // enrolmentsToolStripMenuItem
+            // studentToolStripMenuItem
             // 
-            this.enrolmentsToolStripMenuItem.Name = "enrolmentsToolStripMenuItem";
-            this.enrolmentsToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
-            this.enrolmentsToolStripMenuItem.Text = "Student";
+            this.studentToolStripMenuItem.Name = "studentToolStripMenuItem";
+            this.studentToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.studentToolStripMenuItem.Text = "Student";
             // 
-            // studentsCoursesToolStripMenuItem
+            // teacherCoursesToolStripMenuItem
             // 
-            this.studentsCoursesToolStripMenuItem.Name = "studentsCoursesToolStripMenuItem";
-            this.studentsCoursesToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
-            this.studentsCoursesToolStripMenuItem.Text = "Teacher";
+            this.teacherCoursesToolStripMenuItem.Name = "teacherCoursesToolStripMenuItem";
+            this.teacherCoursesToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.teacherCoursesToolStripMenuItem.Text = "Teacher";
             // 
             // label6
             // 
@@ -600,7 +600,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Lavender;
-            this.ClientSize = new System.Drawing.Size(744, 528);
+            this.ClientSize = new System.Drawing.Size(744, 507);
             this.Controls.Add(this.panel9);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.label7);
@@ -660,7 +660,7 @@
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.ToolStripMenuItem globalSearchToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem skillsToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem aSsessmentToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem assessmentToolStripMenuItem;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.ToolStripMenuItem unitToolStripMenuItem;
         private System.Windows.Forms.Label label1;
@@ -676,13 +676,13 @@
         private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem addToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem searchToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem deleteToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem updateToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem deleteToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem viewAllToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem formsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem mainMenuToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem enrolmentsToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem studentsCoursesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem studentToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem teacherCoursesToolStripMenuItem;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label13;

@@ -11,6 +11,8 @@ namespace CmsLibrary
     {
         private int id;
         private int teacherId;
+        private int skillId;
+        private int departmentId;
         private string name;
         private int type;
         private int numOfHours;
@@ -23,10 +25,12 @@ namespace CmsLibrary
             this.id = id;
         }
 
-        public Unit(int id, int teacherId, string name, int type, int numOfHours, string description)
+        public Unit(int id, int teacherId, int skillId, int departmentId, string name, int type, int numOfHours, string description)
         {
             this.id = id;
             this.teacherId = teacherId;
+            this.skillId = skillId;
+            this.departmentId = departmentId;
             this.name = name;
             this.type = type;
             this.numOfHours = numOfHours;
@@ -56,6 +60,30 @@ namespace CmsLibrary
             set
             {
                 teacherId = value;
+            }
+        }
+
+        public int SkillId
+        {
+            get
+            {
+                return skillId;
+            }
+            set
+            {
+                skillId = value;
+            }
+        }
+
+        public int DepartmentId
+        {
+            get
+            {
+                return departmentId;
+            }
+            set
+            {
+                departmentId = value;
             }
         }
 
@@ -112,13 +140,15 @@ namespace CmsLibrary
 
         public bool Add()
         {
-            return Database.Add("units", out id, teacherId, name, type, numOfHours, description);
+            return Database.Add("units", out id, teacherId, skillId, departmentId, name, type, numOfHours, description);
         }
 
         public bool Update()
         {
             return Database.Update("units", "unitid", id,
                 "teacherid", id,
+                "skillid", skillId,
+                "departmentid", departmentId,
                 "unitname", name,
                 "unittype", type,
                 "numofhours", numOfHours,
@@ -141,10 +171,12 @@ namespace CmsLibrary
             if (Database.Search("units", out dataRow, values))
             {
                 teacherId = Convert.ToInt32(dataRow[1]);
-                name = Convert.ToString(dataRow[2]);
-                type = Convert.ToInt32(dataRow[3]);
-                numOfHours = Convert.ToInt32(dataRow[4]);
-                description = Convert.ToString(dataRow[5]);
+                skillId = Convert.ToInt32(dataRow[2]);
+                departmentId = Convert.ToInt32(dataRow[3]);
+                name = Convert.ToString(dataRow[4]);
+                type = Convert.ToInt32(dataRow[5]);
+                numOfHours = Convert.ToInt32(dataRow[6]);
+                description = Convert.ToString(dataRow[7]);
                 return true;
             }
             else

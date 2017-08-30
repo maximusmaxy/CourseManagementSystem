@@ -43,14 +43,6 @@ namespace CmsLibrary
         }
 
         /// <summary>
-        /// Extends the add with value method to accept null values.
-        /// </summary>
-        public static SqlParameter AddWithNullValue(this SqlParameterCollection collection, string param, object value)
-        {
-            return collection.AddWithValue(param, value == null ? DBNull.Value : value );
-        }
-
-        /// <summary>
         /// Validate a textbox for a numeric value
         /// </summary>
         /// <param name="error">Optional error message to override the default.</param>
@@ -120,6 +112,55 @@ namespace CmsLibrary
         public static Validation.Size ValidateLength(this TextBox control, int length, string error = null)
         {
             return new Validation.Size(control, length, error);
+        }
+
+        /// <summary>
+        /// Validate a textbox for being in the unit code format
+        /// </summary>
+        /// <param name="error">Optional error message to override the default.</param>
+        public static Validation.Text ValidateUnitCode(this TextBox control, string error = null)
+        {
+            return new Validation.Text(control, ValidationType.UnitCode, error);
+        }
+
+        /// <summary>
+        /// Validates a textbex for being a currency.
+        /// </summary>
+        /// <param name="error">Optional error message to override the default.</param>
+        /// <returns></returns>
+        public static Validation.Text ValidateCost(this TextBox control, string error = null)
+        {
+            return new Validation.Text(control, ValidationType.Cost, error);
+        }
+
+        /// <summary>
+        /// Extends the add with value method to accept null values.
+        /// </summary>
+        public static SqlParameter AddWithNullValue(this SqlParameterCollection collection, string param, object value)
+        {
+            return collection.AddWithValue(param, value == null ? DBNull.Value : value);
+        }
+
+        /// <summary>
+        /// allows you to convert DBNull into proper null.
+        /// </summary>
+        public static string ConvertDBNullString<T>(T value)
+        {
+            if (value.Equals(DBNull.Value))
+                return null;
+            else
+                return Convert.ToString(value);
+        }
+
+        /// <summary>
+        /// allows you to convert DBNull into a proper null.
+        /// </summary>
+        public static int? ConvertDBNullInt<T>(T value)
+        {
+            if (value.Equals(DBNull.Value))
+                return null;
+            else
+                return Convert.ToInt32(value);
         }
     }
 }

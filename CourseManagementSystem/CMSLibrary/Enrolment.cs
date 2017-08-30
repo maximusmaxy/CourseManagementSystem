@@ -18,6 +18,7 @@ namespace CmsLibrary
         private double enrolmentCost;
         private double discountCost;
         private int semester;
+        private int result;
 
         public Enrolment() { }
 
@@ -26,7 +27,7 @@ namespace CmsLibrary
             this.id = id;
         }
 
-        public Enrolment(int id, int studentId, int courseId, DateTime enrolmentDate, DateTime completionDate, double enrolmentCost, double discountCost, int semester)
+        public Enrolment(int id, int studentId, int courseId, DateTime enrolmentDate, DateTime completionDate, double enrolmentCost, double discountCost, int semester, int result)
         {
             this.id = id;
             this.studentId = studentId;
@@ -36,6 +37,7 @@ namespace CmsLibrary
             this.enrolmentCost = enrolmentCost;
             this.discountCost = discountCost;
             this.semester = semester;
+            this.result = result;
         }
 
         public int Id
@@ -142,9 +144,21 @@ namespace CmsLibrary
             }
         }
 
+        public int Result
+        {
+            get
+            {
+                return result;
+            }
+            set
+            {
+                result = value;
+            }
+        }
+
         public bool Add()
         {
-            return Database.Add("enrolments", out id, studentId, courseId, enrolmentDate, completionDate, discountCost, semester);
+            return Database.Add("enrolments", out id, studentId, courseId, enrolmentDate, completionDate, discountCost, semester, result);
         }
 
         public bool Update()
@@ -156,7 +170,8 @@ namespace CmsLibrary
                 "completionDate", completionDate,
                 "enrolmentCost", enrolmentCost,
                 "discountCost", discountCost,
-                "semester", semester);
+                "semester", semester,
+                "result", result);
         }
 
         public bool Delete()
@@ -181,6 +196,7 @@ namespace CmsLibrary
                 enrolmentCost = Convert.ToDouble(dataRow[5]);
                 discountCost = Convert.ToDouble(dataRow[6]);
                 semester = Convert.ToInt32(dataRow[7]);
+                result = Convert.ToInt32(dataRow[8]);
                 return true;
             }
             else

@@ -184,10 +184,10 @@ namespace CmsLibrary
             if (Database.Search("locations", out dataRow, values))
             {
                 addressStreet1 = Convert.ToString(dataRow[1]);
-                addressStreet2 = Convert.ToString(dataRow[2]);
-                addressSuburb = Convert.ToString(dataRow[3]);
-                addressState = Convert.ToString(dataRow[4]);
-                addressPostCode = Convert.ToInt32(dataRow[5]);
+                addressStreet2 = Extensions.ConvertDBNullString(dataRow[2]);
+                addressSuburb = Extensions.ConvertDBNullString(dataRow[3]);
+                addressState = Extensions.ConvertDBNullString(dataRow[4]);
+                addressPostCode = Extensions.ConvertDBNullInt(dataRow[5]);
                 return true;
             }
             else

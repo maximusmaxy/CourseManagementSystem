@@ -215,7 +215,7 @@ namespace CmsLibrary
                 countryOfOrigin = Convert.ToString(dataRow[6]);
                 gender = Convert.ToInt32(dataRow[7]);
                 disability = Convert.ToBoolean(dataRow[8]);
-                disabilityDescription = Convert.ToString(dataRow[9]);
+                disabilityDescription = Extensions.ConvertDBNullString(dataRow[9]);
                 return true;
             }
             else

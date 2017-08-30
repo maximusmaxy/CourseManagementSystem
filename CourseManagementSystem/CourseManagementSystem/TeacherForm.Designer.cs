@@ -75,6 +75,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.cmbDepartment = new System.Windows.Forms.ComboBox();
             this.cmbCampus = new System.Windows.Forms.ComboBox();
+            this.allocationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel5.SuspendLayout();
             this.panel8.SuspendLayout();
             this.panel4.SuspendLayout();
@@ -355,6 +356,7 @@
             this.unitToolStripMenuItem,
             this.assessmentToolStripMenuItem,
             this.skillsToolStripMenuItem,
+            this.allocationToolStripMenuItem,
             this.globalSearchToolStripMenuItem});
             this.formsToolStripMenuItem.Name = "formsToolStripMenuItem";
             this.formsToolStripMenuItem.Size = new System.Drawing.Size(52, 20);
@@ -463,6 +465,11 @@
             this.cmbCampus.Name = "cmbCampus";
             this.cmbCampus.Size = new System.Drawing.Size(313, 21);
             this.cmbCampus.TabIndex = 73;
+            // allocationToolStripMenuItem
+            // 
+            this.allocationToolStripMenuItem.Name = "allocationToolStripMenuItem";
+            this.allocationToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.allocationToolStripMenuItem.Text = "Allocation";
             // 
             // TeacherForm
             // 
@@ -549,5 +556,7 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ComboBox cmbDepartment;
         private System.Windows.Forms.ComboBox cmbCampus;
+        private System.Windows.Forms.ToolStripMenuItem allocationToolStripMenuItem;
+
     }
 }

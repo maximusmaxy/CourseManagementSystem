@@ -87,6 +87,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
+            this.allocationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1.SuspendLayout();
             this.panel9.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
@@ -482,6 +483,7 @@
             this.unitToolStripMenuItem,
             this.assessmentToolStripMenuItem,
             this.skillsToolStripMenuItem,
+            this.allocationToolStripMenuItem,
             this.globalSearchToolStripMenuItem});
             this.formsToolStripMenuItem.Name = "formsToolStripMenuItem";
             this.formsToolStripMenuItem.Size = new System.Drawing.Size(52, 20);
@@ -595,6 +597,12 @@
             this.label7.TabIndex = 79;
             this.label7.Text = "Course Results:";
             // 
+            // allocationToolStripMenuItem
+            // 
+            this.allocationToolStripMenuItem.Name = "allocationToolStripMenuItem";
+            this.allocationToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.allocationToolStripMenuItem.Text = "Allocation";
+            // 
             // EnrolmentForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -702,5 +710,6 @@
         private System.Windows.Forms.RadioButton radioButton5;
         private System.Windows.Forms.RadioButton radioButton3;
         private System.Windows.Forms.RadioButton radioButton4;
+        private System.Windows.Forms.ToolStripMenuItem allocationToolStripMenuItem;
     }
 }

@@ -80,6 +80,8 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
+            this.cmbDepartment = new System.Windows.Forms.ComboBox();
+            this.label7 = new System.Windows.Forms.Label();
             this.panel9.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
             this.panel5.SuspendLayout();
@@ -144,7 +146,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(112, 123);
+            this.label2.Location = new System.Drawing.Point(111, 123);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(69, 21);
             this.label2.TabIndex = 92;
@@ -164,7 +166,7 @@
             // 
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(45, 355);
+            this.label12.Location = new System.Drawing.Point(44, 397);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(136, 21);
             this.label12.TabIndex = 94;
@@ -172,36 +174,36 @@
             // 
             // textBox3
             // 
-            this.textBox3.Location = new System.Drawing.Point(189, 355);
+            this.textBox3.Location = new System.Drawing.Point(187, 394);
             this.textBox3.Multiline = true;
             this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(315, 111);
+            this.textBox3.Size = new System.Drawing.Size(312, 111);
             this.textBox3.TabIndex = 87;
             this.ToolTips.SetToolTip(this.textBox3, "Insert a Small description on what this unit will be about and what tasks may inc" +
         "lude");
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(189, 156);
+            this.textBox2.Location = new System.Drawing.Point(187, 157);
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(315, 20);
+            this.textBox2.Size = new System.Drawing.Size(312, 20);
             this.textBox2.TabIndex = 86;
             this.ToolTips.SetToolTip(this.textBox2, "Insert the Name of the Unit using Alphabetical Characters Only");
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(189, 123);
+            this.textBox1.Location = new System.Drawing.Point(187, 123);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(315, 20);
+            this.textBox1.Size = new System.Drawing.Size(312, 20);
             this.textBox1.TabIndex = 85;
             this.ToolTips.SetToolTip(this.textBox1, "Insert a Numeric value for the Unit ID, using 0-9 numbers Only");
             // 
             // comboBox1
             // 
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(189, 275);
+            this.comboBox1.Location = new System.Drawing.Point(187, 314);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(315, 21);
+            this.comboBox1.Size = new System.Drawing.Size(312, 21);
             this.comboBox1.TabIndex = 98;
             this.ToolTips.SetToolTip(this.comboBox1, "Select the Required Skill the Teacher will need to perform this Unit");
             // 
@@ -211,7 +213,7 @@
             this.panel9.Controls.Add(this.radioButton1);
             this.panel9.Location = new System.Drawing.Point(189, 194);
             this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(315, 21);
+            this.panel9.Size = new System.Drawing.Size(310, 21);
             this.panel9.TabIndex = 99;
             this.ToolTips.SetToolTip(this.panel9, "Select the Type of unit from the provided, Core or Elective");
             // 
@@ -242,17 +244,17 @@
             // comboBox2
             // 
             this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(189, 315);
+            this.comboBox2.Location = new System.Drawing.Point(187, 354);
             this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(315, 21);
+            this.comboBox2.Size = new System.Drawing.Size(312, 21);
             this.comboBox2.TabIndex = 102;
             this.ToolTips.SetToolTip(this.comboBox2, "Select the Teacher who will be Teaching this Unit");
             // 
             // textBox4
             // 
-            this.textBox4.Location = new System.Drawing.Point(189, 235);
+            this.textBox4.Location = new System.Drawing.Point(187, 235);
             this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(315, 20);
+            this.textBox4.Size = new System.Drawing.Size(312, 20);
             this.textBox4.TabIndex = 103;
             this.ToolTips.SetToolTip(this.textBox4, "Insert the Number of Hours this unit will take, Use Whole Numeric Values Only ");
             // 
@@ -480,7 +482,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(63, 276);
+            this.label3.Location = new System.Drawing.Point(61, 311);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(119, 21);
             this.label3.TabIndex = 97;
@@ -500,7 +502,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(107, 315);
+            this.label5.Location = new System.Drawing.Point(107, 357);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(73, 21);
             this.label5.TabIndex = 101;
@@ -516,12 +518,32 @@
             this.label6.TabIndex = 104;
             this.label6.Text = "Number of Hours:";
             // 
+            // cmbDepartment
+            // 
+            this.cmbDepartment.FormattingEnabled = true;
+            this.cmbDepartment.Location = new System.Drawing.Point(187, 274);
+            this.cmbDepartment.Name = "cmbDepartment";
+            this.cmbDepartment.Size = new System.Drawing.Size(312, 21);
+            this.cmbDepartment.TabIndex = 106;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(80, 268);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(100, 21);
+            this.label7.TabIndex = 105;
+            this.label7.Text = "Department:";
+            // 
             // UnitForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Lavender;
-            this.ClientSize = new System.Drawing.Size(744, 549);
+            this.ClientSize = new System.Drawing.Size(744, 528);
+            this.Controls.Add(this.cmbDepartment);
+            this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.textBox4);
             this.Controls.Add(this.comboBox2);
@@ -611,5 +633,7 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.ComboBox cmbDepartment;
+        private System.Windows.Forms.Label label7;
     }
 }

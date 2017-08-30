@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using CmsLibrary;
 
 namespace CMS
 {
@@ -19,7 +20,110 @@ namespace CMS
 
         private void TeacherForm_Load(object sender, EventArgs e)
         {
+            Database.LoadDatabase();
+        }
 
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            //validation
+            if (!Validation.Many(
+            txtFirstName.ValidateWord(),
+            txtLastName.ValidateWord(),
+            cmbCampus,
+            cmbDepartment
+            ))
+            {
+                return;
+            }
+
+            DialogResult result = MessageBox.Show("Would you like to add this teacher", "Question",
+                                               MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
+            if (result == DialogResult.Yes)
+            {
+
+            }
+        }
+
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            //validation
+            if (!Validation.Numeric(txtId))
+                return;
+
+            DialogResult result = MessageBox.Show("Would you like to search for this teacher", "Question",
+                                               MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
+            if (result == DialogResult.Yes)
+            {
+
+            }
+        }
+
+        private void btnUpdate_Click(object sender, EventArgs e)
+        {
+            //validation
+            if (!Validation.Many(
+                txtId.ValidateNumeric(),
+                txtFirstName.ValidateWord(),
+                txtLastName.ValidateWord(),
+                cmbCampus,
+                cmbDepartment
+                ))
+            {
+                return;
+            }
+
+            DialogResult result = MessageBox.Show("Would you like to update this record", "Question",
+                                               MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
+            if (result == DialogResult.Yes)
+            {
+
+            }
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            //validation
+            if (!Validation.Numeric(txtId))
+            {
+                return;
+            }
+
+            DialogResult result = MessageBox.Show("Would you like to delete this record", "Question",
+                                               MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
+            if (result == DialogResult.Yes)
+            {
+
+            }
+        }
+
+        private void btnViewAll_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Not yet coded");
+        }
+
+        private void addToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            btnAdd_Click(sender, e);
+        }
+
+        private void searchToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            btnSearch_Click(sender, e);
+        }
+
+        private void updateToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            btnUpdate_Click(sender, e);
+        }
+
+        private void deleteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            btnDelete_Click(sender, e);
+        }
+
+        private void viewAllToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            btnViewAll_Click(sender, e);
         }
     }
 }

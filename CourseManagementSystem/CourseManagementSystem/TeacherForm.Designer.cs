@@ -73,7 +73,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.button7 = new System.Windows.Forms.Button();
             this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.label4 = new System.Windows.Forms.Label();
             this.panel5.SuspendLayout();
@@ -446,15 +445,6 @@
             this.label3.TabIndex = 69;
             this.label3.Text = "Skills :";
             // 
-            // button7
-            // 
-            this.button7.Location = new System.Drawing.Point(422, 380);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(75, 23);
-            this.button7.TabIndex = 7;
-            this.button7.Text = "Update";
-            this.button7.UseVisualStyleBackColor = true;
-            // 
             // label4
             // 
             this.label4.AutoSize = true;
@@ -473,7 +463,6 @@
             this.ClientSize = new System.Drawing.Size(744, 575);
             this.Controls.Add(this.textBox4);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.button7);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.listBox1);
             this.Controls.Add(this.textBox5);
@@ -541,7 +530,6 @@
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.ListBox listBox1;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Button button7;
         private System.Windows.Forms.ToolStripMenuItem studentToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem teacherToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem enrolmentToolStripMenuItem;

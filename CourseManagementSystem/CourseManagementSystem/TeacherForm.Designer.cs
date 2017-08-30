@@ -35,7 +35,7 @@
             this.label13 = new System.Windows.Forms.Label();
             this.ToolTips = new System.Windows.Forms.ToolTip(this.components);
             this.textBox5 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.listBox1 = new System.Windows.Forms.ListBox();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.backgroundWorker2 = new System.ComponentModel.BackgroundWorker();
             this.mainMenuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -57,8 +57,8 @@
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.addToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.searchToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.deleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.updateToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.deleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.viewAllToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.formsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.studentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -71,14 +71,10 @@
             this.globalSearchToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.label2 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
-            this.listBox1 = new System.Windows.Forms.ListBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.button7 = new System.Windows.Forms.Button();
             this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.label4 = new System.Windows.Forms.Label();
-            this.button8 = new System.Windows.Forms.Button();
-            this.listBox2 = new System.Windows.Forms.ListBox();
-            this.label6 = new System.Windows.Forms.Label();
+            this.cmbDepartment = new System.Windows.Forms.ComboBox();
             this.panel5.SuspendLayout();
             this.panel8.SuspendLayout();
             this.panel4.SuspendLayout();
@@ -92,25 +88,25 @@
             // 
             // textBox3
             // 
-            this.textBox3.Location = new System.Drawing.Point(387, 174);
+            this.textBox3.Location = new System.Drawing.Point(348, 165);
             this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(125, 20);
+            this.textBox3.Size = new System.Drawing.Size(149, 20);
             this.textBox3.TabIndex = 3;
             this.ToolTips.SetToolTip(this.textBox3, "Insert the Last Name here, using A-Z characters Only!");
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(245, 173);
+            this.textBox2.Location = new System.Drawing.Point(184, 164);
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(125, 20);
+            this.textBox2.Size = new System.Drawing.Size(149, 20);
             this.textBox2.TabIndex = 2;
             this.ToolTips.SetToolTip(this.textBox2, "Insert the First Name here, using A-Z characters Only!");
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(245, 129);
+            this.textBox1.Location = new System.Drawing.Point(184, 131);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(125, 20);
+            this.textBox1.Size = new System.Drawing.Size(313, 20);
             this.textBox1.TabIndex = 1;
             this.ToolTips.SetToolTip(this.textBox1, "Insert a Numeric value for the Teacher ID, using 0-9 numbers Only");
             // 
@@ -118,7 +114,7 @@
             // 
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(152, 172);
+            this.label13.Location = new System.Drawing.Point(88, 163);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(90, 21);
             this.label13.TabIndex = 65;
@@ -126,25 +122,25 @@
             // 
             // textBox5
             // 
-            this.textBox5.Location = new System.Drawing.Point(245, 210);
+            this.textBox5.Location = new System.Drawing.Point(184, 201);
             this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(125, 20);
+            this.textBox5.Size = new System.Drawing.Size(313, 20);
             this.textBox5.TabIndex = 4;
             this.ToolTips.SetToolTip(this.textBox5, "Insert the Campus Suburb here using A-Z Characters Only!");
             // 
-            // textBox4
+            // listBox1
             // 
-            this.textBox4.Location = new System.Drawing.Point(245, 250);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(125, 20);
-            this.textBox4.TabIndex = 5;
-            this.ToolTips.SetToolTip(this.textBox4, "Insert the Department using A-Z Characters Only! (e.g. I.T Department, Engineerin" +
-        "g)");
+            this.listBox1.FormattingEnabled = true;
+            this.listBox1.Location = new System.Drawing.Point(184, 272);
+            this.listBox1.Name = "listBox1";
+            this.listBox1.Size = new System.Drawing.Size(313, 95);
+            this.listBox1.TabIndex = 6;
+            this.ToolTips.SetToolTip(this.listBox1, "Select the Skill Appropriate for the currently selected Teacher");
             // 
             // mainMenuToolStripMenuItem
             // 
             this.mainMenuToolStripMenuItem.Name = "mainMenuToolStripMenuItem";
-            this.mainMenuToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
+            this.mainMenuToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.mainMenuToolStripMenuItem.Text = "Main Menu";
             // 
             // label1
@@ -304,8 +300,8 @@
             this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.addToolStripMenuItem,
             this.searchToolStripMenuItem,
-            this.deleteToolStripMenuItem,
             this.updateToolStripMenuItem,
+            this.deleteToolStripMenuItem,
             this.viewAllToolStripMenuItem});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
             this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
@@ -315,29 +311,29 @@
             // 
             this.addToolStripMenuItem.Name = "addToolStripMenuItem";
             this.addToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.A)));
-            this.addToolStripMenuItem.Size = new System.Drawing.Size(154, 22);
+            this.addToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
             this.addToolStripMenuItem.Text = "&Add";
             // 
             // searchToolStripMenuItem
             // 
             this.searchToolStripMenuItem.Name = "searchToolStripMenuItem";
             this.searchToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S)));
-            this.searchToolStripMenuItem.Size = new System.Drawing.Size(154, 22);
+            this.searchToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
             this.searchToolStripMenuItem.Text = "&Search";
-            // 
-            // deleteToolStripMenuItem
-            // 
-            this.deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
-            this.deleteToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.U)));
-            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(154, 22);
-            this.deleteToolStripMenuItem.Text = "&Update";
             // 
             // updateToolStripMenuItem
             // 
             this.updateToolStripMenuItem.Name = "updateToolStripMenuItem";
-            this.updateToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.D)));
-            this.updateToolStripMenuItem.Size = new System.Drawing.Size(154, 22);
-            this.updateToolStripMenuItem.Text = "&Delete";
+            this.updateToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.U)));
+            this.updateToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
+            this.updateToolStripMenuItem.Text = "&Update";
+            // 
+            // deleteToolStripMenuItem
+            // 
+            this.deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
+            this.deleteToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.D)));
+            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
+            this.deleteToolStripMenuItem.Text = "&Delete";
             // 
             // viewAllToolStripMenuItem
             // 
@@ -365,56 +361,56 @@
             // studentToolStripMenuItem
             // 
             this.studentToolStripMenuItem.Name = "studentToolStripMenuItem";
-            this.studentToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
+            this.studentToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.studentToolStripMenuItem.Text = "Student";
             // 
             // teacherToolStripMenuItem
             // 
             this.teacherToolStripMenuItem.Name = "teacherToolStripMenuItem";
-            this.teacherToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
+            this.teacherToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.teacherToolStripMenuItem.Text = "Teacher";
             // 
             // enrolmentToolStripMenuItem
             // 
             this.enrolmentToolStripMenuItem.Name = "enrolmentToolStripMenuItem";
-            this.enrolmentToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
+            this.enrolmentToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.enrolmentToolStripMenuItem.Text = "Enrolment";
             // 
             // courseToolStripMenuItem
             // 
             this.courseToolStripMenuItem.Name = "courseToolStripMenuItem";
-            this.courseToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
+            this.courseToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.courseToolStripMenuItem.Text = "Course";
             // 
             // unitToolStripMenuItem
             // 
             this.unitToolStripMenuItem.Name = "unitToolStripMenuItem";
-            this.unitToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
+            this.unitToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.unitToolStripMenuItem.Text = "Unit";
             // 
             // assessmentToolStripMenuItem
             // 
             this.assessmentToolStripMenuItem.Name = "assessmentToolStripMenuItem";
-            this.assessmentToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
+            this.assessmentToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.assessmentToolStripMenuItem.Text = "Assessment";
             // 
             // skillsToolStripMenuItem
             // 
             this.skillsToolStripMenuItem.Name = "skillsToolStripMenuItem";
-            this.skillsToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
+            this.skillsToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.skillsToolStripMenuItem.Text = "Skills";
             // 
             // globalSearchToolStripMenuItem
             // 
             this.globalSearchToolStripMenuItem.Name = "globalSearchToolStripMenuItem";
-            this.globalSearchToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
+            this.globalSearchToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.globalSearchToolStripMenuItem.Text = "Global Search";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(145, 129);
+            this.label2.Location = new System.Drawing.Point(81, 131);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(97, 21);
             this.label2.TabIndex = 61;
@@ -424,90 +420,48 @@
             // 
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(166, 210);
+            this.label12.Location = new System.Drawing.Point(102, 201);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(76, 21);
             this.label12.TabIndex = 67;
             this.label12.Text = "Campus:";
             // 
-            // listBox1
-            // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.Location = new System.Drawing.Point(143, 317);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(125, 173);
-            this.listBox1.TabIndex = 6;
-            this.ToolTips.SetToolTip(this.listBox1, "Select the Skill Appropriate for the currently selected Teacher");
-            // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(180, 283);
+            this.label3.Location = new System.Drawing.Point(119, 272);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(50, 21);
+            this.label3.Size = new System.Drawing.Size(59, 21);
             this.label3.TabIndex = 69;
-            this.label3.Text = "Skills";
-            // 
-            // button7
-            // 
-            this.button7.Location = new System.Drawing.Point(167, 506);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(75, 23);
-            this.button7.TabIndex = 7;
-            this.button7.Text = "Update";
-            this.button7.UseVisualStyleBackColor = true;
+            this.label3.Text = "Skills :";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(145, 248);
+            this.label4.Location = new System.Drawing.Point(78, 239);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(100, 21);
             this.label4.TabIndex = 71;
             this.label4.Text = "Department:";
             // 
-            // button8
+            // cmbDepartment
             // 
-            this.button8.Location = new System.Drawing.Point(380, 506);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(75, 23);
-            this.button8.TabIndex = 9;
-            this.button8.Text = "Update";
-            this.button8.UseVisualStyleBackColor = true;
-            // 
-            // listBox2
-            // 
-            this.listBox2.FormattingEnabled = true;
-            this.listBox2.Location = new System.Drawing.Point(352, 317);
-            this.listBox2.Name = "listBox2";
-            this.listBox2.Size = new System.Drawing.Size(125, 173);
-            this.listBox2.TabIndex = 8;
-            this.ToolTips.SetToolTip(this.listBox2, "Select the Courses this Teacher is currently undertaking");
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(383, 283);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(72, 21);
-            this.label6.TabIndex = 76;
-            this.label6.Text = "Courses";
+            this.cmbDepartment.FormattingEnabled = true;
+            this.cmbDepartment.Location = new System.Drawing.Point(185, 239);
+            this.cmbDepartment.Name = "cmbDepartment";
+            this.cmbDepartment.Size = new System.Drawing.Size(312, 21);
+            this.cmbDepartment.TabIndex = 72;
             // 
             // TeacherForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Lavender;
-            this.ClientSize = new System.Drawing.Size(744, 575);
-            this.Controls.Add(this.label6);
-            this.Controls.Add(this.button8);
-            this.Controls.Add(this.listBox2);
-            this.Controls.Add(this.textBox4);
+            this.ClientSize = new System.Drawing.Size(744, 507);
+            this.Controls.Add(this.cmbDepartment);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.button7);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.listBox1);
             this.Controls.Add(this.textBox5);
@@ -566,8 +520,8 @@
         private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem addToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem searchToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem deleteToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem updateToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem deleteToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem viewAllToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem formsToolStripMenuItem;
         private System.Windows.Forms.Label label2;
@@ -575,7 +529,6 @@
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.ListBox listBox1;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Button button7;
         private System.Windows.Forms.ToolStripMenuItem studentToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem teacherToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem enrolmentToolStripMenuItem;
@@ -585,9 +538,6 @@
         private System.Windows.Forms.ToolStripMenuItem skillsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem globalSearchToolStripMenuItem;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.Button button8;
-        private System.Windows.Forms.ListBox listBox2;
-        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.ComboBox cmbDepartment;
     }
 }

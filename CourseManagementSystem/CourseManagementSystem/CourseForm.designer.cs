@@ -61,32 +61,31 @@
             this.skillsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.globalSearchToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ToolTips = new System.Windows.Forms.ToolTip(this.components);
-            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
-            this.backgroundWorker2 = new System.ComponentModel.BackgroundWorker();
-            this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.textBox5 = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
             this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
-            this.label8 = new System.Windows.Forms.Label();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
+            this.radioButton1 = new System.Windows.Forms.RadioButton();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+            this.backgroundWorker2 = new System.ComponentModel.BackgroundWorker();
+            this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.radioButton2 = new System.Windows.Forms.RadioButton();
             this.label3 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.button7 = new System.Windows.Forms.Button();
             this.label9 = new System.Windows.Forms.Label();
-            this.listBox1 = new System.Windows.Forms.ListBox();
             this.panel5.SuspendLayout();
             this.panel8.SuspendLayout();
             this.panel4.SuspendLayout();
@@ -316,70 +315,152 @@
             // mainMenuToolStripMenuItem
             // 
             this.mainMenuToolStripMenuItem.Name = "mainMenuToolStripMenuItem";
-            this.mainMenuToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.mainMenuToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
             this.mainMenuToolStripMenuItem.Text = "Main Menu";
             // 
             // enrolmentsToolStripMenuItem
             // 
             this.enrolmentsToolStripMenuItem.Name = "enrolmentsToolStripMenuItem";
-            this.enrolmentsToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.enrolmentsToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
             this.enrolmentsToolStripMenuItem.Text = "Student";
             // 
             // studentsCoursesToolStripMenuItem
             // 
             this.studentsCoursesToolStripMenuItem.Name = "studentsCoursesToolStripMenuItem";
-            this.studentsCoursesToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.studentsCoursesToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
             this.studentsCoursesToolStripMenuItem.Text = "Teacher";
             // 
             // enrolmentToolStripMenuItem
             // 
             this.enrolmentToolStripMenuItem.Name = "enrolmentToolStripMenuItem";
-            this.enrolmentToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.enrolmentToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
             this.enrolmentToolStripMenuItem.Text = "Enrolment";
             // 
             // courseToolStripMenuItem
             // 
             this.courseToolStripMenuItem.Name = "courseToolStripMenuItem";
-            this.courseToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.courseToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
             this.courseToolStripMenuItem.Text = "Course";
             // 
             // unitToolStripMenuItem
             // 
             this.unitToolStripMenuItem.Name = "unitToolStripMenuItem";
-            this.unitToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.unitToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
             this.unitToolStripMenuItem.Text = "Unit";
             // 
             // aSsessmentToolStripMenuItem
             // 
             this.aSsessmentToolStripMenuItem.Name = "aSsessmentToolStripMenuItem";
-            this.aSsessmentToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.aSsessmentToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
             this.aSsessmentToolStripMenuItem.Text = "Assessment";
             // 
             // skillsToolStripMenuItem
             // 
             this.skillsToolStripMenuItem.Name = "skillsToolStripMenuItem";
-            this.skillsToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.skillsToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
             this.skillsToolStripMenuItem.Text = "Skills";
             // 
             // globalSearchToolStripMenuItem
             // 
             this.globalSearchToolStripMenuItem.Name = "globalSearchToolStripMenuItem";
-            this.globalSearchToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.globalSearchToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
             this.globalSearchToolStripMenuItem.Text = "Global Search";
             // 
             // textBox5
             // 
-            this.textBox5.Location = new System.Drawing.Point(259, 324);
+            this.textBox5.Location = new System.Drawing.Point(202, 279);
             this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(125, 20);
+            this.textBox5.Size = new System.Drawing.Size(334, 20);
             this.textBox5.TabIndex = 89;
             this.ToolTips.SetToolTip(this.textBox5, "Insert the Campus Suburb here using Alphabetical Characters Only");
+            // 
+            // dateTimePicker2
+            // 
+            this.dateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateTimePicker2.Location = new System.Drawing.Point(425, 246);
+            this.dateTimePicker2.Name = "dateTimePicker2";
+            this.dateTimePicker2.Size = new System.Drawing.Size(111, 20);
+            this.dateTimePicker2.TabIndex = 87;
+            this.ToolTips.SetToolTip(this.dateTimePicker2, "Select the End Date for the Course here");
+            // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateTimePicker1.Location = new System.Drawing.Point(202, 246);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(111, 20);
+            this.dateTimePicker1.TabIndex = 82;
+            this.ToolTips.SetToolTip(this.dateTimePicker1, "Select the starting Date for the Course");
+            // 
+            // textBox3
+            // 
+            this.textBox3.Location = new System.Drawing.Point(204, 179);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(332, 20);
+            this.textBox3.TabIndex = 81;
+            this.ToolTips.SetToolTip(this.textBox3, "Insert the Cost for the Course using Numeric Characters Only");
+            // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(204, 144);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(332, 20);
+            this.textBox2.TabIndex = 80;
+            this.ToolTips.SetToolTip(this.textBox2, "Insert the Name of the Course using Alphabetical Characters Only");
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(204, 111);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(332, 20);
+            this.textBox1.TabIndex = 79;
+            this.ToolTips.SetToolTip(this.textBox1, "Insert a Numeric value for the Course ID, using 0-9 numbers Only");
+            // 
+            // radioButton1
+            // 
+            this.radioButton1.AutoSize = true;
+            this.radioButton1.Location = new System.Drawing.Point(3, 3);
+            this.radioButton1.Name = "radioButton1";
+            this.radioButton1.Size = new System.Drawing.Size(92, 17);
+            this.radioButton1.TabIndex = 0;
+            this.radioButton1.TabStop = true;
+            this.radioButton1.Text = "Face-To-Face";
+            this.ToolTips.SetToolTip(this.radioButton1, "Select the Type of Course Delivery here, from Face to Face to Online Service Call" +
+        "ed OTEN");
+            this.radioButton1.UseVisualStyleBackColor = true;
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(202, 310);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(334, 21);
+            this.comboBox1.TabIndex = 95;
+            this.ToolTips.SetToolTip(this.comboBox1, "Select from the list the Appropriate Area of Study for this Course");
+            // 
+            // textBox4
+            // 
+            this.textBox4.Location = new System.Drawing.Point(41, 380);
+            this.textBox4.Multiline = true;
+            this.textBox4.Name = "textBox4";
+            this.textBox4.Size = new System.Drawing.Size(362, 173);
+            this.textBox4.TabIndex = 96;
+            this.ToolTips.SetToolTip(this.textBox4, "Please Describe what this Course is about and what are the Goals");
+            // 
+            // listBox1
+            // 
+            this.listBox1.FormattingEnabled = true;
+            this.listBox1.Location = new System.Drawing.Point(425, 380);
+            this.listBox1.Name = "listBox1";
+            this.listBox1.Size = new System.Drawing.Size(115, 173);
+            this.listBox1.TabIndex = 98;
+            this.ToolTips.SetToolTip(this.listBox1, "Select the Skill Appropriate for the currently selected Teacher");
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(177, 324);
+            this.label4.Location = new System.Drawing.Point(120, 279);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(76, 21);
             this.label4.TabIndex = 92;
@@ -389,69 +470,27 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(130, 359);
+            this.label5.Location = new System.Drawing.Point(73, 311);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(123, 21);
             this.label5.TabIndex = 91;
             this.label5.Text = "Area Of Study:";
             // 
-            // dateTimePicker2
-            // 
-            this.dateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker2.Location = new System.Drawing.Point(259, 282);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(127, 20);
-            this.dateTimePicker2.TabIndex = 87;
-            this.ToolTips.SetToolTip(this.dateTimePicker2, "Select the End Date for the Course here");
-            // 
             // label8
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(170, 283);
+            this.label8.Location = new System.Drawing.Point(336, 246);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(83, 21);
             this.label8.TabIndex = 88;
             this.label8.Text = "End Date:";
             // 
-            // dateTimePicker1
-            // 
-            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker1.Location = new System.Drawing.Point(259, 245);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(127, 20);
-            this.dateTimePicker1.TabIndex = 82;
-            this.ToolTips.SetToolTip(this.dateTimePicker1, "Select the starting Date for the Course");
-            // 
-            // textBox3
-            // 
-            this.textBox3.Location = new System.Drawing.Point(261, 178);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(125, 20);
-            this.textBox3.TabIndex = 81;
-            this.ToolTips.SetToolTip(this.textBox3, "Insert the Cost for the Course using Numeric Characters Only");
-            // 
-            // textBox2
-            // 
-            this.textBox2.Location = new System.Drawing.Point(261, 143);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(125, 20);
-            this.textBox2.TabIndex = 80;
-            this.ToolTips.SetToolTip(this.textBox2, "Insert the Name of the Course using Alphabetical Characters Only");
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(261, 110);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(125, 20);
-            this.textBox1.TabIndex = 79;
-            this.ToolTips.SetToolTip(this.textBox1, "Insert a Numeric value for the Course ID, using 0-9 numbers Only");
-            // 
             // label6
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(165, 244);
+            this.label6.Location = new System.Drawing.Point(108, 246);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(88, 21);
             this.label6.TabIndex = 84;
@@ -461,7 +500,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(161, 108);
+            this.label2.Location = new System.Drawing.Point(104, 109);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(92, 21);
             this.label2.TabIndex = 83;
@@ -471,7 +510,7 @@
             // 
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(196, 142);
+            this.label13.Location = new System.Drawing.Point(139, 143);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(57, 21);
             this.label13.TabIndex = 86;
@@ -481,7 +520,7 @@
             // 
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(203, 178);
+            this.label12.Location = new System.Drawing.Point(146, 179);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(50, 21);
             this.label12.TabIndex = 85;
@@ -491,108 +530,58 @@
             // 
             this.panel1.Controls.Add(this.radioButton2);
             this.panel1.Controls.Add(this.radioButton1);
-            this.panel1.Location = new System.Drawing.Point(261, 210);
+            this.panel1.Location = new System.Drawing.Point(204, 211);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(112, 23);
+            this.panel1.Size = new System.Drawing.Size(332, 23);
             this.panel1.TabIndex = 93;
-            // 
-            // radioButton1
-            // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Location = new System.Drawing.Point(3, 3);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(44, 17);
-            this.radioButton1.TabIndex = 0;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "FTF";
-            this.ToolTips.SetToolTip(this.radioButton1, "Select the Type of Course Delivery here, from Face to Face to Online Service Call" +
-        "ed OTEN");
-            this.radioButton1.UseVisualStyleBackColor = true;
             // 
             // radioButton2
             // 
             this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(60, 3);
+            this.radioButton2.Location = new System.Drawing.Point(116, 3);
             this.radioButton2.Name = "radioButton2";
             this.radioButton2.Size = new System.Drawing.Size(55, 17);
             this.radioButton2.TabIndex = 1;
             this.radioButton2.TabStop = true;
-            this.radioButton2.Text = "OTEN";
+            this.radioButton2.Text = "Online";
             this.radioButton2.UseVisualStyleBackColor = true;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(135, 212);
+            this.label3.Location = new System.Drawing.Point(78, 213);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(118, 21);
             this.label3.TabIndex = 94;
             this.label3.Text = "Delivery Type:";
             // 
-            // comboBox1
-            // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(259, 358);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(125, 21);
-            this.comboBox1.TabIndex = 95;
-            this.ToolTips.SetToolTip(this.comboBox1, "Select from the list the Appropriate Area of Study for this Course");
-            // 
-            // textBox4
-            // 
-            this.textBox4.Location = new System.Drawing.Point(55, 443);
-            this.textBox4.Multiline = true;
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(251, 173);
-            this.textBox4.TabIndex = 96;
-            this.ToolTips.SetToolTip(this.textBox4, "Please Describe what this Course is about and what are the Goals");
-            // 
             // label7
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(92, 418);
+            this.label7.Location = new System.Drawing.Point(37, 349);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(155, 21);
+            this.label7.Size = new System.Drawing.Size(159, 21);
             this.label7.TabIndex = 97;
-            this.label7.Text = "Course Description";
-            // 
-            // button7
-            // 
-            this.button7.Location = new System.Drawing.Point(436, 622);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(75, 23);
-            this.button7.TabIndex = 99;
-            this.button7.Text = "Update";
-            this.button7.UseVisualStyleBackColor = true;
+            this.label7.Text = "Course Description:";
             // 
             // label9
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(448, 415);
+            this.label9.Location = new System.Drawing.Point(421, 349);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(49, 21);
+            this.label9.Size = new System.Drawing.Size(123, 21);
             this.label9.TabIndex = 100;
-            this.label9.Text = "Units";
-            // 
-            // listBox1
-            // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.Location = new System.Drawing.Point(411, 443);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(125, 173);
-            this.listBox1.TabIndex = 98;
-            this.ToolTips.SetToolTip(this.listBox1, "Select the Skill Appropriate for the currently selected Teacher");
+            this.label9.Text = "Units Included:";
             // 
             // CourseForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Lavender;
-            this.ClientSize = new System.Drawing.Size(744, 659);
-            this.Controls.Add(this.button7);
+            this.ClientSize = new System.Drawing.Size(744, 575);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.listBox1);
             this.Controls.Add(this.textBox4);
@@ -691,7 +680,6 @@
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.TextBox textBox4;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Button button7;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.ListBox listBox1;
     }

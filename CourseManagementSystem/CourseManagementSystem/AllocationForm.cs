@@ -8,7 +8,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using CmsLibrary;
-
 namespace CMS
 {
     public partial class AllocationForm : Form
@@ -16,21 +15,28 @@ namespace CMS
         public AllocationForm()
         {
             InitializeComponent();
-            //Forms.FillData(cmbAreaOfStudy, "departments", "departmentname", "departmentid");
+            Database.ServerName = @"MAXIMUMPENIS\SQLEXPRESS";
+            Database.LoadDatabase();
+            
+            Forms.FillData(cmbAreaOfStudy, "departments", "departmentname", "departmentid");
+            cmbAreaOfStudy.Text = "Please select a department.";
         }
 
-        private void cmbAreaOfStudy_SelectedIndexChanged(object sender, EventArgs e)
+        private void cmbAreaOfStudy_SelectionChangeCommitted(object sender, EventArgs e)
         {
             if (!Validation.Combo(cmbAreaOfStudy))
                 return;
-            //Forms.FillData(lstTeacher, "teachers", "teacherfirstname", "teacherid", "departmentid", cmbAreaOfStudy.SelectedValue);
+            Forms.FillData(lstTeacher, "teachers", "(teacherfirstname + ' ' + teacherlastname)", "teacherid", "departmentid", cmbAreaOfStudy.SelectedValue);
         }
 
         private void lstTeacher_Click(object sender, EventArgs e)
         {
-            if (!Validation.Combo(cmbAreaOfStudy))
-                return;
+            Forms.FillData(lstCourse, "courses", "coursename", "courseid", "departmentid", cmbAreaOfStudy.SelectedValue);
+        }
 
+        private void cmbAreaOfStudy_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            
         }
     }
 }

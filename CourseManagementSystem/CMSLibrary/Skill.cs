@@ -107,6 +107,7 @@ namespace CmsLibrary
             DataRow dataRow;
             if (Database.Search("skills", out dataRow, values))
             {
+                id = Convert.ToInt32(dataRow[0]);
                 departmentId = Convert.ToInt32(dataRow[1]);
                 name = Convert.ToString(dataRow[2]);
                 description = Convert.ToString(dataRow[3]);

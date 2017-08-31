@@ -98,16 +98,35 @@ namespace CmsLibrary
         /// <param name="table">The name of the table in the database.</param>
         /// <param name="display">The name of the column in the database that represents the displayed value in the combo box.</param>
         /// <param name="value">The name of the column in the database that holds the underlying value of the combo box.</param>
-        /// <param name="text">The text displayed in the combo box before an option has been selected.</param>
-        public static DataTable FillData(ListControl control, string table, string display, string value)
+        /// <param name="conditions">Every even value is a string for the column name. Every odd value is an object for the value to search for.</param>
+        public static DataTable FillData(ListControl control, string table, string display, string value, params object[] conditions)
         {
             if (control is ListBox)
             {
                 ListBox lb = (ListBox)control;
                 lb.SelectionMode = SelectionMode.MultiSimple;
             }
-            string sql = $"select {display}, {value} from {table}";
-            DataTable dataTable = Database.CreateDataTable(sql);
+            StringBuilder sql = new StringBuilder("select ");
+            sql.Append(display);
+            sql.Append(", ");
+            sql.Append(value);
+            sql.Append(" from ");
+            sql.Append(table);
+            if (conditions.Length> 0)
+            {
+                sql.Append(" where '");
+                sql.Append(conditions[0]);
+                sql.Append("' = ");
+                sql.Append(conditions[1]);
+                for (int i = 2; i < conditions.Length; i++)
+                {
+                    sql.Append(" and '");
+                    sql.Append(conditions[i++]);
+                    sql.Append("' = ");
+                    sql.Append(conditions[i]);
+                }
+            }
+            DataTable dataTable = Database.CreateDataTable(sql.ToString());
             control.DataSource = dataTable;
             control.DisplayMember = display;
             control.ValueMember = value;

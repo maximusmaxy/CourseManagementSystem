@@ -170,6 +170,7 @@ namespace CmsLibrary
             DataRow dataRow;
             if (Database.Search("units", out dataRow, values))
             {
+                id = Convert.ToInt32(dataRow[0]);
                 teacherId = Convert.ToInt32(dataRow[1]);
                 skillId = Convert.ToInt32(dataRow[2]);
                 departmentId = Convert.ToInt32(dataRow[3]);

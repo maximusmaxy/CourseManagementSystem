@@ -187,6 +187,7 @@ namespace CmsLibrary
             DataRow dataRow;
             if (Database.Search("courses", out dataRow, values))
             {
+                id = Convert.ToInt32(dataRow[0]);
                 name = Convert.ToString(dataRow[1]);
                 cost = Convert.ToDouble(dataRow[2]);
                 deliveryType = Convert.ToInt32(dataRow[3]);

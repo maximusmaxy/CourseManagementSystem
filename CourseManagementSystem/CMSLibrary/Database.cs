@@ -45,7 +45,7 @@ namespace CmsLibrary
                 connection.Open();
                 command.ExecuteNonQuery();
             }
-            ExecuteNonQuery(File.ReadAllText(SqlFileName));
+            ExecuteNonQuery(File.ReadAllText(SqlFileName)); 
         }
 
         /// <summary>

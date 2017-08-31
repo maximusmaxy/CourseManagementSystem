@@ -183,6 +183,7 @@ namespace CmsLibrary
             DataRow dataRow;
             if (Database.Search("locations", out dataRow, values))
             {
+                id = Convert.ToInt32(dataRow[0]);
                 addressStreet1 = Convert.ToString(dataRow[1]);
                 addressStreet2 = Extensions.ConvertDBNullString(dataRow[2]);
                 addressSuburb = Extensions.ConvertDBNullString(dataRow[3]);

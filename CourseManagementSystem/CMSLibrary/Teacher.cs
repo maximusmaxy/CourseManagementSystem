@@ -26,7 +26,7 @@ namespace CmsLibrary
         public Teacher(int id, int locationId, int departmentId, string firstName, string lastName, string email)
         {
             this.id = id;
-            this.locationId = locationId;
+            this.LocationId = locationId;
             this.departmentId = departmentId;
             this.firstName = firstName;
             this.lastName = lastName;
@@ -95,16 +95,29 @@ namespace CmsLibrary
             }
         }
 
+        public int LocationId
+        {
+            get
+            {
+                return locationId;
+            }
+
+            set
+            {
+                locationId = value;
+            }
+        }
+
         public bool Add()
         {
-            return Database.Add("teachers", out id, locationId, departmentId, firstName, lastName, email);
+            return Database.Add("teachers", out id, LocationId, departmentId, firstName, lastName, email);
         }
 
 
         public bool Update()
         {
             return Database.Update("teachers", "teacherid", id,
-                "locationid", locationId,
+                "locationid", LocationId,
                 "departmentid", departmentId,
                 "teacherfirstName", firstName,
                 "teacherlastName", lastName,
@@ -126,7 +139,8 @@ namespace CmsLibrary
             DataRow dataRow;
             if (Database.Search("teachers", out dataRow, values))
             {
-                locationId = Convert.ToInt32(dataRow[1]);
+                id = Convert.ToInt32(dataRow[0]);
+                LocationId = Convert.ToInt32(dataRow[1]);
                 departmentId = Convert.ToInt32(dataRow[2]);
                 firstName = Convert.ToString(dataRow[3]);
                 lastName = Convert.ToString(dataRow[4]);

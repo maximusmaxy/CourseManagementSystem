@@ -112,7 +112,7 @@
             // 
             // label1
             // 
-            this.label1.BackColor = System.Drawing.Color.Crimson;
+            this.label1.BackColor = System.Drawing.Color.Gainsboro;
             this.label1.Font = new System.Drawing.Font("Times New Roman", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(12, 9);
             this.label1.Name = "label1";
@@ -241,13 +241,13 @@
             // globalSearchToolStripMenuItem
             // 
             this.globalSearchToolStripMenuItem.Name = "globalSearchToolStripMenuItem";
-            this.globalSearchToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
+            this.globalSearchToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.globalSearchToolStripMenuItem.Text = "Global Search";
             // 
             // button5
             // 
-            this.button5.BackColor = System.Drawing.Color.Crimson;
-            this.button5.Image = global::CMS.Properties.Resources.SkillsButton;
+            this.button5.BackColor = System.Drawing.Color.Gainsboro;
+            this.button5.Image = global::CMS.Properties.Resources.AllocationButton;
             this.button5.Location = new System.Drawing.Point(3, 3);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(125, 100);
@@ -256,7 +256,7 @@
             // 
             // panel8
             // 
-            this.panel8.BackColor = System.Drawing.Color.Crimson;
+            this.panel8.BackColor = System.Drawing.Color.Gainsboro;
             this.panel8.Controls.Add(this.button6);
             this.panel8.Location = new System.Drawing.Point(4, 413);
             this.panel8.Name = "panel8";
@@ -285,7 +285,7 @@
             // 
             // panel4
             // 
-            this.panel4.BackColor = System.Drawing.Color.Crimson;
+            this.panel4.BackColor = System.Drawing.Color.Gainsboro;
             this.panel4.Controls.Add(this.button4);
             this.panel4.Location = new System.Drawing.Point(3, 350);
             this.panel4.Name = "panel4";
@@ -294,7 +294,7 @@
             // 
             // panel3
             // 
-            this.panel3.BackColor = System.Drawing.Color.Crimson;
+            this.panel3.BackColor = System.Drawing.Color.Gainsboro;
             this.panel3.Controls.Add(this.button3);
             this.panel3.Location = new System.Drawing.Point(3, 281);
             this.panel3.Name = "panel3";
@@ -322,7 +322,7 @@
             // 
             // panel2
             // 
-            this.panel2.BackColor = System.Drawing.Color.Crimson;
+            this.panel2.BackColor = System.Drawing.Color.Gainsboro;
             this.panel2.Controls.Add(this.button2);
             this.panel2.Location = new System.Drawing.Point(4, 150);
             this.panel2.Name = "panel2";
@@ -341,7 +341,7 @@
             // 
             // panel6
             // 
-            this.panel6.BackColor = System.Drawing.Color.Crimson;
+            this.panel6.BackColor = System.Drawing.Color.Gainsboro;
             this.panel6.Controls.Add(this.button1);
             this.panel6.Location = new System.Drawing.Point(3, 214);
             this.panel6.Name = "panel6";

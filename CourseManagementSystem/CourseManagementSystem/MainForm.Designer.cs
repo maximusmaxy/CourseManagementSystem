@@ -41,10 +41,10 @@
             this.panel8 = new System.Windows.Forms.Panel();
             this.panel9 = new System.Windows.Forms.Panel();
             this.panel10 = new System.Windows.Forms.Panel();
-            this.button6 = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
             this.button8 = new System.Windows.Forms.Button();
             this.button9 = new System.Windows.Forms.Button();
+            this.button6 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
@@ -165,20 +165,10 @@
             this.panel10.Size = new System.Drawing.Size(132, 106);
             this.panel10.TabIndex = 12;
             // 
-            // button6
-            // 
-            this.button6.BackColor = System.Drawing.Color.Gold;
-            this.button6.Image = global::CMS.Properties.Resources.UnitButton;
-            this.button6.Location = new System.Drawing.Point(3, 3);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(125, 100);
-            this.button6.TabIndex = 5;
-            this.button6.UseVisualStyleBackColor = false;
-            // 
             // button7
             // 
             this.button7.BackColor = System.Drawing.Color.Gainsboro;
-            this.button7.Image = global::CMS.Properties.Resources.GlobalSearchButton;
+            this.button7.Image = global::CMS.Properties.Resources.AllocationButton;
             this.button7.Location = new System.Drawing.Point(3, 3);
             this.button7.Name = "button7";
             this.button7.Size = new System.Drawing.Size(125, 100);
@@ -188,7 +178,7 @@
             // button8
             // 
             this.button8.BackColor = System.Drawing.Color.Crimson;
-            this.button8.Image = global::CMS.Properties.Resources.ExitButton;
+            this.button8.Image = global::CMS.Properties.Resources.GlobalSearchButton;
             this.button8.Location = new System.Drawing.Point(3, 3);
             this.button8.Name = "button8";
             this.button8.Size = new System.Drawing.Size(125, 100);
@@ -198,12 +188,22 @@
             // button9
             // 
             this.button9.BackColor = System.Drawing.Color.HotPink;
-            this.button9.Image = global::CMS.Properties.Resources.SkillsButton;
+            this.button9.Image = ((System.Drawing.Image)(resources.GetObject("button9.Image")));
             this.button9.Location = new System.Drawing.Point(3, 3);
             this.button9.Name = "button9";
             this.button9.Size = new System.Drawing.Size(125, 100);
             this.button9.TabIndex = 5;
             this.button9.UseVisualStyleBackColor = false;
+            // 
+            // button6
+            // 
+            this.button6.BackColor = System.Drawing.Color.Gold;
+            this.button6.Image = global::CMS.Properties.Resources.UnitButton;
+            this.button6.Location = new System.Drawing.Point(3, 3);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(125, 100);
+            this.button6.TabIndex = 5;
+            this.button6.UseVisualStyleBackColor = false;
             // 
             // button5
             // 

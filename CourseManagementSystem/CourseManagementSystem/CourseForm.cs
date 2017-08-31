@@ -45,8 +45,6 @@ namespace CMS
                 newCourse.LocationId = int.Parse(cboxCampus.SelectedItem.ToString());
                 newCourse.AreaOfStudy = cboxAreaOfStudy.SelectedItem.ToString();
                 newCourse.Description = txtCourseDescription.Text;
-
-
                 newCourse.Add();
             }
         }

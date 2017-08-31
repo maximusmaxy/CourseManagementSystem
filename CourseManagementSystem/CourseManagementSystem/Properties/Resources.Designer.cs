@@ -73,6 +73,16 @@ namespace CMS.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap AllocationButton {
+            get {
+                object obj = ResourceManager.GetObject("AllocationButton", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap AssessmentButton {
             get {
                 object obj = ResourceManager.GetObject("AssessmentButton", resourceCulture);
@@ -106,16 +116,6 @@ namespace CMS.Properties {
         internal static System.Drawing.Bitmap EnrolmentButton {
             get {
                 object obj = ResourceManager.GetObject("EnrolmentButton", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap ExitButton {
-            get {
-                object obj = ResourceManager.GetObject("ExitButton", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

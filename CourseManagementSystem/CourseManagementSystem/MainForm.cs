@@ -22,8 +22,54 @@ namespace CMS
 
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        
+
+        private void btnTeacherForm_Click(object sender, EventArgs e)
         {
+            TeacherForm frm = new TeacherForm();
+            frm.Show();
+        }
+
+        private void btnStudentForm_Click(object sender, EventArgs e)
+        {
+            StudentForm frm = new StudentForm();
+            frm.Show();
+        }
+
+        private void btnEnrolementForm_Click(object sender, EventArgs e)
+        {
+            EnrolmentForm frm = new EnrolmentForm();
+            frm.Show();
+        }
+
+        private void btnCourseForm_Click(object sender, EventArgs e)
+        {
+            CourseForm frm = new CourseForm();
+            frm.Show();
+        }
+
+        private void btnUnitForm_Click(object sender, EventArgs e)
+        {
+            UnitForm frm = new UnitForm();
+            frm.Show();
+        }
+
+        private void btnAssessmentForm_Click(object sender, EventArgs e)
+        {
+            AssessmentForm frm = new AssessmentForm();
+            frm.Show();
+        }
+
+        private void btnSkillsForm_Click(object sender, EventArgs e)
+        {
+            SkillsForm frm = new SkillsForm();
+            frm.Show();
+        }
+
+        private void btnAllocationForm_Click(object sender, EventArgs e)
+        {
+            AllocationForm frm = new CMS.AllocationForm();
+            frm.Show();
         }
     }
 }

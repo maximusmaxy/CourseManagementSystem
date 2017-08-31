@@ -70,6 +70,12 @@
     <Compile Include="EnrolmentForm.designer.cs">
       <DependentUpon>EnrolmentForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="GlobalSearchForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GlobalSearchForm.Designer.cs">
+      <DependentUpon>GlobalSearchForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -113,6 +119,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="EnrolmentForm.resx">
       <DependentUpon>EnrolmentForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GlobalSearchForm.resx">
+      <DependentUpon>GlobalSearchForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
@@ -173,16 +182,10 @@
     <None Include="Resources\EnrolmentButton.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\ExitButton.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\GlobalSearchButton.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\SearchButton.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\SkillsButton.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\StudentButton.png" />
@@ -198,6 +201,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\ViewAllButton.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\SkillsButton.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\AllocationButton.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

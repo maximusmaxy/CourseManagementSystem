@@ -140,7 +140,7 @@ namespace CmsLibrary
             if (Database.Search("teachers", out dataRow, values))
             {
                 id = Convert.ToInt32(dataRow[0]);
-                LocationId = Convert.ToInt32(dataRow[1]);
+                locationId = Convert.ToInt32(dataRow[1]);
                 departmentId = Convert.ToInt32(dataRow[2]);
                 firstName = Convert.ToString(dataRow[3]);
                 lastName = Convert.ToString(dataRow[4]);

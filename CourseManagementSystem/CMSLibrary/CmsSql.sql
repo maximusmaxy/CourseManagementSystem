@@ -1,4 +1,3 @@
-
 --Drop tables
 if object_id('Unit_Teachers','U') is not null
 drop table unit_teachers;

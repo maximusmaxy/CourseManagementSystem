@@ -32,24 +32,24 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnCourseForm = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.btnEnrolementForm = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.btnStudentForm = new System.Windows.Forms.Button();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.btnAssessmentForm = new System.Windows.Forms.Button();
             this.panel5 = new System.Windows.Forms.Panel();
+            this.btnTeacherForm = new System.Windows.Forms.Button();
             this.panel6 = new System.Windows.Forms.Panel();
+            this.btnUnitForm = new System.Windows.Forms.Button();
             this.panel7 = new System.Windows.Forms.Panel();
             this.panel8 = new System.Windows.Forms.Panel();
-            this.panel9 = new System.Windows.Forms.Panel();
-            this.panel10 = new System.Windows.Forms.Panel();
             this.btnAllocationForm = new System.Windows.Forms.Button();
+            this.panel9 = new System.Windows.Forms.Panel();
             this.btnGlobalSearchForm = new System.Windows.Forms.Button();
+            this.panel10 = new System.Windows.Forms.Panel();
             this.btnSkillsForm = new System.Windows.Forms.Button();
-            this.btnUnitForm = new System.Windows.Forms.Button();
-            this.btnTeacherForm = new System.Windows.Forms.Button();
-            this.btnAssessmentForm = new System.Windows.Forms.Button();
-            this.btnStudentForm = new System.Windows.Forms.Button();
-            this.btnEnrolementForm = new System.Windows.Forms.Button();
-            this.btnCourseForm = new System.Windows.Forms.Button();
             this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -84,6 +84,17 @@
             this.panel1.Size = new System.Drawing.Size(132, 106);
             this.panel1.TabIndex = 6;
             // 
+            // btnCourseForm
+            // 
+            this.btnCourseForm.BackColor = System.Drawing.Color.DarkOrange;
+            this.btnCourseForm.Image = ((System.Drawing.Image)(resources.GetObject("btnCourseForm.Image")));
+            this.btnCourseForm.Location = new System.Drawing.Point(3, 3);
+            this.btnCourseForm.Name = "btnCourseForm";
+            this.btnCourseForm.Size = new System.Drawing.Size(125, 100);
+            this.btnCourseForm.TabIndex = 5;
+            this.btnCourseForm.UseVisualStyleBackColor = false;
+            this.btnCourseForm.Click += new System.EventHandler(this.btnCourseForm_Click);
+            // 
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.MediumSlateBlue;
@@ -92,6 +103,17 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(132, 106);
             this.panel2.TabIndex = 7;
+            // 
+            // btnEnrolementForm
+            // 
+            this.btnEnrolementForm.BackColor = System.Drawing.Color.DeepSkyBlue;
+            this.btnEnrolementForm.Image = global::CMS.Properties.Resources.EnrolmentButton;
+            this.btnEnrolementForm.Location = new System.Drawing.Point(3, 3);
+            this.btnEnrolementForm.Name = "btnEnrolementForm";
+            this.btnEnrolementForm.Size = new System.Drawing.Size(125, 100);
+            this.btnEnrolementForm.TabIndex = 5;
+            this.btnEnrolementForm.UseVisualStyleBackColor = false;
+            this.btnEnrolementForm.Click += new System.EventHandler(this.btnEnrolementForm_Click);
             // 
             // panel3
             // 
@@ -102,6 +124,17 @@
             this.panel3.Size = new System.Drawing.Size(132, 106);
             this.panel3.TabIndex = 8;
             // 
+            // btnStudentForm
+            // 
+            this.btnStudentForm.BackColor = System.Drawing.Color.PaleGreen;
+            this.btnStudentForm.Image = ((System.Drawing.Image)(resources.GetObject("btnStudentForm.Image")));
+            this.btnStudentForm.Location = new System.Drawing.Point(3, 3);
+            this.btnStudentForm.Name = "btnStudentForm";
+            this.btnStudentForm.Size = new System.Drawing.Size(125, 100);
+            this.btnStudentForm.TabIndex = 5;
+            this.btnStudentForm.UseVisualStyleBackColor = false;
+            this.btnStudentForm.Click += new System.EventHandler(this.btnStudentForm_Click);
+            // 
             // panel4
             // 
             this.panel4.BackColor = System.Drawing.Color.MediumSlateBlue;
@@ -110,6 +143,17 @@
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(132, 106);
             this.panel4.TabIndex = 9;
+            // 
+            // btnAssessmentForm
+            // 
+            this.btnAssessmentForm.BackColor = System.Drawing.Color.Tan;
+            this.btnAssessmentForm.Image = global::CMS.Properties.Resources.AssessmentButton;
+            this.btnAssessmentForm.Location = new System.Drawing.Point(3, 3);
+            this.btnAssessmentForm.Name = "btnAssessmentForm";
+            this.btnAssessmentForm.Size = new System.Drawing.Size(125, 100);
+            this.btnAssessmentForm.TabIndex = 5;
+            this.btnAssessmentForm.UseVisualStyleBackColor = false;
+            this.btnAssessmentForm.Click += new System.EventHandler(this.btnAssessmentForm_Click);
             // 
             // panel5
             // 
@@ -120,6 +164,17 @@
             this.panel5.Size = new System.Drawing.Size(132, 106);
             this.panel5.TabIndex = 10;
             // 
+            // btnTeacherForm
+            // 
+            this.btnTeacherForm.BackColor = System.Drawing.Color.Plum;
+            this.btnTeacherForm.Image = global::CMS.Properties.Resources.TeacherButton;
+            this.btnTeacherForm.Location = new System.Drawing.Point(3, 3);
+            this.btnTeacherForm.Name = "btnTeacherForm";
+            this.btnTeacherForm.Size = new System.Drawing.Size(125, 100);
+            this.btnTeacherForm.TabIndex = 5;
+            this.btnTeacherForm.UseVisualStyleBackColor = false;
+            this.btnTeacherForm.Click += new System.EventHandler(this.btnTeacherForm_Click);
+            // 
             // panel6
             // 
             this.panel6.BackColor = System.Drawing.Color.MediumSlateBlue;
@@ -128,6 +183,17 @@
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(132, 106);
             this.panel6.TabIndex = 11;
+            // 
+            // btnUnitForm
+            // 
+            this.btnUnitForm.BackColor = System.Drawing.Color.Gold;
+            this.btnUnitForm.Image = global::CMS.Properties.Resources.UnitButton;
+            this.btnUnitForm.Location = new System.Drawing.Point(3, 3);
+            this.btnUnitForm.Name = "btnUnitForm";
+            this.btnUnitForm.Size = new System.Drawing.Size(125, 100);
+            this.btnUnitForm.TabIndex = 5;
+            this.btnUnitForm.UseVisualStyleBackColor = false;
+            this.btnUnitForm.Click += new System.EventHandler(this.btnUnitForm_Click);
             // 
             // panel7
             // 
@@ -147,6 +213,17 @@
             this.panel8.Size = new System.Drawing.Size(132, 106);
             this.panel8.TabIndex = 14;
             // 
+            // btnAllocationForm
+            // 
+            this.btnAllocationForm.BackColor = System.Drawing.Color.Gainsboro;
+            this.btnAllocationForm.Image = global::CMS.Properties.Resources.AllocationButton;
+            this.btnAllocationForm.Location = new System.Drawing.Point(3, 3);
+            this.btnAllocationForm.Name = "btnAllocationForm";
+            this.btnAllocationForm.Size = new System.Drawing.Size(125, 100);
+            this.btnAllocationForm.TabIndex = 5;
+            this.btnAllocationForm.UseVisualStyleBackColor = false;
+            this.btnAllocationForm.Click += new System.EventHandler(this.btnAllocationForm_Click);
+            // 
             // panel9
             // 
             this.panel9.BackColor = System.Drawing.Color.MediumSlateBlue;
@@ -156,6 +233,16 @@
             this.panel9.Size = new System.Drawing.Size(132, 106);
             this.panel9.TabIndex = 13;
             // 
+            // btnGlobalSearchForm
+            // 
+            this.btnGlobalSearchForm.BackColor = System.Drawing.Color.Crimson;
+            this.btnGlobalSearchForm.Image = global::CMS.Properties.Resources.GlobalSearchButton;
+            this.btnGlobalSearchForm.Location = new System.Drawing.Point(3, 3);
+            this.btnGlobalSearchForm.Name = "btnGlobalSearchForm";
+            this.btnGlobalSearchForm.Size = new System.Drawing.Size(125, 100);
+            this.btnGlobalSearchForm.TabIndex = 5;
+            this.btnGlobalSearchForm.UseVisualStyleBackColor = false;
+            // 
             // panel10
             // 
             this.panel10.BackColor = System.Drawing.Color.MediumSlateBlue;
@@ -164,27 +251,6 @@
             this.panel10.Name = "panel10";
             this.panel10.Size = new System.Drawing.Size(132, 106);
             this.panel10.TabIndex = 12;
-            // 
-            // btnAllocationForm
-            // 
-            this.btnAllocationForm.BackColor = System.Drawing.Color.Gainsboro;
-            this.btnAllocationForm.Image = global::CMS.Properties.Resources.GlobalSearchButton;
-            this.btnAllocationForm.Location = new System.Drawing.Point(3, 3);
-            this.btnAllocationForm.Name = "btnAllocationForm";
-            this.btnAllocationForm.Size = new System.Drawing.Size(125, 100);
-            this.btnAllocationForm.TabIndex = 5;
-            this.btnAllocationForm.UseVisualStyleBackColor = false;
-            this.btnAllocationForm.Click += new System.EventHandler(this.btnAllocationForm_Click);
-            // 
-            // btnGlobalSearchForm
-            // 
-            this.btnGlobalSearchForm.BackColor = System.Drawing.Color.Crimson;
-            //this.btnGlobalSearchForm.Image = global::CMS.Properties.Resources.ExitButton;
-            this.btnGlobalSearchForm.Location = new System.Drawing.Point(3, 3);
-            this.btnGlobalSearchForm.Name = "btnGlobalSearchForm";
-            this.btnGlobalSearchForm.Size = new System.Drawing.Size(125, 100);
-            this.btnGlobalSearchForm.TabIndex = 5;
-            this.btnGlobalSearchForm.UseVisualStyleBackColor = false;
             // 
             // btnSkillsForm
             // 
@@ -196,72 +262,6 @@
             this.btnSkillsForm.TabIndex = 5;
             this.btnSkillsForm.UseVisualStyleBackColor = false;
             this.btnSkillsForm.Click += new System.EventHandler(this.btnSkillsForm_Click);
-            // 
-            // btnUnitForm
-            // 
-            this.btnUnitForm.BackColor = System.Drawing.Color.Gold;
-            this.btnUnitForm.Image = global::CMS.Properties.Resources.UnitButton;
-            this.btnUnitForm.Location = new System.Drawing.Point(3, 3);
-            this.btnUnitForm.Name = "btnUnitForm";
-            this.btnUnitForm.Size = new System.Drawing.Size(125, 100);
-            this.btnUnitForm.TabIndex = 5;
-            this.btnUnitForm.UseVisualStyleBackColor = false;
-            this.btnUnitForm.Click += new System.EventHandler(this.btnUnitForm_Click);
-            // 
-            // btnTeacherForm
-            // 
-            this.btnTeacherForm.BackColor = System.Drawing.Color.Plum;
-            this.btnTeacherForm.Image = global::CMS.Properties.Resources.TeacherButton;
-            this.btnTeacherForm.Location = new System.Drawing.Point(3, 3);
-            this.btnTeacherForm.Name = "btnTeacherForm";
-            this.btnTeacherForm.Size = new System.Drawing.Size(125, 100);
-            this.btnTeacherForm.TabIndex = 5;
-            this.btnTeacherForm.UseVisualStyleBackColor = false;
-            this.btnTeacherForm.Click += new System.EventHandler(this.btnTeacherForm_Click);
-            // 
-            // btnAssessmentForm
-            // 
-            this.btnAssessmentForm.BackColor = System.Drawing.Color.Tan;
-            this.btnAssessmentForm.Image = global::CMS.Properties.Resources.AssessmentButton;
-            this.btnAssessmentForm.Location = new System.Drawing.Point(3, 3);
-            this.btnAssessmentForm.Name = "btnAssessmentForm";
-            this.btnAssessmentForm.Size = new System.Drawing.Size(125, 100);
-            this.btnAssessmentForm.TabIndex = 5;
-            this.btnAssessmentForm.UseVisualStyleBackColor = false;
-            this.btnAssessmentForm.Click += new System.EventHandler(this.btnAssessmentForm_Click);
-            // 
-            // btnStudentForm
-            // 
-            this.btnStudentForm.BackColor = System.Drawing.Color.PaleGreen;
-            this.btnStudentForm.Image = ((System.Drawing.Image)(resources.GetObject("btnStudentForm.Image")));
-            this.btnStudentForm.Location = new System.Drawing.Point(3, 3);
-            this.btnStudentForm.Name = "btnStudentForm";
-            this.btnStudentForm.Size = new System.Drawing.Size(125, 100);
-            this.btnStudentForm.TabIndex = 5;
-            this.btnStudentForm.UseVisualStyleBackColor = false;
-            this.btnStudentForm.Click += new System.EventHandler(this.btnStudentForm_Click);
-            // 
-            // btnEnrolementForm
-            // 
-            this.btnEnrolementForm.BackColor = System.Drawing.Color.DeepSkyBlue;
-            this.btnEnrolementForm.Image = global::CMS.Properties.Resources.EnrolmentButton;
-            this.btnEnrolementForm.Location = new System.Drawing.Point(3, 3);
-            this.btnEnrolementForm.Name = "btnEnrolementForm";
-            this.btnEnrolementForm.Size = new System.Drawing.Size(125, 100);
-            this.btnEnrolementForm.TabIndex = 5;
-            this.btnEnrolementForm.UseVisualStyleBackColor = false;
-            this.btnEnrolementForm.Click += new System.EventHandler(this.btnEnrolementForm_Click);
-            // 
-            // btnCourseForm
-            // 
-            this.btnCourseForm.BackColor = System.Drawing.Color.DarkOrange;
-            this.btnCourseForm.Image = ((System.Drawing.Image)(resources.GetObject("btnCourseForm.Image")));
-            this.btnCourseForm.Location = new System.Drawing.Point(3, 3);
-            this.btnCourseForm.Name = "btnCourseForm";
-            this.btnCourseForm.Size = new System.Drawing.Size(125, 100);
-            this.btnCourseForm.TabIndex = 5;
-            this.btnCourseForm.UseVisualStyleBackColor = false;
-            this.btnCourseForm.Click += new System.EventHandler(this.btnCourseForm_Click);
             // 
             // MainForm
             // 

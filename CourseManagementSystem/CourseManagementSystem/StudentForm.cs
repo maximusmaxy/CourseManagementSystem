@@ -91,6 +91,7 @@ namespace CMS
             {
                 //student
                 Student student = new Student(txtId.Int());
+                //student.Search("studentfirstname", txtFirstName.Text);
                 if (student.Search())
                 {
                     txtFirstName.Text = student.FirstName;

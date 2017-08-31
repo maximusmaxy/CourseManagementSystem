@@ -207,6 +207,7 @@ namespace CmsLibrary
             DataRow dataRow;
             if (Database.Search("students", out dataRow, values))
             {
+                id = Convert.ToInt32(dataRow[0]);
                 firstName = Convert.ToString(dataRow[1]);
                 lastName = Convert.ToString(dataRow[2]);
                 locationId = Convert.ToInt32(dataRow[3]);

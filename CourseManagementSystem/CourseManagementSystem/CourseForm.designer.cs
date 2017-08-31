@@ -31,15 +31,15 @@
             this.components = new System.ComponentModel.Container();
             this.panel5 = new System.Windows.Forms.Panel();
             this.panel8 = new System.Windows.Forms.Panel();
-            this.button6 = new System.Windows.Forms.Button();
+            this.btnViewAll = new System.Windows.Forms.Button();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.button4 = new System.Windows.Forms.Button();
+            this.btnDelete = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.button3 = new System.Windows.Forms.Button();
+            this.btnUpdate = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btnAdd = new System.Windows.Forms.Button();
             this.panel6 = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnSearch = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
             this.panel7 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
@@ -59,18 +59,18 @@
             this.unitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aSsessmentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.skillsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.allocationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.globalSearchToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ToolTips = new System.Windows.Forms.ToolTip(this.components);
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.dtpEnd = new System.Windows.Forms.DateTimePicker();
+            this.dtpStart = new System.Windows.Forms.DateTimePicker();
+            this.txtCourseCost = new System.Windows.Forms.TextBox();
+            this.txtCourseName = new System.Windows.Forms.TextBox();
+            this.txtCourseID = new System.Windows.Forms.TextBox();
+            this.rbtnFTF = new System.Windows.Forms.RadioButton();
+            this.cboxAreaOfStudy = new System.Windows.Forms.ComboBox();
+            this.txtCourseDescription = new System.Windows.Forms.TextBox();
+            this.lboxUnits = new System.Windows.Forms.ListBox();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.backgroundWorker2 = new System.ComponentModel.BackgroundWorker();
             this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
@@ -81,12 +81,12 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
+            this.pnlDeliveryType = new System.Windows.Forms.Panel();
+            this.rbtnOnline = new System.Windows.Forms.RadioButton();
             this.label3 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
-            this.allocationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cboxCampus = new System.Windows.Forms.ComboBox();
             this.panel5.SuspendLayout();
             this.panel8.SuspendLayout();
             this.panel4.SuspendLayout();
@@ -96,7 +96,7 @@
             this.panel7.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
-            this.panel1.SuspendLayout();
+            this.pnlDeliveryType.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel5
@@ -116,97 +116,102 @@
             // panel8
             // 
             this.panel8.BackColor = System.Drawing.Color.DarkOrange;
-            this.panel8.Controls.Add(this.button6);
+            this.panel8.Controls.Add(this.btnViewAll);
             this.panel8.Location = new System.Drawing.Point(4, 413);
             this.panel8.Name = "panel8";
             this.panel8.Size = new System.Drawing.Size(125, 50);
             this.panel8.TabIndex = 22;
             // 
-            // button6
+            // btnViewAll
             // 
-            this.button6.BackColor = System.Drawing.Color.White;
-            this.button6.Image = global::CMS.Properties.Resources.ViewAllButton;
-            this.button6.Location = new System.Drawing.Point(3, 3);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(120, 45);
-            this.button6.TabIndex = 21;
-            this.button6.UseVisualStyleBackColor = false;
+            this.btnViewAll.BackColor = System.Drawing.Color.White;
+            this.btnViewAll.Image = global::CMS.Properties.Resources.ViewAllButton;
+            this.btnViewAll.Location = new System.Drawing.Point(3, 3);
+            this.btnViewAll.Name = "btnViewAll";
+            this.btnViewAll.Size = new System.Drawing.Size(120, 45);
+            this.btnViewAll.TabIndex = 21;
+            this.btnViewAll.UseVisualStyleBackColor = false;
+            this.btnViewAll.Click += new System.EventHandler(this.btnViewAll_Click);
             // 
             // panel4
             // 
             this.panel4.BackColor = System.Drawing.Color.DarkOrange;
-            this.panel4.Controls.Add(this.button4);
+            this.panel4.Controls.Add(this.btnDelete);
             this.panel4.Location = new System.Drawing.Point(3, 350);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(125, 50);
             this.panel4.TabIndex = 21;
             // 
-            // button4
+            // btnDelete
             // 
-            this.button4.BackColor = System.Drawing.Color.White;
-            this.button4.Image = global::CMS.Properties.Resources.DeleteButton;
-            this.button4.Location = new System.Drawing.Point(3, 3);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(119, 44);
-            this.button4.TabIndex = 20;
-            this.button4.UseVisualStyleBackColor = false;
+            this.btnDelete.BackColor = System.Drawing.Color.White;
+            this.btnDelete.Image = global::CMS.Properties.Resources.DeleteButton;
+            this.btnDelete.Location = new System.Drawing.Point(3, 3);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(119, 44);
+            this.btnDelete.TabIndex = 20;
+            this.btnDelete.UseVisualStyleBackColor = false;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.DarkOrange;
-            this.panel3.Controls.Add(this.button3);
+            this.panel3.Controls.Add(this.btnUpdate);
             this.panel3.Location = new System.Drawing.Point(3, 281);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(125, 50);
             this.panel3.TabIndex = 21;
             // 
-            // button3
+            // btnUpdate
             // 
-            this.button3.BackColor = System.Drawing.Color.White;
-            this.button3.Image = global::CMS.Properties.Resources.UpdateButton;
-            this.button3.Location = new System.Drawing.Point(3, 3);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(120, 45);
-            this.button3.TabIndex = 19;
-            this.button3.UseVisualStyleBackColor = false;
+            this.btnUpdate.BackColor = System.Drawing.Color.White;
+            this.btnUpdate.Image = global::CMS.Properties.Resources.UpdateButton;
+            this.btnUpdate.Location = new System.Drawing.Point(3, 3);
+            this.btnUpdate.Name = "btnUpdate";
+            this.btnUpdate.Size = new System.Drawing.Size(120, 45);
+            this.btnUpdate.TabIndex = 19;
+            this.btnUpdate.UseVisualStyleBackColor = false;
+            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.DarkOrange;
-            this.panel2.Controls.Add(this.button2);
+            this.panel2.Controls.Add(this.btnAdd);
             this.panel2.Location = new System.Drawing.Point(4, 150);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(125, 50);
             this.panel2.TabIndex = 21;
             // 
-            // button2
+            // btnAdd
             // 
-            this.button2.BackColor = System.Drawing.Color.White;
-            this.button2.Image = global::CMS.Properties.Resources.AddButton;
-            this.button2.Location = new System.Drawing.Point(3, 3);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(120, 45);
-            this.button2.TabIndex = 17;
-            this.button2.UseVisualStyleBackColor = false;
+            this.btnAdd.BackColor = System.Drawing.Color.White;
+            this.btnAdd.Image = global::CMS.Properties.Resources.AddButton;
+            this.btnAdd.Location = new System.Drawing.Point(3, 3);
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.Size = new System.Drawing.Size(120, 45);
+            this.btnAdd.TabIndex = 17;
+            this.btnAdd.UseVisualStyleBackColor = false;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // panel6
             // 
             this.panel6.BackColor = System.Drawing.Color.DarkOrange;
-            this.panel6.Controls.Add(this.button1);
+            this.panel6.Controls.Add(this.btnSearch);
             this.panel6.Location = new System.Drawing.Point(3, 214);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(125, 50);
             this.panel6.TabIndex = 19;
             // 
-            // button1
+            // btnSearch
             // 
-            this.button1.BackColor = System.Drawing.Color.White;
-            this.button1.Image = global::CMS.Properties.Resources.SearchButton;
-            this.button1.Location = new System.Drawing.Point(3, 3);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(120, 45);
-            this.button1.TabIndex = 18;
-            this.button1.UseVisualStyleBackColor = false;
+            this.btnSearch.BackColor = System.Drawing.Color.White;
+            this.btnSearch.Image = global::CMS.Properties.Resources.SearchButton;
+            this.btnSearch.Location = new System.Drawing.Point(3, 3);
+            this.btnSearch.Name = "btnSearch";
+            this.btnSearch.Size = new System.Drawing.Size(120, 45);
+            this.btnSearch.TabIndex = 18;
+            this.btnSearch.UseVisualStyleBackColor = false;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
             // button5
             // 
@@ -317,146 +322,144 @@
             // mainMenuToolStripMenuItem
             // 
             this.mainMenuToolStripMenuItem.Name = "mainMenuToolStripMenuItem";
-            this.mainMenuToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.mainMenuToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
             this.mainMenuToolStripMenuItem.Text = "Main Menu";
             // 
             // enrolmentsToolStripMenuItem
             // 
             this.enrolmentsToolStripMenuItem.Name = "enrolmentsToolStripMenuItem";
-            this.enrolmentsToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.enrolmentsToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
             this.enrolmentsToolStripMenuItem.Text = "Student";
             // 
             // studentsCoursesToolStripMenuItem
             // 
             this.studentsCoursesToolStripMenuItem.Name = "studentsCoursesToolStripMenuItem";
-            this.studentsCoursesToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.studentsCoursesToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
             this.studentsCoursesToolStripMenuItem.Text = "Teacher";
             // 
             // enrolmentToolStripMenuItem
             // 
             this.enrolmentToolStripMenuItem.Name = "enrolmentToolStripMenuItem";
-            this.enrolmentToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.enrolmentToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
             this.enrolmentToolStripMenuItem.Text = "Enrolment";
             // 
             // courseToolStripMenuItem
             // 
             this.courseToolStripMenuItem.Name = "courseToolStripMenuItem";
-            this.courseToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.courseToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
             this.courseToolStripMenuItem.Text = "Course";
             // 
             // unitToolStripMenuItem
             // 
             this.unitToolStripMenuItem.Name = "unitToolStripMenuItem";
-            this.unitToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.unitToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
             this.unitToolStripMenuItem.Text = "Unit";
             // 
             // aSsessmentToolStripMenuItem
             // 
             this.aSsessmentToolStripMenuItem.Name = "aSsessmentToolStripMenuItem";
-            this.aSsessmentToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.aSsessmentToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
             this.aSsessmentToolStripMenuItem.Text = "Assessment";
             // 
             // skillsToolStripMenuItem
             // 
             this.skillsToolStripMenuItem.Name = "skillsToolStripMenuItem";
-            this.skillsToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.skillsToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
             this.skillsToolStripMenuItem.Text = "Skills";
+            // 
+            // allocationToolStripMenuItem
+            // 
+            this.allocationToolStripMenuItem.Name = "allocationToolStripMenuItem";
+            this.allocationToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
+            this.allocationToolStripMenuItem.Text = "Allocation";
             // 
             // globalSearchToolStripMenuItem
             // 
             this.globalSearchToolStripMenuItem.Name = "globalSearchToolStripMenuItem";
-            this.globalSearchToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.globalSearchToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
             this.globalSearchToolStripMenuItem.Text = "Global Search";
             // 
-            // textBox5
+            // dtpEnd
             // 
-            this.textBox5.Location = new System.Drawing.Point(202, 279);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(334, 20);
-            this.textBox5.TabIndex = 89;
-            this.ToolTips.SetToolTip(this.textBox5, "Insert the Campus Suburb here using Alphabetical Characters Only");
+            this.dtpEnd.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpEnd.Location = new System.Drawing.Point(425, 246);
+            this.dtpEnd.Name = "dtpEnd";
+            this.dtpEnd.Size = new System.Drawing.Size(111, 20);
+            this.dtpEnd.TabIndex = 87;
+            this.ToolTips.SetToolTip(this.dtpEnd, "Select the End Date for the Course here");
             // 
-            // dateTimePicker2
+            // dtpStart
             // 
-            this.dateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker2.Location = new System.Drawing.Point(425, 246);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(111, 20);
-            this.dateTimePicker2.TabIndex = 87;
-            this.ToolTips.SetToolTip(this.dateTimePicker2, "Select the End Date for the Course here");
+            this.dtpStart.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpStart.Location = new System.Drawing.Point(202, 246);
+            this.dtpStart.Name = "dtpStart";
+            this.dtpStart.Size = new System.Drawing.Size(111, 20);
+            this.dtpStart.TabIndex = 82;
+            this.ToolTips.SetToolTip(this.dtpStart, "Select the starting Date for the Course");
             // 
-            // dateTimePicker1
+            // txtCourseCost
             // 
-            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker1.Location = new System.Drawing.Point(202, 246);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(111, 20);
-            this.dateTimePicker1.TabIndex = 82;
-            this.ToolTips.SetToolTip(this.dateTimePicker1, "Select the starting Date for the Course");
+            this.txtCourseCost.Location = new System.Drawing.Point(204, 179);
+            this.txtCourseCost.Name = "txtCourseCost";
+            this.txtCourseCost.Size = new System.Drawing.Size(332, 20);
+            this.txtCourseCost.TabIndex = 81;
+            this.ToolTips.SetToolTip(this.txtCourseCost, "Insert the Cost for the Course using Numeric Characters Only");
             // 
-            // textBox3
+            // txtCourseName
             // 
-            this.textBox3.Location = new System.Drawing.Point(204, 179);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(332, 20);
-            this.textBox3.TabIndex = 81;
-            this.ToolTips.SetToolTip(this.textBox3, "Insert the Cost for the Course using Numeric Characters Only");
+            this.txtCourseName.Location = new System.Drawing.Point(204, 144);
+            this.txtCourseName.Name = "txtCourseName";
+            this.txtCourseName.Size = new System.Drawing.Size(332, 20);
+            this.txtCourseName.TabIndex = 80;
+            this.ToolTips.SetToolTip(this.txtCourseName, "Insert the Name of the Course using Alphabetical Characters Only");
             // 
-            // textBox2
+            // txtCourseID
             // 
-            this.textBox2.Location = new System.Drawing.Point(204, 144);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(332, 20);
-            this.textBox2.TabIndex = 80;
-            this.ToolTips.SetToolTip(this.textBox2, "Insert the Name of the Course using Alphabetical Characters Only");
+            this.txtCourseID.Location = new System.Drawing.Point(204, 111);
+            this.txtCourseID.Name = "txtCourseID";
+            this.txtCourseID.Size = new System.Drawing.Size(332, 20);
+            this.txtCourseID.TabIndex = 79;
+            this.ToolTips.SetToolTip(this.txtCourseID, "Insert a Numeric value for the Course ID, using 0-9 numbers Only");
             // 
-            // textBox1
+            // rbtnFTF
             // 
-            this.textBox1.Location = new System.Drawing.Point(204, 111);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(332, 20);
-            this.textBox1.TabIndex = 79;
-            this.ToolTips.SetToolTip(this.textBox1, "Insert a Numeric value for the Course ID, using 0-9 numbers Only");
-            // 
-            // radioButton1
-            // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Location = new System.Drawing.Point(3, 3);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(92, 17);
-            this.radioButton1.TabIndex = 0;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "Face-To-Face";
-            this.ToolTips.SetToolTip(this.radioButton1, "Select the Type of Course Delivery here, from Face to Face to Online Service Call" +
+            this.rbtnFTF.AutoSize = true;
+            this.rbtnFTF.Location = new System.Drawing.Point(3, 3);
+            this.rbtnFTF.Name = "rbtnFTF";
+            this.rbtnFTF.Size = new System.Drawing.Size(92, 17);
+            this.rbtnFTF.TabIndex = 0;
+            this.rbtnFTF.TabStop = true;
+            this.rbtnFTF.Text = "Face-To-Face";
+            this.ToolTips.SetToolTip(this.rbtnFTF, "Select the Type of Course Delivery here, from Face to Face to Online Service Call" +
         "ed OTEN");
-            this.radioButton1.UseVisualStyleBackColor = true;
+            this.rbtnFTF.UseVisualStyleBackColor = true;
             // 
-            // comboBox1
+            // cboxAreaOfStudy
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(202, 310);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(334, 21);
-            this.comboBox1.TabIndex = 95;
-            this.ToolTips.SetToolTip(this.comboBox1, "Select from the list the Appropriate Area of Study for this Course");
+            this.cboxAreaOfStudy.FormattingEnabled = true;
+            this.cboxAreaOfStudy.Location = new System.Drawing.Point(202, 310);
+            this.cboxAreaOfStudy.Name = "cboxAreaOfStudy";
+            this.cboxAreaOfStudy.Size = new System.Drawing.Size(334, 21);
+            this.cboxAreaOfStudy.TabIndex = 95;
+            this.ToolTips.SetToolTip(this.cboxAreaOfStudy, "Select from the list the Appropriate Area of Study for this Course");
             // 
-            // textBox4
+            // txtCourseDescription
             // 
-            this.textBox4.Location = new System.Drawing.Point(41, 380);
-            this.textBox4.Multiline = true;
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(362, 173);
-            this.textBox4.TabIndex = 96;
-            this.ToolTips.SetToolTip(this.textBox4, "Please Describe what this Course is about and what are the Goals");
+            this.txtCourseDescription.Location = new System.Drawing.Point(41, 380);
+            this.txtCourseDescription.Multiline = true;
+            this.txtCourseDescription.Name = "txtCourseDescription";
+            this.txtCourseDescription.Size = new System.Drawing.Size(362, 173);
+            this.txtCourseDescription.TabIndex = 96;
+            this.ToolTips.SetToolTip(this.txtCourseDescription, "Please Describe what this Course is about and what are the Goals");
             // 
-            // listBox1
+            // lboxUnits
             // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.Location = new System.Drawing.Point(425, 380);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(115, 173);
-            this.listBox1.TabIndex = 98;
-            this.ToolTips.SetToolTip(this.listBox1, "Select the Skill Appropriate for the currently selected Teacher");
+            this.lboxUnits.FormattingEnabled = true;
+            this.lboxUnits.Location = new System.Drawing.Point(425, 380);
+            this.lboxUnits.Name = "lboxUnits";
+            this.lboxUnits.Size = new System.Drawing.Size(115, 173);
+            this.lboxUnits.TabIndex = 98;
+            this.ToolTips.SetToolTip(this.lboxUnits, "Select the Skill Appropriate for the currently selected Teacher");
             // 
             // label4
             // 
@@ -528,25 +531,25 @@
             this.label12.TabIndex = 85;
             this.label12.Text = "Cost:";
             // 
-            // panel1
+            // pnlDeliveryType
             // 
-            this.panel1.Controls.Add(this.radioButton2);
-            this.panel1.Controls.Add(this.radioButton1);
-            this.panel1.Location = new System.Drawing.Point(204, 211);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(332, 23);
-            this.panel1.TabIndex = 93;
+            this.pnlDeliveryType.Controls.Add(this.rbtnOnline);
+            this.pnlDeliveryType.Controls.Add(this.rbtnFTF);
+            this.pnlDeliveryType.Location = new System.Drawing.Point(204, 211);
+            this.pnlDeliveryType.Name = "pnlDeliveryType";
+            this.pnlDeliveryType.Size = new System.Drawing.Size(332, 23);
+            this.pnlDeliveryType.TabIndex = 93;
             // 
-            // radioButton2
+            // rbtnOnline
             // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(116, 3);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(55, 17);
-            this.radioButton2.TabIndex = 1;
-            this.radioButton2.TabStop = true;
-            this.radioButton2.Text = "Online";
-            this.radioButton2.UseVisualStyleBackColor = true;
+            this.rbtnOnline.AutoSize = true;
+            this.rbtnOnline.Location = new System.Drawing.Point(116, 3);
+            this.rbtnOnline.Name = "rbtnOnline";
+            this.rbtnOnline.Size = new System.Drawing.Size(55, 17);
+            this.rbtnOnline.TabIndex = 1;
+            this.rbtnOnline.TabStop = true;
+            this.rbtnOnline.Text = "Online";
+            this.rbtnOnline.UseVisualStyleBackColor = true;
             // 
             // label3
             // 
@@ -578,11 +581,14 @@
             this.label9.TabIndex = 100;
             this.label9.Text = "Units Included:";
             // 
-            // allocationToolStripMenuItem
+            // cboxCampus
             // 
-            this.allocationToolStripMenuItem.Name = "allocationToolStripMenuItem";
-            this.allocationToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.allocationToolStripMenuItem.Text = "Allocation";
+            this.cboxCampus.FormattingEnabled = true;
+            this.cboxCampus.Location = new System.Drawing.Point(202, 279);
+            this.cboxCampus.Name = "cboxCampus";
+            this.cboxCampus.Size = new System.Drawing.Size(334, 21);
+            this.cboxCampus.TabIndex = 101;
+            this.ToolTips.SetToolTip(this.cboxCampus, "Select from the list the Appropriate Area of Study for this Course");
             // 
             // CourseForm
             // 
@@ -590,22 +596,22 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Lavender;
             this.ClientSize = new System.Drawing.Size(744, 575);
+            this.Controls.Add(this.cboxCampus);
             this.Controls.Add(this.label9);
-            this.Controls.Add(this.listBox1);
-            this.Controls.Add(this.textBox4);
+            this.Controls.Add(this.lboxUnits);
+            this.Controls.Add(this.txtCourseDescription);
             this.Controls.Add(this.label7);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.cboxAreaOfStudy);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.panel1);
-            this.Controls.Add(this.textBox5);
+            this.Controls.Add(this.pnlDeliveryType);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.dateTimePicker2);
+            this.Controls.Add(this.dtpEnd);
             this.Controls.Add(this.label8);
-            this.Controls.Add(this.dateTimePicker1);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.dtpStart);
+            this.Controls.Add(this.txtCourseCost);
+            this.Controls.Add(this.txtCourseName);
+            this.Controls.Add(this.txtCourseID);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label13);
@@ -615,6 +621,7 @@
             this.Controls.Add(this.menuStrip1);
             this.Name = "CourseForm";
             this.Text = "CourseForm";
+            this.Load += new System.EventHandler(this.CourseForm_Load);
             this.panel5.ResumeLayout(false);
             this.panel8.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
@@ -625,8 +632,8 @@
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
+            this.pnlDeliveryType.ResumeLayout(false);
+            this.pnlDeliveryType.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -636,15 +643,15 @@
         private System.Windows.Forms.ToolTip ToolTips;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Panel panel8;
-        private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.Button btnViewAll;
         private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button btnUpdate;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.Panel panel6;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Panel panel7;
         private System.Windows.Forms.Label label1;
@@ -668,28 +675,28 @@
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
         private System.ComponentModel.BackgroundWorker backgroundWorker2;
         private System.Windows.Forms.BindingSource bindingSource1;
-        private System.Windows.Forms.TextBox textBox5;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.DateTimePicker dateTimePicker2;
+        private System.Windows.Forms.DateTimePicker dtpEnd;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.DateTimePicker dtpStart;
+        private System.Windows.Forms.TextBox txtCourseCost;
+        private System.Windows.Forms.TextBox txtCourseName;
+        private System.Windows.Forms.TextBox txtCourseID;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.RadioButton radioButton2;
-        private System.Windows.Forms.RadioButton radioButton1;
+        private System.Windows.Forms.Panel pnlDeliveryType;
+        private System.Windows.Forms.RadioButton rbtnOnline;
+        private System.Windows.Forms.RadioButton rbtnFTF;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.ComboBox cboxAreaOfStudy;
+        private System.Windows.Forms.TextBox txtCourseDescription;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.ListBox lboxUnits;
         private System.Windows.Forms.ToolStripMenuItem allocationToolStripMenuItem;
+        private System.Windows.Forms.ComboBox cboxCampus;
     }
 }

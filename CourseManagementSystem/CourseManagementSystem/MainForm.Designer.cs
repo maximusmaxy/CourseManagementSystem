@@ -179,7 +179,7 @@
             // btnGlobalSearchForm
             // 
             this.btnGlobalSearchForm.BackColor = System.Drawing.Color.Crimson;
-            this.btnGlobalSearchForm.Image = global::CMS.Properties.Resources.ExitButton;
+            //this.btnGlobalSearchForm.Image = global::CMS.Properties.Resources.ExitButton;
             this.btnGlobalSearchForm.Location = new System.Drawing.Point(3, 3);
             this.btnGlobalSearchForm.Name = "btnGlobalSearchForm";
             this.btnGlobalSearchForm.Size = new System.Drawing.Size(125, 100);

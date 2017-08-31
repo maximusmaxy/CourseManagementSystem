@@ -43,7 +43,7 @@ namespace CMS
                 newCourse.StartDate = dtpStart.Value;
                 newCourse.EndDate = dtpEnd.Value;
                 newCourse.LocationId = int.Parse(cboxCampus.SelectedItem.ToString());
-                newCourse.AreaOfStudy = cboxAreaOfStudy.SelectedItem.ToString();
+                newCourse.DepartmentId = int.Parse(cboxAreaOfStudy.SelectedItem.ToString());
                 newCourse.Description = txtCourseDescription.Text;
                 newCourse.Add();
             }

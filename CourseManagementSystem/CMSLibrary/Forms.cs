@@ -4,6 +4,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -11,6 +12,8 @@ namespace CmsLibrary
 {
     public class Forms
     {
+        private static Regex aliasRegex = new Regex(@"\W");
+
         /// <summary>
         /// Gets the string of the checked radio from a panel.
         /// </summary>
@@ -98,15 +101,49 @@ namespace CmsLibrary
         /// <param name="table">The name of the table in the database.</param>
         /// <param name="display">The name of the column in the database that represents the displayed value in the combo box.</param>
         /// <param name="value">The name of the column in the database that holds the underlying value of the combo box.</param>
-        /// <param name="text">The text displayed in the combo box before an option has been selected.</param>
-        public static DataTable FillData(ListControl control, string table, string display, string value)
+        /// <param name="conditions">Every even value is a string for the column name. Every odd value is an object for the value to search for.</param>
+        public static DataTable FillData(ListControl control, string table, string display, string value, params object[] conditions)
         {
-            if (control is ListBox)
+            string displayAlias = aliasRegex.Replace(display, "");
+            StringBuilder sql = new StringBuilder("select ");
+            sql.Append(display);
+            sql.Append(" as ");
+            sql.Append(displayAlias);
+            sql.Append(", ");
+            sql.Append(value);
+            sql.Append(" from ");
+            sql.Append(table);
+            if (conditions.Length> 0)
             {
-                ListBox lb = (ListBox)control;
-                lb.SelectionMode = SelectionMode.MultiSimple;
+                sql.Append(" where ");
+                sql.Append(conditions[0]);
+                sql.Append(" = ");
+                sql.Append(conditions[1]);
+                for (int i = 2; i < conditions.Length; i++)
+                {
+                    sql.Append(" and ");
+                    sql.Append(conditions[i++]);
+                    sql.Append(" = ");
+                    sql.Append(conditions[i]);
+                }
             }
-            string sql = $"select {display}, {value} from {table}";
+            DataTable dataTable = Database.CreateDataTable(sql.ToString());
+            control.DataSource = dataTable;
+            control.DisplayMember = displayAlias;
+            control.ValueMember = value;
+            return dataTable;
+        }
+
+        /// <summary>
+        /// Fills the list control with data from a table.
+        /// Use this method for non standard data fills, otherwise use the other one.
+        /// </summary>
+        /// <param name="table">The name of the table in the database.</param>
+        /// <param name="display">The name of the column in the database that represents the displayed value in the combo box.</param>
+        /// <param name="value">The name of the column in the database that holds the underlying value of the combo box.</param>
+        /// <param name="sql">The sql to execute for non standard data fills.</param>
+        public static DataTable FillData(ListControl control, string table, string display, string value, string sql)
+        {
             DataTable dataTable = Database.CreateDataTable(sql);
             control.DataSource = dataTable;
             control.DisplayMember = display;

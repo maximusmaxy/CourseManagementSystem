@@ -29,6 +29,9 @@ if object_id('Locations', 'U') is not null
 drop table Locations;
 if object_id('Departments','U') is not null
 drop table Departments;
+
+go
+
 --Create Tables
 create table Departments(
 departmentId smallint primary key identity(1,1) not null,
@@ -60,7 +63,6 @@ studentGender tinyint not null,
 studentDisability bit not null,
 studentDisabilityDescription varchar(50));
 
-
 create table Courses(
 courseId smallint primary key not null identity (1,1),
 courseName varchar(50) not null,
@@ -69,7 +71,7 @@ courseDeliveryType tinyint not null,
 courseStartDate date not null,
 courseEndDate date not null,
 locationId smallint not null,
-areaOfStudy varchar(40) not null,
+departmentId smallint not null,
 courseDescription varchar(500) not null);
 
 create table Teachers(
@@ -77,9 +79,7 @@ teacherId smallint primary key not null identity (1,1),
 locationId smallint not null,
 departmentId smallint not null,
 teacherFirstName varchar(50) not null,
-teacherLastName varchar(50) not null,
-teacherEmail varchar(100) not null,
-teacherDepartment varchar(50) not null
+teacherLastName varchar(50) not null
 constraint teacher_department_fk foreign key (departmentId) references Departments(departmentId),
 constraint teacher_location_fk foreign key (locationId) references Locations(locationId));
 
@@ -151,6 +151,7 @@ teacherId smallint not null
 primary key(unitId,teacherId)
 constraint unit_teacher_unit_fk foreign key (unitId) references Units(unitId),
 constraint unit_teacher_teacher_fk foreign key (teacherId) references Teachers(teacherId));
+
 --Populate Tables
 insert into Departments values('IT');
 insert into Departments values('Hair Dressing');
@@ -172,16 +173,16 @@ insert into Students values('Jim','Barnes',2,'1994-08-13','Barnesy88@hotmail.com
 insert into Students Values('Dave','Hughes',3,'1987-04-22','theGoonie@yahoo.com','Australia',1,0,null);
 insert into Students values('Floyd','Mayweather',4,'1976-07-11','glassjaw22@hotmail.com','Australia',1,0,null);
 insert into Students values('Ozzy','Osbourne',5,'1956-05-06','lordofdarnkness@gmail.com','Austalia',1,1,'Bi-polar');
-insert into Courses values('Diploma of Software development',10000.00,2,'2017-06-10','2017-11-26', 1, 'IT','Final level of education provided at tafe regarding IT');
-insert into Courses values('Certificate IV IT',8000.00,2,'2017-06-10','2017-11-26',1,'IT','Further Study in IT');
-insert into Courses values('Certificate III IT',5000.00,2,'2017-06-10','2017-11-26',1,'IT','Basic level in IT');
-insert into Courses values('Certificate II IT',3000.00,2,'2017-06-10','2017-11-26',1,'IT','Learning what the on button the the computer is for');
-insert into Courses values('Certificate IV Web Design',8000.00,2,'2017-06-10','2017-11-26',1,'IT','Further study of web design');
-insert into Teachers values(1,1,'Ned','Bond','JamesBondLover@gmail.com','IT');
-insert into Teachers Values(2,1,'Rui','Guy','ThatOneGuy@gmail.com','IT');
-insert into Teachers Values(3,1,'Javier','Rameriz','theotherguy@yahoo.com','IT');
-insert into Teachers values(4,1,'Shubha','Too','thescapegoat@live.com','IT');
-insert into Teachers values (5,1,'Raj','Dude', 'projectmanagedude@gmail.com','IT');
+insert into Courses values('Diploma of Software development',10000.00,2,'2017-06-10','2017-11-26', 1, 1,'Final level of education provided at tafe regarding IT');
+insert into Courses values('Certificate IV IT',8000.00,2,'2017-06-10','2017-11-26',1,1,'Further Study in IT');
+insert into Courses values('Certificate III IT',5000.00,2,'2017-06-10','2017-11-26',1,1,'Basic level in IT');
+insert into Courses values('Certificate II IT',3000.00,2,'2017-06-10','2017-11-26',1,1,'Learning what the on button the the computer is for');
+insert into Courses values('Certificate IV Web Design',8000.00,2,'2017-06-10','2017-11-26',1,1,'Further study of web design');
+insert into Teachers values(1,1,'Ned','Bond');
+insert into Teachers Values(2,1,'Rui','Guy');
+insert into Teachers Values(3,1,'Javier','Rameriz');
+insert into Teachers values(4,1,'Shubha','Too');
+insert into Teachers values (5,1,'Raj','Dude');
 insert into Units values(1,'Optimising Search Functions',2,10,'Getting taught how to make and use search'); --Elective = 2
 insert into Units values(1,'Cloud Computing',2,15,'Getting taught how to make and use Clouds, cloud dev techniques and events');
 insert into Units values(1,'Intro programming',1,25,'Getting taught the basics of a programming language');
@@ -202,4 +203,3 @@ insert into Unit_Skills values(1,1);
 insert into Course_Teachers values(1,1);
 insert into Course_Units values(1,1);
 insert into Unit_Teachers values(1,1);
-

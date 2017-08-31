@@ -189,6 +189,7 @@ namespace CmsLibrary
             DataRow dataRow;
             if (Database.Search("enrolments", out dataRow, values))
             {
+                id = Convert.ToInt32(dataRow[0]);
                 studentId = Convert.ToInt32(dataRow[1]);
                 courseId = Convert.ToInt32(dataRow[2]);
                 enrolmentDate = Convert.ToDateTime(dataRow[3]);

@@ -45,7 +45,9 @@ namespace CmsLibrary
                 connection.Open();
                 command.ExecuteNonQuery();
             }
-            ExecuteNonQuery(File.ReadAllText(SqlFileName));
+            string[] queries = File.ReadAllText(SqlFileName).Split(new string[] { "go\r\n" }, StringSplitOptions.RemoveEmptyEntries);
+            for (int i = 0; i < queries.Length; i++)
+                ExecuteNonQuery(queries[i]); 
         }
 
         /// <summary>

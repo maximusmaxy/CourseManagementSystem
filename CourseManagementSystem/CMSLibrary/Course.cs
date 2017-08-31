@@ -16,7 +16,7 @@ namespace CmsLibrary
         private DateTime startDate;
         private DateTime endDate;
         private int locationId;
-        private string areaOfStudy;
+        private int departmentId;
         private string description;
 
         public Course() { }
@@ -26,7 +26,7 @@ namespace CmsLibrary
             this.id = id;
         }
 
-        public Course(int id, string name, double cost, int deliveryType, DateTime startDate, DateTime endDate, int locationId, string areaOfStudy, string description)
+        public Course(int id, string name, double cost, int deliveryType, DateTime startDate, DateTime endDate, int locationId, int departmentId, string description)
         {
             this.id = id;
             this.name = name;
@@ -35,7 +35,7 @@ namespace CmsLibrary
             this.startDate = startDate;
             this.endDate = endDate;
             this.locationId = locationId;
-            this.areaOfStudy = areaOfStudy;
+            this.departmentId = departmentId;
             this.description = description;
         }
 
@@ -130,15 +130,15 @@ namespace CmsLibrary
             }
         }
 
-        public string AreaOfStudy
+        public int DepartmentId
         {
             get
             {
-                return areaOfStudy;
+                return departmentId;
             }
             set
             {
-                areaOfStudy = value;
+                departmentId = value;
             }
         }
 
@@ -156,7 +156,7 @@ namespace CmsLibrary
 
         public bool Add()
         {
-            return Database.Add("courses", out id, name, cost, deliveryType, startDate, endDate, locationId, areaOfStudy, Description);
+            return Database.Add("courses", out id, name, cost, deliveryType, startDate, endDate, locationId, departmentId, Description);
         }
 
         public bool Update()
@@ -168,7 +168,7 @@ namespace CmsLibrary
                 "coursestartdate", startDate,
                 "courseenddate", endDate,
                 "locationId", locationId,
-                "areaofstudy", areaOfStudy,
+                "departmentId", departmentId,
                 "coursedescription", description);
         }
 
@@ -187,13 +187,14 @@ namespace CmsLibrary
             DataRow dataRow;
             if (Database.Search("courses", out dataRow, values))
             {
+                id = Convert.ToInt32(dataRow[0]);
                 name = Convert.ToString(dataRow[1]);
                 cost = Convert.ToDouble(dataRow[2]);
                 deliveryType = Convert.ToInt32(dataRow[3]);
                 startDate = Convert.ToDateTime(dataRow[4]);
                 endDate = Convert.ToDateTime(dataRow[5]);
                 locationId = Convert.ToInt32(dataRow[6]);
-                areaOfStudy = Convert.ToString(dataRow[7]);
+                departmentId = Convert.ToInt32(dataRow[7]);
                 description = Convert.ToString(dataRow[8]);
                 return true;
             }

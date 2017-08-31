@@ -12,12 +12,12 @@ namespace CmsLibrary
 
     public class Validation
     {
-        static Regex numericRegex = new Regex(@"^[\d\.]+$");
-        static Regex wordRegex = new Regex(@"^[A-z\s]+$");
-        static Regex dateRegex = new Regex(@"^(\d{1,2})([-/])(\d{1,2})\2(\d{4})$");
-        static Regex emailRegex = new Regex(@"^[^@]+@(?<!\.@)[^\.@]+\.[^@]+$");
-        static Regex unitCodeRegex = new Regex(@"^\w{6}\d{3}$");
-        static Regex costRegex = new Regex(@"^\$?\d+(?:\.\d{1,2})?$");
+        private static Regex numericRegex = new Regex(@"^[\d\.]+$");
+        private static Regex wordRegex = new Regex(@"^[A-z\s]+$");
+        private static Regex dateRegex = new Regex(@"^(\d{1,2})([-/])(\d{1,2})\2(\d{4})$");
+        private static Regex emailRegex = new Regex(@"^[^@]+@(?<!\.@)[^\.@]+\.[^@]+$");
+        private static Regex unitCodeRegex = new Regex(@"^\w{6}\d{3}$");
+        private static Regex costRegex = new Regex(@"^\$?\d+(?:\.\d{1,2})?$");
 
         public struct Text
         {
@@ -194,7 +194,7 @@ namespace CmsLibrary
             return false;
         }
 
-        public static bool Combo(ComboBox combo, string error = null)
+        public static bool Combo(ListControl combo, string error = null)
         {
             if (combo.SelectedIndex == -1)
             {
@@ -301,9 +301,9 @@ namespace CmsLibrary
                             break;
                     }
                 }
-                else if (obj is ComboBox)
+                else if (obj is ListControl)
                 {
-                    ComboBox cmb = (ComboBox)obj;
+                    ListControl cmb = (ListControl)obj;
                     if (!Combo(cmb))
                     {
                         return false;

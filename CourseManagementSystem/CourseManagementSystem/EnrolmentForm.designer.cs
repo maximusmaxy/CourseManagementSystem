@@ -30,33 +30,32 @@
         {
             this.components = new System.ComponentModel.Container();
             this.ToolTips = new System.Windows.Forms.ToolTip(this.components);
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
-            this.panel9 = new System.Windows.Forms.Panel();
-            this.radioButton5 = new System.Windows.Forms.RadioButton();
-            this.radioButton3 = new System.Windows.Forms.RadioButton();
-            this.radioButton4 = new System.Windows.Forms.RadioButton();
+            this.dtpEnrolment = new System.Windows.Forms.DateTimePicker();
+            this.txtCourseId = new System.Windows.Forms.TextBox();
+            this.txtId = new System.Windows.Forms.TextBox();
+            this.txtEnrolmentId = new System.Windows.Forms.TextBox();
+            this.dtpCompletion = new System.Windows.Forms.DateTimePicker();
+            this.txtDiscountCost = new System.Windows.Forms.TextBox();
+            this.txtEnrolmentCost = new System.Windows.Forms.TextBox();
+            this.pnlSemester = new System.Windows.Forms.Panel();
+            this.rdbSemesterOne = new System.Windows.Forms.RadioButton();
+            this.rdbSemesterTwo = new System.Windows.Forms.RadioButton();
+            this.pnlCourseResults = new System.Windows.Forms.Panel();
+            this.rdbNotComplete = new System.Windows.Forms.RadioButton();
+            this.rdbPass = new System.Windows.Forms.RadioButton();
+            this.rdbFail = new System.Windows.Forms.RadioButton();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.backgroundWorker2 = new System.ComponentModel.BackgroundWorker();
-            this.enrolmentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btnSearch = new System.Windows.Forms.Button();
+            this.btnAdd = new System.Windows.Forms.Button();
             this.courseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
+            this.btnDelete = new System.Windows.Forms.Button();
+            this.btnViewAll = new System.Windows.Forms.Button();
             this.globalSearchToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.skillsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.assessmentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.button3 = new System.Windows.Forms.Button();
+            this.btnUpdate = new System.Windows.Forms.Button();
             this.unitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.label1 = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
@@ -78,6 +77,7 @@
             this.mainMenuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.studentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.teacherCoursesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.allocationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.label6 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
@@ -87,9 +87,8 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.allocationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.panel1.SuspendLayout();
-            this.panel9.SuspendLayout();
+            this.pnlSemester.SuspendLayout();
+            this.pnlCourseResults.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
             this.panel5.SuspendLayout();
             this.panel8.SuspendLayout();
@@ -101,227 +100,223 @@
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // dateTimePicker1
+            // dtpEnrolment
             // 
-            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker1.Location = new System.Drawing.Point(207, 242);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(295, 20);
-            this.dateTimePicker1.TabIndex = 50;
-            this.ToolTips.SetToolTip(this.dateTimePicker1, "Insert the Current Date this Enrolment was completed on");
+            this.dtpEnrolment.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpEnrolment.Location = new System.Drawing.Point(207, 242);
+            this.dtpEnrolment.Name = "dtpEnrolment";
+            this.dtpEnrolment.Size = new System.Drawing.Size(295, 20);
+            this.dtpEnrolment.TabIndex = 50;
+            this.ToolTips.SetToolTip(this.dtpEnrolment, "Insert the Current Date this Enrolment was completed on");
             // 
-            // textBox3
+            // txtCourseId
             // 
-            this.textBox3.Location = new System.Drawing.Point(209, 178);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(293, 20);
-            this.textBox3.TabIndex = 49;
-            this.ToolTips.SetToolTip(this.textBox3, "Insert the Course ID here using Numeric Characters Only!");
+            this.txtCourseId.Location = new System.Drawing.Point(209, 178);
+            this.txtCourseId.Name = "txtCourseId";
+            this.txtCourseId.Size = new System.Drawing.Size(293, 20);
+            this.txtCourseId.TabIndex = 49;
+            this.ToolTips.SetToolTip(this.txtCourseId, "Insert the Course ID here using Numeric Characters Only!");
             // 
-            // textBox2
+            // txtId
             // 
-            this.textBox2.Location = new System.Drawing.Point(209, 143);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(293, 20);
-            this.textBox2.TabIndex = 48;
-            this.ToolTips.SetToolTip(this.textBox2, "Insert the Student ID here using Numeric Characters Only!");
+            this.txtId.Location = new System.Drawing.Point(209, 143);
+            this.txtId.Name = "txtId";
+            this.txtId.Size = new System.Drawing.Size(293, 20);
+            this.txtId.TabIndex = 48;
+            this.ToolTips.SetToolTip(this.txtId, "Insert the Student ID here using Numeric Characters Only!");
             // 
-            // textBox1
+            // txtEnrolmentId
             // 
-            this.textBox1.Location = new System.Drawing.Point(209, 110);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(293, 20);
-            this.textBox1.TabIndex = 47;
-            this.ToolTips.SetToolTip(this.textBox1, "Insert a Numeric value for the Student ID, using 0-9 numbers Only");
+            this.txtEnrolmentId.Enabled = false;
+            this.txtEnrolmentId.Location = new System.Drawing.Point(209, 110);
+            this.txtEnrolmentId.Name = "txtEnrolmentId";
+            this.txtEnrolmentId.Size = new System.Drawing.Size(293, 20);
+            this.txtEnrolmentId.TabIndex = 47;
+            this.ToolTips.SetToolTip(this.txtEnrolmentId, "Insert a Numeric value for the Student ID, using 0-9 numbers Only");
             // 
-            // dateTimePicker2
+            // dtpCompletion
             // 
-            this.dateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker2.Location = new System.Drawing.Point(207, 282);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(295, 20);
-            this.dateTimePicker2.TabIndex = 70;
-            this.ToolTips.SetToolTip(this.dateTimePicker2, "Insert the Course Completion Date Here");
+            this.dtpCompletion.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpCompletion.Location = new System.Drawing.Point(207, 282);
+            this.dtpCompletion.Name = "dtpCompletion";
+            this.dtpCompletion.Size = new System.Drawing.Size(295, 20);
+            this.dtpCompletion.TabIndex = 70;
+            this.ToolTips.SetToolTip(this.dtpCompletion, "Insert the Course Completion Date Here");
             // 
-            // textBox4
+            // txtDiscountCost
             // 
-            this.textBox4.Enabled = false;
-            this.textBox4.Location = new System.Drawing.Point(207, 360);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(295, 20);
-            this.textBox4.TabIndex = 76;
-            this.ToolTips.SetToolTip(this.textBox4, "This is the Final amount including discounts for the Enrolment");
+            this.txtDiscountCost.Enabled = false;
+            this.txtDiscountCost.Location = new System.Drawing.Point(207, 360);
+            this.txtDiscountCost.Name = "txtDiscountCost";
+            this.txtDiscountCost.Size = new System.Drawing.Size(295, 20);
+            this.txtDiscountCost.TabIndex = 76;
+            this.ToolTips.SetToolTip(this.txtDiscountCost, "This is the Final amount including discounts for the Enrolment");
             // 
-            // textBox5
+            // txtEnrolmentCost
             // 
-            this.textBox5.Enabled = false;
-            this.textBox5.Location = new System.Drawing.Point(207, 325);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(295, 20);
-            this.textBox5.TabIndex = 75;
-            this.ToolTips.SetToolTip(this.textBox5, "This is the base cost for the Enrolment");
+            this.txtEnrolmentCost.Enabled = false;
+            this.txtEnrolmentCost.Location = new System.Drawing.Point(207, 325);
+            this.txtEnrolmentCost.Name = "txtEnrolmentCost";
+            this.txtEnrolmentCost.Size = new System.Drawing.Size(295, 20);
+            this.txtEnrolmentCost.TabIndex = 75;
+            this.ToolTips.SetToolTip(this.txtEnrolmentCost, "This is the base cost for the Enrolment");
             // 
-            // panel1
+            // pnlSemester
             // 
-            this.panel1.Controls.Add(this.radioButton1);
-            this.panel1.Controls.Add(this.radioButton2);
-            this.panel1.Location = new System.Drawing.Point(205, 403);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(297, 25);
-            this.panel1.TabIndex = 81;
-            this.ToolTips.SetToolTip(this.panel1, "Select The Semester this course is being undertaken in");
+            this.pnlSemester.Controls.Add(this.rdbSemesterOne);
+            this.pnlSemester.Controls.Add(this.rdbSemesterTwo);
+            this.pnlSemester.Location = new System.Drawing.Point(205, 403);
+            this.pnlSemester.Name = "pnlSemester";
+            this.pnlSemester.Size = new System.Drawing.Size(297, 25);
+            this.pnlSemester.TabIndex = 81;
+            this.ToolTips.SetToolTip(this.pnlSemester, "Select The Semester this course is being undertaken in");
             // 
-            // radioButton1
+            // rdbSemesterOne
             // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Location = new System.Drawing.Point(5, 5);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(45, 17);
-            this.radioButton1.TabIndex = 72;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "One";
-            this.radioButton1.UseVisualStyleBackColor = true;
+            this.rdbSemesterOne.AutoSize = true;
+            this.rdbSemesterOne.Location = new System.Drawing.Point(5, 5);
+            this.rdbSemesterOne.Name = "rdbSemesterOne";
+            this.rdbSemesterOne.Size = new System.Drawing.Size(45, 17);
+            this.rdbSemesterOne.TabIndex = 72;
+            this.rdbSemesterOne.TabStop = true;
+            this.rdbSemesterOne.Text = "One";
+            this.rdbSemesterOne.UseVisualStyleBackColor = true;
             // 
-            // radioButton2
+            // rdbSemesterTwo
             // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(82, 5);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(46, 17);
-            this.radioButton2.TabIndex = 73;
-            this.radioButton2.TabStop = true;
-            this.radioButton2.Text = "Two";
-            this.radioButton2.UseVisualStyleBackColor = true;
+            this.rdbSemesterTwo.AutoSize = true;
+            this.rdbSemesterTwo.Location = new System.Drawing.Point(82, 5);
+            this.rdbSemesterTwo.Name = "rdbSemesterTwo";
+            this.rdbSemesterTwo.Size = new System.Drawing.Size(46, 17);
+            this.rdbSemesterTwo.TabIndex = 73;
+            this.rdbSemesterTwo.TabStop = true;
+            this.rdbSemesterTwo.Text = "Two";
+            this.rdbSemesterTwo.UseVisualStyleBackColor = true;
             // 
-            // panel9
+            // pnlCourseResults
             // 
-            this.panel9.Controls.Add(this.radioButton5);
-            this.panel9.Controls.Add(this.radioButton3);
-            this.panel9.Controls.Add(this.radioButton4);
-            this.panel9.Location = new System.Drawing.Point(204, 437);
-            this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(298, 25);
-            this.panel9.TabIndex = 82;
-            this.ToolTips.SetToolTip(this.panel9, "Select the State of the enrolment at the end of Completion Date (Select Not Compl" +
+            this.pnlCourseResults.Controls.Add(this.rdbNotComplete);
+            this.pnlCourseResults.Controls.Add(this.rdbPass);
+            this.pnlCourseResults.Controls.Add(this.rdbFail);
+            this.pnlCourseResults.Location = new System.Drawing.Point(204, 437);
+            this.pnlCourseResults.Name = "pnlCourseResults";
+            this.pnlCourseResults.Size = new System.Drawing.Size(298, 25);
+            this.pnlCourseResults.TabIndex = 82;
+            this.ToolTips.SetToolTip(this.pnlCourseResults, "Select the State of the enrolment at the end of Completion Date (Select Not Compl" +
         "eted until results are recieved)");
             // 
-            // radioButton5
+            // rdbNotComplete
             // 
-            this.radioButton5.AutoSize = true;
-            this.radioButton5.Location = new System.Drawing.Point(153, 5);
-            this.radioButton5.Name = "radioButton5";
-            this.radioButton5.Size = new System.Drawing.Size(95, 17);
-            this.radioButton5.TabIndex = 74;
-            this.radioButton5.TabStop = true;
-            this.radioButton5.Text = "Not Completed";
-            this.radioButton5.UseVisualStyleBackColor = true;
+            this.rdbNotComplete.AutoSize = true;
+            this.rdbNotComplete.Location = new System.Drawing.Point(153, 5);
+            this.rdbNotComplete.Name = "rdbNotComplete";
+            this.rdbNotComplete.Size = new System.Drawing.Size(95, 17);
+            this.rdbNotComplete.TabIndex = 74;
+            this.rdbNotComplete.TabStop = true;
+            this.rdbNotComplete.Text = "Not Completed";
+            this.rdbNotComplete.UseVisualStyleBackColor = true;
             // 
-            // radioButton3
+            // rdbPass
             // 
-            this.radioButton3.AutoSize = true;
-            this.radioButton3.Location = new System.Drawing.Point(5, 5);
-            this.radioButton3.Name = "radioButton3";
-            this.radioButton3.Size = new System.Drawing.Size(48, 17);
-            this.radioButton3.TabIndex = 72;
-            this.radioButton3.TabStop = true;
-            this.radioButton3.Text = "Pass";
-            this.radioButton3.UseVisualStyleBackColor = true;
+            this.rdbPass.AutoSize = true;
+            this.rdbPass.Location = new System.Drawing.Point(5, 5);
+            this.rdbPass.Name = "rdbPass";
+            this.rdbPass.Size = new System.Drawing.Size(48, 17);
+            this.rdbPass.TabIndex = 72;
+            this.rdbPass.TabStop = true;
+            this.rdbPass.Text = "Pass";
+            this.rdbPass.UseVisualStyleBackColor = true;
             // 
-            // radioButton4
+            // rdbFail
             // 
-            this.radioButton4.AutoSize = true;
-            this.radioButton4.Location = new System.Drawing.Point(82, 5);
-            this.radioButton4.Name = "radioButton4";
-            this.radioButton4.Size = new System.Drawing.Size(41, 17);
-            this.radioButton4.TabIndex = 73;
-            this.radioButton4.TabStop = true;
-            this.radioButton4.Text = "Fail";
-            this.radioButton4.UseVisualStyleBackColor = true;
+            this.rdbFail.AutoSize = true;
+            this.rdbFail.Location = new System.Drawing.Point(82, 5);
+            this.rdbFail.Name = "rdbFail";
+            this.rdbFail.Size = new System.Drawing.Size(41, 17);
+            this.rdbFail.TabIndex = 73;
+            this.rdbFail.TabStop = true;
+            this.rdbFail.Text = "Fail";
+            this.rdbFail.UseVisualStyleBackColor = true;
             // 
-            // enrolmentToolStripMenuItem
+            // btnSearch
             // 
-            this.enrolmentToolStripMenuItem.Name = "enrolmentToolStripMenuItem";
-            this.enrolmentToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.enrolmentToolStripMenuItem.Text = "Enrolment";
+            this.btnSearch.BackColor = System.Drawing.Color.White;
+            this.btnSearch.Image = global::CMS.Properties.Resources.SearchButton;
+            this.btnSearch.Location = new System.Drawing.Point(3, 3);
+            this.btnSearch.Name = "btnSearch";
+            this.btnSearch.Size = new System.Drawing.Size(120, 45);
+            this.btnSearch.TabIndex = 18;
+            this.btnSearch.UseVisualStyleBackColor = false;
             // 
-            // button1
+            // btnAdd
             // 
-            this.button1.BackColor = System.Drawing.Color.White;
-            this.button1.Image = global::CMS.Properties.Resources.SearchButton;
-            this.button1.Location = new System.Drawing.Point(3, 3);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(120, 45);
-            this.button1.TabIndex = 18;
-            this.button1.UseVisualStyleBackColor = false;
-            // 
-            // button2
-            // 
-            this.button2.BackColor = System.Drawing.Color.White;
-            this.button2.Image = global::CMS.Properties.Resources.AddButton;
-            this.button2.Location = new System.Drawing.Point(3, 3);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(120, 45);
-            this.button2.TabIndex = 17;
-            this.button2.UseVisualStyleBackColor = false;
+            this.btnAdd.BackColor = System.Drawing.Color.White;
+            this.btnAdd.Image = global::CMS.Properties.Resources.AddButton;
+            this.btnAdd.Location = new System.Drawing.Point(3, 3);
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.Size = new System.Drawing.Size(120, 45);
+            this.btnAdd.TabIndex = 17;
+            this.btnAdd.UseVisualStyleBackColor = false;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // courseToolStripMenuItem
             // 
             this.courseToolStripMenuItem.Name = "courseToolStripMenuItem";
-            this.courseToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.courseToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
             this.courseToolStripMenuItem.Text = "Course";
             // 
-            // button4
+            // btnDelete
             // 
-            this.button4.BackColor = System.Drawing.Color.White;
-            this.button4.Image = global::CMS.Properties.Resources.DeleteButton;
-            this.button4.Location = new System.Drawing.Point(3, 3);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(119, 44);
-            this.button4.TabIndex = 20;
-            this.button4.UseVisualStyleBackColor = false;
+            this.btnDelete.BackColor = System.Drawing.Color.White;
+            this.btnDelete.Image = global::CMS.Properties.Resources.DeleteButton;
+            this.btnDelete.Location = new System.Drawing.Point(3, 3);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(119, 44);
+            this.btnDelete.TabIndex = 20;
+            this.btnDelete.UseVisualStyleBackColor = false;
             // 
-            // button6
+            // btnViewAll
             // 
-            this.button6.BackColor = System.Drawing.Color.White;
-            this.button6.Image = global::CMS.Properties.Resources.ViewAllButton;
-            this.button6.Location = new System.Drawing.Point(3, 3);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(120, 45);
-            this.button6.TabIndex = 21;
-            this.button6.UseVisualStyleBackColor = false;
+            this.btnViewAll.BackColor = System.Drawing.Color.White;
+            this.btnViewAll.Image = global::CMS.Properties.Resources.ViewAllButton;
+            this.btnViewAll.Location = new System.Drawing.Point(3, 3);
+            this.btnViewAll.Name = "btnViewAll";
+            this.btnViewAll.Size = new System.Drawing.Size(120, 45);
+            this.btnViewAll.TabIndex = 21;
+            this.btnViewAll.UseVisualStyleBackColor = false;
             // 
             // globalSearchToolStripMenuItem
             // 
             this.globalSearchToolStripMenuItem.Name = "globalSearchToolStripMenuItem";
-            this.globalSearchToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.globalSearchToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
             this.globalSearchToolStripMenuItem.Text = "Global Search";
             // 
             // skillsToolStripMenuItem
             // 
             this.skillsToolStripMenuItem.Name = "skillsToolStripMenuItem";
-            this.skillsToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.skillsToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
             this.skillsToolStripMenuItem.Text = "Skills";
             // 
             // assessmentToolStripMenuItem
             // 
             this.assessmentToolStripMenuItem.Name = "assessmentToolStripMenuItem";
-            this.assessmentToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.assessmentToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
             this.assessmentToolStripMenuItem.Text = "Assessment";
             // 
-            // button3
+            // btnUpdate
             // 
-            this.button3.BackColor = System.Drawing.Color.White;
-            this.button3.Image = global::CMS.Properties.Resources.UpdateButton;
-            this.button3.Location = new System.Drawing.Point(3, 3);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(120, 45);
-            this.button3.TabIndex = 19;
-            this.button3.UseVisualStyleBackColor = false;
+            this.btnUpdate.BackColor = System.Drawing.Color.White;
+            this.btnUpdate.Image = global::CMS.Properties.Resources.UpdateButton;
+            this.btnUpdate.Location = new System.Drawing.Point(3, 3);
+            this.btnUpdate.Name = "btnUpdate";
+            this.btnUpdate.Size = new System.Drawing.Size(120, 45);
+            this.btnUpdate.TabIndex = 19;
+            this.btnUpdate.UseVisualStyleBackColor = false;
             // 
             // unitToolStripMenuItem
             // 
             this.unitToolStripMenuItem.Name = "unitToolStripMenuItem";
-            this.unitToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.unitToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
             this.unitToolStripMenuItem.Text = "Unit";
             // 
             // label1
@@ -352,7 +347,7 @@
             // panel8
             // 
             this.panel8.BackColor = System.Drawing.Color.DeepSkyBlue;
-            this.panel8.Controls.Add(this.button6);
+            this.panel8.Controls.Add(this.btnViewAll);
             this.panel8.Location = new System.Drawing.Point(4, 413);
             this.panel8.Name = "panel8";
             this.panel8.Size = new System.Drawing.Size(125, 50);
@@ -361,7 +356,7 @@
             // panel4
             // 
             this.panel4.BackColor = System.Drawing.Color.DeepSkyBlue;
-            this.panel4.Controls.Add(this.button4);
+            this.panel4.Controls.Add(this.btnDelete);
             this.panel4.Location = new System.Drawing.Point(3, 350);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(125, 50);
@@ -370,7 +365,7 @@
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.DeepSkyBlue;
-            this.panel3.Controls.Add(this.button3);
+            this.panel3.Controls.Add(this.btnUpdate);
             this.panel3.Location = new System.Drawing.Point(3, 281);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(125, 50);
@@ -379,7 +374,7 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.DeepSkyBlue;
-            this.panel2.Controls.Add(this.button2);
+            this.panel2.Controls.Add(this.btnAdd);
             this.panel2.Location = new System.Drawing.Point(4, 150);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(125, 50);
@@ -388,7 +383,7 @@
             // panel6
             // 
             this.panel6.BackColor = System.Drawing.Color.DeepSkyBlue;
-            this.panel6.Controls.Add(this.button1);
+            this.panel6.Controls.Add(this.btnSearch);
             this.panel6.Location = new System.Drawing.Point(3, 214);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(125, 50);
@@ -478,7 +473,6 @@
             this.mainMenuToolStripMenuItem,
             this.studentToolStripMenuItem,
             this.teacherCoursesToolStripMenuItem,
-            this.enrolmentToolStripMenuItem,
             this.courseToolStripMenuItem,
             this.unitToolStripMenuItem,
             this.assessmentToolStripMenuItem,
@@ -492,20 +486,26 @@
             // mainMenuToolStripMenuItem
             // 
             this.mainMenuToolStripMenuItem.Name = "mainMenuToolStripMenuItem";
-            this.mainMenuToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.mainMenuToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
             this.mainMenuToolStripMenuItem.Text = "Main Menu";
             // 
             // studentToolStripMenuItem
             // 
             this.studentToolStripMenuItem.Name = "studentToolStripMenuItem";
-            this.studentToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.studentToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
             this.studentToolStripMenuItem.Text = "Student";
             // 
             // teacherCoursesToolStripMenuItem
             // 
             this.teacherCoursesToolStripMenuItem.Name = "teacherCoursesToolStripMenuItem";
-            this.teacherCoursesToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.teacherCoursesToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
             this.teacherCoursesToolStripMenuItem.Text = "Teacher";
+            // 
+            // allocationToolStripMenuItem
+            // 
+            this.allocationToolStripMenuItem.Name = "allocationToolStripMenuItem";
+            this.allocationToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
+            this.allocationToolStripMenuItem.Text = "Allocation";
             // 
             // label6
             // 
@@ -597,32 +597,26 @@
             this.label7.TabIndex = 79;
             this.label7.Text = "Course Results:";
             // 
-            // allocationToolStripMenuItem
-            // 
-            this.allocationToolStripMenuItem.Name = "allocationToolStripMenuItem";
-            this.allocationToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.allocationToolStripMenuItem.Text = "Allocation";
-            // 
             // EnrolmentForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Lavender;
             this.ClientSize = new System.Drawing.Size(744, 507);
-            this.Controls.Add(this.panel9);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.pnlCourseResults);
+            this.Controls.Add(this.pnlSemester);
             this.Controls.Add(this.label7);
-            this.Controls.Add(this.textBox4);
-            this.Controls.Add(this.textBox5);
+            this.Controls.Add(this.txtDiscountCost);
+            this.Controls.Add(this.txtEnrolmentCost);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.dateTimePicker2);
+            this.Controls.Add(this.dtpCompletion);
             this.Controls.Add(this.label8);
-            this.Controls.Add(this.dateTimePicker1);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.dtpEnrolment);
+            this.Controls.Add(this.txtCourseId);
+            this.Controls.Add(this.txtId);
+            this.Controls.Add(this.txtEnrolmentId);
             this.Controls.Add(this.panel5);
             this.Controls.Add(this.panel7);
             this.Controls.Add(this.menuStrip1);
@@ -632,10 +626,10 @@
             this.Controls.Add(this.label12);
             this.Name = "EnrolmentForm";
             this.Text = "EnrolmentForm";
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
-            this.panel9.ResumeLayout(false);
-            this.panel9.PerformLayout();
+            this.pnlSemester.ResumeLayout(false);
+            this.pnlSemester.PerformLayout();
+            this.pnlCourseResults.ResumeLayout(false);
+            this.pnlCourseResults.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
             this.panel5.ResumeLayout(false);
             this.panel8.ResumeLayout(false);
@@ -653,23 +647,22 @@
 
         #endregion
         private System.Windows.Forms.ToolTip ToolTips;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.DateTimePicker dtpEnrolment;
+        private System.Windows.Forms.TextBox txtCourseId;
+        private System.Windows.Forms.TextBox txtId;
+        private System.Windows.Forms.TextBox txtEnrolmentId;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
         private System.ComponentModel.BackgroundWorker backgroundWorker2;
-        private System.Windows.Forms.ToolStripMenuItem enrolmentToolStripMenuItem;
         private System.Windows.Forms.BindingSource bindingSource1;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnSearch;
+        private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.ToolStripMenuItem courseToolStripMenuItem;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.Button btnDelete;
+        private System.Windows.Forms.Button btnViewAll;
         private System.Windows.Forms.ToolStripMenuItem globalSearchToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem skillsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem assessmentToolStripMenuItem;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button btnUpdate;
         private System.Windows.Forms.ToolStripMenuItem unitToolStripMenuItem;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel5;
@@ -695,21 +688,21 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.DateTimePicker dateTimePicker2;
+        private System.Windows.Forms.DateTimePicker dtpCompletion;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.RadioButton radioButton1;
-        private System.Windows.Forms.RadioButton radioButton2;
+        private System.Windows.Forms.RadioButton rdbSemesterOne;
+        private System.Windows.Forms.RadioButton rdbSemesterTwo;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.TextBox txtDiscountCost;
+        private System.Windows.Forms.TextBox txtEnrolmentCost;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Panel panel9;
-        private System.Windows.Forms.RadioButton radioButton5;
-        private System.Windows.Forms.RadioButton radioButton3;
-        private System.Windows.Forms.RadioButton radioButton4;
+        private System.Windows.Forms.Panel pnlSemester;
+        private System.Windows.Forms.Panel pnlCourseResults;
+        private System.Windows.Forms.RadioButton rdbNotComplete;
+        private System.Windows.Forms.RadioButton rdbPass;
+        private System.Windows.Forms.RadioButton rdbFail;
         private System.Windows.Forms.ToolStripMenuItem allocationToolStripMenuItem;
     }
 }

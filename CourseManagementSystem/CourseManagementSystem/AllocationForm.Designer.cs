@@ -241,7 +241,7 @@
             // globalSearchToolStripMenuItem
             // 
             this.globalSearchToolStripMenuItem.Name = "globalSearchToolStripMenuItem";
-            this.globalSearchToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.globalSearchToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
             this.globalSearchToolStripMenuItem.Text = "Global Search";
             // 
             // button5
@@ -319,7 +319,6 @@
             this.cmbAreaOfStudy.Size = new System.Drawing.Size(334, 21);
             this.cmbAreaOfStudy.TabIndex = 148;
             this.ToolTips.SetToolTip(this.cmbAreaOfStudy, "Select from the list the Appropriate Area of Study for this Course");
-            this.cmbAreaOfStudy.SelectedIndexChanged += new System.EventHandler(this.cmbAreaOfStudy_SelectedIndexChanged);
             this.cmbAreaOfStudy.SelectionChangeCommitted += new System.EventHandler(this.cmbAreaOfStudy_SelectionChangeCommitted);
             // 
             // panel2
@@ -428,9 +427,9 @@
             this.lstCourse.FormattingEnabled = true;
             this.lstCourse.Location = new System.Drawing.Point(189, 203);
             this.lstCourse.Name = "lstCourse";
-            this.lstCourse.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;
             this.lstCourse.Size = new System.Drawing.Size(139, 316);
             this.lstCourse.TabIndex = 149;
+            this.lstCourse.Click += new System.EventHandler(this.lstCourse_Click);
             // 
             // lstUnit
             // 
@@ -439,6 +438,7 @@
             this.lstUnit.Name = "lstUnit";
             this.lstUnit.Size = new System.Drawing.Size(139, 316);
             this.lstUnit.TabIndex = 149;
+            this.lstUnit.Click += new System.EventHandler(this.lstUnit_Click);
             // 
             // lstAssignment
             // 

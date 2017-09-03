@@ -45,7 +45,7 @@ namespace CmsLibrary
                 connection.Open();
                 command.ExecuteNonQuery();
             }
-            string[] queries = File.ReadAllText(SqlFileName).Split(new string[] { "go\r\n" }, StringSplitOptions.RemoveEmptyEntries);
+            string[] queries = Properties.Resources.CmsSql.Split(new string[] { "go\r\n" }, StringSplitOptions.RemoveEmptyEntries);
             for (int i = 0; i < queries.Length; i++)
                 ExecuteNonQuery(queries[i]); 
         }
@@ -54,7 +54,6 @@ namespace CmsLibrary
         /// Creates a data table from the sql string.
         /// </summary>
         /// <param name="sql">Sql statement.</param>
-        /// <returns></returns>
         public static DataTable CreateDataTable(string sql)
         {
             try
@@ -316,7 +315,17 @@ namespace CmsLibrary
             }
         }
 
-        public static bool UpdateBridgingTable(string table, string idName, int idValue, string controlName, ListBox control)
+        /// <summary>
+        /// Updates a bridging table in the databse.
+        /// </summary>
+        /// <param name="table">The name of the bridging table.</param>
+        /// <param name="idName">The name of the main id column.</param>
+        /// <param name="idValue">The value of the id.</param>
+        /// <param name="controlName">The name of the controls column id.</param>
+        /// <param name="control">The control holding the list of values.</param>
+        /// <param name="idLeft">If true then id is the first column. Else it is the seccond.</param>
+        /// <returns></returns>
+        public static bool UpdateBridgingTable(string table, string idName, int idValue, string controlName, ListBox control, bool idLeft = true)
         {
             List<int> adds = new List<int>();
             List<int> deletes = new List<int>();
@@ -350,15 +359,34 @@ namespace CmsLibrary
             {
                 sb.Append("insert into ");
                 sb.Append(table);
-                sb.Append(" values (");
-                sb.Append(idValue);
-                sb.Append(", @0)");
+                if (idLeft)
+                {
+                    sb.Append(" values (");
+                    sb.Append(idValue);
+                    sb.Append(", @0)");
+                }
+                else
+                {
+                    sb.Append(" values (@0, ");
+                    sb.Append(idValue);
+                    sb.Append(")");
+                }
                 for (int i = 1; i < adds.Count; i++)
                 {
                     sb.Append(", (");
-                    sb.Append(idValue);
-                    sb.Append(", @");
-                    sb.Append(i);
+                    if (idLeft)
+                    {
+                        sb.Append(idValue);
+                        sb.Append(", @");
+                        sb.Append(i);
+                    }
+                    else
+                    {
+                        sb.Append("@");
+                        sb.Append(i);
+                        sb.Append(", ");
+                        sb.Append(idValue);
+                    }
                     sb.Append(")");
                 }
                 sb.Append(";");
@@ -446,6 +474,29 @@ namespace CmsLibrary
             }
             s.Append("end ");
             return s.ToString();
+        }
+
+        /// <summary>
+        /// Converts the column values into human readable names using a dictionary.
+        /// </summary>
+        /// <param name="columnName">The name of the column in the database.</param>
+        /// <param name="dictionary">The dictionary from the Types class.</param>
+        /// <returns></returns>
+        public static string GetDictionaryNames(string columnName, Dictionary<string, int> dictionary)
+        {
+            StringBuilder sb = new StringBuilder(" case ");
+            sb.Append(columnName);
+            sb.Append(" ");
+            foreach (KeyValuePair<string, int> kvp in dictionary)
+            {
+                sb.Append("when ");
+                sb.Append(kvp.Value);
+                sb.Append(" then '");
+                sb.Append(kvp.Key);
+                sb.Append("' ");
+            }
+            sb.Append("end ");
+            return sb.ToString();
         }
     }
 }

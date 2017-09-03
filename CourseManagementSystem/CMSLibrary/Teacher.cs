@@ -14,7 +14,6 @@ namespace CmsLibrary
         private int departmentId;
         private string firstName;
         private string lastName;
-        private string email;
 
         public Teacher() { }
 
@@ -23,14 +22,13 @@ namespace CmsLibrary
             this.id = id;
         }
 
-        public Teacher(int id, int locationId, int departmentId, string firstName, string lastName, string email)
+        public Teacher(int id, int locationId, int departmentId, string firstName, string lastName)
         {
             this.id = id;
-            this.LocationId = locationId;
+            this.locationId = locationId;
             this.departmentId = departmentId;
             this.firstName = firstName;
             this.lastName = lastName;
-            this.email = email;
         }
 
         public int Id
@@ -71,18 +69,6 @@ namespace CmsLibrary
             }
         }
 
-        public string Email
-        {
-            get
-            {
-                return email;
-            }
-            set
-            {
-                email = value;
-            }
-        }
-
         public int DepartmentId
         {
             get
@@ -110,7 +96,7 @@ namespace CmsLibrary
 
         public bool Add()
         {
-            return Database.Add("teachers", out id, LocationId, departmentId, firstName, lastName, email);
+            return Database.Add("teachers", out id, locationId, departmentId, firstName, lastName);
         }
 
 
@@ -120,8 +106,7 @@ namespace CmsLibrary
                 "locationid", LocationId,
                 "departmentid", departmentId,
                 "teacherfirstName", firstName,
-                "teacherlastName", lastName,
-                "teacheremail", email);
+                "teacherlastName", lastName);
         }
 
         public bool Delete()
@@ -144,7 +129,6 @@ namespace CmsLibrary
                 departmentId = Convert.ToInt32(dataRow[2]);
                 firstName = Convert.ToString(dataRow[3]);
                 lastName = Convert.ToString(dataRow[4]);
-                email = Convert.ToString(dataRow[5]);
                 return true;
             }
             else

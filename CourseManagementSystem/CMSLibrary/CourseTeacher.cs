@@ -48,7 +48,7 @@ namespace CmsLibrary
 
         public bool Update()
         {
-            return Database.UpdateBridgingTable("course_teachers", "teacherid", teacherId, "courseid", control);
+            return Database.UpdateBridgingTable("course_teachers", "teacherid", teacherId, "courseid", control, false);
         }
     }
 }

@@ -28,7 +28,7 @@ namespace CMS
                 return;
             lstCourse.DataSource = null;
             lstUnit.DataSource = null;
-            lstAssignment.DataSource = null;
+            lstOption2.DataSource = null;
             Forms.FillData(lstTeacher, "teachers", "(teacherfirstname + ' ' + teacherlastname)", "teacherid", "departmentid", cmbAreaOfStudy.SelectedValue);
         }
 
@@ -44,7 +44,7 @@ namespace CMS
 
         private void lstUnit_Click(object sender, EventArgs e)
         {
-            Forms.FillData(lstAssignment, "assessments", "assessmentname", "assessmentid", "unitid", lstUnit.SelectedValue);
+            Forms.FillData(lstOption2, "assessments", "assessmentname", "assessmentid", "unitid", lstUnit.SelectedValue);
         }
     }
 }

@@ -68,12 +68,13 @@
             this.panel5 = new System.Windows.Forms.Panel();
             this.label12 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.lstTeacher = new System.Windows.Forms.ListBox();
-            this.lstCourse = new System.Windows.Forms.ListBox();
-            this.lstUnit = new System.Windows.Forms.ListBox();
-            this.lstAssignment = new System.Windows.Forms.ListBox();
+            this.lstOption2 = new System.Windows.Forms.ListBox();
+            this.cmbSel1 = new System.Windows.Forms.ComboBox();
+            this.cmbSel2 = new System.Windows.Forms.ComboBox();
+            this.dgvAllocations = new System.Windows.Forms.DataGridView();
+            this.label6 = new System.Windows.Forms.Label();
+            this.lstOption1 = new System.Windows.Forms.ListBox();
             this.panel7.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.panel8.SuspendLayout();
@@ -83,6 +84,7 @@
             this.panel2.SuspendLayout();
             this.panel6.SuspendLayout();
             this.panel5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvAllocations)).BeginInit();
             this.SuspendLayout();
             // 
             // btnDelete
@@ -377,76 +379,83 @@
             // 
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(28, 167);
+            this.label12.Location = new System.Drawing.Point(31, 180);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(73, 21);
+            this.label12.Size = new System.Drawing.Size(96, 21);
             this.label12.TabIndex = 144;
-            this.label12.Text = "Teacher:";
+            this.label12.Text = "Selection 1:";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(185, 167);
+            this.label2.Location = new System.Drawing.Point(355, 180);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(68, 21);
+            this.label2.Size = new System.Drawing.Size(96, 21);
             this.label2.TabIndex = 144;
-            this.label2.Text = "Course:";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(342, 167);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(45, 21);
-            this.label3.TabIndex = 144;
-            this.label3.Text = "Unit:";
+            this.label2.Text = "Selection 2:";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(499, 167);
+            this.label4.Location = new System.Drawing.Point(355, 255);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(101, 21);
+            this.label4.Size = new System.Drawing.Size(80, 21);
             this.label4.TabIndex = 144;
-            this.label4.Text = "Assignment:";
+            this.label4.Text = "Option 2:";
             // 
-            // lstTeacher
+            // lstOption2
             // 
-            this.lstTeacher.FormattingEnabled = true;
-            this.lstTeacher.Location = new System.Drawing.Point(32, 203);
-            this.lstTeacher.Name = "lstTeacher";
-            this.lstTeacher.Size = new System.Drawing.Size(139, 316);
-            this.lstTeacher.TabIndex = 149;
-            this.lstTeacher.Click += new System.EventHandler(this.lstTeacher_Click);
+            this.lstOption2.FormattingEnabled = true;
+            this.lstOption2.Location = new System.Drawing.Point(359, 291);
+            this.lstOption2.Name = "lstOption2";
+            this.lstOption2.ScrollAlwaysVisible = true;
+            this.lstOption2.Size = new System.Drawing.Size(287, 56);
+            this.lstOption2.TabIndex = 149;
             // 
-            // lstCourse
+            // cmbSel1
             // 
-            this.lstCourse.FormattingEnabled = true;
-            this.lstCourse.Location = new System.Drawing.Point(189, 203);
-            this.lstCourse.Name = "lstCourse";
-            this.lstCourse.Size = new System.Drawing.Size(139, 316);
-            this.lstCourse.TabIndex = 149;
-            this.lstCourse.Click += new System.EventHandler(this.lstCourse_Click);
+            this.cmbSel1.FormattingEnabled = true;
+            this.cmbSel1.Location = new System.Drawing.Point(35, 216);
+            this.cmbSel1.Name = "cmbSel1";
+            this.cmbSel1.Size = new System.Drawing.Size(287, 21);
+            this.cmbSel1.TabIndex = 150;
             // 
-            // lstUnit
+            // cmbSel2
             // 
-            this.lstUnit.FormattingEnabled = true;
-            this.lstUnit.Location = new System.Drawing.Point(346, 203);
-            this.lstUnit.Name = "lstUnit";
-            this.lstUnit.Size = new System.Drawing.Size(139, 316);
-            this.lstUnit.TabIndex = 149;
-            this.lstUnit.Click += new System.EventHandler(this.lstUnit_Click);
+            this.cmbSel2.FormattingEnabled = true;
+            this.cmbSel2.Location = new System.Drawing.Point(359, 216);
+            this.cmbSel2.Name = "cmbSel2";
+            this.cmbSel2.Size = new System.Drawing.Size(287, 21);
+            this.cmbSel2.TabIndex = 150;
             // 
-            // lstAssignment
+            // dgvAllocations
             // 
-            this.lstAssignment.FormattingEnabled = true;
-            this.lstAssignment.Location = new System.Drawing.Point(503, 203);
-            this.lstAssignment.Name = "lstAssignment";
-            this.lstAssignment.Size = new System.Drawing.Size(139, 316);
-            this.lstAssignment.TabIndex = 149;
+            this.dgvAllocations.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvAllocations.Location = new System.Drawing.Point(35, 380);
+            this.dgvAllocations.Name = "dgvAllocations";
+            this.dgvAllocations.Size = new System.Drawing.Size(617, 161);
+            this.dgvAllocations.TabIndex = 151;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(31, 255);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(80, 21);
+            this.label6.TabIndex = 144;
+            this.label6.Text = "Option 1:";
+            // 
+            // lstOption1
+            // 
+            this.lstOption1.FormattingEnabled = true;
+            this.lstOption1.Location = new System.Drawing.Point(35, 291);
+            this.lstOption1.Name = "lstOption1";
+            this.lstOption1.ScrollAlwaysVisible = true;
+            this.lstOption1.Size = new System.Drawing.Size(287, 56);
+            this.lstOption1.TabIndex = 149;
             // 
             // AllocationForm
             // 
@@ -454,15 +463,16 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Lavender;
             this.ClientSize = new System.Drawing.Size(813, 553);
-            this.Controls.Add(this.lstAssignment);
-            this.Controls.Add(this.lstUnit);
-            this.Controls.Add(this.lstCourse);
-            this.Controls.Add(this.lstTeacher);
+            this.Controls.Add(this.dgvAllocations);
+            this.Controls.Add(this.cmbSel2);
+            this.Controls.Add(this.cmbSel1);
+            this.Controls.Add(this.lstOption1);
+            this.Controls.Add(this.lstOption2);
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.cmbAreaOfStudy);
+            this.Controls.Add(this.label6);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.panel5);
@@ -479,6 +489,7 @@
             this.panel2.ResumeLayout(false);
             this.panel6.ResumeLayout(false);
             this.panel5.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvAllocations)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -525,11 +536,12 @@
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.ListBox lstTeacher;
-        private System.Windows.Forms.ListBox lstCourse;
-        private System.Windows.Forms.ListBox lstUnit;
-        private System.Windows.Forms.ListBox lstAssignment;
+        private System.Windows.Forms.ListBox lstOption2;
+        private System.Windows.Forms.ComboBox cmbSel1;
+        private System.Windows.Forms.ComboBox cmbSel2;
+        private System.Windows.Forms.DataGridView dgvAllocations;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.ListBox lstOption1;
     }
 }

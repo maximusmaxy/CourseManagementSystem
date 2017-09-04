@@ -321,7 +321,7 @@
             this.cmbAreaOfStudy.Size = new System.Drawing.Size(334, 21);
             this.cmbAreaOfStudy.TabIndex = 148;
             this.ToolTips.SetToolTip(this.cmbAreaOfStudy, "Select from the list the Appropriate Area of Study for this Course");
-            this.cmbAreaOfStudy.SelectionChangeCommitted += new System.EventHandler(this.cmbAreaOfStudy_SelectionChangeCommitted);
+            this.cmbAreaOfStudy.SelectedIndexChanged += new System.EventHandler(this.cmbAreaOfStudy_SelectedIndexChanged);
             // 
             // panel2
             // 
@@ -411,6 +411,7 @@
             this.lstOption2.Location = new System.Drawing.Point(359, 291);
             this.lstOption2.Name = "lstOption2";
             this.lstOption2.ScrollAlwaysVisible = true;
+            this.lstOption2.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;
             this.lstOption2.Size = new System.Drawing.Size(287, 56);
             this.lstOption2.TabIndex = 149;
             // 
@@ -421,6 +422,7 @@
             this.cmbSel1.Name = "cmbSel1";
             this.cmbSel1.Size = new System.Drawing.Size(287, 21);
             this.cmbSel1.TabIndex = 150;
+            this.cmbSel1.SelectedIndexChanged += new System.EventHandler(this.cmbSel1_SelectedIndexChanged);
             // 
             // cmbSel2
             // 
@@ -429,6 +431,7 @@
             this.cmbSel2.Name = "cmbSel2";
             this.cmbSel2.Size = new System.Drawing.Size(287, 21);
             this.cmbSel2.TabIndex = 150;
+            this.cmbSel2.SelectedIndexChanged += new System.EventHandler(this.cmbSel2_SelectedIndexChanged);
             // 
             // dgvAllocations
             // 
@@ -456,6 +459,7 @@
             this.lstOption1.ScrollAlwaysVisible = true;
             this.lstOption1.Size = new System.Drawing.Size(287, 56);
             this.lstOption1.TabIndex = 149;
+            this.lstOption1.SelectedIndexChanged += new System.EventHandler(this.lstOption1_SelectedIndexChanged);
             // 
             // AllocationForm
             // 

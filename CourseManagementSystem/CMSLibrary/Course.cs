@@ -156,7 +156,7 @@ namespace CmsLibrary
 
         public bool Add()
         {
-            return Database.Add("courses", out id, departmentId, locationId, name, cost, deliveryType, startDate, endDate, Description);
+            return Database.Add("courses", out id, departmentId, locationId, name, cost, deliveryType, startDate, endDate, description);
         }
 
         public bool Update()

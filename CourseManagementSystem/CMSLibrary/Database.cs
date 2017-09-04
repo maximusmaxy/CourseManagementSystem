@@ -45,7 +45,7 @@ namespace CmsLibrary
                 connection.Open();
                 command.ExecuteNonQuery();
             }
-            string[] queries = Properties.Resources.CmsSql.Split(new string[] { "go\r\n" }, StringSplitOptions.RemoveEmptyEntries);
+            string[] queries = Properties.Resources.CmsSql.Split(new string[] { "\r\ngo\r\n" }, StringSplitOptions.RemoveEmptyEntries);
             for (int i = 0; i < queries.Length; i++)
                 ExecuteNonQuery(queries[i]); 
         }
@@ -449,31 +449,6 @@ namespace CmsLibrary
                 strings.Add((string)dataReader[column]);
             }
             return strings.ToArray();
-        }
-
-        /// <summary>
-        /// Converts the column values into human readable names using an enum.
-        /// </summary>
-        /// <param name="columnName">The name of the column in the database.</param>
-        /// <param name="enumType">The enums type from the typeof keyword.</param>
-        /// <returns></returns>
-        public static string GetEnumNames(string columnName, Type enumType)
-        {
-            StringBuilder s = new StringBuilder(" case ");
-            s.Append(columnName);
-            s.Append(" ");
-            string[] names = Enum.GetNames(enumType);
-            int[] values = (int[])Enum.GetValues(enumType);
-            for (int i = 0; i < names.Length; i++)
-            {
-                s.Append("when ");
-                s.Append(values[i]);
-                s.Append(" then '");
-                s.Append(names[i]);
-                s.Append("' ");
-            }
-            s.Append("end ");
-            return s.ToString();
         }
 
         /// <summary>

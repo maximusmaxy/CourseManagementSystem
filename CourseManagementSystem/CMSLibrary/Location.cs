@@ -16,6 +16,7 @@ namespace CmsLibrary
         private string addressSuburb;
         private string addressState;
         private int? addressPostCode;
+        private string campus;
 
         public Location() { }
 
@@ -112,6 +113,18 @@ namespace CmsLibrary
             }
         }
 
+        public string Campus
+        {
+            get
+            {
+                return campus;
+            }
+            set
+            {
+                campus = value;
+            }
+        }
+
         
         public bool Add()
         {
@@ -135,10 +148,11 @@ namespace CmsLibrary
                            and addresssuburb = @suburb
                            and addressstate = @state
                            and addresspostcode = @postcode;
+                           and campus = @campus
                            if @@ROWCOUNT = 0
                            begin
                            insert into locations
-                           values (@street1, @street2, @suburb, @state, @postcode);
+                           values (@street1, @street2, @suburb, @state, @postcode, @campus);
                            select @@identity;
                            end";
             using (SqlConnection connection = Database.Connection())
@@ -150,6 +164,7 @@ namespace CmsLibrary
                 command.Parameters.AddWithNullValue("@suburb", addressSuburb);
                 command.Parameters.AddWithNullValue("@state", addressState);
                 command.Parameters.AddWithNullValue("@postcode", addressPostCode);
+                command.Parameters.AddWithNullValue("@campus", campus);
                 using (SqlDataReader dataReader = command.ExecuteReader())
                 {
                     if (dataReader.HasRows)
@@ -184,11 +199,12 @@ namespace CmsLibrary
             if (Database.Search("locations", out dataRow, values))
             {
                 id = Convert.ToInt32(dataRow[0]);
-                addressStreet1 = Convert.ToString(dataRow[1]);
+                addressStreet1 = Extensions.ConvertDBNullString(dataRow[1]);
                 addressStreet2 = Extensions.ConvertDBNullString(dataRow[2]);
                 addressSuburb = Extensions.ConvertDBNullString(dataRow[3]);
                 addressState = Extensions.ConvertDBNullString(dataRow[4]);
                 addressPostCode = Extensions.ConvertDBNullInt(dataRow[5]);
+                campus = Extensions.ConvertDBNullString(dataRow[6]);
                 return true;
             }
             else

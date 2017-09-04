@@ -18,6 +18,11 @@ namespace CmsLibrary
         /// </summary>
         public static int Int(this Control control)
         {
+            if (control is ListControl)
+            {
+                ListControl lb = (ListControl)control;
+                return Convert.ToInt32(lb.SelectedValue);
+            }
             return Convert.ToInt32(control.Text);
         }
 

@@ -40,18 +40,6 @@ namespace CmsLibrary
         }
 
         /// <summary>
-        /// Checks a specific radio button on a panel based on a value specified by an enum.
-        /// </summary>
-        /// <param name="pnl">The panel holding the radio buttons.</param>
-        /// <param name="enumType">The enum to obtain the value from.</param>
-        /// <param name="value">The value to check.</param>
-        public static void CheckRadio(Panel pnl, Type enumType, int value)
-        {
-            pnl.Controls.OfType<RadioButton>().
-                FirstOrDefault(r => (int)Enum.Parse(enumType, r.Text) == value).Checked = true;
-        }
-
-        /// <summary>
         /// Checks a specific radio button on a panel based on a value specified by a dictionary.
         /// </summary>
         /// <param name="pnl">The panel holding the radio buttons.</param>
@@ -71,17 +59,6 @@ namespace CmsLibrary
         {
             foreach (RadioButton rdb in pnl.Controls.OfType<RadioButton>())
                 rdb.Checked = false;
-        }
-
-        /// <summary>
-        /// Gets the value of a radio specified by the enum.
-        /// </summary>
-        /// <param name="pnl">The panel containing the radio buttons.</param>
-        /// <param name="enumType">The enum supplying the names and values.</param>
-        /// <returns></returns>
-        public static int RadioValue(Panel pnl, Type enumType)
-        {
-            return (int)Enum.Parse(enumType, RadioString(pnl));
         }
 
         /// <summary>
@@ -128,9 +105,10 @@ namespace CmsLibrary
                 }
             }
             DataTable dataTable = Database.CreateDataTable(sql.ToString());
-            control.DataSource = dataTable;
+            control.DataSource = null;
             control.DisplayMember = displayAlias;
             control.ValueMember = value;
+            control.DataSource = dataTable;
             return dataTable;
         }
 
@@ -145,9 +123,10 @@ namespace CmsLibrary
         public static DataTable FillData(ListControl control, string table, string display, string value, string sql)
         {
             DataTable dataTable = Database.CreateDataTable(sql);
-            control.DataSource = dataTable;
+            control.DataSource = null;
             control.DisplayMember = display;
             control.ValueMember = value;
+            control.DataSource = dataTable;
             return dataTable;
         }
 
@@ -164,6 +143,23 @@ namespace CmsLibrary
             string sql = $"select {selectName} from {table} where {idName} = {idValue}";
             foreach (SqlDataReader row in Database.ExecuteQuery(sql))
                 control.SelectedValue = row[selectName];
+        }
+
+        /// <summary>
+        /// Selects items in a listbox based on a one to many relationship.
+        /// </summary>
+        /// <param name="control"></param>
+        /// <param name="oneTable"></param>
+        /// <param name="oneId"></param>
+        /// <param name="oneValue"></param>
+        /// <param name="manyTable"></param>
+        /// <param name="manyId"></param>
+        public static void SelectOneToMany(ListBox control, string oneId, int oneValue, string manyTable, string manyId)
+        {
+            control.ClearSelected();
+            string sql = $"select {manyId} from {manyTable} where {oneId} = {oneValue}";
+            foreach (SqlDataReader row in Database.ExecuteQuery(sql))
+                control.SelectedValue = row[0];
         }
 
         /// <summary>
@@ -192,7 +188,7 @@ namespace CmsLibrary
                 {
                     ComboBox cb = (ComboBox)control;
                     cb.SelectedIndex = -1;
-                    cb.Text = "";
+                    cb.Text = string.Empty;
                 }
                 else if (control is Panel)
                 {

@@ -46,6 +46,7 @@
     <Compile Include="Course.cs" />
     <Compile Include="CourseTeacher.cs" />
     <Compile Include="CourseUnit.cs" />
+    <Compile Include="Data.cs" />
     <Compile Include="Database.cs" />
     <Compile Include="Enrolment.cs" />
     <Compile Include="Extensions.cs" />

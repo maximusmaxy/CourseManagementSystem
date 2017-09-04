@@ -140,14 +140,13 @@ namespace CmsLibrary
 
         public bool Add()
         {
-            return Database.Add("units", out id, teacherId, skillId, departmentId, name, type, numOfHours, description);
+            return Database.Add("units", out id, teacherId, departmentId, name, type, numOfHours, description);
         }
 
         public bool Update()
         {
             return Database.Update("units", "unitid", id,
                 "teacherid", id,
-                "skillid", skillId,
                 "departmentid", departmentId,
                 "unitname", name,
                 "unittype", type,
@@ -172,12 +171,11 @@ namespace CmsLibrary
             {
                 id = Convert.ToInt32(dataRow[0]);
                 teacherId = Convert.ToInt32(dataRow[1]);
-                skillId = Convert.ToInt32(dataRow[2]);
-                departmentId = Convert.ToInt32(dataRow[3]);
-                name = Convert.ToString(dataRow[4]);
-                type = Convert.ToInt32(dataRow[5]);
-                numOfHours = Convert.ToInt32(dataRow[6]);
-                description = Convert.ToString(dataRow[7]);
+                departmentId = Convert.ToInt32(dataRow[2]);
+                name = Convert.ToString(dataRow[3]);
+                type = Convert.ToInt32(dataRow[4]);
+                numOfHours = Convert.ToInt32(dataRow[5]);
+                description = Convert.ToString(dataRow[6]);
                 return true;
             }
             else

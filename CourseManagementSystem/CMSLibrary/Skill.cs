@@ -94,7 +94,7 @@ namespace CmsLibrary
             return Database.Update("skills", "skillid", id,
                 "departmentid", departmentId,
                 "skillname", name,
-                "description", description);
+                "skilldescription", description);
         }
 
         public bool Search()

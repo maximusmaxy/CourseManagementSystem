@@ -189,15 +189,15 @@ namespace CmsLibrary
 
         public bool Add()
         {
-            return Database.Add("students", out id, firstName, lastName, locationId, dateOfBirth, email, countryOfOrigin, gender, disability, disabilityDescription);
+            return Database.Add("students", out id, locationId, firstName, lastName, dateOfBirth, email, countryOfOrigin, gender, disability, disabilityDescription);
         }
 
         public bool Update()
         {
             return Database.Update("students", "studentid", id,
+                "locationid", locationId,
                 "studentfirstname", firstName,
                 "studentlastname", lastName,
-                "locationid", locationId,
                 "contactnumber", contactNumber,
                 "studentdateofbirth", dateOfBirth,
                 "studentemail", email,
@@ -223,9 +223,9 @@ namespace CmsLibrary
             if (Database.Search("students", out dataRow, values))
             {
                 id = Convert.ToInt32(dataRow[0]);
-                firstName = Convert.ToString(dataRow[1]);
-                lastName = Convert.ToString(dataRow[2]);
-                locationId = Convert.ToInt32(dataRow[3]);
+                locationId = Convert.ToInt32(dataRow[1]);
+                firstName = Convert.ToString(dataRow[2]);
+                lastName = Convert.ToString(dataRow[3]);
                 ContactNumber = Convert.ToString(dataRow[4]);
                 dateOfBirth = Convert.ToDateTime(dataRow[5]);
                 email = Convert.ToString(dataRow[6]);

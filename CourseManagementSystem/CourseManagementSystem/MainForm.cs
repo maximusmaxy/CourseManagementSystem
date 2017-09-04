@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using CmsLibrary;
 
 namespace CMS
 {
@@ -19,7 +20,8 @@ namespace CMS
 
         private void Main_Load(object sender, EventArgs e)
         {
-
+            //Database.ServerName = "MAXIMUMPENIS\\SQLEXPRESS";
+            Database.LoadDatabase();
         }
 
         

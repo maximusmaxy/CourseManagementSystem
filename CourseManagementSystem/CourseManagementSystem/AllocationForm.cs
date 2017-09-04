@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using CmsLibrary;
+
 namespace CMS
 {
     public partial class AllocationForm : Form
@@ -15,35 +16,99 @@ namespace CMS
         public AllocationForm()
         {
             InitializeComponent();
-            Database.LoadDatabase();
             Forms.FillData(cmbAreaOfStudy, "departments", "departmentname", "departmentid");
-            cmbAreaOfStudy.SelectedIndex = -1;
-            cmbAreaOfStudy.Text = "Please select a department.";
+            cmbSel1.DisplayMember = "Display";
+            cmbSel2.DisplayMember = "Display";
+            cmbSel1.ValueMember = "Value";
+            cmbSel2.ValueMember = "Value";
+            cmbSel1.DataSource = new BindingList<Data>
+            {
+                new Data("Teachers", "teacher"),
+                new Data("Courses", "course"),
+                new Data("Units", "unit")
+            };
         }
 
-        private void cmbAreaOfStudy_SelectionChangeCommitted(object sender, EventArgs e)
+        private void cmbSel1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (!Validation.Combo(cmbAreaOfStudy))
-                return;
-            lstCourse.DataSource = null;
-            lstUnit.DataSource = null;
-            lstOption2.DataSource = null;
-            Forms.FillData(lstTeacher, "teachers", "(teacherfirstname + ' ' + teacherlastname)", "teacherid", "departmentid", cmbAreaOfStudy.SelectedValue);
+            switch (cmbSel1.SelectedValue)
+            {
+                case "teacher":
+                    cmbSel2.DataSource = new BindingList<Data>
+                    {
+                        new Data("Courses", "course"),
+                        new Data("Units", "unit")
+                    };
+                    Forms.FillData(lstOption1, "teachers", "(teacherfirstname + ' ' + teacherlastname)",
+                        "teacherid", "departmentid", cmbAreaOfStudy.SelectedValue);
+                    break;
+                case "course":
+                    cmbSel2.DataSource = new BindingList<Data>
+                    {
+                        new Data("Units", "unit")
+                    };
+                    Forms.FillData(lstOption1, "courses", "coursename",
+                        "courseid", "departmentid", cmbAreaOfStudy.SelectedValue);
+                    break;
+                case "unit":
+                    cmbSel2.DataSource = new BindingList<Data>
+                    {
+                        new Data("Assessments", "assessment")
+                    };
+                    Forms.FillData(lstOption1, "units", "unitname",
+                        "unitid", "departmentid", cmbAreaOfStudy.SelectedValue);
+                    break;
+            }
         }
 
-        private void lstTeacher_Click(object sender, EventArgs e)
+        private void cmbSel2_SelectedIndexChanged(object sender, EventArgs e)
         {
-            Forms.FillData(lstCourse, "courses", "coursename", "courseid", "departmentid", cmbAreaOfStudy.SelectedValue);
+            switch (cmbSel2.SelectedValue)
+            {
+                case "course":
+                    Forms.FillData(lstOption2, "courses", "coursename",
+                        "courseid", "departmentid", cmbAreaOfStudy.SelectedValue);
+                    break;
+                case "unit":
+                    Forms.FillData(lstOption2, "units", "unitname",
+                        "unitid", "departmentid", cmbAreaOfStudy.SelectedValue);
+                    break;
+                case "assessment":
+                    Forms.FillData(lstOption2, "assessments", "assessmentname",
+                        "assessmentid", "departmentid", cmbAreaOfStudy.SelectedValue);
+                    break;
+            }
         }
 
-        private void lstCourse_Click(object sender, EventArgs e)
+        private void cmbAreaOfStudy_SelectedIndexChanged(object sender, EventArgs e)
         {
-            Forms.FillData(lstUnit, null, "unitname", "unitid", "select unitname, units.unitid as unitid from units, course_units where units.unitid = course_units.unitid");
+            cmbSel1_SelectedIndexChanged(sender, e);
+            cmbSel2_SelectedIndexChanged(sender, e);
         }
 
-        private void lstUnit_Click(object sender, EventArgs e)
+        private void lstOption1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            Forms.FillData(lstOption2, "assessments", "assessmentname", "assessmentid", "unitid", lstUnit.SelectedValue);
+            switch (cmbSel1.SelectedValue)
+            {
+                case "teacher":
+                    switch (cmbSel2.SelectedValue)
+                    {
+                        case "course":
+                            Forms.SelectData(lstOption2, "course_teachers", "teacherid",
+                                lstOption1.Int(), "courseid");
+                            break;
+                        case "unit":
+                            Forms.SelectOneToMany(lstOption2, "teacherid", lstOption1.Int(), "units", "unitid");
+                            break;
+                    }
+                    break;
+                case "course":
+                    Forms.SelectData(lstOption2, "course_units", "courseid", lstOption1.Int(), "unitid");
+                    break;
+                case "unit":
+                    Forms.SelectOneToMany(lstOption2, "unitid", lstOption1.Int(), "assessments", "assessmentid");
+                    break;
+            }
         }
     }
 }

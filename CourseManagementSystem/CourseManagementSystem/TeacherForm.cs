@@ -212,7 +212,7 @@ namespace CMS
 
         private void cmbDepartment_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if(cmbDepartment.DisplayMember == "DepartmentName" && cmbDepartment.ValueMember == "DepartmentId")
+            //if(cmbDepartment.DisplayMember == "DepartmentName" && cmbDepartment.ValueMember == "DepartmentId")
             Forms.FillData(lstSkillsList, "skills", "skillname", "skillId", "departmentid", cmbDepartment.SelectedValue);
         }
     }

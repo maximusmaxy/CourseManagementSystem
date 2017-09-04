@@ -124,7 +124,7 @@ namespace CmsLibrary
 
         public bool Add()
         {
-            return Database.Add("teachers", out id, locationId, departmentId, firstName, lastName);
+            return Database.Add("teachers", out id, locationId, departmentId, firstName, lastName, email, contactNumber);
         }
 
 
@@ -134,7 +134,9 @@ namespace CmsLibrary
                 "locationid", LocationId,
                 "departmentid", departmentId,
                 "teacherfirstName", firstName,
-                "teacherlastName", lastName);
+                "teacherlastName", lastName,
+                "teacheremail", email,
+                "contactnumber", contactNumber);
         }
 
         public bool Delete()
@@ -157,6 +159,8 @@ namespace CmsLibrary
                 departmentId = Convert.ToInt32(dataRow[2]);
                 firstName = Convert.ToString(dataRow[3]);
                 lastName = Convert.ToString(dataRow[4]);
+                email = Convert.ToString(dataRow[5]);
+                contactNumber = Convert.ToString(dataRow[6]);
                 return true;
             }
             else

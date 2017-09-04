@@ -152,7 +152,7 @@ namespace CMS
 
         private void cboxAreaOfStudy_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if(cboxAreaOfStudy.DisplayMember == "departmentname" && cboxAreaOfStudy.ValueMember == "departmentid")
+            //if(cboxAreaOfStudy.DisplayMember == "departmentname" && cboxAreaOfStudy.ValueMember == "departmentid")
             Forms.FillData(lboxUnits, "units", "unitname", "unitid", "departmentid", cboxAreaOfStudy.SelectedValue);
         }
     }

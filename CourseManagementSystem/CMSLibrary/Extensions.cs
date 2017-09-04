@@ -22,6 +22,14 @@ namespace CmsLibrary
         }
 
         /// <summary>
+        /// parses the controls text into a double.
+        /// </summary>
+        public static double Cost(this Control control)
+        {
+            return Convert.ToDouble(control.Text);
+        }
+
+        /// <summary>
         /// Parses the controls text into a nullable integer.
         /// </summary>
         public static int? NullInt(this Control control)

@@ -156,19 +156,19 @@ namespace CmsLibrary
 
         public bool Add()
         {
-            return Database.Add("courses", out id, name, cost, deliveryType, startDate, endDate, locationId, departmentId, Description);
+            return Database.Add("courses", out id, departmentId, locationId, name, cost, deliveryType, startDate, endDate, Description);
         }
 
         public bool Update()
         {
             return Database.Update("courses", "courseid", id,
+                "departmentId", departmentId,
+                "locationId", locationId,
                 "courseName", name,
                 "coursecost", cost,
                 "coursedeliverytype", deliveryType,
                 "coursestartdate", startDate,
                 "courseenddate", endDate,
-                "locationId", locationId,
-                "departmentId", departmentId,
                 "coursedescription", description);
         }
 
@@ -188,13 +188,13 @@ namespace CmsLibrary
             if (Database.Search("courses", out dataRow, values))
             {
                 id = Convert.ToInt32(dataRow[0]);
-                name = Convert.ToString(dataRow[1]);
-                cost = Convert.ToDouble(dataRow[2]);
-                deliveryType = Convert.ToInt32(dataRow[3]);
-                startDate = Convert.ToDateTime(dataRow[4]);
-                endDate = Convert.ToDateTime(dataRow[5]);
-                locationId = Convert.ToInt32(dataRow[6]);
-                departmentId = Convert.ToInt32(dataRow[7]);
+                departmentId = Convert.ToInt32(dataRow[1]);
+                locationId = Convert.ToInt32(dataRow[2]);
+                name = Convert.ToString(dataRow[3]);
+                cost = Convert.ToDouble(dataRow[4]);
+                deliveryType = Convert.ToInt32(dataRow[5]);
+                startDate = Convert.ToDateTime(dataRow[6]);
+                endDate = Convert.ToDateTime(dataRow[7]);
                 description = Convert.ToString(dataRow[8]);
                 return true;
             }

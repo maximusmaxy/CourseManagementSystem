@@ -15,7 +15,6 @@ namespace CMS
         public AllocationForm()
         {
             InitializeComponent();
-            Database.ServerName = "MAXIMUMPENIS\\SQLEXPRESS";
             Database.LoadDatabase();
             Forms.FillData(cmbAreaOfStudy, "departments", "departmentname", "departmentid");
             cmbAreaOfStudy.SelectedIndex = -1;

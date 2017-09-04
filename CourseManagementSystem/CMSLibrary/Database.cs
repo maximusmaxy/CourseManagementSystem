@@ -333,7 +333,7 @@ namespace CmsLibrary
             for (int i = 0; i < dataTable.Rows.Count; i++)
             {
                 if (control.GetSelected(i))
-                    adds.Add(Convert.ToInt32(dataTable.Rows[i]));
+                    adds.Add(Convert.ToInt32(dataTable.Rows[i][idLeft ? 1:0]));
             }
             string sql = $"select {controlName} from {table} where {idName} = {idValue}";
             try

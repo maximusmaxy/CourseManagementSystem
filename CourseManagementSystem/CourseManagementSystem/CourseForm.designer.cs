@@ -442,7 +442,7 @@
             this.cboxAreaOfStudy.Size = new System.Drawing.Size(334, 21);
             this.cboxAreaOfStudy.TabIndex = 95;
             this.ToolTips.SetToolTip(this.cboxAreaOfStudy, "Select from the list the Appropriate Area of Study for this Course");
-            this.cboxAreaOfStudy.SelectionChangeCommitted += new System.EventHandler(this.cboxAreaOfStudy_SelectionChangeCommitted);
+            this.cboxAreaOfStudy.SelectedIndexChanged += new System.EventHandler(this.cboxAreaOfStudy_SelectedIndexChanged);
             // 
             // txtCourseDescription
             // 
@@ -622,7 +622,6 @@
             this.Controls.Add(this.menuStrip1);
             this.Name = "CourseForm";
             this.Text = "CourseForm";
-            this.Load += new System.EventHandler(this.CourseForm_Load);
             this.panel5.ResumeLayout(false);
             this.panel8.ResumeLayout(false);
             this.panel4.ResumeLayout(false);

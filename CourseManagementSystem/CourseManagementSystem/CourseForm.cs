@@ -15,7 +15,11 @@ namespace CMS
     {
         public CourseForm()
         {
+            Database.LoadDatabase();
             InitializeComponent();
+            Forms.FillData(cboxCampus, null, "campus", "locationid", "select locationid, campus from locations where campus is not null ");
+            Forms.FillData(cboxAreaOfStudy, "departments", "departmentname", "departmentid");
+            cboxAreaOfStudy_SelectionChangeCommitted(null, null);
         }
 
         private void CourseForm_Load(object sender, EventArgs e)
@@ -42,8 +46,8 @@ namespace CMS
                 newCourse.DeliveryType = Forms.RadioValue(pnlDeliveryType, Types.DeliveryType);
                 newCourse.StartDate = dtpStart.Value;
                 newCourse.EndDate = dtpEnd.Value;
-                newCourse.LocationId = int.Parse(cboxCampus.SelectedItem.ToString());
-                newCourse.DepartmentId = int.Parse(cboxAreaOfStudy.SelectedItem.ToString());
+                newCourse.LocationId = Convert.ToInt32(cboxCampus.SelectedValue);
+                newCourse.DepartmentId = Convert.ToInt32(cboxAreaOfStudy.SelectedValue);
                 newCourse.Description = txtCourseDescription.Text;
                 newCourse.Add();
             }
@@ -67,6 +71,11 @@ namespace CMS
         private void btnViewAll_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void cboxAreaOfStudy_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            Forms.FillData(lboxUnits, "units", "unitname", "unitid", "departmentid", cboxAreaOfStudy.SelectedValue);
         }
     }
 }

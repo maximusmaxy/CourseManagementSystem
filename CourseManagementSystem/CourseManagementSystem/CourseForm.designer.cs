@@ -71,6 +71,7 @@
             this.cboxAreaOfStudy = new System.Windows.Forms.ComboBox();
             this.txtCourseDescription = new System.Windows.Forms.TextBox();
             this.lboxUnits = new System.Windows.Forms.ListBox();
+            this.cboxCampus = new System.Windows.Forms.ComboBox();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.backgroundWorker2 = new System.ComponentModel.BackgroundWorker();
             this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
@@ -86,7 +87,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
-            this.cboxCampus = new System.Windows.Forms.ComboBox();
             this.panel5.SuspendLayout();
             this.panel8.SuspendLayout();
             this.panel4.SuspendLayout();
@@ -442,6 +442,7 @@
             this.cboxAreaOfStudy.Size = new System.Drawing.Size(334, 21);
             this.cboxAreaOfStudy.TabIndex = 95;
             this.ToolTips.SetToolTip(this.cboxAreaOfStudy, "Select from the list the Appropriate Area of Study for this Course");
+            this.cboxAreaOfStudy.SelectionChangeCommitted += new System.EventHandler(this.cboxAreaOfStudy_SelectionChangeCommitted);
             // 
             // txtCourseDescription
             // 
@@ -460,6 +461,15 @@
             this.lboxUnits.Size = new System.Drawing.Size(115, 173);
             this.lboxUnits.TabIndex = 98;
             this.ToolTips.SetToolTip(this.lboxUnits, "Select the Skill Appropriate for the currently selected Teacher");
+            // 
+            // cboxCampus
+            // 
+            this.cboxCampus.FormattingEnabled = true;
+            this.cboxCampus.Location = new System.Drawing.Point(202, 279);
+            this.cboxCampus.Name = "cboxCampus";
+            this.cboxCampus.Size = new System.Drawing.Size(334, 21);
+            this.cboxCampus.TabIndex = 101;
+            this.ToolTips.SetToolTip(this.cboxCampus, "Select from the list the Appropriate Area of Study for this Course");
             // 
             // label4
             // 
@@ -580,15 +590,6 @@
             this.label9.Size = new System.Drawing.Size(123, 21);
             this.label9.TabIndex = 100;
             this.label9.Text = "Units Included:";
-            // 
-            // cboxCampus
-            // 
-            this.cboxCampus.FormattingEnabled = true;
-            this.cboxCampus.Location = new System.Drawing.Point(202, 279);
-            this.cboxCampus.Name = "cboxCampus";
-            this.cboxCampus.Size = new System.Drawing.Size(334, 21);
-            this.cboxCampus.TabIndex = 101;
-            this.ToolTips.SetToolTip(this.cboxCampus, "Select from the list the Appropriate Area of Study for this Course");
             // 
             // CourseForm
             // 

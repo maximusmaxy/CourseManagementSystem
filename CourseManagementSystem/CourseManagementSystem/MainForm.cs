@@ -71,5 +71,11 @@ namespace CMS
             AllocationForm frm = new CMS.AllocationForm();
             frm.Show();
         }
+
+        private void btnGlobalSearchForm_Click(object sender, EventArgs e)
+        {
+            GlobalSearchForm frm = new CMS.GlobalSearchForm();
+            frm.Show();
+        }
     }
 }

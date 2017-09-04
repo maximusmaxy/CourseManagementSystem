@@ -1,3 +1,6 @@
+--drop database courseManage;
+--create database courseManage; 
+
 --Drop tables
 if object_id('Unit_Teachers','U') is not null
 drop table unit_teachers;
@@ -29,9 +32,7 @@ if object_id('Locations', 'U') is not null
 drop table Locations;
 if object_id('Departments','U') is not null
 drop table Departments;
-
 go
-
 --Create Tables
 create table Departments(
 departmentId smallint primary key identity(1,1) not null,

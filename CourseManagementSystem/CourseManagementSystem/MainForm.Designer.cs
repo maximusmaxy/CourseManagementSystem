@@ -242,6 +242,7 @@
             this.btnGlobalSearchForm.Size = new System.Drawing.Size(125, 100);
             this.btnGlobalSearchForm.TabIndex = 5;
             this.btnGlobalSearchForm.UseVisualStyleBackColor = false;
+            this.btnGlobalSearchForm.Click += new System.EventHandler(this.btnGlobalSearchForm_Click);
             // 
             // panel10
             // 

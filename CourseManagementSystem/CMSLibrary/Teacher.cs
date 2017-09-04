@@ -14,6 +14,8 @@ namespace CmsLibrary
         private int departmentId;
         private string firstName;
         private string lastName;
+        private string email;
+        private string contactNumber;
 
         public Teacher() { }
 
@@ -91,6 +93,32 @@ namespace CmsLibrary
             set
             {
                 locationId = value;
+            }
+        }
+
+        public string Email
+        {
+            get
+            {
+                return email;
+            }
+
+            set
+            {
+                email = value;
+            }
+        }
+
+        public string ContactNumber
+        {
+            get
+            {
+                return contactNumber;
+            }
+
+            set
+            {
+                contactNumber = value;
             }
         }
 

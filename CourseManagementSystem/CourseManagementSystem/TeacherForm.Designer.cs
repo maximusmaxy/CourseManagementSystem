@@ -35,6 +35,8 @@
             this.label13 = new System.Windows.Forms.Label();
             this.ToolTips = new System.Windows.Forms.ToolTip(this.components);
             this.lstSkillsList = new System.Windows.Forms.ListBox();
+            this.cmbDepartment = new System.Windows.Forms.ComboBox();
+            this.cmbCampus = new System.Windows.Forms.ComboBox();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.backgroundWorker2 = new System.ComponentModel.BackgroundWorker();
             this.mainMenuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -74,8 +76,10 @@
             this.label3 = new System.Windows.Forms.Label();
             this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.label4 = new System.Windows.Forms.Label();
-            this.cmbDepartment = new System.Windows.Forms.ComboBox();
-            this.cmbCampus = new System.Windows.Forms.ComboBox();
+            this.txtEmail = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.txtContactNumber = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
             this.panel5.SuspendLayout();
             this.panel8.SuspendLayout();
             this.panel4.SuspendLayout();
@@ -124,16 +128,37 @@
             // lstSkillsList
             // 
             this.lstSkillsList.FormattingEnabled = true;
-            this.lstSkillsList.Location = new System.Drawing.Point(184, 272);
+            this.lstSkillsList.Location = new System.Drawing.Point(184, 320);
             this.lstSkillsList.Name = "lstSkillsList";
+            this.lstSkillsList.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;
             this.lstSkillsList.Size = new System.Drawing.Size(313, 95);
             this.lstSkillsList.TabIndex = 6;
             this.ToolTips.SetToolTip(this.lstSkillsList, "Select the Skill Appropriate for the currently selected Teacher");
             // 
+            // cmbDepartment
+            // 
+            this.cmbDepartment.FormattingEnabled = true;
+            this.cmbDepartment.Location = new System.Drawing.Point(185, 287);
+            this.cmbDepartment.Name = "cmbDepartment";
+            this.cmbDepartment.Size = new System.Drawing.Size(312, 21);
+            this.cmbDepartment.TabIndex = 72;
+            this.ToolTips.SetToolTip(this.cmbDepartment, "Please choose a department from the list provided");
+            this.cmbDepartment.SelectedIndexChanged += new System.EventHandler(this.cmbDepartment_SelectedIndexChanged);
+ 
+            // 
+            // cmbCampus
+            // 
+            this.cmbCampus.FormattingEnabled = true;
+            this.cmbCampus.Location = new System.Drawing.Point(184, 248);
+            this.cmbCampus.Name = "cmbCampus";
+            this.cmbCampus.Size = new System.Drawing.Size(313, 21);
+            this.cmbCampus.TabIndex = 73;
+            this.ToolTips.SetToolTip(this.cmbCampus, "Please select campus from the provided list");
+            // 
             // mainMenuToolStripMenuItem
             // 
             this.mainMenuToolStripMenuItem.Name = "mainMenuToolStripMenuItem";
-            this.mainMenuToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.mainMenuToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
             this.mainMenuToolStripMenuItem.Text = "Main Menu";
             this.mainMenuToolStripMenuItem.Click += new System.EventHandler(this.mainMenuToolStripMenuItem_Click);
             // 
@@ -366,62 +391,62 @@
             // studentToolStripMenuItem
             // 
             this.studentToolStripMenuItem.Name = "studentToolStripMenuItem";
-            this.studentToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.studentToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
             this.studentToolStripMenuItem.Text = "Student";
             this.studentToolStripMenuItem.Click += new System.EventHandler(this.studentToolStripMenuItem_Click);
             // 
             // teacherToolStripMenuItem
             // 
             this.teacherToolStripMenuItem.Name = "teacherToolStripMenuItem";
-            this.teacherToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.teacherToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
             this.teacherToolStripMenuItem.Text = "Teacher";
             this.teacherToolStripMenuItem.Click += new System.EventHandler(this.teacherToolStripMenuItem_Click);
             // 
             // enrolmentToolStripMenuItem
             // 
             this.enrolmentToolStripMenuItem.Name = "enrolmentToolStripMenuItem";
-            this.enrolmentToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.enrolmentToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
             this.enrolmentToolStripMenuItem.Text = "Enrolment";
             this.enrolmentToolStripMenuItem.Click += new System.EventHandler(this.enrolmentToolStripMenuItem_Click);
             // 
             // courseToolStripMenuItem
             // 
             this.courseToolStripMenuItem.Name = "courseToolStripMenuItem";
-            this.courseToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.courseToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
             this.courseToolStripMenuItem.Text = "Course";
             this.courseToolStripMenuItem.Click += new System.EventHandler(this.courseToolStripMenuItem_Click);
             // 
             // unitToolStripMenuItem
             // 
             this.unitToolStripMenuItem.Name = "unitToolStripMenuItem";
-            this.unitToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.unitToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
             this.unitToolStripMenuItem.Text = "Unit";
             this.unitToolStripMenuItem.Click += new System.EventHandler(this.unitToolStripMenuItem_Click);
             // 
             // assessmentToolStripMenuItem
             // 
             this.assessmentToolStripMenuItem.Name = "assessmentToolStripMenuItem";
-            this.assessmentToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.assessmentToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
             this.assessmentToolStripMenuItem.Text = "Assessment";
             this.assessmentToolStripMenuItem.Click += new System.EventHandler(this.assessmentToolStripMenuItem_Click);
             // 
             // skillsToolStripMenuItem
             // 
             this.skillsToolStripMenuItem.Name = "skillsToolStripMenuItem";
-            this.skillsToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.skillsToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
             this.skillsToolStripMenuItem.Text = "Skills";
             this.skillsToolStripMenuItem.Click += new System.EventHandler(this.skillsToolStripMenuItem_Click);
             // 
             // allocationToolStripMenuItem
             // 
             this.allocationToolStripMenuItem.Name = "allocationToolStripMenuItem";
-            this.allocationToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.allocationToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
             this.allocationToolStripMenuItem.Text = "Allocation";
             // 
             // globalSearchToolStripMenuItem
             // 
             this.globalSearchToolStripMenuItem.Name = "globalSearchToolStripMenuItem";
-            this.globalSearchToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.globalSearchToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
             this.globalSearchToolStripMenuItem.Text = "Global Search";
             // 
             // label2
@@ -438,7 +463,7 @@
             // 
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(102, 201);
+            this.label12.Location = new System.Drawing.Point(102, 249);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(76, 21);
             this.label12.TabIndex = 67;
@@ -448,7 +473,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(119, 272);
+            this.label3.Location = new System.Drawing.Point(119, 320);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(59, 21);
             this.label3.TabIndex = 69;
@@ -458,29 +483,49 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(78, 239);
+            this.label4.Location = new System.Drawing.Point(78, 287);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(100, 21);
             this.label4.TabIndex = 71;
             this.label4.Text = "Department:";
             // 
-            // cmbDepartment
+            // txtEmail
             // 
-            this.cmbDepartment.FormattingEnabled = true;
-            this.cmbDepartment.Location = new System.Drawing.Point(185, 239);
-            this.cmbDepartment.Name = "cmbDepartment";
-            this.cmbDepartment.Size = new System.Drawing.Size(312, 21);
-            this.cmbDepartment.TabIndex = 72;
-            this.ToolTips.SetToolTip(this.cmbDepartment, "Please choose a department from the list provided");
+            this.txtEmail.Location = new System.Drawing.Point(184, 219);
+            this.txtEmail.Name = "txtEmail";
+            this.txtEmail.Size = new System.Drawing.Size(313, 20);
+            this.txtEmail.TabIndex = 74;
+            this.txtEmail.Tag = "Email";
+            this.ToolTips.SetToolTip(this.txtEmail, "Please insert the Student Email here, Must contain one @ symbol");
             // 
-            // cmbCampus
+            // label7
             // 
-            this.cmbCampus.FormattingEnabled = true;
-            this.cmbCampus.Location = new System.Drawing.Point(184, 200);
-            this.cmbCampus.Name = "cmbCampus";
-            this.cmbCampus.Size = new System.Drawing.Size(313, 21);
-            this.cmbCampus.TabIndex = 73;
-            this.ToolTips.SetToolTip(this.cmbCampus, "Please select campus from the provided list");
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(120, 216);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(55, 21);
+            this.label7.TabIndex = 75;
+            this.label7.Text = "Email:";
+            // 
+            // txtContactNumber
+            // 
+            this.txtContactNumber.Location = new System.Drawing.Point(184, 193);
+            this.txtContactNumber.Name = "txtContactNumber";
+            this.txtContactNumber.Size = new System.Drawing.Size(313, 20);
+            this.txtContactNumber.TabIndex = 76;
+            this.txtContactNumber.Tag = "Email";
+            this.ToolTips.SetToolTip(this.txtContactNumber, "Please insert the Student Email here, Must contain one @ symbol");
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(37, 191);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(138, 21);
+            this.label5.TabIndex = 77;
+            this.label5.Text = "Contact Number:";
             // 
             // TeacherForm
             // 
@@ -488,6 +533,10 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Lavender;
             this.ClientSize = new System.Drawing.Size(744, 507);
+            this.Controls.Add(this.txtContactNumber);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.txtEmail);
+            this.Controls.Add(this.label7);
             this.Controls.Add(this.cmbCampus);
             this.Controls.Add(this.cmbDepartment);
             this.Controls.Add(this.label4);
@@ -568,6 +617,9 @@
         private System.Windows.Forms.ComboBox cmbDepartment;
         private System.Windows.Forms.ComboBox cmbCampus;
         private System.Windows.Forms.ToolStripMenuItem allocationToolStripMenuItem;
-
+        private System.Windows.Forms.TextBox txtEmail;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.TextBox txtContactNumber;
+        private System.Windows.Forms.Label label5;
     }
 }

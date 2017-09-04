@@ -15,6 +15,7 @@ namespace CmsLibrary
         private string firstName;
         private string lastName;
         private int locationId;
+        private string contactNumber;
         private DateTime dateOfBirth;
         private string email;
         private string countryOfOrigin;
@@ -173,6 +174,19 @@ namespace CmsLibrary
             }
         }
 
+        public string ContactNumber
+        {
+            get
+            {
+                return contactNumber;
+            }
+
+            set
+            {
+                contactNumber = value;
+            }
+        }
+
         public bool Add()
         {
             return Database.Add("students", out id, firstName, lastName, locationId, dateOfBirth, email, countryOfOrigin, gender, disability, disabilityDescription);
@@ -184,6 +198,7 @@ namespace CmsLibrary
                 "studentfirstname", firstName,
                 "studentlastname", lastName,
                 "locationid", locationId,
+                "contactnumber", contactNumber,
                 "studentdateofbirth", dateOfBirth,
                 "studentemail", email,
                 "studentcountryoforigin", countryOfOrigin,
@@ -211,12 +226,13 @@ namespace CmsLibrary
                 firstName = Convert.ToString(dataRow[1]);
                 lastName = Convert.ToString(dataRow[2]);
                 locationId = Convert.ToInt32(dataRow[3]);
-                dateOfBirth = Convert.ToDateTime(dataRow[4]);
-                email = Convert.ToString(dataRow[5]);
-                countryOfOrigin = Convert.ToString(dataRow[6]);
-                gender = Convert.ToInt32(dataRow[7]);
-                disability = Convert.ToBoolean(dataRow[8]);
-                disabilityDescription = Extensions.ConvertDBNullString(dataRow[9]);
+                ContactNumber = Convert.ToString(dataRow[4]);
+                dateOfBirth = Convert.ToDateTime(dataRow[5]);
+                email = Convert.ToString(dataRow[6]);
+                countryOfOrigin = Convert.ToString(dataRow[7]);
+                gender = Convert.ToInt32(dataRow[8]);
+                disability = Convert.ToBoolean(dataRow[9]);
+                disabilityDescription = Extensions.ConvertDBNullString(dataRow[10]);
                 return true;
             }
             else

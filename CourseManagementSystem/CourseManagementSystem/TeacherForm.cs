@@ -22,9 +22,11 @@ namespace CMS
         {
             Database.LoadDatabase();
 
-            //Forms.FillData(cmbCampus, "locations", "campus", "locationid");
+            Forms.FillData(cmbCampus, "locations", "campus", "locationid","select campus, locationid from locations where campus is not null");
             Forms.FillData(cmbDepartment, "Departments", "DepartmentName", "DepartmentId");
-            Forms.FillData(lstSkillsList, "skills", "skillname", "skillId");
+            //cmbDepartment.SelectedIndex = -1;
+            //cmbDepartment.Text = "Please select from options";
+            cmbDepartment_SelectedIndexChanged(null, null);
 
         }
 
@@ -34,6 +36,8 @@ namespace CMS
             if (!Validation.Many(
             txtFirstName.ValidateWord(),
             txtLastName.ValidateWord(),
+            //txtContactNumber.ValidatePhone(),
+            txtEmail.ValidateEmail(),
             cmbCampus,
             cmbDepartment
             ))
@@ -50,6 +54,8 @@ namespace CMS
                 {
                     FirstName = txtFirstName.Text,
                     LastName = txtLastName.Text,
+                    ContactNumber = txtContactNumber.Text,
+                    Email = txtEmail.Text,
                     LocationId = cmbCampus.Int(),
                     DepartmentId = cmbDepartment.Int()
                 };
@@ -70,7 +76,19 @@ namespace CMS
                                                MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
             if (result == DialogResult.Yes)
             {
+                //Teacher
+                Teacher teacher = new Teacher(txtId.Int());
+                if(teacher.Search())
+                {
+                    txtFirstName.Text = teacher.FirstName;
+                    txtLastName.Text = teacher.LastName;
+                    txtContactNumber.Text = teacher.ContactNumber;
+                    txtEmail.Text = teacher.Email;
+                    cmbCampus.SelectedValue = teacher.LocationId;
+                    cmbDepartment.SelectedValue = teacher.DepartmentId;
 
+                    Forms.SelectData(lstSkillsList, "teacher_skills", "teacherid", teacher.Id, "skillid");
+                }
             }
         }
 
@@ -188,6 +206,14 @@ namespace CMS
         {
             SkillsForm frm = new SkillsForm();
             frm.Show();
+        }
+
+       
+
+        private void cmbDepartment_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if(cmbDepartment.DisplayMember == "DepartmentName" && cmbDepartment.ValueMember == "DepartmentId")
+            Forms.FillData(lstSkillsList, "skills", "skillname", "skillId", "departmentid", cmbDepartment.SelectedValue);
         }
     }
 }

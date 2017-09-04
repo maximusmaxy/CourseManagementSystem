@@ -96,6 +96,8 @@
             this.txtDisabilityDescription = new System.Windows.Forms.TextBox();
             this.label17 = new System.Windows.Forms.Label();
             this.pnlGender = new System.Windows.Forms.Panel();
+            this.txtContactNumber = new System.Windows.Forms.TextBox();
+            this.label18 = new System.Windows.Forms.Label();
             this.panel7.SuspendLayout();
             this.panel5.SuspendLayout();
             this.panel8.SuspendLayout();
@@ -413,7 +415,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(94, 405);
+            this.label6.Location = new System.Drawing.Point(96, 429);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(110, 21);
             this.label6.TabIndex = 24;
@@ -423,7 +425,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(149, 440);
+            this.label7.Location = new System.Drawing.Point(151, 464);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(55, 21);
             this.label7.TabIndex = 25;
@@ -628,7 +630,7 @@
             // dtpDateOfBirth
             // 
             this.dtpDateOfBirth.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpDateOfBirth.Location = new System.Drawing.Point(213, 406);
+            this.dtpDateOfBirth.Location = new System.Drawing.Point(215, 430);
             this.dtpDateOfBirth.Name = "dtpDateOfBirth";
             this.dtpDateOfBirth.Size = new System.Drawing.Size(174, 20);
             this.dtpDateOfBirth.TabIndex = 9;
@@ -637,7 +639,7 @@
             // 
             // txtEmail
             // 
-            this.txtEmail.Location = new System.Drawing.Point(213, 443);
+            this.txtEmail.Location = new System.Drawing.Point(215, 467);
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(358, 20);
             this.txtEmail.TabIndex = 10;
@@ -648,7 +650,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(61, 475);
+            this.label3.Location = new System.Drawing.Point(63, 499);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(147, 21);
             this.label3.TabIndex = 37;
@@ -659,7 +661,7 @@
             this.cmbCountryOfOrigin.FormattingEnabled = true;
             this.cmbCountryOfOrigin.Items.AddRange(new object[] {
             "Australia"});
-            this.cmbCountryOfOrigin.Location = new System.Drawing.Point(213, 475);
+            this.cmbCountryOfOrigin.Location = new System.Drawing.Point(215, 499);
             this.cmbCountryOfOrigin.Name = "cmbCountryOfOrigin";
             this.cmbCountryOfOrigin.Size = new System.Drawing.Size(125, 21);
             this.cmbCountryOfOrigin.TabIndex = 11;
@@ -670,7 +672,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(358, 475);
+            this.label4.Location = new System.Drawing.Point(360, 499);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(69, 21);
             this.label4.TabIndex = 39;
@@ -706,7 +708,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(74, 510);
+            this.label5.Location = new System.Drawing.Point(76, 534);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(130, 21);
             this.label5.TabIndex = 43;
@@ -715,7 +717,7 @@
             // chkDisability
             // 
             this.chkDisability.AutoSize = true;
-            this.chkDisability.Location = new System.Drawing.Point(213, 514);
+            this.chkDisability.Location = new System.Drawing.Point(215, 538);
             this.chkDisability.Name = "chkDisability";
             this.chkDisability.Size = new System.Drawing.Size(44, 17);
             this.chkDisability.TabIndex = 14;
@@ -728,7 +730,7 @@
             // txtDisabilityDescription
             // 
             this.txtDisabilityDescription.Enabled = false;
-            this.txtDisabilityDescription.Location = new System.Drawing.Point(211, 544);
+            this.txtDisabilityDescription.Location = new System.Drawing.Point(213, 568);
             this.txtDisabilityDescription.Multiline = true;
             this.txtDisabilityDescription.Name = "txtDisabilityDescription";
             this.txtDisabilityDescription.Size = new System.Drawing.Size(357, 81);
@@ -741,7 +743,7 @@
             // 
             this.label17.AutoSize = true;
             this.label17.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label17.Location = new System.Drawing.Point(34, 544);
+            this.label17.Location = new System.Drawing.Point(36, 568);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(174, 21);
             this.label17.TabIndex = 46;
@@ -751,11 +753,30 @@
             // 
             this.pnlGender.Controls.Add(this.rdbFemale);
             this.pnlGender.Controls.Add(this.rdbMale);
-            this.pnlGender.Location = new System.Drawing.Point(433, 475);
+            this.pnlGender.Location = new System.Drawing.Point(435, 499);
             this.pnlGender.Name = "pnlGender";
             this.pnlGender.Size = new System.Drawing.Size(138, 21);
             this.pnlGender.TabIndex = 47;
             this.pnlGender.Tag = "Gender";
+            // 
+            // txtContactNumber
+            // 
+            this.txtContactNumber.Location = new System.Drawing.Point(215, 404);
+            this.txtContactNumber.Name = "txtContactNumber";
+            this.txtContactNumber.Size = new System.Drawing.Size(358, 20);
+            this.txtContactNumber.TabIndex = 78;
+            this.txtContactNumber.Tag = "Email";
+            this.ToolTips.SetToolTip(this.txtContactNumber, "Please insert the Student Email here, Must contain one @ symbol");
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label18.Location = new System.Drawing.Point(68, 402);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(138, 21);
+            this.label18.TabIndex = 79;
+            this.label18.Text = "Contact Number:";
             // 
             // StudentForm
             // 
@@ -763,6 +784,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Lavender;
             this.ClientSize = new System.Drawing.Size(744, 672);
+            this.Controls.Add(this.txtContactNumber);
+            this.Controls.Add(this.label18);
             this.Controls.Add(this.pnlGender);
             this.Controls.Add(this.txtDisabilityDescription);
             this.Controls.Add(this.label17);
@@ -875,5 +898,7 @@
         private System.Windows.Forms.ToolStripMenuItem globalSearchToolStripMenuItem;
         private System.Windows.Forms.Panel pnlGender;
         private System.Windows.Forms.ToolStripMenuItem allocationToolStripMenuItem;
+        private System.Windows.Forms.TextBox txtContactNumber;
+        private System.Windows.Forms.Label label18;
     }
 }

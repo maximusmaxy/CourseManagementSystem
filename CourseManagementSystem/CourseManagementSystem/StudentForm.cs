@@ -31,7 +31,9 @@ namespace CMS
             txtFirstName.ValidateWord(),
             txtLastName.ValidateWord(),
             txtStreet1.ValidateEmpty(),
+            //txtContactNumber.ValidatePhone(),
             txtEmail.ValidateEmail(),
+            dtpDateOfBirth,
             cmbCountryOfOrigin,
             pnlGender
             ))

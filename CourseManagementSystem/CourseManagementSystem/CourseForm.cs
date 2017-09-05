@@ -154,5 +154,80 @@ namespace CMS
         {
             Forms.FillData(lboxUnits, "units", "unitname", "unitid", "departmentid", cboxAreaOfStudy.SelectedValue);
         }
+
+        private void mainMenuToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Forms.ShowForm(typeof(MainForm));
+        }
+
+        private void enrolmentsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Forms.ShowForm(typeof(StudentForm));
+        }
+
+        private void studentsCoursesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Forms.ShowForm(typeof(TeacherForm));
+        }
+
+        private void enrolmentToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Forms.ShowForm(typeof(EnrolmentForm));
+        }
+
+        private void courseToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Forms.ShowForm(typeof(CourseForm));
+        }
+
+        private void unitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Forms.ShowForm(typeof(UnitForm));
+        }
+
+        private void aSsessmentToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Forms.ShowForm(typeof(AssessmentForm));
+        }
+
+        private void skillsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Forms.ShowForm(typeof(SkillsForm));
+        }
+
+        private void allocationToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Forms.ShowForm(typeof(AllocationForm));
+        }
+
+        private void globalSearchToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Forms.ShowForm(typeof(GlobalSearchForm));
+        }
+
+        private void addToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            btnAdd_Click(sender, e);
+        }
+
+        private void searchToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            btnSearch_Click(sender, e);
+        }
+
+        private void deleteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            btnUpdate_Click(sender, e);
+        }
+
+        private void updateToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            btnDelete_Click(sender, e);
+        }
+
+        private void viewAllToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            btnViewAll_Click(sender, e);
+        }
     }
 }

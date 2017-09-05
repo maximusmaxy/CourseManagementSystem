@@ -312,6 +312,7 @@
             this.btnUpdate.Size = new System.Drawing.Size(120, 45);
             this.btnUpdate.TabIndex = 19;
             this.btnUpdate.UseVisualStyleBackColor = false;
+            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
             // cmbAreaOfStudy
             // 

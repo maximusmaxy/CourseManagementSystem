@@ -162,53 +162,43 @@ namespace CMS
 
         private void mainMenuToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            MainForm frm = new MainForm();
-            frm.Show();
+            Forms.ShowForm(typeof(MainForm));
         }
 
         private void studentToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            StudentForm frm = new StudentForm();
-            frm.Show();
+            Forms.ShowForm(typeof(StudentForm));
         }
 
         private void teacherToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            TeacherForm frm = new TeacherForm();
-            frm.Show();
+            Forms.ShowForm(typeof(TeacherForm));
         }
 
         private void enrolmentToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            EnrolmentForm frm = new EnrolmentForm();
-            frm.Show();
+            Forms.ShowForm(typeof(EnrolmentForm));
         }
 
         private void courseToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            CourseForm frm = new CourseForm();
-            frm.Show();
+            Forms.ShowForm(typeof(CourseForm));
         }
 
         private void unitToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            UnitForm frm = new UnitForm();
-            frm.Show();
+            Forms.ShowForm(typeof(UnitForm));
         }
 
         private void assessmentToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            AssessmentForm frm = new AssessmentForm();
-            frm.Show();
+            Forms.ShowForm(typeof(AssessmentForm));
         }
 
         private void skillsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            SkillsForm frm = new SkillsForm();
-            frm.Show();
+            Forms.ShowForm(typeof(SkillsForm));
         }
-
-       
 
         private void cmbDepartment_SelectedIndexChanged(object sender, EventArgs e)
         {

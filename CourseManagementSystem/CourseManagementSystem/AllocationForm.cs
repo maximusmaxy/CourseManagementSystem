@@ -98,7 +98,7 @@ namespace CMS
                                 lstOption1.Int(), "courseid");
                             break;
                         case "unit":
-                            Forms.SelectOneToMany(lstOption2, "teacherid", lstOption1.Int(), "units", "unitid");
+                            Forms.SelectOneToMany("units", "unitid", "teacherid", lstOption1.Int(), lstOption2);
                             break;
                     }
                     break;
@@ -106,7 +106,37 @@ namespace CMS
                     Forms.SelectData(lstOption2, "course_units", "courseid", lstOption1.Int(), "unitid");
                     break;
                 case "unit":
-                    Forms.SelectOneToMany(lstOption2, "unitid", lstOption1.Int(), "assessments", "assessmentid");
+                    Forms.SelectOneToMany("assessments", "assessmentid", "unitid", lstOption1.Int(), lstOption2);
+                    break;
+            }
+        }
+
+        private void btnUpdate_Click(object sender, EventArgs e)
+        {
+            switch (cmbSel1.SelectedValue)
+            {
+                case "teacher":
+                    switch (cmbSel2.SelectedValue)
+                    {
+                        case "course":
+                            CourseTeacher courseTeacher = new CourseTeacher(lstOption1.Int(), lstOption2);
+                            if (courseTeacher.Update())
+                                MessageBox.Show($"Teacher: {lstOption1.Text} has been updated.");
+                            break;
+                        case "unit":
+                            if (Forms.UpdateOneToMany("units", "unitid", "teacherid", lstOption1.Int(), lstOption2))
+                                MessageBox.Show($"Teacher: {lstOption1.Text} has been updated.");
+                            break;
+                    }
+                    break;
+                case "course":
+                    CourseUnit courseUnit = new CourseUnit(lstOption1.Int(), lstOption2);
+                    if (courseUnit.Update())
+                        MessageBox.Show($"Course: {lstOption1.Text} has been updated.");
+                    break;
+                case "unit":
+                    if (Forms.UpdateOneToMany("assessments", "assessmentid", "unitid", lstOption1.Int(), lstOption2))
+                        MessageBox.Show($"Unit: {lstOption1.Text} has been updated.");
                     break;
             }
         }

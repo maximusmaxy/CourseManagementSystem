@@ -24,60 +24,49 @@ namespace CMS
             Database.LoadDatabase();
         }
 
-        
-
         private void btnTeacherForm_Click(object sender, EventArgs e)
         {
-            TeacherForm frm = new TeacherForm();
-            frm.Show();
+            Forms.ShowForm(typeof(TeacherForm));
         }
 
         private void btnStudentForm_Click(object sender, EventArgs e)
         {
-            StudentForm frm = new StudentForm();
-            frm.Show();
+            Forms.ShowForm(typeof(StudentForm));
         }
 
         private void btnEnrolementForm_Click(object sender, EventArgs e)
         {
-            EnrolmentForm frm = new EnrolmentForm();
-            frm.Show();
+            Forms.ShowForm(typeof(EnrolmentForm));
         }
 
         private void btnCourseForm_Click(object sender, EventArgs e)
         {
-            CourseForm frm = new CourseForm();
-            frm.Show();
+            Forms.ShowForm(typeof(CourseForm));
         }
 
         private void btnUnitForm_Click(object sender, EventArgs e)
         {
-            UnitForm frm = new UnitForm();
-            frm.Show();
+            Forms.ShowForm(typeof(UnitForm));
         }
 
         private void btnAssessmentForm_Click(object sender, EventArgs e)
         {
-            AssessmentForm frm = new AssessmentForm();
-            frm.Show();
+            Forms.ShowForm(typeof(AssessmentForm));
         }
 
         private void btnSkillsForm_Click(object sender, EventArgs e)
         {
-            SkillsForm frm = new SkillsForm();
-            frm.Show();
+            Forms.ShowForm(typeof(SkillsForm));
         }
 
         private void btnAllocationForm_Click(object sender, EventArgs e)
         {
-            AllocationForm frm = new CMS.AllocationForm();
-            frm.Show();
+            Forms.ShowForm(typeof(AllocationForm));
         }
 
         private void btnGlobalSearchForm_Click(object sender, EventArgs e)
         {
-            GlobalSearchForm frm = new CMS.GlobalSearchForm();
-            frm.Show();
+            Forms.ShowForm(typeof(GlobalSearchForm));
         }
     }
 }

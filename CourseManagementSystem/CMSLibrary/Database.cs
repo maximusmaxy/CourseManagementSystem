@@ -7,6 +7,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Windows.Forms;
 using System.IO;
+using System.ComponentModel;
 
 namespace CmsLibrary
 {
@@ -47,7 +48,7 @@ namespace CmsLibrary
             }
             string[] queries = Properties.Resources.CmsSql.Split(new string[] { "\r\ngo\r\n" }, StringSplitOptions.RemoveEmptyEntries);
             for (int i = 0; i < queries.Length; i++)
-                ExecuteNonQuery(queries[i]); 
+                ExecuteNonQuery(queries[i]);
         }
 
         /// <summary>
@@ -171,7 +172,7 @@ namespace CmsLibrary
                     }
                 }
                 catch (Exception ex)
-                { 
+                {
                     MessageBox.Show(ex.Message);
                     return false;
                 }
@@ -245,7 +246,7 @@ namespace CmsLibrary
             {
                 MessageBox.Show($"{idName}: {idValue} from {table} table does not exist.");
                 return false;
-            } 
+            }
             string sql = $"delete from {table} where {idName} = {idValue}";
             try
             {
@@ -257,7 +258,7 @@ namespace CmsLibrary
                 MessageBox.Show(ex.Message);
                 return false;
             }
-            
+
         }
 
         /// <summary>
@@ -333,7 +334,7 @@ namespace CmsLibrary
             for (int i = 0; i < dataTable.Rows.Count; i++)
             {
                 if (control.GetSelected(i))
-                    adds.Add(Convert.ToInt32(dataTable.Rows[i][idLeft ? 1:0]));
+                    adds.Add(Convert.ToInt32(dataTable.Rows[i][controlName]));
             }
             string sql = $"select {controlName} from {table} where {idName} = {idValue}";
             try
@@ -431,7 +432,7 @@ namespace CmsLibrary
                     MessageBox.Show(ex.Message);
                     return false;
                 }
-            } 
+            }
         }
 
         /// <summary>

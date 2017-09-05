@@ -458,6 +458,7 @@
             this.lboxUnits.FormattingEnabled = true;
             this.lboxUnits.Location = new System.Drawing.Point(425, 380);
             this.lboxUnits.Name = "lboxUnits";
+            this.lboxUnits.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;
             this.lboxUnits.Size = new System.Drawing.Size(115, 173);
             this.lboxUnits.TabIndex = 98;
             this.ToolTips.SetToolTip(this.lboxUnits, "Select the Skill Appropriate for the currently selected Teacher");

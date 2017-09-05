@@ -13,6 +13,7 @@ namespace CmsLibrary
     public class Forms
     {
         private static Regex aliasRegex = new Regex(@"\W");
+        private static Dictionary<Type, Form> formsOpen = new Dictionary<Type, Form>();
 
         /// <summary>
         /// Gets the string of the checked radio from a panel.
@@ -82,12 +83,15 @@ namespace CmsLibrary
         public static DataTable FillData(ListControl control, string table, string display, string value, params object[] conditions)
         {
             string displayAlias = aliasRegex.Replace(display, "");
+            string valueAlias = aliasRegex.Replace(value, "");
             StringBuilder sql = new StringBuilder("select ");
             sql.Append(display);
             sql.Append(" as ");
             sql.Append(displayAlias);
             sql.Append(", ");
             sql.Append(value);
+            sql.Append(" as ");
+            sql.Append(valueAlias);
             sql.Append(" from ");
             sql.Append(table);
             if (conditions.Length> 0)
@@ -107,7 +111,7 @@ namespace CmsLibrary
             DataTable dataTable = Database.CreateDataTable(sql.ToString());
             control.DataSource = null;
             control.DisplayMember = displayAlias;
-            control.ValueMember = value;
+            control.ValueMember = valueAlias;
             control.DataSource = dataTable;
             return dataTable;
         }
@@ -148,18 +152,98 @@ namespace CmsLibrary
         /// <summary>
         /// Selects items in a listbox based on a one to many relationship.
         /// </summary>
-        /// <param name="control"></param>
-        /// <param name="oneTable"></param>
-        /// <param name="oneId"></param>
-        /// <param name="oneValue"></param>
-        /// <param name="manyTable"></param>
-        /// <param name="manyId"></param>
-        public static void SelectOneToMany(ListBox control, string oneId, int oneValue, string manyTable, string manyId)
+        /// <param name="table">The name of the table holding many values.</param>
+        /// <param name="id">The name of the id column in the database.</param>
+        /// <param name="foreignId">The name of the one column in the database.</param>
+        /// <param name="foreignValue">The value of the one column.</param>
+        /// <param name="control">The listbox holding the many values.</param>
+        public static void SelectOneToMany(string table, string id, string foreignId, int foreignValue, ListBox control)
         {
             control.ClearSelected();
-            string sql = $"select {manyId} from {manyTable} where {oneId} = {oneValue}";
+            string sql = $"select {id} from {table} where {foreignId} = {foreignValue}";
             foreach (SqlDataReader row in Database.ExecuteQuery(sql))
                 control.SelectedValue = row[0];
+        }
+
+        /// <summary>
+        /// Updates a one to many relationship in the database.
+        /// </summary>
+        /// <param name="table">The name of the table holding many values.</param>
+        /// <param name="id">The name of the id column in the database.</param>
+        /// <param name="foreignId">The name of the one column in the database.</param>
+        /// <param name="foreignValue">The value of the one column.</param>
+        /// <param name="control">The listbox holding the many values.</param>
+        public static bool UpdateOneToMany(string table, string id, string foreignId, int foreignValue, ListBox control)
+        {
+            StringBuilder sb = new StringBuilder("update ");
+            sb.Append(table);
+            sb.Append(" set ");
+            sb.Append(foreignId);
+            sb.Append(" = ");
+            sb.Append(foreignValue);
+            sb.Append(" where ");
+            sb.Append(id);
+            sb.Append(" = ");
+            sb.Append(((DataRowView)control.SelectedItems[0])[control.ValueMember]);
+            foreach (DataRowView row in control.SelectedItems)
+            {
+                sb.Append(" or ");
+                sb.Append(id);
+                sb.Append(" = ");
+                sb.Append(row[control.ValueMember]);
+            }
+            try
+            {
+                Database.ExecuteNonQuery(sb.ToString());
+                return true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return false;
+            }
+        }
+
+        /// <summary>
+        /// Opens the form or sets focus if it already exists.
+        /// </summary>
+        /// <param name="formType">The form type using the typeof(FormName) expression.</param>
+        public static void ShowForm(Type formType)
+        {
+            if (formsOpen.ContainsKey(formType))
+            {
+                formsOpen[formType].Activate();
+                formsOpen[formType].WindowState = FormWindowState.Normal;
+            }
+            else
+            {
+                Form form = (Form)Activator.CreateInstance(formType);
+                formsOpen[formType] = form;
+                form.FormClosed += OnClose;
+                form.Show();
+        }
+    }
+
+        /// <summary>
+        /// Finds and closes the form if it is open.
+        /// </summary>
+        /// <param name="formType">The form type using the typeof(FormName) expression.</param>
+        public static void CloseForm(Type formType)
+        {
+            if (formsOpen.ContainsKey(formType))
+            {
+                formsOpen[formType].Close();
+            }
+        }
+
+        /// <summary>
+        /// Method called by the FormClosed event.
+        /// </summary>
+        public static void OnClose(object sender, FormClosedEventArgs e)
+        {
+            formsOpen.Remove(sender.GetType());
+            if (formsOpen.Count == 0)
+                Application.Exit();
         }
 
         /// <summary>

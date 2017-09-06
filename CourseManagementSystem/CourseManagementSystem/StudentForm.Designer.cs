@@ -811,7 +811,6 @@
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "StudentForm";
             this.Text = "Student";
-            this.Load += new System.EventHandler(this.StudentForm_Load);
             this.panel7.ResumeLayout(false);
             this.panel5.ResumeLayout(false);
             this.panel8.ResumeLayout(false);

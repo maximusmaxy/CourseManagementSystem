@@ -189,7 +189,7 @@ namespace CmsLibrary
 
         public bool Add()
         {
-            return Database.Add("students", out id, locationId, firstName, lastName, dateOfBirth, email, countryOfOrigin, gender, disability, disabilityDescription);
+            return Database.Add("students", out id, locationId, firstName, lastName, dateOfBirth, email, countryOfOrigin, gender, contactNumber, disability, disabilityDescription);
         }
 
         public bool Update()
@@ -198,11 +198,11 @@ namespace CmsLibrary
                 "locationid", locationId,
                 "studentfirstname", firstName,
                 "studentlastname", lastName,
-                "contactnumber", contactNumber,
                 "studentdateofbirth", dateOfBirth,
                 "studentemail", email,
                 "studentcountryoforigin", countryOfOrigin,
                 "studentgender", gender,
+                "contactnumber", contactNumber,
                 "studentdisability", disability,
                 "studentdisabilitydescription", disabilityDescription);
         }
@@ -226,11 +226,11 @@ namespace CmsLibrary
                 locationId = Convert.ToInt32(dataRow[1]);
                 firstName = Convert.ToString(dataRow[2]);
                 lastName = Convert.ToString(dataRow[3]);
-                ContactNumber = Convert.ToString(dataRow[4]);
-                dateOfBirth = Convert.ToDateTime(dataRow[5]);
-                email = Convert.ToString(dataRow[6]);
-                countryOfOrigin = Convert.ToString(dataRow[7]);
-                gender = Convert.ToInt32(dataRow[8]);
+                dateOfBirth = Convert.ToDateTime(dataRow[4]);
+                email = Convert.ToString(dataRow[5]);
+                countryOfOrigin = Convert.ToString(dataRow[6]);
+                gender = Convert.ToInt32(dataRow[7]);
+                contactNumber = Convert.ToString(dataRow[8]);
                 disability = Convert.ToBoolean(dataRow[9]);
                 disabilityDescription = Extensions.ConvertDBNullString(dataRow[10]);
                 return true;

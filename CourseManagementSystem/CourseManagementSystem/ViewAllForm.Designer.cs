@@ -34,22 +34,26 @@
             // 
             // dgvAll
             // 
+            this.dgvAll.AllowUserToAddRows = false;
             this.dgvAll.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvAll.Location = new System.Drawing.Point(12, 12);
             this.dgvAll.Name = "dgvAll";
-            this.dgvAll.Size = new System.Drawing.Size(1052, 480);
+            this.dgvAll.ReadOnly = true;
+            this.dgvAll.Size = new System.Drawing.Size(947, 467);
             this.dgvAll.TabIndex = 0;
+            this.dgvAll.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvAll_CellDoubleClick);
             // 
             // ViewAllForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Lavender;
-            this.ClientSize = new System.Drawing.Size(1076, 504);
+            this.ClientSize = new System.Drawing.Size(971, 491);
             this.Controls.Add(this.dgvAll);
             this.MaximizeBox = false;
             this.Name = "ViewAllForm";
             this.Text = "ViewAllForm";
+            this.Shown += new System.EventHandler(this.ViewAllForm_Shown);
             ((System.ComponentModel.ISupportInitialize)(this.dgvAll)).EndInit();
             this.ResumeLayout(false);
 

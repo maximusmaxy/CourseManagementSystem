@@ -36,7 +36,7 @@ namespace CMS
             if (!Validation.Many(
             txtFirstName.ValidateWord(),
             txtLastName.ValidateWord(),
-            //txtContactNumber.ValidatePhone(),
+            txtContactNumber.ValidatePhone(),
             txtEmail.ValidateEmail(),
             cmbCampus,
             cmbDepartment

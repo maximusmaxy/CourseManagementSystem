@@ -13,13 +13,13 @@ namespace CMS
 {
     public partial class ViewAllForm : Form
     {
-        public class ForeignKey
+        private struct Column
         {
             public string Table { get; }
             public string IdColumn { get; }
             public string DisplayColumn { get; }
 
-            public ForeignKey(string table, string idColumn, string displayColumn)
+            public Column(string table, string idColumn, string displayColumn)
             {
                 Table = table;
                 IdColumn = idColumn;
@@ -27,49 +27,93 @@ namespace CMS
             }
         }
 
-        public string Table { get; set; }
-        public List<ForeignKey> ForeignKeys { get; } = new List<ForeignKey>();
-        public Dictionary<string, Dictionary<string, int>> Dictionaries { get; } = new Dictionary<string, Dictionary<string, int>>();
+        public int Id { get; private set; } = -1;
 
+        private string table;
+        private List<Column> addColumns = new List<Column>();
+        private List<Column> replaceColumns = new List<Column>();
+        private Dictionary<string, Dictionary<string, int>> dictionaries = new Dictionary<string, Dictionary<string, int>>();
+        
+        /// <summary>
+        /// Constructs a data grid view form for a specified table.
+        /// </summary>
+        /// <param name="table">The table to create.</param>
         public ViewAllForm(string table)
         {
             InitializeComponent();
-            Table = table;
+            this.table = table;
         }
 
-        public void AddForeignKey(string table, string idColumnName, string displayColumn)
+        /// <summary>
+        /// Adds a column to the data grid view from a foreign table.
+        /// </summary>
+        /// <param name="table">The foreign table name.</param>
+        /// <param name="foreignKeyName">The foreign key id column name.</param>
+        /// <param name="foreignColumnName">The name of the column from the foreign table you want to add.</param>
+        public void AddColumn(string table, string foreignKeyName, string foreignColumnName)
         {
-            ForeignKeys.Add(new ForeignKey(table, idColumnName, displayColumn));
+            addColumns.Add(new Column(table, foreignKeyName, foreignColumnName));
         }
 
-        public void AddDictionary(string columnName, Dictionary<string, int> dictionary)
+        /// <summary>
+        /// Replaces a foreign key with a column from another table.
+        /// </summary>
+        /// <param name="table"></param>
+        /// <param name="foreignKeyName"></param>
+        /// <param name="foreignColumnName"></param>
+        public void ReplaceColumn(string table, string foreignKeyName, string foreignColumnName)
         {
-            Dictionaries[columnName] = dictionary;
+            replaceColumns.Add(new Column(table, foreignKeyName, foreignColumnName));
         }
 
-        public void LoadDgv()
+        /// <summary>
+        /// Replaces values on a grid with their human readable string representation.
+        /// </summary>
+        /// <param name="columnName">The name of the column to replace.</param>
+        /// <param name="dictionary">The dictionary to recieve the strings from in the Types class.</param>
+        public void AddTypes(string columnName, Dictionary<string, int> dictionary)
         {
-            string[] tableNames = Database.GetTableColumns(Table);
+            dictionaries[columnName] = dictionary;
+        }
+
+        private void ViewAllForm_Shown(object sender, EventArgs e)
+        {
+            string[] columnNames = Database.GetTableColumns(table);
             StringBuilder sb = new StringBuilder("select ");
-            for (int i = 0; i < tableNames.Length; i++)
+            for (int i = 0; i < columnNames.Length; i++)
             {
-                ForeignKey foreignKey = ForeignKeys.FirstOrDefault((fk) => fk.IdColumn == tableNames[i]);
-                if (foreignKey != null)
+                IEnumerable<Column> adds = addColumns.Where((fk) => fk.IdColumn.Equals(columnNames[i], StringComparison.InvariantCultureIgnoreCase));
+                Column? replace = replaceColumns.FirstOrDefault((fk) => fk.IdColumn.Equals(columnNames[i], StringComparison.InvariantCultureIgnoreCase));
+                if (!replace.Value.Equals(default(Column)))
                 {
-                    sb.Append(foreignKey.Table);
+                    sb.Append(replace.Value.Table);
                     sb.Append(".");
-                    sb.Append(foreignKey.DisplayColumn);
-                    sb.Append("as");
-                    sb.Append(foreignKey.DisplayColumn);
+                    sb.Append(replace.Value.DisplayColumn);
+                    sb.Append(" as '");
+                    sb.Append(Extensions.CamelToHuman(replace.Value.DisplayColumn));
+                    sb.Append("', ");
                 }
-                else if (Dictionaries.ContainsKey(tableNames[i]))
+                if (adds.Count() != 0)
+                {
+                    foreach (Column column in adds)
+                    {
+                        sb.Append(column.Table);
+                        sb.Append(".");
+                        sb.Append(column.DisplayColumn);
+                        sb.Append(" as '");
+                        sb.Append(Extensions.CamelToHuman(column.DisplayColumn));
+                        sb.Append("', ");
+                    }
+                    sb.Length -= 2;
+                }
+                if (dictionaries.ContainsKey(columnNames[i]))
                 {
                     sb.Append(" case ");
-                    sb.Append(Table);
+                    sb.Append(table);
                     sb.Append(".");
-                    sb.Append(tableNames[i]);
+                    sb.Append(columnNames[i]);
                     sb.Append(" ");
-                    foreach (KeyValuePair<string, int> kvp in Dictionaries[tableNames[i]])
+                    foreach (KeyValuePair<string, int> kvp in dictionaries[columnNames[i]])
                     {
                         sb.Append("when ");
                         sb.Append(kvp.Value);
@@ -77,39 +121,54 @@ namespace CMS
                         sb.Append(kvp.Key);
                         sb.Append("' ");
                     }
-                    sb.Append("end as ");
-                    sb.Append(tableNames);
+                    sb.Append("end as '");
+                    sb.Append(Extensions.CamelToHuman(columnNames[i]));
+                    sb.Append("'");
                 }
-                else
+                else if (replace.Value.Equals(default(Column)))
                 {
-                    sb.Append(Table);
+                    sb.Append(table);
                     sb.Append(".");
-                    sb.Append(tableNames);
+                    sb.Append(columnNames[i]);
+                    sb.Append(" as '");
+                    sb.Append(Extensions.CamelToHuman(columnNames[i]));
+                    sb.Append("'");
                 }
                 sb.Append(", ");
             }
             sb.Length -= 2;
             sb.Append(" from ");
-            sb.Append(Table);
-            foreach (ForeignKey fk in ForeignKeys)
+            sb.Append(table);
+            var uniqeTables = addColumns.GroupBy((fk) => fk.Table).Select((fk) => fk.FirstOrDefault());
+            foreach (Column column in uniqeTables)
             {
                 sb.Append(", ");
-                sb.Append(fk.Table);
+                sb.Append(column.Table);
             }
-            sb.Append("where ");
-            foreach (ForeignKey fk in ForeignKeys)
+            sb.Append(" where ");
+            foreach (Column column in uniqeTables)
             {
-                sb.Append(Table);
+                sb.Append(table);
                 sb.Append(".");
-                sb.Append(fk.IdColumn);
+                sb.Append(column.IdColumn);
                 sb.Append(" = ");
-                sb.Append(fk.Table);
+                sb.Append(column.Table);
                 sb.Append(".");
-                sb.Append(fk.IdColumn);
+                sb.Append(column.IdColumn);
                 sb.Append(", ");
             }
             sb.Length -= 2;
+            string x = sb.ToString();
             dgvAll.DataSource = Database.CreateDataTable(sb.ToString());
+        }
+
+        private void dgvAll_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0 && e.RowIndex < dgvAll.RowCount)
+            {
+                Id = Convert.ToInt32(((DataRowView)dgvAll.Rows[e.RowIndex].DataBoundItem)[0]);
+                Close();
+            }
         }
     }
 }

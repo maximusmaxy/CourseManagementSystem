@@ -8,7 +8,7 @@ using System.Windows.Forms;
 
 namespace CmsLibrary
 {
-    public enum ValidationType { Numeric, Word, Empty, Date, Email, Range, Length, UnitCode, NumericEmpty, Cost }
+    public enum ValidationType { Numeric, Word, Empty, Date, Email, Range, Length, UnitCode, NumericEmpty, Cost, Phone }
 
     public class Validation
     {
@@ -18,6 +18,7 @@ namespace CmsLibrary
         private static Regex emailRegex = new Regex(@"^[^@]+@(?<!\.@)[^\.@]+\.[^@]+$");
         private static Regex unitCodeRegex = new Regex(@"^\w{6}\d{3}$");
         private static Regex costRegex = new Regex(@"^\$?\d+(?:\.\d{1,2})?$");
+        private static Regex phoneRegex = new Regex(@"^(\d{8}|\d{10})$");
 
         public struct Text
         {
@@ -166,6 +167,23 @@ namespace CmsLibrary
             return true;
         }
 
+        public static bool Phone(Control control, string error = null)
+        {
+            if (!Empty(control))
+            {
+                return false;
+            }
+            if (!phoneRegex.IsMatch(control.Text))
+            {
+                if (error == null)
+                    MessageBox.Show($"{control.Tag} is not a valid phone number. It must be 8 or 10 digits.");
+                else
+                    MessageBox.Show(error);
+                return false;
+            }
+            return true;
+        }
+
         public static bool Radio(params RadioButton[] radios)
         {
             foreach (RadioButton button in radios)
@@ -297,6 +315,10 @@ namespace CmsLibrary
                             break;
                         case ValidationType.NumericEmpty:
                             if (!NumericEmpty(text.Control, text.Error))
+                                return false;
+                            break;
+                        case ValidationType.Phone:
+                            if (!Phone(text.Control, text.Error))
                                 return false;
                             break;
                     }

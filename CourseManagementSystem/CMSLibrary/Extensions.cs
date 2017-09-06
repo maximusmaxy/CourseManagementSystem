@@ -9,6 +9,7 @@ using System.Windows.Forms;
 using System.Reflection;
 using System.ComponentModel;
 using System.Collections;
+using System.Text.RegularExpressions;
 
 namespace CmsLibrary
 {
@@ -147,16 +148,21 @@ namespace CmsLibrary
             return new Validation.Text(control, ValidationType.Cost, error);
         }
 
+        public static Validation.Text ValidatePhone(this TextBox control, string error = null)
+        {
+            return new Validation.Text(control, ValidationType.Phone, error);
+        }
+
         /// <summary>
         /// Extends the add with value method to accept null values.
         /// </summary>
         public static SqlParameter AddWithNullValue(this SqlParameterCollection collection, string param, object value)
         {
-            return collection.AddWithValue(param, value == null ? DBNull.Value : value);
+            return collection.AddWithValue(param, value ?? DBNull.Value);
         }
 
         /// <summary>
-        /// allows you to convert DBNull into proper null.
+        /// Allows you to convert DBNull into proper null.
         /// </summary>
         public static string ConvertDBNullString<T>(T value)
         {
@@ -167,7 +173,7 @@ namespace CmsLibrary
         }
 
         /// <summary>
-        /// allows you to convert DBNull into a proper null.
+        /// Allows you to convert DBNull into a proper null.
         /// </summary>
         public static int? ConvertDBNullInt<T>(T value)
         {
@@ -176,5 +182,16 @@ namespace CmsLibrary
             else
                 return Convert.ToInt32(value);
         }
+
+        /// <summary>
+        /// Converts camel casing to human readable casing and capitalizes first letter.
+        /// </summary>
+        public static string CamelToHuman(string camel)
+        {
+            string split = camelCapitalRegex.Replace(camel, (s) => $" {s}");
+            return split.First().ToString().ToUpper() + split.Substring(1);
+        }
+
+        private static Regex camelCapitalRegex = new Regex(@"[A-Z]");
     }
 }

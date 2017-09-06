@@ -31,7 +31,7 @@ namespace CMS
 
         private void cmbSel1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            switch (cmbSel1.SelectedValue)
+            switch ((string)cmbSel1.SelectedValue)
             {
                 case "teacher":
                     cmbSel2.DataSource = new BindingList<Data>
@@ -63,7 +63,7 @@ namespace CMS
 
         private void cmbSel2_SelectedIndexChanged(object sender, EventArgs e)
         {
-            switch (cmbSel2.SelectedValue)
+            switch ((string)cmbSel2.SelectedValue)
             {
                 case "course":
                     Forms.FillData(lstOption2, "courses", "coursename",
@@ -88,10 +88,10 @@ namespace CMS
 
         private void lstOption1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            switch (cmbSel1.SelectedValue)
+            switch ((string)cmbSel1.SelectedValue)
             {
                 case "teacher":
-                    switch (cmbSel2.SelectedValue)
+                    switch ((string)cmbSel2.SelectedValue)
                     {
                         case "course":
                             Forms.SelectData(lstOption2, "course_teachers", "teacherid",
@@ -113,10 +113,10 @@ namespace CMS
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-            switch (cmbSel1.SelectedValue)
+            switch ((string)cmbSel1.SelectedValue)
             {
                 case "teacher":
-                    switch (cmbSel2.SelectedValue)
+                    switch ((string)cmbSel2.SelectedValue)
                     {
                         case "course":
                             CourseTeacher courseTeacher = new CourseTeacher(lstOption1.Int(), lstOption2);

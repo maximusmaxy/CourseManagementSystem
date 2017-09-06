@@ -13,7 +13,7 @@ namespace CmsLibrary
         private int teacherId;
         private int skillId;
         private int departmentId;
-        private string name;
+        private string unitname;
         private int type;
         private int numOfHours;
         private string description;
@@ -31,7 +31,7 @@ namespace CmsLibrary
             this.teacherId = teacherId;
             this.skillId = skillId;
             this.departmentId = departmentId;
-            this.name = name;
+            this.unitname = name;
             this.type = type;
             this.numOfHours = numOfHours;
             this.description = description;
@@ -91,12 +91,12 @@ namespace CmsLibrary
         {
             get
             {
-                return name;
+                return unitname;
             }
 
             set
             {
-                name = value;
+                unitname = value;
             }
         }
 
@@ -140,7 +140,7 @@ namespace CmsLibrary
 
         public bool Add()
         {
-            return Database.Add("units", out id, teacherId, departmentId, name, type, numOfHours, description);
+            return Database.Add("units", out id, teacherId, departmentId, unitname, type, numOfHours, description);
         }
 
         public bool Update()
@@ -148,7 +148,7 @@ namespace CmsLibrary
             return Database.Update("units", "unitid", id,
                 "teacherid", id,
                 "departmentid", departmentId,
-                "unitname", name,
+                "unitname", unitname,
                 "unittype", type,
                 "numofhours", numOfHours,
                 "unitdescription", description);
@@ -172,7 +172,7 @@ namespace CmsLibrary
                 id = Convert.ToInt32(dataRow[0]);
                 teacherId = Convert.ToInt32(dataRow[1]);
                 departmentId = Convert.ToInt32(dataRow[2]);
-                name = Convert.ToString(dataRow[3]);
+                unitname = Convert.ToString(dataRow[3]);
                 type = Convert.ToInt32(dataRow[4]);
                 numOfHours = Convert.ToInt32(dataRow[5]);
                 description = Convert.ToString(dataRow[6]);

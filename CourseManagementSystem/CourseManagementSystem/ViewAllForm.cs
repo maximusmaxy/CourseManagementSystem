@@ -159,14 +159,14 @@ namespace CMS
             }
             sb.Length -= 2;
             string x = sb.ToString();
-            dgvAll.DataSource = Database.CreateDataTable(sb.ToString());
+            dgvViewAll.DataSource = Database.CreateDataTable(sb.ToString());
         }
 
-        private void dgvAll_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        private void dgvViewAll_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex >= 0 && e.RowIndex < dgvAll.RowCount)
+            if (e.RowIndex >= 0 && e.RowIndex < dgvViewAll.RowCount)
             {
-                Id = Convert.ToInt32(((DataRowView)dgvAll.Rows[e.RowIndex].DataBoundItem)[0]);
+                Id = Convert.ToInt32(((DataRowView)dgvViewAll.Rows[e.RowIndex].DataBoundItem)[0]);
                 Close();
             }
         }

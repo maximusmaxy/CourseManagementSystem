@@ -11,11 +11,6 @@ namespace CMS
             InitializeComponent();
         }
 
-        private void StudentForm_Load(object sender, EventArgs e)
-        {
-            Database.LoadDatabase();
-        }
-
         private void btnAdd_Click(object sender, EventArgs e)
         {
 
@@ -24,7 +19,7 @@ namespace CMS
             txtFirstName.ValidateWord(),
             txtLastName.ValidateWord(),
             txtStreet1.ValidateEmpty(),
-            //txtContactNumber.ValidatePhone(),
+            txtContactNumber.ValidatePhone(),
             txtEmail.ValidateEmail(),
             dtpDateOfBirth,
             cmbCountryOfOrigin,
@@ -197,7 +192,42 @@ namespace CMS
 
         private void btnViewAll_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Not Implemented.");
+            using (ViewAllForm form = new ViewAllForm("students"))
+            {
+                form.ReplaceColumn("locations", "locationId", "addressStreet1");
+                form.AddColumn("locations", "locationId", "addressStreet2");
+                form.AddColumn("locations", "locationId", "addressSuburb");
+                form.AddColumn("locations", "locationId", "addressState");
+                form.AddColumn("locations", "locationId", "addressPostCode");
+                form.AddTypes("studentGender", Types.GenderType);
+                form.ShowDialog();
+                if (form.Id != -1)
+                {
+                    Student student = new Student(form.Id);
+                    if (student.Search())
+                    {
+                        txtId.Text = student.Id.ToString();
+                        txtFirstName.Text = student.FirstName;
+                        txtLastName.Text = student.LastName;
+                        dtpDateOfBirth.Value = student.DateOfBirth;
+                        txtEmail.Text = student.Email;
+                        cmbCountryOfOrigin.Text = student.CountryOfOrigin;
+                        Forms.CheckRadio(pnlGender, Types.GenderType, student.Gender);
+                        chkDisability.Checked = student.Disability;
+                        txtDisabilityDescription.Text = student.DisabilityDescription;
+                        //location
+                        Location location = new Location(student.LocationId);
+                        if (location.Search())
+                        {
+                            txtStreet1.Text = location.AddressStreet1;
+                            txtStreet2.Text = location.AddressStreet2;
+                            txtSuburb.Text = location.AddressSuburb;
+                            cmbState.Text = location.AddressState;
+                            txtPostCode.Text = location.AddressPostCode.ToString();
+                        }
+                    }
+                }
+            }
         }
 
         private void addToolStripMenuItem_Click(object sender, EventArgs e)

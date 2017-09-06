@@ -68,10 +68,10 @@
             this.txtCourseName = new System.Windows.Forms.TextBox();
             this.txtCourseID = new System.Windows.Forms.TextBox();
             this.rbtnFTF = new System.Windows.Forms.RadioButton();
-            this.cboxAreaOfStudy = new System.Windows.Forms.ComboBox();
+            this.cmbAreaOfStudy = new System.Windows.Forms.ComboBox();
             this.txtCourseDescription = new System.Windows.Forms.TextBox();
-            this.lboxUnits = new System.Windows.Forms.ListBox();
-            this.cboxCampus = new System.Windows.Forms.ComboBox();
+            this.lstUnitslist = new System.Windows.Forms.ListBox();
+            this.cmbCampus = new System.Windows.Forms.ComboBox();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.backgroundWorker2 = new System.ComponentModel.BackgroundWorker();
             this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
@@ -273,6 +273,7 @@
             this.addToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.A)));
             this.addToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
             this.addToolStripMenuItem.Text = "&Add";
+            this.addToolStripMenuItem.Click += new System.EventHandler(this.addToolStripMenuItem_Click);
             // 
             // searchToolStripMenuItem
             // 
@@ -280,6 +281,7 @@
             this.searchToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S)));
             this.searchToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
             this.searchToolStripMenuItem.Text = "&Search";
+            this.searchToolStripMenuItem.Click += new System.EventHandler(this.searchToolStripMenuItem_Click);
             // 
             // deleteToolStripMenuItem
             // 
@@ -287,6 +289,7 @@
             this.deleteToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.U)));
             this.deleteToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
             this.deleteToolStripMenuItem.Text = "&Update";
+            this.deleteToolStripMenuItem.Click += new System.EventHandler(this.deleteToolStripMenuItem_Click);
             // 
             // updateToolStripMenuItem
             // 
@@ -294,6 +297,7 @@
             this.updateToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.D)));
             this.updateToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
             this.updateToolStripMenuItem.Text = "&Delete";
+            this.updateToolStripMenuItem.Click += new System.EventHandler(this.updateToolStripMenuItem_Click);
             // 
             // viewAllToolStripMenuItem
             // 
@@ -301,6 +305,7 @@
             this.viewAllToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.V)));
             this.viewAllToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
             this.viewAllToolStripMenuItem.Text = "&View All";
+            this.viewAllToolStripMenuItem.Click += new System.EventHandler(this.viewAllToolStripMenuItem_Click);
             // 
             // formsToolStripMenuItem
             // 
@@ -324,60 +329,70 @@
             this.mainMenuToolStripMenuItem.Name = "mainMenuToolStripMenuItem";
             this.mainMenuToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
             this.mainMenuToolStripMenuItem.Text = "Main Menu";
+            this.mainMenuToolStripMenuItem.Click += new System.EventHandler(this.mainMenuToolStripMenuItem_Click);
             // 
             // enrolmentsToolStripMenuItem
             // 
             this.enrolmentsToolStripMenuItem.Name = "enrolmentsToolStripMenuItem";
             this.enrolmentsToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
             this.enrolmentsToolStripMenuItem.Text = "Student";
+            this.enrolmentsToolStripMenuItem.Click += new System.EventHandler(this.enrolmentsToolStripMenuItem_Click);
             // 
             // studentsCoursesToolStripMenuItem
             // 
             this.studentsCoursesToolStripMenuItem.Name = "studentsCoursesToolStripMenuItem";
             this.studentsCoursesToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
             this.studentsCoursesToolStripMenuItem.Text = "Teacher";
+            this.studentsCoursesToolStripMenuItem.Click += new System.EventHandler(this.studentsCoursesToolStripMenuItem_Click);
             // 
             // enrolmentToolStripMenuItem
             // 
             this.enrolmentToolStripMenuItem.Name = "enrolmentToolStripMenuItem";
             this.enrolmentToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
             this.enrolmentToolStripMenuItem.Text = "Enrolment";
+            this.enrolmentToolStripMenuItem.Click += new System.EventHandler(this.enrolmentToolStripMenuItem_Click);
             // 
             // courseToolStripMenuItem
             // 
             this.courseToolStripMenuItem.Name = "courseToolStripMenuItem";
             this.courseToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
             this.courseToolStripMenuItem.Text = "Course";
+            this.courseToolStripMenuItem.Click += new System.EventHandler(this.courseToolStripMenuItem_Click);
             // 
             // unitToolStripMenuItem
             // 
             this.unitToolStripMenuItem.Name = "unitToolStripMenuItem";
             this.unitToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
             this.unitToolStripMenuItem.Text = "Unit";
+            this.unitToolStripMenuItem.Click += new System.EventHandler(this.unitToolStripMenuItem_Click);
             // 
             // aSsessmentToolStripMenuItem
             // 
             this.aSsessmentToolStripMenuItem.Name = "aSsessmentToolStripMenuItem";
             this.aSsessmentToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
             this.aSsessmentToolStripMenuItem.Text = "Assessment";
+            this.aSsessmentToolStripMenuItem.Click += new System.EventHandler(this.aSsessmentToolStripMenuItem_Click);
             // 
             // skillsToolStripMenuItem
             // 
             this.skillsToolStripMenuItem.Name = "skillsToolStripMenuItem";
             this.skillsToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
             this.skillsToolStripMenuItem.Text = "Skills";
+            this.skillsToolStripMenuItem.Click += new System.EventHandler(this.skillsToolStripMenuItem_Click);
             // 
             // allocationToolStripMenuItem
             // 
             this.allocationToolStripMenuItem.Name = "allocationToolStripMenuItem";
             this.allocationToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
             this.allocationToolStripMenuItem.Text = "Allocation";
+            this.allocationToolStripMenuItem.Click += new System.EventHandler(this.allocationToolStripMenuItem_Click);
             // 
             // globalSearchToolStripMenuItem
             // 
             this.globalSearchToolStripMenuItem.Name = "globalSearchToolStripMenuItem";
             this.globalSearchToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
             this.globalSearchToolStripMenuItem.Text = "Global Search";
+            this.globalSearchToolStripMenuItem.Click += new System.EventHandler(this.globalSearchToolStripMenuItem_Click);
             // 
             // dtpEnd
             // 
@@ -434,15 +449,15 @@
         "ed OTEN");
             this.rbtnFTF.UseVisualStyleBackColor = true;
             // 
-            // cboxAreaOfStudy
+            // cmbAreaOfStudy
             // 
-            this.cboxAreaOfStudy.FormattingEnabled = true;
-            this.cboxAreaOfStudy.Location = new System.Drawing.Point(202, 310);
-            this.cboxAreaOfStudy.Name = "cboxAreaOfStudy";
-            this.cboxAreaOfStudy.Size = new System.Drawing.Size(334, 21);
-            this.cboxAreaOfStudy.TabIndex = 95;
-            this.ToolTips.SetToolTip(this.cboxAreaOfStudy, "Select from the list the Appropriate Area of Study for this Course");
-            this.cboxAreaOfStudy.SelectedIndexChanged += new System.EventHandler(this.cboxAreaOfStudy_SelectedIndexChanged);
+            this.cmbAreaOfStudy.FormattingEnabled = true;
+            this.cmbAreaOfStudy.Location = new System.Drawing.Point(202, 310);
+            this.cmbAreaOfStudy.Name = "cmbAreaOfStudy";
+            this.cmbAreaOfStudy.Size = new System.Drawing.Size(334, 21);
+            this.cmbAreaOfStudy.TabIndex = 95;
+            this.ToolTips.SetToolTip(this.cmbAreaOfStudy, "Select from the list the Appropriate Area of Study for this Course");
+            this.cmbAreaOfStudy.SelectedIndexChanged += new System.EventHandler(this.cboxAreaOfStudy_SelectedIndexChanged);
             // 
             // txtCourseDescription
             // 
@@ -453,24 +468,24 @@
             this.txtCourseDescription.TabIndex = 96;
             this.ToolTips.SetToolTip(this.txtCourseDescription, "Please Describe what this Course is about and what are the Goals");
             // 
-            // lboxUnits
+            // lstUnitslist
             // 
-            this.lboxUnits.FormattingEnabled = true;
-            this.lboxUnits.Location = new System.Drawing.Point(425, 380);
-            this.lboxUnits.Name = "lboxUnits";
-            this.lboxUnits.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;
-            this.lboxUnits.Size = new System.Drawing.Size(115, 173);
-            this.lboxUnits.TabIndex = 98;
-            this.ToolTips.SetToolTip(this.lboxUnits, "Select the Skill Appropriate for the currently selected Teacher");
+            this.lstUnitslist.FormattingEnabled = true;
+            this.lstUnitslist.Location = new System.Drawing.Point(425, 380);
+            this.lstUnitslist.Name = "lstUnitslist";
+            this.lstUnitslist.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;
+            this.lstUnitslist.Size = new System.Drawing.Size(115, 173);
+            this.lstUnitslist.TabIndex = 98;
+            this.ToolTips.SetToolTip(this.lstUnitslist, "Select the Skill Appropriate for the currently selected Teacher");
             // 
-            // cboxCampus
+            // cmbCampus
             // 
-            this.cboxCampus.FormattingEnabled = true;
-            this.cboxCampus.Location = new System.Drawing.Point(202, 279);
-            this.cboxCampus.Name = "cboxCampus";
-            this.cboxCampus.Size = new System.Drawing.Size(334, 21);
-            this.cboxCampus.TabIndex = 101;
-            this.ToolTips.SetToolTip(this.cboxCampus, "Select from the list the Appropriate Area of Study for this Course");
+            this.cmbCampus.FormattingEnabled = true;
+            this.cmbCampus.Location = new System.Drawing.Point(202, 279);
+            this.cmbCampus.Name = "cmbCampus";
+            this.cmbCampus.Size = new System.Drawing.Size(334, 21);
+            this.cmbCampus.TabIndex = 101;
+            this.ToolTips.SetToolTip(this.cmbCampus, "Select from the list the Appropriate Area of Study for this Course");
             // 
             // label4
             // 
@@ -598,12 +613,12 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Lavender;
             this.ClientSize = new System.Drawing.Size(744, 575);
-            this.Controls.Add(this.cboxCampus);
+            this.Controls.Add(this.cmbCampus);
             this.Controls.Add(this.label9);
-            this.Controls.Add(this.lboxUnits);
+            this.Controls.Add(this.lstUnitslist);
             this.Controls.Add(this.txtCourseDescription);
             this.Controls.Add(this.label7);
-            this.Controls.Add(this.cboxAreaOfStudy);
+            this.Controls.Add(this.cmbAreaOfStudy);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.pnlDeliveryType);
             this.Controls.Add(this.label4);
@@ -692,12 +707,12 @@
         private System.Windows.Forms.RadioButton rbtnOnline;
         private System.Windows.Forms.RadioButton rbtnFTF;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.ComboBox cboxAreaOfStudy;
+        private System.Windows.Forms.ComboBox cmbAreaOfStudy;
         private System.Windows.Forms.TextBox txtCourseDescription;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.ListBox lboxUnits;
+        private System.Windows.Forms.ListBox lstUnitslist;
         private System.Windows.Forms.ToolStripMenuItem allocationToolStripMenuItem;
-        private System.Windows.Forms.ComboBox cboxCampus;
+        private System.Windows.Forms.ComboBox cmbCampus;
     }
 }

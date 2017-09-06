@@ -77,6 +77,14 @@
             this.dgvViewAll.Name = "dgvViewAll";
             this.dgvViewAll.Size = new System.Drawing.Size(661, 374);
             this.dgvViewAll.TabIndex = 10;
+            //          this.dgvAll.AllowUserToAddRows = false;
+            //this.dgvAll.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            //this.dgvAll.Location = new System.Drawing.Point(12, 12);
+            //this.dgvAll.Name = "dgvAll";
+            //this.dgvAll.ReadOnly = true;
+            //this.dgvAll.Size = new System.Drawing.Size(947, 467);
+            //this.dgvAll.TabIndex = 0;
+            //this.dgvAll.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvAll_CellDoubleClick);
             // 
             // menuStrip1
             // 
@@ -199,7 +207,6 @@
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
-
         }
 
         #endregion

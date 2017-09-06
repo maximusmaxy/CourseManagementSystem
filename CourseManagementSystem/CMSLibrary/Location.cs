@@ -147,8 +147,8 @@ namespace CmsLibrary
                            and addressstreet2 = @street2
                            and addresssuburb = @suburb
                            and addressstate = @state
-                           and addresspostcode = @postcode;
-                           and campus = @campus
+                           and addresspostcode = @postcode
+                           and campus = @campus;
                            if @@ROWCOUNT = 0
                            begin
                            insert into locations

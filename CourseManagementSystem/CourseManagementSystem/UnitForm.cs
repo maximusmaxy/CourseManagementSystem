@@ -25,6 +25,7 @@ namespace CMS
             Forms.FillData(cmbAreaOfStudy, "departments", "departmentname", "departmentid");
             cmbAreaOfStudy_SelectedIndexChanged(null, null);
         }
+                
 
         private void mainMenuToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -81,7 +82,7 @@ namespace CMS
             btnSearch_Click(sender, e);
         }
 
-        private void updateToolStripMenuItem_Click(object sender, EventArgs e)
+        private void updateToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
             btnUpdate_Click(sender, e);
         }
@@ -106,20 +107,19 @@ namespace CMS
                                                MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
             if (result == DialogResult.Yes)
             {
-                Unit unit = new Unit(txtUnitId.Int());
+                 Unit unit = new Unit(txtUnitId.Int());
                 //student.Search("studentfirstname", txtFirstName.Text);
                 if (unit.Search())
                 {
-                    //txtUnitName.Text = unit.Name;
-                    //txtLastName.Text = student.LastName;
-                    //dtpDateOfBirth.Value = student.DateOfBirth;
-                    //txtEmail.Text = student.Email;
-                    //cmbCountryOfOrigin.Text = student.CountryOfOrigin;
-                    //Forms.CheckRadio(pnlGender, Types.GenderType, student.Gender);
-                    //chkDisability.Checked = student.Disability;
-                    //txtDisabilityDescription.Text = student.DisabilityDescription;
+                    txtUnitName.Text = unit.Name;
+                    txtLastName.Text = student.LastName;
+                    dtpDateOfBirth.Value = student.DateOfBirth;
+                    txtEmail.Text = student.Email;
+                    cmbCountryOfOrigin.Text = student.CountryOfOrigin;
+                    Forms.CheckRadio(pnlGender, Types.GenderType, student.Gender);
+                    chkDisability.Checked = student.Disability;
+                    txtDisabilityDescription.Text = student.DisabilityDescription;
                 }
-            }
         }
 
         private void btnUpdate_Click(object sender, EventArgs e)
@@ -146,7 +146,7 @@ namespace CMS
 
             }
         }
-
+        
         private void btnViewAll_Click(object sender, EventArgs e)
         {
             Forms.ShowForm(typeof(ViewAllForm));
@@ -166,8 +166,10 @@ namespace CMS
 
             }
 
+            
         }
 
+       
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
@@ -212,10 +214,13 @@ namespace CMS
 
             }
         }
-        private void cmbAreaOfStudy_SelectedIndexChanged(object sender, EventArgs e)
+            private void cmbAreaOfStudy_SelectedIndexChanged(object sender, EventArgs e)
         {
-            Forms.FillData(cmbSkill, "skills", "skillname", "skillid", "departmentid", cmbAreaOfStudy.SelectedValue);
+            Forms.FillData(cmbSkill, "skills", "skillname", "skillid","departmentid", cmbAreaOfStudy.SelectedValue);
             Forms.FillData(cmbTeacher, "teacher", "(teacherfirstname + ' ' + teacherlastname)", "teacherid", "departmentid", cmbAreaOfStudy.SelectedValue);
         }
+
+        
+    }
     }
 }

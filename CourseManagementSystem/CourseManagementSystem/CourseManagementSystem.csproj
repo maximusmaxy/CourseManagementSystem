@@ -105,8 +105,11 @@
     <Compile Include="UnitForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UnitForm.designer.cs">
-      <DependentUpon>UnitForm.cs</DependentUpon>
+    <Compile Include="ViewAllForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ViewAllForm.Designer.cs">
+      <DependentUpon>ViewAllForm.cs</DependentUpon>
     </Compile>
     <Compile Include="ViewAllForm.cs">
       <SubType>Form</SubType>
@@ -151,6 +154,7 @@
     <EmbeddedResource Include="ViewAllForm.resx">
       <DependentUpon>ViewAllForm.cs</DependentUpon>
     </EmbeddedResource>
+    <Compile Include="H:\DIPLOMA\CMS\UnitForm.designer" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

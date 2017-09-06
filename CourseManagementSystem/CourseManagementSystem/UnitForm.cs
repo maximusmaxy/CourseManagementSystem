@@ -26,7 +26,6 @@ namespace CMS
             cmbAreaOfStudy_SelectedIndexChanged(null, null);
         }
 
-
         private void mainMenuToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Forms.ShowForm(typeof(MainForm));
@@ -167,9 +166,7 @@ namespace CMS
 
             }
 
-
         }
-
 
 
         private void btnAdd_Click(object sender, EventArgs e)

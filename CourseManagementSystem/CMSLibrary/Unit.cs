@@ -10,7 +10,6 @@ namespace CmsLibrary
     public class Unit : IData
     {
         private int id;
-        private int teacherId;
         private int skillId;
         private int departmentId;
         private string code;
@@ -26,10 +25,9 @@ namespace CmsLibrary
             this.id = id;
         }
 
-        public Unit(int id, int teacherId, int skillId, int departmentId, string code, string name, int type, int numOfHours, string description)
+        public Unit(int id, int skillId, int departmentId, string code, string name, int type, int numOfHours, string description)
         {
             this.id = id;
-            this.teacherId = teacherId;
             this.skillId = skillId;
             this.departmentId = departmentId;
             this.code = code;
@@ -49,19 +47,6 @@ namespace CmsLibrary
             set
             {
                 id = value;
-            }
-        }
-
-        public int TeacherId
-        {
-            get
-            {
-                return teacherId;
-            }
-
-            set
-            {
-                teacherId = value;
             }
         }
 
@@ -154,13 +139,12 @@ namespace CmsLibrary
 
         public bool Add()
         {
-            return Database.Add("units", out id, teacherId, departmentId, code, name, type, numOfHours, description);
+            return Database.Add("units", out id, departmentId, code, name, type, numOfHours, description);
         }
 
         public bool Update()
         {
             return Database.Update("units", "unitid", id,
-                "teacherid", id,
                 "departmentid", departmentId,
                 "unitcode", code,
                 "unitname", name,
@@ -185,13 +169,12 @@ namespace CmsLibrary
             if (Database.Search("units", out dataRow, values))
             {
                 id = Convert.ToInt32(dataRow[0]);
-                teacherId = Convert.ToInt32(dataRow[1]);
-                departmentId = Convert.ToInt32(dataRow[2]);
-                code = Convert.ToString(dataRow[3]);
-                name = Convert.ToString(dataRow[4]);
-                type = Convert.ToInt32(dataRow[5]);
-                numOfHours = Convert.ToInt32(dataRow[6]);
-                description = Convert.ToString(dataRow[7]);
+                departmentId = Convert.ToInt32(dataRow[1]);
+                code = Convert.ToString(dataRow[2]);
+                name = Convert.ToString(dataRow[3]);
+                type = Convert.ToInt32(dataRow[4]);
+                numOfHours = Convert.ToInt32(dataRow[5]);
+                description = Convert.ToString(dataRow[6]);
                 return true;
             }
             else

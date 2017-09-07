@@ -98,7 +98,7 @@ namespace CMS
                                 lstOption1.Int(), "courseid");
                             break;
                         case "unit":
-                            Forms.SelectOneToMany("units", "unitid", "teacherid", lstOption1.Int(), lstOption2);
+                            Forms.SelectData(lstOption2, "unit_teachers", "teacherid", lstOption1.Int(), "unitid");
                             break;
                     }
                     break;
@@ -124,7 +124,8 @@ namespace CMS
                                 MessageBox.Show($"Teacher: {lstOption1.Text} has been updated.");
                             break;
                         case "unit":
-                            if (Forms.UpdateOneToMany("units", "unitid", "teacherid", lstOption1.Int(), lstOption2))
+                            UnitTeacher unitTeacher = new UnitTeacher(lstOption1.Int(), lstOption2);
+                            if (unitTeacher.Update())
                                 MessageBox.Show($"Teacher: {lstOption1.Text} has been updated.");
                             break;
                     }
@@ -184,6 +185,11 @@ namespace CMS
         private void globalSearchToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Forms.ShowForm(typeof(GlobalSearchForm));
+        }
+
+        private void updateToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            btnUpdate_Click(sender, e);
         }
     }
 }

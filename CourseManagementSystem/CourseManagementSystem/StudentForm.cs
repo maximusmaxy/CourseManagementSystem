@@ -199,8 +199,8 @@ namespace CMS
                 form.AddColumn("locations", "locationId", "addressSuburb");
                 form.AddColumn("locations", "locationId", "addressState");
                 form.AddColumn("locations", "locationId", "addressPostCode");
-                form.AddTypes("studentGender", Types.GenderType);
-                form.ShowDialog();
+                form.AddType("studentGender", Types.GenderType);
+                form.ShowDialog(this);
                 if (form.Id != -1)
                 {
                     Student student = new Student(form.Id);

@@ -396,7 +396,9 @@ namespace CmsLibrary
             {
                 sb.Append("delete from ");
                 sb.Append(table);
-                sb.Append(" where idName = ");
+                sb.Append(" where ");
+                sb.Append(idName);
+                sb.Append(" = ");
                 sb.Append(idValue);
                 sb.Append(" and (");
                 sb.Append(controlName);

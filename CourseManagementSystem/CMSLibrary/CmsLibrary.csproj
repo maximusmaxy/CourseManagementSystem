@@ -67,6 +67,7 @@
     <Compile Include="Types.cs" />
     <Compile Include="Unit.cs" />
     <Compile Include="UnitSkill.cs" />
+    <Compile Include="UnitTeacher.cs" />
     <Compile Include="Validation.cs" />
   </ItemGroup>
   <ItemGroup>

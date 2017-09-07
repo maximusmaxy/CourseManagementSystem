@@ -140,5 +140,50 @@ namespace CMS
                     break;
             }
         }
+
+        private void mainMenuToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Forms.ShowForm(typeof(MainForm));
+        }
+
+        private void studentToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Forms.ShowForm(typeof(StudentForm));
+        }
+
+        private void teacherCoursesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Forms.ShowForm(typeof(TeacherForm));
+        }
+
+        private void enrolmentToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Forms.ShowForm(typeof(EnrolmentForm));
+        }
+
+        private void courseToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Forms.ShowForm(typeof(CourseForm));
+        }
+
+        private void unitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Forms.ShowForm(typeof(UnitForm));
+        }
+
+        private void assessmentToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Forms.ShowForm(typeof(AssessmentForm));
+        }
+
+        private void skillsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Forms.ShowForm(typeof(SkillsForm));
+        }
+
+        private void globalSearchToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Forms.ShowForm(typeof(GlobalSearchForm));
+        }
     }
 }

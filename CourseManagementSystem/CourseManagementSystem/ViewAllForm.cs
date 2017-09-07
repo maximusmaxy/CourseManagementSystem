@@ -170,5 +170,10 @@ namespace CMS
                 Close();
             }
         }
+
+        private void backToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
     }
 }

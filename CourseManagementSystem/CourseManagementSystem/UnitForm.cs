@@ -20,10 +20,8 @@ namespace CMS
 
         private void UnitForm_Load(object sender, EventArgs e)
         {
-            Database.LoadDatabase();
-            InitializeComponent();
             Forms.FillData(cmbAreaOfStudy, "departments", "departmentname", "departmentid");
-            cmbAreaOfStudy_SelectedIndexChanged(null, null);
+            cmbAreaOfStudy_SelectedIndexChanged_1(null, null);
         }
 
 
@@ -111,14 +109,14 @@ namespace CMS
                 //student.Search("studentfirstname", txtFirstName.Text);
                 if (unit.Search())
                 {
-                    //txtUnitName.Text = unit.Name;
-                    //txtLastName.Text = student.LastName;
-                    //dtpDateOfBirth.Value = student.DateOfBirth;
-                    //txtEmail.Text = student.Email;
-                    //cmbCountryOfOrigin.Text = student.CountryOfOrigin;
-                    //Forms.CheckRadio(pnlGender, Types.GenderType, student.Gender);
-                    //chkDisability.Checked = student.Disability;
-                    //txtDisabilityDescription.Text = student.DisabilityDescription;
+                    txtUnitCode.Text = unit.Code;
+                    txtUnitName.Text = unit.Name;
+                    Forms.CheckRadio(pnlUnitType, Types.UnitType, unit.Type);
+                    txtNoOfHours.Text = unit.NumOfHours.ToString();
+                    cmbAreaOfStudy.Text = unit.DepartmentId.ToString();
+                    cmbSkill.Text = unit.SkillId.ToString();
+                    txtUnitDesc.Text = unit.Description;
+
                 }
             }
         }
@@ -134,7 +132,6 @@ namespace CMS
                 txtNoOfHours.ValidateNumeric(),
                 cmbAreaOfStudy,
                 cmbSkill,
-                cmbTeacher,
                 txtUnitDesc.ValidateEmpty()
                 ))
             {
@@ -183,7 +180,6 @@ namespace CMS
                 txtNoOfHours.ValidateNumeric(),
                 cmbAreaOfStudy,
                 cmbSkill,
-                cmbTeacher,
                 txtUnitDesc.ValidateEmpty()
                 ))
             {
@@ -202,7 +198,6 @@ namespace CMS
                     NumOfHours = Convert.ToInt32(txtNoOfHours.Text),
                     DepartmentId = cmbAreaOfStudy.Int(),
                     SkillId = cmbSkill.Int(),
-                    TeacherId = cmbTeacher.Int(),
                     Description = txtUnitDesc.Text,
                 };
                 if (!unit.Add())
@@ -215,10 +210,10 @@ namespace CMS
 
             }
         }
-        private void cmbAreaOfStudy_SelectedIndexChanged(object sender, EventArgs e)
+       
+        private void cmbAreaOfStudy_SelectedIndexChanged_1(object sender, EventArgs e)
         {
             Forms.FillData(cmbSkill, "skills", "skillname", "skillid", "departmentid", cmbAreaOfStudy.SelectedValue);
-            Forms.FillData(cmbTeacher, "teacher", "(teacherfirstname + ' ' + teacherlastname)", "teacherid", "departmentid", cmbAreaOfStudy.SelectedValue);
         }
     }
 }

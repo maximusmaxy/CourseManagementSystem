@@ -16,7 +16,8 @@ namespace CmsLibrary
         //These can be changed staticly using Database.ServerName = "localHost" or whatever.
         //home - MAXIMUMPENIS\\SQLEXPRESS
         //tafe - (local)
-        public static string ServerName { get; set; } = "(local)";
+        //lisahome - LISAWORKLAPTOP\\SQLEXPRESS
+        public static string ServerName { get; set; } = "LISAWORKLAPTOP\\SQLEXPRESS";
         public static string DatabaseName { get; set; } = "CourseManage";
         public static string SqlFileName { get; set; } = "CmsSql.sql";
 

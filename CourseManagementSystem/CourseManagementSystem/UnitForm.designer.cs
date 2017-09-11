@@ -312,6 +312,7 @@
             this.btnViewAll.Size = new System.Drawing.Size(120, 45);
             this.btnViewAll.TabIndex = 21;
             this.btnViewAll.UseVisualStyleBackColor = false;
+            this.btnViewAll.Click += new System.EventHandler(this.btnViewAll_Click);
             // 
             // panel4
             // 

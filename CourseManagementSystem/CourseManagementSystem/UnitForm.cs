@@ -106,7 +106,6 @@ namespace CMS
             if (result == DialogResult.Yes)
             {
                 Unit unit = new Unit(txtUnitId.Int());
-                //student.Search("studentfirstname", txtFirstName.Text);
                 if (unit.Search())
                 {
                     txtUnitCode.Text = unit.Code;
@@ -147,7 +146,33 @@ namespace CMS
 
         private void btnViewAll_Click(object sender, EventArgs e)
         {
-            Forms.ShowForm(typeof(ViewAllForm));
+            using (ViewAllForm form = new ViewAllForm("units"))
+            {
+
+                ////form.AddColumn("units", "unitId", "unitcode");
+                ////form.AddColumn("units", "unitId", "unitname");
+                ////form.AddColumn("units", "unitId", "numofhours");
+                ////form.AddColumn("units", "unitId", "departmentID");
+                ////form.AddColumn("units", "unitId", "skillID");
+                ////form.AddColumn("units", "unitId", "unitDescription");
+                ////form.AddType("unitType", Types.UnitType);
+                form.ShowDialog(this);
+                if (form.Id != -1)
+                {
+                    Unit unit = new Unit(form.Id);
+                    if (unit.Search())
+                    {
+                        txtUnitId.Text = unit.Id.ToString();
+                        txtUnitCode.Text = unit.Code.ToString();
+                        txtUnitName.Text = unit.Name;
+                        Forms.CheckRadio(pnlUnitType, Types.UnitType, unit.Type);
+                        txtNoOfHours.Text = unit.NumOfHours.ToString();
+                        cmbAreaOfStudy.Text = unit.DepartmentId.ToString();
+                        cmbSkill.Text = unit.SkillId.ToString();
+                        txtUnitDesc.Text = unit.Description;
+                    }
+                }
+            }
         }
 
         private void btnDelete_Click(object sender, EventArgs e)

@@ -184,6 +184,15 @@ namespace CmsLibrary
         }
 
         /// <summary>
+        /// gets the generic type from the control
+        /// </summary>
+        public static T Get<T>(this ListControl control)
+        {
+            return (T)control.SelectedValue;
+        }
+            
+
+        /// <summary>
         /// Converts camel casing to human readable casing and capitalizes first letter.
         /// </summary>
         public static string CamelToHuman(string camel)

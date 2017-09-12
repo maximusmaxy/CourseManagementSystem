@@ -64,9 +64,7 @@ namespace CMS
         }
 
         BindingList<Table> tables;
-        Dictionary<string, DataTable> lookUpTables;
         Dictionary<Type, UserControl> userControls;
-
 
         public GlobalSearchForm()
         {
@@ -102,14 +100,26 @@ namespace CMS
             tables.Add(table);
             table = new Table("Skills", typeof(SkillsForm));
             tables.Add(table);
-            lookUpTables = new Dictionary<string, DataTable>();
             AddLookUpTable("departments", "departmentname", "departmentid");
         }
 
-        private void AddLookUpTable(string table, string display, string value)
+        private void AddLookUpTable(string tableName, string display, string value)
         {
-            lookUpTables[value] = Database.CreateDataTable(
-                $"select {display} as Display, {value} as Value from {table}");
+            BindingList<Data<int>> dictionary = new BindingList<Data<int>>();
+            foreach (SqlDataReader row in Database.ExecuteQuery(
+                $"select {display} as Display, {value} as Value from {tableName}"))
+            {
+                dictionary.Add(new Data<int>((string)row["Display"], Convert.ToInt32(row["Value"])));
+            }
+            foreach (Table table in tables)
+            {
+                Column column = table.Columns.FirstOrDefault(c => c.Name.Equals(value, StringComparison.InvariantCultureIgnoreCase));
+                if (column != null)
+                {
+                    column.DataType = typeof(Dictionary<string, int>);
+                    column.Dictionary = dictionary;
+                }   
+            }
         }
 
         private void LoadControls()
@@ -139,26 +149,32 @@ namespace CMS
         {
             ucSearch.Hide();
             ucSearch = userControls[type];
+            ((ISearchControl)ucSearch).Reset();
+            if (ucSearch is SearchDictionary)
+            {
+                SearchDictionary control = (SearchDictionary)ucSearch;
+                control.cmbValue.DataSource = cmbColumns.Get<Column>().Dictionary;
+            }
             ucSearch.Show();
         }
 
         private void cmbTables_SelectedIndexChanged(object sender, EventArgs e)
         {
-            cmbColumns.DataSource = ((Table)cmbTables.SelectedValue).Columns;
+            cmbColumns.DataSource = cmbTables.Get<Table>().Columns;
         }
 
 
         private void cmbColumns_SelectedIndexChanged(object sender, EventArgs e)
         {
-            ChangeUserControl(((Column)cmbColumns.SelectedValue).DataType);
+            ChangeUserControl(cmbColumns.Get<Column>().DataType);
         }
 
         private void btnNewSearch_Click(object sender, EventArgs e)
         {
             StringBuilder sb = new StringBuilder("select * from ");
-            sb.Append(((Table)cmbTables.SelectedValue).Name);
+            sb.Append(cmbTables.Get<Table>().Name);
             sb.Append(" where ");
-            sb.Append(cmbColumns.SelectedValue);
+            sb.Append(cmbColumns.Get<Column>());
             if (ucSearch is SearchInt)
             {
                 SearchInt control = (SearchInt)ucSearch;
@@ -166,15 +182,15 @@ namespace CMS
                 {
                     case "Equal To":
                         sb.Append(" = ");
-                        sb.Append(Convert.ToInt32(control.txtValue.Text));
+                        sb.Append(control.txtValue.Int());
                         break;
                     case "Less Than":
                         sb.Append(" < ");
-                        sb.Append(Convert.ToInt32(control.txtValue.Text));
+                        sb.Append(control.txtValue.Int());
                         break;
                     case "Greater Than":
                         sb.Append(" > ");
-                        sb.Append(Convert.ToInt32(control.txtValue.Text));
+                        sb.Append(control.txtValue.Int());
                         break;
                 }    
             }
@@ -192,7 +208,7 @@ namespace CMS
 
         private void dgvSearch_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            Forms.ShowForm(((Table)cmbTables.SelectedValue).Form);
+            Forms.ShowForm(cmbTables.Get<Table>().Form);
         }
     }
 }

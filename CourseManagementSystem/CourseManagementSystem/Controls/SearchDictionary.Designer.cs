@@ -52,6 +52,6 @@
 
         #endregion
 
-        private System.Windows.Forms.ComboBox cmbValue;
+        public System.Windows.Forms.ComboBox cmbValue;
     }
 }

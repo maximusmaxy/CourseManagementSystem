@@ -11,7 +11,7 @@ using CmsLibrary;
 
 namespace CMS
 {
-    public partial class SearchDate : UserControl
+    public partial class SearchDate : UserControl, ISearchControl
     {
         public SearchDate()
         {
@@ -34,6 +34,18 @@ namespace CMS
                 new Data<int>("November", 11),
                 new Data<int>("December", 12)
             };
+        }
+
+        public void Reset()
+        {
+            Forms.ClearControls(this);
+            Forms.CheckRadio(pnlOperator, "Equal To");
+            cmbMonth.SelectedIndex = 0;
+        }
+
+        public void ValidateControl()
+        {
+            throw new NotImplementedException();
         }
     }
 }

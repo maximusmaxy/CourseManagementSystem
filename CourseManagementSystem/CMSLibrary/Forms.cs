@@ -272,7 +272,7 @@ namespace CmsLibrary
                 {
                     ComboBox cb = (ComboBox)control;
                     cb.SelectedIndex = -1;
-                    cb.Text = string.Empty;
+                    cb.ResetText();
                 }
                 else if (control is Panel)
                 {

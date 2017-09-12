@@ -93,6 +93,6 @@
         public System.Windows.Forms.Panel pnlOperator;
         public System.Windows.Forms.RadioButton rdbPartialMatch;
         public System.Windows.Forms.RadioButton rdbExactMatch;
-        private System.Windows.Forms.TextBox txtValue;
+        public System.Windows.Forms.TextBox txtValue;
     }
 }

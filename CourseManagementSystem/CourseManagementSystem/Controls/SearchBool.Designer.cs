@@ -80,8 +80,8 @@
 
         #endregion
 
-        private System.Windows.Forms.Panel pnlOperator;
-        private System.Windows.Forms.RadioButton rdbFalse;
-        private System.Windows.Forms.RadioButton rdbTrue;
+        public System.Windows.Forms.Panel pnlOperator;
+        public System.Windows.Forms.RadioButton rdbFalse;
+        public System.Windows.Forms.RadioButton rdbTrue;
     }
 }

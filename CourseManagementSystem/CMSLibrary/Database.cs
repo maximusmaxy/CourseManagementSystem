@@ -107,6 +107,23 @@ namespace CmsLibrary
             }
         }
 
+        public static IEnumerable<SqlDataReader> StoredProcedure(string storedProcedure, params SqlParameter[] parameters)
+        {
+            using (SqlConnection connection = Connection())
+            using (SqlCommand command = new SqlCommand(storedProcedure, connection))
+            {
+                command.CommandType = CommandType.StoredProcedure;
+                command.Parameters.AddRange(parameters);
+                using (SqlDataReader reader = command.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        yield return reader;
+                    }
+                }
+            }
+        }
+
         /// <summary>
         /// Returns whether an id exists within a database.
         /// </summary>
@@ -452,6 +469,30 @@ namespace CmsLibrary
                 strings.Add((string)dataReader[column]);
             }
             return strings.ToArray();
+        }
+
+        public struct ForeignKey
+        {
+            public string PkTable { get; set; }
+            public string PkColumn { get; set; }
+            public string FkTable { get; set; }
+            public string FkColumn { get; set; }
+        }
+
+        public static ForeignKey[] GetForeignTables(string table)
+        {
+            List<ForeignKey> fks = new List<ForeignKey>();
+            foreach (var row in Database.StoredProcedure("sp_fkeys", new SqlParameter("@fktable_name", table)))
+            {
+                fks.Add(new ForeignKey()
+                {
+                    PkTable = (string)row["PKTABLE_NAME"],
+                    PkColumn = (string)row["PKCOLUMN_NAME"],
+                    FkTable = (string)row["FKTABLE_NAME"],
+                    FkColumn = (string)row["FKCOLUMN_NAME"]
+                });
+            }
+            return fks.ToArray();
         }
 
         /// <summary>

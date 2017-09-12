@@ -58,6 +58,30 @@
     <Compile Include="AssessmentForm.designer.cs">
       <DependentUpon>AssessmentForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Controls\SearchDate.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\SearchDate.Designer.cs">
+      <DependentUpon>SearchDate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\SearchCost.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\SearchCost.Designer.cs">
+      <DependentUpon>SearchCost.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\SearchDictionary.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\SearchDictionary.Designer.cs">
+      <DependentUpon>SearchDictionary.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\SearchString.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\SearchString.Designer.cs">
+      <DependentUpon>SearchString.cs</DependentUpon>
+    </Compile>
     <Compile Include="CourseForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -84,6 +108,18 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Controls\SearchInt.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\SearchInt.Designer.cs">
+      <DependentUpon>SearchInt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\SearchBool.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\SearchBool.Designer.cs">
+      <DependentUpon>SearchBool.cs</DependentUpon>
+    </Compile>
     <Compile Include="SkillsForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -120,6 +156,18 @@
     <EmbeddedResource Include="AssessmentForm.resx">
       <DependentUpon>AssessmentForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Controls\SearchDate.resx">
+      <DependentUpon>SearchDate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\SearchCost.resx">
+      <DependentUpon>SearchCost.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\SearchDictionary.resx">
+      <DependentUpon>SearchDictionary.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\SearchString.resx">
+      <DependentUpon>SearchString.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CourseForm.resx">
       <DependentUpon>CourseForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -135,6 +183,12 @@
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\SearchInt.resx">
+      <DependentUpon>SearchInt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\SearchBool.resx">
+      <DependentUpon>SearchBool.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SkillsForm.resx">
       <DependentUpon>SkillsForm.cs</DependentUpon>

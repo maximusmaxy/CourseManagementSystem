@@ -29,20 +29,13 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
-            this.label5 = new System.Windows.Forms.Label();
-            this.backgroundWorker2 = new System.ComponentModel.BackgroundWorker();
             this.ToolTips = new System.Windows.Forms.ToolTip(this.components);
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.button1 = new System.Windows.Forms.Button();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.btnAddSearch = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
             this.panel6 = new System.Windows.Forms.Panel();
+            this.btnNewSearch = new System.Windows.Forms.Button();
             this.assessmentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel7 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
@@ -62,104 +55,50 @@
             this.unitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.skillsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.globalSearchToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
-            this.comboBox4 = new System.Windows.Forms.ComboBox();
-            this.comboBox5 = new System.Windows.Forms.ComboBox();
-            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
-            this.label8 = new System.Windows.Forms.Label();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.label6 = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.label7 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
+            this.cmbTables = new System.Windows.Forms.ComboBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.cmbColumns = new System.Windows.Forms.ComboBox();
+            this.ucSearch = new CMS.SearchInt();
+            this.dgvSearch = new System.Windows.Forms.DataGridView();
             this.panel5.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.panel6.SuspendLayout();
             this.panel7.SuspendLayout();
             this.menuStrip1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvSearch)).BeginInit();
             this.SuspendLayout();
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(28, 120);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(52, 21);
-            this.label5.TabIndex = 157;
-            this.label5.Text = "Filter:";
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(86, 120);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(233, 21);
-            this.comboBox1.TabIndex = 158;
-            this.ToolTips.SetToolTip(this.comboBox1, "Select from the list the Appropriate Area of Study for this Course");
-            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
-            // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.Color.White;
-            this.button1.Image = global::CMS.Properties.Resources.SearchButton;
-            this.button1.Location = new System.Drawing.Point(3, 3);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(120, 45);
-            this.button1.TabIndex = 18;
-            this.button1.UseVisualStyleBackColor = false;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(499, 167);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(80, 21);
-            this.label4.TabIndex = 153;
-            this.label4.Text = "Option 4:";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(342, 167);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(80, 21);
-            this.label3.TabIndex = 154;
-            this.label3.Text = "Option 3:";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(185, 167);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(80, 21);
-            this.label2.TabIndex = 155;
-            this.label2.Text = "Option 2:";
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(28, 167);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(80, 21);
-            this.label12.TabIndex = 156;
-            this.label12.Text = "Option 1:";
             // 
             // panel5
             // 
             this.panel5.BackColor = System.Drawing.Color.MediumSlateBlue;
+            this.panel5.Controls.Add(this.panel1);
             this.panel5.Controls.Add(this.button5);
             this.panel5.Controls.Add(this.panel6);
             this.panel5.Location = new System.Drawing.Point(687, 27);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(132, 524);
             this.panel5.TabIndex = 151;
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.Crimson;
+            this.panel1.Controls.Add(this.btnAddSearch);
+            this.panel1.Location = new System.Drawing.Point(4, 167);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(125, 50);
+            this.panel1.TabIndex = 158;
+            // 
+            // btnAddSearch
+            // 
+            this.btnAddSearch.BackColor = System.Drawing.Color.White;
+            this.btnAddSearch.Image = global::CMS.Properties.Resources.SearchButton;
+            this.btnAddSearch.Location = new System.Drawing.Point(3, 3);
+            this.btnAddSearch.Name = "btnAddSearch";
+            this.btnAddSearch.Size = new System.Drawing.Size(120, 45);
+            this.btnAddSearch.TabIndex = 18;
+            this.btnAddSearch.UseVisualStyleBackColor = false;
+            this.btnAddSearch.Click += new System.EventHandler(this.btnAddSearch_Click);
             // 
             // button5
             // 
@@ -174,11 +113,22 @@
             // panel6
             // 
             this.panel6.BackColor = System.Drawing.Color.Crimson;
-            this.panel6.Controls.Add(this.button1);
+            this.panel6.Controls.Add(this.btnNewSearch);
             this.panel6.Location = new System.Drawing.Point(4, 111);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(125, 50);
             this.panel6.TabIndex = 19;
+            // 
+            // btnNewSearch
+            // 
+            this.btnNewSearch.BackColor = System.Drawing.Color.White;
+            this.btnNewSearch.Image = global::CMS.Properties.Resources.SearchButton;
+            this.btnNewSearch.Location = new System.Drawing.Point(3, 3);
+            this.btnNewSearch.Name = "btnNewSearch";
+            this.btnNewSearch.Size = new System.Drawing.Size(120, 45);
+            this.btnNewSearch.TabIndex = 18;
+            this.btnNewSearch.UseVisualStyleBackColor = false;
+            this.btnNewSearch.Click += new System.EventHandler(this.btnNewSearch_Click);
             // 
             // assessmentToolStripMenuItem
             // 
@@ -329,154 +279,92 @@
             this.globalSearchToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
             this.globalSearchToolStripMenuItem.Text = "Global Search";
             // 
-            // comboBox2
+            // cmbTables
             // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(32, 203);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(141, 21);
-            this.comboBox2.TabIndex = 159;
+            this.cmbTables.FormattingEnabled = true;
+            this.cmbTables.Location = new System.Drawing.Point(113, 114);
+            this.cmbTables.Name = "cmbTables";
+            this.cmbTables.Size = new System.Drawing.Size(121, 21);
+            this.cmbTables.TabIndex = 154;
+            this.cmbTables.SelectedIndexChanged += new System.EventHandler(this.cmbTables_SelectedIndexChanged);
             // 
-            // comboBox3
+            // label2
             // 
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Location = new System.Drawing.Point(189, 203);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(141, 21);
-            this.comboBox3.TabIndex = 159;
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(52, 114);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(55, 21);
+            this.label2.TabIndex = 155;
+            this.label2.Text = "Table:";
             // 
-            // comboBox4
+            // label3
             // 
-            this.comboBox4.FormattingEnabled = true;
-            this.comboBox4.Location = new System.Drawing.Point(346, 203);
-            this.comboBox4.Name = "comboBox4";
-            this.comboBox4.Size = new System.Drawing.Size(141, 21);
-            this.comboBox4.TabIndex = 159;
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(262, 112);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(73, 21);
+            this.label3.TabIndex = 157;
+            this.label3.Text = "Column:";
             // 
-            // comboBox5
+            // cmbColumns
             // 
-            this.comboBox5.FormattingEnabled = true;
-            this.comboBox5.Location = new System.Drawing.Point(503, 203);
-            this.comboBox5.Name = "comboBox5";
-            this.comboBox5.Size = new System.Drawing.Size(141, 21);
-            this.comboBox5.TabIndex = 159;
+            this.cmbColumns.FormattingEnabled = true;
+            this.cmbColumns.Location = new System.Drawing.Point(341, 112);
+            this.cmbColumns.Name = "cmbColumns";
+            this.cmbColumns.Size = new System.Drawing.Size(121, 21);
+            this.cmbColumns.TabIndex = 156;
+            this.cmbColumns.SelectedIndexChanged += new System.EventHandler(this.cmbColumns_SelectedIndexChanged);
             // 
-            // dateTimePicker2
+            // ucSearch
             // 
-            this.dateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker2.Location = new System.Drawing.Point(447, 255);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(111, 20);
-            this.dateTimePicker2.TabIndex = 162;
-            this.ToolTips.SetToolTip(this.dateTimePicker2, "Select the End Date for the Course here");
+            this.ucSearch.Location = new System.Drawing.Point(18, 141);
+            this.ucSearch.Name = "ucSearch";
+            this.ucSearch.Size = new System.Drawing.Size(654, 240);
+            this.ucSearch.TabIndex = 153;
             // 
-            // label8
+            // dgvSearch
             // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(358, 255);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(83, 21);
-            this.label8.TabIndex = 163;
-            this.label8.Text = "End Date:";
-            // 
-            // dateTimePicker1
-            // 
-            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker1.Location = new System.Drawing.Point(224, 255);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(111, 20);
-            this.dateTimePicker1.TabIndex = 160;
-            this.ToolTips.SetToolTip(this.dateTimePicker1, "Select the starting Date for the Course");
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(130, 255);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(88, 21);
-            this.label6.TabIndex = 161;
-            this.label6.Text = "Start Date:";
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(32, 304);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(611, 225);
-            this.dataGridView1.TabIndex = 164;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(325, 122);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(83, 21);
-            this.label7.TabIndex = 157;
-            this.label7.Text = "Keyword:";
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(410, 122);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(233, 20);
-            this.textBox1.TabIndex = 165;
+            this.dgvSearch.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvSearch.Location = new System.Drawing.Point(18, 387);
+            this.dgvSearch.Name = "dgvSearch";
+            this.dgvSearch.Size = new System.Drawing.Size(654, 151);
+            this.dgvSearch.TabIndex = 158;
+            this.dgvSearch.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvSearch_CellDoubleClick);
             // 
             // GlobalSearchForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(823, 550);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.dataGridView1);
-            this.Controls.Add(this.dateTimePicker2);
-            this.Controls.Add(this.label8);
-            this.Controls.Add(this.dateTimePicker1);
-            this.Controls.Add(this.label6);
-            this.Controls.Add(this.comboBox5);
-            this.Controls.Add(this.comboBox4);
-            this.Controls.Add(this.comboBox3);
-            this.Controls.Add(this.comboBox2);
-            this.Controls.Add(this.label7);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.comboBox1);
-            this.Controls.Add(this.label4);
+            this.Controls.Add(this.dgvSearch);
             this.Controls.Add(this.label3);
+            this.Controls.Add(this.cmbColumns);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.label12);
+            this.Controls.Add(this.cmbTables);
+            this.Controls.Add(this.ucSearch);
             this.Controls.Add(this.panel5);
             this.Controls.Add(this.panel7);
             this.Controls.Add(this.menuStrip1);
             this.MinimizeBox = false;
             this.Name = "GlobalSearchForm";
             this.Text = "GlobalSearchForm";
-            ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
             this.panel5.ResumeLayout(false);
+            this.panel1.ResumeLayout(false);
             this.panel6.ResumeLayout(false);
             this.panel7.ResumeLayout(false);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvSearch)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.ComponentModel.BackgroundWorker backgroundWorker1;
-        private System.Windows.Forms.Label label5;
-        private System.ComponentModel.BackgroundWorker backgroundWorker2;
         private System.Windows.Forms.ToolTip ToolTips;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.BindingSource bindingSource1;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Button btnNewSearch;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Panel panel6;
@@ -499,16 +387,14 @@
         private System.Windows.Forms.ToolStripMenuItem unitToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem skillsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem globalSearchToolStripMenuItem;
-        private System.Windows.Forms.ComboBox comboBox2;
-        private System.Windows.Forms.ComboBox comboBox3;
-        private System.Windows.Forms.ComboBox comboBox4;
-        private System.Windows.Forms.ComboBox comboBox5;
-        private System.Windows.Forms.DateTimePicker dateTimePicker2;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.ComboBox cmbTables;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.ComboBox cmbColumns;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Button btnAddSearch;
+        private System.Windows.Forms.DataGridView dgvSearch;
+        //private System.Windows.Forms.UserControl ucSearch;
+        private System.Windows.Forms.UserControl ucSearch;
     }
 }

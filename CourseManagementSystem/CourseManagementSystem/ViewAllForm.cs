@@ -33,7 +33,7 @@ namespace CMS
         private List<Column> addColumns = new List<Column>();
         private List<Column> replaceColumns = new List<Column>();
         private Dictionary<string, Dictionary<string, int>> dictionaries = new Dictionary<string, Dictionary<string, int>>();
-        
+
         /// <summary>
         /// Constructs a data grid view form for a specified table.
         /// </summary>

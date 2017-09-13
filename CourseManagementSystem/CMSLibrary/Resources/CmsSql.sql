@@ -63,6 +63,8 @@ studentEmail varchar(80) not null,
 studentCountryOfOrigin varchar(20) not null,
 studentGender tinyint not null,
 contactNumber varchar(12) not null,
+studentAboriginal bit not null,
+studentCentrelink bit not null,
 studentDisability bit not null,
 studentDisabilityDescription varchar(50)
 constraint unique_email unique(studentEmail),
@@ -89,7 +91,6 @@ departmentId smallint not null,
 teacherFirstName varchar(50) not null,
 teacherLastName varchar(50) not null,
 teacherEmail varchar(100) not null,
-teacherDepartment varchar(50) not null,
 contactNumber varchar(12) not null,
 constraint teacher_department_fk foreign key (departmentId) references Departments(departmentId),
 constraint teacher_location_fk foreign key (locationId) references Locations(locationId));
@@ -101,7 +102,8 @@ unitCode varchar(10) not null,
 unitName varchar(50)not null,
 unitType tinyint not null,
 numOfHours smallint not null,
-unitDescription varchar(500) not null
+unitDescription varchar(500) not null,
+constraint unique_unit_code unique(unitCode),
 constraint Unit_department_fk foreign key (departmentId) references Departments(departmentId));
  
 create table Assessments(
@@ -187,11 +189,11 @@ insert into Skills values(4,'Leadership','hurting peoples feelings');
 insert into SKills values(4,'Con-Artistry','being a business man');
 insert into Skills values(5,'phone manner','know how to fake pleasentness on the phone');
 insert into Skills values(5,'Helpfulness','can actually help people with a problem');
-insert into Students values(1,'Bob','Saget','1995-05-15','bob-saget@live.com','Australia', 1,'0432165897', 1, 'Crippling Depression');
-insert into Students values(2,'Jim','Barnes','1994-08-13','Barnesy88@hotmail.com','Australia',2,'963741852',0,null);
-insert into Students Values(3,'Dave','Hughes','1987-04-22','theGoonie@yahoo.com','Australia',1,'9248657132',0,null);
-insert into Students values(4,'Floyd','Mayweather','1976-07-11','glassjaw22@hotmail.com','Australia',1,'0436287196',0,null);
-insert into Students values(5,'Ozzy','Osbourne','1956-05-06','lordofdarnkness@gmail.com','Austalia',1,'9845321672',1,'Bi-polar');
+insert into Students values(1,'Bob','Saget','1995-05-15','bob-saget@live.com','Australia', 1,'0432165897',0,0, 1, 'Crippling Depression');
+insert into Students values(2,'Jim','Barnes','1994-08-13','Barnesy88@hotmail.com','Australia',2,'963741852',1,0,0,null);
+insert into Students Values(3,'Dave','Hughes','1987-04-22','theGoonie@yahoo.com','Australia',1,'9248657132',0,1,0,null);
+insert into Students values(4,'Floyd','Mayweather','1976-07-11','glassjaw22@hotmail.com','Australia',1,'0436287196',0,0,0,null);
+insert into Students values(5,'Ozzy','Osbourne','1956-05-06','lordofdarnkness@gmail.com','Austalia',1,'9845321672',0,0,1,'Bi-polar');
 insert into Courses values(1,1,'Diploma of Software development',10000.00,2,'2017-06-10','2017-11-26','Final level of education provided at tafe regarding IT');
 insert into Courses values(1,1,'Certificate IV IT',8000.00,1,'2017-06-10','2017-11-26','Further Study in IT');
 insert into Courses values(1,1,'Certificate III IT',5000.00,2,'2017-06-10','2017-11-26','Basic level in IT');
@@ -210,19 +212,19 @@ insert into Courses values(1,5,'Certificate IV Commerce',8000.00,2,'2017-06-10',
 insert into Courses values(1,1,'Certificate III Admin',5000.00,2,'2017-06-10','2017-11-26','Basic level in Admin');
 insert into Courses values(1,1,'Certificate II Admin',3000.00,2,'2017-06-10','2017-11-26','Admin stuff');
 insert into Courses values(1,1,'Certificate IV Admin',8000.00,2,'2017-06-10','2017-11-26','Further study of Admin');
-insert into Teachers values(1,1,'Ned','Bond','JamesBondLover@gmail.com','IT','0449152827');
-insert into Teachers Values(2,1,'Rui','Guy','ThatOneGuy@gmail.com','IT','0459152827');
-insert into Teachers Values(3,1,'Javier','Rameriz','theotherguy@yahoo.com','IT','0469152827');
-insert into Teachers values(4,1,'Shubha','Too','thescapegoat@live.com','IT','0479152827');
-insert into Teachers values (5,1,'Raj','Dude', 'projectmanagedude@gmail.com','IT','0489152827');
-insert into Teachers Values(4,2,'Jacline','Kenny','JackyKenn@live.com','hair dressing','0499152827');
-insert into Teachers values(2,2,'robert','bartine','robbytheman@gmail.com','hair dressing','0419152827');
-insert into Teachers values(1,3,'bob','builder','wecanfixit@live.com','gardening','0429152827');
-insert into Teachers values(4,3,'sally','jenkins','sisterofleeroy@yahoo.com','gardening','0439152827');
-insert into Teachers values(5,4,'ben','clock','bigbenji@hotmail.com','commerce','0448152728');
-insert into Teachers values(1,4,'mike','tyson','thebutterfly@gmail.com','commerce','04321568');
-insert into Teachers values(4,5,'Don','King','Kingpin33@gmail.com','admin','0448237915');
-insert into Teachers values(2,5,'Chris','Benoit','Wannabesuperstar@live.com','admin','0489311257');
+insert into Teachers values(1,1,'Ned','Bond','JamesBondLover@gmail.com','0449152827');
+insert into Teachers Values(2,1,'Rui','Guy','ThatOneGuy@gmail.com','0459152827');
+insert into Teachers Values(3,1,'Javier','Rameriz','theotherguy@yahoo.com','0469152827');
+insert into Teachers values(4,1,'Shubha','Too','thescapegoat@live.com','0479152827');
+insert into Teachers values (5,1,'Raj','Dude', 'projectmanagedude@gmail.com','0489152827');
+insert into Teachers Values(4,2,'Jacline','Kenny','JackyKenn@live.com','0499152827');
+insert into Teachers values(2,2,'robert','bartine','robbytheman@gmail.com','0419152827');
+insert into Teachers values(1,3,'bob','builder','wecanfixit@live.com','0429152827');
+insert into Teachers values(4,3,'sally','jenkins','sisterofleeroy@yahoo.com','0439152827');
+insert into Teachers values(5,4,'ben','clock','bigbenji@hotmail.com','0448152728');
+insert into Teachers values(1,4,'mike','tyson','thebutterfly@gmail.com','04321568');
+insert into Teachers values(4,5,'Don','King','Kingpin33@gmail.com','0448237915');
+insert into Teachers values(2,5,'Chris','Benoit','Wannabesuperstar@live.com','0489311257');
 insert into Units values(1,'ICTPRG418','Optimising Search Functions',2,10,'Getting taught how to make and use search'); --Elective = 2
 insert into Units values(1,'ICTPRG523','Cloud Computing',2,15,'Getting taught how to make and use Clouds, cloud dev techniques and events');
 insert into Units values(1,'ICTPRG206','Intro programming',1,25,'Getting taught the basics of a programming language');

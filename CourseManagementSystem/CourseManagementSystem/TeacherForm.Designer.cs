@@ -37,6 +37,8 @@
             this.lstSkillsList = new System.Windows.Forms.ListBox();
             this.cmbDepartment = new System.Windows.Forms.ComboBox();
             this.cmbCampus = new System.Windows.Forms.ComboBox();
+            this.txtEmail = new System.Windows.Forms.TextBox();
+            this.txtContactNumber = new System.Windows.Forms.TextBox();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.backgroundWorker2 = new System.ComponentModel.BackgroundWorker();
             this.mainMenuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -76,9 +78,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.label4 = new System.Windows.Forms.Label();
-            this.txtEmail = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.txtContactNumber = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.panel5.SuspendLayout();
             this.panel8.SuspendLayout();
@@ -97,6 +97,7 @@
             this.txtLastName.Name = "txtLastName";
             this.txtLastName.Size = new System.Drawing.Size(149, 20);
             this.txtLastName.TabIndex = 3;
+            this.txtLastName.Tag = "Last Name";
             this.ToolTips.SetToolTip(this.txtLastName, "Insert the Last Name here, using A-Z characters Only!");
             // 
             // txtFirstName
@@ -105,6 +106,7 @@
             this.txtFirstName.Name = "txtFirstName";
             this.txtFirstName.Size = new System.Drawing.Size(149, 20);
             this.txtFirstName.TabIndex = 2;
+            this.txtFirstName.Tag = "First Name";
             this.ToolTips.SetToolTip(this.txtFirstName, "Insert the First Name here, using A-Z characters Only!");
             // 
             // txtId
@@ -132,7 +134,8 @@
             this.lstSkillsList.Name = "lstSkillsList";
             this.lstSkillsList.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;
             this.lstSkillsList.Size = new System.Drawing.Size(313, 95);
-            this.lstSkillsList.TabIndex = 6;
+            this.lstSkillsList.TabIndex = 8;
+            this.lstSkillsList.Tag = "Skills List";
             this.ToolTips.SetToolTip(this.lstSkillsList, "Select the Skill Appropriate for the currently selected Teacher");
             // 
             // cmbDepartment
@@ -141,10 +144,10 @@
             this.cmbDepartment.Location = new System.Drawing.Point(185, 287);
             this.cmbDepartment.Name = "cmbDepartment";
             this.cmbDepartment.Size = new System.Drawing.Size(312, 21);
-            this.cmbDepartment.TabIndex = 72;
+            this.cmbDepartment.TabIndex = 7;
+            this.cmbDepartment.Tag = "Department";
             this.ToolTips.SetToolTip(this.cmbDepartment, "Please choose a department from the list provided");
             this.cmbDepartment.SelectedIndexChanged += new System.EventHandler(this.cmbDepartment_SelectedIndexChanged);
- 
             // 
             // cmbCampus
             // 
@@ -152,8 +155,27 @@
             this.cmbCampus.Location = new System.Drawing.Point(184, 248);
             this.cmbCampus.Name = "cmbCampus";
             this.cmbCampus.Size = new System.Drawing.Size(313, 21);
-            this.cmbCampus.TabIndex = 73;
+            this.cmbCampus.TabIndex = 6;
+            this.cmbCampus.Tag = "Campus";
             this.ToolTips.SetToolTip(this.cmbCampus, "Please select campus from the provided list");
+            // 
+            // txtEmail
+            // 
+            this.txtEmail.Location = new System.Drawing.Point(184, 219);
+            this.txtEmail.Name = "txtEmail";
+            this.txtEmail.Size = new System.Drawing.Size(313, 20);
+            this.txtEmail.TabIndex = 5;
+            this.txtEmail.Tag = "Email";
+            this.ToolTips.SetToolTip(this.txtEmail, "Please insert the Student Email here, Must contain one @ symbol");
+            // 
+            // txtContactNumber
+            // 
+            this.txtContactNumber.Location = new System.Drawing.Point(184, 193);
+            this.txtContactNumber.Name = "txtContactNumber";
+            this.txtContactNumber.Size = new System.Drawing.Size(313, 20);
+            this.txtContactNumber.TabIndex = 4;
+            this.txtContactNumber.Tag = "Contact Number";
+            this.ToolTips.SetToolTip(this.txtContactNumber, "Please enter contact number here, must be 9 digits");
             // 
             // mainMenuToolStripMenuItem
             // 
@@ -203,7 +225,7 @@
             this.btnViewAll.Location = new System.Drawing.Point(3, 3);
             this.btnViewAll.Name = "btnViewAll";
             this.btnViewAll.Size = new System.Drawing.Size(120, 45);
-            this.btnViewAll.TabIndex = 14;
+            this.btnViewAll.TabIndex = 13;
             this.btnViewAll.UseVisualStyleBackColor = false;
             this.btnViewAll.Click += new System.EventHandler(this.btnViewAll_Click);
             // 
@@ -223,7 +245,7 @@
             this.btnDelete.Location = new System.Drawing.Point(3, 3);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(119, 44);
-            this.btnDelete.TabIndex = 13;
+            this.btnDelete.TabIndex = 12;
             this.btnDelete.UseVisualStyleBackColor = false;
             this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
@@ -243,7 +265,7 @@
             this.btnUpdate.Location = new System.Drawing.Point(3, 3);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(120, 45);
-            this.btnUpdate.TabIndex = 12;
+            this.btnUpdate.TabIndex = 11;
             this.btnUpdate.UseVisualStyleBackColor = false;
             this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
@@ -263,7 +285,7 @@
             this.btnAdd.Location = new System.Drawing.Point(3, 3);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(120, 45);
-            this.btnAdd.TabIndex = 10;
+            this.btnAdd.TabIndex = 9;
             this.btnAdd.UseVisualStyleBackColor = false;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
@@ -283,7 +305,7 @@
             this.btnSearch.Location = new System.Drawing.Point(3, 3);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(120, 45);
-            this.btnSearch.TabIndex = 11;
+            this.btnSearch.TabIndex = 10;
             this.btnSearch.TextAlign = System.Drawing.ContentAlignment.TopLeft;
             this.btnSearch.UseVisualStyleBackColor = false;
             this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
@@ -295,7 +317,7 @@
             this.button5.Location = new System.Drawing.Point(3, 3);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(125, 100);
-            this.button5.TabIndex = 5;
+            this.button5.TabIndex = 55;
             this.button5.UseVisualStyleBackColor = false;
             // 
             // panel7
@@ -489,15 +511,6 @@
             this.label4.TabIndex = 71;
             this.label4.Text = "Department:";
             // 
-            // txtEmail
-            // 
-            this.txtEmail.Location = new System.Drawing.Point(184, 219);
-            this.txtEmail.Name = "txtEmail";
-            this.txtEmail.Size = new System.Drawing.Size(313, 20);
-            this.txtEmail.TabIndex = 74;
-            this.txtEmail.Tag = "Email";
-            this.ToolTips.SetToolTip(this.txtEmail, "Please insert the Student Email here, Must contain one @ symbol");
-            // 
             // label7
             // 
             this.label7.AutoSize = true;
@@ -507,15 +520,6 @@
             this.label7.Size = new System.Drawing.Size(55, 21);
             this.label7.TabIndex = 75;
             this.label7.Text = "Email:";
-            // 
-            // txtContactNumber
-            // 
-            this.txtContactNumber.Location = new System.Drawing.Point(184, 193);
-            this.txtContactNumber.Name = "txtContactNumber";
-            this.txtContactNumber.Size = new System.Drawing.Size(313, 20);
-            this.txtContactNumber.TabIndex = 76;
-            this.txtContactNumber.Tag = "Email";
-            this.ToolTips.SetToolTip(this.txtContactNumber, "Please insert the Student Email here, Must contain one @ symbol");
             // 
             // label5
             // 

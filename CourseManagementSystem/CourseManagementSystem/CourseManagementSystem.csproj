@@ -271,5 +271,8 @@
   <ItemGroup>
     <None Include="Resources\AllocationButton.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ClearFormButton.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

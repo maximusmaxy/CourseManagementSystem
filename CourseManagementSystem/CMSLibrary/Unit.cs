@@ -10,7 +10,6 @@ namespace CmsLibrary
     public class Unit : IData
     {
         private int id;
-        private int skillId;
         private int departmentId;
         private string code;
         private string name;
@@ -25,10 +24,9 @@ namespace CmsLibrary
             this.id = id;
         }
 
-        public Unit(int id, int skillId, int departmentId, string code, string name, int type, int numOfHours, string description)
+        public Unit(int id, int departmentId, string code, string name, int type, int numOfHours, string description)
         {
             this.id = id;
-            this.skillId = skillId;
             this.departmentId = departmentId;
             this.code = code;
             this.name = name;
@@ -50,18 +48,7 @@ namespace CmsLibrary
             }
         }
 
-        public int SkillId
-        {
-            get
-            {
-                return skillId;
-            }
-            set
-            {
-                skillId = value;
-            }
-        }
-
+ 
         public int DepartmentId
         {
             get

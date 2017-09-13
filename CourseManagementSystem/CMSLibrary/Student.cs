@@ -20,6 +20,8 @@ namespace CmsLibrary
         private string email;
         private string countryOfOrigin;
         private int gender;
+        private bool aboriginal;
+        private bool centrelink;
         private bool disability;
         private string disabilityDescription;
 
@@ -187,6 +189,9 @@ namespace CmsLibrary
             }
         }
 
+        public bool Aboriginal { get => aboriginal; set => aboriginal = value; }
+        public bool Centrelink { get => centrelink; set => centrelink = value; }
+
         public bool Add()
         {
             return Database.Add("students", out id, locationId, firstName, lastName, dateOfBirth, email, countryOfOrigin, gender, contactNumber, disability, disabilityDescription);
@@ -203,6 +208,8 @@ namespace CmsLibrary
                 "studentcountryoforigin", countryOfOrigin,
                 "studentgender", gender,
                 "contactnumber", contactNumber,
+                "studentaboriginal", aboriginal,
+                "studentcentrelink",centrelink,
                 "studentdisability", disability,
                 "studentdisabilitydescription", disabilityDescription);
         }
@@ -231,8 +238,10 @@ namespace CmsLibrary
                 countryOfOrigin = Convert.ToString(dataRow[6]);
                 gender = Convert.ToInt32(dataRow[7]);
                 contactNumber = Convert.ToString(dataRow[8]);
-                disability = Convert.ToBoolean(dataRow[9]);
-                disabilityDescription = Extensions.ConvertDBNullString(dataRow[10]);
+                aboriginal = Convert.ToBoolean(dataRow[9]);
+                centrelink = Convert.ToBoolean(dataRow[10]);
+                disability = Convert.ToBoolean(dataRow[11]);
+                disabilityDescription = Extensions.ConvertDBNullString(dataRow[12]);
                 return true;
             }
             else

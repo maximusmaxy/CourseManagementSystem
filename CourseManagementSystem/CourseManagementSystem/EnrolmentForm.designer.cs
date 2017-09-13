@@ -87,6 +87,8 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
+            this.txtTotal = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
             this.pnlSemester.SuspendLayout();
             this.pnlCourseResults.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
@@ -107,6 +109,7 @@
             this.dtpEnrolment.Name = "dtpEnrolment";
             this.dtpEnrolment.Size = new System.Drawing.Size(295, 20);
             this.dtpEnrolment.TabIndex = 50;
+            this.dtpEnrolment.Tag = "EnrolmentDate";
             this.ToolTips.SetToolTip(this.dtpEnrolment, "Insert the Current Date this Enrolment was completed on");
             // 
             // txtCourseId
@@ -115,7 +118,9 @@
             this.txtCourseId.Name = "txtCourseId";
             this.txtCourseId.Size = new System.Drawing.Size(293, 20);
             this.txtCourseId.TabIndex = 49;
+            this.txtCourseId.Tag = "CourseId";
             this.ToolTips.SetToolTip(this.txtCourseId, "Insert the Course ID here using Numeric Characters Only!");
+            this.txtCourseId.Leave += new System.EventHandler(this.CourseId_LostFocus);
             // 
             // txtId
             // 
@@ -123,6 +128,7 @@
             this.txtId.Name = "txtId";
             this.txtId.Size = new System.Drawing.Size(293, 20);
             this.txtId.TabIndex = 48;
+            this.txtId.Tag = "StudentId";
             this.ToolTips.SetToolTip(this.txtId, "Insert the Student ID here using Numeric Characters Only!");
             // 
             // txtEnrolmentId
@@ -132,6 +138,7 @@
             this.txtEnrolmentId.Name = "txtEnrolmentId";
             this.txtEnrolmentId.Size = new System.Drawing.Size(293, 20);
             this.txtEnrolmentId.TabIndex = 47;
+            this.txtEnrolmentId.Tag = "EnrolmentID";
             this.ToolTips.SetToolTip(this.txtEnrolmentId, "Insert a Numeric value for the Student ID, using 0-9 numbers Only");
             // 
             // dtpCompletion
@@ -141,6 +148,7 @@
             this.dtpCompletion.Name = "dtpCompletion";
             this.dtpCompletion.Size = new System.Drawing.Size(295, 20);
             this.dtpCompletion.TabIndex = 70;
+            this.dtpCompletion.Tag = "CompletionDate";
             this.ToolTips.SetToolTip(this.dtpCompletion, "Insert the Course Completion Date Here");
             // 
             // txtDiscountCost
@@ -150,6 +158,7 @@
             this.txtDiscountCost.Name = "txtDiscountCost";
             this.txtDiscountCost.Size = new System.Drawing.Size(295, 20);
             this.txtDiscountCost.TabIndex = 76;
+            this.txtDiscountCost.Tag = "DiscountCost";
             this.ToolTips.SetToolTip(this.txtDiscountCost, "This is the Final amount including discounts for the Enrolment");
             // 
             // txtEnrolmentCost
@@ -159,16 +168,18 @@
             this.txtEnrolmentCost.Name = "txtEnrolmentCost";
             this.txtEnrolmentCost.Size = new System.Drawing.Size(295, 20);
             this.txtEnrolmentCost.TabIndex = 75;
+            this.txtEnrolmentCost.Tag = "EnrolmentCost";
             this.ToolTips.SetToolTip(this.txtEnrolmentCost, "This is the base cost for the Enrolment");
             // 
             // pnlSemester
             // 
             this.pnlSemester.Controls.Add(this.rdbSemesterOne);
             this.pnlSemester.Controls.Add(this.rdbSemesterTwo);
-            this.pnlSemester.Location = new System.Drawing.Point(205, 403);
+            this.pnlSemester.Location = new System.Drawing.Point(207, 426);
             this.pnlSemester.Name = "pnlSemester";
             this.pnlSemester.Size = new System.Drawing.Size(297, 25);
             this.pnlSemester.TabIndex = 81;
+            this.pnlSemester.Tag = "Semester";
             this.ToolTips.SetToolTip(this.pnlSemester, "Select The Semester this course is being undertaken in");
             // 
             // rdbSemesterOne
@@ -179,6 +190,7 @@
             this.rdbSemesterOne.Size = new System.Drawing.Size(45, 17);
             this.rdbSemesterOne.TabIndex = 72;
             this.rdbSemesterOne.TabStop = true;
+            this.rdbSemesterOne.Tag = "SemesterOne";
             this.rdbSemesterOne.Text = "One";
             this.rdbSemesterOne.UseVisualStyleBackColor = true;
             // 
@@ -190,6 +202,7 @@
             this.rdbSemesterTwo.Size = new System.Drawing.Size(46, 17);
             this.rdbSemesterTwo.TabIndex = 73;
             this.rdbSemesterTwo.TabStop = true;
+            this.rdbSemesterTwo.Tag = "SemesterTwo";
             this.rdbSemesterTwo.Text = "Two";
             this.rdbSemesterTwo.UseVisualStyleBackColor = true;
             // 
@@ -198,10 +211,11 @@
             this.pnlCourseResults.Controls.Add(this.rdbNotComplete);
             this.pnlCourseResults.Controls.Add(this.rdbPass);
             this.pnlCourseResults.Controls.Add(this.rdbFail);
-            this.pnlCourseResults.Location = new System.Drawing.Point(204, 437);
+            this.pnlCourseResults.Location = new System.Drawing.Point(206, 460);
             this.pnlCourseResults.Name = "pnlCourseResults";
             this.pnlCourseResults.Size = new System.Drawing.Size(298, 25);
             this.pnlCourseResults.TabIndex = 82;
+            this.pnlCourseResults.Tag = "CourseResult";
             this.ToolTips.SetToolTip(this.pnlCourseResults, "Select the State of the enrolment at the end of Completion Date (Select Not Compl" +
         "eted until results are recieved)");
             // 
@@ -213,6 +227,7 @@
             this.rdbNotComplete.Size = new System.Drawing.Size(95, 17);
             this.rdbNotComplete.TabIndex = 74;
             this.rdbNotComplete.TabStop = true;
+            this.rdbNotComplete.Tag = "CourseNot";
             this.rdbNotComplete.Text = "Not Completed";
             this.rdbNotComplete.UseVisualStyleBackColor = true;
             // 
@@ -224,6 +239,7 @@
             this.rdbPass.Size = new System.Drawing.Size(48, 17);
             this.rdbPass.TabIndex = 72;
             this.rdbPass.TabStop = true;
+            this.rdbPass.Tag = "CoursePass";
             this.rdbPass.Text = "Pass";
             this.rdbPass.UseVisualStyleBackColor = true;
             // 
@@ -235,6 +251,7 @@
             this.rdbFail.Size = new System.Drawing.Size(41, 17);
             this.rdbFail.TabIndex = 73;
             this.rdbFail.TabStop = true;
+            this.rdbFail.Tag = "CourseFail";
             this.rdbFail.Text = "Fail";
             this.rdbFail.UseVisualStyleBackColor = true;
             // 
@@ -275,6 +292,7 @@
             this.btnDelete.Size = new System.Drawing.Size(119, 44);
             this.btnDelete.TabIndex = 20;
             this.btnDelete.UseVisualStyleBackColor = false;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // btnViewAll
             // 
@@ -285,6 +303,7 @@
             this.btnViewAll.Size = new System.Drawing.Size(120, 45);
             this.btnViewAll.TabIndex = 21;
             this.btnViewAll.UseVisualStyleBackColor = false;
+            this.btnViewAll.Click += new System.EventHandler(this.btnViewAll_Click);
             // 
             // globalSearchToolStripMenuItem
             // 
@@ -313,6 +332,7 @@
             this.btnUpdate.Size = new System.Drawing.Size(120, 45);
             this.btnUpdate.TabIndex = 19;
             this.btnUpdate.UseVisualStyleBackColor = false;
+            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
             // unitToolStripMenuItem
             // 
@@ -562,7 +582,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(117, 407);
+            this.label3.Location = new System.Drawing.Point(119, 430);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(82, 21);
             this.label3.TabIndex = 74;
@@ -592,11 +612,31 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(70, 441);
+            this.label7.Location = new System.Drawing.Point(72, 464);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(128, 21);
             this.label7.TabIndex = 79;
             this.label7.Text = "Course Results:";
+            // 
+            // txtTotal
+            // 
+            this.txtTotal.Enabled = false;
+            this.txtTotal.Location = new System.Drawing.Point(206, 393);
+            this.txtTotal.Name = "txtTotal";
+            this.txtTotal.Size = new System.Drawing.Size(295, 20);
+            this.txtTotal.TabIndex = 83;
+            this.txtTotal.Tag = "DiscountCost";
+            this.ToolTips.SetToolTip(this.txtTotal, "This is the Final amount including discounts for the Enrolment");
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(106, 393);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(93, 21);
+            this.label9.TabIndex = 84;
+            this.label9.Text = "Total Cost:";
             // 
             // EnrolmentForm
             // 
@@ -604,6 +644,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Lavender;
             this.ClientSize = new System.Drawing.Size(744, 507);
+            this.Controls.Add(this.txtTotal);
+            this.Controls.Add(this.label9);
             this.Controls.Add(this.pnlCourseResults);
             this.Controls.Add(this.pnlSemester);
             this.Controls.Add(this.label7);
@@ -705,5 +747,7 @@
         private System.Windows.Forms.RadioButton rdbPass;
         private System.Windows.Forms.RadioButton rdbFail;
         private System.Windows.Forms.ToolStripMenuItem allocationToolStripMenuItem;
+        private System.Windows.Forms.TextBox txtTotal;
+        private System.Windows.Forms.Label label9;
     }
 }

@@ -33,7 +33,7 @@ namespace CMS
         private List<Column> addColumns = new List<Column>();
         private List<Column> replaceColumns = new List<Column>();
         private Dictionary<string, Dictionary<string, int>> dictionaries = new Dictionary<string, Dictionary<string, int>>();
-        
+
         /// <summary>
         /// Constructs a data grid view form for a specified table.
         /// </summary>
@@ -140,24 +140,28 @@ namespace CMS
             sb.Append(" from ");
             sb.Append(table);
             var uniqueTables = addColumns.GroupBy((c) => c.Table).Select((c) => c.FirstOrDefault());
-            foreach (Column column in uniqueTables)
+            if (uniqueTables.Count() != 0)
             {
-                sb.Append(", ");
-                sb.Append(column.Table);
+                foreach (Column column in uniqueTables)
+                {
+                    sb.Append(", ");
+                    sb.Append(column.Table);
+                }
+                sb.Append(" where ");
+                foreach (Column column in uniqueTables)
+                {
+                    sb.Append(table);
+                    sb.Append(".");
+                    sb.Append(column.IdColumn);
+                    sb.Append(" = ");
+                    sb.Append(column.Table);
+                    sb.Append(".");
+                    sb.Append(column.IdColumn);
+                    sb.Append(", ");
+                }
+                sb.Length -= 2;
             }
-            sb.Append(" where ");
-            foreach (Column column in uniqueTables)
-            {
-                sb.Append(table);
-                sb.Append(".");
-                sb.Append(column.IdColumn);
-                sb.Append(" = ");
-                sb.Append(column.Table);
-                sb.Append(".");
-                sb.Append(column.IdColumn);
-                sb.Append(", ");
-            }
-            sb.Length -= 2;
+
             string x = sb.ToString();
             dgvViewAll.DataSource = Database.CreateDataTable(sb.ToString());
         }

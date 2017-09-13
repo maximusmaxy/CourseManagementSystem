@@ -44,7 +44,6 @@
             this.txtUnitDesc = new System.Windows.Forms.TextBox();
             this.txtUnitName = new System.Windows.Forms.TextBox();
             this.txtUnitId = new System.Windows.Forms.TextBox();
-            this.cmbSkill = new System.Windows.Forms.ComboBox();
             this.pnlUnitType = new System.Windows.Forms.Panel();
             this.rdb2 = new System.Windows.Forms.RadioButton();
             this.rdb1 = new System.Windows.Forms.RadioButton();
@@ -82,6 +81,7 @@
             this.label7 = new System.Windows.Forms.Label();
             this.txtUnitCode = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
+            this.lstSkill = new System.Windows.Forms.ListBox();
             this.pnlUnitType.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
             this.panel5.SuspendLayout();
@@ -167,7 +167,7 @@
             // 
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(44, 391);
+            this.label12.Location = new System.Drawing.Point(44, 403);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(136, 21);
             this.label12.TabIndex = 94;
@@ -175,11 +175,12 @@
             // 
             // txtUnitDesc
             // 
-            this.txtUnitDesc.Location = new System.Drawing.Point(187, 388);
+            this.txtUnitDesc.Location = new System.Drawing.Point(187, 400);
             this.txtUnitDesc.Multiline = true;
             this.txtUnitDesc.Name = "txtUnitDesc";
             this.txtUnitDesc.Size = new System.Drawing.Size(312, 111);
-            this.txtUnitDesc.TabIndex = 87;
+            this.txtUnitDesc.TabIndex = 9;
+            this.txtUnitDesc.Tag = "Unit Description";
             this.ToolTips.SetToolTip(this.txtUnitDesc, "Insert a Small description on what this unit will be about and what tasks may inc" +
         "lude");
             // 
@@ -188,7 +189,8 @@
             this.txtUnitName.Location = new System.Drawing.Point(187, 193);
             this.txtUnitName.Name = "txtUnitName";
             this.txtUnitName.Size = new System.Drawing.Size(312, 20);
-            this.txtUnitName.TabIndex = 86;
+            this.txtUnitName.TabIndex = 3;
+            this.txtUnitName.Tag = "Name";
             this.ToolTips.SetToolTip(this.txtUnitName, "Insert the Name of the Unit using Alphabetical Characters Only");
             // 
             // txtUnitId
@@ -196,17 +198,9 @@
             this.txtUnitId.Location = new System.Drawing.Point(187, 123);
             this.txtUnitId.Name = "txtUnitId";
             this.txtUnitId.Size = new System.Drawing.Size(312, 20);
-            this.txtUnitId.TabIndex = 85;
+            this.txtUnitId.TabIndex = 1;
+            this.txtUnitId.Tag = "Unit ID";
             this.ToolTips.SetToolTip(this.txtUnitId, "Insert a Numeric value for the Unit ID, using 0-9 numbers Only");
-            // 
-            // cmbSkill
-            // 
-            this.cmbSkill.FormattingEnabled = true;
-            this.cmbSkill.Location = new System.Drawing.Point(187, 350);
-            this.cmbSkill.Name = "cmbSkill";
-            this.cmbSkill.Size = new System.Drawing.Size(312, 21);
-            this.cmbSkill.TabIndex = 98;
-            this.ToolTips.SetToolTip(this.cmbSkill, "Select the Required Skill the Teacher will need to perform this Unit");
             // 
             // pnlUnitType
             // 
@@ -224,8 +218,9 @@
             this.rdb2.Location = new System.Drawing.Point(76, 3);
             this.rdb2.Name = "rdb2";
             this.rdb2.Size = new System.Drawing.Size(63, 17);
-            this.rdb2.TabIndex = 13;
+            this.rdb2.TabIndex = 5;
             this.rdb2.TabStop = true;
+            this.rdb2.Tag = "Elective";
             this.rdb2.Text = "Elective";
             this.ToolTips.SetToolTip(this.rdb2, "Select this option if the person is a Female");
             this.rdb2.UseVisualStyleBackColor = true;
@@ -236,8 +231,9 @@
             this.rdb1.Location = new System.Drawing.Point(3, 3);
             this.rdb1.Name = "rdb1";
             this.rdb1.Size = new System.Drawing.Size(47, 17);
-            this.rdb1.TabIndex = 12;
+            this.rdb1.TabIndex = 4;
             this.rdb1.TabStop = true;
+            this.rdb1.Tag = "Core";
             this.rdb1.Text = "Core";
             this.ToolTips.SetToolTip(this.rdb1, "Select this option if this person is a Male");
             this.rdb1.UseVisualStyleBackColor = true;
@@ -247,7 +243,8 @@
             this.txtNoOfHours.Location = new System.Drawing.Point(187, 271);
             this.txtNoOfHours.Name = "txtNoOfHours";
             this.txtNoOfHours.Size = new System.Drawing.Size(312, 20);
-            this.txtNoOfHours.TabIndex = 103;
+            this.txtNoOfHours.TabIndex = 6;
+            this.txtNoOfHours.Tag = "Number of Hours";
             this.ToolTips.SetToolTip(this.txtNoOfHours, "Insert the Number of Hours this unit will take, Use Whole Numeric Values Only ");
             // 
             // mainMenuToolStripMenuItem
@@ -310,7 +307,7 @@
             this.btnViewAll.Location = new System.Drawing.Point(3, 3);
             this.btnViewAll.Name = "btnViewAll";
             this.btnViewAll.Size = new System.Drawing.Size(120, 45);
-            this.btnViewAll.TabIndex = 21;
+            this.btnViewAll.TabIndex = 14;
             this.btnViewAll.UseVisualStyleBackColor = false;
             this.btnViewAll.Click += new System.EventHandler(this.btnViewAll_Click);
             // 
@@ -330,7 +327,7 @@
             this.btnDelete.Location = new System.Drawing.Point(3, 3);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(119, 44);
-            this.btnDelete.TabIndex = 20;
+            this.btnDelete.TabIndex = 13;
             this.btnDelete.UseVisualStyleBackColor = false;
             this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
@@ -350,8 +347,9 @@
             this.btnUpdate.Location = new System.Drawing.Point(3, 3);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(120, 45);
-            this.btnUpdate.TabIndex = 19;
+            this.btnUpdate.TabIndex = 12;
             this.btnUpdate.UseVisualStyleBackColor = false;
+            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
             // panel2
             // 
@@ -369,7 +367,7 @@
             this.btnAdd.Location = new System.Drawing.Point(3, 3);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(120, 45);
-            this.btnAdd.TabIndex = 17;
+            this.btnAdd.TabIndex = 10;
             this.btnAdd.UseVisualStyleBackColor = false;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
@@ -389,7 +387,7 @@
             this.btnSearch.Location = new System.Drawing.Point(3, 3);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(120, 45);
-            this.btnSearch.TabIndex = 18;
+            this.btnSearch.TabIndex = 11;
             this.btnSearch.UseVisualStyleBackColor = false;
             this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
@@ -516,11 +514,13 @@
             // 
             // cmbAreaOfStudy
             // 
+            this.cmbAreaOfStudy.DisplayMember = "Area of study";
             this.cmbAreaOfStudy.FormattingEnabled = true;
             this.cmbAreaOfStudy.Location = new System.Drawing.Point(187, 310);
             this.cmbAreaOfStudy.Name = "cmbAreaOfStudy";
             this.cmbAreaOfStudy.Size = new System.Drawing.Size(312, 21);
-            this.cmbAreaOfStudy.TabIndex = 106;
+            this.cmbAreaOfStudy.TabIndex = 7;
+            this.cmbAreaOfStudy.ValueMember = "Area of study";
             this.cmbAreaOfStudy.SelectedIndexChanged += new System.EventHandler(this.cmbAreaOfStudy_SelectedIndexChanged_1);
             // 
             // label7
@@ -538,7 +538,8 @@
             this.txtUnitCode.Location = new System.Drawing.Point(187, 159);
             this.txtUnitCode.Name = "txtUnitCode";
             this.txtUnitCode.Size = new System.Drawing.Size(312, 20);
-            this.txtUnitCode.TabIndex = 86;
+            this.txtUnitCode.TabIndex = 2;
+            this.txtUnitCode.Tag = "Unit Code";
             // 
             // label8
             // 
@@ -550,19 +551,29 @@
             this.label8.TabIndex = 95;
             this.label8.Text = "Unit Code:";
             // 
+            // lstSkill
+            // 
+            this.lstSkill.FormattingEnabled = true;
+            this.lstSkill.Location = new System.Drawing.Point(187, 347);
+            this.lstSkill.Name = "lstSkill";
+            this.lstSkill.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;
+            this.lstSkill.Size = new System.Drawing.Size(312, 30);
+            this.lstSkill.TabIndex = 8;
+            this.lstSkill.Tag = "Skill";
+            // 
             // UnitForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Lavender;
             this.ClientSize = new System.Drawing.Size(744, 528);
+            this.Controls.Add(this.lstSkill);
             this.Controls.Add(this.cmbAreaOfStudy);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.txtNoOfHours);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.pnlUnitType);
-            this.Controls.Add(this.cmbSkill);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label8);
@@ -638,7 +649,6 @@
         private System.Windows.Forms.ToolStripMenuItem updateToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem viewAllToolStripMenuItem;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.ComboBox cmbSkill;
         private System.Windows.Forms.Panel pnlUnitType;
         private System.Windows.Forms.RadioButton rdb2;
         private System.Windows.Forms.RadioButton rdb1;
@@ -650,5 +660,6 @@
         private System.Windows.Forms.ToolStripMenuItem allocationToolStripMenuItem;
         private System.Windows.Forms.TextBox txtUnitCode;
         private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.ListBox lstSkill;
     }
 }

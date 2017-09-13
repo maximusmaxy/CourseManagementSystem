@@ -31,6 +31,7 @@
             this.components = new System.ComponentModel.Container();
             this.panel5 = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnClearForm = new System.Windows.Forms.Button();
             this.panel8 = new System.Windows.Forms.Panel();
             this.btnViewAll = new System.Windows.Forms.Button();
             this.panel4 = new System.Windows.Forms.Panel();
@@ -41,6 +42,7 @@
             this.btnAdd = new System.Windows.Forms.Button();
             this.panel6 = new System.Windows.Forms.Panel();
             this.btnSearch = new System.Windows.Forms.Button();
+            this.button5 = new System.Windows.Forms.Button();
             this.panel7 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
@@ -86,8 +88,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
-            this.btnClearForm = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
             this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.panel5.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -126,6 +126,18 @@
             this.panel1.Size = new System.Drawing.Size(125, 50);
             this.panel1.TabIndex = 23;
             // 
+            // btnClearForm
+            // 
+            this.btnClearForm.BackColor = System.Drawing.Color.White;
+            this.btnClearForm.Image = global::CMS.Properties.Resources.ClearFormButton;
+            this.btnClearForm.Location = new System.Drawing.Point(3, 3);
+            this.btnClearForm.Name = "btnClearForm";
+            this.btnClearForm.Size = new System.Drawing.Size(120, 45);
+            this.btnClearForm.TabIndex = 18;
+            this.btnClearForm.Tag = "Clear Form";
+            this.btnClearForm.UseVisualStyleBackColor = false;
+            this.btnClearForm.Click += new System.EventHandler(this.btnClearForm_Click);
+            // 
             // panel8
             // 
             this.panel8.BackColor = System.Drawing.Color.DarkOrange;
@@ -142,7 +154,8 @@
             this.btnViewAll.Location = new System.Drawing.Point(3, 3);
             this.btnViewAll.Name = "btnViewAll";
             this.btnViewAll.Size = new System.Drawing.Size(120, 45);
-            this.btnViewAll.TabIndex = 21;
+            this.btnViewAll.TabIndex = 17;
+            this.btnViewAll.Tag = "View All";
             this.btnViewAll.UseVisualStyleBackColor = false;
             this.btnViewAll.Click += new System.EventHandler(this.btnViewAll_Click);
             // 
@@ -162,7 +175,8 @@
             this.btnDelete.Location = new System.Drawing.Point(3, 3);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(119, 44);
-            this.btnDelete.TabIndex = 20;
+            this.btnDelete.TabIndex = 16;
+            this.btnDelete.Tag = "Delete";
             this.btnDelete.UseVisualStyleBackColor = false;
             this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
@@ -182,7 +196,8 @@
             this.btnUpdate.Location = new System.Drawing.Point(3, 3);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(120, 45);
-            this.btnUpdate.TabIndex = 19;
+            this.btnUpdate.TabIndex = 15;
+            this.btnUpdate.Tag = "Update";
             this.btnUpdate.UseVisualStyleBackColor = false;
             this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
@@ -202,7 +217,8 @@
             this.btnAdd.Location = new System.Drawing.Point(3, 3);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(120, 45);
-            this.btnAdd.TabIndex = 17;
+            this.btnAdd.TabIndex = 13;
+            this.btnAdd.Tag = "Add";
             this.btnAdd.UseVisualStyleBackColor = false;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
@@ -222,9 +238,20 @@
             this.btnSearch.Location = new System.Drawing.Point(3, 3);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(120, 45);
-            this.btnSearch.TabIndex = 18;
+            this.btnSearch.TabIndex = 14;
+            this.btnSearch.Tag = "Search";
             this.btnSearch.UseVisualStyleBackColor = false;
             this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
+            // 
+            // button5
+            // 
+            this.button5.BackColor = System.Drawing.Color.DarkOrange;
+            this.button5.Image = global::CMS.Properties.Resources.CourseButton;
+            this.button5.Location = new System.Drawing.Point(3, 3);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(125, 100);
+            this.button5.TabIndex = 5;
+            this.button5.UseVisualStyleBackColor = false;
             // 
             // panel7
             // 
@@ -403,7 +430,8 @@
             this.dtpEnd.Location = new System.Drawing.Point(425, 246);
             this.dtpEnd.Name = "dtpEnd";
             this.dtpEnd.Size = new System.Drawing.Size(111, 20);
-            this.dtpEnd.TabIndex = 87;
+            this.dtpEnd.TabIndex = 8;
+            this.dtpEnd.Tag = "End Date";
             this.ToolTips.SetToolTip(this.dtpEnd, "Select the End Date for the Course here");
             // 
             // dtpStart
@@ -412,7 +440,8 @@
             this.dtpStart.Location = new System.Drawing.Point(202, 246);
             this.dtpStart.Name = "dtpStart";
             this.dtpStart.Size = new System.Drawing.Size(111, 20);
-            this.dtpStart.TabIndex = 82;
+            this.dtpStart.TabIndex = 7;
+            this.dtpStart.Tag = "Start Date";
             this.ToolTips.SetToolTip(this.dtpStart, "Select the starting Date for the Course");
             // 
             // txtCourseCost
@@ -420,7 +449,8 @@
             this.txtCourseCost.Location = new System.Drawing.Point(204, 179);
             this.txtCourseCost.Name = "txtCourseCost";
             this.txtCourseCost.Size = new System.Drawing.Size(332, 20);
-            this.txtCourseCost.TabIndex = 81;
+            this.txtCourseCost.TabIndex = 3;
+            this.txtCourseCost.Tag = "Cost";
             this.ToolTips.SetToolTip(this.txtCourseCost, "Insert the Cost for the Course using Numeric Characters Only");
             // 
             // txtCourseName
@@ -428,7 +458,8 @@
             this.txtCourseName.Location = new System.Drawing.Point(204, 144);
             this.txtCourseName.Name = "txtCourseName";
             this.txtCourseName.Size = new System.Drawing.Size(332, 20);
-            this.txtCourseName.TabIndex = 80;
+            this.txtCourseName.TabIndex = 2;
+            this.txtCourseName.Tag = "Course Name";
             this.ToolTips.SetToolTip(this.txtCourseName, "Insert the Name of the Course using Alphabetical Characters Only");
             // 
             // txtCourseID
@@ -436,7 +467,8 @@
             this.txtCourseID.Location = new System.Drawing.Point(204, 111);
             this.txtCourseID.Name = "txtCourseID";
             this.txtCourseID.Size = new System.Drawing.Size(332, 20);
-            this.txtCourseID.TabIndex = 79;
+            this.txtCourseID.TabIndex = 1;
+            this.txtCourseID.Tag = "Course ID";
             this.ToolTips.SetToolTip(this.txtCourseID, "Insert a Numeric value for the Course ID, using 0-9 numbers Only");
             // 
             // rbtnFTF
@@ -445,8 +477,9 @@
             this.rbtnFTF.Location = new System.Drawing.Point(3, 3);
             this.rbtnFTF.Name = "rbtnFTF";
             this.rbtnFTF.Size = new System.Drawing.Size(92, 17);
-            this.rbtnFTF.TabIndex = 0;
+            this.rbtnFTF.TabIndex = 4;
             this.rbtnFTF.TabStop = true;
+            this.rbtnFTF.Tag = "Face To Face";
             this.rbtnFTF.Text = "Face-To-Face";
             this.ToolTips.SetToolTip(this.rbtnFTF, "Select the Type of Course Delivery here, from Face to Face to Online Service Call" +
         "ed OTEN");
@@ -458,7 +491,8 @@
             this.cmbAreaOfStudy.Location = new System.Drawing.Point(202, 310);
             this.cmbAreaOfStudy.Name = "cmbAreaOfStudy";
             this.cmbAreaOfStudy.Size = new System.Drawing.Size(334, 21);
-            this.cmbAreaOfStudy.TabIndex = 95;
+            this.cmbAreaOfStudy.TabIndex = 10;
+            this.cmbAreaOfStudy.Tag = "Area Of Study";
             this.ToolTips.SetToolTip(this.cmbAreaOfStudy, "Select from the list the Appropriate Area of Study for this Course");
             this.cmbAreaOfStudy.SelectedIndexChanged += new System.EventHandler(this.cboxAreaOfStudy_SelectedIndexChanged);
             // 
@@ -468,7 +502,8 @@
             this.txtCourseDescription.Multiline = true;
             this.txtCourseDescription.Name = "txtCourseDescription";
             this.txtCourseDescription.Size = new System.Drawing.Size(362, 173);
-            this.txtCourseDescription.TabIndex = 96;
+            this.txtCourseDescription.TabIndex = 11;
+            this.txtCourseDescription.Tag = "Course Description";
             this.ToolTips.SetToolTip(this.txtCourseDescription, "Please Describe what this Course is about and what are the Goals");
             // 
             // lstUnitslist
@@ -478,7 +513,8 @@
             this.lstUnitslist.Name = "lstUnitslist";
             this.lstUnitslist.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;
             this.lstUnitslist.Size = new System.Drawing.Size(115, 173);
-            this.lstUnitslist.TabIndex = 98;
+            this.lstUnitslist.TabIndex = 12;
+            this.lstUnitslist.Tag = "Units Included";
             this.ToolTips.SetToolTip(this.lstUnitslist, "Select the Skill Appropriate for the currently selected Teacher");
             // 
             // cmbCampus
@@ -487,7 +523,8 @@
             this.cmbCampus.Location = new System.Drawing.Point(202, 279);
             this.cmbCampus.Name = "cmbCampus";
             this.cmbCampus.Size = new System.Drawing.Size(334, 21);
-            this.cmbCampus.TabIndex = 101;
+            this.cmbCampus.TabIndex = 9;
+            this.cmbCampus.Tag = "Campus";
             this.ToolTips.SetToolTip(this.cmbCampus, "Select from the list the Appropriate Area of Study for this Course");
             // 
             // label4
@@ -568,6 +605,7 @@
             this.pnlDeliveryType.Name = "pnlDeliveryType";
             this.pnlDeliveryType.Size = new System.Drawing.Size(332, 23);
             this.pnlDeliveryType.TabIndex = 93;
+            this.pnlDeliveryType.Tag = "Delivery Type";
             // 
             // rbtnOnline
             // 
@@ -575,8 +613,9 @@
             this.rbtnOnline.Location = new System.Drawing.Point(116, 3);
             this.rbtnOnline.Name = "rbtnOnline";
             this.rbtnOnline.Size = new System.Drawing.Size(55, 17);
-            this.rbtnOnline.TabIndex = 1;
+            this.rbtnOnline.TabIndex = 5;
             this.rbtnOnline.TabStop = true;
+            this.rbtnOnline.Tag = "Online";
             this.rbtnOnline.Text = "Online";
             this.rbtnOnline.UseVisualStyleBackColor = true;
             // 
@@ -609,27 +648,6 @@
             this.label9.Size = new System.Drawing.Size(123, 21);
             this.label9.TabIndex = 100;
             this.label9.Text = "Units Included:";
-            // 
-            // btnClearForm
-            // 
-            this.btnClearForm.BackColor = System.Drawing.Color.White;
-            this.btnClearForm.Image = global::CMS.Properties.Resources.ClearFormButton;
-            this.btnClearForm.Location = new System.Drawing.Point(3, 3);
-            this.btnClearForm.Name = "btnClearForm";
-            this.btnClearForm.Size = new System.Drawing.Size(120, 45);
-            this.btnClearForm.TabIndex = 21;
-            this.btnClearForm.UseVisualStyleBackColor = false;
-            this.btnClearForm.Click += new System.EventHandler(this.btnClearForm_Click);
-            // 
-            // button5
-            // 
-            this.button5.BackColor = System.Drawing.Color.DarkOrange;
-            this.button5.Image = global::CMS.Properties.Resources.CourseButton;
-            this.button5.Location = new System.Drawing.Point(3, 3);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(125, 100);
-            this.button5.TabIndex = 5;
-            this.button5.UseVisualStyleBackColor = false;
             // 
             // CourseForm
             // 

@@ -56,6 +56,8 @@ namespace CMS
                     Email = txtEmail.Text,
                     CountryOfOrigin = cmbCountryOfOrigin.Text,
                     Gender = Forms.RadioValue(pnlGender, Types.GenderType),
+                    Aboriginal = chkDropKick.Checked,
+                    Centrelink = chkCentrelink.Checked,
                     Disability = chkDisability.Checked,
                     DisabilityDescription = chkDisability.Checked ? txtDisabilityDescription.Text : null
                 };
@@ -90,6 +92,8 @@ namespace CMS
                     txtEmail.Text = student.Email;
                     cmbCountryOfOrigin.Text = student.CountryOfOrigin;
                     Forms.CheckRadio(pnlGender, Types.GenderType, student.Gender);
+                    chkDropKick.Checked = student.Aboriginal;
+                    chkCentrelink.Checked = student.Centrelink;
                     chkDisability.Checked = student.Disability;
                     txtDisabilityDescription.Text = student.DisabilityDescription;
                     //location
@@ -150,6 +154,8 @@ namespace CMS
                     Email = txtEmail.Text,
                     CountryOfOrigin = cmbCountryOfOrigin.Text,
                     Gender = Forms.RadioValue(pnlGender, Types.GenderType),
+                    Aboriginal = chkDropKick.Checked,
+                    Centrelink = chkCentrelink.Checked,
                     Disability = chkDisability.Checked,
                     DisabilityDescription = chkDisability.Checked ? txtDisabilityDescription.Text : null
                 };
@@ -213,6 +219,8 @@ namespace CMS
                         txtEmail.Text = student.Email;
                         cmbCountryOfOrigin.Text = student.CountryOfOrigin;
                         Forms.CheckRadio(pnlGender, Types.GenderType, student.Gender);
+                        chkDropKick.Checked = student.Aboriginal;
+                        chkCentrelink.Checked = student.Centrelink;
                         chkDisability.Checked = student.Disability;
                         txtDisabilityDescription.Text = student.DisabilityDescription;
                         //location

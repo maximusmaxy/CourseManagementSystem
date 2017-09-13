@@ -24,8 +24,6 @@ namespace CMS
 
             Forms.FillData(cmbCampus, "locations", "campus", "locationid","select campus, locationid from locations where campus is not null");
             Forms.FillData(cmbDepartment, "Departments", "DepartmentName", "DepartmentId");
-            //cmbDepartment.SelectedIndex = -1;
-            //cmbDepartment.Text = "Please select from options";
             cmbDepartment_SelectedIndexChanged(null, null);
 
         }
@@ -49,6 +47,16 @@ namespace CMS
                                                MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
             if (result == DialogResult.Yes)
             {
+                //location
+                Location location = new Location()
+                {
+                   Campus = cmbCampus.NullString()
+                };
+                if (!location.Add())
+                {
+                    return;
+                }
+
                 //Teacher
                 Teacher teacher = new Teacher()
                 {
@@ -59,10 +67,18 @@ namespace CMS
                     LocationId = cmbCampus.Int(),
                     DepartmentId = cmbDepartment.Int()
                 };
+                if(!teacher.Add())
+                {
+                    return;
+                }
+
                 //Teacher Skill
                 TeacherSkill teacherskill = new TeacherSkill(teacher.Id, lstSkillsList);
-                teacherskill.Update();
-                
+                if (!teacherskill.Update())
+                {
+                    return;
+                }
+
             }
         }
 
@@ -84,8 +100,13 @@ namespace CMS
                     txtLastName.Text = teacher.LastName;
                     txtContactNumber.Text = teacher.ContactNumber;
                     txtEmail.Text = teacher.Email;
-                    cmbCampus.SelectedValue = teacher.LocationId;
                     cmbDepartment.SelectedValue = teacher.DepartmentId;
+                    //Location
+                    Location location = new Location(teacher.LocationId);
+                    if (location.Search())
+                    {
+                        cmbCampus.Text = location.Campus;
+                    }
 
                     Forms.SelectData(lstSkillsList, "teacher_skills", "teacherid", teacher.Id, "skillid");
                 }
@@ -99,6 +120,8 @@ namespace CMS
                 txtId.ValidateNumeric(),
                 txtFirstName.ValidateWord(),
                 txtLastName.ValidateWord(),
+                txtContactNumber.ValidatePhone(),
+                txtEmail.ValidateEmail(),
                 cmbCampus,
                 cmbDepartment
                 ))
@@ -110,7 +133,32 @@ namespace CMS
                                                MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
             if (result == DialogResult.Yes)
             {
+                //location
+                Location location = new Location()
+                {
+                    Campus = cmbCampus.NullString()
+                };
+                if (!location.Update())
+                {
+                    return;
+                }
 
+                //Teacher
+                Teacher teacher = new Teacher()
+                {
+                    Id = txtId.Int(),
+                    FirstName = txtFirstName.Text,
+                    LastName = txtLastName.Text,
+                    ContactNumber = txtContactNumber.Text,
+                    Email = txtEmail.Text,
+                    LocationId = location.Id,
+                    DepartmentId = cmbDepartment.Int()
+                };
+                if (!teacher.Update())
+                {
+                    return;
+                }
+                
             }
         }
 
@@ -126,13 +174,44 @@ namespace CMS
                                                MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
             if (result == DialogResult.Yes)
             {
-
+                //Teacher
+                Teacher teacher = new Teacher(txtId.Int());
+                if (!teacher.Delete())
+                {
+                    return;
+                }
+                MessageBox.Show($"Student id: {teacher.Id} successfully deleted.");
+                Forms.ClearControls(this);
             }
         }
 
         private void btnViewAll_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Not yet coded");
+            using (ViewAllForm form = new ViewAllForm("students"))
+            {
+               
+                form.ShowDialog(this);
+                if (form.Id != -1)
+                {
+                    Teacher teacher = new Teacher(form.Id);
+                    if (teacher.Search())
+                    {
+                        txtFirstName.Text = teacher.FirstName;
+                        txtLastName.Text = teacher.LastName;
+                        txtContactNumber.Text = teacher.ContactNumber;
+                        txtEmail.Text = teacher.Email;
+                        cmbDepartment.SelectedValue = teacher.DepartmentId;
+                        //Location
+                        Location location = new Location(teacher.LocationId);
+                        if (location.Search())
+                        {
+                            cmbCampus.Text = location.Campus;
+                        }
+
+                        Forms.SelectData(lstSkillsList, "teacher_skills", "teacherid", teacher.Id, "skillid");
+                    }
+                }
+            }
         }
 
         private void addToolStripMenuItem_Click(object sender, EventArgs e)

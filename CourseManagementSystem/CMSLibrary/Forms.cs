@@ -271,8 +271,14 @@ namespace CmsLibrary
                 else if (control is ComboBox)
                 {
                     ComboBox cb = (ComboBox)control;
-                    cb.SelectedIndex = -1;
-                    cb.Text = string.Empty;
+                    if(cb.Items.Count == 0)
+                    {
+                        cb.SelectedIndex = -1;
+                    }
+                    else
+                    {
+                        cb.SelectedIndex = 0;
+                    }
                 }
                 else if (control is Panel)
                 {

@@ -127,8 +127,8 @@
   <data name="DeleteButton" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\resources\deletebutton.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="CourseButton" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\coursebutton.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="AssessmentButton" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\assessmentbutton.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="StudentButton" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\resources\studentbutton.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -136,14 +136,17 @@
   <data name="ViewAllButton" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\resources\viewallbutton.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="AllocationButton" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\AllocationButton.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="UpdateButton" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\resources\updatebutton.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="SearchButton" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\resources\searchbutton.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="AssessmentButton" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\assessmentbutton.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="CourseButton" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\coursebutton.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="UnitButton" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\resources\unitbutton.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -157,7 +160,7 @@
   <data name="GlobalSearchButton" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\resources\globalsearchbutton.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="AllocationButton" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\AllocationButton.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="ClearFormButton" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ClearFormButton.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

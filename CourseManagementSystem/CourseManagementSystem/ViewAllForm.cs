@@ -157,11 +157,10 @@ namespace CMS
                     sb.Append(column.Table);
                     sb.Append(".");
                     sb.Append(column.IdColumn);
-                    sb.Append(", ");
+                    sb.Append("and ");
                 }
-                sb.Length -= 2;
+                sb.Length -= 4;
             }
-
             string x = sb.ToString();
             dgvViewAll.DataSource = Database.CreateDataTable(sb.ToString());
         }

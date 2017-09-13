@@ -50,5 +50,11 @@ namespace CmsLibrary
         {
             return Database.UpdateBridgingTable("Unit_Skills", "unitid", unitId, "skillid", control);
         }
+
+        public bool Delete()
+        {
+            control.ClearSelected();
+            return Update();
+        }
     }
 }

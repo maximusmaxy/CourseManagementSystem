@@ -9,5 +9,7 @@ namespace CmsLibrary
     interface IBridgingData
     {
         bool Update();
+
+        bool Delete();
     }
 }

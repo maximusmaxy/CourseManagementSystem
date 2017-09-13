@@ -30,6 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             this.panel5 = new System.Windows.Forms.Panel();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.panel8 = new System.Windows.Forms.Panel();
             this.btnViewAll = new System.Windows.Forms.Button();
             this.panel4 = new System.Windows.Forms.Panel();
@@ -40,7 +41,6 @@
             this.btnAdd = new System.Windows.Forms.Button();
             this.panel6 = new System.Windows.Forms.Panel();
             this.btnSearch = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
             this.panel7 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
@@ -74,7 +74,6 @@
             this.cmbCampus = new System.Windows.Forms.ComboBox();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.backgroundWorker2 = new System.ComponentModel.BackgroundWorker();
-            this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
@@ -87,7 +86,11 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
+            this.btnClearForm = new System.Windows.Forms.Button();
+            this.button5 = new System.Windows.Forms.Button();
+            this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.panel5.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.panel8.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -95,13 +98,14 @@
             this.panel6.SuspendLayout();
             this.panel7.SuspendLayout();
             this.menuStrip1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
             this.pnlDeliveryType.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel5
             // 
             this.panel5.BackColor = System.Drawing.Color.MediumSlateBlue;
+            this.panel5.Controls.Add(this.panel1);
             this.panel5.Controls.Add(this.panel8);
             this.panel5.Controls.Add(this.panel4);
             this.panel5.Controls.Add(this.panel3);
@@ -112,6 +116,15 @@
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(132, 650);
             this.panel5.TabIndex = 77;
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.DarkOrange;
+            this.panel1.Controls.Add(this.btnClearForm);
+            this.panel1.Location = new System.Drawing.Point(4, 476);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(125, 50);
+            this.panel1.TabIndex = 23;
             // 
             // panel8
             // 
@@ -212,16 +225,6 @@
             this.btnSearch.TabIndex = 18;
             this.btnSearch.UseVisualStyleBackColor = false;
             this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
-            // 
-            // button5
-            // 
-            this.button5.BackColor = System.Drawing.Color.DarkOrange;
-            this.button5.Image = global::CMS.Properties.Resources.CourseButton;
-            this.button5.Location = new System.Drawing.Point(3, 3);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(125, 100);
-            this.button5.TabIndex = 5;
-            this.button5.UseVisualStyleBackColor = false;
             // 
             // panel7
             // 
@@ -607,6 +610,27 @@
             this.label9.TabIndex = 100;
             this.label9.Text = "Units Included:";
             // 
+            // btnClearForm
+            // 
+            this.btnClearForm.BackColor = System.Drawing.Color.White;
+            this.btnClearForm.Image = global::CMS.Properties.Resources.ClearFormButton;
+            this.btnClearForm.Location = new System.Drawing.Point(3, 3);
+            this.btnClearForm.Name = "btnClearForm";
+            this.btnClearForm.Size = new System.Drawing.Size(120, 45);
+            this.btnClearForm.TabIndex = 21;
+            this.btnClearForm.UseVisualStyleBackColor = false;
+            this.btnClearForm.Click += new System.EventHandler(this.btnClearForm_Click);
+            // 
+            // button5
+            // 
+            this.button5.BackColor = System.Drawing.Color.DarkOrange;
+            this.button5.Image = global::CMS.Properties.Resources.CourseButton;
+            this.button5.Location = new System.Drawing.Point(3, 3);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(125, 100);
+            this.button5.TabIndex = 5;
+            this.button5.UseVisualStyleBackColor = false;
+            // 
             // CourseForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -639,6 +663,7 @@
             this.Name = "CourseForm";
             this.Text = "CourseForm";
             this.panel5.ResumeLayout(false);
+            this.panel1.ResumeLayout(false);
             this.panel8.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
@@ -647,9 +672,9 @@
             this.panel7.ResumeLayout(false);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
             this.pnlDeliveryType.ResumeLayout(false);
             this.pnlDeliveryType.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -714,5 +739,7 @@
         private System.Windows.Forms.ListBox lstUnitslist;
         private System.Windows.Forms.ToolStripMenuItem allocationToolStripMenuItem;
         private System.Windows.Forms.ComboBox cmbCampus;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Button btnClearForm;
     }
 }

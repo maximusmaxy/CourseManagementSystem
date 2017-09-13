@@ -147,7 +147,34 @@ namespace CMS
 
         private void btnViewAll_Click(object sender, EventArgs e)
         {
+            using (ViewAllForm form = new ViewAllForm("Courses"))
+            {
 
+                //form.AddColumn("Courses", "UnitId");
+                form.AddType("deliveryType", Types.DeliveryType);
+                form.ShowDialog(this);
+                if (form.Id != -1)
+                {
+                    Course course = new Course(form.Id);
+                    if (course.Search())
+                    {
+                        txtCourseID.Text = course.Id.ToString();
+                        txtCourseName.Text = course.Name;
+                        txtCourseCost.Text = course.Cost.ToString();
+                        Forms.CheckRadio(pnlDeliveryType, Types.DeliveryType, course.DeliveryType);
+                        dtpStart.Value = course.StartDate;
+                        dtpEnd.Value = course.EndDate;
+                        cmbAreaOfStudy.SelectedValue = course.DepartmentId;
+                        txtCourseDescription.Text = course.Description;
+
+                        Location location = new Location(course.LocationId);
+                        if (location.Search())
+                        {
+                            cmbCampus.Text = location.Campus;
+                        }
+                    }
+                }
+            }
         }
 
         private void cboxAreaOfStudy_SelectedIndexChanged(object sender, EventArgs e)
@@ -228,6 +255,11 @@ namespace CMS
         private void viewAllToolStripMenuItem_Click(object sender, EventArgs e)
         {
             btnViewAll_Click(sender, e);
+        }
+
+        private void btnClearForm_Click(object sender, EventArgs e)
+        {
+            Forms.ClearControls(this);
         }
     }
 }

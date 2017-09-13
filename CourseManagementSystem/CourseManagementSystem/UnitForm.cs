@@ -106,15 +106,14 @@ namespace CMS
             if (result == DialogResult.Yes)
             {
                 Unit unit = new Unit(txtUnitId.Int());
-                //student.Search("studentfirstname", txtFirstName.Text);
                 if (unit.Search())
                 {
                     txtUnitCode.Text = unit.Code;
                     txtUnitName.Text = unit.Name;
                     Forms.CheckRadio(pnlUnitType, Types.UnitType, unit.Type);
                     txtNoOfHours.Text = unit.NumOfHours.ToString();
-                    cmbAreaOfStudy.Text = unit.DepartmentId.ToString();
-                    cmbSkill.Text = unit.SkillId.ToString();
+                    cmbAreaOfStudy.SelectedValue = unit.DepartmentId;
+                    Forms.SelectData(lstSkill, "unit_skills", "skillId", unit.Id, "unitId");
                     txtUnitDesc.Text = unit.Description;
 
                 }
@@ -123,89 +122,142 @@ namespace CMS
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-            if (!Validation.Many(
-                 txtUnitCode.ValidateEmpty(),
-                txtUnitCode.ValidateUnitCode(),
-                txtUnitName.ValidateWord(),
-                txtUnitName.ValidateEmpty(),
-                pnlUnitType,
-                txtNoOfHours.ValidateNumeric(),
-                cmbAreaOfStudy,
-                cmbSkill,
-                txtUnitDesc.ValidateEmpty()
-                ))
-            {
-                return;
-            }
+            
             DialogResult result = MessageBox.Show("Would you like to update this record", "Question",
                                               MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
             if (result == DialogResult.Yes)
             {
+                if (!Validation.Many(
+                 txtUnitCode.ValidateEmpty(),
+                txtUnitCode.ValidateUnitCode(),
+                txtUnitName.ValidateEmpty(),
+                pnlUnitType,
+                txtNoOfHours.ValidateNumeric(),
+                cmbAreaOfStudy,
+                lstSkill,
+                txtUnitDesc.ValidateEmpty()
+                ))
+                {
+                    return;
+                }
 
+                Unit unit = new Unit()
+                {
+                    Id = Convert.ToInt32(txtUnitId.Text),
+                    Name = txtUnitName.Text,
+                    Code = txtUnitCode.Text,
+                    Type = Forms.RadioValue(pnlUnitType, Types.UnitType),
+                    NumOfHours = Convert.ToInt32(txtNoOfHours.Text),
+                    DepartmentId = cmbAreaOfStudy.Int(),
+                    Description = txtUnitDesc.Text,
+                };
+                if (!unit.Update())
+                {
+                    return;
+                }
+
+                UnitSkill CourseBridge = new UnitSkill(unit.Id, lstSkill);
+                if (!CourseBridge.Update())
+                    return;
+                //success!
+                MessageBox.Show($"Unit ID: {unit.Id} added successfully.");
+                txtUnitId.Text = unit.Id.ToString();
             }
         }
 
         private void btnViewAll_Click(object sender, EventArgs e)
         {
-            Forms.ShowForm(typeof(ViewAllForm));
+            using (ViewAllForm form = new ViewAllForm("units"))
+            {
+
+                form.ShowDialog(this);
+                if (form.Id != -1)
+                {
+                    Unit unit = new Unit(form.Id);
+                    if (unit.Search())
+                    {
+                        txtUnitId.Text = unit.Id.ToString();
+                        txtUnitCode.Text = unit.Code.ToString();
+                        txtUnitName.Text = unit.Name;
+                        Forms.CheckRadio(pnlUnitType, Types.UnitType, unit.Type);
+                        txtNoOfHours.Text = unit.NumOfHours.ToString();
+                        cmbAreaOfStudy.SelectedValue = unit.DepartmentId;
+                        Forms.SelectData(lstSkill, "unit_skills", "skillId", unit.Id, "unitId");
+                        txtUnitDesc.Text = unit.Description;
+                    }
+                }
+            }
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            if (!Validation.Numeric(txtUnitId))
-            {
-                MessageBox.Show("Failed to Validate, please try again");
-            }
-
             DialogResult result = MessageBox.Show("Would you like to delete this record", "Question",
                                                MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
             if (result == DialogResult.Yes)
             {
-
+                if (!Validation.Numeric(txtUnitId))
+                {
+                    return;
+                }
+                lstSkill.ClearSelected();
+                UnitSkill unitskill = new UnitSkill(txtUnitId.Int(), lstSkill);
+                if (!unitskill.Update())
+                {
+                    return;
+                }
+                Unit unit = new Unit(txtUnitId.Int());
+                if (!unit.Delete())
+                {
+                    return;
+                }
+                MessageBox.Show($"Unit id: {unit.Id} successfully deleted.");
+                Forms.ClearControls(this);
+                
             }
-
-
         }
 
 
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            if (!Validation.Many(
-                txtUnitCode.ValidateEmpty(),
-                txtUnitCode.ValidateUnitCode(),
-                txtUnitName.ValidateWord(),
-                txtUnitName.ValidateEmpty(),
-                pnlUnitType,
-                txtNoOfHours.ValidateNumeric(),
-                cmbAreaOfStudy,
-                cmbSkill,
-                txtUnitDesc.ValidateEmpty()
-                ))
-            {
-                return;
-            }
+            
 
             DialogResult result = MessageBox.Show("Would you like to add this Unit", "Question",
                                                MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
             if (result == DialogResult.Yes)
-            {
-                //Unit ////Teacher
-                Unit unit = new Unit() //Teacher teacher = new Teacher()
+                {if (!Validation.Many(
+                    txtUnitCode.ValidateEmpty(),
+                    txtUnitCode.ValidateUnitCode(),
+                    txtUnitName.ValidateEmpty(),
+                    pnlUnitType,
+                    txtNoOfHours.ValidateNumeric(),
+                    cmbAreaOfStudy,
+                    lstSkill,
+                    txtUnitDesc.ValidateEmpty()
+                    ))
+                {
+                    return;
+                }
+
+                Unit unit = new Unit()
                 {
                     Name = txtUnitName.Text,
+                    Code = txtUnitCode.Text,
                     Type = Forms.RadioValue(pnlUnitType, Types.UnitType),
                     NumOfHours = Convert.ToInt32(txtNoOfHours.Text),
                     DepartmentId = cmbAreaOfStudy.Int(),
-                    SkillId = cmbSkill.Int(),
                     Description = txtUnitDesc.Text,
                 };
                 if (!unit.Add())
                 {
                     return;
                 }
-                //success!
-                MessageBox.Show($"Unit ID: {unit.Id} added successfully.");
+
+               UnitSkill CourseBridge = new UnitSkill(unit.Id, lstSkill);
+                if (!CourseBridge.Update())
+                    return;
+                    //success!
+                    MessageBox.Show($"Unit ID: {unit.Id} added successfully.");
                 txtUnitId.Text = unit.Id.ToString();
 
             }
@@ -213,7 +265,7 @@ namespace CMS
        
         private void cmbAreaOfStudy_SelectedIndexChanged_1(object sender, EventArgs e)
         {
-            Forms.FillData(cmbSkill, "skills", "skillname", "skillid", "departmentid", cmbAreaOfStudy.SelectedValue);
+            Forms.FillData(lstSkill, "skills", "skillname", "skillid", "departmentid", cmbAreaOfStudy.SelectedValue);
         }
     }
 }

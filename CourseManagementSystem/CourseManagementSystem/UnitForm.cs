@@ -98,14 +98,14 @@ namespace CMS
         private void btnSearch_Click(object sender, EventArgs e)
         {
             //validation
-            if (!Validation.Numeric(txtUnitId))
+            if (!Validation.UnitCode(txtUnitCode))
                 return;
 
             DialogResult result = MessageBox.Show("Would you like to search for this unit", "Question",
                                                MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
             if (result == DialogResult.Yes)
             {
-                Unit unit = new Unit(txtUnitId.Int());
+                Unit unit = new Unit(txtUnitCode.Text);
                 if (unit.Search())
                 {
                     txtUnitCode.Text = unit.Code;
@@ -115,14 +115,13 @@ namespace CMS
                     cmbAreaOfStudy.SelectedValue = unit.DepartmentId;
                     Forms.SelectData(lstSkill, "unit_skills", "skillId", unit.Id, "unitId");
                     txtUnitDesc.Text = unit.Description;
-
                 }
             }
         }
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-            
+
             DialogResult result = MessageBox.Show("Would you like to update this record", "Question",
                                               MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
             if (result == DialogResult.Yes)
@@ -143,7 +142,6 @@ namespace CMS
 
                 Unit unit = new Unit()
                 {
-                    Id = Convert.ToInt32(txtUnitId.Text),
                     Name = txtUnitName.Text,
                     Code = txtUnitCode.Text,
                     Type = Forms.RadioValue(pnlUnitType, Types.UnitType),
@@ -155,12 +153,11 @@ namespace CMS
                 {
                     return;
                 }
-
-                UnitSkill CourseBridge = new UnitSkill(unit.Id, lstSkill);
+                UnitSkill CourseBridge = new UnitSkill(unit.Code, lstSkill);
                 if (!CourseBridge.Update())
                     return;
                 //success!
-                MessageBox.Show($"Unit ID: {unit.Id} added successfully.");
+                MessageBox.Show($"Unit Code: {unit.Code} added successfully.");
                 txtUnitId.Text = unit.Id.ToString();
             }
         }
@@ -169,12 +166,12 @@ namespace CMS
         {
             using (ViewAllForm form = new ViewAllForm("units"))
             {
-
+                form.AddBridging("Unit_Skills", "Skills", "unitId", "skillId", "skillName");
                 form.ShowDialog(this);
                 if (form.Id != -1)
                 {
-                    Unit unit = new Unit(form.Id);
-                    if (unit.Search())
+                    Unit unit = new Unit();
+                    if (unit.Search("unitid", form.Id))
                     {
                         txtUnitId.Text = unit.Id.ToString();
                         txtUnitCode.Text = unit.Code.ToString();
@@ -195,24 +192,23 @@ namespace CMS
                                                MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
             if (result == DialogResult.Yes)
             {
-                if (!Validation.Numeric(txtUnitId))
+                if (!Validation.UnitCode(txtUnitCode))
                 {
                     return;
                 }
-                lstSkill.ClearSelected();
-                UnitSkill unitskill = new UnitSkill(txtUnitId.Int(), lstSkill);
-                if (!unitskill.Update())
+                UnitSkill unitskill = new UnitSkill(txtUnitCode.Text);
+                if (!unitskill.Delete())
                 {
                     return;
                 }
-                Unit unit = new Unit(txtUnitId.Int());
+                Unit unit = new Unit(txtUnitCode.Text);
                 if (!unit.Delete())
                 {
                     return;
                 }
-                MessageBox.Show($"Unit id: {unit.Id} successfully deleted.");
+                MessageBox.Show($"Unit Code: {unit.Code} successfully deleted.");
                 Forms.ClearControls(this);
-                
+
             }
         }
 
@@ -220,21 +216,22 @@ namespace CMS
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            
+
 
             DialogResult result = MessageBox.Show("Would you like to add this Unit", "Question",
                                                MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
             if (result == DialogResult.Yes)
-                {if (!Validation.Many(
-                    txtUnitCode.ValidateEmpty(),
-                    txtUnitCode.ValidateUnitCode(),
-                    txtUnitName.ValidateEmpty(),
-                    pnlUnitType,
-                    txtNoOfHours.ValidateNumeric(),
-                    cmbAreaOfStudy,
-                    lstSkill,
-                    txtUnitDesc.ValidateEmpty()
-                    ))
+            {
+                if (!Validation.Many(
+                   txtUnitCode.ValidateEmpty(),
+                   txtUnitCode.ValidateUnitCode(),
+                   txtUnitName.ValidateEmpty(),
+                   pnlUnitType,
+                   txtNoOfHours.ValidateNumeric(),
+                   cmbAreaOfStudy,
+                   lstSkill,
+                   txtUnitDesc.ValidateEmpty()
+                   ))
                 {
                     return;
                 }
@@ -253,16 +250,16 @@ namespace CMS
                     return;
                 }
 
-               UnitSkill CourseBridge = new UnitSkill(unit.Id, lstSkill);
+                UnitSkill CourseBridge = new UnitSkill(unit.Code, lstSkill);
                 if (!CourseBridge.Update())
                     return;
-                    //success!
-                    MessageBox.Show($"Unit ID: {unit.Id} added successfully.");
+                //success!
+                MessageBox.Show($"Unit Code: {unit.Code} added successfully.");
                 txtUnitId.Text = unit.Id.ToString();
 
             }
         }
-       
+
         private void cmbAreaOfStudy_SelectedIndexChanged_1(object sender, EventArgs e)
         {
             Forms.FillData(lstSkill, "skills", "skillname", "skillid", "departmentid", cmbAreaOfStudy.SelectedValue);

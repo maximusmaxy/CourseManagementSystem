@@ -14,6 +14,11 @@ namespace CmsLibrary
 
         public CourseUnit() { }
 
+        public CourseUnit(int courseId)
+        {
+            this.courseId = courseId;
+        }
+
         public CourseUnit(int courseId, ListBox control)
         {
             this.courseId = courseId;
@@ -53,8 +58,7 @@ namespace CmsLibrary
 
         public bool Delete()
         {
-            control.ClearSelected();
-            return Update();
+            return Database.DeleteBridgingTable("course_units", "courseid", courseId);
         }
     }
 }

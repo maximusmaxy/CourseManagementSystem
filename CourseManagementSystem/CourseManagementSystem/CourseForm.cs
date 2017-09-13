@@ -15,7 +15,7 @@ namespace CMS
     {
         public CourseForm()
         {
-            Database.LoadDatabase();
+            //Database.LoadDatabase();
             InitializeComponent();
             Forms.FillData(cmbCampus, null, "campus", "locationid", "select locationid, campus from locations where campus is not null ");
             Forms.FillData(cmbAreaOfStudy, "departments", "departmentname", "departmentid");
@@ -135,7 +135,14 @@ namespace CMS
             {
                 MessageBox.Show("Failed to Validate, please try again");
             }
-
+            //CourseUnit
+            CourseUnit newCourseUnit = new CourseUnit();
+            newCourseUnit.CourseId = txtCourseID.Int();
+            if (!newCourseUnit.Delete())
+            {
+                MessageBox.Show("Failed to Delete the Selected Course");
+            }
+            //Course
             Course newCourse = new Course();
             newCourse.Id = txtCourseID.Int();
             if (!newCourse.Delete())

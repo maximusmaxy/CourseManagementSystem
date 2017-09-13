@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,27 +10,31 @@ namespace CmsLibrary
 {
     public class UnitSkill : IBridgingData
     {
-        private int unitId;
+        private string unitCode;
         private ListBox control;
 
         public UnitSkill() { }
 
-        public UnitSkill(int unitId, ListBox control)
+        public UnitSkill(string unitCode)
         {
-            this.unitId = unitId;
+            this.unitCode = unitCode;
+        }
+
+        public UnitSkill(string unitCode, ListBox control)
+        {
+            this.unitCode = unitCode;
             this.control = control;
         }
 
-        public int UnitId
+        public string UnitCode
         {
             get
             {
-                return unitId;
+                return unitCode;
             }
-
             set
             {
-                unitId = value;
+                unitCode = value;
             }
         }
 
@@ -48,13 +53,28 @@ namespace CmsLibrary
 
         public bool Update()
         {
-            return Database.UpdateBridgingTable("Unit_Skills", "unitid", unitId, "skillid", control);
+            int id = GetId();
+            if (id != -1)
+                return Database.UpdateBridgingTable("Unit_Skills", "unitid", id, "skillid", control);
+            return false;
         }
 
         public bool Delete()
         {
-            control.ClearSelected();
-            return Update();
+            int id = GetId();
+            if (id != -1)
+                return Database.DeleteBridgingTable("Unit_Skills", "unitid", id);
+            return false;
+        }
+
+        public int GetId()
+        {
+            foreach (SqlDataReader row in Database.ExecuteQuery($"select unitid from units where unitCode = '{unitCode}'"))
+            {
+                return Convert.ToInt32(row[0]);
+            }
+            MessageBox.Show($"Unit code {unitCode} not found.");
+            return -1;
         }
     }
 }

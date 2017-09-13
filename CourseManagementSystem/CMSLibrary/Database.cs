@@ -19,7 +19,6 @@ namespace CmsLibrary
         //lisahome - LISAWORKLAPTOP\\SQLEXPRESS
         public static string ServerName { get; set; } = "(local)";
         public static string DatabaseName { get; set; } = "CourseManage";
-        public static string SqlFileName { get; set; } = "CmsSql.sql";
 
         /// <summary>
         /// Initializes a new Sql connection based on the static fields.
@@ -108,6 +107,12 @@ namespace CmsLibrary
             }
         }
 
+        /// <summary>
+        /// Executes a stored procedure on the database and returns a datareader.
+        /// </summary>
+        /// <param name="storedProcedure">The name of the stored procedure.</param>
+        /// <param name="parameters">An array of SqlParameters</param>
+        /// <returns></returns>
         public static IEnumerable<SqlDataReader> StoredProcedure(string storedProcedure, params SqlParameter[] parameters)
         {
             using (SqlConnection connection = Connection())
@@ -123,26 +128,6 @@ namespace CmsLibrary
                     }
                 }
             }
-        }
-
-        /// <summary>
-        /// Returns whether an id exists within a database.
-        /// </summary>
-        /// <param name="table">Name of the table in the database</param>
-        /// <param name="idName">Name of the id column in the database</param>
-        /// <param name="idValue">The value of the id</param>
-        /// <param name="idName2">Name of the second option id in the database</param>
-        /// <param name="idValue2">The value of the second id</param>
-        /// <returns></returns>
-        public static bool IdExists(string table, string idName, int idValue, string idName2 = null, int idValue2 = -1)
-        {
-            string sql;
-            sql = $"select * from {table} where {idName} = {idValue}";
-            if (idName2 != null)
-                sql += $" and {idName2} = {idValue2}";
-            foreach (SqlDataReader dataReader in ExecuteQuery(sql))
-                return dataReader.HasRows;
-            return false;
         }
 
         /// <summary>
@@ -205,13 +190,8 @@ namespace CmsLibrary
         /// <param name="idValue">The value of the ID.</param>
         /// <param name="values">Every even value is a string for the column name. Every odd value is an object for the value to insert.</param>
         /// <returns></returns>
-        public static bool Update(string table, string idName, int idValue, params object[] values)
+        public static bool Update(string table, string idName, object idValue, params object[] values)
         {
-            if (!IdExists(table, idName, idValue))
-            {
-                MessageBox.Show($"{idName}: {idValue} from {table} table does not exist.");
-                return false;
-            }
             if (values.Length == 0)
                 return true;
             StringBuilder sql = new StringBuilder("update ");
@@ -228,8 +208,7 @@ namespace CmsLibrary
             }
             sql.Append(" where ");
             sql.Append(idName);
-            sql.Append(" = ");
-            sql.Append(idValue);
+            sql.Append(" = @value");
             using (SqlConnection connection = Connection())
             using (SqlCommand command = new SqlCommand(sql.ToString(), connection))
             {
@@ -238,6 +217,7 @@ namespace CmsLibrary
                     command.Parameters.AddWithNullValue($"@{i}", values[i + 1]);
                     i++;
                 }
+                command.Parameters.AddWithNullValue($"@value", idValue);
                 try
                 {
                     command.ExecuteNonQuery();
@@ -258,25 +238,24 @@ namespace CmsLibrary
         /// <param name="idName">The name of the column in the database.</param>
         /// <param name="idValue">The value of the id.</param>
         /// <returns></returns>
-        public static bool Delete(string table, string idName, int idValue)
+        public static bool Delete(string table, string idName, object idValue)
         {
-            if (!IdExists(table, idName, idValue))
+            string sql = $"delete from {table} where {idName} = @value";
+            using (SqlConnection connection = Connection())
+            using (SqlCommand command = new SqlCommand(sql, connection))
             {
-                MessageBox.Show($"{idName}: {idValue} from {table} table does not exist.");
-                return false;
+                command.Parameters.AddWithNullValue("@value", idValue);
+                try
+                {
+                    command.ExecuteNonQuery();
+                    return true;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                    return false;
+                }
             }
-            string sql = $"delete from {table} where {idName} = {idValue}";
-            try
-            {
-                int rows = ExecuteNonQuery(sql);
-                return rows > 0;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-                return false;
-            }
-
         }
 
         /// <summary>
@@ -456,6 +435,27 @@ namespace CmsLibrary
         }
 
         /// <summary>
+        /// Deletes all references to an id from the bridging table.
+        /// </summary>
+        /// <param name="table">The name of the bridging table.</param>
+        /// <param name="idName">The name of the column being deleted from.</param>
+        /// <param name="idValue">The value of the id.</param>
+        public static bool DeleteBridgingTable(string table, string idName, int idValue)
+        {
+            string sql = $"delete from {table} where {idName} = {idValue}";
+            try
+            {
+                ExecuteNonQuery(sql);
+                return true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return false;
+            }
+        }
+
+        /// <summary>
         /// Returns the column names of a table without quering the entire table.
         /// </summary>
         /// <param name="table">The name of the table in the database.</param>
@@ -470,30 +470,6 @@ namespace CmsLibrary
                 strings.Add((string)dataReader[column]);
             }
             return strings.ToArray();
-        }
-
-        public struct ForeignKey
-        {
-            public string PkTable { get; set; }
-            public string PkColumn { get; set; }
-            public string FkTable { get; set; }
-            public string FkColumn { get; set; }
-        }
-
-        public static ForeignKey[] GetForeignTables(string table)
-        {
-            List<ForeignKey> fks = new List<ForeignKey>();
-            foreach (var row in Database.StoredProcedure("sp_fkeys", new SqlParameter("@fktable_name", table)))
-            {
-                fks.Add(new ForeignKey()
-                {
-                    PkTable = (string)row["PKTABLE_NAME"],
-                    PkColumn = (string)row["PKCOLUMN_NAME"],
-                    FkTable = (string)row["FKTABLE_NAME"],
-                    FkColumn = (string)row["FKCOLUMN_NAME"]
-                });
-            }
-            return fks.ToArray();
         }
 
         /// <summary>

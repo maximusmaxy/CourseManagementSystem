@@ -8,12 +8,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using CmsLibrary;
+using System.Data.SqlClient;
 
 namespace CMS
 {
     public partial class ViewAllForm : Form
     {
-        private struct Column
+        private class Column
         {
             public string Table { get; }
             public string IdColumn { get; }
@@ -27,12 +28,31 @@ namespace CMS
             }
         }
 
+        private class Bridge
+        {
+            public string BridgingTable { get; }
+            public string ForeignTable { get; }
+            public string IdColumn { get; }
+            public string ForeignColumn { get; }
+            public string ForeignDisplay { get; }
+
+            public Bridge(string bridgingTable, string foreignTable, string idColumn, string foreignColumn, string foreignDisplay)
+            {
+                BridgingTable = bridgingTable;
+                ForeignTable = foreignTable;
+                IdColumn = idColumn;
+                ForeignColumn = foreignColumn;
+                ForeignDisplay = foreignDisplay;
+            }
+        }
+
         public int Id { get; private set; } = -1;
 
         private string table;
         private List<Column> addColumns = new List<Column>();
         private List<Column> replaceColumns = new List<Column>();
         private Dictionary<string, Dictionary<string, int>> dictionaries = new Dictionary<string, Dictionary<string, int>>();
+        private List<Bridge> bridges = new List<Bridge>();
 
         /// <summary>
         /// Constructs a data grid view form for a specified table.
@@ -76,22 +96,37 @@ namespace CMS
             dictionaries[columnName] = dictionary;
         }
 
+        /// <summary>
+        /// Adds a bridging tables values to the data grid view.
+        /// </summary>
+        /// <param name="bridgingTable">The name of the briding table in the database.</param>
+        /// <param name="foreignTable">The name of the table to join to in the database.</param>
+        /// <param name="idColumn">The name of the id column in the briding table.</param>
+        /// <param name="foreignColumn">The name of the foreign id column in the bridging table.</param>
+        /// <param name="foreignDisplay">The column in the foreign table to display in the data grid view.</param>
+        public void AddBridging(string bridgingTable, string foreignTable, string idColumn, string foreignColumn, string foreignDisplay)
+        {
+            bridges.Add(new Bridge(bridgingTable, foreignTable, idColumn, foreignColumn, foreignDisplay));
+        }
+
         private void ViewAllForm_Shown(object sender, EventArgs e)
         {
             string[] columnNames = Database.GetTableColumns(table);
             StringBuilder sb = new StringBuilder("select ");
             for (int i = 0; i < columnNames.Length; i++)
             {
-                Column? replace = replaceColumns.FirstOrDefault((c) => c.IdColumn.Equals(columnNames[i], StringComparison.InvariantCultureIgnoreCase));
-                if (!replace.Value.Equals(default(Column)))
+                //Replace columns
+                Column replace = replaceColumns.FirstOrDefault((c) => c.IdColumn.Equals(columnNames[i], StringComparison.InvariantCultureIgnoreCase));
+                if (replace != null)
                 {
-                    sb.Append(replace.Value.Table);
+                    sb.Append(replace.Table);
                     sb.Append(".");
-                    sb.Append(replace.Value.DisplayColumn);
+                    sb.Append(replace.DisplayColumn);
                     sb.Append(" as '");
-                    sb.Append(Extensions.CamelToHuman(replace.Value.DisplayColumn));
+                    sb.Append(Extensions.CamelToHuman(replace.DisplayColumn));
                     sb.Append("', ");
                 }
+                //Add columns
                 IEnumerable<Column> adds = addColumns.Where((c) => c.IdColumn.Equals(columnNames[i], StringComparison.InvariantCultureIgnoreCase));
                 if (adds.Count() != 0)
                 {
@@ -106,6 +141,7 @@ namespace CMS
                     }
                     sb.Length -= 2;
                 }
+                //Dictionaries
                 if (dictionaries.ContainsKey(columnNames[i]))
                 {
                     sb.Append(" case ");
@@ -125,7 +161,8 @@ namespace CMS
                     sb.Append(Extensions.CamelToHuman(columnNames[i]));
                     sb.Append("'");
                 }
-                else if (replace.Value.Equals(default(Column)))
+                //Unmodified
+                else if (replace == null)
                 {
                     sb.Append(table);
                     sb.Append(".");
@@ -139,6 +176,7 @@ namespace CMS
             sb.Length -= 2;
             sb.Append(" from ");
             sb.Append(table);
+            //Join unique tables
             var uniqueTables = addColumns.GroupBy((c) => c.Table).Select((c) => c.FirstOrDefault());
             if (uniqueTables.Count() != 0)
             {
@@ -162,7 +200,30 @@ namespace CMS
                 sb.Length -= 4;
             }
             string debug = sb.ToString();
-            dgvViewAll.DataSource = Database.CreateDataTable(sb.ToString());
+            DataTable dataTable = Database.CreateDataTable(sb.ToString());
+            //Bridging tables
+            foreach (Bridge bridge in bridges)
+            {
+                int max = dataTable.Columns.Count - 1;
+                for (int i = 0; i < dataTable.Rows.Count; i++)
+                {
+                    string sql = $"select {bridge.ForeignTable}.{bridge.ForeignDisplay} as '" +
+                    $"{Extensions.CamelToHuman(bridge.ForeignDisplay)}' from {bridge.BridgingTable}, " +
+                    $"{bridge.ForeignTable} where {bridge.BridgingTable}.{bridge.IdColumn} = " +
+                    $"{dataTable.Rows[i][Extensions.CamelToHuman(bridge.IdColumn)]} and " +
+                    $"{bridge.BridgingTable}.{bridge.ForeignColumn} = " +
+                    $"{bridge.ForeignTable}.{bridge.ForeignColumn}";
+                    int j = 0;
+                    foreach (SqlDataReader row in Database.ExecuteQuery(sql))
+                    {
+                        j++;
+                        if (j + max > dataTable.Columns.Count - 1)
+                            dataTable.Columns.Add($"{Extensions.CamelToHuman(bridge.ForeignDisplay)} {j}", typeof(string));
+                        dataTable.Rows[i][j + max] = (string)row[0];
+                    }
+                }
+            }
+            dgvViewAll.DataSource = dataTable;
         }
 
         private void dgvViewAll_CellDoubleClick(object sender, DataGridViewCellEventArgs e)

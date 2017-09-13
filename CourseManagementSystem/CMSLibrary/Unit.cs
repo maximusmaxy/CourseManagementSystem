@@ -24,6 +24,11 @@ namespace CmsLibrary
             this.id = id;
         }
 
+        public Unit(string code)
+        {
+            this.code = code;
+        }
+
         public Unit(int id, int departmentId, string code, string name, int type, int numOfHours, string description)
         {
             this.id = id;
@@ -131,9 +136,17 @@ namespace CmsLibrary
 
         public bool Update()
         {
-            return Database.Update("units", "unitid", id,
+            #region update by id
+            //return Database.Update("units", "unitid", id,
+            //    "departmentid", departmentId,
+            //    "unitcode", code,
+            //    "unitname", name,
+            //    "unittype", type,
+            //    "numofhours", numOfHours,
+            //    "unitdescription", description);
+            #endregion
+            return Database.Update("units", "unitcode", code,
                 "departmentid", departmentId,
-                "unitcode", code,
                 "unitname", name,
                 "unittype", type,
                 "numofhours", numOfHours,
@@ -142,12 +155,12 @@ namespace CmsLibrary
 
         public bool Delete()
         {
-            return Database.Delete("units", "unitid", id);
+            return Database.Delete("units", "unitcode", code);
         }
                 
         public bool Search()
         {
-            return Search("unitid", id);
+            return Search("unitcode", code);
         }
 
         public bool Search(params object[] values)

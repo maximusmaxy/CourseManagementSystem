@@ -14,6 +14,11 @@ namespace CmsLibrary
 
         public UnitTeacher() { }
 
+        public UnitTeacher(int teacherId)
+        {
+            this.teacherId = teacherId;
+        }
+
         public UnitTeacher(int teacherId, ListBox control)
         {
             this.teacherId = teacherId;
@@ -51,8 +56,7 @@ namespace CmsLibrary
 
         public bool Delete()
         {
-            control.ClearSelected();
-            return Update();
+            return Database.DeleteBridgingTable("Unit_Teachers", "teacherid", teacherId);
         }
     }
 }

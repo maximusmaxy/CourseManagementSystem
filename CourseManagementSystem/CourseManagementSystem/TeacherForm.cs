@@ -174,6 +174,12 @@ namespace CMS
                                                MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
             if (result == DialogResult.Yes)
             {
+                //Teacher Skill
+                TeacherSkill teacherSkill = new TeacherSkill(txtId.Int());
+                if (!teacherSkill.Delete())
+                {
+                    return;
+                }
                 //Teacher
                 Teacher teacher = new Teacher(txtId.Int());
                 if (!teacher.Delete())

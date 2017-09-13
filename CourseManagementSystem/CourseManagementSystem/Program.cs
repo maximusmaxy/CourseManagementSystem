@@ -16,7 +16,7 @@ namespace CMS
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            CmsLibrary.Forms.ShowForm(typeof(TeacherForm));
+            CmsLibrary.Forms.ShowForm(typeof(MainForm));
             Application.Run();
         }
     }

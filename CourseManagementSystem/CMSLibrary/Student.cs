@@ -189,12 +189,33 @@ namespace CmsLibrary
             }
         }
 
-        public bool Aboriginal { get => aboriginal; set => aboriginal = value; }
-        public bool Centrelink { get => centrelink; set => centrelink = value; }
+        public bool Aboriginal
+        {
+            get
+            {
+                return aboriginal;
+            }
+            set
+            {
+                aboriginal = value;
+            }
+        }
+
+        public bool Centrelink
+        {
+            get
+            {
+                return centrelink;
+            }
+            set
+            {
+                centrelink = value;
+            }
+        }
 
         public bool Add()
         {
-            return Database.Add("students", out id, locationId, firstName, lastName, dateOfBirth, email, countryOfOrigin, gender, contactNumber, disability, disabilityDescription);
+            return Database.Add("students", out id, locationId, firstName, lastName, dateOfBirth, email, countryOfOrigin, gender, contactNumber, aboriginal, centrelink, disability, disabilityDescription);
         }
 
         public bool Update()
@@ -209,7 +230,7 @@ namespace CmsLibrary
                 "studentgender", gender,
                 "contactnumber", contactNumber,
                 "studentaboriginal", aboriginal,
-                "studentcentrelink",centrelink,
+                "studentcentrelink", centrelink,
                 "studentdisability", disability,
                 "studentdisabilitydescription", disabilityDescription);
         }

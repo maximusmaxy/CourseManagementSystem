@@ -94,10 +94,14 @@
             this.ToolTips = new System.Windows.Forms.ToolTip(this.components);
             this.chkDisability = new System.Windows.Forms.CheckBox();
             this.txtDisabilityDescription = new System.Windows.Forms.TextBox();
+            this.txtContactNumber = new System.Windows.Forms.TextBox();
             this.label17 = new System.Windows.Forms.Label();
             this.pnlGender = new System.Windows.Forms.Panel();
-            this.txtContactNumber = new System.Windows.Forms.TextBox();
             this.label18 = new System.Windows.Forms.Label();
+            this.chkCentrelink = new System.Windows.Forms.CheckBox();
+            this.label19 = new System.Windows.Forms.Label();
+            this.chkDropKick = new System.Windows.Forms.CheckBox();
+            this.label20 = new System.Windows.Forms.Label();
             this.panel7.SuspendLayout();
             this.panel5.SuspendLayout();
             this.panel8.SuspendLayout();
@@ -708,7 +712,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(76, 534);
+            this.label5.Location = new System.Drawing.Point(80, 564);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(130, 21);
             this.label5.TabIndex = 43;
@@ -717,7 +721,7 @@
             // chkDisability
             // 
             this.chkDisability.AutoSize = true;
-            this.chkDisability.Location = new System.Drawing.Point(215, 538);
+            this.chkDisability.Location = new System.Drawing.Point(230, 568);
             this.chkDisability.Name = "chkDisability";
             this.chkDisability.Size = new System.Drawing.Size(44, 17);
             this.chkDisability.TabIndex = 14;
@@ -730,7 +734,7 @@
             // txtDisabilityDescription
             // 
             this.txtDisabilityDescription.Enabled = false;
-            this.txtDisabilityDescription.Location = new System.Drawing.Point(213, 568);
+            this.txtDisabilityDescription.Location = new System.Drawing.Point(216, 591);
             this.txtDisabilityDescription.Multiline = true;
             this.txtDisabilityDescription.Name = "txtDisabilityDescription";
             this.txtDisabilityDescription.Size = new System.Drawing.Size(357, 81);
@@ -739,11 +743,20 @@
             this.ToolTips.SetToolTip(this.txtDisabilityDescription, "Please describe the Disability here Only if you have selected Yes to having a Dis" +
         "ability");
             // 
+            // txtContactNumber
+            // 
+            this.txtContactNumber.Location = new System.Drawing.Point(215, 404);
+            this.txtContactNumber.Name = "txtContactNumber";
+            this.txtContactNumber.Size = new System.Drawing.Size(358, 20);
+            this.txtContactNumber.TabIndex = 78;
+            this.txtContactNumber.Tag = "Email";
+            this.ToolTips.SetToolTip(this.txtContactNumber, "Please insert the Student Email here, Must contain one @ symbol");
+            // 
             // label17
             // 
             this.label17.AutoSize = true;
             this.label17.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label17.Location = new System.Drawing.Point(36, 568);
+            this.label17.Location = new System.Drawing.Point(39, 591);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(174, 21);
             this.label17.TabIndex = 46;
@@ -759,15 +772,6 @@
             this.pnlGender.TabIndex = 47;
             this.pnlGender.Tag = "Gender";
             // 
-            // txtContactNumber
-            // 
-            this.txtContactNumber.Location = new System.Drawing.Point(215, 404);
-            this.txtContactNumber.Name = "txtContactNumber";
-            this.txtContactNumber.Size = new System.Drawing.Size(358, 20);
-            this.txtContactNumber.TabIndex = 78;
-            this.txtContactNumber.Tag = "Email";
-            this.ToolTips.SetToolTip(this.txtContactNumber, "Please insert the Student Email here, Must contain one @ symbol");
-            // 
             // label18
             // 
             this.label18.AutoSize = true;
@@ -778,12 +782,60 @@
             this.label18.TabIndex = 79;
             this.label18.Text = "Contact Number:";
             // 
+            // chkCentrelink
+            // 
+            this.chkCentrelink.AutoSize = true;
+            this.chkCentrelink.Location = new System.Drawing.Point(455, 538);
+            this.chkCentrelink.Name = "chkCentrelink";
+            this.chkCentrelink.Size = new System.Drawing.Size(44, 17);
+            this.chkCentrelink.TabIndex = 80;
+            this.chkCentrelink.Tag = "CentreLink";
+            this.chkCentrelink.Text = "Yes";
+            this.ToolTips.SetToolTip(this.chkCentrelink, "Select this option if the Student has a Disability");
+            this.chkCentrelink.UseVisualStyleBackColor = true;
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label19.Location = new System.Drawing.Point(360, 534);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(89, 21);
+            this.label19.TabIndex = 81;
+            this.label19.Text = "Centrelink:";
+            // 
+            // chkDropKick
+            // 
+            this.chkDropKick.AutoSize = true;
+            this.chkDropKick.Location = new System.Drawing.Point(296, 538);
+            this.chkDropKick.Name = "chkDropKick";
+            this.chkDropKick.Size = new System.Drawing.Size(44, 17);
+            this.chkDropKick.TabIndex = 82;
+            this.chkDropKick.Tag = "CentreLink";
+            this.chkDropKick.Text = "Yes";
+            this.ToolTips.SetToolTip(this.chkDropKick, "Select this option if the Student has a Disability");
+            this.chkDropKick.UseVisualStyleBackColor = true;
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label20.Location = new System.Drawing.Point(39, 534);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(253, 21);
+            this.label20.TabIndex = 83;
+            this.label20.Text = "Aboriginal/Torres Strait Islander:";
+            // 
             // StudentForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Lavender;
-            this.ClientSize = new System.Drawing.Size(744, 672);
+            this.ClientSize = new System.Drawing.Size(744, 705);
+            this.Controls.Add(this.chkDropKick);
+            this.Controls.Add(this.label20);
+            this.Controls.Add(this.chkCentrelink);
+            this.Controls.Add(this.label19);
             this.Controls.Add(this.txtContactNumber);
             this.Controls.Add(this.label18);
             this.Controls.Add(this.pnlGender);
@@ -899,5 +951,9 @@
         private System.Windows.Forms.ToolStripMenuItem allocationToolStripMenuItem;
         private System.Windows.Forms.TextBox txtContactNumber;
         private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.CheckBox chkCentrelink;
+        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.CheckBox chkDropKick;
+        private System.Windows.Forms.Label label20;
     }
 }

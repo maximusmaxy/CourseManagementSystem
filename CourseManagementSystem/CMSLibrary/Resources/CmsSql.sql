@@ -103,7 +103,7 @@ unitName varchar(50)not null,
 unitType tinyint not null,
 numOfHours smallint not null,
 unitDescription varchar(500) not null,
-constraint unique_unit_code unique(unitName),
+constraint unique_unit_code unique(unitCode),
 constraint Unit_department_fk foreign key (departmentId) references Departments(departmentId));
  
 create table Assessments(

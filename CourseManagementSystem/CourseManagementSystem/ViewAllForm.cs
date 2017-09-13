@@ -161,7 +161,7 @@ namespace CMS
                 }
                 sb.Length -= 4;
             }
-            string x = sb.ToString();
+            string debug = sb.ToString();
             dgvViewAll.DataSource = Database.CreateDataTable(sb.ToString());
         }
 

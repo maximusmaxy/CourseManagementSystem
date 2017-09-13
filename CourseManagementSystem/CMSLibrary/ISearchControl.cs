@@ -6,10 +6,9 @@ using System.Threading.Tasks;
 
 namespace CmsLibrary
 {
-    interface IBridgingData
+    public interface ISearchControl
     {
-        bool Update();
-
-        bool Delete();
+        void Reset();
+        void ValidateControl();
     }
 }

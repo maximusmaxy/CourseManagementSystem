@@ -16,7 +16,7 @@ namespace CmsLibrary
         private static Regex wordRegex = new Regex(@"^[A-z\s]+$");
         private static Regex dateRegex = new Regex(@"^(\d{1,2})([-/])(\d{1,2})\2(\d{4})$");
         private static Regex emailRegex = new Regex(@"^[^@]+@(?<!\.@)[^\.@]+\.[^@]+$");
-        private static Regex unitCodeRegex = new Regex(@"^\w{6}\d{3}$");
+        private static Regex unitCodeRegex = new Regex(@"^[a-zA-z]{6}\d{3}$");
         private static Regex costRegex = new Regex(@"^\$?\d+(?:\.\d{1,2})?$");
         private static Regex phoneRegex = new Regex(@"^(\d{8}|\d{10})$");
 
@@ -268,10 +268,10 @@ namespace CmsLibrary
                 return false;
             else
             {
-                if (unitCodeRegex.IsMatch(control.Text))
+                if (!unitCodeRegex.IsMatch(control.Text))
                 {
                     if (error == null)
-                        MessageBox.Show($"{control.Tag} is invalid.It must be in the format(ICTWEB413).");
+                        MessageBox.Show($"{control.Tag} is invalid. It must be in the format: 6 Characters, 3 Numbers Eg. ICTWEB413.");
                     else
                         MessageBox.Show(error);
                 }

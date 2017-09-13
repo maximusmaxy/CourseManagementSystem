@@ -184,6 +184,15 @@ namespace CmsLibrary
         }
 
         /// <summary>
+        /// gets the generic type from the control
+        /// </summary>
+        public static T Get<T>(this ListControl control)
+        {
+            return (T)control.SelectedValue;
+        }
+            
+
+        /// <summary>
         /// Converts camel casing to human readable casing and capitalizes first letter.
         /// </summary>
         public static string CamelToHuman(string camel)
@@ -193,5 +202,26 @@ namespace CmsLibrary
         }
 
         private static Regex camelCapitalRegex = new Regex(@"[A-Z]");
+
+        public static Type DatabaseType(string type)
+        {
+            string noIdentity = type.Replace(" identity", "");
+            switch(noIdentity)
+            {
+                case "varchar":
+                    return typeof(string);
+                case "bit":
+                    return typeof(bool);
+                case "date":
+                    return typeof(DateTime);
+                case "tinyint":
+                case "smallint":
+                case "int":
+                    return typeof(int);
+                case "float":
+                    return typeof(double);
+            }
+            throw new ArgumentException($"Cannot determine type of database type: {type}.");
+        }
     }
 }

@@ -15,6 +15,7 @@ namespace CMS
     {
         public CourseForm()
         {
+            //Test Comment
             Database.LoadDatabase();
             InitializeComponent();
             Forms.FillData(cmbCampus, null, "campus", "locationid", "select locationid, campus from locations where campus is not null ");

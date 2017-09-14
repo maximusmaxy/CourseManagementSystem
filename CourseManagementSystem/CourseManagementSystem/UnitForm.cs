@@ -166,6 +166,7 @@ namespace CMS
         {
             using (ViewAllForm form = new ViewAllForm("units"))
             {
+                form.HideColumn("unitId");
                 form.AddBridging("Unit_Skills", "Skills", "unitId", "skillId", "skillName");
                 form.ShowDialog(this);
                 if (form.Id != -1)

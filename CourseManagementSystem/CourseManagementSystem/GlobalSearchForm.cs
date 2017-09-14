@@ -193,7 +193,7 @@ namespace CMS
                         sb.Append(control.txtValue.Int());
                         break;
                 }    
-            }
+            } 
             var x = sb.ToString();
             dgvSearch.DataSource = Database.CreateDataTable(sb.ToString());
         }

@@ -57,21 +57,12 @@ namespace CmsLibrary
         /// <param name="sql">Sql statement.</param>
         public static DataTable CreateDataTable(string sql)
         {
-            try
+            using (SqlConnection connection = Connection())
             {
-                using (SqlConnection connection = Connection())
-                {
-
-                    SqlDataAdapter dataAdapter = new SqlDataAdapter(sql, connection);
-                    DataTable dataTable = new DataTable();
-                    dataAdapter.Fill(dataTable);
-                    return dataTable;
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-                return null;
+                SqlDataAdapter dataAdapter = new SqlDataAdapter(sql, connection);
+                DataTable dataTable = new DataTable();
+                dataAdapter.Fill(dataTable);
+                return dataTable;
             }
         }
 

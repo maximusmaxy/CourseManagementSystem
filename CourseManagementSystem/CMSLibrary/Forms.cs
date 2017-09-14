@@ -80,8 +80,13 @@ namespace CmsLibrary
         /// <param name="display">The name of the column in the database that represents the displayed value in the combo box.</param>
         /// <param name="value">The name of the column in the database that holds the underlying value of the combo box.</param>
         /// <param name="conditions">Every even value is a string for the column name. Every odd value is an object for the value to search for.</param>
-        public static DataTable FillData(ListControl control, string table, string display, string value, params object[] conditions)
+        public static void FillData(ListControl control, string table, string display, string value, params object[] conditions)
         {
+            if (conditions.Length > 1 && conditions[1] == null)
+            {
+                control.DataSource = null;
+                return;
+            }
             string displayAlias = aliasRegex.Replace(display, "");
             string valueAlias = aliasRegex.Replace(value, "");
             StringBuilder sql = new StringBuilder("select ");
@@ -108,12 +113,7 @@ namespace CmsLibrary
                     sql.Append(conditions[i]);
                 }
             }
-            DataTable dataTable = Database.CreateDataTable(sql.ToString());
-            control.DataSource = null;
-            control.DisplayMember = displayAlias;
-            control.ValueMember = valueAlias;
-            control.DataSource = dataTable;
-            return dataTable;
+            FillData(control, null, displayAlias, valueAlias, sql.ToString());
         }
 
         /// <summary>
@@ -124,14 +124,28 @@ namespace CmsLibrary
         /// <param name="display">The name of the column in the database that represents the displayed value in the combo box.</param>
         /// <param name="value">The name of the column in the database that holds the underlying value of the combo box.</param>
         /// <param name="sql">The sql to execute for non standard data fills.</param>
-        public static DataTable FillData(ListControl control, string table, string display, string value, string sql)
+        public static void FillData(ListControl control, string table, string display, string value, string sql)
         {
-            DataTable dataTable = Database.CreateDataTable(sql);
+            DataTable dataTable;
+            try
+            {
+                dataTable = Database.CreateDataTable(sql);
+            }
+            catch (Exception)
+            {
+                control.DataSource = null;
+                return;
+            }
+            if (control is ComboBox)
+            {
+                DataRow dataRow = dataTable.NewRow();
+                dataRow[display] = "(Please select an option)";
+                dataTable.Rows.InsertAt(dataRow, 0);
+            }
             control.DataSource = null;
             control.DisplayMember = display;
             control.ValueMember = value;
             control.DataSource = dataTable;
-            return dataTable;
         }
 
         /// <summary>

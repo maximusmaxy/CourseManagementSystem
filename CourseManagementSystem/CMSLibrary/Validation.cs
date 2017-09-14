@@ -214,7 +214,8 @@ namespace CmsLibrary
 
         public static bool Combo(ListControl combo, string error = null)
         {
-            if (combo.SelectedIndex == -1)
+            if (combo.SelectedIndex == -1 || (combo.DataSource != null && 
+                (combo.SelectedValue == DBNull.Value || combo.SelectedValue == null)))
             {
                 if (error == null)
                     MessageBox.Show($"{combo.Tag} has no option selected. Please select an option.");

@@ -37,13 +37,11 @@
             this.aSsessmentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.skillsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.globalSearchToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.label2 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.ToolTips = new System.Windows.Forms.ToolTip(this.components);
             this.txtUnitDesc = new System.Windows.Forms.TextBox();
             this.txtUnitName = new System.Windows.Forms.TextBox();
-            this.txtUnitId = new System.Windows.Forms.TextBox();
             this.pnlUnitType = new System.Windows.Forms.Panel();
             this.rdb2 = new System.Windows.Forms.RadioButton();
             this.rdb1 = new System.Windows.Forms.RadioButton();
@@ -82,6 +80,8 @@
             this.txtUnitCode = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.lstSkill = new System.Windows.Forms.ListBox();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.btnClearForm = new System.Windows.Forms.Button();
             this.pnlUnitType.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
             this.panel5.SuspendLayout();
@@ -92,6 +92,7 @@
             this.panel6.SuspendLayout();
             this.panel7.SuspendLayout();
             this.menuStrip1.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // studentToolStripMenuItem
@@ -143,21 +144,11 @@
             this.globalSearchToolStripMenuItem.Text = "Global Search";
             this.globalSearchToolStripMenuItem.Click += new System.EventHandler(this.globalSearchToolStripMenuItem_Click);
             // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(111, 123);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(69, 21);
-            this.label2.TabIndex = 92;
-            this.label2.Text = "Unit ID:";
-            // 
             // label13
             // 
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(123, 191);
+            this.label13.Location = new System.Drawing.Point(126, 155);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(57, 21);
             this.label13.TabIndex = 95;
@@ -167,7 +158,7 @@
             // 
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(44, 403);
+            this.label12.Location = new System.Drawing.Point(47, 367);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(136, 21);
             this.label12.TabIndex = 94;
@@ -175,41 +166,32 @@
             // 
             // txtUnitDesc
             // 
-            this.txtUnitDesc.Location = new System.Drawing.Point(187, 400);
+            this.txtUnitDesc.Location = new System.Drawing.Point(190, 364);
             this.txtUnitDesc.Multiline = true;
             this.txtUnitDesc.Name = "txtUnitDesc";
             this.txtUnitDesc.Size = new System.Drawing.Size(312, 111);
-            this.txtUnitDesc.TabIndex = 9;
+            this.txtUnitDesc.TabIndex = 7;
             this.txtUnitDesc.Tag = "Unit Description";
             this.ToolTips.SetToolTip(this.txtUnitDesc, "Insert a Small description on what this unit will be about and what tasks may inc" +
         "lude");
             // 
             // txtUnitName
             // 
-            this.txtUnitName.Location = new System.Drawing.Point(187, 193);
+            this.txtUnitName.Location = new System.Drawing.Point(190, 157);
             this.txtUnitName.Name = "txtUnitName";
             this.txtUnitName.Size = new System.Drawing.Size(312, 20);
-            this.txtUnitName.TabIndex = 3;
+            this.txtUnitName.TabIndex = 2;
             this.txtUnitName.Tag = "Name";
             this.ToolTips.SetToolTip(this.txtUnitName, "Insert the Name of the Unit using Alphabetical Characters Only");
-            // 
-            // txtUnitId
-            // 
-            this.txtUnitId.Location = new System.Drawing.Point(187, 123);
-            this.txtUnitId.Name = "txtUnitId";
-            this.txtUnitId.Size = new System.Drawing.Size(312, 20);
-            this.txtUnitId.TabIndex = 1;
-            this.txtUnitId.Tag = "Unit ID";
-            this.ToolTips.SetToolTip(this.txtUnitId, "Insert a Numeric value for the Unit ID, using 0-9 numbers Only");
             // 
             // pnlUnitType
             // 
             this.pnlUnitType.Controls.Add(this.rdb2);
             this.pnlUnitType.Controls.Add(this.rdb1);
-            this.pnlUnitType.Location = new System.Drawing.Point(189, 230);
+            this.pnlUnitType.Location = new System.Drawing.Point(192, 194);
             this.pnlUnitType.Name = "pnlUnitType";
             this.pnlUnitType.Size = new System.Drawing.Size(310, 21);
-            this.pnlUnitType.TabIndex = 99;
+            this.pnlUnitType.TabIndex = 3;
             this.ToolTips.SetToolTip(this.pnlUnitType, "Select the Type of unit from the provided, Core or Elective");
             // 
             // rdb2
@@ -218,7 +200,7 @@
             this.rdb2.Location = new System.Drawing.Point(76, 3);
             this.rdb2.Name = "rdb2";
             this.rdb2.Size = new System.Drawing.Size(63, 17);
-            this.rdb2.TabIndex = 5;
+            this.rdb2.TabIndex = 1;
             this.rdb2.TabStop = true;
             this.rdb2.Tag = "Elective";
             this.rdb2.Text = "Elective";
@@ -231,7 +213,7 @@
             this.rdb1.Location = new System.Drawing.Point(3, 3);
             this.rdb1.Name = "rdb1";
             this.rdb1.Size = new System.Drawing.Size(47, 17);
-            this.rdb1.TabIndex = 4;
+            this.rdb1.TabIndex = 0;
             this.rdb1.TabStop = true;
             this.rdb1.Tag = "Core";
             this.rdb1.Text = "Core";
@@ -240,10 +222,10 @@
             // 
             // txtNoOfHours
             // 
-            this.txtNoOfHours.Location = new System.Drawing.Point(187, 271);
+            this.txtNoOfHours.Location = new System.Drawing.Point(190, 235);
             this.txtNoOfHours.Name = "txtNoOfHours";
             this.txtNoOfHours.Size = new System.Drawing.Size(312, 20);
-            this.txtNoOfHours.TabIndex = 6;
+            this.txtNoOfHours.TabIndex = 4;
             this.txtNoOfHours.Tag = "Number of Hours";
             this.ToolTips.SetToolTip(this.txtNoOfHours, "Insert the Number of Hours this unit will take, Use Whole Numeric Values Only ");
             // 
@@ -280,6 +262,7 @@
             // panel5
             // 
             this.panel5.BackColor = System.Drawing.Color.MediumSlateBlue;
+            this.panel5.Controls.Add(this.panel1);
             this.panel5.Controls.Add(this.panel8);
             this.panel5.Controls.Add(this.panel4);
             this.panel5.Controls.Add(this.panel3);
@@ -288,8 +271,8 @@
             this.panel5.Controls.Add(this.button5);
             this.panel5.Location = new System.Drawing.Point(612, 27);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(132, 524);
-            this.panel5.TabIndex = 90;
+            this.panel5.Size = new System.Drawing.Size(132, 548);
+            this.panel5.TabIndex = 8;
             // 
             // panel8
             // 
@@ -298,7 +281,7 @@
             this.panel8.Location = new System.Drawing.Point(4, 413);
             this.panel8.Name = "panel8";
             this.panel8.Size = new System.Drawing.Size(125, 50);
-            this.panel8.TabIndex = 22;
+            this.panel8.TabIndex = 4;
             // 
             // btnViewAll
             // 
@@ -307,7 +290,7 @@
             this.btnViewAll.Location = new System.Drawing.Point(3, 3);
             this.btnViewAll.Name = "btnViewAll";
             this.btnViewAll.Size = new System.Drawing.Size(120, 45);
-            this.btnViewAll.TabIndex = 14;
+            this.btnViewAll.TabIndex = 0;
             this.btnViewAll.UseVisualStyleBackColor = false;
             this.btnViewAll.Click += new System.EventHandler(this.btnViewAll_Click);
             // 
@@ -318,7 +301,7 @@
             this.panel4.Location = new System.Drawing.Point(3, 350);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(125, 50);
-            this.panel4.TabIndex = 21;
+            this.panel4.TabIndex = 3;
             // 
             // btnDelete
             // 
@@ -327,7 +310,7 @@
             this.btnDelete.Location = new System.Drawing.Point(3, 3);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(119, 44);
-            this.btnDelete.TabIndex = 13;
+            this.btnDelete.TabIndex = 0;
             this.btnDelete.UseVisualStyleBackColor = false;
             this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
@@ -338,7 +321,7 @@
             this.panel3.Location = new System.Drawing.Point(3, 281);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(125, 50);
-            this.panel3.TabIndex = 21;
+            this.panel3.TabIndex = 2;
             // 
             // btnUpdate
             // 
@@ -347,7 +330,7 @@
             this.btnUpdate.Location = new System.Drawing.Point(3, 3);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(120, 45);
-            this.btnUpdate.TabIndex = 12;
+            this.btnUpdate.TabIndex = 0;
             this.btnUpdate.UseVisualStyleBackColor = false;
             this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
@@ -358,7 +341,7 @@
             this.panel2.Location = new System.Drawing.Point(4, 150);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(125, 50);
-            this.panel2.TabIndex = 21;
+            this.panel2.TabIndex = 0;
             // 
             // btnAdd
             // 
@@ -367,7 +350,7 @@
             this.btnAdd.Location = new System.Drawing.Point(3, 3);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(120, 45);
-            this.btnAdd.TabIndex = 10;
+            this.btnAdd.TabIndex = 0;
             this.btnAdd.UseVisualStyleBackColor = false;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
@@ -378,7 +361,7 @@
             this.panel6.Location = new System.Drawing.Point(3, 214);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(125, 50);
-            this.panel6.TabIndex = 19;
+            this.panel6.TabIndex = 1;
             // 
             // btnSearch
             // 
@@ -387,7 +370,7 @@
             this.btnSearch.Location = new System.Drawing.Point(3, 3);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(120, 45);
-            this.btnSearch.TabIndex = 11;
+            this.btnSearch.TabIndex = 0;
             this.btnSearch.UseVisualStyleBackColor = false;
             this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
@@ -398,7 +381,7 @@
             this.button5.Location = new System.Drawing.Point(3, 3);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(125, 100);
-            this.button5.TabIndex = 5;
+            this.button5.TabIndex = 1;
             this.button5.UseVisualStyleBackColor = false;
             // 
             // panel7
@@ -429,8 +412,8 @@
             this.formsToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(744, 24);
-            this.menuStrip1.TabIndex = 91;
+            this.menuStrip1.Size = new System.Drawing.Size(745, 24);
+            this.menuStrip1.TabIndex = 10;
             this.menuStrip1.Text = "menuStrip1";
             // 
             // fileToolStripMenuItem
@@ -486,7 +469,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(61, 347);
+            this.label3.Location = new System.Drawing.Point(64, 311);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(119, 21);
             this.label3.TabIndex = 97;
@@ -496,7 +479,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(128, 230);
+            this.label4.Location = new System.Drawing.Point(131, 194);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(52, 21);
             this.label4.TabIndex = 100;
@@ -506,7 +489,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(34, 270);
+            this.label6.Location = new System.Drawing.Point(37, 234);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(146, 21);
             this.label6.TabIndex = 104;
@@ -516,10 +499,10 @@
             // 
             this.cmbAreaOfStudy.DisplayMember = "Area of study";
             this.cmbAreaOfStudy.FormattingEnabled = true;
-            this.cmbAreaOfStudy.Location = new System.Drawing.Point(187, 310);
+            this.cmbAreaOfStudy.Location = new System.Drawing.Point(190, 274);
             this.cmbAreaOfStudy.Name = "cmbAreaOfStudy";
             this.cmbAreaOfStudy.Size = new System.Drawing.Size(312, 21);
-            this.cmbAreaOfStudy.TabIndex = 7;
+            this.cmbAreaOfStudy.TabIndex = 5;
             this.cmbAreaOfStudy.ValueMember = "Area of study";
             this.cmbAreaOfStudy.SelectedIndexChanged += new System.EventHandler(this.cmbAreaOfStudy_SelectedIndexChanged_1);
             // 
@@ -527,7 +510,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(61, 310);
+            this.label7.Location = new System.Drawing.Point(64, 274);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(119, 21);
             this.label7.TabIndex = 105;
@@ -535,17 +518,18 @@
             // 
             // txtUnitCode
             // 
-            this.txtUnitCode.Location = new System.Drawing.Point(187, 159);
+            this.txtUnitCode.Location = new System.Drawing.Point(190, 123);
             this.txtUnitCode.Name = "txtUnitCode";
             this.txtUnitCode.Size = new System.Drawing.Size(312, 20);
-            this.txtUnitCode.TabIndex = 2;
+            this.txtUnitCode.TabIndex = 1;
             this.txtUnitCode.Tag = "Unit Code";
+            this.ToolTips.SetToolTip(this.txtUnitCode, "Unit Code must be no longer than 9 digits and contain 6 ");
             // 
             // label8
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(89, 157);
+            this.label8.Location = new System.Drawing.Point(92, 121);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(91, 21);
             this.label8.TabIndex = 95;
@@ -554,19 +538,39 @@
             // lstSkill
             // 
             this.lstSkill.FormattingEnabled = true;
-            this.lstSkill.Location = new System.Drawing.Point(187, 347);
+            this.lstSkill.Location = new System.Drawing.Point(190, 311);
             this.lstSkill.Name = "lstSkill";
             this.lstSkill.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;
             this.lstSkill.Size = new System.Drawing.Size(312, 30);
-            this.lstSkill.TabIndex = 8;
+            this.lstSkill.TabIndex = 6;
             this.lstSkill.Tag = "Skill";
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.Gold;
+            this.panel1.Controls.Add(this.btnClearForm);
+            this.panel1.Location = new System.Drawing.Point(3, 485);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(125, 50);
+            this.panel1.TabIndex = 106;
+            // 
+            // btnClearForm
+            // 
+            this.btnClearForm.BackColor = System.Drawing.Color.White;
+            this.btnClearForm.Image = global::CMS.Properties.Resources.ClearFormButton;
+            this.btnClearForm.Location = new System.Drawing.Point(3, 3);
+            this.btnClearForm.Name = "btnClearForm";
+            this.btnClearForm.Size = new System.Drawing.Size(120, 45);
+            this.btnClearForm.TabIndex = 18;
+            this.btnClearForm.Tag = "Clear Form";
+            this.btnClearForm.UseVisualStyleBackColor = false;
             // 
             // UnitForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Lavender;
-            this.ClientSize = new System.Drawing.Size(744, 528);
+            this.ClientSize = new System.Drawing.Size(745, 574);
             this.Controls.Add(this.lstSkill);
             this.Controls.Add(this.cmbAreaOfStudy);
             this.Controls.Add(this.label7);
@@ -575,19 +579,16 @@
             this.Controls.Add(this.label4);
             this.Controls.Add(this.pnlUnitType);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label13);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.txtUnitCode);
             this.Controls.Add(this.txtUnitDesc);
             this.Controls.Add(this.txtUnitName);
-            this.Controls.Add(this.txtUnitId);
             this.Controls.Add(this.panel5);
             this.Controls.Add(this.panel7);
             this.Controls.Add(this.menuStrip1);
             this.Name = "UnitForm";
-            this.Text = "UnitForm";
             this.Load += new System.EventHandler(this.UnitForm_Load);
             this.pnlUnitType.ResumeLayout(false);
             this.pnlUnitType.PerformLayout();
@@ -601,6 +602,7 @@
             this.panel7.ResumeLayout(false);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -616,13 +618,11 @@
         private System.Windows.Forms.ToolStripMenuItem aSsessmentToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem skillsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem globalSearchToolStripMenuItem;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.ToolTip ToolTips;
         private System.Windows.Forms.TextBox txtUnitDesc;
         private System.Windows.Forms.TextBox txtUnitName;
-        private System.Windows.Forms.TextBox txtUnitId;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
         private System.Windows.Forms.ToolStripMenuItem mainMenuToolStripMenuItem;
         private System.Windows.Forms.BindingSource bindingSource1;
@@ -661,5 +661,7 @@
         private System.Windows.Forms.TextBox txtUnitCode;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.ListBox lstSkill;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Button btnClearForm;
     }
 }

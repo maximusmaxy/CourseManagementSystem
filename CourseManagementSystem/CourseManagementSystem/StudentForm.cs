@@ -298,6 +298,11 @@ namespace CMS
             Forms.ShowForm(typeof(SkillsForm));
         }
 
+        private void StudentForm_Load(object sender, EventArgs e)
+        {
+
+        }
+
 
 
 

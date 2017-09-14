@@ -78,7 +78,8 @@ namespace CMS
                 {
                     return;
                 }
-
+                MessageBox.Show($"Teacher id: {teacher.Id} successfully added.");
+                txtId.Text = teacher.Id.ToString();
             }
         }
 
@@ -110,6 +111,7 @@ namespace CMS
 
                     Forms.SelectData(lstSkillsList, "teacher_skills", "teacherid", teacher.Id, "skillid");
                 }
+
             }
         }
 
@@ -158,7 +160,7 @@ namespace CMS
                 {
                     return;
                 }
-                
+                MessageBox.Show($"Teacher id: {teacher.Id} successfully updated.");
             }
         }
 
@@ -186,14 +188,14 @@ namespace CMS
                 {
                     return;
                 }
-                MessageBox.Show($"Student id: {teacher.Id} successfully deleted.");
+                MessageBox.Show($"Teacher id: {teacher.Id} successfully deleted.");
                 Forms.ClearControls(this);
             }
         }
 
         private void btnViewAll_Click(object sender, EventArgs e)
         {
-            using (ViewAllForm form = new ViewAllForm("students"))
+            using (ViewAllForm form = new ViewAllForm("teachers"))
             {
                
                 form.ShowDialog(this);
@@ -289,6 +291,12 @@ namespace CMS
         {
             //if(cmbDepartment.DisplayMember == "DepartmentName" && cmbDepartment.ValueMember == "DepartmentId")
             Forms.FillData(lstSkillsList, "skills", "skillname", "skillId", "departmentid", cmbDepartment.SelectedValue);
+            lstSkillsList.ClearSelected();
+        }
+
+        private void btnClearForm_Click(object sender, EventArgs e)
+        {
+            Forms.ClearControls(this);
         }
     }
 }

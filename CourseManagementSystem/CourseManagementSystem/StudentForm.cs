@@ -298,6 +298,11 @@ namespace CMS
             Forms.ShowForm(typeof(SkillsForm));
         }
 
+        private void btnClearForm_Click(object sender, EventArgs e)
+        {
+            Forms.ClearControls(this);
+        }
+
 
 
 

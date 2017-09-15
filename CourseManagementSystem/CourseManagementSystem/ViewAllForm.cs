@@ -28,24 +28,6 @@ namespace CMS
             }
         }
 
-        private class Bridge
-        {
-            public string BridgingTable { get; }
-            public string ForeignTable { get; }
-            public string IdColumn { get; }
-            public string ForeignColumn { get; }
-            public string ForeignDisplay { get; }
-
-            public Bridge(string bridgingTable, string foreignTable, string idColumn, string foreignColumn, string foreignDisplay)
-            {
-                BridgingTable = bridgingTable;
-                ForeignTable = foreignTable;
-                IdColumn = idColumn;
-                ForeignColumn = foreignColumn;
-                ForeignDisplay = foreignDisplay;
-            }
-        }
-
         public int Id { get; private set; } = -1;
 
         private string table;
@@ -211,43 +193,26 @@ namespace CMS
             //Bridging tables
             foreach (Bridge bridge in bridges)
             {
-                int max = dataTable.Columns.Count - 1;
-                string sql = $"select {bridge.BridgingTable}.{bridge.IdColumn} as '{bridge.IdColumn}', " +
-                    $"{bridge.BridgingTable}.{bridge.ForeignColumn} as '{bridge.ForeignColumn}', " +
-                    $"{bridge.ForeignTable}.{bridge.ForeignDisplay} as '{bridge.ForeignDisplay}' " +
-                    $"from {bridge.BridgingTable}, {bridge.ForeignTable} " +
-                    $"where {bridge.BridgingTable}.{bridge.ForeignColumn} = " +
-                    $"{bridge.ForeignTable}.{bridge.ForeignColumn}";
-                DataTable bridgingTable = Database.CreateDataTable(sql);
-                for (int i = 0; i < dataTable.Rows.Count; i++)
-                {
-                    int j = 0;
-                    foreach (var row in bridgingTable.AsEnumerable().Where(
-                        r => Convert.ToInt32(r[bridge.IdColumn]) == 
-                        Convert.ToInt32(dataTable.Rows[i][Extensions.CamelToHuman(bridge.IdColumn)])))
-                    {
-                        j++;
-                        if (j + max > dataTable.Columns.Count - 1)
-                            dataTable.Columns.Add($"{Extensions.CamelToHuman(bridge.ForeignDisplay)} {j}", typeof(string));
-                        dataTable.Rows[i][j + max] = (string)row[bridge.ForeignDisplay];
-                    }
-                }
+                DataTable bridgingTable = Database.CreateBridgingTable(bridge);
+                Database.AddBridgingTable(dataTable, bridgingTable, bridge);
             }
             //hide
-            DataColumn[] tableCopy = new DataColumn[dataTable.Columns.Count];
-            dataTable.Columns.CopyTo(tableCopy, 0);
-            foreach (DataColumn column in tableCopy)
+            foreach (string column in hideColumns)
             {
-                if (hideColumns.Any(
-                    s => Extensions.CamelToHuman(s).Equals(column.ColumnName, StringComparison.InvariantCultureIgnoreCase)))
+                string human = Extensions.CamelToHuman(column);
+                if (dataTable.Columns[human].Ordinal == 0)
                 {
-                    if (column.Ordinal == 0)
-                    {
-                        storedIdColumn = new List<int>();
-                        dataTable.AsEnumerable().ToList().ForEach(r => storedIdColumn.Add(Convert.ToInt32(r[0])));
-                    }
-                    dataTable.Columns.Remove(column);
+                    if (dataTable.Columns[human].DataType == typeof(Byte))
+                        storedIdColumn = Database.RemoveColumn<Byte>(dataTable, human).Select(r => Convert.ToInt32(r)).ToList();
+                    else if (dataTable.Columns[human].DataType == typeof(Int16))
+                        storedIdColumn = Database.RemoveColumn<Int16>(dataTable, human).Select(r => Convert.ToInt32(r)).ToList();
+                    else if (dataTable.Columns[human].DataType == typeof(Int64))
+                        storedIdColumn = Database.RemoveColumn<Int64>(dataTable, human).Select(r => Convert.ToInt32(r)).ToList();
+                    else
+                        storedIdColumn = Database.RemoveColumn<int>(dataTable, human);
                 }
+                else
+                    Database.RemoveColumn(dataTable, human);
             }
             dgvViewAll.DataSource = dataTable;
         }

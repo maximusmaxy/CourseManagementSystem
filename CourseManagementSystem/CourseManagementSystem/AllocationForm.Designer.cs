@@ -29,16 +29,12 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.btnDelete = new System.Windows.Forms.Button();
             this.assessmentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel7 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.addToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.searchToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.updateToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.deleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.viewAllToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.formsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mainMenuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -54,17 +50,12 @@
             this.panel8 = new System.Windows.Forms.Panel();
             this.btnViewAll = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
-            this.panel4 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.btnUpdate = new System.Windows.Forms.Button();
             this.backgroundWorker2 = new System.ComponentModel.BackgroundWorker();
             this.ToolTips = new System.Windows.Forms.ToolTip(this.components);
             this.cmbAreaOfStudy = new System.Windows.Forms.ComboBox();
             this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.btnAdd = new System.Windows.Forms.Button();
-            this.panel6 = new System.Windows.Forms.Panel();
-            this.btnSearch = new System.Windows.Forms.Button();
             this.panel5 = new System.Windows.Forms.Panel();
             this.label12 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -78,24 +69,11 @@
             this.panel7.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.panel8.SuspendLayout();
-            this.panel4.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
-            this.panel2.SuspendLayout();
-            this.panel6.SuspendLayout();
             this.panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAllocations)).BeginInit();
             this.SuspendLayout();
-            // 
-            // btnDelete
-            // 
-            this.btnDelete.BackColor = System.Drawing.Color.White;
-            this.btnDelete.Image = global::CMS.Properties.Resources.DeleteButton;
-            this.btnDelete.Location = new System.Drawing.Point(3, 3);
-            this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(119, 44);
-            this.btnDelete.TabIndex = 20;
-            this.btnDelete.UseVisualStyleBackColor = false;
             // 
             // assessmentToolStripMenuItem
             // 
@@ -139,28 +117,11 @@
             // fileToolStripMenuItem
             // 
             this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.addToolStripMenuItem,
-            this.searchToolStripMenuItem,
             this.updateToolStripMenuItem,
-            this.deleteToolStripMenuItem,
             this.viewAllToolStripMenuItem});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
             this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
             this.fileToolStripMenuItem.Text = "File";
-            // 
-            // addToolStripMenuItem
-            // 
-            this.addToolStripMenuItem.Name = "addToolStripMenuItem";
-            this.addToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.A)));
-            this.addToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
-            this.addToolStripMenuItem.Text = "&Add";
-            // 
-            // searchToolStripMenuItem
-            // 
-            this.searchToolStripMenuItem.Name = "searchToolStripMenuItem";
-            this.searchToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S)));
-            this.searchToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
-            this.searchToolStripMenuItem.Text = "&Search";
             // 
             // updateToolStripMenuItem
             // 
@@ -170,19 +131,13 @@
             this.updateToolStripMenuItem.Text = "&Update";
             this.updateToolStripMenuItem.Click += new System.EventHandler(this.updateToolStripMenuItem_Click);
             // 
-            // deleteToolStripMenuItem
-            // 
-            this.deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
-            this.deleteToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.D)));
-            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
-            this.deleteToolStripMenuItem.Text = "&Delete";
-            // 
             // viewAllToolStripMenuItem
             // 
             this.viewAllToolStripMenuItem.Name = "viewAllToolStripMenuItem";
             this.viewAllToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.V)));
             this.viewAllToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
             this.viewAllToolStripMenuItem.Text = "&View All";
+            this.viewAllToolStripMenuItem.Click += new System.EventHandler(this.viewAllToolStripMenuItem_Click);
             // 
             // formsToolStripMenuItem
             // 
@@ -263,17 +218,17 @@
             this.button5.Location = new System.Drawing.Point(3, 3);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(125, 100);
-            this.button5.TabIndex = 5;
+            this.button5.TabIndex = 0;
             this.button5.UseVisualStyleBackColor = false;
             // 
             // panel8
             // 
             this.panel8.BackColor = System.Drawing.Color.Gainsboro;
             this.panel8.Controls.Add(this.btnViewAll);
-            this.panel8.Location = new System.Drawing.Point(4, 413);
+            this.panel8.Location = new System.Drawing.Point(4, 215);
             this.panel8.Name = "panel8";
             this.panel8.Size = new System.Drawing.Size(125, 50);
-            this.panel8.TabIndex = 22;
+            this.panel8.TabIndex = 1;
             // 
             // btnViewAll
             // 
@@ -282,8 +237,9 @@
             this.btnViewAll.Location = new System.Drawing.Point(3, 3);
             this.btnViewAll.Name = "btnViewAll";
             this.btnViewAll.Size = new System.Drawing.Size(120, 45);
-            this.btnViewAll.TabIndex = 21;
+            this.btnViewAll.TabIndex = 0;
             this.btnViewAll.UseVisualStyleBackColor = false;
+            this.btnViewAll.Click += new System.EventHandler(this.btnViewAll_Click);
             // 
             // label5
             // 
@@ -295,23 +251,14 @@
             this.label5.TabIndex = 147;
             this.label5.Text = "Area Of Study:";
             // 
-            // panel4
-            // 
-            this.panel4.BackColor = System.Drawing.Color.Gainsboro;
-            this.panel4.Controls.Add(this.btnDelete);
-            this.panel4.Location = new System.Drawing.Point(3, 350);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(125, 50);
-            this.panel4.TabIndex = 21;
-            // 
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.Gainsboro;
             this.panel3.Controls.Add(this.btnUpdate);
-            this.panel3.Location = new System.Drawing.Point(3, 281);
+            this.panel3.Location = new System.Drawing.Point(3, 153);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(125, 50);
-            this.panel3.TabIndex = 21;
+            this.panel3.TabIndex = 0;
             // 
             // btnUpdate
             // 
@@ -320,7 +267,7 @@
             this.btnUpdate.Location = new System.Drawing.Point(3, 3);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(120, 45);
-            this.btnUpdate.TabIndex = 19;
+            this.btnUpdate.TabIndex = 0;
             this.btnUpdate.UseVisualStyleBackColor = false;
             this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
@@ -330,62 +277,21 @@
             this.cmbAreaOfStudy.Location = new System.Drawing.Point(234, 124);
             this.cmbAreaOfStudy.Name = "cmbAreaOfStudy";
             this.cmbAreaOfStudy.Size = new System.Drawing.Size(334, 21);
-            this.cmbAreaOfStudy.TabIndex = 148;
+            this.cmbAreaOfStudy.TabIndex = 0;
             this.cmbAreaOfStudy.Tag = "Area of Study";
-            this.ToolTips.SetToolTip(this.cmbAreaOfStudy, "Select from the list the Appropriate Area of Study for this Course");
+            this.ToolTips.SetToolTip(this.cmbAreaOfStudy, "Select from the list the Appropriate Area of Study");
             this.cmbAreaOfStudy.SelectedIndexChanged += new System.EventHandler(this.cmbAreaOfStudy_SelectedIndexChanged);
-            // 
-            // panel2
-            // 
-            this.panel2.BackColor = System.Drawing.Color.Gainsboro;
-            this.panel2.Controls.Add(this.btnAdd);
-            this.panel2.Location = new System.Drawing.Point(4, 150);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(125, 50);
-            this.panel2.TabIndex = 21;
-            // 
-            // btnAdd
-            // 
-            this.btnAdd.BackColor = System.Drawing.Color.White;
-            this.btnAdd.Image = global::CMS.Properties.Resources.AddButton;
-            this.btnAdd.Location = new System.Drawing.Point(3, 3);
-            this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(120, 45);
-            this.btnAdd.TabIndex = 17;
-            this.btnAdd.UseVisualStyleBackColor = false;
-            // 
-            // panel6
-            // 
-            this.panel6.BackColor = System.Drawing.Color.Gainsboro;
-            this.panel6.Controls.Add(this.btnSearch);
-            this.panel6.Location = new System.Drawing.Point(3, 214);
-            this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(125, 50);
-            this.panel6.TabIndex = 19;
-            // 
-            // btnSearch
-            // 
-            this.btnSearch.BackColor = System.Drawing.Color.White;
-            this.btnSearch.Image = global::CMS.Properties.Resources.SearchButton;
-            this.btnSearch.Location = new System.Drawing.Point(3, 3);
-            this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(120, 45);
-            this.btnSearch.TabIndex = 18;
-            this.btnSearch.UseVisualStyleBackColor = false;
             // 
             // panel5
             // 
             this.panel5.BackColor = System.Drawing.Color.MediumSlateBlue;
             this.panel5.Controls.Add(this.button5);
             this.panel5.Controls.Add(this.panel8);
-            this.panel5.Controls.Add(this.panel4);
             this.panel5.Controls.Add(this.panel3);
-            this.panel5.Controls.Add(this.panel2);
-            this.panel5.Controls.Add(this.panel6);
             this.panel5.Location = new System.Drawing.Point(678, 27);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(132, 524);
-            this.panel5.TabIndex = 141;
+            this.panel5.TabIndex = 5;
             // 
             // label12
             // 
@@ -425,8 +331,9 @@
             this.lstOption2.ScrollAlwaysVisible = true;
             this.lstOption2.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;
             this.lstOption2.Size = new System.Drawing.Size(287, 56);
-            this.lstOption2.TabIndex = 149;
+            this.lstOption2.TabIndex = 4;
             this.lstOption2.Tag = "Option 2";
+            this.ToolTips.SetToolTip(this.lstOption2, "Please select an option. You may select multiple options as required.");
             // 
             // cmbSel1
             // 
@@ -434,8 +341,9 @@
             this.cmbSel1.Location = new System.Drawing.Point(35, 216);
             this.cmbSel1.Name = "cmbSel1";
             this.cmbSel1.Size = new System.Drawing.Size(287, 21);
-            this.cmbSel1.TabIndex = 150;
+            this.cmbSel1.TabIndex = 1;
             this.cmbSel1.Tag = "Selection 1";
+            this.ToolTips.SetToolTip(this.cmbSel1, "Please select an option.");
             this.cmbSel1.SelectedIndexChanged += new System.EventHandler(this.cmbSel1_SelectedIndexChanged);
             // 
             // cmbSel2
@@ -444,8 +352,9 @@
             this.cmbSel2.Location = new System.Drawing.Point(359, 216);
             this.cmbSel2.Name = "cmbSel2";
             this.cmbSel2.Size = new System.Drawing.Size(287, 21);
-            this.cmbSel2.TabIndex = 150;
+            this.cmbSel2.TabIndex = 2;
             this.cmbSel2.Tag = "Selection 2";
+            this.ToolTips.SetToolTip(this.cmbSel2, "Please select an option.");
             this.cmbSel2.SelectedIndexChanged += new System.EventHandler(this.cmbSel2_SelectedIndexChanged);
             // 
             // dgvAllocations
@@ -473,8 +382,9 @@
             this.lstOption1.Name = "lstOption1";
             this.lstOption1.ScrollAlwaysVisible = true;
             this.lstOption1.Size = new System.Drawing.Size(287, 56);
-            this.lstOption1.TabIndex = 149;
+            this.lstOption1.TabIndex = 3;
             this.lstOption1.Tag = "Option 1";
+            this.ToolTips.SetToolTip(this.lstOption1, "Please select an option.");
             this.lstOption1.SelectedIndexChanged += new System.EventHandler(this.lstOption1_SelectedIndexChanged);
             // 
             // AllocationForm
@@ -503,11 +413,8 @@
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.panel8.ResumeLayout(false);
-            this.panel4.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
-            this.panel2.ResumeLayout(false);
-            this.panel6.ResumeLayout(false);
             this.panel5.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvAllocations)).EndInit();
             this.ResumeLayout(false);
@@ -516,17 +423,12 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.ToolStripMenuItem assessmentToolStripMenuItem;
         private System.Windows.Forms.Panel panel7;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem addToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem searchToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem updateToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem deleteToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem viewAllToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem formsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem mainMenuToolStripMenuItem;
@@ -542,17 +444,12 @@
         private System.Windows.Forms.Panel panel8;
         private System.Windows.Forms.Button btnViewAll;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Button btnUpdate;
         private System.ComponentModel.BackgroundWorker backgroundWorker2;
         private System.Windows.Forms.ToolTip ToolTips;
         private System.Windows.Forms.ComboBox cmbAreaOfStudy;
         private System.Windows.Forms.BindingSource bindingSource1;
-        private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Button btnAdd;
-        private System.Windows.Forms.Panel panel6;
-        private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label2;

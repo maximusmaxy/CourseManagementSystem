@@ -447,6 +447,45 @@ namespace CmsLibrary
         }
 
         /// <summary>
+        /// Creates a bridging table used for resolution of 1 to many relations in data grid views.
+        /// </summary>
+        /// <param name="bridge">The bridge object containing all the information.</param>
+        public static DataTable CreateBridgingTable(Bridge bridge)
+        {
+            string sql = $"select {bridge.BridgingTable}.{bridge.IdColumn} as '{bridge.IdColumn}', " +
+                $"{bridge.BridgingTable}.{bridge.ForeignColumn} as '{bridge.ForeignColumn}', " +
+                $"{bridge.ForeignTable}.{bridge.ForeignDisplay} as '{bridge.ForeignDisplay}' " +
+                $"from {bridge.BridgingTable}, {bridge.ForeignTable} " +
+                $"where {bridge.BridgingTable}.{bridge.ForeignColumn} = " +
+                $"{bridge.ForeignTable}.{bridge.ForeignColumn}";
+            return CreateDataTable(sql);
+        }
+
+        /// <summary>
+        /// Adds a bridging table to another table used by data grid views.
+        /// </summary>
+        /// <param name="mainTable">The table recieving the join.</param>
+        /// <param name="bridgeTable">The table to be joined.</param>
+        /// <param name="bridge">The bridge object specifying the bridge information.</param>
+        public static void AddBridgingTable(DataTable mainTable, DataTable bridgeTable, Bridge bridge)
+        {
+            int max = mainTable.Columns.Count - 1;
+            foreach (DataRow row in mainTable.AsEnumerable())
+            {
+                int j = 0;
+                foreach (var bridgeRow in bridgeTable.AsEnumerable().Where(
+                    r => Convert.ToInt32(r[bridge.IdColumn]) ==
+                    Convert.ToInt32(row[Extensions.CamelToHuman(bridge.IdColumn)])))
+                {
+                    j++;
+                    if (j + max > mainTable.Columns.Count - 1)
+                        mainTable.Columns.Add($"{Extensions.CamelToHuman(bridge.ForeignDisplay)} {j}", typeof(string));
+                    row[j + max] = (string)bridgeRow[bridge.ForeignDisplay];
+                }
+            }
+        }
+
+        /// <summary>
         /// Returns the column names of a table without quering the entire table.
         /// </summary>
         /// <param name="table">The name of the table in the database.</param>
@@ -484,6 +523,32 @@ namespace CmsLibrary
             }
             sb.Append("end ");
             return sb.ToString();
+        }
+
+        /// <summary>
+        /// Removes a column from a data table.
+        /// </summary>
+        /// <typeparam name="T">The data type of the column</typeparam>
+        /// <param name="dataTable">The table to remove the column from.</param>
+        /// <param name="index">The index of the column to remove.</param>
+        public static void RemoveColumn(DataTable dataTable, string columnName)
+        {
+            dataTable.Columns.Remove(columnName);
+        }
+
+        /// <summary>
+        /// Removes a column from a data table and returns a list of values that were removed.
+        /// </summary>
+        /// <typeparam name="T">The data type of the column</typeparam>
+        /// <param name="dataTable">The table to remove the column from.</param>
+        /// <param name="index">The index of the column to remove.</param>
+        public static List<T> RemoveColumn<T>(DataTable dataTable, string columnName)
+        {
+            List<T> list = new List<T>();
+            foreach (DataRow column in dataTable.AsEnumerable())
+                list.Add((T)column[columnName]);
+            dataTable.Columns.Remove(columnName);
+            return list;
         }
     }
 }

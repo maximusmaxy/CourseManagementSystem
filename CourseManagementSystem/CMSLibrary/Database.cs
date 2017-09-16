@@ -8,6 +8,7 @@ using System.Data.SqlClient;
 using System.Windows.Forms;
 using System.IO;
 using System.ComponentModel;
+using System.Security.Cryptography;
 
 namespace CmsLibrary
 {
@@ -549,6 +550,25 @@ namespace CmsLibrary
                 list.Add((T)column[columnName]);
             dataTable.Columns.Remove(columnName);
             return list;
+        }
+
+        /// <summary>
+        /// Gets a cryptographically random 32 byte array for use with password hashing
+        /// </summary>
+        public static byte[] GetSalt()
+        {
+            RNGCryptoServiceProvider rnd = new RNGCryptoServiceProvider();
+            byte[] buffer = new byte[32];
+            rnd.GetBytes(buffer);
+            return buffer;
+        }
+
+        /// <summary>
+        /// Gets a salted and hashed password.
+        /// </summary>
+        public static byte[] GetSaltedHashedPassword(byte[] password, byte[] salt)
+        {
+            return new SHA256Managed().ComputeHash(salt.Concat(password).ToArray());
         }
     }
 }

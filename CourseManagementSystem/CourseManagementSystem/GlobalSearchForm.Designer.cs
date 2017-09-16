@@ -59,8 +59,8 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.cmbColumns = new System.Windows.Forms.ComboBox();
-            this.ucSearch = new CMS.SearchInt();
             this.dgvSearch = new System.Windows.Forms.DataGridView();
+            this.ucSearch = new CMS.SearchInt();
             this.panel5.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel6.SuspendLayout();
@@ -317,21 +317,24 @@
             this.cmbColumns.TabIndex = 156;
             this.cmbColumns.SelectedIndexChanged += new System.EventHandler(this.cmbColumns_SelectedIndexChanged);
             // 
+            // dgvSearch
+            // 
+            this.dgvSearch.AllowUserToAddRows = false;
+            this.dgvSearch.AllowUserToDeleteRows = false;
+            this.dgvSearch.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvSearch.Location = new System.Drawing.Point(18, 387);
+            this.dgvSearch.Name = "dgvSearch";
+            this.dgvSearch.ReadOnly = true;
+            this.dgvSearch.Size = new System.Drawing.Size(654, 151);
+            this.dgvSearch.TabIndex = 158;
+            this.dgvSearch.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvSearch_CellDoubleClick);
+            // 
             // ucSearch
             // 
             this.ucSearch.Location = new System.Drawing.Point(18, 141);
             this.ucSearch.Name = "ucSearch";
             this.ucSearch.Size = new System.Drawing.Size(654, 240);
             this.ucSearch.TabIndex = 153;
-            // 
-            // dgvSearch
-            // 
-            this.dgvSearch.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvSearch.Location = new System.Drawing.Point(18, 387);
-            this.dgvSearch.Name = "dgvSearch";
-            this.dgvSearch.Size = new System.Drawing.Size(654, 151);
-            this.dgvSearch.TabIndex = 158;
-            this.dgvSearch.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvSearch_CellDoubleClick);
             // 
             // GlobalSearchForm
             // 
@@ -394,7 +397,8 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button btnAddSearch;
         private System.Windows.Forms.DataGridView dgvSearch;
-        //private System.Windows.Forms.UserControl ucSearch;
         private System.Windows.Forms.UserControl ucSearch;
     }
 }
+
+//private System.Windows.Forms.UserControl ucSearch;

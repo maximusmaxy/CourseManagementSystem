@@ -282,11 +282,6 @@ namespace CmsLibrary
 
         public static bool Many(params Object[] all)
         {
-            return Many(all.ToList());
-        }
-
-        public static bool Many(List<Object> all)
-        {
             foreach (Object obj in all)
             {
                 if (obj is Text)
@@ -364,9 +359,17 @@ namespace CmsLibrary
                         return false;
                     }
                 }
+                else if (obj is ISearchControl)
+                {
+                    ISearchControl control = (ISearchControl)obj;
+                    if (!control.ValidateControl())
+                    {
+                        return false;
+                    }
+                }
                 else
                 {
-                    throw new Exception($"{obj} is invalid for the Validate Many method.");
+                    throw new Exception($"{obj.GetType().Name} is invalid for the Validate Many method.");
                 }
             }
             return true;

@@ -16,8 +16,8 @@ namespace CMS
         public SearchDictionary()
         {
             InitializeComponent();
-            cmbValue.DisplayMember = "Display";
-            cmbValue.ValueMember = "Value";
+            cmbType.DisplayMember = "Display";
+            cmbType.ValueMember = "Value";
         }
 
         public void Reset()
@@ -25,9 +25,15 @@ namespace CMS
             Forms.ClearControls(this);
         }
 
-        public void ValidateControl()
+        public bool ValidateControl()
         {
-            throw new NotImplementedException();
+            return true;
+        }
+
+        public void Append(StringBuilder sb)
+        {
+            sb.Append(" = ");
+            sb.Append(cmbType.Int());
         }
     }
 }

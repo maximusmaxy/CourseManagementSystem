@@ -153,7 +153,8 @@ namespace CMS
             if (ucSearch is SearchDictionary)
             {
                 SearchDictionary control = (SearchDictionary)ucSearch;
-                control.cmbValue.DataSource = cmbColumns.Get<Column>().Dictionary;
+                control.cmbType.DataSource = cmbColumns.Get<Column>().Dictionary;
+                control.lblType.Text = $"{cmbColumns.Get<Column>().Display}:";
             }
             ucSearch.Show();
         }
@@ -174,27 +175,10 @@ namespace CMS
             StringBuilder sb = new StringBuilder("select * from ");
             sb.Append(cmbTables.Get<Table>().Name);
             sb.Append(" where ");
-            sb.Append(cmbColumns.Get<Column>());
-            if (ucSearch is SearchInt)
-            {
-                SearchInt control = (SearchInt)ucSearch;
-                switch (Forms.RadioString(control.pnlOperator))
-                {
-                    case "Equal To":
-                        sb.Append(" = ");
-                        sb.Append(control.txtValue.Int());
-                        break;
-                    case "Less Than":
-                        sb.Append(" < ");
-                        sb.Append(control.txtValue.Int());
-                        break;
-                    case "Greater Than":
-                        sb.Append(" > ");
-                        sb.Append(control.txtValue.Int());
-                        break;
-                }    
-            } 
-            var x = sb.ToString();
+            sb.Append(cmbColumns.Get<Column>().Name);
+            ISearchControl control = (ISearchControl)ucSearch;
+            control.Append(sb);
+            string debug = sb.ToString();
             dgvSearch.DataSource = Database.CreateDataTable(sb.ToString());
         }
 

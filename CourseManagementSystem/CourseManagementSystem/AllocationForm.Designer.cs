@@ -55,17 +55,17 @@
             this.backgroundWorker2 = new System.ComponentModel.BackgroundWorker();
             this.ToolTips = new System.Windows.Forms.ToolTip(this.components);
             this.cmbAreaOfStudy = new System.Windows.Forms.ComboBox();
+            this.lstOption2 = new System.Windows.Forms.ListBox();
+            this.cmbSel1 = new System.Windows.Forms.ComboBox();
+            this.cmbSel2 = new System.Windows.Forms.ComboBox();
+            this.lstOption1 = new System.Windows.Forms.ListBox();
             this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.panel5 = new System.Windows.Forms.Panel();
             this.label12 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.lstOption2 = new System.Windows.Forms.ListBox();
-            this.cmbSel1 = new System.Windows.Forms.ComboBox();
-            this.cmbSel2 = new System.Windows.Forms.ComboBox();
             this.dgvAllocations = new System.Windows.Forms.DataGridView();
             this.label6 = new System.Windows.Forms.Label();
-            this.lstOption1 = new System.Windows.Forms.ListBox();
             this.panel7.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.panel8.SuspendLayout();
@@ -282,6 +282,52 @@
             this.ToolTips.SetToolTip(this.cmbAreaOfStudy, "Select from the list the Appropriate Area of Study");
             this.cmbAreaOfStudy.SelectedIndexChanged += new System.EventHandler(this.cmbAreaOfStudy_SelectedIndexChanged);
             // 
+            // lstOption2
+            // 
+            this.lstOption2.FormattingEnabled = true;
+            this.lstOption2.Location = new System.Drawing.Point(359, 291);
+            this.lstOption2.Name = "lstOption2";
+            this.lstOption2.ScrollAlwaysVisible = true;
+            this.lstOption2.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;
+            this.lstOption2.Size = new System.Drawing.Size(287, 56);
+            this.lstOption2.TabIndex = 4;
+            this.lstOption2.Tag = "Option 2";
+            this.ToolTips.SetToolTip(this.lstOption2, "Please select an option. You may select multiple options as required.");
+            // 
+            // cmbSel1
+            // 
+            this.cmbSel1.FormattingEnabled = true;
+            this.cmbSel1.Location = new System.Drawing.Point(35, 216);
+            this.cmbSel1.Name = "cmbSel1";
+            this.cmbSel1.Size = new System.Drawing.Size(287, 21);
+            this.cmbSel1.TabIndex = 1;
+            this.cmbSel1.Tag = "Selection 1";
+            this.ToolTips.SetToolTip(this.cmbSel1, "Please select an option.");
+            this.cmbSel1.SelectedIndexChanged += new System.EventHandler(this.cmbSel1_SelectedIndexChanged);
+            // 
+            // cmbSel2
+            // 
+            this.cmbSel2.FormattingEnabled = true;
+            this.cmbSel2.Location = new System.Drawing.Point(359, 216);
+            this.cmbSel2.Name = "cmbSel2";
+            this.cmbSel2.Size = new System.Drawing.Size(287, 21);
+            this.cmbSel2.TabIndex = 2;
+            this.cmbSel2.Tag = "Selection 2";
+            this.ToolTips.SetToolTip(this.cmbSel2, "Please select an option.");
+            this.cmbSel2.SelectedIndexChanged += new System.EventHandler(this.cmbSel2_SelectedIndexChanged);
+            // 
+            // lstOption1
+            // 
+            this.lstOption1.FormattingEnabled = true;
+            this.lstOption1.Location = new System.Drawing.Point(35, 291);
+            this.lstOption1.Name = "lstOption1";
+            this.lstOption1.ScrollAlwaysVisible = true;
+            this.lstOption1.Size = new System.Drawing.Size(287, 56);
+            this.lstOption1.TabIndex = 3;
+            this.lstOption1.Tag = "Option 1";
+            this.ToolTips.SetToolTip(this.lstOption1, "Please select an option.");
+            this.lstOption1.SelectedIndexChanged += new System.EventHandler(this.lstOption1_SelectedIndexChanged);
+            // 
             // panel5
             // 
             this.panel5.BackColor = System.Drawing.Color.MediumSlateBlue;
@@ -323,45 +369,14 @@
             this.label4.TabIndex = 144;
             this.label4.Text = "Option 2:";
             // 
-            // lstOption2
-            // 
-            this.lstOption2.FormattingEnabled = true;
-            this.lstOption2.Location = new System.Drawing.Point(359, 291);
-            this.lstOption2.Name = "lstOption2";
-            this.lstOption2.ScrollAlwaysVisible = true;
-            this.lstOption2.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;
-            this.lstOption2.Size = new System.Drawing.Size(287, 56);
-            this.lstOption2.TabIndex = 4;
-            this.lstOption2.Tag = "Option 2";
-            this.ToolTips.SetToolTip(this.lstOption2, "Please select an option. You may select multiple options as required.");
-            // 
-            // cmbSel1
-            // 
-            this.cmbSel1.FormattingEnabled = true;
-            this.cmbSel1.Location = new System.Drawing.Point(35, 216);
-            this.cmbSel1.Name = "cmbSel1";
-            this.cmbSel1.Size = new System.Drawing.Size(287, 21);
-            this.cmbSel1.TabIndex = 1;
-            this.cmbSel1.Tag = "Selection 1";
-            this.ToolTips.SetToolTip(this.cmbSel1, "Please select an option.");
-            this.cmbSel1.SelectedIndexChanged += new System.EventHandler(this.cmbSel1_SelectedIndexChanged);
-            // 
-            // cmbSel2
-            // 
-            this.cmbSel2.FormattingEnabled = true;
-            this.cmbSel2.Location = new System.Drawing.Point(359, 216);
-            this.cmbSel2.Name = "cmbSel2";
-            this.cmbSel2.Size = new System.Drawing.Size(287, 21);
-            this.cmbSel2.TabIndex = 2;
-            this.cmbSel2.Tag = "Selection 2";
-            this.ToolTips.SetToolTip(this.cmbSel2, "Please select an option.");
-            this.cmbSel2.SelectedIndexChanged += new System.EventHandler(this.cmbSel2_SelectedIndexChanged);
-            // 
             // dgvAllocations
             // 
+            this.dgvAllocations.AllowUserToAddRows = false;
+            this.dgvAllocations.AllowUserToDeleteRows = false;
             this.dgvAllocations.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvAllocations.Location = new System.Drawing.Point(35, 380);
             this.dgvAllocations.Name = "dgvAllocations";
+            this.dgvAllocations.ReadOnly = true;
             this.dgvAllocations.Size = new System.Drawing.Size(617, 161);
             this.dgvAllocations.TabIndex = 151;
             // 
@@ -374,18 +389,6 @@
             this.label6.Size = new System.Drawing.Size(80, 21);
             this.label6.TabIndex = 144;
             this.label6.Text = "Option 1:";
-            // 
-            // lstOption1
-            // 
-            this.lstOption1.FormattingEnabled = true;
-            this.lstOption1.Location = new System.Drawing.Point(35, 291);
-            this.lstOption1.Name = "lstOption1";
-            this.lstOption1.ScrollAlwaysVisible = true;
-            this.lstOption1.Size = new System.Drawing.Size(287, 56);
-            this.lstOption1.TabIndex = 3;
-            this.lstOption1.Tag = "Option 1";
-            this.ToolTips.SetToolTip(this.lstOption1, "Please select an option.");
-            this.lstOption1.SelectedIndexChanged += new System.EventHandler(this.lstOption1_SelectedIndexChanged);
             // 
             // AllocationForm
             // 

@@ -59,14 +59,18 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.cmbColumns = new System.Windows.Forms.ComboBox();
-            this.ucSearch = new CMS.SearchInt();
             this.dgvSearch = new System.Windows.Forms.DataGridView();
+            this.dgvTotals = new System.Windows.Forms.DataGridView();
+            this.searchInt = new CMS.SearchInt();
+            this.label4 = new System.Windows.Forms.Label();
+            this.cmbGroupBy = new System.Windows.Forms.ComboBox();
             this.panel5.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel6.SuspendLayout();
             this.panel7.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSearch)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvTotals)).BeginInit();
             this.SuspendLayout();
             // 
             // panel5
@@ -77,7 +81,7 @@
             this.panel5.Controls.Add(this.panel6);
             this.panel5.Location = new System.Drawing.Point(687, 27);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(132, 524);
+            this.panel5.Size = new System.Drawing.Size(132, 298);
             this.panel5.TabIndex = 151;
             // 
             // panel1
@@ -317,37 +321,71 @@
             this.cmbColumns.TabIndex = 156;
             this.cmbColumns.SelectedIndexChanged += new System.EventHandler(this.cmbColumns_SelectedIndexChanged);
             // 
-            // ucSearch
-            // 
-            this.ucSearch.Location = new System.Drawing.Point(18, 141);
-            this.ucSearch.Name = "ucSearch";
-            this.ucSearch.Size = new System.Drawing.Size(654, 240);
-            this.ucSearch.TabIndex = 153;
-            // 
             // dgvSearch
             // 
+            this.dgvSearch.AllowUserToAddRows = false;
+            this.dgvSearch.AllowUserToDeleteRows = false;
             this.dgvSearch.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvSearch.Location = new System.Drawing.Point(18, 387);
+            this.dgvSearch.Location = new System.Drawing.Point(15, 331);
             this.dgvSearch.Name = "dgvSearch";
-            this.dgvSearch.Size = new System.Drawing.Size(654, 151);
+            this.dgvSearch.ReadOnly = true;
+            this.dgvSearch.Size = new System.Drawing.Size(796, 151);
             this.dgvSearch.TabIndex = 158;
             this.dgvSearch.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvSearch_CellDoubleClick);
+            // 
+            // dgvTotals
+            // 
+            this.dgvTotals.AllowUserToAddRows = false;
+            this.dgvTotals.AllowUserToDeleteRows = false;
+            this.dgvTotals.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvTotals.Location = new System.Drawing.Point(15, 488);
+            this.dgvTotals.Name = "dgvTotals";
+            this.dgvTotals.ReadOnly = true;
+            this.dgvTotals.Size = new System.Drawing.Size(796, 66);
+            this.dgvTotals.TabIndex = 159;
+            // 
+            // searchInt
+            // 
+            this.searchInt.Location = new System.Drawing.Point(12, 141);
+            this.searchInt.Name = "searchInt";
+            this.searchInt.Size = new System.Drawing.Size(540, 168);
+            this.searchInt.TabIndex = 153;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(558, 141);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(87, 21);
+            this.label4.TabIndex = 160;
+            this.label4.Text = "Group by:";
+            // 
+            // cmbGroupBy
+            // 
+            this.cmbGroupBy.FormattingEnabled = true;
+            this.cmbGroupBy.Location = new System.Drawing.Point(559, 166);
+            this.cmbGroupBy.Name = "cmbGroupBy";
+            this.cmbGroupBy.Size = new System.Drawing.Size(121, 21);
+            this.cmbGroupBy.TabIndex = 161;
             // 
             // GlobalSearchForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(823, 550);
+            this.ClientSize = new System.Drawing.Size(823, 560);
+            this.Controls.Add(this.cmbGroupBy);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.dgvTotals);
             this.Controls.Add(this.dgvSearch);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.cmbColumns);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.cmbTables);
-            this.Controls.Add(this.ucSearch);
+            this.Controls.Add(this.searchInt);
             this.Controls.Add(this.panel5);
             this.Controls.Add(this.panel7);
             this.Controls.Add(this.menuStrip1);
-            this.MinimizeBox = false;
             this.Name = "GlobalSearchForm";
             this.Text = "GlobalSearchForm";
             this.panel5.ResumeLayout(false);
@@ -357,6 +395,7 @@
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSearch)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvTotals)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -394,7 +433,9 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button btnAddSearch;
         private System.Windows.Forms.DataGridView dgvSearch;
-        //private System.Windows.Forms.UserControl ucSearch;
-        private System.Windows.Forms.UserControl ucSearch;
+        private SearchInt searchInt;
+        private System.Windows.Forms.DataGridView dgvTotals;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.ComboBox cmbGroupBy;
     }
 }

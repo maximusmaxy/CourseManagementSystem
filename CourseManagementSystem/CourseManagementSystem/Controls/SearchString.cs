@@ -24,9 +24,28 @@ namespace CMS
             Forms.CheckRadio(pnlOperator, "Exact Match");
         }
 
-        public void ValidateControl()
+        public bool ValidateControl()
         {
-            throw new NotImplementedException();
+            if (!Validation.Empty(txtString))
+                return false;
+            return true;
+        }
+
+        public void Append(StringBuilder sb)
+        {
+            switch (Forms.RadioString(pnlOperator))
+            {
+                case "Exact Match":
+                    sb.Append(" = '");
+                    sb.Append(txtString.Text);
+                    sb.Append("'");
+                    break;
+                case "Partial Match":
+                    sb.Append(" like '%");
+                    sb.Append(txtString.Text);
+                    sb.Append("%'");
+                    break;
+            }
         }
     }
 }

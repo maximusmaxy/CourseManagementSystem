@@ -17,25 +17,50 @@ namespace CMS
         {
             InitializeComponent();
             Forms.FillData(cmbAreaOfStudy, "departments", "departmentname", "departmentid");
-            cmbSel1.DisplayMember = "Display";
-            cmbSel2.DisplayMember = "Display";
-            cmbSel1.ValueMember = "Value";
-            cmbSel2.ValueMember = "Value";
-            cmbSel1.DataSource = new BindingList<Data>
+        }
+
+        private void cmbAreaOfStudy_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cmbAreaOfStudy.SelectedValue != DBNull.Value)
             {
-                new Data("Teachers", "teacher"),
-                new Data("Courses", "course"),
-                new Data("Units", "unit")
-            };
+                cmbSel1.DataSource = null;
+                cmbSel1.DisplayMember = "Display";
+                cmbSel1.ValueMember = "Value";
+                cmbSel1.DataSource = new BindingList<Data>
+                {
+                    new Data("(Please select an option)", null),
+                    new Data("Teachers", "teacher"),
+                    new Data("Courses", "course"),
+                    new Data("Units", "unit")
+                };
+            }
+            else
+            {
+                cmbSel1.DataSource = null;
+                cmbSel2.DataSource = null;
+                lstOption1.DataSource = null;
+                lstOption2.DataSource = null;
+            }
         }
 
         private void cmbSel1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            switch ((string)cmbSel1.SelectedValue)
+            if (cmbSel1.SelectedValue == null)
+            {
+                cmbSel2.DataSource = null;
+                lstOption1.DataSource = null;
+                lstOption2.DataSource = null;
+                return;
+            }
+            cmbSel2.DataSource = null;
+            cmbSel2.ValueMember = "Value";
+            cmbSel2.DisplayMember = "Display";
+            switch (cmbSel1.Get<string>())
             {
                 case "teacher":
                     cmbSel2.DataSource = new BindingList<Data>
                     {
+                        new Data("(Please select an option)", null),
                         new Data("Courses", "course"),
                         new Data("Units", "unit")
                     };
@@ -45,6 +70,7 @@ namespace CMS
                 case "course":
                     cmbSel2.DataSource = new BindingList<Data>
                     {
+                        new Data("(Please select an option)", null),
                         new Data("Units", "unit")
                     };
                     Forms.FillData(lstOption1, "courses", "coursename",
@@ -53,6 +79,7 @@ namespace CMS
                 case "unit":
                     cmbSel2.DataSource = new BindingList<Data>
                     {
+                        new Data("(Please select an option)", null),
                         new Data("Assessments", "assessment")
                     };
                     Forms.FillData(lstOption1, "units", "unitname",
@@ -63,7 +90,11 @@ namespace CMS
 
         private void cmbSel2_SelectedIndexChanged(object sender, EventArgs e)
         {
-            switch ((string)cmbSel2.SelectedValue)
+            if (cmbSel2.SelectedValue == null)
+            {
+                lstOption2.DataSource = null;
+            }
+            switch (cmbSel2.Get<string>())
             {
                 case "course":
                     Forms.FillData(lstOption2, "courses", "coursename",
@@ -80,18 +111,12 @@ namespace CMS
             }
         }
 
-        private void cmbAreaOfStudy_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            cmbSel1_SelectedIndexChanged(sender, e);
-            cmbSel2_SelectedIndexChanged(sender, e);
-        }
-
         private void lstOption1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            switch ((string)cmbSel1.SelectedValue)
+            switch (cmbSel1.Get<string>())
             {
                 case "teacher":
-                    switch ((string)cmbSel2.SelectedValue)
+                    switch (cmbSel2.Get<string>())
                     {
                         case "course":
                             Forms.SelectData(lstOption2, "course_teachers", "teacherid",
@@ -113,10 +138,16 @@ namespace CMS
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-            switch ((string)cmbSel1.SelectedValue)
+            if (!Validation.Many(cmbAreaOfStudy, cmbSel1, lstOption1, cmbSel2))
+                return;
+            DialogResult result = MessageBox.Show($"Would you like to update this {cmbSel1.SelectedValue}?", "Question",
+                                               MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
+            if (result != DialogResult.Yes)
+                return;
+            switch (cmbSel1.Get<string>())
             {
                 case "teacher":
-                    switch ((string)cmbSel2.SelectedValue)
+                    switch (cmbSel2.Get<string>())
                     {
                         case "course":
                             CourseTeacher courseTeacher = new CourseTeacher(lstOption1.Int(), lstOption2);
@@ -140,6 +171,57 @@ namespace CMS
                         MessageBox.Show($"Unit: {lstOption1.Text} has been updated.");
                     break;
             }
+        }
+
+        private void btnViewAll_Click(object sender, EventArgs e)
+        {
+            if (!Validation.Many(cmbAreaOfStudy, cmbSel1, lstOption1, cmbSel2))
+                return;
+            switch (cmbSel1.Get<string>())
+            {
+                case "teacher":
+                    switch (cmbSel2.Get<string>())
+                    {
+                        case "course":
+                            LoadDataTable("Teachers", "teacherId", "teacherFirstName", "Course_Teachers", "Courses", "courseId", "courseName");
+                            break;
+                        case "unit":
+                            LoadDataTable("Teachers", "teacherId", "teacherFirstName", "Unit_Teachers", "Units", "unitId", "unitName");
+                            break;
+                    }
+                    break;
+                case "course":
+                    LoadDataTable("Courses", "courseId", "courseName", "Course_Units", "Units", "unitId", "unitName");
+                    break;
+                case "unit":
+                    dgvAllocations.DataSource =
+                        Database.CreateDataTable("select unitName as 'Unit Name', assessmentName as 'Assessment Name' " +
+                        "from units, assessments where units.unitid = assessments.unitid and " +
+                        $"units.departmentId = {cmbAreaOfStudy.Int()}");
+                    break;
+            }
+        }
+
+        private void LoadDataTable(string mainTable, string mainId, string mainDisplay, string bridgingTable, string foreignTable, string foreignId, string foreignDisplay)
+        {
+            DataTable dataTable = Database.CreateDataTable($"select {mainId} as '{Extensions.CamelToHuman(mainId)}', " +
+                $"{mainDisplay} as '{Extensions.CamelToHuman(mainDisplay)}' from {mainTable} where " +
+                $"{mainTable}.departmentId = {cmbAreaOfStudy.Int()}");
+            Bridge bridge = new Bridge(bridgingTable, foreignTable, mainId, foreignId, foreignDisplay);
+            DataTable bridgeTable = Database.CreateBridgingTable(bridge);
+            Database.AddBridgingTable(dataTable, bridgeTable, bridge);
+            Database.RemoveColumn(dataTable, Extensions.CamelToHuman(mainId));
+            dgvAllocations.DataSource = dataTable;
+        }
+
+        private void updateToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            btnUpdate_Click(sender, e);
+        }
+
+        private void viewAllToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            btnViewAll_Click(sender, e);
         }
 
         private void mainMenuToolStripMenuItem_Click(object sender, EventArgs e)
@@ -185,11 +267,6 @@ namespace CMS
         private void globalSearchToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Forms.ShowForm(typeof(GlobalSearchForm));
-        }
-
-        private void updateToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            btnUpdate_Click(sender, e);
         }
     }
 }

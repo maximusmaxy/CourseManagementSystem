@@ -28,31 +28,15 @@ namespace CMS
             }
         }
 
-        private class Bridge
-        {
-            public string BridgingTable { get; }
-            public string ForeignTable { get; }
-            public string IdColumn { get; }
-            public string ForeignColumn { get; }
-            public string ForeignDisplay { get; }
-
-            public Bridge(string bridgingTable, string foreignTable, string idColumn, string foreignColumn, string foreignDisplay)
-            {
-                BridgingTable = bridgingTable;
-                ForeignTable = foreignTable;
-                IdColumn = idColumn;
-                ForeignColumn = foreignColumn;
-                ForeignDisplay = foreignDisplay;
-            }
-        }
-
         public int Id { get; private set; } = -1;
 
         private string table;
         private List<Column> addColumns = new List<Column>();
         private List<Column> replaceColumns = new List<Column>();
+        private List<string> hideColumns = new List<string>();
         private Dictionary<string, Dictionary<string, int>> dictionaries = new Dictionary<string, Dictionary<string, int>>();
         private List<Bridge> bridges = new List<Bridge>();
+        private List<int> storedIdColumn;
 
         /// <summary>
         /// Constructs a data grid view form for a specified table.
@@ -84,6 +68,11 @@ namespace CMS
         public void ReplaceColumn(string table, string foreignKeyName, string foreignColumnName)
         {
             replaceColumns.Add(new Column(table, foreignKeyName, foreignColumnName));
+        }
+
+        public void HideColumn(string column)
+        {
+            hideColumns.Add(column);
         }
 
         /// <summary>
@@ -204,24 +193,26 @@ namespace CMS
             //Bridging tables
             foreach (Bridge bridge in bridges)
             {
-                int max = dataTable.Columns.Count - 1;
-                for (int i = 0; i < dataTable.Rows.Count; i++)
+                DataTable bridgingTable = Database.CreateBridgingTable(bridge);
+                Database.AddBridgingTable(dataTable, bridgingTable, bridge);
+            }
+            //hide
+            foreach (string column in hideColumns)
+            {
+                string human = Extensions.CamelToHuman(column);
+                if (dataTable.Columns[human].Ordinal == 0)
                 {
-                    string sql = $"select {bridge.ForeignTable}.{bridge.ForeignDisplay} as '" +
-                    $"{Extensions.CamelToHuman(bridge.ForeignDisplay)}' from {bridge.BridgingTable}, " +
-                    $"{bridge.ForeignTable} where {bridge.BridgingTable}.{bridge.IdColumn} = " +
-                    $"{dataTable.Rows[i][Extensions.CamelToHuman(bridge.IdColumn)]} and " +
-                    $"{bridge.BridgingTable}.{bridge.ForeignColumn} = " +
-                    $"{bridge.ForeignTable}.{bridge.ForeignColumn}";
-                    int j = 0;
-                    foreach (SqlDataReader row in Database.ExecuteQuery(sql))
-                    {
-                        j++;
-                        if (j + max > dataTable.Columns.Count - 1)
-                            dataTable.Columns.Add($"{Extensions.CamelToHuman(bridge.ForeignDisplay)} {j}", typeof(string));
-                        dataTable.Rows[i][j + max] = (string)row[0];
-                    }
+                    if (dataTable.Columns[human].DataType == typeof(Byte))
+                        storedIdColumn = Database.RemoveColumn<Byte>(dataTable, human).Select(r => Convert.ToInt32(r)).ToList();
+                    else if (dataTable.Columns[human].DataType == typeof(Int16))
+                        storedIdColumn = Database.RemoveColumn<Int16>(dataTable, human).Select(r => Convert.ToInt32(r)).ToList();
+                    else if (dataTable.Columns[human].DataType == typeof(Int64))
+                        storedIdColumn = Database.RemoveColumn<Int64>(dataTable, human).Select(r => Convert.ToInt32(r)).ToList();
+                    else
+                        storedIdColumn = Database.RemoveColumn<int>(dataTable, human);
                 }
+                else
+                    Database.RemoveColumn(dataTable, human);
             }
             dgvViewAll.DataSource = dataTable;
         }
@@ -230,7 +221,10 @@ namespace CMS
         {
             if (e.RowIndex >= 0 && e.RowIndex < dgvViewAll.RowCount)
             {
-                Id = Convert.ToInt32(((DataRowView)dgvViewAll.Rows[e.RowIndex].DataBoundItem)[0]);
+                if (storedIdColumn != null)
+                    Id = storedIdColumn[e.RowIndex];
+                else
+                    Id = Convert.ToInt32(((DataRowView)dgvViewAll.Rows[e.RowIndex].DataBoundItem)[0]);
                 Close();
             }
         }

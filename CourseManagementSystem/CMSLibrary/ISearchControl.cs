@@ -9,6 +9,7 @@ namespace CmsLibrary
     public interface ISearchControl
     {
         void Reset();
-        void ValidateControl();
+        bool ValidateControl();
+        void Append(StringBuilder sb);
     }
 }

@@ -21,12 +21,25 @@ namespace CMS
         public void Reset()
         {
             Forms.ClearControls(this);
-            Forms.CheckRadio(pnlOperator, "True");
+            Forms.CheckRadio(pnlOperator, "Yes");
         }
 
-        public void ValidateControl()
+        public bool ValidateControl()
         {
-            throw new NotImplementedException();
+            return true;
+        }
+
+        public void Append(StringBuilder sb)
+        {
+            switch (Forms.RadioString(pnlOperator))
+            {
+                case "Yes":
+                    sb.Append(" = 1 ");
+                    break;
+                case "No":
+                    sb.Append(" = 0");
+                    break;
+            }
         }
     }
 }

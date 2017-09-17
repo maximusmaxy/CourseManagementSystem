@@ -31,7 +31,8 @@
             this.pnlOperator = new System.Windows.Forms.Panel();
             this.rdbPartialMatch = new System.Windows.Forms.RadioButton();
             this.rdbExactMatch = new System.Windows.Forms.RadioButton();
-            this.txtValue = new System.Windows.Forms.TextBox();
+            this.txtString = new System.Windows.Forms.TextBox();
+            this.lblValue = new System.Windows.Forms.Label();
             this.pnlOperator.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -66,18 +67,30 @@
             this.rdbExactMatch.Text = "Exact Match";
             this.rdbExactMatch.UseVisualStyleBackColor = true;
             // 
-            // txtValue
+            // txtString
             // 
-            this.txtValue.Location = new System.Drawing.Point(109, 7);
-            this.txtValue.Name = "txtValue";
-            this.txtValue.Size = new System.Drawing.Size(100, 20);
-            this.txtValue.TabIndex = 163;
+            this.txtString.Location = new System.Drawing.Point(109, 31);
+            this.txtString.Name = "txtString";
+            this.txtString.Size = new System.Drawing.Size(100, 20);
+            this.txtString.TabIndex = 163;
+            this.txtString.Tag = "Word";
+            // 
+            // lblValue
+            // 
+            this.lblValue.AutoSize = true;
+            this.lblValue.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblValue.Location = new System.Drawing.Point(109, 7);
+            this.lblValue.Name = "lblValue";
+            this.lblValue.Size = new System.Drawing.Size(56, 21);
+            this.lblValue.TabIndex = 167;
+            this.lblValue.Text = "Word:";
             // 
             // SearchString
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.txtValue);
+            this.Controls.Add(this.lblValue);
+            this.Controls.Add(this.txtString);
             this.Controls.Add(this.pnlOperator);
             this.Name = "SearchString";
             this.Size = new System.Drawing.Size(514, 206);
@@ -93,6 +106,7 @@
         public System.Windows.Forms.Panel pnlOperator;
         public System.Windows.Forms.RadioButton rdbPartialMatch;
         public System.Windows.Forms.RadioButton rdbExactMatch;
-        public System.Windows.Forms.TextBox txtValue;
+        public System.Windows.Forms.TextBox txtString;
+        private System.Windows.Forms.Label lblValue;
     }
 }

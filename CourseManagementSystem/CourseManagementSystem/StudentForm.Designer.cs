@@ -726,7 +726,7 @@
             // chkDisability
             // 
             this.chkDisability.AutoSize = true;
-            this.chkDisability.Location = new System.Drawing.Point(230, 568);
+            this.chkDisability.Location = new System.Drawing.Point(213, 567);
             this.chkDisability.Name = "chkDisability";
             this.chkDisability.Size = new System.Drawing.Size(44, 17);
             this.chkDisability.TabIndex = 17;
@@ -815,7 +815,7 @@
             // 
             this.label19.AutoSize = true;
             this.label19.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label19.Location = new System.Drawing.Point(360, 534);
+            this.label19.Location = new System.Drawing.Point(115, 531);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(89, 21);
             this.label19.TabIndex = 81;
@@ -825,7 +825,7 @@
             // 
             this.label20.AutoSize = true;
             this.label20.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label20.Location = new System.Drawing.Point(39, 534);
+            this.label20.Location = new System.Drawing.Point(269, 531);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(253, 21);
             this.label20.TabIndex = 83;
@@ -889,6 +889,7 @@
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "StudentForm";
             this.Text = "Student";
+            this.Load += new System.EventHandler(this.StudentForm_Load);
             this.panel7.ResumeLayout(false);
             this.panel5.ResumeLayout(false);
             this.panel8.ResumeLayout(false);

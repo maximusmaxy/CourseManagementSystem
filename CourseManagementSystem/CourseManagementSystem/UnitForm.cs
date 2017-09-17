@@ -158,7 +158,7 @@ namespace CMS
                     return;
                 //success!
                 MessageBox.Show($"Unit Code: {unit.Code} added successfully.");
-                txtUnitId.Text = unit.Id.ToString();
+                
             }
         }
 
@@ -173,7 +173,7 @@ namespace CMS
                     Unit unit = new Unit();
                     if (unit.Search("unitid", form.Id))
                     {
-                        txtUnitId.Text = unit.Id.ToString();
+                        
                         txtUnitCode.Text = unit.Code.ToString();
                         txtUnitName.Text = unit.Name;
                         Forms.CheckRadio(pnlUnitType, Types.UnitType, unit.Type);
@@ -255,7 +255,7 @@ namespace CMS
                     return;
                 //success!
                 MessageBox.Show($"Unit Code: {unit.Code} added successfully.");
-                txtUnitId.Text = unit.Id.ToString();
+                
 
             }
         }

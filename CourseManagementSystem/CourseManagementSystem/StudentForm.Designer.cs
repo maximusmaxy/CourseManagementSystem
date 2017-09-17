@@ -33,6 +33,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.panel7 = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
+            this.panel9 = new System.Windows.Forms.Panel();
+            this.btnClearForm = new System.Windows.Forms.Button();
             this.panel8 = new System.Windows.Forms.Panel();
             this.btnViewAll = new System.Windows.Forms.Button();
             this.panel4 = new System.Windows.Forms.Panel();
@@ -102,10 +104,9 @@
             this.label18 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
             this.label20 = new System.Windows.Forms.Label();
-            this.panel9 = new System.Windows.Forms.Panel();
-            this.btnClearForm = new System.Windows.Forms.Button();
             this.panel7.SuspendLayout();
             this.panel5.SuspendLayout();
+            this.panel9.SuspendLayout();
             this.panel8.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -114,7 +115,6 @@
             this.menuStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.pnlGender.SuspendLayout();
-            this.panel9.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -151,6 +151,27 @@
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(132, 645);
             this.panel5.TabIndex = 17;
+            // 
+            // panel9
+            // 
+            this.panel9.BackColor = System.Drawing.Color.PaleGreen;
+            this.panel9.Controls.Add(this.btnClearForm);
+            this.panel9.Location = new System.Drawing.Point(4, 472);
+            this.panel9.Name = "panel9";
+            this.panel9.Size = new System.Drawing.Size(125, 50);
+            this.panel9.TabIndex = 23;
+            // 
+            // btnClearForm
+            // 
+            this.btnClearForm.BackColor = System.Drawing.Color.White;
+            this.btnClearForm.Image = global::CMS.Properties.Resources.ClearFormButton;
+            this.btnClearForm.Location = new System.Drawing.Point(2, 3);
+            this.btnClearForm.Name = "btnClearForm";
+            this.btnClearForm.Size = new System.Drawing.Size(120, 45);
+            this.btnClearForm.TabIndex = 60;
+            this.btnClearForm.Tag = "Clear Form";
+            this.btnClearForm.UseVisualStyleBackColor = false;
+            this.btnClearForm.Click += new System.EventHandler(this.btnClearForm_Click);
             // 
             // panel8
             // 
@@ -760,7 +781,7 @@
             // chkCentrelink
             // 
             this.chkCentrelink.AutoSize = true;
-            this.chkCentrelink.Location = new System.Drawing.Point(455, 538);
+            this.chkCentrelink.Location = new System.Drawing.Point(210, 532);
             this.chkCentrelink.Name = "chkCentrelink";
             this.chkCentrelink.Size = new System.Drawing.Size(44, 17);
             this.chkCentrelink.TabIndex = 16;
@@ -772,7 +793,7 @@
             // chkDropKick
             // 
             this.chkDropKick.AutoSize = true;
-            this.chkDropKick.Location = new System.Drawing.Point(296, 538);
+            this.chkDropKick.Location = new System.Drawing.Point(519, 532);
             this.chkDropKick.Name = "chkDropKick";
             this.chkDropKick.Size = new System.Drawing.Size(44, 17);
             this.chkDropKick.TabIndex = 15;
@@ -825,32 +846,11 @@
             // 
             this.label20.AutoSize = true;
             this.label20.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label20.Location = new System.Drawing.Point(269, 531);
+            this.label20.Location = new System.Drawing.Point(260, 531);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(253, 21);
             this.label20.TabIndex = 83;
             this.label20.Text = "Aboriginal/Torres Strait Islander:";
-            // 
-            // panel9
-            // 
-            this.panel9.BackColor = System.Drawing.Color.PaleGreen;
-            this.panel9.Controls.Add(this.btnClearForm);
-            this.panel9.Location = new System.Drawing.Point(4, 472);
-            this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(125, 50);
-            this.panel9.TabIndex = 23;
-            // 
-            // btnClearForm
-            // 
-            this.btnClearForm.BackColor = System.Drawing.Color.White;
-            this.btnClearForm.Image = global::CMS.Properties.Resources.ClearFormButton;
-            this.btnClearForm.Location = new System.Drawing.Point(2, 3);
-            this.btnClearForm.Name = "btnClearForm";
-            this.btnClearForm.Size = new System.Drawing.Size(120, 45);
-            this.btnClearForm.TabIndex = 60;
-            this.btnClearForm.Tag = "Clear Form";
-            this.btnClearForm.UseVisualStyleBackColor = false;
-            this.btnClearForm.Click += new System.EventHandler(this.btnClearForm_Click);
             // 
             // StudentForm
             // 
@@ -889,9 +889,9 @@
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "StudentForm";
             this.Text = "Student";
-            this.Load += new System.EventHandler(this.StudentForm_Load);
             this.panel7.ResumeLayout(false);
             this.panel5.ResumeLayout(false);
+            this.panel9.ResumeLayout(false);
             this.panel8.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
@@ -903,7 +903,6 @@
             this.panel1.PerformLayout();
             this.pnlGender.ResumeLayout(false);
             this.pnlGender.PerformLayout();
-            this.panel9.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -20,7 +20,7 @@ namespace CMS
 
         private void Main_Load(object sender, EventArgs e)
         {
-            Database.ServerName = "MAXIMUMPENIS\\SQLEXPRESS";
+            //Database.ServerName = "MAXIMUMPENIS\\SQLEXPRESS";
             Database.LoadDatabase();
         }
 

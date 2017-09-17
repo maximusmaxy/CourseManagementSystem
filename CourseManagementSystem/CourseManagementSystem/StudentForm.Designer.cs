@@ -95,12 +95,12 @@
             this.chkDisability = new System.Windows.Forms.CheckBox();
             this.txtDisabilityDescription = new System.Windows.Forms.TextBox();
             this.txtContactNumber = new System.Windows.Forms.TextBox();
+            this.chkCentrelink = new System.Windows.Forms.CheckBox();
+            this.chkDropKick = new System.Windows.Forms.CheckBox();
             this.label17 = new System.Windows.Forms.Label();
             this.pnlGender = new System.Windows.Forms.Panel();
             this.label18 = new System.Windows.Forms.Label();
-            this.chkCentrelink = new System.Windows.Forms.CheckBox();
             this.label19 = new System.Windows.Forms.Label();
-            this.chkDropKick = new System.Windows.Forms.CheckBox();
             this.label20 = new System.Windows.Forms.Label();
             this.panel7.SuspendLayout();
             this.panel5.SuspendLayout();
@@ -721,7 +721,7 @@
             // chkDisability
             // 
             this.chkDisability.AutoSize = true;
-            this.chkDisability.Location = new System.Drawing.Point(230, 568);
+            this.chkDisability.Location = new System.Drawing.Point(213, 567);
             this.chkDisability.Name = "chkDisability";
             this.chkDisability.Size = new System.Drawing.Size(44, 17);
             this.chkDisability.TabIndex = 14;
@@ -751,6 +751,30 @@
             this.txtContactNumber.TabIndex = 78;
             this.txtContactNumber.Tag = "Email";
             this.ToolTips.SetToolTip(this.txtContactNumber, "Please insert the Student Email here, Must contain one @ symbol");
+            // 
+            // chkCentrelink
+            // 
+            this.chkCentrelink.AutoSize = true;
+            this.chkCentrelink.Location = new System.Drawing.Point(215, 535);
+            this.chkCentrelink.Name = "chkCentrelink";
+            this.chkCentrelink.Size = new System.Drawing.Size(44, 17);
+            this.chkCentrelink.TabIndex = 80;
+            this.chkCentrelink.Tag = "CentreLink";
+            this.chkCentrelink.Text = "Yes";
+            this.ToolTips.SetToolTip(this.chkCentrelink, "Select this option if the Student has a Disability");
+            this.chkCentrelink.UseVisualStyleBackColor = true;
+            // 
+            // chkDropKick
+            // 
+            this.chkDropKick.AutoSize = true;
+            this.chkDropKick.Location = new System.Drawing.Point(529, 535);
+            this.chkDropKick.Name = "chkDropKick";
+            this.chkDropKick.Size = new System.Drawing.Size(44, 17);
+            this.chkDropKick.TabIndex = 82;
+            this.chkDropKick.Tag = "CentreLink";
+            this.chkDropKick.Text = "Yes";
+            this.ToolTips.SetToolTip(this.chkDropKick, "Select this option if the Student has a Disability");
+            this.chkDropKick.UseVisualStyleBackColor = true;
             // 
             // label17
             // 
@@ -782,45 +806,21 @@
             this.label18.TabIndex = 79;
             this.label18.Text = "Contact Number:";
             // 
-            // chkCentrelink
-            // 
-            this.chkCentrelink.AutoSize = true;
-            this.chkCentrelink.Location = new System.Drawing.Point(455, 538);
-            this.chkCentrelink.Name = "chkCentrelink";
-            this.chkCentrelink.Size = new System.Drawing.Size(44, 17);
-            this.chkCentrelink.TabIndex = 80;
-            this.chkCentrelink.Tag = "CentreLink";
-            this.chkCentrelink.Text = "Yes";
-            this.ToolTips.SetToolTip(this.chkCentrelink, "Select this option if the Student has a Disability");
-            this.chkCentrelink.UseVisualStyleBackColor = true;
-            // 
             // label19
             // 
             this.label19.AutoSize = true;
             this.label19.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label19.Location = new System.Drawing.Point(360, 534);
+            this.label19.Location = new System.Drawing.Point(115, 531);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(89, 21);
             this.label19.TabIndex = 81;
             this.label19.Text = "Centrelink:";
             // 
-            // chkDropKick
-            // 
-            this.chkDropKick.AutoSize = true;
-            this.chkDropKick.Location = new System.Drawing.Point(296, 538);
-            this.chkDropKick.Name = "chkDropKick";
-            this.chkDropKick.Size = new System.Drawing.Size(44, 17);
-            this.chkDropKick.TabIndex = 82;
-            this.chkDropKick.Tag = "CentreLink";
-            this.chkDropKick.Text = "Yes";
-            this.ToolTips.SetToolTip(this.chkDropKick, "Select this option if the Student has a Disability");
-            this.chkDropKick.UseVisualStyleBackColor = true;
-            // 
             // label20
             // 
             this.label20.AutoSize = true;
             this.label20.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label20.Location = new System.Drawing.Point(39, 534);
+            this.label20.Location = new System.Drawing.Point(269, 531);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(253, 21);
             this.label20.TabIndex = 83;
@@ -863,6 +863,7 @@
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "StudentForm";
             this.Text = "Student";
+            this.Load += new System.EventHandler(this.StudentForm_Load);
             this.panel7.ResumeLayout(false);
             this.panel5.ResumeLayout(false);
             this.panel8.ResumeLayout(false);

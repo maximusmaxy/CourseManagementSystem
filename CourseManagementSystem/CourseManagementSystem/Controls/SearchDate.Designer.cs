@@ -29,6 +29,9 @@
         private void InitializeComponent()
         {
             this.pnlOperator = new System.Windows.Forms.Panel();
+            this.rdbBetween = new System.Windows.Forms.RadioButton();
+            this.rdbAfterOrEqual = new System.Windows.Forms.RadioButton();
+            this.rdbBeforeOrEqual = new System.Windows.Forms.RadioButton();
             this.rdbAfter = new System.Windows.Forms.RadioButton();
             this.rdbBefore = new System.Windows.Forms.RadioButton();
             this.rdbExact = new System.Windows.Forms.RadioButton();
@@ -45,9 +48,6 @@
             this.txtDay2 = new System.Windows.Forms.TextBox();
             this.txtYear2 = new System.Windows.Forms.TextBox();
             this.cmbMonth2 = new System.Windows.Forms.ComboBox();
-            this.rdbBeforeOrEqual = new System.Windows.Forms.RadioButton();
-            this.rdbAfterOrEqual = new System.Windows.Forms.RadioButton();
-            this.rdbBetween = new System.Windows.Forms.RadioButton();
             this.pnlOperator.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -63,6 +63,37 @@
             this.pnlOperator.Name = "pnlOperator";
             this.pnlOperator.Size = new System.Drawing.Size(100, 144);
             this.pnlOperator.TabIndex = 161;
+            // 
+            // rdbBetween
+            // 
+            this.rdbBetween.AutoSize = true;
+            this.rdbBetween.Location = new System.Drawing.Point(3, 119);
+            this.rdbBetween.Name = "rdbBetween";
+            this.rdbBetween.Size = new System.Drawing.Size(67, 17);
+            this.rdbBetween.TabIndex = 6;
+            this.rdbBetween.Text = "Between";
+            this.rdbBetween.UseVisualStyleBackColor = true;
+            this.rdbBetween.CheckedChanged += new System.EventHandler(this.rdbBetween_CheckedChanged);
+            // 
+            // rdbAfterOrEqual
+            // 
+            this.rdbAfterOrEqual.AutoSize = true;
+            this.rdbAfterOrEqual.Location = new System.Drawing.Point(3, 96);
+            this.rdbAfterOrEqual.Name = "rdbAfterOrEqual";
+            this.rdbAfterOrEqual.Size = new System.Drawing.Size(76, 17);
+            this.rdbAfterOrEqual.TabIndex = 5;
+            this.rdbAfterOrEqual.Text = "On or After";
+            this.rdbAfterOrEqual.UseVisualStyleBackColor = true;
+            // 
+            // rdbBeforeOrEqual
+            // 
+            this.rdbBeforeOrEqual.AutoSize = true;
+            this.rdbBeforeOrEqual.Location = new System.Drawing.Point(3, 73);
+            this.rdbBeforeOrEqual.Name = "rdbBeforeOrEqual";
+            this.rdbBeforeOrEqual.Size = new System.Drawing.Size(85, 17);
+            this.rdbBeforeOrEqual.TabIndex = 4;
+            this.rdbBeforeOrEqual.Text = "On or Before";
+            this.rdbBeforeOrEqual.UseVisualStyleBackColor = true;
             // 
             // rdbAfter
             // 
@@ -103,6 +134,7 @@
             this.cmbMonth.Name = "cmbMonth";
             this.cmbMonth.Size = new System.Drawing.Size(121, 21);
             this.cmbMonth.TabIndex = 162;
+            this.cmbMonth.Tag = "Month";
             // 
             // txtYear
             // 
@@ -110,6 +142,7 @@
             this.txtYear.Name = "txtYear";
             this.txtYear.Size = new System.Drawing.Size(121, 20);
             this.txtYear.TabIndex = 163;
+            this.txtYear.Tag = "Year";
             // 
             // txtDay
             // 
@@ -117,6 +150,7 @@
             this.txtDay.Name = "txtDay";
             this.txtDay.Size = new System.Drawing.Size(121, 20);
             this.txtDay.TabIndex = 164;
+            this.txtDay.Tag = "Day";
             // 
             // label3
             // 
@@ -195,6 +229,7 @@
             this.txtDay2.Name = "txtDay2";
             this.txtDay2.Size = new System.Drawing.Size(121, 20);
             this.txtDay2.TabIndex = 171;
+            this.txtDay2.Tag = "Day";
             // 
             // txtYear2
             // 
@@ -203,6 +238,7 @@
             this.txtYear2.Name = "txtYear2";
             this.txtYear2.Size = new System.Drawing.Size(121, 20);
             this.txtYear2.TabIndex = 170;
+            this.txtYear2.Tag = "Year";
             // 
             // cmbMonth2
             // 
@@ -212,37 +248,7 @@
             this.cmbMonth2.Name = "cmbMonth2";
             this.cmbMonth2.Size = new System.Drawing.Size(121, 21);
             this.cmbMonth2.TabIndex = 169;
-            // 
-            // rdbBeforeOrEqual
-            // 
-            this.rdbBeforeOrEqual.AutoSize = true;
-            this.rdbBeforeOrEqual.Location = new System.Drawing.Point(3, 73);
-            this.rdbBeforeOrEqual.Name = "rdbBeforeOrEqual";
-            this.rdbBeforeOrEqual.Size = new System.Drawing.Size(85, 17);
-            this.rdbBeforeOrEqual.TabIndex = 4;
-            this.rdbBeforeOrEqual.Text = "On or Before";
-            this.rdbBeforeOrEqual.UseVisualStyleBackColor = true;
-            // 
-            // rdbAfterOrEqual
-            // 
-            this.rdbAfterOrEqual.AutoSize = true;
-            this.rdbAfterOrEqual.Location = new System.Drawing.Point(3, 96);
-            this.rdbAfterOrEqual.Name = "rdbAfterOrEqual";
-            this.rdbAfterOrEqual.Size = new System.Drawing.Size(76, 17);
-            this.rdbAfterOrEqual.TabIndex = 5;
-            this.rdbAfterOrEqual.Text = "On or After";
-            this.rdbAfterOrEqual.UseVisualStyleBackColor = true;
-            // 
-            // rdbBetween
-            // 
-            this.rdbBetween.AutoSize = true;
-            this.rdbBetween.Location = new System.Drawing.Point(3, 119);
-            this.rdbBetween.Name = "rdbBetween";
-            this.rdbBetween.Size = new System.Drawing.Size(67, 17);
-            this.rdbBetween.TabIndex = 6;
-            this.rdbBetween.Text = "Between";
-            this.rdbBetween.UseVisualStyleBackColor = true;
-            this.rdbBetween.CheckedChanged += new System.EventHandler(this.rdbBetween_CheckedChanged);
+            this.cmbMonth2.Tag = "Month";
             // 
             // SearchDate
             // 
@@ -268,6 +274,7 @@
             this.pnlOperator.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
+
         }
 
         #endregion

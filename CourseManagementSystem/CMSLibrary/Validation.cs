@@ -272,12 +272,67 @@ namespace CmsLibrary
                 if (!unitCodeRegex.IsMatch(control.Text))
                 {
                     if (error == null)
-                        MessageBox.Show($"{control.Tag} is invalid. It must be in the format: 6 Characters, 3 Numbers Eg. ICTWEB413.");
+                        MessageBox.Show($"{control.Tag} is invalid. It must be in the format: 6 Letters, 3 Numbers Eg. ICTWEB413.");
                     else
                         MessageBox.Show(error);
                 }
             }
             return true;
+        }
+
+        public static bool YearMonthDay(TextBox year, ComboBox month, TextBox day)
+        {
+            if (!Numeric(year))
+                return false;
+            else if (year.Int() < 0 || year.Int() > 9999)
+            {
+                MessageBox.Show($"Year {year.Int()} is out of range.");
+                return false;
+            }
+            if (!string.IsNullOrEmpty(day.Text))
+            {
+                if (!Numeric(day))
+                    return false;
+                else if (month.SelectedIndex == 0)
+                {
+                    MessageBox.Show("Day cannot be selected while Month has not been selected.");
+                    return false;
+                }
+                else if (!DayOfMonthInRange(year, month, day))
+                {
+                    MessageBox.Show($"Day number {day.Int()} is invalid for {month.Text}, {year.Int()}.");
+                    return false;
+                }
+            }
+            return true;
+        }
+
+        private static bool DayOfMonthInRange(TextBox year, ComboBox month, TextBox day)
+        {
+            if (day.Int() < 1)
+                return false;
+            switch (month.Int())
+            {
+                case 1:
+                case 3:
+                case 5:
+                case 7:
+                case 8:
+                case 10:
+                case 12:
+                    return !(day.Int() > 31);
+                case 4:
+                case 6:
+                case 9:
+                case 11:
+                    return !(day.Int() > 30);
+                case 2:
+                    if (year.Int() % 4 == 0)
+                        return !(day.Int() > 29);
+                    else
+                        return !(day.Int() > 28);
+            }
+            throw new Exception("How did you get here?");
         }
 
         public static bool Many(params Object[] all)

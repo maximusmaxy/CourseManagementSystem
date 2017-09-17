@@ -15,6 +15,11 @@ namespace CmsLibrary
 {
     public static class Extensions
     {
+        public static HashSet<Type> IntTypes { get; } = new HashSet<Type> { typeof(byte), typeof(short), typeof(int), typeof(long) };
+        public static HashSet<Type> FloatTypes { get; } = new HashSet<Type> { typeof(float), typeof(double) };
+
+        private static Regex camelCapitalRegex = new Regex(@"[A-Z]");
+
         /// <summary>
         /// Parses the controls text into an integer.
         /// </summary>
@@ -201,8 +206,9 @@ namespace CmsLibrary
             return split.First().ToString().ToUpper() + split.Substring(1);
         }
 
-        private static Regex camelCapitalRegex = new Regex(@"[A-Z]");
-
+        /// <summary>
+        /// Converts a database type string into a C# type object.
+        /// </summary>
         public static Type DatabaseType(string type)
         {
             string noIdentity = type.Replace(" identity", "");

@@ -60,6 +60,7 @@
             this.txtValue2.Name = "txtValue2";
             this.txtValue2.Size = new System.Drawing.Size(100, 20);
             this.txtValue2.TabIndex = 174;
+            this.txtValue2.Tag = "Cost";
             // 
             // label1
             // 
@@ -163,6 +164,7 @@
             this.txtValue.Name = "txtValue";
             this.txtValue.Size = new System.Drawing.Size(100, 20);
             this.txtValue.TabIndex = 170;
+            this.txtValue.Tag = "Cost";
             // 
             // SearchCost
             // 

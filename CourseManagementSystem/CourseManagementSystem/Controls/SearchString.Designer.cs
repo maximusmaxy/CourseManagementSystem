@@ -73,6 +73,7 @@
             this.txtString.Name = "txtString";
             this.txtString.Size = new System.Drawing.Size(100, 20);
             this.txtString.TabIndex = 163;
+            this.txtString.Tag = "Word";
             // 
             // lblValue
             // 

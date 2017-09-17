@@ -58,6 +58,7 @@
             this.Controls.Add(this.cmbType);
             this.Name = "SearchDictionary";
             this.Size = new System.Drawing.Size(654, 240);
+            this.Tag = "Type";
             this.ResumeLayout(false);
             this.PerformLayout();
 

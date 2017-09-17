@@ -43,6 +43,7 @@
             this.pnlOperator.Name = "pnlOperator";
             this.pnlOperator.Size = new System.Drawing.Size(100, 54);
             this.pnlOperator.TabIndex = 162;
+            this.pnlOperator.Tag = "Checked";
             // 
             // rdbNo
             // 

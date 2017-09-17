@@ -53,24 +53,11 @@ namespace CMS
 
         public bool ValidateControl()
         {
-            //year
-            if (!Validation.Numeric(txtYear))
-                return false;
-            else if (txtYear.Int() <= 0 || txtYear.Int() >= 9999)
-            {
-                MessageBox.Show("Year is out of range.");
-                return false;
-            }
-            //day
-            if (!string.IsNullOrEmpty(txtDay.Text) && (!Validation.Numeric(txtDay) || cmbMonth.SelectedIndex == 0))
+            if (!Validation.YearMonthDay(txtYear, cmbMonth, txtDay))
                 return false;
             if (rdbBetween.Checked)
             {
-                //year
-                if (!Validation.Numeric(txtYear2))
-                    return false;
-                //day
-                if (!string.IsNullOrEmpty(txtDay2.Text) && (!Validation.Numeric(txtDay2) || cmbMonth2.SelectedIndex == 0))
+                if (!Validation.YearMonthDay(txtYear2, cmbMonth2, txtDay2))
                     return false;
             }
             return true;

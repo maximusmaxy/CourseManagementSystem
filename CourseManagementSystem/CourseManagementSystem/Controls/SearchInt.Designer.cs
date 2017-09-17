@@ -30,6 +30,8 @@
         {
             this.txtValue = new System.Windows.Forms.TextBox();
             this.pnlOperator = new System.Windows.Forms.Panel();
+            this.rdbOrMore = new System.Windows.Forms.RadioButton();
+            this.rdbOrLess = new System.Windows.Forms.RadioButton();
             this.rdbBetween = new System.Windows.Forms.RadioButton();
             this.rdbGreaterThan = new System.Windows.Forms.RadioButton();
             this.rdbLessThan = new System.Windows.Forms.RadioButton();
@@ -38,8 +40,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.txtValue2 = new System.Windows.Forms.TextBox();
-            this.rdbOrLess = new System.Windows.Forms.RadioButton();
-            this.rdbOrMore = new System.Windows.Forms.RadioButton();
             this.pnlOperator.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -49,6 +49,7 @@
             this.txtValue.Name = "txtValue";
             this.txtValue.Size = new System.Drawing.Size(100, 20);
             this.txtValue.TabIndex = 160;
+            this.txtValue.Tag = "Number";
             // 
             // pnlOperator
             // 
@@ -62,6 +63,26 @@
             this.pnlOperator.Name = "pnlOperator";
             this.pnlOperator.Size = new System.Drawing.Size(100, 140);
             this.pnlOperator.TabIndex = 161;
+            // 
+            // rdbOrMore
+            // 
+            this.rdbOrMore.AutoSize = true;
+            this.rdbOrMore.Location = new System.Drawing.Point(4, 96);
+            this.rdbOrMore.Name = "rdbOrMore";
+            this.rdbOrMore.Size = new System.Drawing.Size(63, 17);
+            this.rdbOrMore.TabIndex = 5;
+            this.rdbOrMore.Text = "Or More";
+            this.rdbOrMore.UseVisualStyleBackColor = true;
+            // 
+            // rdbOrLess
+            // 
+            this.rdbOrLess.AutoSize = true;
+            this.rdbOrLess.Location = new System.Drawing.Point(4, 73);
+            this.rdbOrLess.Name = "rdbOrLess";
+            this.rdbOrLess.Size = new System.Drawing.Size(61, 17);
+            this.rdbOrLess.TabIndex = 4;
+            this.rdbOrLess.Text = "Or Less";
+            this.rdbOrLess.UseVisualStyleBackColor = true;
             // 
             // rdbBetween
             // 
@@ -143,26 +164,7 @@
             this.txtValue2.Name = "txtValue2";
             this.txtValue2.Size = new System.Drawing.Size(100, 20);
             this.txtValue2.TabIndex = 168;
-            // 
-            // rdbOrLess
-            // 
-            this.rdbOrLess.AutoSize = true;
-            this.rdbOrLess.Location = new System.Drawing.Point(4, 73);
-            this.rdbOrLess.Name = "rdbOrLess";
-            this.rdbOrLess.Size = new System.Drawing.Size(61, 17);
-            this.rdbOrLess.TabIndex = 4;
-            this.rdbOrLess.Text = "Or Less";
-            this.rdbOrLess.UseVisualStyleBackColor = true;
-            // 
-            // rdbOrMore
-            // 
-            this.rdbOrMore.AutoSize = true;
-            this.rdbOrMore.Location = new System.Drawing.Point(4, 96);
-            this.rdbOrMore.Name = "rdbOrMore";
-            this.rdbOrMore.Size = new System.Drawing.Size(63, 17);
-            this.rdbOrMore.TabIndex = 5;
-            this.rdbOrMore.Text = "Or More";
-            this.rdbOrMore.UseVisualStyleBackColor = true;
+            this.txtValue2.Tag = "Number";
             // 
             // SearchInt
             // 

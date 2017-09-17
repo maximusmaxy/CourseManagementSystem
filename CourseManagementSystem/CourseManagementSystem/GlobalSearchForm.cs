@@ -18,8 +18,9 @@ namespace CMS
         private class Table
         {
             public string Name { get; }
-            public BindingList<Column> Columns { get; }
             public Type Form { get; }
+            public List<Column> Columns { get; }
+            public List<Column> GroupBy { get; }
 
             public string Display => Name;
             public Table Value => this;
@@ -28,7 +29,7 @@ namespace CMS
             {
                 Name = name;
                 Form = form;
-                Columns = new BindingList<Column>();
+                Columns = new List<Column>();
                 foreach (SqlDataReader row in Database.StoredProcedure(
                     "sp_columns", new SqlParameter("@table_name", name))) {
                     Columns.Add(new Column(
@@ -36,12 +37,14 @@ namespace CMS
                         Extensions.CamelToHuman((string)row["COLUMN_NAME"]),
                         Extensions.DatabaseType((string)row["TYPE_NAME"])));
                 }
+                GroupBy = new List<Column> { new Column(null, "(Not Selected)", null) };
+                GroupBy.AddRange(Columns);
             }
 
             public void AddDictionary(string columnName, Dictionary<string, int> dictionary)
             {
                 Column column = Columns.First(c => c.Name.Equals(columnName, StringComparison.InvariantCultureIgnoreCase));
-                column.Dictionary = new BindingList<Data<int>>(dictionary.Select((kvp) => new Data<int>(kvp.Key, kvp.Value)).ToList());
+                column.Dictionary = new List<Data<int>>(dictionary.Select((kvp) => new Data<int>(kvp.Key, kvp.Value)).ToList());
                 column.DataType = typeof(Dictionary<string, int>);
             }
         }
@@ -51,7 +54,7 @@ namespace CMS
             public string Name { get; }
             public string Display { get; }
             public Type DataType { get; set; }
-            public BindingList<Data<int>> Dictionary { get; set; }
+            public List<Data<int>> Dictionary { get; set; }
 
             public Column Value => this;
 
@@ -63,24 +66,34 @@ namespace CMS
             }
         }
 
-        BindingList<Table> tables;
-        Dictionary<Type, UserControl> userControls;
+        private List<Table> tables;
+        private Dictionary<Type, UserControl> userControls;
+        private UserControl ucSearch;
+
+        private StringBuilder select;
+        private StringBuilder sb;
+        private StringBuilder groupBy;
 
         public GlobalSearchForm()
         {
             InitializeComponent();
+            select = new StringBuilder();
+            sb = new StringBuilder();
+            groupBy = new StringBuilder();
             LoadTables();
             LoadControls();
             cmbColumns.DisplayMember = "Display";
             cmbColumns.ValueMember = "Value";
             cmbTables.DisplayMember = "Display";
             cmbTables.ValueMember = "Value";
+            cmbGroupBy.DisplayMember = "Display";
+            cmbGroupBy.ValueMember = "Value";
             cmbTables.DataSource = tables;
         }
 
         private void LoadTables()
         {
-            tables = new BindingList<Table>();
+            tables = new List<Table>();
             Table table = new Table("Students", typeof(StudentForm));
             table.AddDictionary("studentGender", Types.GenderType);
             tables.Add(table);
@@ -105,7 +118,7 @@ namespace CMS
 
         private void AddLookUpTable(string tableName, string display, string value)
         {
-            BindingList<Data<int>> dictionary = new BindingList<Data<int>>();
+            List<Data<int>> dictionary = new List<Data<int>>();
             foreach (SqlDataReader row in Database.ExecuteQuery(
                 $"select {display} as Display, {value} as Value from {tableName}"))
             {
@@ -125,7 +138,8 @@ namespace CMS
         private void LoadControls()
         {
             userControls = new Dictionary<Type, UserControl>();
-            userControls[typeof(int)] = ucSearch;
+            ucSearch = searchInt;
+            userControls[typeof(int)] = searchInt;
             AddUserControl(typeof(SearchDate), typeof(DateTime));
             AddUserControl(typeof(SearchBool), typeof(bool));
             AddUserControl(typeof(SearchCost), typeof(double));
@@ -162,8 +176,8 @@ namespace CMS
         private void cmbTables_SelectedIndexChanged(object sender, EventArgs e)
         {
             cmbColumns.DataSource = cmbTables.Get<Table>().Columns;
+            cmbGroupBy.DataSource = cmbTables.Get<Table>().GroupBy;
         }
-
 
         private void cmbColumns_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -172,22 +186,114 @@ namespace CMS
 
         private void btnNewSearch_Click(object sender, EventArgs e)
         {
-            StringBuilder sb = new StringBuilder("select * from ");
-            sb.Append(cmbTables.Get<Table>().Name);
-            sb.Append(" where ");
-            sb.Append(cmbColumns.Get<Column>().Name);
-            ISearchControl control = (ISearchControl)ucSearch;
-            control.Append(sb);
+            if (!Validation.Many(ucSearch))
+                return;
+            sb.Clear();
+            AppendSelect();
+            AppendFrom();
+            AppendWhere();
+            AppendGroupBy();
             string debug = sb.ToString();
-            dgvSearch.DataSource = Database.CreateDataTable(sb.ToString());
+            LoadDataGridViews();
         }
 
         private void btnAddSearch_Click(object sender, EventArgs e)
         {
-            if (dgvSearch.DataSource == null)
+            if (sb.Length == 0)
             {
                 btnNewSearch_Click(sender, e);
+                return;
             }
+            if (!Validation.Many(ucSearch))
+                return;
+            AppendSelect();
+            AppendAnd();
+            AppendGroupBy();
+            string debug = sb.ToString();
+            LoadDataGridViews();
+        }
+
+        private void AppendSelect()
+        {
+            select.Clear();
+            select.Append("select ");
+            if (cmbGroupBy.SelectedIndex == 0)
+            {
+                select.Append("* ");
+            }
+            else
+            {
+                select.Append(cmbGroupBy.Get<Column>().Name);
+                select.Append(" as '");
+                select.Append(cmbGroupBy.Get<Column>().Display);
+                select.Append("', count(");
+                select.Append(cmbGroupBy.Get<Column>().Name);
+                select.Append(") as 'Count' ");
+            }
+        }
+
+        private void AppendFrom()
+        {
+            sb.Append("from ");
+            sb.Append(cmbTables.Get<Table>().Name);
+        }
+
+        private void AppendWhere()
+        {
+            sb.Append(" where ");
+            AppendCondition();
+        }
+
+        private void AppendAnd()
+        {
+            sb.Append(" and ");
+            AppendCondition();
+        }
+
+        private void AppendCondition()
+        {
+            sb.Append(cmbColumns.Get<Column>().Name);
+            ISearchControl control = (ISearchControl)ucSearch;
+            control.Append(sb);
+        }
+
+        private void AppendGroupBy()
+        {
+            groupBy.Clear();
+            if (cmbGroupBy.SelectedIndex != 0)
+            {
+                groupBy.Append(" group by ");
+                groupBy.Append(cmbGroupBy.Get<Column>().Name);
+            }
+        }
+
+        private void LoadDataGridViews()
+        {
+            string sql = select.ToString() + sb.ToString() + groupBy.ToString();
+            DataTable dataTable = Database.CreateDataTable(sql);
+            if (dataTable.Rows.Count == 0)
+            {
+                dgvSearch.DataSource = null;
+                dgvTotals.DataSource = null;
+                MessageBox.Show("Search found no results.");
+                return;
+            }
+            DataTable totalTable = new DataTable();
+            totalTable.Columns.Add("Row Total", typeof(int));
+            foreach (DataColumn column in dataTable.Columns)
+                totalTable.Columns.Add(new DataColumn(column.ColumnName, column.DataType));
+            DataRow totals = totalTable.NewRow();
+            totals.SetField(0, dataTable.Rows.Count);
+            for (int i = 0; i < dataTable.Columns.Count; i++)
+            {
+                if (Extensions.IntTypes.Contains(dataTable.Columns[i].DataType))
+                    totals[i + 1] = dataTable.AsEnumerable().Aggregate(0, (a, r) => a += Convert.ToInt32(r[i]));
+                else if (Extensions.FloatTypes.Contains(dataTable.Columns[i].DataType))
+                    totals[i + 1] = dataTable.AsEnumerable().Aggregate(0.0, (a, r) => a += Convert.ToDouble(r[i]));
+            }
+            totalTable.Rows.Add(totals);
+            dgvSearch.DataSource = dataTable;
+            dgvTotals.DataSource = totalTable;
         }
 
         private void dgvSearch_CellDoubleClick(object sender, DataGridViewCellEventArgs e)

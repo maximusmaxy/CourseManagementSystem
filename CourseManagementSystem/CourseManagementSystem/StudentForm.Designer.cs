@@ -102,6 +102,8 @@
             this.label18 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
             this.label20 = new System.Windows.Forms.Label();
+            this.panel9 = new System.Windows.Forms.Panel();
+            this.btnClearForm = new System.Windows.Forms.Button();
             this.panel7.SuspendLayout();
             this.panel5.SuspendLayout();
             this.panel8.SuspendLayout();
@@ -112,6 +114,7 @@
             this.menuStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.pnlGender.SuspendLayout();
+            this.panel9.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -137,6 +140,7 @@
             // panel5
             // 
             this.panel5.BackColor = System.Drawing.Color.MediumSlateBlue;
+            this.panel5.Controls.Add(this.panel9);
             this.panel5.Controls.Add(this.panel8);
             this.panel5.Controls.Add(this.panel4);
             this.panel5.Controls.Add(this.panel3);
@@ -161,10 +165,10 @@
             // 
             this.btnViewAll.BackColor = System.Drawing.Color.White;
             this.btnViewAll.Image = global::CMS.Properties.Resources.ViewAllButton;
-            this.btnViewAll.Location = new System.Drawing.Point(3, 3);
+            this.btnViewAll.Location = new System.Drawing.Point(3, 2);
             this.btnViewAll.Name = "btnViewAll";
             this.btnViewAll.Size = new System.Drawing.Size(120, 45);
-            this.btnViewAll.TabIndex = 20;
+            this.btnViewAll.TabIndex = 59;
             this.btnViewAll.UseVisualStyleBackColor = false;
             this.btnViewAll.Click += new System.EventHandler(this.btnViewAll_Click);
             // 
@@ -184,7 +188,7 @@
             this.btnDelete.Location = new System.Drawing.Point(3, 3);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(119, 44);
-            this.btnDelete.TabIndex = 19;
+            this.btnDelete.TabIndex = 58;
             this.btnDelete.UseVisualStyleBackColor = false;
             this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
@@ -204,7 +208,7 @@
             this.btnUpdate.Location = new System.Drawing.Point(3, 3);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(120, 45);
-            this.btnUpdate.TabIndex = 18;
+            this.btnUpdate.TabIndex = 57;
             this.btnUpdate.UseVisualStyleBackColor = false;
             this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
@@ -224,7 +228,7 @@
             this.btnAdd.Location = new System.Drawing.Point(3, 3);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(120, 45);
-            this.btnAdd.TabIndex = 16;
+            this.btnAdd.TabIndex = 55;
             this.btnAdd.UseVisualStyleBackColor = false;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
@@ -244,7 +248,7 @@
             this.btnSearch.Location = new System.Drawing.Point(3, 3);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(120, 45);
-            this.btnSearch.TabIndex = 17;
+            this.btnSearch.TabIndex = 56;
             this.btnSearch.UseVisualStyleBackColor = false;
             this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
@@ -611,7 +615,8 @@
             this.txtId.Size = new System.Drawing.Size(174, 20);
             this.txtId.TabIndex = 1;
             this.txtId.Tag = "Student ID";
-            this.ToolTips.SetToolTip(this.txtId, "Insert a Numeric value for the Student ID, using 0-9 numbers Only");
+            this.ToolTips.SetToolTip(this.txtId, "Use for Search, Update and Delete functions only\r\n[Insert a Numeric value for the" +
+        " ID]");
             // 
             // txtFirstName
             // 
@@ -637,7 +642,7 @@
             this.dtpDateOfBirth.Location = new System.Drawing.Point(215, 430);
             this.dtpDateOfBirth.Name = "dtpDateOfBirth";
             this.dtpDateOfBirth.Size = new System.Drawing.Size(174, 20);
-            this.dtpDateOfBirth.TabIndex = 9;
+            this.dtpDateOfBirth.TabIndex = 10;
             this.dtpDateOfBirth.Tag = "Date of birth";
             this.ToolTips.SetToolTip(this.dtpDateOfBirth, resources.GetString("dtpDateOfBirth.ToolTip"));
             // 
@@ -646,7 +651,7 @@
             this.txtEmail.Location = new System.Drawing.Point(215, 467);
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(358, 20);
-            this.txtEmail.TabIndex = 10;
+            this.txtEmail.TabIndex = 11;
             this.txtEmail.Tag = "Email";
             this.ToolTips.SetToolTip(this.txtEmail, "Please insert the Student Email here, Must contain one @ symbol");
             // 
@@ -668,7 +673,7 @@
             this.cmbCountryOfOrigin.Location = new System.Drawing.Point(215, 499);
             this.cmbCountryOfOrigin.Name = "cmbCountryOfOrigin";
             this.cmbCountryOfOrigin.Size = new System.Drawing.Size(125, 21);
-            this.cmbCountryOfOrigin.TabIndex = 11;
+            this.cmbCountryOfOrigin.TabIndex = 12;
             this.cmbCountryOfOrigin.Tag = "Country of Origin";
             this.ToolTips.SetToolTip(this.cmbCountryOfOrigin, "Select the country of birth from the provided list");
             // 
@@ -688,7 +693,7 @@
             this.rdbMale.Location = new System.Drawing.Point(3, 3);
             this.rdbMale.Name = "rdbMale";
             this.rdbMale.Size = new System.Drawing.Size(48, 17);
-            this.rdbMale.TabIndex = 12;
+            this.rdbMale.TabIndex = 13;
             this.rdbMale.TabStop = true;
             this.rdbMale.Tag = "Male";
             this.rdbMale.Text = "Male";
@@ -701,7 +706,7 @@
             this.rdbFemale.Location = new System.Drawing.Point(76, 3);
             this.rdbFemale.Name = "rdbFemale";
             this.rdbFemale.Size = new System.Drawing.Size(59, 17);
-            this.rdbFemale.TabIndex = 13;
+            this.rdbFemale.TabIndex = 14;
             this.rdbFemale.TabStop = true;
             this.rdbFemale.Tag = "Female";
             this.rdbFemale.Text = "Female";
@@ -724,7 +729,7 @@
             this.chkDisability.Location = new System.Drawing.Point(213, 567);
             this.chkDisability.Name = "chkDisability";
             this.chkDisability.Size = new System.Drawing.Size(44, 17);
-            this.chkDisability.TabIndex = 14;
+            this.chkDisability.TabIndex = 17;
             this.chkDisability.Tag = "Disability";
             this.chkDisability.Text = "Yes";
             this.ToolTips.SetToolTip(this.chkDisability, "Select this option if the Student has a Disability");
@@ -738,7 +743,7 @@
             this.txtDisabilityDescription.Multiline = true;
             this.txtDisabilityDescription.Name = "txtDisabilityDescription";
             this.txtDisabilityDescription.Size = new System.Drawing.Size(357, 81);
-            this.txtDisabilityDescription.TabIndex = 15;
+            this.txtDisabilityDescription.TabIndex = 18;
             this.txtDisabilityDescription.Tag = "Disability Description";
             this.ToolTips.SetToolTip(this.txtDisabilityDescription, "Please describe the Disability here Only if you have selected Yes to having a Dis" +
         "ability");
@@ -748,17 +753,17 @@
             this.txtContactNumber.Location = new System.Drawing.Point(215, 404);
             this.txtContactNumber.Name = "txtContactNumber";
             this.txtContactNumber.Size = new System.Drawing.Size(358, 20);
-            this.txtContactNumber.TabIndex = 78;
-            this.txtContactNumber.Tag = "Email";
+            this.txtContactNumber.TabIndex = 9;
+            this.txtContactNumber.Tag = "Contact Number";
             this.ToolTips.SetToolTip(this.txtContactNumber, "Please insert the Student Email here, Must contain one @ symbol");
             // 
             // chkCentrelink
             // 
             this.chkCentrelink.AutoSize = true;
-            this.chkCentrelink.Location = new System.Drawing.Point(215, 535);
+            this.chkCentrelink.Location = new System.Drawing.Point(455, 538);
             this.chkCentrelink.Name = "chkCentrelink";
             this.chkCentrelink.Size = new System.Drawing.Size(44, 17);
-            this.chkCentrelink.TabIndex = 80;
+            this.chkCentrelink.TabIndex = 16;
             this.chkCentrelink.Tag = "CentreLink";
             this.chkCentrelink.Text = "Yes";
             this.ToolTips.SetToolTip(this.chkCentrelink, "Select this option if the Student has a Disability");
@@ -767,10 +772,10 @@
             // chkDropKick
             // 
             this.chkDropKick.AutoSize = true;
-            this.chkDropKick.Location = new System.Drawing.Point(529, 535);
+            this.chkDropKick.Location = new System.Drawing.Point(296, 538);
             this.chkDropKick.Name = "chkDropKick";
             this.chkDropKick.Size = new System.Drawing.Size(44, 17);
-            this.chkDropKick.TabIndex = 82;
+            this.chkDropKick.TabIndex = 15;
             this.chkDropKick.Tag = "CentreLink";
             this.chkDropKick.Text = "Yes";
             this.ToolTips.SetToolTip(this.chkDropKick, "Select this option if the Student has a Disability");
@@ -826,6 +831,27 @@
             this.label20.TabIndex = 83;
             this.label20.Text = "Aboriginal/Torres Strait Islander:";
             // 
+            // panel9
+            // 
+            this.panel9.BackColor = System.Drawing.Color.PaleGreen;
+            this.panel9.Controls.Add(this.btnClearForm);
+            this.panel9.Location = new System.Drawing.Point(4, 472);
+            this.panel9.Name = "panel9";
+            this.panel9.Size = new System.Drawing.Size(125, 50);
+            this.panel9.TabIndex = 23;
+            // 
+            // btnClearForm
+            // 
+            this.btnClearForm.BackColor = System.Drawing.Color.White;
+            this.btnClearForm.Image = global::CMS.Properties.Resources.ClearFormButton;
+            this.btnClearForm.Location = new System.Drawing.Point(2, 3);
+            this.btnClearForm.Name = "btnClearForm";
+            this.btnClearForm.Size = new System.Drawing.Size(120, 45);
+            this.btnClearForm.TabIndex = 60;
+            this.btnClearForm.Tag = "Clear Form";
+            this.btnClearForm.UseVisualStyleBackColor = false;
+            this.btnClearForm.Click += new System.EventHandler(this.btnClearForm_Click);
+            // 
             // StudentForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -877,6 +903,7 @@
             this.panel1.PerformLayout();
             this.pnlGender.ResumeLayout(false);
             this.pnlGender.PerformLayout();
+            this.panel9.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -956,5 +983,7 @@
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.CheckBox chkDropKick;
         private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.Panel panel9;
+        private System.Windows.Forms.Button btnClearForm;
     }
 }

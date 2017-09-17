@@ -80,6 +80,8 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
+            this.panel9 = new System.Windows.Forms.Panel();
+            this.btnClearForm = new System.Windows.Forms.Button();
             this.panel5.SuspendLayout();
             this.panel8.SuspendLayout();
             this.panel4.SuspendLayout();
@@ -89,6 +91,7 @@
             this.panel7.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
+            this.panel9.SuspendLayout();
             this.SuspendLayout();
             // 
             // txtLastName
@@ -115,7 +118,8 @@
             this.txtId.Name = "txtId";
             this.txtId.Size = new System.Drawing.Size(149, 20);
             this.txtId.TabIndex = 1;
-            this.ToolTips.SetToolTip(this.txtId, "Insert a Numeric value for the Teacher ID, using 0-9 numbers Only");
+            this.ToolTips.SetToolTip(this.txtId, "Use for Search, Update and Delete functions only\r\n[Insert a Numeric value for the" +
+        " ID]");
             // 
             // label13
             // 
@@ -198,6 +202,7 @@
             // panel5
             // 
             this.panel5.BackColor = System.Drawing.Color.MediumSlateBlue;
+            this.panel5.Controls.Add(this.panel9);
             this.panel5.Controls.Add(this.panel8);
             this.panel5.Controls.Add(this.panel4);
             this.panel5.Controls.Add(this.panel3);
@@ -213,7 +218,7 @@
             // 
             this.panel8.BackColor = System.Drawing.Color.Plum;
             this.panel8.Controls.Add(this.btnViewAll);
-            this.panel8.Location = new System.Drawing.Point(4, 413);
+            this.panel8.Location = new System.Drawing.Point(4, 338);
             this.panel8.Name = "panel8";
             this.panel8.Size = new System.Drawing.Size(125, 50);
             this.panel8.TabIndex = 22;
@@ -222,7 +227,7 @@
             // 
             this.btnViewAll.BackColor = System.Drawing.Color.White;
             this.btnViewAll.Image = global::CMS.Properties.Resources.ViewAllButton;
-            this.btnViewAll.Location = new System.Drawing.Point(3, 3);
+            this.btnViewAll.Location = new System.Drawing.Point(2, 3);
             this.btnViewAll.Name = "btnViewAll";
             this.btnViewAll.Size = new System.Drawing.Size(120, 45);
             this.btnViewAll.TabIndex = 13;
@@ -233,7 +238,7 @@
             // 
             this.panel4.BackColor = System.Drawing.Color.Plum;
             this.panel4.Controls.Add(this.btnDelete);
-            this.panel4.Location = new System.Drawing.Point(3, 350);
+            this.panel4.Location = new System.Drawing.Point(4, 278);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(125, 50);
             this.panel4.TabIndex = 21;
@@ -253,7 +258,7 @@
             // 
             this.panel3.BackColor = System.Drawing.Color.Plum;
             this.panel3.Controls.Add(this.btnUpdate);
-            this.panel3.Location = new System.Drawing.Point(3, 281);
+            this.panel3.Location = new System.Drawing.Point(4, 222);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(125, 50);
             this.panel3.TabIndex = 21;
@@ -273,7 +278,7 @@
             // 
             this.panel2.BackColor = System.Drawing.Color.Plum;
             this.panel2.Controls.Add(this.btnAdd);
-            this.panel2.Location = new System.Drawing.Point(4, 150);
+            this.panel2.Location = new System.Drawing.Point(4, 109);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(125, 50);
             this.panel2.TabIndex = 21;
@@ -282,7 +287,7 @@
             // 
             this.btnAdd.BackColor = System.Drawing.Color.White;
             this.btnAdd.Image = global::CMS.Properties.Resources.AddButton;
-            this.btnAdd.Location = new System.Drawing.Point(3, 3);
+            this.btnAdd.Location = new System.Drawing.Point(3, 2);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(120, 45);
             this.btnAdd.TabIndex = 9;
@@ -293,7 +298,7 @@
             // 
             this.panel6.BackColor = System.Drawing.Color.Plum;
             this.panel6.Controls.Add(this.btnSearch);
-            this.panel6.Location = new System.Drawing.Point(3, 214);
+            this.panel6.Location = new System.Drawing.Point(3, 166);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(125, 50);
             this.panel6.TabIndex = 19;
@@ -531,6 +536,27 @@
             this.label5.TabIndex = 77;
             this.label5.Text = "Contact Number:";
             // 
+            // panel9
+            // 
+            this.panel9.BackColor = System.Drawing.Color.Plum;
+            this.panel9.Controls.Add(this.btnClearForm);
+            this.panel9.Location = new System.Drawing.Point(4, 394);
+            this.panel9.Name = "panel9";
+            this.panel9.Size = new System.Drawing.Size(125, 50);
+            this.panel9.TabIndex = 78;
+            // 
+            // btnClearForm
+            // 
+            this.btnClearForm.BackColor = System.Drawing.Color.White;
+            this.btnClearForm.Image = global::CMS.Properties.Resources.ClearFormButton;
+            this.btnClearForm.Location = new System.Drawing.Point(2, 3);
+            this.btnClearForm.Name = "btnClearForm";
+            this.btnClearForm.Size = new System.Drawing.Size(120, 45);
+            this.btnClearForm.TabIndex = 19;
+            this.btnClearForm.Tag = "Clear Form";
+            this.btnClearForm.UseVisualStyleBackColor = false;
+            this.btnClearForm.Click += new System.EventHandler(this.btnClearForm_Click);
+            // 
             // TeacherForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -568,6 +594,7 @@
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
+            this.panel9.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -625,5 +652,7 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox txtContactNumber;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Panel panel9;
+        private System.Windows.Forms.Button btnClearForm;
     }
 }

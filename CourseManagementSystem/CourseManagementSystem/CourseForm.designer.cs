@@ -469,7 +469,8 @@
             this.txtCourseID.Size = new System.Drawing.Size(332, 20);
             this.txtCourseID.TabIndex = 1;
             this.txtCourseID.Tag = "Course ID";
-            this.ToolTips.SetToolTip(this.txtCourseID, "Insert a Numeric value for the Course ID, using 0-9 numbers Only");
+            this.ToolTips.SetToolTip(this.txtCourseID, "Use for Search, Update and Delete functions only\r\n[Insert a Numeric value for the" +
+        " ID]");
             // 
             // rbtnFTF
             // 

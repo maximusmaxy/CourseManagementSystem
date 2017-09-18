@@ -16,6 +16,8 @@ namespace CMS
         public EnrolmentForm()
         {
             InitializeComponent();
+            Forms.FillData(cmbAreaOfStudy, "departments", "departmentname", "departmentid");
+
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
@@ -23,7 +25,7 @@ namespace CMS
             //this is add button code is stupid for some reason.
             if (!Validation.Many(
                 txtId.ValidateNumeric(),
-                txtCourseId.ValidateNumeric(),
+                cmbCourseName,
                 dtpCompletion,
                 pnlSemester,
                 pnlCourseResults
@@ -38,7 +40,7 @@ namespace CMS
                 Enrolment enrolment = new Enrolment()
                 {
                     StudentId = txtId.Int(),
-                    CourseId = txtCourseId.Int(),
+                    CourseId = cmbCourseName.Int(),
                     EnrolmentDate = dtpEnrolment.Value,
                     CompletionDate = dtpCompletion.Value,
                     Semester = Forms.RadioValue(pnlSemester, Types.Semester),
@@ -69,7 +71,7 @@ namespace CMS
 
                 if (enrolment.Search())
                 {
-                    txtCourseId.Text = enrolment.CourseId.ToString();
+                    cmbCourseName.SelectedValue = enrolment.CourseId;
                     txtEnrolmentCost.Text = enrolment.EnrolmentCost.ToString();
                     txtDiscountCost.Text = enrolment.DiscountCost.ToString();
                     dtpEnrolment.Value = enrolment.EnrolmentDate;
@@ -85,7 +87,7 @@ namespace CMS
         {
             if (!Validation.Many(
                 txtId.ValidateNumeric(),
-                txtCourseId.ValidateNumeric(),
+                cmbCourseName,
                 pnlSemester,
                 pnlCourseResults
                 ))
@@ -99,7 +101,7 @@ namespace CMS
                 Enrolment enrolment = new Enrolment()
                 {
                     Id = txtId.Int(),
-                    CourseId = int.Parse(txtCourseId.Text),
+                    CourseId = cmbCourseName.Int(),
                     EnrolmentDate = dtpEnrolment.Value,
                     CompletionDate = dtpCompletion.Value,
                     EnrolmentCost = int.Parse(txtEnrolmentCost.Text),
@@ -152,7 +154,7 @@ namespace CMS
 
                         txtEnrolmentId.Text = enrolment.Id.ToString();
                         txtId.Text = enrolment.StudentId.ToString();
-                        txtCourseId.Text = enrolment.CourseId.ToString();
+                        cmbCourseName.SelectedValue = enrolment.CourseId;
                         txtEnrolmentCost.Text = enrolment.EnrolmentCost.ToString();
                         txtDiscountCost.Text = enrolment.DiscountCost.ToString();
                         dtpEnrolment.Value = enrolment.EnrolmentDate;
@@ -163,44 +165,70 @@ namespace CMS
                 }
             }
         }
-
-        private void CourseId_LostFocus(object sender, EventArgs e)
+        private void cmbAreaOfStudy_SelectedIndexChanged(object sender, EventArgs e)
         {
+            if (!Validation.Many(
+                txtId.ValidateNumeric(),
+                cmbCourseName))
 
-            Course course = new Course() { Id = txtCourseId.Int() };
-            Student student = new Student() { Id = txtId.Int()};
-            double discount = 0.0;
-            double total = 0.0;
-            if (!course.Search()) {
-                return;
-            }
-            if (!student.Search())
             {
                 return;
             }
-            if (student.Aboriginal)
             {
-                discount = course.Cost * 0.5;
+                Forms.FillData(cmbCourseName, "Courses", "coursename", "courseid", "departmentid", cmbAreaOfStudy.SelectedValue);
+                //Forms.FillData(lstUnitslist, "units", "unitname", "unitid", "departmentid", cmbAreaOfStudy.SelectedValue);
             }
-            else if (student.Centrelink)
+        }
+        private void CourseId_SelectedIndexChanged(object sender, EventArgs e)
+        {
             {
-                discount = course.Cost * 0.2;
-            }
-            else if (student.Disability && student.Centrelink)
-            {
-                discount = course.Cost * 0.4;
-            }
-            else if (student.Aboriginal && student.Disability && student.Centrelink) {
-                discount = course.Cost * 0.9;
-            }
-            else
-            {
-                discount = 0.0;
-            }
+                if (!Validation.Many(
+                    txtId.ValidateNumeric(),
+                    cmbCourseName))
+
+                {
+                    return;
+                }
+                Course course = new Course() { Id = cmbCourseName.Int() };
+                Student student = new Student() { Id = txtId.Int() };
+                double discount = 0.0;
+                double total = 0.0;
+                //if(txtId.Text == null) { discount = 0.0; }
+                if (!course.Search())
+                {
+                    return;
+                }
+                if (!student.Search())
+                {
+                    return;
+                }
+
+                if (student.Aboriginal)
+                {
+                    discount = course.Cost * 0.5;
+                }
+                else if (student.Centrelink)
+                {
+                    discount = course.Cost * 0.2;
+                }
+                else if (student.Disability && student.Centrelink)
+                {
+                    discount = course.Cost * 0.4;
+                }
+                else if (student.Aboriginal && student.Disability && student.Centrelink)
+                {
+                    discount = course.Cost * 0.9;
+                }
+                else
+                {
+                    discount = 0.0;
+                }
 
                 txtEnrolmentCost.Text = course.Cost.ToString();
                 txtDiscountCost.Text = discount.ToString();
+                total = course.Cost - discount;
                 txtTotal.Text = total.ToString();
+            }
         }
     }
 }

@@ -303,6 +303,11 @@ namespace CMS
             Forms.ClearControls(this);
         }
 
+        private void StudentForm_Load(object sender, EventArgs e)
+        {
+
+        }
+
 
 
 

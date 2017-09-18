@@ -31,7 +31,6 @@
             this.components = new System.ComponentModel.Container();
             this.ToolTips = new System.Windows.Forms.ToolTip(this.components);
             this.dtpEnrolment = new System.Windows.Forms.DateTimePicker();
-            this.txtCourseId = new System.Windows.Forms.TextBox();
             this.txtId = new System.Windows.Forms.TextBox();
             this.txtEnrolmentId = new System.Windows.Forms.TextBox();
             this.dtpCompletion = new System.Windows.Forms.DateTimePicker();
@@ -44,6 +43,7 @@
             this.rdbNotComplete = new System.Windows.Forms.RadioButton();
             this.rdbPass = new System.Windows.Forms.RadioButton();
             this.rdbFail = new System.Windows.Forms.RadioButton();
+            this.txtTotal = new System.Windows.Forms.TextBox();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.backgroundWorker2 = new System.ComponentModel.BackgroundWorker();
             this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
@@ -87,8 +87,10 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.txtTotal = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
+            this.cmbAreaOfStudy = new System.Windows.Forms.ComboBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.cmbCourseName = new System.Windows.Forms.ComboBox();
             this.pnlSemester.SuspendLayout();
             this.pnlCourseResults.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
@@ -111,16 +113,6 @@
             this.dtpEnrolment.TabIndex = 50;
             this.dtpEnrolment.Tag = "EnrolmentDate";
             this.ToolTips.SetToolTip(this.dtpEnrolment, "Insert the Current Date this Enrolment was completed on");
-            // 
-            // txtCourseId
-            // 
-            this.txtCourseId.Location = new System.Drawing.Point(209, 178);
-            this.txtCourseId.Name = "txtCourseId";
-            this.txtCourseId.Size = new System.Drawing.Size(293, 20);
-            this.txtCourseId.TabIndex = 49;
-            this.txtCourseId.Tag = "CourseId";
-            this.ToolTips.SetToolTip(this.txtCourseId, "Insert the Course ID here using Numeric Characters Only!");
-            this.txtCourseId.Leave += new System.EventHandler(this.CourseId_LostFocus);
             // 
             // txtId
             // 
@@ -254,6 +246,16 @@
             this.rdbFail.Tag = "CourseFail";
             this.rdbFail.Text = "Fail";
             this.rdbFail.UseVisualStyleBackColor = true;
+            // 
+            // txtTotal
+            // 
+            this.txtTotal.Enabled = false;
+            this.txtTotal.Location = new System.Drawing.Point(206, 393);
+            this.txtTotal.Name = "txtTotal";
+            this.txtTotal.Size = new System.Drawing.Size(295, 20);
+            this.txtTotal.TabIndex = 83;
+            this.txtTotal.Tag = "DiscountCost";
+            this.ToolTips.SetToolTip(this.txtTotal, "This is the Final amount including discounts for the Enrolment");
             // 
             // btnSearch
             // 
@@ -562,11 +564,11 @@
             // 
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(109, 177);
+            this.label12.Location = new System.Drawing.Point(80, 206);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(92, 21);
+            this.label12.Size = new System.Drawing.Size(116, 21);
             this.label12.TabIndex = 64;
-            this.label12.Text = "Course ID:";
+            this.label12.Text = "Course Name:";
             // 
             // label8
             // 
@@ -618,16 +620,6 @@
             this.label7.TabIndex = 79;
             this.label7.Text = "Course Results:";
             // 
-            // txtTotal
-            // 
-            this.txtTotal.Enabled = false;
-            this.txtTotal.Location = new System.Drawing.Point(206, 393);
-            this.txtTotal.Name = "txtTotal";
-            this.txtTotal.Size = new System.Drawing.Size(295, 20);
-            this.txtTotal.TabIndex = 83;
-            this.txtTotal.Tag = "DiscountCost";
-            this.ToolTips.SetToolTip(this.txtTotal, "This is the Final amount including discounts for the Enrolment");
-            // 
             // label9
             // 
             this.label9.AutoSize = true;
@@ -638,12 +630,47 @@
             this.label9.TabIndex = 84;
             this.label9.Text = "Total Cost:";
             // 
+            // cmbAreaOfStudy
+            // 
+            this.cmbAreaOfStudy.DisplayMember = "Area of study";
+            this.cmbAreaOfStudy.FormattingEnabled = true;
+            this.cmbAreaOfStudy.Items.AddRange(new object[] {
+            "<please select>"});
+            this.cmbAreaOfStudy.Location = new System.Drawing.Point(206, 177);
+            this.cmbAreaOfStudy.Name = "cmbAreaOfStudy";
+            this.cmbAreaOfStudy.Size = new System.Drawing.Size(298, 21);
+            this.cmbAreaOfStudy.TabIndex = 106;
+            this.cmbAreaOfStudy.ValueMember = "Area of study";
+            this.cmbAreaOfStudy.SelectedIndexChanged += new System.EventHandler(this.cmbAreaOfStudy_SelectedIndexChanged);
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Location = new System.Drawing.Point(80, 177);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(119, 21);
+            this.label10.TabIndex = 107;
+            this.label10.Text = "Area of Study:";
+            // 
+            // cmbCourseName
+            // 
+            this.cmbCourseName.FormattingEnabled = true;
+            this.cmbCourseName.Location = new System.Drawing.Point(206, 205);
+            this.cmbCourseName.Name = "cmbCourseName";
+            this.cmbCourseName.Size = new System.Drawing.Size(298, 21);
+            this.cmbCourseName.TabIndex = 108;
+            this.cmbCourseName.SelectedIndexChanged += new System.EventHandler(this.CourseId_SelectedIndexChanged);
+            // 
             // EnrolmentForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Lavender;
             this.ClientSize = new System.Drawing.Size(744, 507);
+            this.Controls.Add(this.cmbCourseName);
+            this.Controls.Add(this.cmbAreaOfStudy);
+            this.Controls.Add(this.label10);
             this.Controls.Add(this.txtTotal);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.pnlCourseResults);
@@ -657,7 +684,6 @@
             this.Controls.Add(this.dtpCompletion);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.dtpEnrolment);
-            this.Controls.Add(this.txtCourseId);
             this.Controls.Add(this.txtId);
             this.Controls.Add(this.txtEnrolmentId);
             this.Controls.Add(this.panel5);
@@ -691,7 +717,6 @@
         #endregion
         private System.Windows.Forms.ToolTip ToolTips;
         private System.Windows.Forms.DateTimePicker dtpEnrolment;
-        private System.Windows.Forms.TextBox txtCourseId;
         private System.Windows.Forms.TextBox txtId;
         private System.Windows.Forms.TextBox txtEnrolmentId;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
@@ -749,5 +774,8 @@
         private System.Windows.Forms.ToolStripMenuItem allocationToolStripMenuItem;
         private System.Windows.Forms.TextBox txtTotal;
         private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.ComboBox cmbAreaOfStudy;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.ComboBox cmbCourseName;
     }
 }

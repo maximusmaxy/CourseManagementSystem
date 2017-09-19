@@ -8,7 +8,21 @@ using System.Windows.Forms;
 
 namespace CmsLibrary
 {
-    public enum ValidationType { Numeric, Word, Empty, Date, Email, Range, Length, UnitCode, NumericEmpty, Cost, Phone }
+    public enum ValidationType
+    {
+        Numeric,
+        Word,
+        Empty,
+        Date,
+        Email,
+        Range,
+        Length,
+        UnitCode,
+        NumericEmpty,
+        Cost,
+        Phone,
+        ForceEmpty
+    }
 
     public class Validation
     {
@@ -64,19 +78,39 @@ namespace CmsLibrary
             }
         }
 
+        public struct Error
+        {
+            public Control Control;
+            public string error;
+
+            public Error(Control control, string error)
+            {
+                Control = control;
+                this.error = error;
+            }
+        }
+
+        public static void ShowError(Control control, string userError, string defaultError)
+        {
+            if (userError != null)
+            {
+                if (userError.Length == 0)
+                    return;
+                MessageBox.Show(userError);
+            }
+            else
+                MessageBox.Show(defaultError);
+        }
+
         public static bool Numeric(Control control, string error = null)
         {
-            if (!Empty(control)) {
+            if (!Empty(control, error)) {
                 return false;
             }
             int i;
             if (!int.TryParse(control.Text, out i))
             {
-                if (error == null)
-                    MessageBox.Show($"{control.Tag} is invalid. A numeric value is required.");
-                else
-                    MessageBox.Show(error);
-                
+                ShowError(control, error, $"{control.Tag} is invalid. A numeric value is required.");
                 return false;
             }
             return true;
@@ -86,11 +120,18 @@ namespace CmsLibrary
         {
             if (string.IsNullOrEmpty(control.Text))
             {
-                if (error == null)
-                    MessageBox.Show($"{control.Tag} is invalid. It must not be empty.");
-                else
-                    MessageBox.Show(error);
+                ShowError(control, error, $"{control.Tag} is invalid. It must not be empty.");
                 return false;
+            }
+            return true;
+        }
+
+        public static bool ForceEmpty(Control control, string error = null)
+        {
+            if (!string.IsNullOrEmpty(control.Text))
+            {
+                ShowError(control, error, $"{control.Tag} is invalid. It must be empty.");
+                    return false;
             }
             return true;
         }
@@ -105,16 +146,13 @@ namespace CmsLibrary
 
         public static bool Word(Control control, string error = null)
         {
-            if (!Empty(control))
+            if (!Empty(control, error))
             {
                 return false;
             }
             if (!wordRegex.IsMatch(control.Text))
             {
-                if (error == null)
-                    MessageBox.Show($"{control.Tag} is invalid. It may only contain word characters (a-z).");
-                else
-                    MessageBox.Show(error);
+                ShowError(control, error, $"{control.Tag} is invalid. It may only contain word characters (a-z).");
                 return false;
             }
             return true;
@@ -124,10 +162,7 @@ namespace CmsLibrary
         {
             if (dtp.Value.Date == DateTime.Now.Date)
             {
-                if (error == null)
-                    MessageBox.Show($"The date for {dtp.Tag} cannot be todays date.");
-                else
-                    MessageBox.Show(error);
+                ShowError(dtp, error, $"The date for {dtp.Tag} cannot be todays date.");
                 return false;
             }
             return true;
@@ -135,16 +170,13 @@ namespace CmsLibrary
 
         public static bool Email(Control control, string error = null)
         {
-            if (!Empty(control))
+            if (!Empty(control, error))
             {
                 return false;
             }
             if (!emailRegex.IsMatch(control.Text))
             {
-                if (error == null)
-                    MessageBox.Show($"{control.Text} is an invalid email address. Must be in the format (someone@email.com)");
-                else
-                    MessageBox.Show(error);
+                ShowError(control, error, $"{control.Text} is an invalid email address. Must be in the format (someone@email.com)");
                 return false;
             }
             return true;
@@ -152,16 +184,13 @@ namespace CmsLibrary
 
         public static bool Cost(Control control, string error = null)
         {
-            if (!Empty(control))
+            if (!Empty(control, error))
             {
                 return false;
             }
             if (!costRegex.IsMatch(control.Text))
             {
-                if (error == null)
-                    MessageBox.Show($"{control.Tag} is invalid. A currency value is required.");
-                else
-                    MessageBox.Show(error);
+                ShowError(control, error, $"{control.Tag} is invalid. A currency value is required.");
                 return false;
             }
             return true;
@@ -169,30 +198,16 @@ namespace CmsLibrary
 
         public static bool Phone(Control control, string error = null)
         {
-            if (!Empty(control))
+            if (!Empty(control, error))
             {
                 return false;
             }
             if (!phoneRegex.IsMatch(control.Text))
             {
-                if (error == null)
-                    MessageBox.Show($"{control.Tag} is not a valid phone number. It must be 8 or 10 digits.");
-                else
-                    MessageBox.Show(error);
+                ShowError(control, error, $"{control.Tag} is not a valid phone number. It must be 8 or 10 digits.");
                 return false;
             }
             return true;
-        }
-
-        public static bool Radio(params RadioButton[] radios)
-        {
-            foreach (RadioButton button in radios)
-            {
-                if (button.Checked)
-                    return true;
-            }
-            MessageBox.Show($"{radios[0].Tag} requires an option to be selected.");
-            return false;
         }
 
         public static bool Radio(Panel pnl, string error = null)
@@ -205,10 +220,7 @@ namespace CmsLibrary
                 if (button.Checked)
                     return true;
             }
-            if (error == null)
-                MessageBox.Show($"{pnl.Tag} requires an option to be selected.");
-            else
-                MessageBox.Show(error);
+            ShowError(pnl, error, $"{pnl.Tag} requires an option to be selected.");
             return false;
         }
 
@@ -217,10 +229,7 @@ namespace CmsLibrary
             if (combo.SelectedIndex == -1 || (combo.DataSource != null && 
                 (combo.SelectedValue == DBNull.Value || combo.SelectedValue == null)))
             {
-                if (error == null)
-                    MessageBox.Show($"{combo.Tag} has no option selected. Please select an option.");
-                else
-                    MessageBox.Show(error);
+                ShowError(combo, error, $"{combo.Tag} has no option selected. Please select an option.");
                 return false;
             }
             return true; 
@@ -228,17 +237,14 @@ namespace CmsLibrary
 
         public static bool Range(Control control, int min, int max, string error = null)
         {
-            if (!Numeric(control))
+            if (!Numeric(control, error))
                 return false;
             else
             {
                 int range = int.Parse(control.Text);
                 if (range < min || range > max)
                 {
-                    if (error == null)
-                        MessageBox.Show($"{control.Tag} is invalid. The value must be within the range ({min}-{max}).");
-                    else
-                        MessageBox.Show(error);
+                    ShowError(control, error, $"{control.Tag} is invalid. The value must be within the range ({min}-{max}).");
                     return false;
                 }
             }
@@ -247,16 +253,13 @@ namespace CmsLibrary
 
         public static bool Length(Control control, int length, string error = null)
         {
-            if (!Empty(control))
+            if (!Empty(control, error))
                 return false;
             else
             {
                 if (control.Text.Length != length)
                 {
-                    if (error == null)
-                        MessageBox.Show($"{control.Tag} is not the required length of characters ({length}).");
-                    else
-                        MessageBox.Show(error);
+                    ShowError(control, error, $"{control.Tag} is not the required length of characters ({length}).");
                     return false;
                 }
             }
@@ -265,16 +268,14 @@ namespace CmsLibrary
 
         public static bool UnitCode(Control control, string error = null)
         {
-            if (!Empty(control))
+            if (!Empty(control, error))
                 return false;
             else
             {
                 if (!unitCodeRegex.IsMatch(control.Text))
                 {
-                    if (error == null)
-                        MessageBox.Show($"{control.Tag} is invalid. It must be in the format: 6 Letters, 3 Numbers Eg. ICTWEB413.");
-                    else
-                        MessageBox.Show(error);
+                    ShowError(control, error, $"{control.Tag} is invalid. It must be in the format: 6 Letters, 3 Numbers Eg. ICTWEB413.");
+                    return false;
                 }
             }
             return true;
@@ -374,58 +375,66 @@ namespace CmsLibrary
                             break;
                     }
                 }
-                else if (obj is ListControl)
+                else if (obj is Error)
                 {
-                    ListControl cmb = (ListControl)obj;
-                    if (!Combo(cmb))
-                    {
+                    Error error = (Error)obj;
+                    if (!ValidateControl(error.Control, error.error))
                         return false;
-                    }
                 }
-                else if (obj is Panel)
+                else if (obj is Control)
                 {
-                    Panel pnl = (Panel)obj;
-                    if (!Radio(pnl))
-                    {
+                    if (!ValidateControl(obj))
                         return false;
-                    }
-                }
-                else if (obj is DateTimePicker)
-                {
-                    DateTimePicker dtp = (DateTimePicker)obj;
-                    if (!Date(dtp))
-                    {
-                        return false;
-                    }
                 }
                 else if (obj is IntRange)
                 {
                     IntRange rng = (IntRange)obj;
                     if (!Range(rng.Control, rng.Min, rng.Max))
-                    {
                         return false;
-                    }
                 }
                 else if (obj is Size)
                 {
                     Size size = (Size)obj;
                     if (!Length(size.Control, size.Length))
-                    {
                         return false;
-                    }
-                }
-                else if (obj is ISearchControl)
-                {
-                    ISearchControl control = (ISearchControl)obj;
-                    if (!control.ValidateControl())
-                    {
-                        return false;
-                    }
                 }
                 else
                 {
                     throw new Exception($"{obj.GetType().Name} is invalid for the Validate Many method.");
                 }
+            }
+            return true;
+        }
+
+        private static bool ValidateControl(object obj, string error = null)
+        {
+            if (obj is ListControl)
+            {
+                ListControl cmb = (ListControl)obj;
+                if (!Combo(cmb, error))
+                    return false;
+            }
+            else if (obj is Panel)
+            {
+                Panel pnl = (Panel)obj;
+                if (!Radio(pnl, error))
+                    return false;
+            }
+            else if (obj is DateTimePicker)
+            {
+                DateTimePicker dtp = (DateTimePicker)obj;
+                if (!Date(dtp, error))
+                    return false;
+            }
+            else if (obj is ISearchControl)
+            {
+                ISearchControl control = (ISearchControl)obj;
+                if (!control.ValidateControl())
+                    return false;
+            }
+            else
+            {
+                throw new Exception($"{obj.GetType().Name} is invalid for the Validate Many method.");
             }
             return true;
         }

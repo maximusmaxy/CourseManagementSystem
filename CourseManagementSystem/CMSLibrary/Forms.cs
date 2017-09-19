@@ -142,10 +142,31 @@ namespace CmsLibrary
                 dataRow[display] = "(Please select an option)";
                 dataTable.Rows.InsertAt(dataRow, 0);
             }
+            SetDataSource(control, display, value, dataTable);
+        }
+
+        /// <summary>
+        /// Sets the datasource of a list control safely.
+        /// </summary>
+        /// <param name="control">The control to set.</param>
+        /// <param name="display">The display member.</param>
+        /// <param name="value">The value member.</param>
+        /// <param name="table">The table to set as the data source.</param>
+        public static void SetDataSource(ListControl control, string display, string value, object table)
+        {
             control.DataSource = null;
             control.DisplayMember = display;
             control.ValueMember = value;
-            control.DataSource = dataTable;
+            control.DataSource = table;
+        }
+
+        /// <summary>
+        /// Clears the data source of a combo box.
+        /// </summary>
+        /// <param name="control">The control to clear.</param>
+        public static void ClearDataSource(ComboBox control)
+        {
+            control.DataSource = null;
         }
 
         /// <summary>

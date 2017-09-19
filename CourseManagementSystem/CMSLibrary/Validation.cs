@@ -66,7 +66,7 @@ namespace CmsLibrary
 
         public static bool Numeric(Control control, string error = null)
         {
-            if (!Empty(control)) {
+            if (!Empty(control,error)) {
                 return false;
             }
             int i;

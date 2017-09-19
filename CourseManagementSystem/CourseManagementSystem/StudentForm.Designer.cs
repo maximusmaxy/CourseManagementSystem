@@ -120,10 +120,10 @@
             // label1
             // 
             this.label1.BackColor = System.Drawing.Color.PaleGreen;
-            this.label1.Font = new System.Drawing.Font("Times New Roman", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Times New Roman", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(12, 9);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(660, 42);
+            this.label1.Size = new System.Drawing.Size(801, 42);
             this.label1.TabIndex = 0;
             this.label1.Text = "Student Form";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -134,7 +134,7 @@
             this.panel7.Controls.Add(this.label1);
             this.panel7.Location = new System.Drawing.Point(0, 27);
             this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(685, 60);
+            this.panel7.Size = new System.Drawing.Size(826, 60);
             this.panel7.TabIndex = 14;
             // 
             // panel5
@@ -147,18 +147,18 @@
             this.panel5.Controls.Add(this.panel2);
             this.panel5.Controls.Add(this.panel6);
             this.panel5.Controls.Add(this.button5);
-            this.panel5.Location = new System.Drawing.Point(612, 27);
+            this.panel5.Location = new System.Drawing.Point(829, 27);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(132, 645);
+            this.panel5.Size = new System.Drawing.Size(155, 633);
             this.panel5.TabIndex = 17;
             // 
             // panel9
             // 
             this.panel9.BackColor = System.Drawing.Color.PaleGreen;
             this.panel9.Controls.Add(this.btnClearForm);
-            this.panel9.Location = new System.Drawing.Point(4, 472);
+            this.panel9.Location = new System.Drawing.Point(7, 466);
             this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(125, 50);
+            this.panel9.Size = new System.Drawing.Size(148, 58);
             this.panel9.TabIndex = 23;
             // 
             // btnClearForm
@@ -167,7 +167,7 @@
             this.btnClearForm.Image = global::CMS.Properties.Resources.ClearFormButton;
             this.btnClearForm.Location = new System.Drawing.Point(2, 3);
             this.btnClearForm.Name = "btnClearForm";
-            this.btnClearForm.Size = new System.Drawing.Size(120, 45);
+            this.btnClearForm.Size = new System.Drawing.Size(143, 53);
             this.btnClearForm.TabIndex = 60;
             this.btnClearForm.Tag = "Clear Form";
             this.btnClearForm.UseVisualStyleBackColor = false;
@@ -177,18 +177,18 @@
             // 
             this.panel8.BackColor = System.Drawing.Color.PaleGreen;
             this.panel8.Controls.Add(this.btnViewAll);
-            this.panel8.Location = new System.Drawing.Point(4, 413);
+            this.panel8.Location = new System.Drawing.Point(6, 403);
             this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(125, 50);
+            this.panel8.Size = new System.Drawing.Size(148, 58);
             this.panel8.TabIndex = 22;
             // 
             // btnViewAll
             // 
             this.btnViewAll.BackColor = System.Drawing.Color.White;
             this.btnViewAll.Image = global::CMS.Properties.Resources.ViewAllButton;
-            this.btnViewAll.Location = new System.Drawing.Point(3, 2);
+            this.btnViewAll.Location = new System.Drawing.Point(2, 2);
             this.btnViewAll.Name = "btnViewAll";
-            this.btnViewAll.Size = new System.Drawing.Size(120, 45);
+            this.btnViewAll.Size = new System.Drawing.Size(143, 53);
             this.btnViewAll.TabIndex = 59;
             this.btnViewAll.UseVisualStyleBackColor = false;
             this.btnViewAll.Click += new System.EventHandler(this.btnViewAll_Click);
@@ -197,9 +197,9 @@
             // 
             this.panel4.BackColor = System.Drawing.Color.PaleGreen;
             this.panel4.Controls.Add(this.btnDelete);
-            this.panel4.Location = new System.Drawing.Point(3, 350);
+            this.panel4.Location = new System.Drawing.Point(6, 342);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(125, 50);
+            this.panel4.Size = new System.Drawing.Size(148, 58);
             this.panel4.TabIndex = 21;
             // 
             // btnDelete
@@ -208,7 +208,7 @@
             this.btnDelete.Image = global::CMS.Properties.Resources.DeleteButton;
             this.btnDelete.Location = new System.Drawing.Point(3, 3);
             this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(119, 44);
+            this.btnDelete.Size = new System.Drawing.Size(143, 53);
             this.btnDelete.TabIndex = 58;
             this.btnDelete.UseVisualStyleBackColor = false;
             this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
@@ -217,9 +217,9 @@
             // 
             this.panel3.BackColor = System.Drawing.Color.PaleGreen;
             this.panel3.Controls.Add(this.btnUpdate);
-            this.panel3.Location = new System.Drawing.Point(3, 281);
+            this.panel3.Location = new System.Drawing.Point(6, 277);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(125, 50);
+            this.panel3.Size = new System.Drawing.Size(148, 58);
             this.panel3.TabIndex = 21;
             // 
             // btnUpdate
@@ -228,7 +228,7 @@
             this.btnUpdate.Image = global::CMS.Properties.Resources.UpdateButton;
             this.btnUpdate.Location = new System.Drawing.Point(3, 3);
             this.btnUpdate.Name = "btnUpdate";
-            this.btnUpdate.Size = new System.Drawing.Size(120, 45);
+            this.btnUpdate.Size = new System.Drawing.Size(143, 53);
             this.btnUpdate.TabIndex = 57;
             this.btnUpdate.UseVisualStyleBackColor = false;
             this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
@@ -239,7 +239,7 @@
             this.panel2.Controls.Add(this.btnAdd);
             this.panel2.Location = new System.Drawing.Point(4, 150);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(125, 50);
+            this.panel2.Size = new System.Drawing.Size(148, 58);
             this.panel2.TabIndex = 21;
             // 
             // btnAdd
@@ -248,7 +248,7 @@
             this.btnAdd.Image = global::CMS.Properties.Resources.AddButton;
             this.btnAdd.Location = new System.Drawing.Point(3, 3);
             this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(120, 45);
+            this.btnAdd.Size = new System.Drawing.Size(143, 53);
             this.btnAdd.TabIndex = 55;
             this.btnAdd.UseVisualStyleBackColor = false;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
@@ -257,9 +257,9 @@
             // 
             this.panel6.BackColor = System.Drawing.Color.PaleGreen;
             this.panel6.Controls.Add(this.btnSearch);
-            this.panel6.Location = new System.Drawing.Point(3, 214);
+            this.panel6.Location = new System.Drawing.Point(5, 212);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(125, 50);
+            this.panel6.Size = new System.Drawing.Size(148, 58);
             this.panel6.TabIndex = 19;
             // 
             // btnSearch
@@ -268,7 +268,7 @@
             this.btnSearch.Image = global::CMS.Properties.Resources.SearchButton;
             this.btnSearch.Location = new System.Drawing.Point(3, 3);
             this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(120, 45);
+            this.btnSearch.Size = new System.Drawing.Size(143, 53);
             this.btnSearch.TabIndex = 56;
             this.btnSearch.UseVisualStyleBackColor = false;
             this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
@@ -279,7 +279,7 @@
             this.button5.Image = global::CMS.Properties.Resources.StudentButton;
             this.button5.Location = new System.Drawing.Point(3, 3);
             this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(125, 100);
+            this.button5.Size = new System.Drawing.Size(150, 124);
             this.button5.TabIndex = 5;
             this.button5.UseVisualStyleBackColor = false;
             // 
@@ -291,7 +291,7 @@
             this.formsToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(744, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(984, 24);
             this.menuStrip1.TabIndex = 19;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -365,98 +365,98 @@
             // mainMenuToolStripMenuItem
             // 
             this.mainMenuToolStripMenuItem.Name = "mainMenuToolStripMenuItem";
-            this.mainMenuToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
+            this.mainMenuToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.mainMenuToolStripMenuItem.Text = "Main Menu";
             this.mainMenuToolStripMenuItem.Click += new System.EventHandler(this.mainMenuToolStripMenuItem_Click);
             // 
             // studentToolStripMenuItem
             // 
             this.studentToolStripMenuItem.Name = "studentToolStripMenuItem";
-            this.studentToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
+            this.studentToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.studentToolStripMenuItem.Text = "Student";
             this.studentToolStripMenuItem.Click += new System.EventHandler(this.studentToolStripMenuItem_Click);
             // 
             // teacherToolStripMenuItem
             // 
             this.teacherToolStripMenuItem.Name = "teacherToolStripMenuItem";
-            this.teacherToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
+            this.teacherToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.teacherToolStripMenuItem.Text = "Teacher";
             this.teacherToolStripMenuItem.Click += new System.EventHandler(this.teacherToolStripMenuItem_Click);
             // 
             // enrolmentToolStripMenuItem
             // 
             this.enrolmentToolStripMenuItem.Name = "enrolmentToolStripMenuItem";
-            this.enrolmentToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
+            this.enrolmentToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.enrolmentToolStripMenuItem.Text = "Enrolment";
             this.enrolmentToolStripMenuItem.Click += new System.EventHandler(this.enrolmentToolStripMenuItem_Click);
             // 
             // courseToolStripMenuItem
             // 
             this.courseToolStripMenuItem.Name = "courseToolStripMenuItem";
-            this.courseToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
+            this.courseToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.courseToolStripMenuItem.Text = "Course";
             this.courseToolStripMenuItem.Click += new System.EventHandler(this.courseToolStripMenuItem_Click);
             // 
             // unitToolStripMenuItem
             // 
             this.unitToolStripMenuItem.Name = "unitToolStripMenuItem";
-            this.unitToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
+            this.unitToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.unitToolStripMenuItem.Text = "Unit";
             this.unitToolStripMenuItem.Click += new System.EventHandler(this.unitToolStripMenuItem_Click);
             // 
             // assessmentToolStripMenuItem
             // 
             this.assessmentToolStripMenuItem.Name = "assessmentToolStripMenuItem";
-            this.assessmentToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
+            this.assessmentToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.assessmentToolStripMenuItem.Text = "Assessment";
             this.assessmentToolStripMenuItem.Click += new System.EventHandler(this.assessmentToolStripMenuItem_Click);
             // 
             // skillsToolStripMenuItem
             // 
             this.skillsToolStripMenuItem.Name = "skillsToolStripMenuItem";
-            this.skillsToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
+            this.skillsToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.skillsToolStripMenuItem.Text = "Skills";
             this.skillsToolStripMenuItem.Click += new System.EventHandler(this.skillsToolStripMenuItem_Click);
             // 
             // allocationToolStripMenuItem
             // 
             this.allocationToolStripMenuItem.Name = "allocationToolStripMenuItem";
-            this.allocationToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
+            this.allocationToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.allocationToolStripMenuItem.Text = "Allocation";
             // 
             // globalSearchToolStripMenuItem
             // 
             this.globalSearchToolStripMenuItem.Name = "globalSearchToolStripMenuItem";
-            this.globalSearchToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
+            this.globalSearchToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.globalSearchToolStripMenuItem.Text = "Global Search";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(109, 109);
+            this.label2.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(140, 110);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(95, 21);
+            this.label2.Size = new System.Drawing.Size(105, 23);
             this.label2.TabIndex = 20;
             this.label2.Text = "Student ID:";
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(96, 429);
+            this.label6.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(119, 434);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(110, 21);
+            this.label6.Size = new System.Drawing.Size(126, 23);
             this.label6.TabIndex = 24;
             this.label6.Text = "Date of Birth:";
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(151, 464);
+            this.label7.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(179, 465);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(55, 21);
+            this.label7.Size = new System.Drawing.Size(66, 23);
             this.label7.TabIndex = 25;
             this.label7.Text = "Email:";
             // 
@@ -464,7 +464,7 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(54, 108);
+            this.label8.Location = new System.Drawing.Point(46, 107);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(53, 19);
             this.label8.TabIndex = 26;
@@ -474,7 +474,7 @@
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(67, 138);
+            this.label9.Location = new System.Drawing.Point(59, 139);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(40, 19);
             this.label9.TabIndex = 27;
@@ -484,7 +484,7 @@
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(11, 21);
+            this.label10.Location = new System.Drawing.Point(3, 7);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(96, 19);
             this.label10.TabIndex = 28;
@@ -494,7 +494,7 @@
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(33, 171);
+            this.label11.Location = new System.Drawing.Point(25, 174);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(74, 19);
             this.label11.TabIndex = 29;
@@ -503,27 +503,27 @@
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(127, 177);
+            this.label12.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.Location = new System.Drawing.Point(163, 178);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(77, 21);
+            this.label12.Size = new System.Drawing.Size(82, 23);
             this.label12.TabIndex = 30;
             this.label12.Text = "Address:";
             // 
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(114, 142);
+            this.label13.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.Location = new System.Drawing.Point(140, 144);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(90, 21);
+            this.label13.Size = new System.Drawing.Size(105, 23);
             this.label13.TabIndex = 31;
             this.label13.Text = "Full Name:";
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.Lavender;
-            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel1.Controls.Add(this.label16);
             this.panel1.Controls.Add(this.label15);
             this.panel1.Controls.Add(this.label14);
@@ -537,16 +537,16 @@
             this.panel1.Controls.Add(this.label9);
             this.panel1.Controls.Add(this.label8);
             this.panel1.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.panel1.Location = new System.Drawing.Point(213, 177);
+            this.panel1.Location = new System.Drawing.Point(251, 178);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(358, 209);
+            this.panel1.Size = new System.Drawing.Size(499, 209);
             this.panel1.TabIndex = 16;
             // 
             // label16
             // 
             this.label16.AutoSize = true;
             this.label16.Font = new System.Drawing.Font("Times New Roman", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.Location = new System.Drawing.Point(113, 85);
+            this.label16.Location = new System.Drawing.Point(113, 86);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(166, 14);
             this.label16.TabIndex = 48;
@@ -556,7 +556,7 @@
             // 
             this.label15.AutoSize = true;
             this.label15.Font = new System.Drawing.Font("Times New Roman", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.Location = new System.Drawing.Point(113, 43);
+            this.label15.Location = new System.Drawing.Point(113, 36);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(222, 14);
             this.label15.TabIndex = 47;
@@ -566,7 +566,7 @@
             // 
             this.label14.AutoSize = true;
             this.label14.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.Location = new System.Drawing.Point(11, 63);
+            this.label14.Location = new System.Drawing.Point(3, 61);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(96, 19);
             this.label14.TabIndex = 46;
@@ -574,15 +574,17 @@
             // 
             // txtPostCode
             // 
-            this.txtPostCode.Location = new System.Drawing.Point(113, 170);
+            this.txtPostCode.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPostCode.Location = new System.Drawing.Point(113, 174);
             this.txtPostCode.Name = "txtPostCode";
-            this.txtPostCode.Size = new System.Drawing.Size(217, 20);
+            this.txtPostCode.Size = new System.Drawing.Size(236, 26);
             this.txtPostCode.TabIndex = 8;
             this.txtPostCode.Tag = "Postcode";
             this.ToolTips.SetToolTip(this.txtPostCode, "Insert the 4 Digit Post code for the provided suburb");
             // 
             // cmbState
             // 
+            this.cmbState.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbState.FormattingEnabled = true;
             this.cmbState.Items.AddRange(new object[] {
             "NSW",
@@ -595,16 +597,17 @@
             "ACT"});
             this.cmbState.Location = new System.Drawing.Point(113, 139);
             this.cmbState.Name = "cmbState";
-            this.cmbState.Size = new System.Drawing.Size(217, 21);
+            this.cmbState.Size = new System.Drawing.Size(236, 28);
             this.cmbState.TabIndex = 7;
             this.cmbState.Tag = "State";
             this.ToolTips.SetToolTip(this.cmbState, "Select state from the list provided");
             // 
             // txtStreet2
             // 
-            this.txtStreet2.Location = new System.Drawing.Point(113, 62);
+            this.txtStreet2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtStreet2.Location = new System.Drawing.Point(113, 57);
             this.txtStreet2.Name = "txtStreet2";
-            this.txtStreet2.Size = new System.Drawing.Size(217, 20);
+            this.txtStreet2.Size = new System.Drawing.Size(368, 26);
             this.txtStreet2.TabIndex = 5;
             this.txtStreet2.Tag = "Street 2";
             this.ToolTips.SetToolTip(this.txtStreet2, "Insert additional unit/apartment/place name and number here using 0-9 and A-Z cha" +
@@ -612,9 +615,10 @@
             // 
             // txtStreet1
             // 
-            this.txtStreet1.Location = new System.Drawing.Point(113, 20);
+            this.txtStreet1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtStreet1.Location = new System.Drawing.Point(113, 7);
             this.txtStreet1.Name = "txtStreet1";
-            this.txtStreet1.Size = new System.Drawing.Size(217, 20);
+            this.txtStreet1.Size = new System.Drawing.Size(368, 26);
             this.txtStreet1.TabIndex = 4;
             this.txtStreet1.Tag = "Street 1";
             this.ToolTips.SetToolTip(this.txtStreet1, "Insert the street name and number here using 0-9 and A-Z characters only, use a ," +
@@ -622,18 +626,20 @@
             // 
             // txtSuburb
             // 
+            this.txtSuburb.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtSuburb.Location = new System.Drawing.Point(113, 107);
             this.txtSuburb.Name = "txtSuburb";
-            this.txtSuburb.Size = new System.Drawing.Size(217, 20);
+            this.txtSuburb.Size = new System.Drawing.Size(368, 26);
             this.txtSuburb.TabIndex = 6;
             this.txtSuburb.Tag = "Suburb";
             this.ToolTips.SetToolTip(this.txtSuburb, "Insert the suburb of the home here using A-Z Characters Only!");
             // 
             // txtId
             // 
-            this.txtId.Location = new System.Drawing.Point(213, 109);
+            this.txtId.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtId.Location = new System.Drawing.Point(251, 110);
             this.txtId.Name = "txtId";
-            this.txtId.Size = new System.Drawing.Size(174, 20);
+            this.txtId.Size = new System.Drawing.Size(236, 26);
             this.txtId.TabIndex = 1;
             this.txtId.Tag = "Student ID";
             this.ToolTips.SetToolTip(this.txtId, "Use for Search, Update and Delete functions only\r\n[Insert a Numeric value for the" +
@@ -641,37 +647,41 @@
             // 
             // txtFirstName
             // 
-            this.txtFirstName.Location = new System.Drawing.Point(213, 142);
+            this.txtFirstName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtFirstName.Location = new System.Drawing.Point(251, 143);
             this.txtFirstName.Name = "txtFirstName";
-            this.txtFirstName.Size = new System.Drawing.Size(174, 20);
+            this.txtFirstName.Size = new System.Drawing.Size(236, 26);
             this.txtFirstName.TabIndex = 2;
             this.txtFirstName.Tag = "First name";
             this.ToolTips.SetToolTip(this.txtFirstName, "Insert the First Name here, using A-Z characters Only!");
             // 
             // txtLastName
             // 
-            this.txtLastName.Location = new System.Drawing.Point(397, 142);
+            this.txtLastName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtLastName.Location = new System.Drawing.Point(514, 144);
             this.txtLastName.Name = "txtLastName";
-            this.txtLastName.Size = new System.Drawing.Size(174, 20);
+            this.txtLastName.Size = new System.Drawing.Size(236, 26);
             this.txtLastName.TabIndex = 3;
             this.txtLastName.Tag = "Last name";
             this.ToolTips.SetToolTip(this.txtLastName, "Insert the Last Name here, using A-Z characters Only!");
             // 
             // dtpDateOfBirth
             // 
+            this.dtpDateOfBirth.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtpDateOfBirth.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpDateOfBirth.Location = new System.Drawing.Point(215, 430);
+            this.dtpDateOfBirth.Location = new System.Drawing.Point(251, 433);
             this.dtpDateOfBirth.Name = "dtpDateOfBirth";
-            this.dtpDateOfBirth.Size = new System.Drawing.Size(174, 20);
+            this.dtpDateOfBirth.Size = new System.Drawing.Size(236, 26);
             this.dtpDateOfBirth.TabIndex = 10;
             this.dtpDateOfBirth.Tag = "Date of birth";
             this.ToolTips.SetToolTip(this.dtpDateOfBirth, resources.GetString("dtpDateOfBirth.ToolTip"));
             // 
             // txtEmail
             // 
-            this.txtEmail.Location = new System.Drawing.Point(215, 467);
+            this.txtEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtEmail.Location = new System.Drawing.Point(251, 468);
             this.txtEmail.Name = "txtEmail";
-            this.txtEmail.Size = new System.Drawing.Size(358, 20);
+            this.txtEmail.Size = new System.Drawing.Size(499, 26);
             this.txtEmail.TabIndex = 11;
             this.txtEmail.Tag = "Email";
             this.ToolTips.SetToolTip(this.txtEmail, "Please insert the Student Email here, Must contain one @ symbol");
@@ -679,21 +689,22 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(63, 499);
+            this.label3.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(79, 501);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(147, 21);
+            this.label3.Size = new System.Drawing.Size(166, 23);
             this.label3.TabIndex = 37;
             this.label3.Text = "Country of Origin:";
             // 
             // cmbCountryOfOrigin
             // 
+            this.cmbCountryOfOrigin.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbCountryOfOrigin.FormattingEnabled = true;
             this.cmbCountryOfOrigin.Items.AddRange(new object[] {
             "Australia"});
-            this.cmbCountryOfOrigin.Location = new System.Drawing.Point(215, 499);
+            this.cmbCountryOfOrigin.Location = new System.Drawing.Point(251, 500);
             this.cmbCountryOfOrigin.Name = "cmbCountryOfOrigin";
-            this.cmbCountryOfOrigin.Size = new System.Drawing.Size(125, 21);
+            this.cmbCountryOfOrigin.Size = new System.Drawing.Size(236, 28);
             this.cmbCountryOfOrigin.TabIndex = 12;
             this.cmbCountryOfOrigin.Tag = "Country of Origin";
             this.ToolTips.SetToolTip(this.cmbCountryOfOrigin, "Select the country of birth from the provided list");
@@ -701,19 +712,20 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(360, 499);
+            this.label4.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(506, 431);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(69, 21);
+            this.label4.Size = new System.Drawing.Size(76, 23);
             this.label4.TabIndex = 39;
             this.label4.Text = "Gender:";
             // 
             // rdbMale
             // 
             this.rdbMale.AutoSize = true;
-            this.rdbMale.Location = new System.Drawing.Point(3, 3);
+            this.rdbMale.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rdbMale.Location = new System.Drawing.Point(9, 3);
             this.rdbMale.Name = "rdbMale";
-            this.rdbMale.Size = new System.Drawing.Size(48, 17);
+            this.rdbMale.Size = new System.Drawing.Size(61, 24);
             this.rdbMale.TabIndex = 13;
             this.rdbMale.TabStop = true;
             this.rdbMale.Tag = "Male";
@@ -724,9 +736,10 @@
             // rdbFemale
             // 
             this.rdbFemale.AutoSize = true;
+            this.rdbFemale.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rdbFemale.Location = new System.Drawing.Point(76, 3);
             this.rdbFemale.Name = "rdbFemale";
-            this.rdbFemale.Size = new System.Drawing.Size(59, 17);
+            this.rdbFemale.Size = new System.Drawing.Size(80, 24);
             this.rdbFemale.TabIndex = 14;
             this.rdbFemale.TabStop = true;
             this.rdbFemale.Tag = "Female";
@@ -737,22 +750,22 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(80, 564);
+            this.label5.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(636, 539);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(130, 21);
+            this.label5.Size = new System.Drawing.Size(97, 23);
             this.label5.TabIndex = 43;
-            this.label5.Text = "Has a Disability:";
+            this.label5.Text = "Disability:";
             // 
             // chkDisability
             // 
             this.chkDisability.AutoSize = true;
-            this.chkDisability.Location = new System.Drawing.Point(213, 567);
+            this.chkDisability.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chkDisability.Location = new System.Drawing.Point(739, 546);
             this.chkDisability.Name = "chkDisability";
-            this.chkDisability.Size = new System.Drawing.Size(44, 17);
+            this.chkDisability.Size = new System.Drawing.Size(15, 14);
             this.chkDisability.TabIndex = 17;
             this.chkDisability.Tag = "Disability";
-            this.chkDisability.Text = "Yes";
             this.ToolTips.SetToolTip(this.chkDisability, "Select this option if the Student has a Disability");
             this.chkDisability.UseVisualStyleBackColor = true;
             this.chkDisability.CheckedChanged += new System.EventHandler(this.chkDisability_CheckedChanged);
@@ -760,10 +773,12 @@
             // txtDisabilityDescription
             // 
             this.txtDisabilityDescription.Enabled = false;
-            this.txtDisabilityDescription.Location = new System.Drawing.Point(216, 591);
+            this.txtDisabilityDescription.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDisabilityDescription.Location = new System.Drawing.Point(251, 574);
             this.txtDisabilityDescription.Multiline = true;
             this.txtDisabilityDescription.Name = "txtDisabilityDescription";
-            this.txtDisabilityDescription.Size = new System.Drawing.Size(357, 81);
+            this.txtDisabilityDescription.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.txtDisabilityDescription.Size = new System.Drawing.Size(499, 68);
             this.txtDisabilityDescription.TabIndex = 18;
             this.txtDisabilityDescription.Tag = "Disability Description";
             this.ToolTips.SetToolTip(this.txtDisabilityDescription, "Please describe the Disability here Only if you have selected Yes to having a Dis" +
@@ -771,9 +786,10 @@
             // 
             // txtContactNumber
             // 
-            this.txtContactNumber.Location = new System.Drawing.Point(215, 404);
+            this.txtContactNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtContactNumber.Location = new System.Drawing.Point(251, 402);
             this.txtContactNumber.Name = "txtContactNumber";
-            this.txtContactNumber.Size = new System.Drawing.Size(358, 20);
+            this.txtContactNumber.Size = new System.Drawing.Size(236, 26);
             this.txtContactNumber.TabIndex = 9;
             this.txtContactNumber.Tag = "Contact Number";
             this.ToolTips.SetToolTip(this.txtContactNumber, "Please insert the Student Email here, Must contain one @ symbol");
@@ -781,34 +797,34 @@
             // chkCentrelink
             // 
             this.chkCentrelink.AutoSize = true;
-            this.chkCentrelink.Location = new System.Drawing.Point(210, 532);
+            this.chkCentrelink.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chkCentrelink.Location = new System.Drawing.Point(251, 546);
             this.chkCentrelink.Name = "chkCentrelink";
-            this.chkCentrelink.Size = new System.Drawing.Size(44, 17);
+            this.chkCentrelink.Size = new System.Drawing.Size(15, 14);
             this.chkCentrelink.TabIndex = 16;
             this.chkCentrelink.Tag = "CentreLink";
-            this.chkCentrelink.Text = "Yes";
             this.ToolTips.SetToolTip(this.chkCentrelink, "Select this option if the Student has a Disability");
             this.chkCentrelink.UseVisualStyleBackColor = true;
             // 
             // chkDropKick
             // 
             this.chkDropKick.AutoSize = true;
-            this.chkDropKick.Location = new System.Drawing.Point(519, 532);
+            this.chkDropKick.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chkDropKick.Location = new System.Drawing.Point(588, 546);
             this.chkDropKick.Name = "chkDropKick";
-            this.chkDropKick.Size = new System.Drawing.Size(44, 17);
+            this.chkDropKick.Size = new System.Drawing.Size(15, 14);
             this.chkDropKick.TabIndex = 15;
             this.chkDropKick.Tag = "CentreLink";
-            this.chkDropKick.Text = "Yes";
             this.ToolTips.SetToolTip(this.chkDropKick, "Select this option if the Student has a Disability");
             this.chkDropKick.UseVisualStyleBackColor = true;
             // 
             // label17
             // 
             this.label17.AutoSize = true;
-            this.label17.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label17.Location = new System.Drawing.Point(39, 591);
+            this.label17.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label17.Location = new System.Drawing.Point(46, 574);
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(174, 21);
+            this.label17.Size = new System.Drawing.Size(199, 23);
             this.label17.TabIndex = 46;
             this.label17.Text = "Disability Description:";
             // 
@@ -816,39 +832,39 @@
             // 
             this.pnlGender.Controls.Add(this.rdbFemale);
             this.pnlGender.Controls.Add(this.rdbMale);
-            this.pnlGender.Location = new System.Drawing.Point(435, 499);
+            this.pnlGender.Location = new System.Drawing.Point(589, 430);
             this.pnlGender.Name = "pnlGender";
-            this.pnlGender.Size = new System.Drawing.Size(138, 21);
+            this.pnlGender.Size = new System.Drawing.Size(161, 29);
             this.pnlGender.TabIndex = 47;
             this.pnlGender.Tag = "Gender";
             // 
             // label18
             // 
             this.label18.AutoSize = true;
-            this.label18.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label18.Location = new System.Drawing.Point(68, 402);
+            this.label18.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label18.Location = new System.Drawing.Point(91, 402);
             this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(138, 21);
+            this.label18.Size = new System.Drawing.Size(154, 23);
             this.label18.TabIndex = 79;
             this.label18.Text = "Contact Number:";
             // 
             // label19
             // 
             this.label19.AutoSize = true;
-            this.label19.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label19.Location = new System.Drawing.Point(115, 531);
+            this.label19.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label19.Location = new System.Drawing.Point(142, 539);
             this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(89, 21);
+            this.label19.Size = new System.Drawing.Size(103, 23);
             this.label19.TabIndex = 81;
             this.label19.Text = "Centrelink:";
             // 
             // label20
             // 
             this.label20.AutoSize = true;
-            this.label20.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label20.Location = new System.Drawing.Point(260, 531);
+            this.label20.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label20.Location = new System.Drawing.Point(298, 539);
             this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(253, 21);
+            this.label20.Size = new System.Drawing.Size(284, 23);
             this.label20.TabIndex = 83;
             this.label20.Text = "Aboriginal/Torres Strait Islander:";
             // 
@@ -856,8 +872,9 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.Lavender;
-            this.ClientSize = new System.Drawing.Size(744, 705);
+            this.ClientSize = new System.Drawing.Size(984, 661);
             this.Controls.Add(this.chkDropKick);
             this.Controls.Add(this.label20);
             this.Controls.Add(this.chkCentrelink);
@@ -886,9 +903,11 @@
             this.Controls.Add(this.panel5);
             this.Controls.Add(this.panel7);
             this.Controls.Add(this.menuStrip1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "StudentForm";
             this.Text = "Student";
+            this.Load += new System.EventHandler(this.StudentForm_Load);
             this.panel7.ResumeLayout(false);
             this.panel5.ResumeLayout(false);
             this.panel9.ResumeLayout(false);

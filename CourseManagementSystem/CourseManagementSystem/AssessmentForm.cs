@@ -16,6 +16,8 @@ namespace CMS
         public AssessmentForm()
         {
             InitializeComponent();
+            Forms.FillData(cmbAreaOfStudy, "departments", "departmentname", "departmentid");
+            Forms.FillData(cmbUnit, "units", "unitname", "unitid");
         }
 
         private void addToolStripMenuItem_Click(object sender, EventArgs e)
@@ -90,86 +92,127 @@ namespace CMS
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            DialogResult result = MessageBox.Show("Would you like to add this Assessment", "Question",
-                                               MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
-            if (result == DialogResult.Yes)
+            if (!Validation.Combo(cmbAreaOfStudy) || !Validation.Combo(cmbUnit) || !Validation.Combo(cmbTeacher) || 
+                !Validation.Date(dtpStart) || !Validation.Date(dtpDue) || !Validation.Word(txtDescription)
+                )
             {
-                if (!Validation.Many(
-                   //txtUnitCode.ValidateEmpty(),
-                   //txtUnitCode.ValidateUnitCode(),
-                   //txtUnitName.ValidateEmpty(),
-                   //pnlUnitType,
-                   //txtNoOfHours.ValidateNumeric(),
-                   //cmbAreaOfStudy,
-                   //lstSkill,
-                   //txtUnitDesc.ValidateEmpty()
-                   ))
+                MessageBox.Show("Failed to Validate, please try again");
+            }
+
+            else
+            {
+                Assessment Assessment = new Assessment();
+                Assessment.Name = txtAssessmentName.Text;
+                Assessment.DepartmentId = cmbAreaOfStudy.Int();
+                Assessment.UnitId = cmbUnit.Int();
+                Assessment.TeacherId = cmbTeacher.Int();
+                Assessment.StartDate = dtpStart.Value;
+                Assessment.DueDate = dtpDue.Value;
+                Assessment.Description = txtDescription.Text;
+
+                if (!Assessment.Add())
                 {
-                    return;
+                    MessageBox.Show("Failed to Add new Assessment");
                 }
-
-                //Unit unit = new Unit()
-                //{
-                //    Name = txtUnitName.Text,
-                //    Code = txtUnitCode.Text,
-                //    Type = Forms.RadioValue(pnlUnitType, Types.UnitType),
-                //    NumOfHours = Convert.ToInt32(txtNoOfHours.Text),
-                //    DepartmentId = cmbAreaOfStudy.Int(),
-                //    Description = txtUnitDesc.Text,
-                //};
-                //if (!unit.Add())
-                //{
-                //    return;
-                //}
-
-                //UnitSkill CourseBridge = new UnitSkill(unit.Id, lstSkill);
-                //if (!CourseBridge.Update())
-                //    return;
-                ////success!
-                //MessageBox.Show($"Unit ID: {unit.Id} added successfully.");
-                //txtUnitId.Text = unit.Id.ToString();
 
             }
         }
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
-            //validation
-            //if (!Validation.Numeric(txtUnitId))
-            //    return;
+            if (!Validation.Numeric(txtAssessmentId)
+)
+            {
+                MessageBox.Show("Failed to Validate, please try again");
+            }
 
-            //DialogResult result = MessageBox.Show("Would you like to search for this unit", "Question",
-            //                                   MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
-            //if (result == DialogResult.Yes)
-            //{
-            //    Unit unit = new Unit(txtUnitId.Int());
-            //    if (unit.Search())
-            //    {
-            //        txtUnitCode.Text = unit.Code;
-            //        txtUnitName.Text = unit.Name;
-            //        Forms.CheckRadio(pnlUnitType, Types.UnitType, unit.Type);
-            //        txtNoOfHours.Text = unit.NumOfHours.ToString();
-            //        cmbAreaOfStudy.SelectedValue = unit.DepartmentId;
-            //        Forms.SelectData(lstSkill, "unit_skills", "skillId", unit.Id, "unitId");
-            //        txtUnitDesc.Text = unit.Description;
+            else
+            {
+                Assessment Assessment = new Assessment();
+                Assessment.Id = txtAssessmentId.Int();
+                if (!Assessment.Search())
+                {
+                    MessageBox.Show("Failed to find an Assessment with the ID :" + txtAssessmentId.Text);
+                }
+                else
+                {
+                    txtAssessmentName.Text = Assessment.Name;
+                    cmbAreaOfStudy.SelectedValue = Assessment.DepartmentId;
+                    cmbUnit.SelectedValue = Assessment.UnitId;
+                    cmbTeacher.SelectedValue = Assessment.TeacherId;
+                    dtpStart.Value = Assessment.StartDate;
+                    dtpDue.Value = Assessment.DueDate;
+                    txtDescription.Text = Assessment.Description;
+                }
 
-            //    }
-            //}
+            }
         }
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
+            if (!Validation.Numeric(txtAssessmentId) || !Validation.Word(txtAssessmentName) || !Validation.Combo(cmbAreaOfStudy) || !Validation.Combo(cmbUnit)
+                || !Validation.Combo(cmbTeacher) || !Validation.Date(dtpStart) || !Validation.Date(dtpDue) || !Validation.Word(txtDescription)
+            )
+            {
+                MessageBox.Show("Failed to Validate, please try again");
+            }
 
+
+            else
+            {
+                Assessment Assessment = new Assessment();
+                Assessment.Id = txtAssessmentId.Int();
+                Assessment.Name = txtAssessmentName.Text;
+                Assessment.DepartmentId = cmbAreaOfStudy.Int();
+                Assessment.UnitId = cmbUnit.Int();
+                Assessment.TeacherId = cmbTeacher.Int();
+                Assessment.StartDate = dtpStart.Value;
+                Assessment.DueDate = dtpDue.Value;
+                Assessment.Description = txtDescription.Text;
+
+                if (!Assessment.Update())
+                {
+                    MessageBox.Show("Failed to Update the Selected Assessment");
+                }
+            }
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-
+            Assessment Assessment = new Assessment();
+            Assessment.Id = txtAssessmentId.Int();
+            if (!Assessment.Delete())
+            {
+                MessageBox.Show("Failed to Delete the Selected Assessment");
+            }
         }
 
         private void btnViewAll_Click(object sender, EventArgs e)
         {
+            using (ViewAllForm form = new ViewAllForm("Assessments"))
+            {
+                form.ShowDialog(this);
+                if (form.Id != -1)
+                {
+                    Assessment Assessment = new Assessment(form.Id);
+                    if (Assessment.Search())
+                    {
+                        txtAssessmentId.Text = Assessment.Id.ToString();
+                        txtAssessmentName.Text = Assessment.Name;
+                        cmbAreaOfStudy.SelectedValue = Assessment.DepartmentId;
+                        cmbUnit.SelectedValue = Assessment.UnitId;
+                        cmbTeacher.SelectedValue = Assessment.TeacherId;
+                        dtpStart.Value = Assessment.StartDate;
+                        dtpDue.Value = Assessment.DueDate;
+                        txtDescription.Text = Assessment.Description;
+                    }
+                }
+            }
+        }
 
+        private void cmbAreaOfStudy_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Forms.FillData(cmbTeacher, "teachers", "(teacherfirstname + ' ' + teacherlastname)", "teacherid", "departmentid", cmbAreaOfStudy.SelectedValue);
         }
     }
 }

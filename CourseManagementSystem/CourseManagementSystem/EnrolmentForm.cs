@@ -75,7 +75,7 @@ namespace CMS
                     txtEnrolmentCost.Text = enrolment.EnrolmentCost.ToString();
                     txtDiscountCost.Text = enrolment.DiscountCost.ToString();
                     dtpEnrolment.Value = enrolment.EnrolmentDate;
-                    dtpEnrolment.Value = enrolment.CompletionDate;
+                    dtpCompletion.Value = enrolment.CompletionDate;
                     Forms.CheckRadio(pnlSemester, Types.Semester, enrolment.Semester);
                     Forms.CheckRadio(pnlCourseResults, Types.CourseResults, enrolment.Result);
                 }
@@ -167,69 +167,130 @@ namespace CMS
         }
         private void cmbAreaOfStudy_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (!Validation.Many(
-                txtId.ValidateNumeric(),
-                cmbCourseName))
+            //if (!Validation.Many(
+            //    txtId.ValidateNumeric(),
+            //    cmbCourseName))
 
-            {
-                return;
-            }
+            //{
+            //    return;
+            //}
             {
                 Forms.FillData(cmbCourseName, "Courses", "coursename", "courseid", "departmentid", cmbAreaOfStudy.SelectedValue);
+                if (cmbAreaOfStudy.SelectedIndex == 0)
+                {
+                    cmbCourseName.Text = "(Please select an area of study)";
+                }
                 //Forms.FillData(lstUnitslist, "units", "unitname", "unitid", "departmentid", cmbAreaOfStudy.SelectedValue);
             }
         }
         private void CourseId_SelectedIndexChanged(object sender, EventArgs e)
         {
+            //course
+            if (cmbCourseName.SelectedIndex <= 0)
             {
-                if (!Validation.Many(
-                    txtId.ValidateNumeric(),
-                    cmbCourseName))
-
-                {
-                    return;
-                }
-                Course course = new Course() { Id = cmbCourseName.Int() };
-                Student student = new Student() { Id = txtId.Int() };
-                double discount = 0.0;
-                double total = 0.0;
-                //if(txtId.Text == null) { discount = 0.0; }
-                if (!course.Search())
-                {
-                    return;
-                }
-                if (!student.Search())
-                {
-                    return;
-                }
-
-                if (student.Aboriginal)
-                {
-                    discount = course.Cost * 0.5;
-                }
-                else if (student.Centrelink)
-                {
-                    discount = course.Cost * 0.2;
-                }
-                else if (student.Disability && student.Centrelink)
-                {
-                    discount = course.Cost * 0.4;
-                }
-                else if (student.Aboriginal && student.Disability && student.Centrelink)
-                {
-                    discount = course.Cost * 0.9;
-                }
-                else
-                {
-                    discount = 0.0;
-                }
-
-                txtEnrolmentCost.Text = course.Cost.ToString();
-                txtDiscountCost.Text = discount.ToString();
-                total = course.Cost - discount;
-                txtTotal.Text = total.ToString();
+                return;
             }
+            Course course = new Course() { Id = cmbCourseName.Int() };
+            double discount = 0.0;
+            double total = 0.0;
+            if (!course.Search())
+            {
+                return;
+            }
+            txtEnrolmentCost.Text = course.Cost.ToString();
+            txtDiscountCost.Text = discount.ToString();
+            total = course.Cost;
+            txtTotal.Text = total.ToString();
+            //student
+            int i;
+            if (string.IsNullOrEmpty(txtId.Text) || !int.TryParse(txtId.Text, out i))
+            {
+                return;
+            }
+            Student student = new Student() { Id = txtId.Int() };
+            if (!student.Search())
+            {
+                return;
+            }
+
+            if (student.Aboriginal)
+            {
+                discount = course.Cost * 0.5;
+            }
+            else if (student.Centrelink)
+            {
+                discount = course.Cost * 0.2;
+            }
+            else if (student.Disability && student.Centrelink)
+            {
+                discount = course.Cost * 0.4;
+            }
+            else if (student.Aboriginal && student.Disability && student.Centrelink)
+            {
+                discount = course.Cost * 0.9;
+            }
+            else
+            {
+                discount = 0.0;
+            }
+            txtDiscountCost.Text = discount.ToString();
+            total = course.Cost - discount;
+            txtTotal.Text = total.ToString();
+
+        }
+
+        private void txtId_Leave(object sender, EventArgs e)
+        {
+            CourseId_SelectedIndexChanged(sender, e);
+        }
+        private void mainMenuToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Forms.ShowForm(typeof(MainForm));
+        }
+
+        private void studentToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Forms.ShowForm(typeof(StudentForm));
+        }
+
+        private void teacherCoursesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Forms.ShowForm(typeof(TeacherForm));
+        }
+
+        private void enrolmentToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Forms.ShowForm(typeof(EnrolmentForm));
+        }
+
+        private void courseToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Forms.ShowForm(typeof(CourseForm));
+        }
+
+        private void aSsessmentToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Forms.ShowForm(typeof(AssessmentForm));
+        }
+
+        private void skillsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Forms.ShowForm(typeof(SkillsForm));
+        }
+
+        private void allocationToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Forms.ShowForm(typeof(AllocationForm));
+        }
+
+        private void globalSearchToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Forms.ShowForm(typeof(GlobalSearchForm));
+        }
+        private void unitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Forms.ShowForm(typeof(UnitForm));
         }
     }
 }
-    
+

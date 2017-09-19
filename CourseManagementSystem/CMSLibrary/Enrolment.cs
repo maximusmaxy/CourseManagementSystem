@@ -17,6 +17,7 @@ namespace CmsLibrary
         private DateTime completionDate;
         private double enrolmentCost;
         private double discountCost;
+        private double totalCost;
         private int semester;
         private int result;
 
@@ -156,9 +157,22 @@ namespace CmsLibrary
             }
         }
 
+        public double TotalCost
+        {
+            get
+            {
+                return totalCost;
+            }
+
+            set
+            {
+                totalCost = value;
+            }
+        }
+
         public bool Add()
         {
-            return Database.Add("enrolments", out id, studentId, courseId, enrolmentDate, completionDate, discountCost, semester, result);
+            return Database.Add("enrolments", out id, studentId, courseId, enrolmentDate, completionDate, discountCost,totalCost, semester, result);
         }
 
         public bool Update()
@@ -170,6 +184,7 @@ namespace CmsLibrary
                 "completionDate", completionDate,
                 "enrolmentCost", enrolmentCost,
                 "discountCost", discountCost,
+                "totalCost",totalCost,
                 "semester", semester,
                 "result", result);
         }
@@ -196,8 +211,9 @@ namespace CmsLibrary
                 completionDate = Convert.ToDateTime(dataRow[4]);
                 enrolmentCost = Convert.ToDouble(dataRow[5]);
                 discountCost = Convert.ToDouble(dataRow[6]);
-                semester = Convert.ToInt32(dataRow[7]);
-                result = Convert.ToInt32(dataRow[8]);
+                totalCost = Convert.ToDouble(dataRow[7]);
+                semester = Convert.ToInt32(dataRow[8]);
+                result = Convert.ToInt32(dataRow[9]);
                 return true;
             }
             else

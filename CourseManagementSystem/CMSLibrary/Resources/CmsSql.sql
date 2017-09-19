@@ -127,6 +127,7 @@ enrolmentDate date not null,
 completionDate date not null,
 enrolmentCost double precision not null,
 discountCost double precision not null,
+totalCost double precision not null,
 semester tinyint not null,
 results tinyint not null,
 constraint student_course_unique unique(studentId, courseId),
@@ -259,11 +260,11 @@ insert into Assessments values(10,10,4,'Spend money','2017-08-13','2017-09-01','
 insert into Assessments values(10,10,4,'Make money','2017-08-13','2017-09-01','Con money you lil devil you');
 insert into Assessments values(12,12,5,'Answer the phone','2017-08-13','2017-09-01','Pick up the dang phone');
 insert into Assessments values(12,12,5,'help desk','2017-08-13','2017-09-01','being helpful at a desk');
-insert into Enrolments values(1,1,'2017-06-19','2017-11-15',10000.00,5000.00,2,3);
-insert into Enrolments values(2,2,'2017-06-19','2017-11-15',8000.00,5000.00,2,3);
-insert into Enrolments values(3,3,'2017-06-19','2017-11-15',5000.00,4500.00,2,3);
-insert into Enrolments values(4,4,'2017-06-19','2017-11-15',3000.00,3000.00,2,3);
-insert into Enrolments values(5,5,'2017-06-19','2017-11-15',8000.00,5000.00,2,3);
+insert into Enrolments values(1,1,'2017-06-19','2017-11-15',10000.00,5000.00,5000.00,2,3);
+insert into Enrolments values(2,2,'2017-06-19','2017-11-15',8000.00,5000.00,3000.00,2,3);
+insert into Enrolments values(3,3,'2017-06-19','2017-11-15',5000.00,4500.00,500.00,2,3);
+insert into Enrolments values(4,4,'2017-06-19','2017-11-15',3000.00,3000.00,0,2,3);
+insert into Enrolments values(5,5,'2017-06-19','2017-11-15',8000.00,5000.00,3000.0,2,3);
 insert into Teacher_Skills values(1,1);
 insert into Teacher_Skills values(2,2);    
 insert into Teacher_Skills values(3,3);

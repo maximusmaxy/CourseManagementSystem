@@ -320,10 +320,9 @@ namespace CmsLibrary
             List<int> adds = new List<int>();
             List<int> deletes = new List<int>();
             DataTable dataTable = (DataTable)control.DataSource;
-            for (int i = 0; i < dataTable.Rows.Count; i++)
+            foreach (DataRowView row in control.SelectedItems)
             {
-                if (control.GetSelected(i))
-                    adds.Add(Convert.ToInt32(dataTable.Rows[i][controlName]));
+                adds.Add(Convert.ToInt32(row[controlName]));
             }
             string sql = $"select {controlName} from {table} where {idName} = {idValue}";
             try

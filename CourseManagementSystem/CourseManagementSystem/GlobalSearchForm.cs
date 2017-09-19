@@ -19,8 +19,9 @@ namespace CMS
         {
             public string Name { get; }
             public Type Form { get; }
-            public List<Column> Columns { get; }
-            public List<Column> GroupBy { get; }
+            public BindingList<Column> Columns { get; }
+            public BindingList<Column> GroupBy { get; }
+            public BindingList<Table> ForeignTables { get; }
 
             public string Display => Name;
             public Table Value => this;
@@ -28,8 +29,10 @@ namespace CMS
             public Table(string name, Type form)
             {
                 Name = name;
+                if (form == null)
+                    return;
                 Form = form;
-                Columns = new List<Column>();
+                Columns = new BindingList<Column>() { new Column(null, "(Not Selected)", null) };
                 foreach (SqlDataReader row in Database.StoredProcedure(
                     "sp_columns", new SqlParameter("@table_name", name))) {
                     Columns.Add(new Column(
@@ -37,14 +40,16 @@ namespace CMS
                         Extensions.CamelToHuman((string)row["COLUMN_NAME"]),
                         Extensions.DatabaseType((string)row["TYPE_NAME"])));
                 }
-                GroupBy = new List<Column> { new Column(null, "(Not Selected)", null) };
-                GroupBy.AddRange(Columns);
+                GroupBy = new BindingList<Column> { new Column(null, "(Not Selected)", null) };
+                foreach (Column column in Columns)
+                    GroupBy.Add(column);
+                ForeignTables = new BindingList<Table>() { new Table("(Not Selected)", null) };
             }
 
             public void AddDictionary(string columnName, Dictionary<string, int> dictionary)
             {
-                Column column = Columns.First(c => c.Name.Equals(columnName, StringComparison.InvariantCultureIgnoreCase));
-                column.Dictionary = new List<Data<int>>(dictionary.Select((kvp) => new Data<int>(kvp.Key, kvp.Value)).ToList());
+                Column column = Columns.First(c => c.Name?.Equals(columnName, StringComparison.InvariantCultureIgnoreCase) ?? false);
+                column.Dictionary = new BindingList<Data<int>>(dictionary.Select((kvp) => new Data<int>(kvp.Key, kvp.Value)).ToList());
                 column.DataType = typeof(Dictionary<string, int>);
             }
         }
@@ -54,7 +59,7 @@ namespace CMS
             public string Name { get; }
             public string Display { get; }
             public Type DataType { get; set; }
-            public List<Data<int>> Dictionary { get; set; }
+            public BindingList<Data<int>> Dictionary { get; set; }
 
             public Column Value => this;
 
@@ -66,26 +71,44 @@ namespace CMS
             }
         }
 
-        private List<Table> tables;
+        private BindingList<Table> tables;
         private Dictionary<Type, UserControl> userControls;
         private UserControl ucSearch;
 
         private StringBuilder select;
-        private StringBuilder sb;
+        private StringBuilder from;
+        private StringBuilder condition;
         private StringBuilder groupBy;
+        private List<ComboBox> tableGroup;
+        private List<ComboBox> columnGroup;
 
         public GlobalSearchForm()
         {
             InitializeComponent();
             select = new StringBuilder();
-            sb = new StringBuilder();
+            from = new StringBuilder();
+            condition = new StringBuilder();
             groupBy = new StringBuilder();
+            tableGroup = new List<ComboBox> { cmbTables, cmbTables2, cmbTables3, cmbTables4 };
+            columnGroup = new List<ComboBox> { cmbColumns, cmbColumns2, cmbColumns3, cmbColumns4 };
             LoadTables();
             LoadControls();
             cmbColumns.DisplayMember = "Display";
             cmbColumns.ValueMember = "Value";
+            cmbColumns2.DisplayMember = "Display";
+            cmbColumns2.ValueMember = "Value";
+            cmbColumns3.DisplayMember = "Display";
+            cmbColumns3.ValueMember = "Value";
+            cmbColumns4.DisplayMember = "Display";
+            cmbColumns4.ValueMember = "Value";
             cmbTables.DisplayMember = "Display";
             cmbTables.ValueMember = "Value";
+            cmbTables2.DisplayMember = "Display";
+            cmbTables2.ValueMember = "Value";
+            cmbTables3.DisplayMember = "Display";
+            cmbTables3.ValueMember = "Value";
+            cmbTables4.DisplayMember = "Display";
+            cmbTables4.ValueMember = "Value";
             cmbGroupBy.DisplayMember = "Display";
             cmbGroupBy.ValueMember = "Value";
             cmbTables.DataSource = tables;
@@ -93,32 +116,36 @@ namespace CMS
 
         private void LoadTables()
         {
-            tables = new List<Table>();
-            Table table = new Table("Students", typeof(StudentForm));
-            table.AddDictionary("studentGender", Types.GenderType);
-            tables.Add(table);
-            table = new Table("Enrolments", typeof(EnrolmentForm));
-            table.AddDictionary("semester", Types.Semester);
-            table.AddDictionary("results", Types.CourseResults);
-            tables.Add(table);
-            table = new Table("Teachers", typeof(TeacherForm));
-            tables.Add(table);
-            table = new Table("Courses", typeof(CourseForm));
-            table.AddDictionary("courseDeliveryType", Types.DeliveryType);
-            tables.Add(table);
-            table = new Table("Units", typeof(UnitForm));
-            table.AddDictionary("unitType", Types.UnitType);
-            tables.Add(table);
-            table = new Table("Assessments", typeof(AssessmentForm));
-            tables.Add(table);
-            table = new Table("Skills", typeof(SkillsForm));
-            tables.Add(table);
+            tables = new BindingList<Table>() { new Table("(Not Selected)", null) };
+            Table student = new Table("Students", typeof(StudentForm));
+            student.AddDictionary("studentGender", Types.GenderType);
+            tables.Add(student);
+            Table enrolment = new Table("Enrolments", typeof(EnrolmentForm));
+            enrolment.AddDictionary("semester", Types.Semester);
+            enrolment.AddDictionary("results", Types.CourseResults);
+            tables.Add(enrolment);
+            Table teacher = new Table("Teachers", typeof(TeacherForm));
+            tables.Add(teacher);
+            Table course = new Table("Courses", typeof(CourseForm));
+            course.AddDictionary("courseDeliveryType", Types.DeliveryType);
+            tables.Add(course);
+            Table unit = new Table("Units", typeof(UnitForm));
+            unit.AddDictionary("unitType", Types.UnitType);
+            tables.Add(unit);
+            Table assessment = new Table("Assessments", typeof(AssessmentForm));
+            tables.Add(assessment);
+            Table skill = new Table("Skills", typeof(SkillsForm));
+            tables.Add(skill);
+            student.ForeignTables.Add(enrolment);
+            enrolment.ForeignTables.Add(student);
+            enrolment.ForeignTables.Add(teacher);
+            teacher.ForeignTables.Add(assessment);
             AddLookUpTable("departments", "departmentname", "departmentid");
         }
 
         private void AddLookUpTable(string tableName, string display, string value)
         {
-            List<Data<int>> dictionary = new List<Data<int>>();
+            BindingList<Data<int>> dictionary = new BindingList<Data<int>>();
             foreach (SqlDataReader row in Database.ExecuteQuery(
                 $"select {display} as Display, {value} as Value from {tableName}"))
             {
@@ -126,7 +153,7 @@ namespace CMS
             }
             foreach (Table table in tables)
             {
-                Column column = table.Columns.FirstOrDefault(c => c.Name.Equals(value, StringComparison.InvariantCultureIgnoreCase));
+                Column column = table.Columns?.FirstOrDefault(c => c.Name?.Equals(value, StringComparison.InvariantCultureIgnoreCase) ?? false);
                 if (column != null)
                 {
                     column.DataType = typeof(Dictionary<string, int>);
@@ -139,6 +166,7 @@ namespace CMS
         {
             userControls = new Dictionary<Type, UserControl>();
             ucSearch = searchInt;
+            ucSearch.Hide();
             userControls[typeof(int)] = searchInt;
             AddUserControl(typeof(SearchDate), typeof(DateTime));
             AddUserControl(typeof(SearchBool), typeof(bool));
@@ -175,31 +203,105 @@ namespace CMS
 
         private void cmbTables_SelectedIndexChanged(object sender, EventArgs e)
         {
-            cmbColumns.DataSource = cmbTables.Get<Table>().Columns;
-            cmbGroupBy.DataSource = cmbTables.Get<Table>().GroupBy;
+            
+            if (cmbTables.SelectedIndex > 0)
+            {
+                Forms.SetDataSource(cmbColumns, "Display", "Value", cmbTables.Get<Table>().Columns);
+                Forms.SetDataSource(cmbGroupBy, "Display", "Value", cmbTables.Get<Table>().GroupBy);
+                cmbTables2.DataSource = cmbTables.Get<Table>().ForeignTables;
+            }
+            else
+            {
+                Forms.ClearDataSource(cmbTables2);
+                Forms.ClearDataSource(cmbTables3);
+                Forms.ClearDataSource(cmbTables4);
+                Forms.ClearDataSource(cmbColumns);
+                Forms.ClearDataSource(cmbColumns2);
+                Forms.ClearDataSource(cmbColumns3);
+                Forms.ClearDataSource(cmbColumns4);
+            }
+        }
+
+        private void cmbTables2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cmbTables2.SelectedIndex > 0)
+            {
+                cmbColumns2.DataSource = cmbTables2.Get<Table>().Columns;
+                Forms.SetDataSource(cmbGroupBy, "Display", "Value", cmbTables2.Get<Table>().GroupBy);
+                //cmbTables3.DataSource = cmbTables2.Get<Table>().ForeignTables;
+            }
+            else
+            {
+
+            }
+        }
+
+        private void cmbTables3_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cmbTables4_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
 
         private void cmbColumns_SelectedIndexChanged(object sender, EventArgs e)
         {
-            ChangeUserControl(cmbColumns.Get<Column>().DataType);
+            if (cmbColumns.SelectedIndex > 0)
+            {
+                ChangeUserControl(cmbColumns.Get<Column>().DataType);
+                ClearColumns(cmbColumns);
+            } 
+            else
+                ucSearch.Hide();
+        }
+
+        private void cmbColumns2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cmbColumns2.SelectedIndex > 0)
+            {
+                ChangeUserControl(cmbColumns2.Get<Column>().DataType);
+                ClearColumns(cmbColumns2);
+            }
+            else
+                ucSearch.Hide();
+        }
+
+        private void cmbColumns3_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cmbColumns4_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ClearColumns(ComboBox control)
+        {
+            foreach (ComboBox combo in columnGroup)
+            {
+                if (combo != control && combo.Items.Count != 0)
+                    combo.SelectedIndex = 0;
+            }
         }
 
         private void btnNewSearch_Click(object sender, EventArgs e)
         {
             if (!Validation.Many(ucSearch))
                 return;
-            sb.Clear();
+            condition.Clear();
             AppendSelect();
             AppendFrom();
             AppendWhere();
             AppendGroupBy();
-            string debug = sb.ToString();
             LoadDataGridViews();
         }
 
         private void btnAddSearch_Click(object sender, EventArgs e)
         {
-            if (sb.Length == 0)
+            if (condition.Length == 0)
             {
                 btnNewSearch_Click(sender, e);
                 return;
@@ -209,7 +311,6 @@ namespace CMS
             AppendSelect();
             AppendAnd();
             AppendGroupBy();
-            string debug = sb.ToString();
             LoadDataGridViews();
         }
 
@@ -234,27 +335,28 @@ namespace CMS
 
         private void AppendFrom()
         {
-            sb.Append("from ");
-            sb.Append(cmbTables.Get<Table>().Name);
+            from.Clear();
+            from.Append("from ");
+            from.Append(cmbTables.Get<Table>().Name);
         }
 
         private void AppendWhere()
         {
-            sb.Append(" where ");
+            condition.Append(" where ");
             AppendCondition();
         }
 
         private void AppendAnd()
         {
-            sb.Append(" and ");
+            condition.Append(" and ");
             AppendCondition();
         }
 
         private void AppendCondition()
         {
-            sb.Append(cmbColumns.Get<Column>().Name);
+            condition.Append(cmbColumns.Get<Column>().Name);
             ISearchControl control = (ISearchControl)ucSearch;
-            control.Append(sb);
+            control.Append(condition);
         }
 
         private void AppendGroupBy()
@@ -269,7 +371,7 @@ namespace CMS
 
         private void LoadDataGridViews()
         {
-            string sql = select.ToString() + sb.ToString() + groupBy.ToString();
+            string sql = select.ToString() + from.ToString() + condition.ToString() + groupBy.ToString();
             DataTable dataTable = Database.CreateDataTable(sql);
             if (dataTable.Rows.Count == 0)
             {

@@ -68,6 +68,7 @@ namespace CMS
             int lastIndex = sb.ToString().LastIndexOf(' ') + 1;
             string column = sb.ToString(lastIndex, sb.Length - lastIndex);
             sb.Length -= sb.Length - lastIndex;
+            sb.Append("(");
             Date date = Date.Year;
             if (cmbMonth.Int() != 0)
                 date += 1;
@@ -369,6 +370,7 @@ namespace CMS
                     }
                     break;
             }
+            sb.Append(")");
         }
 
         private void AppendYear(StringBuilder sb, string column)

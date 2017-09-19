@@ -158,6 +158,16 @@ namespace CmsLibrary
             return new Validation.Text(control, ValidationType.Phone, error);
         }
 
+        public static Validation.Error Error(this Control control, string error)
+        {
+            return new Validation.Error(control, error);
+        }
+
+        public static Validation.Text ValidateForceEmpty(this TextBox control, string error = null)
+        {
+            return new Validation.Text(control, ValidationType.ForceEmpty, error);
+        }
+
         /// <summary>
         /// Extends the add with value method to accept null values.
         /// </summary>

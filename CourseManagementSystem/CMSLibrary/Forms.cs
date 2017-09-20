@@ -160,6 +160,14 @@ namespace CmsLibrary
             control.DataSource = table;
         }
 
+        public static void SetDataSource(ListControl control, object table)
+        {
+            control.DataSource = null;
+            control.DisplayMember = "Display";
+            control.ValueMember = "Value";
+            control.DataSource = table;
+        }
+
         /// <summary>
         /// Selects items in a listbox based on data from a bridging table.
         /// </summary>

@@ -152,7 +152,7 @@ namespace CMS
                     if (enrolment.Search())
                     {
 
-                        txtEnrolmentId.Text = enrolment.Id.ToString();
+                        //txtEnrolmentId.Text = enrolment.Id.ToString();
                         txtId.Text = enrolment.StudentId.ToString();
                         cmbCourseName.SelectedValue = enrolment.CourseId;
                         txtEnrolmentCost.Text = enrolment.EnrolmentCost.ToString();
@@ -245,51 +245,138 @@ namespace CMS
         }
         private void mainMenuToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Forms.ShowForm(typeof(MainForm));
+            DialogResult result = MessageBox.Show("Would you like to open this form in a new window", "Question",
+                                              MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
+            if (result == DialogResult.Yes)
+            {
+                Forms.ShowForm(typeof(MainForm));
+            }
+            else if (result == DialogResult.No)
+            {
+                Forms.ShowForm(typeof(MainForm));
+                Close();
+            }
         }
 
         private void studentToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Forms.ShowForm(typeof(StudentForm));
+            DialogResult result = MessageBox.Show("Would you like to open this form in a new window", "Question",
+                                              MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
+            if (result == DialogResult.Yes)
+            {
+                Forms.ShowForm(typeof(StudentForm));
+            }
+            else if (result == DialogResult.No)
+            {
+                Forms.ShowForm(typeof(StudentForm));
+                Close();
+            }
         }
 
         private void teacherCoursesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Forms.ShowForm(typeof(TeacherForm));
+            DialogResult result = MessageBox.Show("Would you like to open this form in a new window", "Question",
+                                              MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
+            if (result == DialogResult.Yes)
+            {
+                Forms.ShowForm(typeof(TeacherForm));
+            }
+            else if (result == DialogResult.No)
+            {
+                Forms.ShowForm(typeof(TeacherForm));
+                Close();
+            }
         }
 
-        private void enrolmentToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Forms.ShowForm(typeof(EnrolmentForm));
-        }
+     
 
         private void courseToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Forms.ShowForm(typeof(CourseForm));
+            DialogResult result = MessageBox.Show("Would you like to open this form in a new window", "Question",
+                                              MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
+            if (result == DialogResult.Yes)
+            {
+                Forms.ShowForm(typeof(CourseForm));
+            }
+            else if (result == DialogResult.No)
+            {
+                Forms.ShowForm(typeof(CourseForm));
+                Close();
+            }
         }
 
         private void aSsessmentToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Forms.ShowForm(typeof(AssessmentForm));
+            DialogResult result = MessageBox.Show("Would you like to open this form in a new window", "Question",
+                                              MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
+            if (result == DialogResult.Yes)
+            {
+                Forms.ShowForm(typeof(AssessmentForm));
+            }
+            else if (result == DialogResult.No)
+            {
+                Forms.ShowForm(typeof(AssessmentForm));
+                Close();
+            }
         }
 
         private void skillsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Forms.ShowForm(typeof(SkillsForm));
+            DialogResult result = MessageBox.Show("Would you like to open this form in a new window", "Question",
+                                              MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
+            if (result == DialogResult.Yes)
+            {
+                Forms.ShowForm(typeof(SkillsForm));
+            }
+            else if (result == DialogResult.No)
+            {
+                Forms.ShowForm(typeof(SkillsForm));
+                Close();
+            }
         }
 
         private void allocationToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Forms.ShowForm(typeof(AllocationForm));
+            DialogResult result = MessageBox.Show("Would you like to open this form in a new window", "Question",
+                                              MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
+            if (result == DialogResult.Yes)
+            {
+                Forms.ShowForm(typeof(AllocationForm));
+            }
+            else if (result == DialogResult.No)
+            {
+                Forms.ShowForm(typeof(AllocationForm));
+                Close();
+            }
         }
 
         private void globalSearchToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Forms.ShowForm(typeof(GlobalSearchForm));
+            DialogResult result = MessageBox.Show("Would you like to open this form in a new window", "Question",
+                                                 MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
+            if (result == DialogResult.Yes)
+            {
+                Forms.ShowForm(typeof(GlobalSearchForm));
+            }
+            else if (result == DialogResult.No)
+            {
+                Forms.ShowForm(typeof(GlobalSearchForm));
+                Close();
+            }
         }
         private void unitToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Forms.ShowForm(typeof(UnitForm));
+            DialogResult result = MessageBox.Show("Would you like to open this form in a new window", "Question",
+                                             MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
+            if (result == DialogResult.Yes)
+            {
+                Forms.ShowForm(typeof(UnitForm));
+            }
+            else if (result == DialogResult.No)
+            {
+                Forms.ShowForm(typeof(UnitForm));
+                Close();
+            }
         }
     }
 }

@@ -245,7 +245,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(89, 122);
+            this.label5.Location = new System.Drawing.Point(51, 122);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(123, 21);
             this.label5.TabIndex = 147;
@@ -274,7 +274,7 @@
             // cmbAreaOfStudy
             // 
             this.cmbAreaOfStudy.FormattingEnabled = true;
-            this.cmbAreaOfStudy.Location = new System.Drawing.Point(234, 124);
+            this.cmbAreaOfStudy.Location = new System.Drawing.Point(180, 124);
             this.cmbAreaOfStudy.Name = "cmbAreaOfStudy";
             this.cmbAreaOfStudy.Size = new System.Drawing.Size(334, 21);
             this.cmbAreaOfStudy.TabIndex = 0;

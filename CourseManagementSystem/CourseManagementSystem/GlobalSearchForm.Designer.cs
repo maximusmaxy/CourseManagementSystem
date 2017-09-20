@@ -93,7 +93,7 @@
             this.panel5.Controls.Add(this.panel6);
             this.panel5.Location = new System.Drawing.Point(687, 27);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(132, 393);
+            this.panel5.Size = new System.Drawing.Size(132, 638);
             this.panel5.TabIndex = 151;
             // 
             // panel1
@@ -341,7 +341,7 @@
             this.dgvSearch.Location = new System.Drawing.Point(12, 426);
             this.dgvSearch.Name = "dgvSearch";
             this.dgvSearch.ReadOnly = true;
-            this.dgvSearch.Size = new System.Drawing.Size(796, 151);
+            this.dgvSearch.Size = new System.Drawing.Size(660, 151);
             this.dgvSearch.TabIndex = 158;
             this.dgvSearch.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvSearch_CellDoubleClick);
             // 
@@ -353,12 +353,12 @@
             this.dgvTotals.Location = new System.Drawing.Point(12, 583);
             this.dgvTotals.Name = "dgvTotals";
             this.dgvTotals.ReadOnly = true;
-            this.dgvTotals.Size = new System.Drawing.Size(796, 66);
+            this.dgvTotals.Size = new System.Drawing.Size(660, 66);
             this.dgvTotals.TabIndex = 159;
             // 
             // searchInt
             // 
-            this.searchInt.Location = new System.Drawing.Point(48, 240);
+            this.searchInt.Location = new System.Drawing.Point(74, 250);
             this.searchInt.Name = "searchInt";
             this.searchInt.Size = new System.Drawing.Size(540, 152);
             this.searchInt.TabIndex = 153;

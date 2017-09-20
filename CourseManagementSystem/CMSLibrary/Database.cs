@@ -268,7 +268,7 @@ namespace CmsLibrary
             sql.Append(" = @0");
             for (int i = 2; i < values.Length; i++)
             {
-                sql.Append(", ");
+                sql.Append(" and ");
                 sql.Append(values[i]);
                 sql.Append(" = @");
                 sql.Append(i++);
@@ -293,7 +293,8 @@ namespace CmsLibrary
                     }
                     else
                     {
-                        MessageBox.Show("No matching results found.");
+                        if (Validation.ShowErrors)
+                            MessageBox.Show("No matching results found.");
                         return false;
                     }
                 }

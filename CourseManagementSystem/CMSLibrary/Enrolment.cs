@@ -172,7 +172,7 @@ namespace CmsLibrary
 
         public bool Add()
         {
-            return Database.Add("enrolments", out id, studentId, courseId, enrolmentDate, completionDate, discountCost,totalCost, semester, result);
+            return Database.Add("enrolments", out id, studentId, courseId, enrolmentDate, completionDate,enrolmentCost,discountCost,totalCost, semester, result);
         }
 
         public bool Update()
@@ -199,7 +199,7 @@ namespace CmsLibrary
             return Search("enrolmentid", id);
         }
 
-        private bool Search(params object[] values)
+        public bool Search(params object[] values)
         {
             DataRow dataRow;
             if (Database.Search("enrolments", out dataRow, values))

@@ -301,12 +301,10 @@ namespace CMS
                 Forms.ShowForm(typeof(TeacherForm));
                 Close();
             }
-            
         }
 
         private void enrolmentToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
             DialogResult result = MessageBox.Show("Would you like to open this form in a new window", "Question",
                                               MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
             if (result == DialogResult.Yes)
@@ -318,7 +316,6 @@ namespace CMS
                 Forms.ShowForm(typeof(EnrolmentForm));
                 Close();
             }
-            
         }
 
         private void courseToolStripMenuItem_Click(object sender, EventArgs e)
@@ -334,7 +331,6 @@ namespace CMS
                 Forms.ShowForm(typeof(CourseForm));
                 Close();
             }
-            
         }
 
         private void unitToolStripMenuItem_Click(object sender, EventArgs e)
@@ -350,7 +346,6 @@ namespace CMS
                 Forms.ShowForm(typeof(UnitForm));
                 Close();
             }
-            
         }
 
         private void assessmentToolStripMenuItem_Click(object sender, EventArgs e)
@@ -366,7 +361,6 @@ namespace CMS
                 Forms.ShowForm(typeof(AssessmentForm));
                 Close();
             }
-            
         }
 
         private void skillsToolStripMenuItem_Click(object sender, EventArgs e)
@@ -382,12 +376,10 @@ namespace CMS
                 Forms.ShowForm(typeof(SkillsForm));
                 Close();
             }
-            
         }
-
+        
         private void btnClearForm_Click(object sender, EventArgs e)
         {
-           
             Forms.ClearControls(this);
         }
 
@@ -425,15 +417,5 @@ namespace CMS
                 Close();
             }
         }
-
-
-
-
-
-
-
-
-
-        //comment
     }
 }

@@ -232,7 +232,6 @@ namespace CMS
                 Forms.ShowForm(typeof(TeacherForm));
                 Close();
             }
-
         }
 
         private void enrolmentToolStripMenuItem_Click(object sender, EventArgs e)
@@ -249,8 +248,7 @@ namespace CMS
                 Close();
             }
         }
-
-
+        
         private void unitToolStripMenuItem_Click(object sender, EventArgs e)
         {
             DialogResult result = MessageBox.Show("Would you like to open this form in a new window", "Question",

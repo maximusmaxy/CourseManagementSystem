@@ -293,7 +293,8 @@ namespace CmsLibrary
                     }
                     else
                     {
-                        MessageBox.Show("No matching results found.");
+                        if (Validation.ShowErrors)
+                            MessageBox.Show("No matching results found.");
                         return false;
                     }
                 }

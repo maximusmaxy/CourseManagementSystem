@@ -22,6 +22,7 @@ namespace CMS
             public BindingList<Column> Columns { get; }
             public BindingList<Column> GroupBy { get; }
             public BindingList<Table> ForeignTables { get; }
+            public Dictionary<string, ForeignKey> ForeignKeys { get; }
 
             public string Display => Name;
             public Table Value => this;
@@ -34,16 +35,27 @@ namespace CMS
                 Form = form;
                 Columns = new BindingList<Column>() { new Column(null, "(Not Selected)", null) };
                 foreach (SqlDataReader row in Database.StoredProcedure(
-                    "sp_columns", new SqlParameter("@table_name", name))) {
+                    "sp_columns", new SqlParameter("@table_name", name)))
+                {
                     Columns.Add(new Column(
                         (string)row["COLUMN_NAME"],
                         Extensions.CamelToHuman((string)row["COLUMN_NAME"]),
                         Extensions.DatabaseType((string)row["TYPE_NAME"])));
                 }
-                GroupBy = new BindingList<Column> { new Column(null, "(Not Selected)", null) };
+                GroupBy = new BindingList<Column>();
                 foreach (Column column in Columns)
                     GroupBy.Add(column);
                 ForeignTables = new BindingList<Table>() { new Table("(Not Selected)", null) };
+                ForeignKeys = new Dictionary<string, ForeignKey>();
+                foreach (SqlDataReader row in Database.StoredProcedure("sp_fkeys",
+                    new SqlParameter("@fktable_name", Name)))
+                {
+                    ForeignKeys[(string)row["PKTABLE_NAME"]] = new ForeignKey(
+                        (string)row["FKTABLE_NAME"],
+                        (string)row["FKCOLUMN_NAME"],
+                        (string)row["PKTABLE_NAME"],
+                        (string)row["PKCOLUMN_NAME"]);
+                }
             }
 
             public void AddDictionary(string columnName, Dictionary<string, int> dictionary)
@@ -71,16 +83,33 @@ namespace CMS
             }
         }
 
+        private class ForeignKey
+        {
+            public string MainTable { get; }
+            public string MainId { get; }
+            public string ForeignTable { get; }
+            public string ForeignId { get; }
+
+            public ForeignKey(string mainTable, string mainId, string foreignTable, string foreignId)
+            {
+                MainTable = mainTable;
+                MainId = mainId;
+                ForeignTable = foreignTable;
+                ForeignId = foreignId;
+            }
+        }
+
         private BindingList<Table> tables;
         private Dictionary<Type, UserControl> userControls;
         private UserControl ucSearch;
+        private ComboBox[] tableGroup;
+        private ComboBox[] columnGroup;
 
         private StringBuilder select;
+        private StringBuilder join;
         private StringBuilder from;
         private StringBuilder condition;
         private StringBuilder groupBy;
-        private List<ComboBox> tableGroup;
-        private List<ComboBox> columnGroup;
 
         public GlobalSearchForm()
         {
@@ -89,29 +118,12 @@ namespace CMS
             from = new StringBuilder();
             condition = new StringBuilder();
             groupBy = new StringBuilder();
-            tableGroup = new List<ComboBox> { cmbTables, cmbTables2, cmbTables3, cmbTables4 };
-            columnGroup = new List<ComboBox> { cmbColumns, cmbColumns2, cmbColumns3, cmbColumns4 };
+            join = new StringBuilder();
+            tableGroup = new ComboBox[] { cmbTables, cmbTables2, cmbTables3, cmbTables4 };
+            columnGroup = new ComboBox[] { cmbColumns, cmbColumns2, cmbColumns3, cmbColumns4 };
             LoadTables();
             LoadControls();
-            cmbColumns.DisplayMember = "Display";
-            cmbColumns.ValueMember = "Value";
-            cmbColumns2.DisplayMember = "Display";
-            cmbColumns2.ValueMember = "Value";
-            cmbColumns3.DisplayMember = "Display";
-            cmbColumns3.ValueMember = "Value";
-            cmbColumns4.DisplayMember = "Display";
-            cmbColumns4.ValueMember = "Value";
-            cmbTables.DisplayMember = "Display";
-            cmbTables.ValueMember = "Value";
-            cmbTables2.DisplayMember = "Display";
-            cmbTables2.ValueMember = "Value";
-            cmbTables3.DisplayMember = "Display";
-            cmbTables3.ValueMember = "Value";
-            cmbTables4.DisplayMember = "Display";
-            cmbTables4.ValueMember = "Value";
-            cmbGroupBy.DisplayMember = "Display";
-            cmbGroupBy.ValueMember = "Value";
-            cmbTables.DataSource = tables;
+            Forms.SetDataSource(cmbTables, tables);
         }
 
         private void LoadTables()
@@ -158,7 +170,7 @@ namespace CMS
                 {
                     column.DataType = typeof(Dictionary<string, int>);
                     column.Dictionary = dictionary;
-                }   
+                }
             }
         }
 
@@ -187,38 +199,50 @@ namespace CMS
             userControls[dataType] = control;
         }
 
-        private void ChangeUserControl(Type type)
+        private void ChangeUserControl(ComboBox combo)
         {
+            if (combo.SelectedIndex < 1)
+            {
+                if (!columnGroup.Any(c => c.SelectedIndex > 0))
+                    ucSearch.Hide();
+                return;
+            }
+            foreach (ComboBox cmb in columnGroup)
+            {
+                if (cmb != combo && cmb.Items.Count != 0)
+                    cmb.SelectedIndex = 0;
+            }
             ucSearch.Hide();
-            ucSearch = userControls[type];
+            ucSearch = userControls[combo.Get<Column>().DataType];
             ((ISearchControl)ucSearch).Reset();
             if (ucSearch is SearchDictionary)
             {
                 SearchDictionary control = (SearchDictionary)ucSearch;
-                control.cmbType.DataSource = cmbColumns.Get<Column>().Dictionary;
-                control.lblType.Text = $"{cmbColumns.Get<Column>().Display}:";
+                control.cmbType.DataSource = combo.Get<Column>().Dictionary;
+                control.lblType.Text = $"{combo.Get<Column>().Display}: ";
             }
             ucSearch.Show();
         }
 
         private void cmbTables_SelectedIndexChanged(object sender, EventArgs e)
         {
-            
+
             if (cmbTables.SelectedIndex > 0)
             {
-                Forms.SetDataSource(cmbColumns, "Display", "Value", cmbTables.Get<Table>().Columns);
-                Forms.SetDataSource(cmbGroupBy, "Display", "Value", cmbTables.Get<Table>().GroupBy);
-                cmbTables2.DataSource = cmbTables.Get<Table>().ForeignTables;
+                Forms.SetDataSource(cmbColumns, cmbTables.Get<Table>().Columns);
+                Forms.SetDataSource(cmbGroupBy, cmbTables.Get<Table>().GroupBy);
+                Forms.SetDataSource(cmbTables2, cmbTables.Get<Table>().ForeignTables);
             }
             else
             {
-                Forms.ClearDataSource(cmbTables2);
-                Forms.ClearDataSource(cmbTables3);
-                Forms.ClearDataSource(cmbTables4);
-                Forms.ClearDataSource(cmbColumns);
-                Forms.ClearDataSource(cmbColumns2);
-                Forms.ClearDataSource(cmbColumns3);
-                Forms.ClearDataSource(cmbColumns4);
+                cmbTables2.DataSource = null;
+                cmbTables3.DataSource = null;
+                cmbTables4.DataSource = null;
+                cmbColumns.DataSource = null;
+                cmbColumns2.DataSource = null;
+                cmbColumns3.DataSource = null;
+                cmbColumns4.DataSource = null;
+                cmbGroupBy.DataSource = null;
             }
         }
 
@@ -226,90 +250,107 @@ namespace CMS
         {
             if (cmbTables2.SelectedIndex > 0)
             {
-                cmbColumns2.DataSource = cmbTables2.Get<Table>().Columns;
-                Forms.SetDataSource(cmbGroupBy, "Display", "Value", cmbTables2.Get<Table>().GroupBy);
-                //cmbTables3.DataSource = cmbTables2.Get<Table>().ForeignTables;
+                Forms.SetDataSource(cmbColumns2, cmbTables2.Get<Table>().Columns);
+                //Forms.SetDataSource(cmbGroupBy, cmbTables2.Get<Table>().GroupBy);
+                Forms.SetDataSource(cmbTables3, cmbTables2.Get<Table>().ForeignTables);
             }
             else
             {
-
+                cmbTables3.DataSource = null;
+                cmbTables4.DataSource = null;
+                cmbColumns2.DataSource = null;
+                cmbColumns3.DataSource = null;
+                cmbColumns4.DataSource = null;
             }
         }
 
         private void cmbTables3_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            if (cmbTables3.SelectedIndex > 0)
+            {
+                Forms.SetDataSource(cmbColumns3, cmbTables3.Get<Table>().Columns);
+                //Forms.SetDataSource(cmbGroupBy, cmbTables2.Get<Table>().GroupBy);
+                Forms.SetDataSource(cmbTables4, cmbTables3.Get<Table>().ForeignTables);
+            }
+            else
+            {
+                cmbTables4.DataSource = null;
+                cmbColumns3.DataSource = null;
+                cmbColumns4.DataSource = null;
+            }
         }
 
         private void cmbTables4_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            if (cmbTables3.SelectedIndex > 0)
+            {
+                Forms.SetDataSource(cmbColumns3, cmbTables3.Get<Table>().Columns);
+                //Forms.SetDataSource(cmbGroupBy, cmbTables2.Get<Table>().GroupBy);
+            }
+            else
+            {
+                cmbTables4.DataSource = null;
+                cmbColumns3.DataSource = null;
+                cmbColumns4.DataSource = null;
+            }
         }
 
         private void cmbColumns_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (cmbColumns.SelectedIndex > 0)
-            {
-                ChangeUserControl(cmbColumns.Get<Column>().DataType);
-                ClearColumns(cmbColumns);
-            } 
-            else
-                ucSearch.Hide();
+            ChangeUserControl(cmbColumns);
         }
 
         private void cmbColumns2_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (cmbColumns2.SelectedIndex > 0)
-            {
-                ChangeUserControl(cmbColumns2.Get<Column>().DataType);
-                ClearColumns(cmbColumns2);
-            }
-            else
-                ucSearch.Hide();
+            ChangeUserControl(cmbColumns2);
         }
 
         private void cmbColumns3_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            ChangeUserControl(cmbColumns3);
         }
 
         private void cmbColumns4_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            ChangeUserControl(cmbColumns4);
         }
 
-        private void ClearColumns(ComboBox control)
+        private bool ValidateColumns()
         {
             foreach (ComboBox combo in columnGroup)
             {
-                if (combo != control && combo.Items.Count != 0)
-                    combo.SelectedIndex = 0;
+                if (combo.Items.Count != 0 && combo.SelectedIndex > 0)
+                    return true;
             }
+            MessageBox.Show("No condition is selected.");
+            return false;
         }
 
         private void btnNewSearch_Click(object sender, EventArgs e)
         {
+            if (!ValidateColumns())
+                return;
             if (!Validation.Many(ucSearch))
                 return;
             condition.Clear();
-            AppendSelect();
-            AppendFrom();
-            AppendWhere();
-            AppendGroupBy();
-            LoadDataGridViews();
+            Append();
         }
 
         private void btnAddSearch_Click(object sender, EventArgs e)
         {
-            if (condition.Length == 0)
-            {
-                btnNewSearch_Click(sender, e);
+            if (!ValidateColumns())
                 return;
-            }
             if (!Validation.Many(ucSearch))
                 return;
+            Append();
+        }
+
+        private void Append()
+        {
             AppendSelect();
-            AppendAnd();
+            AppendFrom();
+            AppendJoin();
+            AppendCondition();
             AppendGroupBy();
             LoadDataGridViews();
         }
@@ -337,24 +378,53 @@ namespace CMS
         {
             from.Clear();
             from.Append("from ");
-            from.Append(cmbTables.Get<Table>().Name);
+            foreach (ComboBox combo in tableGroup)
+            {
+                if (combo.SelectedIndex > 0)
+                {
+                    from.Append(combo.Get<Table>().Name);
+                    from.Append(", ");
+                }
+            }
+            from.Length -= 2;
         }
 
-        private void AppendWhere()
+        private void AppendJoin()
         {
-            condition.Append(" where ");
-            AppendCondition();
-        }
-
-        private void AppendAnd()
-        {
-            condition.Append(" and ");
-            AppendCondition();
+            join.Clear();
+            int joins = -1;
+            foreach (ComboBox combo in tableGroup)
+            {
+                if (combo.SelectedIndex > 0)
+                    joins++;
+            }
+            if (joins > 0)
+            {
+                for (int i = 0; i < joins; i++)
+                {
+                    ForeignKey fk = tableGroup[i + 1].Get<Table>().ForeignKeys[tableGroup[i].Get<Table>().Name];
+                    join.Append(fk.MainTable);
+                    join.Append(".");
+                    join.Append(fk.MainId);
+                    join.Append(" = ");
+                    join.Append(fk.ForeignTable);
+                    join.Append(".");
+                    join.Append(fk.ForeignId);
+                    join.Append(" and ");
+                }
+            }
         }
 
         private void AppendCondition()
         {
-            condition.Append(cmbColumns.Get<Column>().Name);
+            if (join.Length != 0 || condition.Length != 0)
+            {
+                condition.Append(" and ");
+            }
+            int index = Array.IndexOf(columnGroup, columnGroup.First(c => (c.SelectedIndex > 0)));
+            condition.Append(tableGroup[index].Get<Table>().Name);
+            condition.Append(".");
+            condition.Append(columnGroup[index].Get<Column>().Name);
             ISearchControl control = (ISearchControl)ucSearch;
             control.Append(condition);
         }
@@ -365,13 +435,15 @@ namespace CMS
             if (cmbGroupBy.SelectedIndex != 0)
             {
                 groupBy.Append(" group by ");
+                groupBy.Append(cmbTables.Get<Table>().Name);
+                groupBy.Append(".");
                 groupBy.Append(cmbGroupBy.Get<Column>().Name);
             }
         }
 
         private void LoadDataGridViews()
         {
-            string sql = select.ToString() + from.ToString() + condition.ToString() + groupBy.ToString();
+            string sql = select.ToString() + from.ToString() + " where " + join.ToString() + condition.ToString() + groupBy.ToString();
             DataTable dataTable = Database.CreateDataTable(sql);
             if (dataTable.Rows.Count == 0)
             {

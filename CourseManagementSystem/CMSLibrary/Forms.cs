@@ -160,13 +160,12 @@ namespace CmsLibrary
             control.DataSource = table;
         }
 
-        /// <summary>
-        /// Clears the data source of a combo box.
-        /// </summary>
-        /// <param name="control">The control to clear.</param>
-        public static void ClearDataSource(ComboBox control)
+        public static void SetDataSource(ListControl control, object table)
         {
             control.DataSource = null;
+            control.DisplayMember = "Display";
+            control.ValueMember = "Value";
+            control.DataSource = table;
         }
 
         /// <summary>

@@ -268,7 +268,7 @@ namespace CmsLibrary
             sql.Append(" = @0");
             for (int i = 2; i < values.Length; i++)
             {
-                sql.Append(", ");
+                sql.Append(" and ");
                 sql.Append(values[i]);
                 sql.Append(" = @");
                 sql.Append(i++);

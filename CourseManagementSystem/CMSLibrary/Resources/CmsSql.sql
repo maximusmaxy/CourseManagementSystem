@@ -2,6 +2,8 @@
 --create database courseManage; 
 
 --Drop tables
+if OBJECT_id('Users','U') is not null
+drop table Users;
 if object_id('Unit_Teachers','U') is not null
 drop table unit_teachers;
 if object_id('Unit_Skills', 'U') is not null
@@ -34,6 +36,14 @@ if object_id('Departments','U') is not null
 drop table Departments;
 go
 --Create Tables
+create table Users(
+UserId smallint primary key identity(1,1) not null,
+username varchar(50) not null,
+passwords varchar(32) not null,
+salt varchar(32) not null,
+permissionType smallint not null
+constraint unique_username unique(username));
+
 create table Departments(
 departmentId smallint primary key identity(1,1) not null,
 departmentName varchar(50) not null);

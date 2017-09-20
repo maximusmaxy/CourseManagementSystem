@@ -161,15 +161,6 @@ namespace CmsLibrary
         }
 
         /// <summary>
-        /// Clears the data source of a combo box.
-        /// </summary>
-        /// <param name="control">The control to clear.</param>
-        public static void ClearDataSource(ComboBox control)
-        {
-            control.DataSource = null;
-        }
-
-        /// <summary>
         /// Selects items in a listbox based on data from a bridging table.
         /// </summary>
         /// <param name="table">The name of the bridging table in the database.</param>

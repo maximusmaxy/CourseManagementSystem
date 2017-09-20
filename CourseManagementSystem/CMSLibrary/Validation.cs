@@ -90,16 +90,20 @@ namespace CmsLibrary
             }
         }
 
+        public static bool ShowErrors { get; set; } = true;
+
         public static void ShowError(Control control, string userError, string defaultError)
         {
             if (userError != null)
             {
                 if (userError.Length == 0)
                     return;
-                MessageBox.Show(userError);
+                if (ShowErrors)
+                    MessageBox.Show(userError);
             }
             else
-                MessageBox.Show(defaultError);
+                if (ShowErrors)
+                    MessageBox.Show(defaultError);
         }
 
         public static bool Numeric(Control control, string error = null)

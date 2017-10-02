@@ -46,6 +46,8 @@
             this.panel6 = new System.Windows.Forms.Panel();
             this.btnSearch = new System.Windows.Forms.Button();
             this.panel5 = new System.Windows.Forms.Panel();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.btnClearForm = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
             this.panel8 = new System.Windows.Forms.Panel();
             this.btnViewAll = new System.Windows.Forms.Button();
@@ -73,24 +75,24 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.btnClearForm = new System.Windows.Forms.Button();
+            this.panel9 = new System.Windows.Forms.Panel();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel6.SuspendLayout();
             this.panel5.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.panel8.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel7.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
-            this.panel1.SuspendLayout();
+            this.panel9.SuspendLayout();
             this.SuspendLayout();
             // 
             // globalSearchToolStripMenuItem
             // 
             this.globalSearchToolStripMenuItem.Name = "globalSearchToolStripMenuItem";
-            this.globalSearchToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.globalSearchToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
             this.globalSearchToolStripMenuItem.Text = "Global Search";
             this.globalSearchToolStripMenuItem.Click += new System.EventHandler(this.globalSearchToolStripMenuItem_Click);
             // 
@@ -98,9 +100,9 @@
             // 
             this.panel3.BackColor = System.Drawing.Color.HotPink;
             this.panel3.Controls.Add(this.btnUpdate);
-            this.panel3.Location = new System.Drawing.Point(3, 281);
+            this.panel3.Location = new System.Drawing.Point(3, 256);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(125, 50);
+            this.panel3.Size = new System.Drawing.Size(150, 58);
             this.panel3.TabIndex = 21;
             // 
             // btnUpdate
@@ -109,26 +111,29 @@
             this.btnUpdate.Image = global::CMS.Properties.Resources.UpdateButton;
             this.btnUpdate.Location = new System.Drawing.Point(3, 3);
             this.btnUpdate.Name = "btnUpdate";
-            this.btnUpdate.Size = new System.Drawing.Size(120, 45);
+            this.btnUpdate.Size = new System.Drawing.Size(144, 52);
             this.btnUpdate.TabIndex = 7;
             this.btnUpdate.UseVisualStyleBackColor = false;
             this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
             // txtSkillID
             // 
-            this.txtSkillID.Location = new System.Drawing.Point(190, 137);
+            this.txtSkillID.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSkillID.Location = new System.Drawing.Point(250, 10);
             this.txtSkillID.Name = "txtSkillID";
-            this.txtSkillID.Size = new System.Drawing.Size(334, 20);
+            this.txtSkillID.Size = new System.Drawing.Size(368, 26);
             this.txtSkillID.TabIndex = 1;
             this.txtSkillID.Tag = "Skill ID";
             this.ToolTips.SetToolTip(this.txtSkillID, "Insert a Numeric value for the Skill ID, using 0-9 numbers Only");
             // 
             // txtSkillDescription
             // 
-            this.txtSkillDescription.Location = new System.Drawing.Point(190, 267);
+            this.txtSkillDescription.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSkillDescription.Location = new System.Drawing.Point(250, 118);
             this.txtSkillDescription.Multiline = true;
             this.txtSkillDescription.Name = "txtSkillDescription";
-            this.txtSkillDescription.Size = new System.Drawing.Size(334, 111);
+            this.txtSkillDescription.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.txtSkillDescription.Size = new System.Drawing.Size(499, 64);
             this.txtSkillDescription.TabIndex = 4;
             this.txtSkillDescription.Tag = "Skill Description";
             this.ToolTips.SetToolTip(this.txtSkillDescription, "Insert a Small description on what this Skill is about and what are they able tod" +
@@ -136,19 +141,21 @@
             // 
             // txtSkillName
             // 
-            this.txtSkillName.Location = new System.Drawing.Point(190, 180);
+            this.txtSkillName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSkillName.Location = new System.Drawing.Point(250, 46);
             this.txtSkillName.Name = "txtSkillName";
-            this.txtSkillName.Size = new System.Drawing.Size(334, 20);
+            this.txtSkillName.Size = new System.Drawing.Size(368, 26);
             this.txtSkillName.TabIndex = 2;
             this.txtSkillName.Tag = "Skill Name";
             this.ToolTips.SetToolTip(this.txtSkillName, "Insert a Name for the Skill Using Alphabetical Charcters Only");
             // 
             // cmbAreaOfStudy
             // 
+            this.cmbAreaOfStudy.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbAreaOfStudy.FormattingEnabled = true;
-            this.cmbAreaOfStudy.Location = new System.Drawing.Point(190, 223);
+            this.cmbAreaOfStudy.Location = new System.Drawing.Point(250, 82);
             this.cmbAreaOfStudy.Name = "cmbAreaOfStudy";
-            this.cmbAreaOfStudy.Size = new System.Drawing.Size(334, 21);
+            this.cmbAreaOfStudy.Size = new System.Drawing.Size(368, 28);
             this.cmbAreaOfStudy.TabIndex = 3;
             this.cmbAreaOfStudy.Tag = "Area Of Study";
             this.ToolTips.SetToolTip(this.cmbAreaOfStudy, "Select from the list the Appropriate Area of Study for this Course");
@@ -156,27 +163,27 @@
             // skillsToolStripMenuItem
             // 
             this.skillsToolStripMenuItem.Name = "skillsToolStripMenuItem";
-            this.skillsToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.skillsToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
             this.skillsToolStripMenuItem.Text = "Skills";
             this.skillsToolStripMenuItem.Click += new System.EventHandler(this.skillsToolStripMenuItem_Click);
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(111, 135);
+            this.label2.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(163, 11);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(70, 21);
+            this.label2.Size = new System.Drawing.Size(81, 23);
             this.label2.TabIndex = 132;
             this.label2.Text = "Skill ID:";
             // 
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(44, 267);
+            this.label12.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.Location = new System.Drawing.Point(87, 118);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(137, 21);
+            this.label12.Size = new System.Drawing.Size(157, 23);
             this.label12.TabIndex = 133;
             this.label12.Text = "Skill Description:";
             // 
@@ -184,9 +191,9 @@
             // 
             this.panel2.BackColor = System.Drawing.Color.HotPink;
             this.panel2.Controls.Add(this.btnAdd);
-            this.panel2.Location = new System.Drawing.Point(4, 150);
+            this.panel2.Location = new System.Drawing.Point(3, 130);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(125, 50);
+            this.panel2.Size = new System.Drawing.Size(150, 58);
             this.panel2.TabIndex = 21;
             // 
             // btnAdd
@@ -195,7 +202,7 @@
             this.btnAdd.Image = global::CMS.Properties.Resources.AddButton;
             this.btnAdd.Location = new System.Drawing.Point(3, 3);
             this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(120, 45);
+            this.btnAdd.Size = new System.Drawing.Size(144, 52);
             this.btnAdd.TabIndex = 5;
             this.btnAdd.UseVisualStyleBackColor = false;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
@@ -204,9 +211,9 @@
             // 
             this.panel6.BackColor = System.Drawing.Color.HotPink;
             this.panel6.Controls.Add(this.btnSearch);
-            this.panel6.Location = new System.Drawing.Point(3, 214);
+            this.panel6.Location = new System.Drawing.Point(3, 193);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(125, 50);
+            this.panel6.Size = new System.Drawing.Size(150, 58);
             this.panel6.TabIndex = 19;
             // 
             // btnSearch
@@ -215,7 +222,7 @@
             this.btnSearch.Image = global::CMS.Properties.Resources.SearchButton;
             this.btnSearch.Location = new System.Drawing.Point(3, 3);
             this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(120, 45);
+            this.btnSearch.Size = new System.Drawing.Size(144, 52);
             this.btnSearch.TabIndex = 6;
             this.btnSearch.UseVisualStyleBackColor = false;
             this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
@@ -230,10 +237,30 @@
             this.panel5.Controls.Add(this.panel3);
             this.panel5.Controls.Add(this.panel2);
             this.panel5.Controls.Add(this.panel6);
-            this.panel5.Location = new System.Drawing.Point(612, 25);
+            this.panel5.Location = new System.Drawing.Point(828, 27);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(132, 543);
+            this.panel5.Size = new System.Drawing.Size(156, 508);
             this.panel5.TabIndex = 130;
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.HotPink;
+            this.panel1.Controls.Add(this.btnClearForm);
+            this.panel1.Location = new System.Drawing.Point(3, 445);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(150, 58);
+            this.panel1.TabIndex = 137;
+            // 
+            // btnClearForm
+            // 
+            this.btnClearForm.BackColor = System.Drawing.Color.White;
+            this.btnClearForm.Image = global::CMS.Properties.Resources.ClearFormButton;
+            this.btnClearForm.Location = new System.Drawing.Point(3, 3);
+            this.btnClearForm.Name = "btnClearForm";
+            this.btnClearForm.Size = new System.Drawing.Size(144, 52);
+            this.btnClearForm.TabIndex = 18;
+            this.btnClearForm.Tag = "Clear Form";
+            this.btnClearForm.UseVisualStyleBackColor = false;
             // 
             // button5
             // 
@@ -241,7 +268,7 @@
             this.button5.Image = global::CMS.Properties.Resources.SkillsButton;
             this.button5.Location = new System.Drawing.Point(3, 3);
             this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(125, 100);
+            this.button5.Size = new System.Drawing.Size(150, 124);
             this.button5.TabIndex = 5;
             this.button5.UseVisualStyleBackColor = false;
             // 
@@ -249,9 +276,9 @@
             // 
             this.panel8.BackColor = System.Drawing.Color.HotPink;
             this.panel8.Controls.Add(this.btnViewAll);
-            this.panel8.Location = new System.Drawing.Point(4, 413);
+            this.panel8.Location = new System.Drawing.Point(3, 382);
             this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(125, 50);
+            this.panel8.Size = new System.Drawing.Size(150, 58);
             this.panel8.TabIndex = 22;
             // 
             // btnViewAll
@@ -260,7 +287,7 @@
             this.btnViewAll.Image = global::CMS.Properties.Resources.ViewAllButton;
             this.btnViewAll.Location = new System.Drawing.Point(3, 3);
             this.btnViewAll.Name = "btnViewAll";
-            this.btnViewAll.Size = new System.Drawing.Size(120, 45);
+            this.btnViewAll.Size = new System.Drawing.Size(144, 52);
             this.btnViewAll.TabIndex = 9;
             this.btnViewAll.UseVisualStyleBackColor = false;
             this.btnViewAll.Click += new System.EventHandler(this.btnViewAll_Click);
@@ -269,9 +296,9 @@
             // 
             this.panel4.BackColor = System.Drawing.Color.HotPink;
             this.panel4.Controls.Add(this.btnDelete);
-            this.panel4.Location = new System.Drawing.Point(3, 350);
+            this.panel4.Location = new System.Drawing.Point(3, 319);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(125, 50);
+            this.panel4.Size = new System.Drawing.Size(150, 58);
             this.panel4.TabIndex = 21;
             // 
             // btnDelete
@@ -280,7 +307,7 @@
             this.btnDelete.Image = global::CMS.Properties.Resources.DeleteButton;
             this.btnDelete.Location = new System.Drawing.Point(3, 3);
             this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(119, 44);
+            this.btnDelete.Size = new System.Drawing.Size(144, 52);
             this.btnDelete.TabIndex = 8;
             this.btnDelete.UseVisualStyleBackColor = false;
             this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
@@ -288,7 +315,7 @@
             // assessmentToolStripMenuItem
             // 
             this.assessmentToolStripMenuItem.Name = "assessmentToolStripMenuItem";
-            this.assessmentToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.assessmentToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
             this.assessmentToolStripMenuItem.Text = "Assessment";
             this.assessmentToolStripMenuItem.Click += new System.EventHandler(this.assessmentToolStripMenuItem_Click);
             // 
@@ -296,18 +323,18 @@
             // 
             this.panel7.BackColor = System.Drawing.Color.MediumSlateBlue;
             this.panel7.Controls.Add(this.label1);
-            this.panel7.Location = new System.Drawing.Point(0, 25);
+            this.panel7.Location = new System.Drawing.Point(0, 27);
             this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(685, 60);
+            this.panel7.Size = new System.Drawing.Size(825, 60);
             this.panel7.TabIndex = 129;
             // 
             // label1
             // 
             this.label1.BackColor = System.Drawing.Color.HotPink;
-            this.label1.Font = new System.Drawing.Font("Times New Roman", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Times New Roman", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(12, 9);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(660, 42);
+            this.label1.Size = new System.Drawing.Size(801, 42);
             this.label1.TabIndex = 0;
             this.label1.Text = "Skill Form";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -320,7 +347,7 @@
             this.formsToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(744, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(988, 24);
             this.menuStrip1.TabIndex = 131;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -396,122 +423,114 @@
             // mainMenuToolStripMenuItem
             // 
             this.mainMenuToolStripMenuItem.Name = "mainMenuToolStripMenuItem";
-            this.mainMenuToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.mainMenuToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
             this.mainMenuToolStripMenuItem.Text = "Main Menu";
             this.mainMenuToolStripMenuItem.Click += new System.EventHandler(this.mainMenuToolStripMenuItem_Click);
             // 
             // studentToolStripMenuItem
             // 
             this.studentToolStripMenuItem.Name = "studentToolStripMenuItem";
-            this.studentToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.studentToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
             this.studentToolStripMenuItem.Text = "Student";
             this.studentToolStripMenuItem.Click += new System.EventHandler(this.studentToolStripMenuItem_Click);
             // 
             // teacherCoursesToolStripMenuItem
             // 
             this.teacherCoursesToolStripMenuItem.Name = "teacherCoursesToolStripMenuItem";
-            this.teacherCoursesToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.teacherCoursesToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
             this.teacherCoursesToolStripMenuItem.Text = "Teacher";
             this.teacherCoursesToolStripMenuItem.Click += new System.EventHandler(this.teacherCoursesToolStripMenuItem_Click);
             // 
             // enrolmentToolStripMenuItem
             // 
             this.enrolmentToolStripMenuItem.Name = "enrolmentToolStripMenuItem";
-            this.enrolmentToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.enrolmentToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
             this.enrolmentToolStripMenuItem.Text = "Enrolment";
             this.enrolmentToolStripMenuItem.Click += new System.EventHandler(this.enrolmentToolStripMenuItem_Click);
             // 
             // courseToolStripMenuItem
             // 
             this.courseToolStripMenuItem.Name = "courseToolStripMenuItem";
-            this.courseToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.courseToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
             this.courseToolStripMenuItem.Text = "Course";
             this.courseToolStripMenuItem.Click += new System.EventHandler(this.courseToolStripMenuItem_Click);
             // 
             // unitToolStripMenuItem
             // 
             this.unitToolStripMenuItem.Name = "unitToolStripMenuItem";
-            this.unitToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.unitToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
             this.unitToolStripMenuItem.Text = "Unit";
             this.unitToolStripMenuItem.Click += new System.EventHandler(this.unitToolStripMenuItem_Click);
             // 
             // allocationToolStripMenuItem
             // 
             this.allocationToolStripMenuItem.Name = "allocationToolStripMenuItem";
-            this.allocationToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.allocationToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
             this.allocationToolStripMenuItem.Text = "Allocation";
             this.allocationToolStripMenuItem.Click += new System.EventHandler(this.allocationToolStripMenuItem_Click);
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(87, 179);
+            this.label3.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(135, 47);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(94, 21);
+            this.label3.Size = new System.Drawing.Size(109, 23);
             this.label3.TabIndex = 135;
             this.label3.Text = "Skill Name:";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(58, 223);
+            this.label5.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(110, 85);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(123, 21);
+            this.label5.Size = new System.Drawing.Size(134, 23);
             this.label5.TabIndex = 136;
             this.label5.Text = "Area Of Study:";
             // 
-            // panel1
+            // panel9
             // 
-            this.panel1.BackColor = System.Drawing.Color.HotPink;
-            this.panel1.Controls.Add(this.btnClearForm);
-            this.panel1.Location = new System.Drawing.Point(4, 477);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(125, 50);
-            this.panel1.TabIndex = 137;
-            // 
-            // btnClearForm
-            // 
-            this.btnClearForm.BackColor = System.Drawing.Color.White;
-            this.btnClearForm.Image = global::CMS.Properties.Resources.ClearFormButton;
-            this.btnClearForm.Location = new System.Drawing.Point(3, 3);
-            this.btnClearForm.Name = "btnClearForm";
-            this.btnClearForm.Size = new System.Drawing.Size(120, 45);
-            this.btnClearForm.TabIndex = 18;
-            this.btnClearForm.Tag = "Clear Form";
-            this.btnClearForm.UseVisualStyleBackColor = false;
+            this.panel9.AutoScroll = true;
+            this.panel9.AutoScrollMargin = new System.Drawing.Size(0, 20);
+            this.panel9.Controls.Add(this.cmbAreaOfStudy);
+            this.panel9.Controls.Add(this.txtSkillID);
+            this.panel9.Controls.Add(this.label5);
+            this.panel9.Controls.Add(this.txtSkillDescription);
+            this.panel9.Controls.Add(this.txtSkillName);
+            this.panel9.Controls.Add(this.label12);
+            this.panel9.Controls.Add(this.label3);
+            this.panel9.Controls.Add(this.label2);
+            this.panel9.Location = new System.Drawing.Point(1, 88);
+            this.panel9.Name = "panel9";
+            this.panel9.Size = new System.Drawing.Size(823, 442);
+            this.panel9.TabIndex = 137;
             // 
             // SkillsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Lavender;
-            this.ClientSize = new System.Drawing.Size(744, 564);
-            this.Controls.Add(this.cmbAreaOfStudy);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.txtSkillName);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.txtSkillID);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label12);
+            this.ClientSize = new System.Drawing.Size(988, 539);
             this.Controls.Add(this.panel5);
-            this.Controls.Add(this.txtSkillDescription);
             this.Controls.Add(this.panel7);
             this.Controls.Add(this.menuStrip1);
+            this.Controls.Add(this.panel9);
             this.Name = "SkillsForm";
             this.Text = "SkillsForm";
             this.panel3.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel6.ResumeLayout(false);
             this.panel5.ResumeLayout(false);
+            this.panel1.ResumeLayout(false);
             this.panel8.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
             this.panel7.ResumeLayout(false);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
-            this.panel1.ResumeLayout(false);
+            this.panel9.ResumeLayout(false);
+            this.panel9.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -564,5 +583,6 @@
         private System.Windows.Forms.ToolStripMenuItem allocationToolStripMenuItem;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button btnClearForm;
+        private System.Windows.Forms.Panel panel9;
     }
 }

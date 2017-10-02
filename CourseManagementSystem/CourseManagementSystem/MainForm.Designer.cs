@@ -79,7 +79,7 @@
             // 
             this.panel1.BackColor = System.Drawing.Color.MediumSlateBlue;
             this.panel1.Controls.Add(this.btnCourseForm);
-            this.panel1.Location = new System.Drawing.Point(166, 280);
+            this.panel1.Location = new System.Drawing.Point(166, 243);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(158, 135);
             this.panel1.TabIndex = 6;
@@ -99,7 +99,7 @@
             // 
             this.panel2.BackColor = System.Drawing.Color.MediumSlateBlue;
             this.panel2.Controls.Add(this.btnEnrolementForm);
-            this.panel2.Location = new System.Drawing.Point(674, 100);
+            this.panel2.Location = new System.Drawing.Point(674, 94);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(157, 134);
             this.panel2.TabIndex = 7;
@@ -119,7 +119,7 @@
             // 
             this.panel3.BackColor = System.Drawing.Color.MediumSlateBlue;
             this.panel3.Controls.Add(this.btnStudentForm);
-            this.panel3.Location = new System.Drawing.Point(166, 100);
+            this.panel3.Location = new System.Drawing.Point(166, 94);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(158, 134);
             this.panel3.TabIndex = 8;
@@ -139,7 +139,7 @@
             // 
             this.panel4.BackColor = System.Drawing.Color.MediumSlateBlue;
             this.panel4.Controls.Add(this.btnAssessmentForm);
-            this.panel4.Location = new System.Drawing.Point(674, 280);
+            this.panel4.Location = new System.Drawing.Point(674, 243);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(157, 135);
             this.panel4.TabIndex = 9;
@@ -159,7 +159,7 @@
             // 
             this.panel5.BackColor = System.Drawing.Color.MediumSlateBlue;
             this.panel5.Controls.Add(this.btnTeacherForm);
-            this.panel5.Location = new System.Drawing.Point(420, 100);
+            this.panel5.Location = new System.Drawing.Point(420, 94);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(154, 134);
             this.panel5.TabIndex = 10;
@@ -179,7 +179,7 @@
             // 
             this.panel6.BackColor = System.Drawing.Color.MediumSlateBlue;
             this.panel6.Controls.Add(this.btnUnitForm);
-            this.panel6.Location = new System.Drawing.Point(420, 280);
+            this.panel6.Location = new System.Drawing.Point(420, 243);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(154, 135);
             this.panel6.TabIndex = 11;
@@ -208,7 +208,7 @@
             // 
             this.panel8.BackColor = System.Drawing.Color.MediumSlateBlue;
             this.panel8.Controls.Add(this.btnAllocationForm);
-            this.panel8.Location = new System.Drawing.Point(420, 472);
+            this.panel8.Location = new System.Drawing.Point(420, 392);
             this.panel8.Name = "panel8";
             this.panel8.Size = new System.Drawing.Size(154, 132);
             this.panel8.TabIndex = 14;
@@ -229,7 +229,7 @@
             // 
             this.panel9.BackColor = System.Drawing.Color.MediumSlateBlue;
             this.panel9.Controls.Add(this.btnGlobalSearchForm);
-            this.panel9.Location = new System.Drawing.Point(674, 475);
+            this.panel9.Location = new System.Drawing.Point(674, 392);
             this.panel9.Name = "panel9";
             this.panel9.Size = new System.Drawing.Size(157, 129);
             this.panel9.TabIndex = 13;
@@ -249,7 +249,7 @@
             // 
             this.panel10.BackColor = System.Drawing.Color.MediumSlateBlue;
             this.panel10.Controls.Add(this.btnSkillsForm);
-            this.panel10.Location = new System.Drawing.Point(166, 475);
+            this.panel10.Location = new System.Drawing.Point(166, 392);
             this.panel10.Name = "panel10";
             this.panel10.Size = new System.Drawing.Size(158, 129);
             this.panel10.TabIndex = 12;
@@ -271,7 +271,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Lavender;
             this.CancelButton = this.btnAllocationForm;
-            this.ClientSize = new System.Drawing.Size(984, 661);
+            this.ClientSize = new System.Drawing.Size(984, 535);
             this.Controls.Add(this.panel8);
             this.Controls.Add(this.panel9);
             this.Controls.Add(this.panel7);

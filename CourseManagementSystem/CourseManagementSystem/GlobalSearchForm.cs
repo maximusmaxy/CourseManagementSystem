@@ -474,5 +474,10 @@ namespace CMS
         {
             Forms.ShowForm(cmbTables.Get<Table>().Form);
         }
+
+        private void searchInt_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

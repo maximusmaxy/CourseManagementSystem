@@ -58,6 +58,8 @@
             this.unitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.label1 = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
+            this.panel9 = new System.Windows.Forms.Panel();
+            this.btnClearForm = new System.Windows.Forms.Button();
             this.panel8 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
@@ -90,12 +92,12 @@
             this.label10 = new System.Windows.Forms.Label();
             this.cmbCourseName = new System.Windows.Forms.ComboBox();
             this.dgvSearch = new System.Windows.Forms.DataGridView();
-            this.btnClearForm = new System.Windows.Forms.Button();
-            this.panel9 = new System.Windows.Forms.Panel();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.pnlSemester.SuspendLayout();
             this.pnlCourseResults.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
             this.panel5.SuspendLayout();
+            this.panel9.SuspendLayout();
             this.panel8.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -104,14 +106,14 @@
             this.panel7.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSearch)).BeginInit();
-            this.panel9.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // dtpEnrolment
             // 
             this.dtpEnrolment.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtpEnrolment.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpEnrolment.Location = new System.Drawing.Point(250, 212);
+            this.dtpEnrolment.Location = new System.Drawing.Point(250, 118);
             this.dtpEnrolment.Name = "dtpEnrolment";
             this.dtpEnrolment.Size = new System.Drawing.Size(236, 26);
             this.dtpEnrolment.TabIndex = 50;
@@ -121,7 +123,7 @@
             // txtId
             // 
             this.txtId.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtId.Location = new System.Drawing.Point(250, 110);
+            this.txtId.Location = new System.Drawing.Point(250, 10);
             this.txtId.Name = "txtId";
             this.txtId.Size = new System.Drawing.Size(236, 26);
             this.txtId.TabIndex = 48;
@@ -132,7 +134,7 @@
             // 
             this.dtpCompletion.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtpCompletion.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpCompletion.Location = new System.Drawing.Point(250, 244);
+            this.dtpCompletion.Location = new System.Drawing.Point(250, 154);
             this.dtpCompletion.Name = "dtpCompletion";
             this.dtpCompletion.Size = new System.Drawing.Size(236, 26);
             this.dtpCompletion.TabIndex = 70;
@@ -143,7 +145,7 @@
             // 
             this.txtDiscountCost.Enabled = false;
             this.txtDiscountCost.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDiscountCost.Location = new System.Drawing.Point(250, 308);
+            this.txtDiscountCost.Location = new System.Drawing.Point(250, 226);
             this.txtDiscountCost.Name = "txtDiscountCost";
             this.txtDiscountCost.Size = new System.Drawing.Size(236, 26);
             this.txtDiscountCost.TabIndex = 76;
@@ -154,7 +156,7 @@
             // 
             this.txtEnrolmentCost.Enabled = false;
             this.txtEnrolmentCost.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtEnrolmentCost.Location = new System.Drawing.Point(250, 276);
+            this.txtEnrolmentCost.Location = new System.Drawing.Point(250, 190);
             this.txtEnrolmentCost.Name = "txtEnrolmentCost";
             this.txtEnrolmentCost.Size = new System.Drawing.Size(236, 26);
             this.txtEnrolmentCost.TabIndex = 75;
@@ -166,9 +168,9 @@
             this.pnlSemester.Controls.Add(this.rdbSemesterOne);
             this.pnlSemester.Controls.Add(this.rdbSemesterTwo);
             this.pnlSemester.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.pnlSemester.Location = new System.Drawing.Point(250, 372);
+            this.pnlSemester.Location = new System.Drawing.Point(250, 298);
             this.pnlSemester.Name = "pnlSemester";
-            this.pnlSemester.Size = new System.Drawing.Size(297, 29);
+            this.pnlSemester.Size = new System.Drawing.Size(368, 29);
             this.pnlSemester.TabIndex = 81;
             this.pnlSemester.Tag = "Semester";
             this.ToolTips.SetToolTip(this.pnlSemester, "Select The Semester this course is being undertaken in");
@@ -177,7 +179,7 @@
             // 
             this.rdbSemesterOne.AutoSize = true;
             this.rdbSemesterOne.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rdbSemesterOne.Location = new System.Drawing.Point(3, 2);
+            this.rdbSemesterOne.Location = new System.Drawing.Point(3, 3);
             this.rdbSemesterOne.Name = "rdbSemesterOne";
             this.rdbSemesterOne.Size = new System.Drawing.Size(57, 24);
             this.rdbSemesterOne.TabIndex = 72;
@@ -205,9 +207,9 @@
             this.pnlCourseResults.Controls.Add(this.rdbPass);
             this.pnlCourseResults.Controls.Add(this.rdbFail);
             this.pnlCourseResults.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.pnlCourseResults.Location = new System.Drawing.Point(250, 411);
+            this.pnlCourseResults.Location = new System.Drawing.Point(250, 334);
             this.pnlCourseResults.Name = "pnlCourseResults";
-            this.pnlCourseResults.Size = new System.Drawing.Size(298, 29);
+            this.pnlCourseResults.Size = new System.Drawing.Size(368, 29);
             this.pnlCourseResults.TabIndex = 82;
             this.pnlCourseResults.Tag = "CourseResult";
             this.ToolTips.SetToolTip(this.pnlCourseResults, "Select the State of the enrolment at the end of Completion Date (Select Not Compl" +
@@ -256,7 +258,7 @@
             // 
             this.txtTotal.Enabled = false;
             this.txtTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTotal.Location = new System.Drawing.Point(250, 340);
+            this.txtTotal.Location = new System.Drawing.Point(250, 262);
             this.txtTotal.Name = "txtTotal";
             this.txtTotal.Size = new System.Drawing.Size(236, 26);
             this.txtTotal.TabIndex = 83;
@@ -269,7 +271,7 @@
             this.btnSearch.Image = global::CMS.Properties.Resources.SearchButton;
             this.btnSearch.Location = new System.Drawing.Point(3, 3);
             this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(143, 53);
+            this.btnSearch.Size = new System.Drawing.Size(144, 52);
             this.btnSearch.TabIndex = 18;
             this.btnSearch.UseVisualStyleBackColor = false;
             this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
@@ -280,7 +282,7 @@
             this.btnAdd.Image = global::CMS.Properties.Resources.AddButton;
             this.btnAdd.Location = new System.Drawing.Point(3, 3);
             this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(143, 53);
+            this.btnAdd.Size = new System.Drawing.Size(144, 52);
             this.btnAdd.TabIndex = 17;
             this.btnAdd.UseVisualStyleBackColor = false;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
@@ -298,7 +300,7 @@
             this.btnDelete.Image = global::CMS.Properties.Resources.DeleteButton;
             this.btnDelete.Location = new System.Drawing.Point(3, 3);
             this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(143, 53);
+            this.btnDelete.Size = new System.Drawing.Size(144, 52);
             this.btnDelete.TabIndex = 20;
             this.btnDelete.UseVisualStyleBackColor = false;
             this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
@@ -309,7 +311,7 @@
             this.btnViewAll.Image = global::CMS.Properties.Resources.ViewAllButton;
             this.btnViewAll.Location = new System.Drawing.Point(3, 3);
             this.btnViewAll.Name = "btnViewAll";
-            this.btnViewAll.Size = new System.Drawing.Size(143, 53);
+            this.btnViewAll.Size = new System.Drawing.Size(144, 52);
             this.btnViewAll.TabIndex = 21;
             this.btnViewAll.UseVisualStyleBackColor = false;
             this.btnViewAll.Click += new System.EventHandler(this.btnViewAll_Click);
@@ -341,7 +343,7 @@
             this.btnUpdate.Image = global::CMS.Properties.Resources.UpdateButton;
             this.btnUpdate.Location = new System.Drawing.Point(3, 3);
             this.btnUpdate.Name = "btnUpdate";
-            this.btnUpdate.Size = new System.Drawing.Size(143, 53);
+            this.btnUpdate.Size = new System.Drawing.Size(144, 52);
             this.btnUpdate.TabIndex = 19;
             this.btnUpdate.UseVisualStyleBackColor = false;
             this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
@@ -376,52 +378,72 @@
             this.panel5.Controls.Add(this.button5);
             this.panel5.Location = new System.Drawing.Point(829, 27);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(155, 633);
+            this.panel5.Size = new System.Drawing.Size(156, 508);
             this.panel5.TabIndex = 59;
+            // 
+            // panel9
+            // 
+            this.panel9.BackColor = System.Drawing.Color.DeepSkyBlue;
+            this.panel9.Controls.Add(this.btnClearForm);
+            this.panel9.Location = new System.Drawing.Point(3, 445);
+            this.panel9.Name = "panel9";
+            this.panel9.Size = new System.Drawing.Size(150, 58);
+            this.panel9.TabIndex = 110;
+            // 
+            // btnClearForm
+            // 
+            this.btnClearForm.BackColor = System.Drawing.Color.White;
+            this.btnClearForm.Image = global::CMS.Properties.Resources.ClearFormButton;
+            this.btnClearForm.Location = new System.Drawing.Point(3, 3);
+            this.btnClearForm.Name = "btnClearForm";
+            this.btnClearForm.Size = new System.Drawing.Size(144, 52);
+            this.btnClearForm.TabIndex = 60;
+            this.btnClearForm.Tag = "Clear Form";
+            this.btnClearForm.UseVisualStyleBackColor = false;
             // 
             // panel8
             // 
             this.panel8.BackColor = System.Drawing.Color.DeepSkyBlue;
             this.panel8.Controls.Add(this.btnViewAll);
-            this.panel8.Location = new System.Drawing.Point(5, 403);
+            this.panel8.Location = new System.Drawing.Point(3, 382);
             this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(148, 58);
+            this.panel8.Size = new System.Drawing.Size(150, 58);
             this.panel8.TabIndex = 22;
             // 
             // panel4
             // 
             this.panel4.BackColor = System.Drawing.Color.DeepSkyBlue;
             this.panel4.Controls.Add(this.btnDelete);
-            this.panel4.Location = new System.Drawing.Point(5, 342);
+            this.panel4.Location = new System.Drawing.Point(3, 319);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(148, 58);
+            this.panel4.Size = new System.Drawing.Size(150, 58);
             this.panel4.TabIndex = 21;
             // 
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.DeepSkyBlue;
             this.panel3.Controls.Add(this.btnUpdate);
-            this.panel3.Location = new System.Drawing.Point(5, 277);
+            this.panel3.Location = new System.Drawing.Point(3, 256);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(148, 58);
+            this.panel3.Size = new System.Drawing.Size(150, 58);
             this.panel3.TabIndex = 21;
             // 
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.DeepSkyBlue;
             this.panel2.Controls.Add(this.btnAdd);
-            this.panel2.Location = new System.Drawing.Point(5, 150);
+            this.panel2.Location = new System.Drawing.Point(3, 130);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(148, 58);
+            this.panel2.Size = new System.Drawing.Size(150, 58);
             this.panel2.TabIndex = 21;
             // 
             // panel6
             // 
             this.panel6.BackColor = System.Drawing.Color.DeepSkyBlue;
             this.panel6.Controls.Add(this.btnSearch);
-            this.panel6.Location = new System.Drawing.Point(5, 212);
+            this.panel6.Location = new System.Drawing.Point(3, 193);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(148, 58);
+            this.panel6.Size = new System.Drawing.Size(150, 58);
             this.panel6.TabIndex = 19;
             // 
             // button5
@@ -555,7 +577,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(96, 215);
+            this.label6.Location = new System.Drawing.Point(95, 121);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(148, 23);
             this.label6.TabIndex = 62;
@@ -565,7 +587,7 @@
             // 
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(139, 111);
+            this.label13.Location = new System.Drawing.Point(138, 11);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(105, 23);
             this.label13.TabIndex = 65;
@@ -575,7 +597,7 @@
             // 
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(114, 179);
+            this.label12.Location = new System.Drawing.Point(113, 85);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(130, 23);
             this.label12.TabIndex = 64;
@@ -585,7 +607,7 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(85, 247);
+            this.label8.Location = new System.Drawing.Point(84, 157);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(159, 23);
             this.label8.TabIndex = 71;
@@ -595,7 +617,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(153, 377);
+            this.label3.Location = new System.Drawing.Point(152, 300);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(91, 23);
             this.label3.TabIndex = 74;
@@ -605,7 +627,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(96, 277);
+            this.label4.Location = new System.Drawing.Point(95, 191);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(148, 23);
             this.label4.TabIndex = 78;
@@ -615,7 +637,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(89, 309);
+            this.label5.Location = new System.Drawing.Point(88, 227);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(155, 23);
             this.label5.TabIndex = 77;
@@ -625,7 +647,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(101, 416);
+            this.label7.Location = new System.Drawing.Point(100, 336);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(143, 23);
             this.label7.TabIndex = 79;
@@ -635,7 +657,7 @@
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(141, 341);
+            this.label9.Location = new System.Drawing.Point(140, 263);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(103, 23);
             this.label9.TabIndex = 84;
@@ -648,9 +670,9 @@
             this.cmbAreaOfStudy.FormattingEnabled = true;
             this.cmbAreaOfStudy.Items.AddRange(new object[] {
             "<please select>"});
-            this.cmbAreaOfStudy.Location = new System.Drawing.Point(250, 144);
+            this.cmbAreaOfStudy.Location = new System.Drawing.Point(250, 46);
             this.cmbAreaOfStudy.Name = "cmbAreaOfStudy";
-            this.cmbAreaOfStudy.Size = new System.Drawing.Size(236, 28);
+            this.cmbAreaOfStudy.Size = new System.Drawing.Size(368, 28);
             this.cmbAreaOfStudy.TabIndex = 106;
             this.cmbAreaOfStudy.ValueMember = "Area of study";
             this.cmbAreaOfStudy.SelectedIndexChanged += new System.EventHandler(this.cmbAreaOfStudy_SelectedIndexChanged);
@@ -659,7 +681,7 @@
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(114, 145);
+            this.label10.Location = new System.Drawing.Point(113, 47);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(130, 23);
             this.label10.TabIndex = 107;
@@ -669,7 +691,7 @@
             // 
             this.cmbCourseName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbCourseName.FormattingEnabled = true;
-            this.cmbCourseName.Location = new System.Drawing.Point(250, 178);
+            this.cmbCourseName.Location = new System.Drawing.Point(250, 82);
             this.cmbCourseName.Name = "cmbCourseName";
             this.cmbCourseName.Size = new System.Drawing.Size(499, 28);
             this.cmbCourseName.TabIndex = 108;
@@ -678,61 +700,51 @@
             // dgvSearch
             // 
             this.dgvSearch.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvSearch.Location = new System.Drawing.Point(250, 457);
+            this.dgvSearch.Location = new System.Drawing.Point(250, 370);
             this.dgvSearch.Name = "dgvSearch";
-            this.dgvSearch.Size = new System.Drawing.Size(499, 68);
+            this.dgvSearch.Size = new System.Drawing.Size(499, 100);
             this.dgvSearch.TabIndex = 109;
             // 
-            // btnClearForm
+            // panel1
             // 
-            this.btnClearForm.BackColor = System.Drawing.Color.White;
-            this.btnClearForm.Image = global::CMS.Properties.Resources.ClearFormButton;
-            this.btnClearForm.Location = new System.Drawing.Point(2, 3);
-            this.btnClearForm.Name = "btnClearForm";
-            this.btnClearForm.Size = new System.Drawing.Size(143, 53);
-            this.btnClearForm.TabIndex = 60;
-            this.btnClearForm.Tag = "Clear Form";
-            this.btnClearForm.UseVisualStyleBackColor = false;
-            // 
-            // panel9
-            // 
-            this.panel9.BackColor = System.Drawing.Color.DeepSkyBlue;
-            this.panel9.Controls.Add(this.btnClearForm);
-            this.panel9.Location = new System.Drawing.Point(5, 466);
-            this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(148, 58);
-            this.panel9.TabIndex = 110;
+            this.panel1.AutoScroll = true;
+            this.panel1.AutoScrollMargin = new System.Drawing.Size(0, 20);
+            this.panel1.Controls.Add(this.label7);
+            this.panel1.Controls.Add(this.label9);
+            this.panel1.Controls.Add(this.label3);
+            this.panel1.Controls.Add(this.label10);
+            this.panel1.Controls.Add(this.dgvSearch);
+            this.panel1.Controls.Add(this.label5);
+            this.panel1.Controls.Add(this.label4);
+            this.panel1.Controls.Add(this.txtId);
+            this.panel1.Controls.Add(this.pnlCourseResults);
+            this.panel1.Controls.Add(this.cmbCourseName);
+            this.panel1.Controls.Add(this.label8);
+            this.panel1.Controls.Add(this.dtpEnrolment);
+            this.panel1.Controls.Add(this.cmbAreaOfStudy);
+            this.panel1.Controls.Add(this.dtpCompletion);
+            this.panel1.Controls.Add(this.txtEnrolmentCost);
+            this.panel1.Controls.Add(this.label6);
+            this.panel1.Controls.Add(this.txtTotal);
+            this.panel1.Controls.Add(this.label12);
+            this.panel1.Controls.Add(this.txtDiscountCost);
+            this.panel1.Controls.Add(this.pnlSemester);
+            this.panel1.Controls.Add(this.label13);
+            this.panel1.Location = new System.Drawing.Point(1, 88);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(823, 442);
+            this.panel1.TabIndex = 110;
             // 
             // EnrolmentForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Lavender;
-            this.ClientSize = new System.Drawing.Size(984, 661);
-            this.Controls.Add(this.dgvSearch);
-            this.Controls.Add(this.cmbCourseName);
-            this.Controls.Add(this.cmbAreaOfStudy);
-            this.Controls.Add(this.label10);
-            this.Controls.Add(this.txtTotal);
-            this.Controls.Add(this.label9);
-            this.Controls.Add(this.pnlCourseResults);
-            this.Controls.Add(this.pnlSemester);
-            this.Controls.Add(this.label7);
-            this.Controls.Add(this.txtDiscountCost);
-            this.Controls.Add(this.txtEnrolmentCost);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.dtpCompletion);
-            this.Controls.Add(this.label8);
-            this.Controls.Add(this.dtpEnrolment);
-            this.Controls.Add(this.txtId);
+            this.ClientSize = new System.Drawing.Size(984, 539);
             this.Controls.Add(this.panel5);
             this.Controls.Add(this.panel7);
             this.Controls.Add(this.menuStrip1);
-            this.Controls.Add(this.label6);
-            this.Controls.Add(this.label13);
-            this.Controls.Add(this.label12);
+            this.Controls.Add(this.panel1);
             this.Name = "EnrolmentForm";
             this.Text = "EnrolmentForm";
             this.pnlSemester.ResumeLayout(false);
@@ -741,6 +753,7 @@
             this.pnlCourseResults.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
             this.panel5.ResumeLayout(false);
+            this.panel9.ResumeLayout(false);
             this.panel8.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
@@ -750,7 +763,8 @@
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSearch)).EndInit();
-            this.panel9.ResumeLayout(false);
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -820,5 +834,6 @@
         private System.Windows.Forms.DataGridView dgvSearch;
         private System.Windows.Forms.Panel panel9;
         private System.Windows.Forms.Button btnClearForm;
+        private System.Windows.Forms.Panel panel1;
     }
 }

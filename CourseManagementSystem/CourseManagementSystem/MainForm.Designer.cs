@@ -72,7 +72,7 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(960, 59);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Course Management System";
+            this.label1.Text = "Main Menu";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // panel1
@@ -201,7 +201,7 @@
             this.panel7.Controls.Add(this.label1);
             this.panel7.Location = new System.Drawing.Point(0, 0);
             this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(1000, 79);
+            this.panel7.Size = new System.Drawing.Size(985, 79);
             this.panel7.TabIndex = 8;
             // 
             // panel8

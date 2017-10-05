@@ -181,7 +181,6 @@
             this.txtEmail.TabIndex = 5;
             this.txtEmail.Tag = "Email";
             this.ToolTips.SetToolTip(this.txtEmail, "Please insert the Student Email here, Must contain one @ symbol");
-            this.txtEmail.TextChanged += new System.EventHandler(this.txtEmail_TextChanged);
             // 
             // txtContactNumber
             // 

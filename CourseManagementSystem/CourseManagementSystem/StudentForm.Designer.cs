@@ -671,7 +671,6 @@
             this.dtpDateOfBirth.TabIndex = 10;
             this.dtpDateOfBirth.Tag = "Date of birth";
             this.ToolTips.SetToolTip(this.dtpDateOfBirth, resources.GetString("dtpDateOfBirth.ToolTip"));
-            this.dtpDateOfBirth.ValueChanged += new System.EventHandler(this.dtpDateOfBirth_ValueChanged);
             // 
             // txtEmail
             // 

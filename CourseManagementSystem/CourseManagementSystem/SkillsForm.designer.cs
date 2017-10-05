@@ -38,7 +38,6 @@
             this.txtSkillDescription = new System.Windows.Forms.TextBox();
             this.txtSkillName = new System.Windows.Forms.TextBox();
             this.cmbAreaOfStudy = new System.Windows.Forms.ComboBox();
-            this.skillsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.label2 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -92,7 +91,7 @@
             // globalSearchToolStripMenuItem
             // 
             this.globalSearchToolStripMenuItem.Name = "globalSearchToolStripMenuItem";
-            this.globalSearchToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
+            this.globalSearchToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.globalSearchToolStripMenuItem.Text = "Global Search";
             this.globalSearchToolStripMenuItem.Click += new System.EventHandler(this.globalSearchToolStripMenuItem_Click);
             // 
@@ -159,13 +158,6 @@
             this.cmbAreaOfStudy.TabIndex = 3;
             this.cmbAreaOfStudy.Tag = "Area Of Study";
             this.ToolTips.SetToolTip(this.cmbAreaOfStudy, "Select from the list the Appropriate Area of Study for this Course");
-            // 
-            // skillsToolStripMenuItem
-            // 
-            this.skillsToolStripMenuItem.Name = "skillsToolStripMenuItem";
-            this.skillsToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
-            this.skillsToolStripMenuItem.Text = "Skills";
-            this.skillsToolStripMenuItem.Click += new System.EventHandler(this.skillsToolStripMenuItem_Click);
             // 
             // label2
             // 
@@ -315,7 +307,7 @@
             // assessmentToolStripMenuItem
             // 
             this.assessmentToolStripMenuItem.Name = "assessmentToolStripMenuItem";
-            this.assessmentToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
+            this.assessmentToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.assessmentToolStripMenuItem.Text = "Assessment";
             this.assessmentToolStripMenuItem.Click += new System.EventHandler(this.assessmentToolStripMenuItem_Click);
             // 
@@ -413,7 +405,6 @@
             this.courseToolStripMenuItem,
             this.unitToolStripMenuItem,
             this.assessmentToolStripMenuItem,
-            this.skillsToolStripMenuItem,
             this.allocationToolStripMenuItem,
             this.globalSearchToolStripMenuItem});
             this.formsToolStripMenuItem.Name = "formsToolStripMenuItem";
@@ -423,49 +414,49 @@
             // mainMenuToolStripMenuItem
             // 
             this.mainMenuToolStripMenuItem.Name = "mainMenuToolStripMenuItem";
-            this.mainMenuToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
+            this.mainMenuToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.mainMenuToolStripMenuItem.Text = "Main Menu";
             this.mainMenuToolStripMenuItem.Click += new System.EventHandler(this.mainMenuToolStripMenuItem_Click);
             // 
             // studentToolStripMenuItem
             // 
             this.studentToolStripMenuItem.Name = "studentToolStripMenuItem";
-            this.studentToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
+            this.studentToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.studentToolStripMenuItem.Text = "Student";
             this.studentToolStripMenuItem.Click += new System.EventHandler(this.studentToolStripMenuItem_Click);
             // 
             // teacherCoursesToolStripMenuItem
             // 
             this.teacherCoursesToolStripMenuItem.Name = "teacherCoursesToolStripMenuItem";
-            this.teacherCoursesToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
+            this.teacherCoursesToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.teacherCoursesToolStripMenuItem.Text = "Teacher";
             this.teacherCoursesToolStripMenuItem.Click += new System.EventHandler(this.teacherCoursesToolStripMenuItem_Click);
             // 
             // enrolmentToolStripMenuItem
             // 
             this.enrolmentToolStripMenuItem.Name = "enrolmentToolStripMenuItem";
-            this.enrolmentToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
+            this.enrolmentToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.enrolmentToolStripMenuItem.Text = "Enrolment";
             this.enrolmentToolStripMenuItem.Click += new System.EventHandler(this.enrolmentToolStripMenuItem_Click);
             // 
             // courseToolStripMenuItem
             // 
             this.courseToolStripMenuItem.Name = "courseToolStripMenuItem";
-            this.courseToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
+            this.courseToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.courseToolStripMenuItem.Text = "Course";
             this.courseToolStripMenuItem.Click += new System.EventHandler(this.courseToolStripMenuItem_Click);
             // 
             // unitToolStripMenuItem
             // 
             this.unitToolStripMenuItem.Name = "unitToolStripMenuItem";
-            this.unitToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
+            this.unitToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.unitToolStripMenuItem.Text = "Unit";
             this.unitToolStripMenuItem.Click += new System.EventHandler(this.unitToolStripMenuItem_Click);
             // 
             // allocationToolStripMenuItem
             // 
             this.allocationToolStripMenuItem.Name = "allocationToolStripMenuItem";
-            this.allocationToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
+            this.allocationToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.allocationToolStripMenuItem.Text = "Allocation";
             this.allocationToolStripMenuItem.Click += new System.EventHandler(this.allocationToolStripMenuItem_Click);
             // 
@@ -544,7 +535,6 @@
         private System.ComponentModel.BackgroundWorker backgroundWorker2;
         private System.Windows.Forms.TextBox txtSkillID;
         private System.Windows.Forms.TextBox txtSkillDescription;
-        private System.Windows.Forms.ToolStripMenuItem skillsToolStripMenuItem;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.BindingSource bindingSource1;
         private System.Windows.Forms.Label label2;

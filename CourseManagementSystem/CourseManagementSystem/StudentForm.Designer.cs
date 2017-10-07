@@ -136,7 +136,7 @@
             this.panel7.Controls.Add(this.label1);
             this.panel7.Location = new System.Drawing.Point(0, 27);
             this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(826, 60);
+            this.panel7.Size = new System.Drawing.Size(825, 60);
             this.panel7.TabIndex = 14;
             // 
             // panel5
@@ -149,27 +149,27 @@
             this.panel5.Controls.Add(this.panel2);
             this.panel5.Controls.Add(this.panel6);
             this.panel5.Controls.Add(this.button5);
-            this.panel5.Location = new System.Drawing.Point(829, 27);
+            this.panel5.Location = new System.Drawing.Point(828, 27);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(155, 633);
+            this.panel5.Size = new System.Drawing.Size(156, 508);
             this.panel5.TabIndex = 17;
             // 
             // panel9
             // 
             this.panel9.BackColor = System.Drawing.Color.PaleGreen;
             this.panel9.Controls.Add(this.btnClearForm);
-            this.panel9.Location = new System.Drawing.Point(5, 466);
+            this.panel9.Location = new System.Drawing.Point(3, 445);
             this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(148, 58);
+            this.panel9.Size = new System.Drawing.Size(150, 58);
             this.panel9.TabIndex = 23;
             // 
             // btnClearForm
             // 
             this.btnClearForm.BackColor = System.Drawing.Color.White;
             this.btnClearForm.Image = global::CMS.Properties.Resources.ClearFormButton;
-            this.btnClearForm.Location = new System.Drawing.Point(2, 3);
+            this.btnClearForm.Location = new System.Drawing.Point(3, 3);
             this.btnClearForm.Name = "btnClearForm";
-            this.btnClearForm.Size = new System.Drawing.Size(143, 53);
+            this.btnClearForm.Size = new System.Drawing.Size(144, 52);
             this.btnClearForm.TabIndex = 60;
             this.btnClearForm.Tag = "Clear Form";
             this.btnClearForm.UseVisualStyleBackColor = false;
@@ -179,18 +179,18 @@
             // 
             this.panel8.BackColor = System.Drawing.Color.PaleGreen;
             this.panel8.Controls.Add(this.btnViewAll);
-            this.panel8.Location = new System.Drawing.Point(5, 403);
+            this.panel8.Location = new System.Drawing.Point(3, 382);
             this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(148, 58);
+            this.panel8.Size = new System.Drawing.Size(150, 58);
             this.panel8.TabIndex = 22;
             // 
             // btnViewAll
             // 
             this.btnViewAll.BackColor = System.Drawing.Color.White;
             this.btnViewAll.Image = global::CMS.Properties.Resources.ViewAllButton;
-            this.btnViewAll.Location = new System.Drawing.Point(2, 2);
+            this.btnViewAll.Location = new System.Drawing.Point(3, 3);
             this.btnViewAll.Name = "btnViewAll";
-            this.btnViewAll.Size = new System.Drawing.Size(143, 53);
+            this.btnViewAll.Size = new System.Drawing.Size(144, 52);
             this.btnViewAll.TabIndex = 59;
             this.btnViewAll.UseVisualStyleBackColor = false;
             this.btnViewAll.Click += new System.EventHandler(this.btnViewAll_Click);
@@ -199,9 +199,9 @@
             // 
             this.panel4.BackColor = System.Drawing.Color.PaleGreen;
             this.panel4.Controls.Add(this.btnDelete);
-            this.panel4.Location = new System.Drawing.Point(5, 342);
+            this.panel4.Location = new System.Drawing.Point(3, 319);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(148, 58);
+            this.panel4.Size = new System.Drawing.Size(150, 58);
             this.panel4.TabIndex = 21;
             // 
             // btnDelete
@@ -210,7 +210,7 @@
             this.btnDelete.Image = global::CMS.Properties.Resources.DeleteButton;
             this.btnDelete.Location = new System.Drawing.Point(3, 3);
             this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(143, 53);
+            this.btnDelete.Size = new System.Drawing.Size(144, 52);
             this.btnDelete.TabIndex = 58;
             this.btnDelete.UseVisualStyleBackColor = false;
             this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
@@ -219,9 +219,9 @@
             // 
             this.panel3.BackColor = System.Drawing.Color.PaleGreen;
             this.panel3.Controls.Add(this.btnUpdate);
-            this.panel3.Location = new System.Drawing.Point(5, 277);
+            this.panel3.Location = new System.Drawing.Point(3, 256);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(148, 58);
+            this.panel3.Size = new System.Drawing.Size(150, 58);
             this.panel3.TabIndex = 21;
             // 
             // btnUpdate
@@ -230,7 +230,7 @@
             this.btnUpdate.Image = global::CMS.Properties.Resources.UpdateButton;
             this.btnUpdate.Location = new System.Drawing.Point(3, 3);
             this.btnUpdate.Name = "btnUpdate";
-            this.btnUpdate.Size = new System.Drawing.Size(143, 53);
+            this.btnUpdate.Size = new System.Drawing.Size(144, 52);
             this.btnUpdate.TabIndex = 57;
             this.btnUpdate.UseVisualStyleBackColor = false;
             this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
@@ -239,9 +239,9 @@
             // 
             this.panel2.BackColor = System.Drawing.Color.PaleGreen;
             this.panel2.Controls.Add(this.btnAdd);
-            this.panel2.Location = new System.Drawing.Point(5, 150);
+            this.panel2.Location = new System.Drawing.Point(3, 130);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(148, 58);
+            this.panel2.Size = new System.Drawing.Size(150, 58);
             this.panel2.TabIndex = 21;
             // 
             // btnAdd
@@ -250,7 +250,7 @@
             this.btnAdd.Image = global::CMS.Properties.Resources.AddButton;
             this.btnAdd.Location = new System.Drawing.Point(3, 3);
             this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(143, 53);
+            this.btnAdd.Size = new System.Drawing.Size(144, 52);
             this.btnAdd.TabIndex = 55;
             this.btnAdd.UseVisualStyleBackColor = false;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
@@ -259,9 +259,9 @@
             // 
             this.panel6.BackColor = System.Drawing.Color.PaleGreen;
             this.panel6.Controls.Add(this.btnSearch);
-            this.panel6.Location = new System.Drawing.Point(5, 212);
+            this.panel6.Location = new System.Drawing.Point(3, 193);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(148, 58);
+            this.panel6.Size = new System.Drawing.Size(150, 58);
             this.panel6.TabIndex = 19;
             // 
             // btnSearch
@@ -270,7 +270,7 @@
             this.btnSearch.Image = global::CMS.Properties.Resources.SearchButton;
             this.btnSearch.Location = new System.Drawing.Point(3, 3);
             this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(143, 53);
+            this.btnSearch.Size = new System.Drawing.Size(144, 52);
             this.btnSearch.TabIndex = 56;
             this.btnSearch.UseVisualStyleBackColor = false;
             this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
@@ -415,14 +415,14 @@
             // allocationToolStripMenuItem
             // 
             this.allocationToolStripMenuItem.Name = "allocationToolStripMenuItem";
-            this.allocationToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.allocationToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
             this.allocationToolStripMenuItem.Text = "Allocation";
             this.allocationToolStripMenuItem.Click += new System.EventHandler(this.allocationToolStripMenuItem_Click);
             // 
             // globalSearchToolStripMenuItem
             // 
             this.globalSearchToolStripMenuItem.Name = "globalSearchToolStripMenuItem";
-            this.globalSearchToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.globalSearchToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
             this.globalSearchToolStripMenuItem.Text = "Global Search";
             this.globalSearchToolStripMenuItem.Click += new System.EventHandler(this.globalSearchToolStripMenuItem_Click);
             // 
@@ -700,7 +700,7 @@
             "Australia"});
             this.cmbCountryOfOrigin.Location = new System.Drawing.Point(250, 424);
             this.cmbCountryOfOrigin.Name = "cmbCountryOfOrigin";
-            this.cmbCountryOfOrigin.Size = new System.Drawing.Size(236, 28);
+            this.cmbCountryOfOrigin.Size = new System.Drawing.Size(368, 28);
             this.cmbCountryOfOrigin.TabIndex = 12;
             this.cmbCountryOfOrigin.Tag = "Country of Origin";
             this.ToolTips.SetToolTip(this.cmbCountryOfOrigin, "Select the country of birth from the provided list");
@@ -896,7 +896,7 @@
             this.panel10.Controls.Add(this.label2);
             this.panel10.Location = new System.Drawing.Point(1, 88);
             this.panel10.Name = "panel10";
-            this.panel10.Size = new System.Drawing.Size(824, 571);
+            this.panel10.Size = new System.Drawing.Size(823, 442);
             this.panel10.TabIndex = 84;
             // 
             // label21
@@ -915,7 +915,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.Lavender;
-            this.ClientSize = new System.Drawing.Size(984, 661);
+            this.ClientSize = new System.Drawing.Size(984, 535);
             this.Controls.Add(this.panel5);
             this.Controls.Add(this.panel7);
             this.Controls.Add(this.menuStrip1);

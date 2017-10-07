@@ -46,12 +46,15 @@
             this.rdb2 = new System.Windows.Forms.RadioButton();
             this.rdb1 = new System.Windows.Forms.RadioButton();
             this.txtNoOfHours = new System.Windows.Forms.TextBox();
+            this.txtUnitCode = new System.Windows.Forms.TextBox();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.mainMenuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.formsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.allocationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel5 = new System.Windows.Forms.Panel();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.btnClearForm = new System.Windows.Forms.Button();
             this.panel8 = new System.Windows.Forms.Panel();
             this.btnViewAll = new System.Windows.Forms.Button();
             this.panel4 = new System.Windows.Forms.Panel();
@@ -77,14 +80,13 @@
             this.label6 = new System.Windows.Forms.Label();
             this.cmbAreaOfStudy = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.txtUnitCode = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.lstSkill = new System.Windows.Forms.ListBox();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.btnClearForm = new System.Windows.Forms.Button();
+            this.panel9 = new System.Windows.Forms.Panel();
             this.pnlUnitType.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
             this.panel5.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.panel8.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -92,7 +94,7 @@
             this.panel6.SuspendLayout();
             this.panel7.SuspendLayout();
             this.menuStrip1.SuspendLayout();
-            this.panel1.SuspendLayout();
+            this.panel9.SuspendLayout();
             this.SuspendLayout();
             // 
             // studentToolStripMenuItem
@@ -147,29 +149,30 @@
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(126, 155);
+            this.label13.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.Location = new System.Drawing.Point(176, 47);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(57, 21);
+            this.label13.Size = new System.Drawing.Size(65, 23);
             this.label13.TabIndex = 95;
             this.label13.Text = "Name:";
             // 
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(47, 367);
+            this.label12.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.Location = new System.Drawing.Point(86, 284);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(136, 21);
+            this.label12.Size = new System.Drawing.Size(155, 23);
             this.label12.TabIndex = 94;
             this.label12.Text = "Unit Description:";
             // 
             // txtUnitDesc
             // 
-            this.txtUnitDesc.Location = new System.Drawing.Point(190, 364);
+            this.txtUnitDesc.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtUnitDesc.Location = new System.Drawing.Point(250, 284);
             this.txtUnitDesc.Multiline = true;
             this.txtUnitDesc.Name = "txtUnitDesc";
-            this.txtUnitDesc.Size = new System.Drawing.Size(312, 111);
+            this.txtUnitDesc.Size = new System.Drawing.Size(499, 64);
             this.txtUnitDesc.TabIndex = 7;
             this.txtUnitDesc.Tag = "Unit Description";
             this.ToolTips.SetToolTip(this.txtUnitDesc, "Insert a Small description on what this unit will be about and what tasks may inc" +
@@ -177,9 +180,10 @@
             // 
             // txtUnitName
             // 
-            this.txtUnitName.Location = new System.Drawing.Point(190, 157);
+            this.txtUnitName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtUnitName.Location = new System.Drawing.Point(250, 46);
             this.txtUnitName.Name = "txtUnitName";
-            this.txtUnitName.Size = new System.Drawing.Size(312, 20);
+            this.txtUnitName.Size = new System.Drawing.Size(499, 26);
             this.txtUnitName.TabIndex = 2;
             this.txtUnitName.Tag = "Name";
             this.ToolTips.SetToolTip(this.txtUnitName, "Insert the Name of the Unit using Alphabetical Characters Only");
@@ -188,18 +192,19 @@
             // 
             this.pnlUnitType.Controls.Add(this.rdb2);
             this.pnlUnitType.Controls.Add(this.rdb1);
-            this.pnlUnitType.Location = new System.Drawing.Point(192, 194);
+            this.pnlUnitType.Location = new System.Drawing.Point(250, 82);
             this.pnlUnitType.Name = "pnlUnitType";
-            this.pnlUnitType.Size = new System.Drawing.Size(310, 21);
+            this.pnlUnitType.Size = new System.Drawing.Size(368, 26);
             this.pnlUnitType.TabIndex = 3;
             this.ToolTips.SetToolTip(this.pnlUnitType, "Select the Type of unit from the provided, Core or Elective");
             // 
             // rdb2
             // 
             this.rdb2.AutoSize = true;
+            this.rdb2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rdb2.Location = new System.Drawing.Point(76, 3);
             this.rdb2.Name = "rdb2";
-            this.rdb2.Size = new System.Drawing.Size(63, 17);
+            this.rdb2.Size = new System.Drawing.Size(77, 22);
             this.rdb2.TabIndex = 1;
             this.rdb2.TabStop = true;
             this.rdb2.Tag = "Elective";
@@ -210,9 +215,10 @@
             // rdb1
             // 
             this.rdb1.AutoSize = true;
+            this.rdb1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rdb1.Location = new System.Drawing.Point(3, 3);
             this.rdb1.Name = "rdb1";
-            this.rdb1.Size = new System.Drawing.Size(47, 17);
+            this.rdb1.Size = new System.Drawing.Size(59, 22);
             this.rdb1.TabIndex = 0;
             this.rdb1.TabStop = true;
             this.rdb1.Tag = "Core";
@@ -222,12 +228,23 @@
             // 
             // txtNoOfHours
             // 
-            this.txtNoOfHours.Location = new System.Drawing.Point(190, 235);
+            this.txtNoOfHours.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNoOfHours.Location = new System.Drawing.Point(250, 118);
             this.txtNoOfHours.Name = "txtNoOfHours";
-            this.txtNoOfHours.Size = new System.Drawing.Size(312, 20);
+            this.txtNoOfHours.Size = new System.Drawing.Size(368, 26);
             this.txtNoOfHours.TabIndex = 4;
             this.txtNoOfHours.Tag = "Number of Hours";
             this.ToolTips.SetToolTip(this.txtNoOfHours, "Insert the Number of Hours this unit will take, Use Whole Numeric Values Only ");
+            // 
+            // txtUnitCode
+            // 
+            this.txtUnitCode.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtUnitCode.Location = new System.Drawing.Point(250, 10);
+            this.txtUnitCode.Name = "txtUnitCode";
+            this.txtUnitCode.Size = new System.Drawing.Size(236, 26);
+            this.txtUnitCode.TabIndex = 1;
+            this.txtUnitCode.Tag = "Unit Code";
+            this.ToolTips.SetToolTip(this.txtUnitCode, "Unit Code must be no longer than 9 digits and contain 6 ");
             // 
             // mainMenuToolStripMenuItem
             // 
@@ -269,18 +286,38 @@
             this.panel5.Controls.Add(this.panel2);
             this.panel5.Controls.Add(this.panel6);
             this.panel5.Controls.Add(this.button5);
-            this.panel5.Location = new System.Drawing.Point(612, 27);
+            this.panel5.Location = new System.Drawing.Point(828, 27);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(132, 548);
+            this.panel5.Size = new System.Drawing.Size(156, 508);
             this.panel5.TabIndex = 8;
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.Gold;
+            this.panel1.Controls.Add(this.btnClearForm);
+            this.panel1.Location = new System.Drawing.Point(3, 445);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(150, 58);
+            this.panel1.TabIndex = 106;
+            // 
+            // btnClearForm
+            // 
+            this.btnClearForm.BackColor = System.Drawing.Color.White;
+            this.btnClearForm.Image = global::CMS.Properties.Resources.ClearFormButton;
+            this.btnClearForm.Location = new System.Drawing.Point(3, 3);
+            this.btnClearForm.Name = "btnClearForm";
+            this.btnClearForm.Size = new System.Drawing.Size(144, 52);
+            this.btnClearForm.TabIndex = 18;
+            this.btnClearForm.Tag = "Clear Form";
+            this.btnClearForm.UseVisualStyleBackColor = false;
             // 
             // panel8
             // 
             this.panel8.BackColor = System.Drawing.Color.Gold;
             this.panel8.Controls.Add(this.btnViewAll);
-            this.panel8.Location = new System.Drawing.Point(4, 413);
+            this.panel8.Location = new System.Drawing.Point(3, 382);
             this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(125, 50);
+            this.panel8.Size = new System.Drawing.Size(150, 58);
             this.panel8.TabIndex = 4;
             // 
             // btnViewAll
@@ -289,7 +326,7 @@
             this.btnViewAll.Image = global::CMS.Properties.Resources.ViewAllButton;
             this.btnViewAll.Location = new System.Drawing.Point(3, 3);
             this.btnViewAll.Name = "btnViewAll";
-            this.btnViewAll.Size = new System.Drawing.Size(120, 45);
+            this.btnViewAll.Size = new System.Drawing.Size(144, 52);
             this.btnViewAll.TabIndex = 0;
             this.btnViewAll.UseVisualStyleBackColor = false;
             this.btnViewAll.Click += new System.EventHandler(this.btnViewAll_Click);
@@ -298,9 +335,9 @@
             // 
             this.panel4.BackColor = System.Drawing.Color.Gold;
             this.panel4.Controls.Add(this.btnDelete);
-            this.panel4.Location = new System.Drawing.Point(3, 350);
+            this.panel4.Location = new System.Drawing.Point(3, 319);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(125, 50);
+            this.panel4.Size = new System.Drawing.Size(150, 58);
             this.panel4.TabIndex = 3;
             // 
             // btnDelete
@@ -309,7 +346,7 @@
             this.btnDelete.Image = global::CMS.Properties.Resources.DeleteButton;
             this.btnDelete.Location = new System.Drawing.Point(3, 3);
             this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(119, 44);
+            this.btnDelete.Size = new System.Drawing.Size(144, 52);
             this.btnDelete.TabIndex = 0;
             this.btnDelete.UseVisualStyleBackColor = false;
             this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
@@ -318,9 +355,9 @@
             // 
             this.panel3.BackColor = System.Drawing.Color.Gold;
             this.panel3.Controls.Add(this.btnUpdate);
-            this.panel3.Location = new System.Drawing.Point(3, 281);
+            this.panel3.Location = new System.Drawing.Point(3, 256);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(125, 50);
+            this.panel3.Size = new System.Drawing.Size(150, 58);
             this.panel3.TabIndex = 2;
             // 
             // btnUpdate
@@ -329,7 +366,7 @@
             this.btnUpdate.Image = global::CMS.Properties.Resources.UpdateButton;
             this.btnUpdate.Location = new System.Drawing.Point(3, 3);
             this.btnUpdate.Name = "btnUpdate";
-            this.btnUpdate.Size = new System.Drawing.Size(120, 45);
+            this.btnUpdate.Size = new System.Drawing.Size(144, 52);
             this.btnUpdate.TabIndex = 0;
             this.btnUpdate.UseVisualStyleBackColor = false;
             this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
@@ -338,9 +375,9 @@
             // 
             this.panel2.BackColor = System.Drawing.Color.Gold;
             this.panel2.Controls.Add(this.btnAdd);
-            this.panel2.Location = new System.Drawing.Point(4, 150);
+            this.panel2.Location = new System.Drawing.Point(3, 130);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(125, 50);
+            this.panel2.Size = new System.Drawing.Size(150, 58);
             this.panel2.TabIndex = 0;
             // 
             // btnAdd
@@ -349,7 +386,7 @@
             this.btnAdd.Image = global::CMS.Properties.Resources.AddButton;
             this.btnAdd.Location = new System.Drawing.Point(3, 3);
             this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(120, 45);
+            this.btnAdd.Size = new System.Drawing.Size(144, 52);
             this.btnAdd.TabIndex = 0;
             this.btnAdd.UseVisualStyleBackColor = false;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
@@ -358,9 +395,9 @@
             // 
             this.panel6.BackColor = System.Drawing.Color.Gold;
             this.panel6.Controls.Add(this.btnSearch);
-            this.panel6.Location = new System.Drawing.Point(3, 214);
+            this.panel6.Location = new System.Drawing.Point(3, 193);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(125, 50);
+            this.panel6.Size = new System.Drawing.Size(150, 58);
             this.panel6.TabIndex = 1;
             // 
             // btnSearch
@@ -369,7 +406,7 @@
             this.btnSearch.Image = global::CMS.Properties.Resources.SearchButton;
             this.btnSearch.Location = new System.Drawing.Point(3, 3);
             this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(120, 45);
+            this.btnSearch.Size = new System.Drawing.Size(144, 52);
             this.btnSearch.TabIndex = 0;
             this.btnSearch.UseVisualStyleBackColor = false;
             this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
@@ -380,7 +417,7 @@
             this.button5.Image = global::CMS.Properties.Resources.UnitButton;
             this.button5.Location = new System.Drawing.Point(3, 3);
             this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(125, 100);
+            this.button5.Size = new System.Drawing.Size(150, 124);
             this.button5.TabIndex = 1;
             this.button5.UseVisualStyleBackColor = false;
             // 
@@ -390,16 +427,16 @@
             this.panel7.Controls.Add(this.label1);
             this.panel7.Location = new System.Drawing.Point(0, 27);
             this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(685, 60);
+            this.panel7.Size = new System.Drawing.Size(825, 60);
             this.panel7.TabIndex = 89;
             // 
             // label1
             // 
             this.label1.BackColor = System.Drawing.Color.Gold;
-            this.label1.Font = new System.Drawing.Font("Times New Roman", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Times New Roman", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(12, 9);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(660, 42);
+            this.label1.Size = new System.Drawing.Size(801, 42);
             this.label1.TabIndex = 0;
             this.label1.Text = "Unit Form";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -412,7 +449,7 @@
             this.formsToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(745, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(988, 24);
             this.menuStrip1.TabIndex = 10;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -468,40 +505,41 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(64, 311);
+            this.label3.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(105, 190);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(119, 21);
+            this.label3.Size = new System.Drawing.Size(136, 23);
             this.label3.TabIndex = 97;
             this.label3.Text = "Skill Required:";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(131, 194);
+            this.label4.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(186, 85);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(52, 21);
+            this.label4.Size = new System.Drawing.Size(55, 23);
             this.label4.TabIndex = 100;
             this.label4.Text = "Type:";
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(37, 234);
+            this.label6.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(80, 119);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(146, 21);
+            this.label6.Size = new System.Drawing.Size(164, 23);
             this.label6.TabIndex = 104;
             this.label6.Text = "Number of Hours:";
             // 
             // cmbAreaOfStudy
             // 
             this.cmbAreaOfStudy.DisplayMember = "Area of study";
+            this.cmbAreaOfStudy.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbAreaOfStudy.FormattingEnabled = true;
-            this.cmbAreaOfStudy.Location = new System.Drawing.Point(190, 274);
+            this.cmbAreaOfStudy.Location = new System.Drawing.Point(250, 154);
             this.cmbAreaOfStudy.Name = "cmbAreaOfStudy";
-            this.cmbAreaOfStudy.Size = new System.Drawing.Size(312, 21);
+            this.cmbAreaOfStudy.Size = new System.Drawing.Size(368, 28);
             this.cmbAreaOfStudy.TabIndex = 5;
             this.cmbAreaOfStudy.ValueMember = "Area of study";
             this.cmbAreaOfStudy.SelectedIndexChanged += new System.EventHandler(this.cmbAreaOfStudy_SelectedIndexChanged_1);
@@ -509,91 +547,75 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(64, 274);
+            this.label7.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(114, 155);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(119, 21);
+            this.label7.Size = new System.Drawing.Size(130, 23);
             this.label7.TabIndex = 105;
             this.label7.Text = "Area of Study:";
-            // 
-            // txtUnitCode
-            // 
-            this.txtUnitCode.Location = new System.Drawing.Point(190, 123);
-            this.txtUnitCode.Name = "txtUnitCode";
-            this.txtUnitCode.Size = new System.Drawing.Size(312, 20);
-            this.txtUnitCode.TabIndex = 1;
-            this.txtUnitCode.Tag = "Unit Code";
-            this.ToolTips.SetToolTip(this.txtUnitCode, "Unit Code must be no longer than 9 digits and contain 6 ");
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(92, 121);
+            this.label8.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(139, 11);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(91, 21);
+            this.label8.Size = new System.Drawing.Size(102, 23);
             this.label8.TabIndex = 95;
             this.label8.Text = "Unit Code:";
             // 
             // lstSkill
             // 
+            this.lstSkill.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lstSkill.FormattingEnabled = true;
-            this.lstSkill.Location = new System.Drawing.Point(190, 311);
+            this.lstSkill.ItemHeight = 20;
+            this.lstSkill.Location = new System.Drawing.Point(250, 190);
             this.lstSkill.Name = "lstSkill";
             this.lstSkill.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;
-            this.lstSkill.Size = new System.Drawing.Size(312, 30);
+            this.lstSkill.Size = new System.Drawing.Size(499, 84);
             this.lstSkill.TabIndex = 6;
             this.lstSkill.Tag = "Skill";
             // 
-            // panel1
+            // panel9
             // 
-            this.panel1.BackColor = System.Drawing.Color.Gold;
-            this.panel1.Controls.Add(this.btnClearForm);
-            this.panel1.Location = new System.Drawing.Point(3, 485);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(125, 50);
-            this.panel1.TabIndex = 106;
-            // 
-            // btnClearForm
-            // 
-            this.btnClearForm.BackColor = System.Drawing.Color.White;
-            this.btnClearForm.Image = global::CMS.Properties.Resources.ClearFormButton;
-            this.btnClearForm.Location = new System.Drawing.Point(3, 3);
-            this.btnClearForm.Name = "btnClearForm";
-            this.btnClearForm.Size = new System.Drawing.Size(120, 45);
-            this.btnClearForm.TabIndex = 18;
-            this.btnClearForm.Tag = "Clear Form";
-            this.btnClearForm.UseVisualStyleBackColor = false;
+            this.panel9.AutoScroll = true;
+            this.panel9.AutoScrollMargin = new System.Drawing.Size(0, 20);
+            this.panel9.Controls.Add(this.lstSkill);
+            this.panel9.Controls.Add(this.label8);
+            this.panel9.Controls.Add(this.cmbAreaOfStudy);
+            this.panel9.Controls.Add(this.txtUnitName);
+            this.panel9.Controls.Add(this.label7);
+            this.panel9.Controls.Add(this.txtUnitDesc);
+            this.panel9.Controls.Add(this.label6);
+            this.panel9.Controls.Add(this.txtUnitCode);
+            this.panel9.Controls.Add(this.txtNoOfHours);
+            this.panel9.Controls.Add(this.label12);
+            this.panel9.Controls.Add(this.label4);
+            this.panel9.Controls.Add(this.label13);
+            this.panel9.Controls.Add(this.pnlUnitType);
+            this.panel9.Controls.Add(this.label3);
+            this.panel9.Location = new System.Drawing.Point(1, 88);
+            this.panel9.Name = "panel9";
+            this.panel9.Size = new System.Drawing.Size(823, 442);
+            this.panel9.TabIndex = 106;
             // 
             // UnitForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Lavender;
-            this.ClientSize = new System.Drawing.Size(745, 574);
-            this.Controls.Add(this.lstSkill);
-            this.Controls.Add(this.cmbAreaOfStudy);
-            this.Controls.Add(this.label7);
-            this.Controls.Add(this.label6);
-            this.Controls.Add(this.txtNoOfHours);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.pnlUnitType);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label8);
-            this.Controls.Add(this.label13);
-            this.Controls.Add(this.label12);
-            this.Controls.Add(this.txtUnitCode);
-            this.Controls.Add(this.txtUnitDesc);
-            this.Controls.Add(this.txtUnitName);
+            this.ClientSize = new System.Drawing.Size(988, 539);
             this.Controls.Add(this.panel5);
             this.Controls.Add(this.panel7);
             this.Controls.Add(this.menuStrip1);
+            this.Controls.Add(this.panel9);
             this.Name = "UnitForm";
             this.Load += new System.EventHandler(this.UnitForm_Load);
             this.pnlUnitType.ResumeLayout(false);
             this.pnlUnitType.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
             this.panel5.ResumeLayout(false);
+            this.panel1.ResumeLayout(false);
             this.panel8.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
@@ -602,7 +624,8 @@
             this.panel7.ResumeLayout(false);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
-            this.panel1.ResumeLayout(false);
+            this.panel9.ResumeLayout(false);
+            this.panel9.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -663,5 +686,6 @@
         private System.Windows.Forms.ListBox lstSkill;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button btnClearForm;
+        private System.Windows.Forms.Panel panel9;
     }
 }

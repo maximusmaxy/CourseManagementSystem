@@ -92,12 +92,13 @@
             this.panel7.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // txtLastName
             // 
             this.txtLastName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtLastName.Location = new System.Drawing.Point(508, 134);
+            this.txtLastName.Location = new System.Drawing.Point(508, 46);
             this.txtLastName.Name = "txtLastName";
             this.txtLastName.Size = new System.Drawing.Size(236, 26);
             this.txtLastName.TabIndex = 3;
@@ -107,7 +108,7 @@
             // txtFirstName
             // 
             this.txtFirstName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtFirstName.Location = new System.Drawing.Point(250, 134);
+            this.txtFirstName.Location = new System.Drawing.Point(250, 46);
             this.txtFirstName.Name = "txtFirstName";
             this.txtFirstName.Size = new System.Drawing.Size(236, 26);
             this.txtFirstName.TabIndex = 2;
@@ -117,7 +118,7 @@
             // txtId
             // 
             this.txtId.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtId.Location = new System.Drawing.Point(250, 98);
+            this.txtId.Location = new System.Drawing.Point(250, 10);
             this.txtId.Name = "txtId";
             this.txtId.Size = new System.Drawing.Size(236, 26);
             this.txtId.TabIndex = 1;
@@ -139,11 +140,11 @@
             this.lstSkillsList.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lstSkillsList.FormattingEnabled = true;
             this.lstSkillsList.ItemHeight = 20;
-            this.lstSkillsList.Location = new System.Drawing.Point(250, 318);
+            this.lstSkillsList.Location = new System.Drawing.Point(250, 230);
             this.lstSkillsList.Name = "lstSkillsList";
             this.lstSkillsList.ScrollAlwaysVisible = true;
             this.lstSkillsList.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;
-            this.lstSkillsList.Size = new System.Drawing.Size(499, 64);
+            this.lstSkillsList.Size = new System.Drawing.Size(499, 84);
             this.lstSkillsList.TabIndex = 8;
             this.lstSkillsList.Tag = "Skills List";
             this.ToolTips.SetToolTip(this.lstSkillsList, "Select the Skill Appropriate for the currently selected Teacher");
@@ -152,9 +153,9 @@
             // 
             this.cmbDepartment.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbDepartment.FormattingEnabled = true;
-            this.cmbDepartment.Location = new System.Drawing.Point(250, 280);
+            this.cmbDepartment.Location = new System.Drawing.Point(250, 192);
             this.cmbDepartment.Name = "cmbDepartment";
-            this.cmbDepartment.Size = new System.Drawing.Size(236, 28);
+            this.cmbDepartment.Size = new System.Drawing.Size(368, 28);
             this.cmbDepartment.TabIndex = 7;
             this.cmbDepartment.Tag = "Department";
             this.ToolTips.SetToolTip(this.cmbDepartment, "Please choose a department from the list provided");
@@ -164,9 +165,9 @@
             // 
             this.cmbCampus.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbCampus.FormattingEnabled = true;
-            this.cmbCampus.Location = new System.Drawing.Point(250, 242);
+            this.cmbCampus.Location = new System.Drawing.Point(250, 154);
             this.cmbCampus.Name = "cmbCampus";
-            this.cmbCampus.Size = new System.Drawing.Size(236, 28);
+            this.cmbCampus.Size = new System.Drawing.Size(368, 28);
             this.cmbCampus.TabIndex = 6;
             this.cmbCampus.Tag = "Campus";
             this.ToolTips.SetToolTip(this.cmbCampus, "Please select campus from the provided list");
@@ -174,7 +175,7 @@
             // txtEmail
             // 
             this.txtEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtEmail.Location = new System.Drawing.Point(250, 206);
+            this.txtEmail.Location = new System.Drawing.Point(250, 118);
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(499, 26);
             this.txtEmail.TabIndex = 5;
@@ -184,7 +185,7 @@
             // txtContactNumber
             // 
             this.txtContactNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtContactNumber.Location = new System.Drawing.Point(250, 170);
+            this.txtContactNumber.Location = new System.Drawing.Point(250, 82);
             this.txtContactNumber.Name = "txtContactNumber";
             this.txtContactNumber.Size = new System.Drawing.Size(236, 26);
             this.txtContactNumber.TabIndex = 4;
@@ -194,7 +195,7 @@
             // mainMenuToolStripMenuItem
             // 
             this.mainMenuToolStripMenuItem.Name = "mainMenuToolStripMenuItem";
-            this.mainMenuToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.mainMenuToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
             this.mainMenuToolStripMenuItem.Text = "Main Menu";
             this.mainMenuToolStripMenuItem.Click += new System.EventHandler(this.mainMenuToolStripMenuItem_Click);
             // 
@@ -221,25 +222,25 @@
             this.panel5.Controls.Add(this.button5);
             this.panel5.Location = new System.Drawing.Point(829, 27);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(155, 633);
+            this.panel5.Size = new System.Drawing.Size(156, 508);
             this.panel5.TabIndex = 59;
             // 
             // panel9
             // 
             this.panel9.BackColor = System.Drawing.Color.Plum;
             this.panel9.Controls.Add(this.btnClearForm);
-            this.panel9.Location = new System.Drawing.Point(3, 466);
+            this.panel9.Location = new System.Drawing.Point(3, 445);
             this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(148, 58);
+            this.panel9.Size = new System.Drawing.Size(150, 58);
             this.panel9.TabIndex = 78;
             // 
             // btnClearForm
             // 
             this.btnClearForm.BackColor = System.Drawing.Color.White;
             this.btnClearForm.Image = global::CMS.Properties.Resources.ClearFormButton;
-            this.btnClearForm.Location = new System.Drawing.Point(2, 3);
+            this.btnClearForm.Location = new System.Drawing.Point(3, 3);
             this.btnClearForm.Name = "btnClearForm";
-            this.btnClearForm.Size = new System.Drawing.Size(143, 53);
+            this.btnClearForm.Size = new System.Drawing.Size(144, 52);
             this.btnClearForm.TabIndex = 19;
             this.btnClearForm.Tag = "Clear Form";
             this.btnClearForm.UseVisualStyleBackColor = false;
@@ -249,18 +250,18 @@
             // 
             this.panel8.BackColor = System.Drawing.Color.Plum;
             this.panel8.Controls.Add(this.btnViewAll);
-            this.panel8.Location = new System.Drawing.Point(3, 403);
+            this.panel8.Location = new System.Drawing.Point(3, 382);
             this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(148, 58);
+            this.panel8.Size = new System.Drawing.Size(150, 58);
             this.panel8.TabIndex = 22;
             // 
             // btnViewAll
             // 
             this.btnViewAll.BackColor = System.Drawing.Color.White;
             this.btnViewAll.Image = global::CMS.Properties.Resources.ViewAllButton;
-            this.btnViewAll.Location = new System.Drawing.Point(2, 3);
+            this.btnViewAll.Location = new System.Drawing.Point(3, 3);
             this.btnViewAll.Name = "btnViewAll";
-            this.btnViewAll.Size = new System.Drawing.Size(143, 53);
+            this.btnViewAll.Size = new System.Drawing.Size(144, 52);
             this.btnViewAll.TabIndex = 13;
             this.btnViewAll.UseVisualStyleBackColor = false;
             this.btnViewAll.Click += new System.EventHandler(this.btnViewAll_Click);
@@ -269,9 +270,9 @@
             // 
             this.panel4.BackColor = System.Drawing.Color.Plum;
             this.panel4.Controls.Add(this.btnDelete);
-            this.panel4.Location = new System.Drawing.Point(5, 342);
+            this.panel4.Location = new System.Drawing.Point(3, 319);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(148, 58);
+            this.panel4.Size = new System.Drawing.Size(150, 58);
             this.panel4.TabIndex = 21;
             // 
             // btnDelete
@@ -280,7 +281,7 @@
             this.btnDelete.Image = global::CMS.Properties.Resources.DeleteButton;
             this.btnDelete.Location = new System.Drawing.Point(3, 3);
             this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(143, 53);
+            this.btnDelete.Size = new System.Drawing.Size(144, 52);
             this.btnDelete.TabIndex = 12;
             this.btnDelete.UseVisualStyleBackColor = false;
             this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
@@ -289,9 +290,9 @@
             // 
             this.panel3.BackColor = System.Drawing.Color.Plum;
             this.panel3.Controls.Add(this.btnUpdate);
-            this.panel3.Location = new System.Drawing.Point(5, 277);
+            this.panel3.Location = new System.Drawing.Point(3, 256);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(148, 58);
+            this.panel3.Size = new System.Drawing.Size(150, 58);
             this.panel3.TabIndex = 21;
             // 
             // btnUpdate
@@ -300,7 +301,7 @@
             this.btnUpdate.Image = global::CMS.Properties.Resources.UpdateButton;
             this.btnUpdate.Location = new System.Drawing.Point(3, 3);
             this.btnUpdate.Name = "btnUpdate";
-            this.btnUpdate.Size = new System.Drawing.Size(143, 53);
+            this.btnUpdate.Size = new System.Drawing.Size(144, 52);
             this.btnUpdate.TabIndex = 11;
             this.btnUpdate.UseVisualStyleBackColor = false;
             this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
@@ -309,18 +310,18 @@
             // 
             this.panel2.BackColor = System.Drawing.Color.Plum;
             this.panel2.Controls.Add(this.btnAdd);
-            this.panel2.Location = new System.Drawing.Point(5, 150);
+            this.panel2.Location = new System.Drawing.Point(3, 130);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(148, 58);
+            this.panel2.Size = new System.Drawing.Size(150, 58);
             this.panel2.TabIndex = 21;
             // 
             // btnAdd
             // 
             this.btnAdd.BackColor = System.Drawing.Color.White;
             this.btnAdd.Image = global::CMS.Properties.Resources.AddButton;
-            this.btnAdd.Location = new System.Drawing.Point(3, 2);
+            this.btnAdd.Location = new System.Drawing.Point(3, 3);
             this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(143, 53);
+            this.btnAdd.Size = new System.Drawing.Size(144, 52);
             this.btnAdd.TabIndex = 9;
             this.btnAdd.UseVisualStyleBackColor = false;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
@@ -329,9 +330,9 @@
             // 
             this.panel6.BackColor = System.Drawing.Color.Plum;
             this.panel6.Controls.Add(this.btnSearch);
-            this.panel6.Location = new System.Drawing.Point(5, 212);
+            this.panel6.Location = new System.Drawing.Point(3, 193);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(148, 58);
+            this.panel6.Size = new System.Drawing.Size(150, 58);
             this.panel6.TabIndex = 19;
             // 
             // btnSearch
@@ -340,7 +341,7 @@
             this.btnSearch.Image = global::CMS.Properties.Resources.SearchButton;
             this.btnSearch.Location = new System.Drawing.Point(3, 3);
             this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(143, 53);
+            this.btnSearch.Size = new System.Drawing.Size(144, 52);
             this.btnSearch.TabIndex = 10;
             this.btnSearch.TextAlign = System.Drawing.ContentAlignment.TopLeft;
             this.btnSearch.UseVisualStyleBackColor = false;
@@ -360,10 +361,9 @@
             // 
             this.panel7.BackColor = System.Drawing.Color.MediumSlateBlue;
             this.panel7.Controls.Add(this.label1);
-            this.panel7.Controls.Add(this.panel1);
             this.panel7.Location = new System.Drawing.Point(0, 27);
             this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(826, 60);
+            this.panel7.Size = new System.Drawing.Size(825, 60);
             this.panel7.TabIndex = 56;
             // 
             // menuStrip1
@@ -449,56 +449,56 @@
             // studentToolStripMenuItem
             // 
             this.studentToolStripMenuItem.Name = "studentToolStripMenuItem";
-            this.studentToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.studentToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
             this.studentToolStripMenuItem.Text = "Student";
             this.studentToolStripMenuItem.Click += new System.EventHandler(this.studentToolStripMenuItem_Click);
             // 
             // enrolmentToolStripMenuItem
             // 
             this.enrolmentToolStripMenuItem.Name = "enrolmentToolStripMenuItem";
-            this.enrolmentToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.enrolmentToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
             this.enrolmentToolStripMenuItem.Text = "Enrolment";
             this.enrolmentToolStripMenuItem.Click += new System.EventHandler(this.enrolmentToolStripMenuItem_Click);
             // 
             // courseToolStripMenuItem
             // 
             this.courseToolStripMenuItem.Name = "courseToolStripMenuItem";
-            this.courseToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.courseToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
             this.courseToolStripMenuItem.Text = "Course";
             this.courseToolStripMenuItem.Click += new System.EventHandler(this.courseToolStripMenuItem_Click);
             // 
             // unitToolStripMenuItem
             // 
             this.unitToolStripMenuItem.Name = "unitToolStripMenuItem";
-            this.unitToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.unitToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
             this.unitToolStripMenuItem.Text = "Unit";
             this.unitToolStripMenuItem.Click += new System.EventHandler(this.unitToolStripMenuItem_Click);
             // 
             // assessmentToolStripMenuItem
             // 
             this.assessmentToolStripMenuItem.Name = "assessmentToolStripMenuItem";
-            this.assessmentToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.assessmentToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
             this.assessmentToolStripMenuItem.Text = "Assessment";
             this.assessmentToolStripMenuItem.Click += new System.EventHandler(this.assessmentToolStripMenuItem_Click);
             // 
             // skillsToolStripMenuItem
             // 
             this.skillsToolStripMenuItem.Name = "skillsToolStripMenuItem";
-            this.skillsToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.skillsToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
             this.skillsToolStripMenuItem.Text = "Skills";
             this.skillsToolStripMenuItem.Click += new System.EventHandler(this.skillsToolStripMenuItem_Click);
             // 
             // allocationToolStripMenuItem
             // 
             this.allocationToolStripMenuItem.Name = "allocationToolStripMenuItem";
-            this.allocationToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.allocationToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
             this.allocationToolStripMenuItem.Text = "Allocation";
             this.allocationToolStripMenuItem.Click += new System.EventHandler(this.allocationToolStripMenuItem_Click);
             // 
             // globalSearchToolStripMenuItem
             // 
             this.globalSearchToolStripMenuItem.Name = "globalSearchToolStripMenuItem";
-            this.globalSearchToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.globalSearchToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
             this.globalSearchToolStripMenuItem.Text = "Global Search";
             this.globalSearchToolStripMenuItem.Click += new System.EventHandler(this.globalSearchToolStripMenuItem_Click);
             // 
@@ -565,9 +565,18 @@
             // panel1
             // 
             this.panel1.AutoScroll = true;
-            this.panel1.Location = new System.Drawing.Point(2, 54);
+            this.panel1.AutoScrollMargin = new System.Drawing.Size(0, 20);
+            this.panel1.Controls.Add(this.txtContactNumber);
+            this.panel1.Controls.Add(this.txtId);
+            this.panel1.Controls.Add(this.txtFirstName);
+            this.panel1.Controls.Add(this.txtEmail);
+            this.panel1.Controls.Add(this.txtLastName);
+            this.panel1.Controls.Add(this.lstSkillsList);
+            this.panel1.Controls.Add(this.cmbCampus);
+            this.panel1.Controls.Add(this.cmbDepartment);
+            this.panel1.Location = new System.Drawing.Point(1, 88);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(824, 571);
+            this.panel1.Size = new System.Drawing.Size(823, 442);
             this.panel1.TabIndex = 78;
             // 
             // TeacherForm
@@ -575,25 +584,18 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Lavender;
-            this.ClientSize = new System.Drawing.Size(984, 661);
-            this.Controls.Add(this.txtContactNumber);
+            this.ClientSize = new System.Drawing.Size(984, 539);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.txtEmail);
             this.Controls.Add(this.label7);
-            this.Controls.Add(this.cmbCampus);
-            this.Controls.Add(this.cmbDepartment);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.lstSkillsList);
             this.Controls.Add(this.label12);
-            this.Controls.Add(this.txtLastName);
-            this.Controls.Add(this.txtFirstName);
-            this.Controls.Add(this.txtId);
             this.Controls.Add(this.label13);
             this.Controls.Add(this.panel5);
             this.Controls.Add(this.panel7);
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.label2);
+            this.Controls.Add(this.panel1);
             this.Name = "TeacherForm";
             this.Text = "Teacher";
             this.Load += new System.EventHandler(this.TeacherForm_Load);
@@ -608,6 +610,8 @@
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -45,6 +45,11 @@ namespace CMS
                     sb.Append(txtString.Text);
                     sb.Append("%'");
                     break;
+                case "Exclude":
+                    sb.Append(" != '");
+                    sb.Append(txtString.Text);
+                    sb.Append("'");
+                    break;
             }
         }
     }

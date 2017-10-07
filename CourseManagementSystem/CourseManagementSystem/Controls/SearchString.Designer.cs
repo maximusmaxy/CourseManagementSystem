@@ -33,16 +33,18 @@
             this.rdbExactMatch = new System.Windows.Forms.RadioButton();
             this.txtString = new System.Windows.Forms.TextBox();
             this.lblValue = new System.Windows.Forms.Label();
+            this.rdbExclude = new System.Windows.Forms.RadioButton();
             this.pnlOperator.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlOperator
             // 
+            this.pnlOperator.Controls.Add(this.rdbExclude);
             this.pnlOperator.Controls.Add(this.rdbPartialMatch);
             this.pnlOperator.Controls.Add(this.rdbExactMatch);
             this.pnlOperator.Location = new System.Drawing.Point(3, 3);
             this.pnlOperator.Name = "pnlOperator";
-            this.pnlOperator.Size = new System.Drawing.Size(100, 56);
+            this.pnlOperator.Size = new System.Drawing.Size(100, 76);
             this.pnlOperator.TabIndex = 162;
             // 
             // rdbPartialMatch
@@ -85,6 +87,16 @@
             this.lblValue.TabIndex = 167;
             this.lblValue.Text = "Word:";
             // 
+            // rdbExclude
+            // 
+            this.rdbExclude.AutoSize = true;
+            this.rdbExclude.Location = new System.Drawing.Point(4, 50);
+            this.rdbExclude.Name = "rdbExclude";
+            this.rdbExclude.Size = new System.Drawing.Size(63, 17);
+            this.rdbExclude.TabIndex = 2;
+            this.rdbExclude.Text = "Exclude";
+            this.rdbExclude.UseVisualStyleBackColor = true;
+            // 
             // SearchString
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -93,7 +105,7 @@
             this.Controls.Add(this.txtString);
             this.Controls.Add(this.pnlOperator);
             this.Name = "SearchString";
-            this.Size = new System.Drawing.Size(514, 206);
+            this.Size = new System.Drawing.Size(532, 222);
             this.pnlOperator.ResumeLayout(false);
             this.pnlOperator.PerformLayout();
             this.ResumeLayout(false);
@@ -108,5 +120,6 @@
         public System.Windows.Forms.RadioButton rdbExactMatch;
         public System.Windows.Forms.TextBox txtString;
         private System.Windows.Forms.Label lblValue;
+        public System.Windows.Forms.RadioButton rdbExclude;
     }
 }

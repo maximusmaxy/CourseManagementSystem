@@ -13,13 +13,11 @@ namespace CMS
 {
     public partial class SearchDate : UserControl, ISearchControl
     {
-        enum Date { Year = 1, Month = 2, Day = 3 }
+        enum Date { Year = 1, Month = 2, Day = 3, Column = 4 }
 
         public SearchDate()
         {
             InitializeComponent();
-            cmbMonth.DisplayMember = "Display";
-            cmbMonth.ValueMember = "Value";
             BindingList<Data<int>> monthList = new BindingList<Data<int>>()
             {
                 new Data<int>("(Not Selected)", 0),
@@ -36,23 +34,20 @@ namespace CMS
                 new Data<int>("November", 11),
                 new Data<int>("December", 12)
             };
-            cmbMonth.DisplayMember = "Display";
-            cmbMonth.ValueMember = "Value";
-            cmbMonth.DataSource = monthList;
-            cmbMonth2.DisplayMember = "Display";
-            cmbMonth2.ValueMember = "Value";
-            cmbMonth2.DataSource = new BindingList<Data<int>>(monthList);
+            Forms.SetDataSource(cmbMonth, monthList);
+            Forms.SetDataSource(cmbMonth2, new BindingList<Data<int>>(monthList));
         }
 
         public void Reset()
         {
             Forms.ClearControls(this);
             Forms.CheckRadio(pnlOperator, "Exact Date");
-            cmbMonth.SelectedIndex = 0;
         }
 
         public bool ValidateControl()
         {
+            if (cmbColumn.SelectedIndex > 0)
+                return true;
             if (!Validation.YearMonthDay(txtYear, cmbMonth, txtDay))
                 return false;
             if (rdbBetween.Checked)
@@ -70,104 +65,144 @@ namespace CMS
             sb.Length -= sb.Length - lastIndex;
             sb.Append("(");
             Date date = Date.Year;
-            if (cmbMonth.Int() != 0)
-                date += 1;
-            if (!string.IsNullOrEmpty(txtDay.Text))
-                date += 1;
+            if (cmbColumn.SelectedIndex > 0)
+            {
+                date = Date.Column;
+            }
+            else
+            {
+                if (cmbMonth.Int() != 0)
+                    date += 1;
+                if (!string.IsNullOrEmpty(txtDay.Text))
+                    date += 1;
+            }
             switch (Forms.RadioString(pnlOperator))
             {
                 case "Exact Date":
-                    //year equal
-                    AppendYear(sb, column);
-                    sb.Append(" = ");
-                    sb.Append(txtYear.Int());
-                    //month equal
-                    if (date == Date.Month)
+                    if (date == Date.Column)
                     {
-                        sb.Append(" and ");
-                        AppendMonth(sb, column);
+                        sb.Append(column);
                         sb.Append(" = ");
-                        sb.Append(cmbMonth.Int());
+                        sb.Append(cmbColumn.Get<GlobalSearchForm.Column>().Table);
+                        sb.Append(".");
+                        sb.Append(cmbColumn.Get<GlobalSearchForm.Column>().Name);
                     }
-                    //day equal
-                    if (date == Date.Day)
+                    else
                     {
-                        sb.Append(" and ");
-                        AppendMonth(sb, column);
+                        //year equal
+                        AppendYear(sb, column);
                         sb.Append(" = ");
-                        sb.Append(txtDay.Int());
+                        sb.Append(txtYear.Int());
+                        //month equal
+                        if (date == Date.Month)
+                        {
+                            sb.Append(" and ");
+                            AppendMonth(sb, column);
+                            sb.Append(" = ");
+                            sb.Append(cmbMonth.Int());
+                        }
+                        //day equal
+                        if (date == Date.Day)
+                        {
+                            sb.Append(" and ");
+                            AppendMonth(sb, column);
+                            sb.Append(" = ");
+                            sb.Append(txtDay.Int());
+                        }
                     }
                     break;
                 case "Before":
-                    //year less than
-                    AppendYear(sb, column);
-                    sb.Append(" < ");
-                    sb.Append(txtYear.Int());
-                    //year equal and month less than
-                    if (date == Date.Month)
+                    if (date == Date.Column)
                     {
-                        sb.Append(" or (");
-                        AppendYear(sb, column);
-                        sb.Append(" = ");
-                        sb.Append(txtYear.Int());
-                        sb.Append(" and ");
-                        AppendMonth(sb, column);
+                        sb.Append(column);
                         sb.Append(" < ");
-                        sb.Append(cmbMonth.Int());
-                        sb.Append(")");
+                        sb.Append(cmbColumn.Get<GlobalSearchForm.Column>().Table);
+                        sb.Append(".");
+                        sb.Append(cmbColumn.Get<GlobalSearchForm.Column>().Name);
                     }
-                    //year equal, month equal, day less than
-                    if (date == Date.Day)
+                    else
                     {
-                        sb.Append(" or (");
+                        //year less than
                         AppendYear(sb, column);
-                        sb.Append(" = ");
-                        sb.Append(txtYear.Int());
-                        sb.Append(" and ");
-                        AppendMonth(sb, column);
-                        sb.Append(" = ");
-                        sb.Append(cmbMonth.Int());
-                        sb.Append(" and ");
-                        AppendDay(sb, column);
                         sb.Append(" < ");
-                        sb.Append(txtDay.Int());
-                        sb.Append(")");
+                        sb.Append(txtYear.Int());
+                        //year equal and month less than
+                        if (date == Date.Month)
+                        {
+                            sb.Append(" or (");
+                            AppendYear(sb, column);
+                            sb.Append(" = ");
+                            sb.Append(txtYear.Int());
+                            sb.Append(" and ");
+                            AppendMonth(sb, column);
+                            sb.Append(" < ");
+                            sb.Append(cmbMonth.Int());
+                            sb.Append(")");
+                        }
+                        //year equal, month equal, day less than
+                        if (date == Date.Day)
+                        {
+                            sb.Append(" or (");
+                            AppendYear(sb, column);
+                            sb.Append(" = ");
+                            sb.Append(txtYear.Int());
+                            sb.Append(" and ");
+                            AppendMonth(sb, column);
+                            sb.Append(" = ");
+                            sb.Append(cmbMonth.Int());
+                            sb.Append(" and ");
+                            AppendDay(sb, column);
+                            sb.Append(" < ");
+                            sb.Append(txtDay.Int());
+                            sb.Append(")");
+                        }
                     }
                     break;
                 case "After":
-                    //year greater than
-                    AppendYear(sb, column);
-                    sb.Append(" > ");
-                    sb.Append(txtYear.Int());
-                    //year equal, month greater than
-                    if (date == Date.Month)
+                    if (date == Date.Column)
                     {
-                        sb.Append(" or (");
-                        AppendYear(sb, column);
-                        sb.Append(" = ");
-                        sb.Append(txtYear.Int());
-                        sb.Append(" and ");
-                        AppendMonth(sb, column);
+                        sb.Append(column);
                         sb.Append(" > ");
-                        sb.Append(cmbMonth.Int());
-                        sb.Append(")");
+                        sb.Append(cmbColumn.Get<GlobalSearchForm.Column>().Table);
+                        sb.Append(".");
+                        sb.Append(cmbColumn.Get<GlobalSearchForm.Column>().Name);
                     }
-                    //year equal, month equal, day greater than
-                    if (date == Date.Day)
+                    else
                     {
-                        sb.Append(" or (");
+                        //year greater than
                         AppendYear(sb, column);
-                        sb.Append(" = ");
-                        sb.Append(txtYear.Int());
-                        sb.Append(" and ");
-                        AppendMonth(sb, column);
-                        sb.Append(" = ");
-                        sb.Append(cmbMonth.Int());
-                        sb.Append(" and ");
-                        AppendDay(sb, column);
                         sb.Append(" > ");
-                        sb.Append(txtDay.Int());
-                        sb.Append(")");
+                        sb.Append(txtYear.Int());
+                        //year equal, month greater than
+                        if (date == Date.Month)
+                        {
+                            sb.Append(" or (");
+                            AppendYear(sb, column);
+                            sb.Append(" = ");
+                            sb.Append(txtYear.Int());
+                            sb.Append(" and ");
+                            AppendMonth(sb, column);
+                            sb.Append(" > ");
+                            sb.Append(cmbMonth.Int());
+                            sb.Append(")");
+                        }
+                        //year equal, month equal, day greater than
+                        if (date == Date.Day)
+                        {
+                            sb.Append(" or (");
+                            AppendYear(sb, column);
+                            sb.Append(" = ");
+                            sb.Append(txtYear.Int());
+                            sb.Append(" and ");
+                            AppendMonth(sb, column);
+                            sb.Append(" = ");
+                            sb.Append(cmbMonth.Int());
+                            sb.Append(" and ");
+                            AppendDay(sb, column);
+                            sb.Append(" > ");
+                            sb.Append(txtDay.Int());
+                            sb.Append(")");
+                        }
                     }
                     break;
                 case "On or Before":
@@ -221,6 +256,13 @@ namespace CMS
                             sb.Append(txtDay.Int());
                             sb.Append(")");
                             break;
+                        case Date.Column:
+                            sb.Append(column);
+                            sb.Append(" <= ");
+                            sb.Append(cmbColumn.Get<GlobalSearchForm.Column>().Table);
+                            sb.Append(".");
+                            sb.Append(cmbColumn.Get<GlobalSearchForm.Column>().Name);
+                            break;
                     }
                     break;
                 case "On or After":
@@ -273,6 +315,13 @@ namespace CMS
                             sb.Append(" >= ");
                             sb.Append(txtDay.Int());
                             sb.Append(")");
+                            break;
+                        case Date.Column:
+                            sb.Append(column);
+                            sb.Append(" >= ");
+                            sb.Append(cmbColumn.Get<GlobalSearchForm.Column>().Table);
+                            sb.Append(".");
+                            sb.Append(cmbColumn.Get<GlobalSearchForm.Column>().Name);
                             break;
                     }
                     break;
@@ -367,6 +416,13 @@ namespace CMS
                             sb.Append(txtDay2.Int());
                             sb.Append(")");
                             break;
+                        case Date.Column:
+                            sb.Append(column);
+                            sb.Append(" = ");
+                            sb.Append(cmbColumn.Get<GlobalSearchForm.Column>().Table);
+                            sb.Append(".");
+                            sb.Append(cmbColumn.Get<GlobalSearchForm.Column>().Name);
+                            break;
                     }
                     break;
             }
@@ -405,6 +461,36 @@ namespace CMS
                 cmbMonth2.SelectedIndex = 0;
                 txtYear2.Text = string.Empty;
             }
+        }
+
+        private void cmbColumn_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cmbColumn.SelectedIndex < 1)
+                return;
+            txtDay.Text = string.Empty;
+            txtDay2.Text = string.Empty;
+            txtYear.Text = string.Empty;
+            txtYear.Text = string.Empty;
+            cmbMonth.SelectedIndex = 0;
+            cmbMonth2.SelectedIndex = 0;
+        }
+
+        private void txtYear_TextChanged(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrEmpty(txtYear.Text))
+                cmbColumn.SelectedIndex = 0;
+        }
+
+        private void cmbMonth_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cmbMonth.SelectedIndex > 0)
+                cmbColumn.SelectedIndex = 0;
+        }
+
+        private void txtDay_TextChanged(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrEmpty(txtDay.Text))
+                cmbColumn.SelectedIndex = 0;
         }
     }
 }

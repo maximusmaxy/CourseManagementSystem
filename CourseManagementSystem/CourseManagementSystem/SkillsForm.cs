@@ -10,7 +10,7 @@ using System.Windows.Forms;
 using CmsLibrary;
 namespace CMS
 {
-    public partial class SkillsForm : Form
+    public partial class SkillsForm : Form, ISearchForm
     {
         public SkillsForm()
         {
@@ -50,21 +50,27 @@ namespace CMS
 
             else
             {
-                Skill Skill = new Skill();
-                Skill.Id = txtSkillID.Int();
-                if (!Skill.Search())
-                {
-                    MessageBox.Show("Failed to find a Skill with the ID :" + txtSkillID.Text);
-                }
-                else
-                {
-                    txtSkillName.Text = Skill.Name;
-                    cmbAreaOfStudy.SelectedValue = Skill.DepartmentId;
-                    txtSkillDescription.Text = Skill.Description;
-                }
-
+                Search(txtSkillID.Int());
             }
         }
+
+        public void Search(int id)
+        {
+            Skill Skill = new Skill();
+            Skill.Id = id;
+            if (!Skill.Search())
+            {
+                MessageBox.Show("Failed to find a Skill with the ID :" + txtSkillID.Text);
+            }
+            else
+            {
+                txtSkillID.Text = Skill.Id.ToString();
+                txtSkillName.Text = Skill.Name;
+                cmbAreaOfStudy.SelectedValue = Skill.DepartmentId;
+                txtSkillDescription.Text = Skill.Description;
+            }
+        }
+
         private void btnUpdate_Click(object sender, EventArgs e)
         {
             if (!Validation.Numeric(txtSkillID) || !Validation.Word(txtSkillName) || !Validation.Combo(cmbAreaOfStudy) || !Validation.Word(txtSkillDescription))

@@ -11,7 +11,7 @@ using CmsLibrary;
 
 namespace CMS
 {
-    public partial class EnrolmentForm : Form
+    public partial class EnrolmentForm : Form, ISearchForm
     {
         public EnrolmentForm()
         {
@@ -176,26 +176,32 @@ namespace CMS
                 form.ShowDialog(this);
                 if (form.Id != -1)
                 {
-                    Enrolment enrolment = new Enrolment(form.Id);
-                    if (enrolment.Search())
-                    {
-                        txtId.Text = enrolment.StudentId.ToString();
-                        txtEnrolmentCost.Text = enrolment.EnrolmentCost.ToString();
-                        txtDiscountCost.Text = enrolment.DiscountCost.ToString();
-                        dtpEnrolment.Value = enrolment.EnrolmentDate;
-                        dtpEnrolment.Value = enrolment.CompletionDate;
-                        Forms.CheckRadio(pnlSemester, Types.Semester, enrolment.Semester);
-                        Forms.CheckRadio(pnlCourseResults, Types.CourseResults, enrolment.Result);
-                    }
-                    Course course = new Course(enrolment.CourseId);
-                    if (course.Search())
-                    {
-                        cmbAreaOfStudy.SelectedValue = course.DepartmentId;
-                        cmbCourseName.SelectedValue = enrolment.CourseId;
-                    }
+                    Search(form.Id);
                 }
             }
         }
+
+        public void Search(int id)
+        {
+            Enrolment enrolment = new Enrolment(id);
+            if (enrolment.Search())
+            {
+                txtId.Text = enrolment.StudentId.ToString();
+                txtEnrolmentCost.Text = enrolment.EnrolmentCost.ToString();
+                txtDiscountCost.Text = enrolment.DiscountCost.ToString();
+                dtpEnrolment.Value = enrolment.EnrolmentDate;
+                dtpEnrolment.Value = enrolment.CompletionDate;
+                Forms.CheckRadio(pnlSemester, Types.Semester, enrolment.Semester);
+                Forms.CheckRadio(pnlCourseResults, Types.CourseResults, enrolment.Result);
+            }
+            Course course = new Course(enrolment.CourseId);
+            if (course.Search())
+            {
+                cmbAreaOfStudy.SelectedValue = course.DepartmentId;
+                cmbCourseName.SelectedValue = enrolment.CourseId;
+            }
+        }
+
         private void cmbAreaOfStudy_SelectedIndexChanged(object sender, EventArgs e)
         {
             //if (!Validation.Many(

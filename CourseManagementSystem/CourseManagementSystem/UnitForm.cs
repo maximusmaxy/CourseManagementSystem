@@ -11,7 +11,7 @@ using CmsLibrary;
 
 namespace CMS
 {
-    public partial class UnitForm : Form
+    public partial class UnitForm : Form, ISearchForm
     {
         public UnitForm()
         {
@@ -206,6 +206,21 @@ namespace CMS
                     Forms.SelectData(lstSkill, "unit_skills", "skillId", unit.Id, "unitId");
                     txtUnitDesc.Text = unit.Description;
                 }
+            }
+        }
+
+        public void Search(int id)
+        {
+            Unit unit = new Unit() { Id = id };
+            if (unit.Search("unitId", id))
+            {
+                txtUnitCode.Text = unit.Code;
+                txtUnitName.Text = unit.Name;
+                Forms.CheckRadio(pnlUnitType, Types.UnitType, unit.Type);
+                txtNoOfHours.Text = unit.NumOfHours.ToString();
+                cmbAreaOfStudy.SelectedValue = unit.DepartmentId;
+                Forms.SelectData(lstSkill, "unit_skills", "skillId", unit.Id, "unitId");
+                txtUnitDesc.Text = unit.Description;
             }
         }
 

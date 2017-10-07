@@ -11,7 +11,7 @@ using CmsLibrary;
 
 namespace CMS
 {
-    public partial class CourseForm : Form
+    public partial class CourseForm : Form, ISearchForm
     {
         public CourseForm()
         {
@@ -66,29 +66,33 @@ namespace CMS
             {
                 MessageBox.Show("Failed to Validate, please try again");
             }
-
             else
             {
-                Course newCourse = new Course();
-                newCourse.Id = txtCourseID.Int();
-                if(!newCourse.Search())
-                {
-                    MessageBox.Show("Failed to find a Course with the ID :" + txtCourseID.Text);
-                }
-                else
-                {
-                    txtCourseName.Text = newCourse.Name;
-                    txtCourseCost.Text = newCourse.Cost.ToString();
-                    Forms.CheckRadio(pnlDeliveryType, Types.DeliveryType, newCourse.DeliveryType);
-                    dtpStart.Value = newCourse.StartDate;
-                    dtpEnd.Value = newCourse.EndDate;
-                    cmbCampus.SelectedValue = newCourse.LocationId;
-                    cmbAreaOfStudy.SelectedValue = newCourse.DepartmentId;
-                    txtCourseDescription.Text = newCourse.Description;
-                    Forms.SelectData(lstUnitslist, "course_units", "courseId", newCourse.Id, "unitId");
+                Search(txtCourseID.Int());
+            }
+        }
 
-                }
-                
+        public void Search(int id)
+        {
+            Course newCourse = new Course();
+            newCourse.Id = id;
+            if (!newCourse.Search())
+            {
+                MessageBox.Show("Failed to find a Course with the ID :" + txtCourseID.Text);
+            }
+            else
+            {
+                txtCourseID.Text = newCourse.Id.ToString();
+                txtCourseName.Text = newCourse.Name;
+                txtCourseCost.Text = newCourse.Cost.ToString();
+                Forms.CheckRadio(pnlDeliveryType, Types.DeliveryType, newCourse.DeliveryType);
+                dtpStart.Value = newCourse.StartDate;
+                dtpEnd.Value = newCourse.EndDate;
+                cmbCampus.SelectedValue = newCourse.LocationId;
+                cmbAreaOfStudy.SelectedValue = newCourse.DepartmentId;
+                txtCourseDescription.Text = newCourse.Description;
+                Forms.SelectData(lstUnitslist, "course_units", "courseId", newCourse.Id, "unitId");
+
             }
         }
 

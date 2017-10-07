@@ -11,7 +11,7 @@ using CmsLibrary;
 
 namespace CMS
 {
-    public partial class TeacherForm : Form
+    public partial class TeacherForm : Form, ISearchForm
     {
         public TeacherForm()
         {
@@ -93,25 +93,30 @@ namespace CMS
                                                MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
             if (result == DialogResult.Yes)
             {
-                //Teacher
-                Teacher teacher = new Teacher(txtId.Int());
-                if(teacher.Search())
-                {
-                    txtFirstName.Text = teacher.FirstName;
-                    txtLastName.Text = teacher.LastName;
-                    txtContactNumber.Text = teacher.ContactNumber;
-                    txtEmail.Text = teacher.Email;
-                    cmbDepartment.SelectedValue = teacher.DepartmentId;
-                    //Location
-                    Location location = new Location(teacher.LocationId);
-                    if (location.Search())
-                    {
-                        cmbCampus.Text = location.Campus;
-                    }
+                Search(txtId.Int());
+            }
+        }
 
-                    Forms.SelectData(lstSkillsList, "teacher_skills", "teacherid", teacher.Id, "skillid");
+        public void Search(int id)
+        {
+            //Teacher
+            Teacher teacher = new Teacher(id);
+            if (teacher.Search())
+            {
+                txtId.Text = teacher.Id.ToString();
+                txtFirstName.Text = teacher.FirstName;
+                txtLastName.Text = teacher.LastName;
+                txtContactNumber.Text = teacher.ContactNumber;
+                txtEmail.Text = teacher.Email;
+                cmbDepartment.SelectedValue = teacher.DepartmentId;
+                //Location
+                Location location = new Location(teacher.LocationId);
+                if (location.Search())
+                {
+                    cmbCampus.Text = location.Campus;
                 }
 
+                Forms.SelectData(lstSkillsList, "teacher_skills", "teacherid", teacher.Id, "skillid");
             }
         }
 

@@ -248,7 +248,7 @@
             // cmbTables
             // 
             this.cmbTables.FormattingEnabled = true;
-            this.cmbTables.Location = new System.Drawing.Point(64, 9);
+            this.cmbTables.Location = new System.Drawing.Point(64, 13);
             this.cmbTables.Name = "cmbTables";
             this.cmbTables.Size = new System.Drawing.Size(121, 21);
             this.cmbTables.TabIndex = 154;
@@ -258,7 +258,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(3, 9);
+            this.label2.Location = new System.Drawing.Point(3, 11);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(55, 21);
             this.label2.TabIndex = 155;
@@ -268,7 +268,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(194, 9);
+            this.label3.Location = new System.Drawing.Point(194, 13);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(73, 21);
             this.label3.TabIndex = 157;
@@ -277,7 +277,7 @@
             // cmbColumns
             // 
             this.cmbColumns.FormattingEnabled = true;
-            this.cmbColumns.Location = new System.Drawing.Point(273, 9);
+            this.cmbColumns.Location = new System.Drawing.Point(273, 13);
             this.cmbColumns.Name = "cmbColumns";
             this.cmbColumns.Size = new System.Drawing.Size(121, 21);
             this.cmbColumns.TabIndex = 156;
@@ -310,7 +310,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(400, 9);
+            this.label4.Location = new System.Drawing.Point(400, 11);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(87, 21);
             this.label4.TabIndex = 160;
@@ -319,7 +319,7 @@
             // cmbGroupBy
             // 
             this.cmbGroupBy.FormattingEnabled = true;
-            this.cmbGroupBy.Location = new System.Drawing.Point(493, 9);
+            this.cmbGroupBy.Location = new System.Drawing.Point(493, 13);
             this.cmbGroupBy.Name = "cmbGroupBy";
             this.cmbGroupBy.Size = new System.Drawing.Size(121, 21);
             this.cmbGroupBy.TabIndex = 161;
@@ -338,7 +338,7 @@
             // cmbColumns2
             // 
             this.cmbColumns2.FormattingEnabled = true;
-            this.cmbColumns2.Location = new System.Drawing.Point(273, 38);
+            this.cmbColumns2.Location = new System.Drawing.Point(273, 40);
             this.cmbColumns2.Name = "cmbColumns2";
             this.cmbColumns2.Size = new System.Drawing.Size(121, 21);
             this.cmbColumns2.TabIndex = 164;
@@ -357,7 +357,7 @@
             // cmbTables2
             // 
             this.cmbTables2.FormattingEnabled = true;
-            this.cmbTables2.Location = new System.Drawing.Point(64, 38);
+            this.cmbTables2.Location = new System.Drawing.Point(64, 40);
             this.cmbTables2.Name = "cmbTables2";
             this.cmbTables2.Size = new System.Drawing.Size(121, 21);
             this.cmbTables2.TabIndex = 162;
@@ -500,7 +500,7 @@
             // 
             this.label14.AutoSize = true;
             this.label14.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.Location = new System.Drawing.Point(620, 9);
+            this.label14.Location = new System.Drawing.Point(620, 13);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(60, 21);
             this.label14.TabIndex = 181;
@@ -519,7 +519,7 @@
             // cmbCount
             // 
             this.cmbCount.FormattingEnabled = true;
-            this.cmbCount.Location = new System.Drawing.Point(686, 9);
+            this.cmbCount.Location = new System.Drawing.Point(686, 13);
             this.cmbCount.Name = "cmbCount";
             this.cmbCount.Size = new System.Drawing.Size(121, 21);
             this.cmbCount.TabIndex = 183;

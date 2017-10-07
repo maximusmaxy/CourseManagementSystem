@@ -11,7 +11,7 @@ using CmsLibrary;
 
 namespace CMS
 {
-    public partial class AssessmentForm : Form
+    public partial class AssessmentForm : Form, ISearchForm
     {
         public AssessmentForm()
         {
@@ -218,23 +218,28 @@ namespace CMS
 
             else
             {
-                Assessment Assessment = new Assessment();
-                Assessment.Id = txtAssessmentId.Int();
-                if (!Assessment.Search())
-                {
-                    MessageBox.Show("Failed to find an Assessment with the ID :" + txtAssessmentId.Text);
-                }
-                else
-                {
-                    txtAssessmentName.Text = Assessment.Name;
-                    cmbAreaOfStudy.SelectedValue = Assessment.DepartmentId;
-                    cmbUnit.SelectedValue = Assessment.UnitId;
-                    cmbTeacher.SelectedValue = Assessment.TeacherId;
-                    dtpStart.Value = Assessment.StartDate;
-                    dtpDue.Value = Assessment.DueDate;
-                    txtDescription.Text = Assessment.Description;
-                }
+                Search(txtAssessmentId.Int());
+            }
+        }
 
+        public void Search(int id)
+        {
+            Assessment Assessment = new Assessment();
+            Assessment.Id = id;
+            if (!Assessment.Search())
+            {
+                MessageBox.Show("Failed to find an Assessment with the ID :" + txtAssessmentId.Text);
+            }
+            else
+            {
+                txtAssessmentId.Text = Assessment.Id.ToString();
+                txtAssessmentName.Text = Assessment.Name;
+                cmbAreaOfStudy.SelectedValue = Assessment.DepartmentId;
+                cmbUnit.SelectedValue = Assessment.UnitId;
+                cmbTeacher.SelectedValue = Assessment.TeacherId;
+                dtpStart.Value = Assessment.StartDate;
+                dtpDue.Value = Assessment.DueDate;
+                txtDescription.Text = Assessment.Description;
             }
         }
 

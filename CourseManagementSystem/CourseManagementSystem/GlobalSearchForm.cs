@@ -864,7 +864,16 @@ namespace CMS
         private void dgvSearch_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0 && e.ColumnIndex >= 0)
-                Forms.ShowForm(cmbTables.Get<Table>().Form);
+            {
+                Type formType = cmbTables.Get<Table>().Form;
+                Forms.ShowForm(formType);
+                if (groupBy.Length == 0 && formType.GetInterfaces().Contains(typeof(ISearchForm)))
+                {
+                    ISearchForm form = (ISearchForm)Forms.GetForm(formType);
+                    int id = Convert.ToInt32(((DataRowView)dgvSearch.Rows[e.RowIndex].DataBoundItem)[0]);
+                    form.Search(id);
+                }
+            }
         }
 
         private void mainMenuToolStripMenuItem_Click(object sender, EventArgs e)
@@ -929,17 +938,7 @@ namespace CMS
 
         private void courseToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            DialogResult result = MessageBox.Show("Would you like to open this form in a new window", "Question",
-                                              MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
-            if (result == DialogResult.Yes)
-            {
-                Forms.ShowForm(typeof(CourseForm));
-            }
-            else if (result == DialogResult.No)
-            {
-                Forms.ShowForm(typeof(CourseForm));
-                Close();
-            }
+
         }
 
         private void unitToolStripMenuItem_Click(object sender, EventArgs e)

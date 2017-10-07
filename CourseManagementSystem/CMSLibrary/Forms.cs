@@ -278,8 +278,21 @@ namespace CmsLibrary
                 formsOpen[formType] = form;
                 form.FormClosed += OnClose;
                 form.Show();
+            }
         }
-    }
+
+        /// <summary>
+        /// Gets the specified form based on type
+        /// </summary>
+        /// <param name="formType">The form type using the typeof(FormName) expression.</param>
+        /// <returns>The specified form or null if it isn't open.</returns>
+        public static Form GetForm(Type formType)
+        {
+            if (formsOpen.ContainsKey(formType))
+                return formsOpen[formType];
+            else
+                return null;
+        }
 
         /// <summary>
         /// Finds and closes the form if it is open.

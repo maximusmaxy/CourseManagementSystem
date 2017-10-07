@@ -23,23 +23,21 @@ namespace CMS
         {
             if (cmbAreaOfStudy.SelectedValue != DBNull.Value)
             {
-                cmbSel1.DataSource = null;
-                cmbSel1.DisplayMember = "Display";
-                cmbSel1.ValueMember = "Value";
-                cmbSel1.DataSource = new BindingList<Data>
+                BindingList<Data> list = new BindingList<Data>
                 {
                     new Data("(Please select an option)", null),
                     new Data("Teachers", "teacher"),
                     new Data("Courses", "course"),
                     new Data("Units", "unit")
                 };
+                Forms.SetDataSource(cmbSel1, list);
             }
             else
             {
-                cmbSel1.DataSource = null;
-                cmbSel2.DataSource = null;
-                lstOption1.DataSource = null;
-                lstOption2.DataSource = null;
+                Forms.ClearDataSource(cmbSel1);
+                Forms.ClearDataSource(cmbSel2);
+                Forms.ClearDataSource(lstOption1);
+                Forms.ClearDataSource(lstOption2);
             }
         }
 
@@ -47,41 +45,41 @@ namespace CMS
         {
             if (cmbSel1.SelectedValue == null)
             {
-                cmbSel2.DataSource = null;
-                lstOption1.DataSource = null;
-                lstOption2.DataSource = null;
+                Forms.ClearDataSource(cmbSel2);
+                Forms.ClearDataSource(lstOption1);
+                Forms.ClearDataSource(lstOption2);
                 return;
             }
-            cmbSel2.DataSource = null;
-            cmbSel2.ValueMember = "Value";
-            cmbSel2.DisplayMember = "Display";
             switch (cmbSel1.Get<string>())
             {
                 case "teacher":
-                    cmbSel2.DataSource = new BindingList<Data>
+                    BindingList<Data> teacherList = new BindingList<Data>
                     {
                         new Data("(Please select an option)", null),
                         new Data("Courses", "course"),
                         new Data("Units", "unit")
                     };
+                    Forms.SetDataSource(cmbSel2, teacherList);
                     Forms.FillData(lstOption1, "teachers", "(teacherfirstname + ' ' + teacherlastname)",
                         "teacherid", "departmentid", cmbAreaOfStudy.SelectedValue);
                     break;
                 case "course":
-                    cmbSel2.DataSource = new BindingList<Data>
+                    BindingList<Data> courseList = new BindingList<Data>
                     {
                         new Data("(Please select an option)", null),
                         new Data("Units", "unit")
                     };
+                    Forms.SetDataSource(cmbSel2, courseList);
                     Forms.FillData(lstOption1, "courses", "coursename",
                         "courseid", "departmentid", cmbAreaOfStudy.SelectedValue);
                     break;
                 case "unit":
-                    cmbSel2.DataSource = new BindingList<Data>
+                    BindingList<Data> unitList = new BindingList<Data>
                     {
                         new Data("(Please select an option)", null),
                         new Data("Assessments", "assessment")
                     };
+                    Forms.SetDataSource(cmbSel2, unitList);
                     Forms.FillData(lstOption1, "units", "unitname",
                         "unitid", "departmentid", cmbAreaOfStudy.SelectedValue);
                     break;
@@ -92,7 +90,7 @@ namespace CMS
         {
             if (cmbSel2.SelectedValue == null)
             {
-                lstOption2.DataSource = null;
+                Forms.ClearDataSource(lstOption2);
             }
             switch (cmbSel2.Get<string>())
             {

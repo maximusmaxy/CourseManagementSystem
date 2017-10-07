@@ -4,7 +4,7 @@ using System.Windows.Forms;
 
 namespace CMS
 {
-    public partial class StudentForm : Form
+    public partial class StudentForm : Form, ISearchForm
     {
         public StudentForm()
         {
@@ -81,31 +81,37 @@ namespace CMS
                                                MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
             if (result == DialogResult.Yes)
             {
-                //student
-                Student student = new Student(txtId.Int());
-                //student.Search("studentfirstname", txtFirstName.Text);
-                if (student.Search())
+                Search(txtId.Int());
+            }
+        }
+
+        public void Search(int id) 
+        {
+            //student
+            Student student = new Student(id);
+            //student.Search("studentfirstname", txtFirstName.Text);
+            if (student.Search())
+            {
+                txtId.Text = student.Id.ToString();
+                txtFirstName.Text = student.FirstName;
+                txtLastName.Text = student.LastName;
+                dtpDateOfBirth.Value = student.DateOfBirth;
+                txtEmail.Text = student.Email;
+                cmbCountryOfOrigin.Text = student.CountryOfOrigin;
+                Forms.CheckRadio(pnlGender, Types.GenderType, student.Gender);
+                chkDropKick.Checked = student.Aboriginal;
+                chkCentrelink.Checked = student.Centrelink;
+                chkDisability.Checked = student.Disability;
+                txtDisabilityDescription.Text = student.DisabilityDescription;
+                //location
+                Location location = new Location(student.LocationId);
+                if (location.Search())
                 {
-                    txtFirstName.Text = student.FirstName;
-                    txtLastName.Text = student.LastName;
-                    dtpDateOfBirth.Value = student.DateOfBirth;
-                    txtEmail.Text = student.Email;
-                    cmbCountryOfOrigin.Text = student.CountryOfOrigin;
-                    Forms.CheckRadio(pnlGender, Types.GenderType, student.Gender);
-                    chkDropKick.Checked = student.Aboriginal;
-                    chkCentrelink.Checked = student.Centrelink;
-                    chkDisability.Checked = student.Disability;
-                    txtDisabilityDescription.Text = student.DisabilityDescription;
-                    //location
-                    Location location = new Location(student.LocationId);
-                    if (location.Search())
-                    {
-                        txtStreet1.Text = location.AddressStreet1;
-                        txtStreet2.Text = location.AddressStreet2;
-                        txtSuburb.Text = location.AddressSuburb;
-                        cmbState.Text = location.AddressState;
-                        txtPostCode.Text = location.AddressPostCode.ToString();
-                    }
+                    txtStreet1.Text = location.AddressStreet1;
+                    txtStreet2.Text = location.AddressStreet2;
+                    txtSuburb.Text = location.AddressSuburb;
+                    cmbState.Text = location.AddressState;
+                    txtPostCode.Text = location.AddressPostCode.ToString();
                 }
             }
         }

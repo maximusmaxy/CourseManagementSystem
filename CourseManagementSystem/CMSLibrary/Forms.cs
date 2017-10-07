@@ -160,12 +160,34 @@ namespace CmsLibrary
             control.DataSource = table;
         }
 
+        /// <summary>
+        /// Sets the datasource to default values.
+        /// DisplayMember = "Display"
+        /// ValueMember = "Value"
+        /// </summary>
+        /// <param name="control">The control to set.</param>
+        /// <param name="table">The data source to set.</param>
         public static void SetDataSource(ListControl control, object table)
         {
             control.DataSource = null;
             control.DisplayMember = "Display";
             control.ValueMember = "Value";
             control.DataSource = table;
+        }
+
+        /// <summary>
+        /// Clears the data source of a control
+        /// </summary>
+        /// <param name="control">The control to clear.</param>
+        public static void ClearDataSource(ListControl control)
+        {
+            if (control is ComboBox)
+            {
+                ComboBox combo = (ComboBox)control;
+                if (combo.Items.Count > 0)
+                    combo.SelectedIndex = 0;
+            }
+            control.DataSource = null;
         }
 
         /// <summary>
@@ -316,6 +338,11 @@ namespace CmsLibrary
                 {
                     ListBox lb = (ListBox)control;
                     lb.ClearSelected();
+                }
+                else if (control is DataGridView)
+                {
+                    DataGridView dgv = (DataGridView)control;
+                    dgv.DataSource = null;
                 }
             }
         }

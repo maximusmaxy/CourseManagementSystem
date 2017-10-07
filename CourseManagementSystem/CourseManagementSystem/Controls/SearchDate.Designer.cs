@@ -48,6 +48,8 @@
             this.txtDay2 = new System.Windows.Forms.TextBox();
             this.txtYear2 = new System.Windows.Forms.TextBox();
             this.cmbMonth2 = new System.Windows.Forms.ComboBox();
+            this.cmbColumn = new System.Windows.Forms.ComboBox();
+            this.label8 = new System.Windows.Forms.Label();
             this.pnlOperator.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -61,13 +63,13 @@
             this.pnlOperator.Controls.Add(this.rdbExact);
             this.pnlOperator.Location = new System.Drawing.Point(3, 3);
             this.pnlOperator.Name = "pnlOperator";
-            this.pnlOperator.Size = new System.Drawing.Size(100, 144);
+            this.pnlOperator.Size = new System.Drawing.Size(100, 146);
             this.pnlOperator.TabIndex = 161;
             // 
             // rdbBetween
             // 
             this.rdbBetween.AutoSize = true;
-            this.rdbBetween.Location = new System.Drawing.Point(3, 119);
+            this.rdbBetween.Location = new System.Drawing.Point(4, 119);
             this.rdbBetween.Name = "rdbBetween";
             this.rdbBetween.Size = new System.Drawing.Size(67, 17);
             this.rdbBetween.TabIndex = 6;
@@ -78,7 +80,7 @@
             // rdbAfterOrEqual
             // 
             this.rdbAfterOrEqual.AutoSize = true;
-            this.rdbAfterOrEqual.Location = new System.Drawing.Point(3, 96);
+            this.rdbAfterOrEqual.Location = new System.Drawing.Point(4, 96);
             this.rdbAfterOrEqual.Name = "rdbAfterOrEqual";
             this.rdbAfterOrEqual.Size = new System.Drawing.Size(76, 17);
             this.rdbAfterOrEqual.TabIndex = 5;
@@ -88,7 +90,7 @@
             // rdbBeforeOrEqual
             // 
             this.rdbBeforeOrEqual.AutoSize = true;
-            this.rdbBeforeOrEqual.Location = new System.Drawing.Point(3, 73);
+            this.rdbBeforeOrEqual.Location = new System.Drawing.Point(4, 73);
             this.rdbBeforeOrEqual.Name = "rdbBeforeOrEqual";
             this.rdbBeforeOrEqual.Size = new System.Drawing.Size(85, 17);
             this.rdbBeforeOrEqual.TabIndex = 4;
@@ -135,6 +137,7 @@
             this.cmbMonth.Size = new System.Drawing.Size(121, 21);
             this.cmbMonth.TabIndex = 162;
             this.cmbMonth.Tag = "Month";
+            this.cmbMonth.SelectedIndexChanged += new System.EventHandler(this.cmbMonth_SelectedIndexChanged);
             // 
             // txtYear
             // 
@@ -143,6 +146,7 @@
             this.txtYear.Size = new System.Drawing.Size(121, 20);
             this.txtYear.TabIndex = 163;
             this.txtYear.Tag = "Year";
+            this.txtYear.TextChanged += new System.EventHandler(this.txtYear_TextChanged);
             // 
             // txtDay
             // 
@@ -151,6 +155,7 @@
             this.txtDay.Size = new System.Drawing.Size(121, 20);
             this.txtDay.TabIndex = 164;
             this.txtDay.Tag = "Day";
+            this.txtDay.TextChanged += new System.EventHandler(this.txtDay_TextChanged);
             // 
             // label3
             // 
@@ -250,10 +255,31 @@
             this.cmbMonth2.TabIndex = 169;
             this.cmbMonth2.Tag = "Month";
             // 
+            // cmbColumn
+            // 
+            this.cmbColumn.FormattingEnabled = true;
+            this.cmbColumn.Location = new System.Drawing.Point(188, 109);
+            this.cmbColumn.Name = "cmbColumn";
+            this.cmbColumn.Size = new System.Drawing.Size(121, 21);
+            this.cmbColumn.TabIndex = 175;
+            this.cmbColumn.SelectedIndexChanged += new System.EventHandler(this.cmbColumn_SelectedIndexChanged);
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(109, 109);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(73, 21);
+            this.label8.TabIndex = 176;
+            this.label8.Text = "Column:";
+            // 
             // SearchDate
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.label8);
+            this.Controls.Add(this.cmbColumn);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label7);
@@ -269,7 +295,7 @@
             this.Controls.Add(this.cmbMonth);
             this.Controls.Add(this.pnlOperator);
             this.Name = "SearchDate";
-            this.Size = new System.Drawing.Size(654, 280);
+            this.Size = new System.Drawing.Size(594, 224);
             this.pnlOperator.ResumeLayout(false);
             this.pnlOperator.PerformLayout();
             this.ResumeLayout(false);
@@ -298,5 +324,7 @@
         public System.Windows.Forms.RadioButton rdbBetween;
         public System.Windows.Forms.RadioButton rdbAfterOrEqual;
         public System.Windows.Forms.RadioButton rdbBeforeOrEqual;
+        private System.Windows.Forms.Label label8;
+        public System.Windows.Forms.ComboBox cmbColumn;
     }
 }

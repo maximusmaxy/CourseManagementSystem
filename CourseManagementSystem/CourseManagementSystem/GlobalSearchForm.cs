@@ -10,20 +10,27 @@ using System.Windows.Forms;
 using System.Reflection;
 using CmsLibrary;
 using System.Data.SqlClient;
+using System.IO;
 
 namespace CMS
 {
     public partial class GlobalSearchForm : Form
     {
+        /// <summary>
+        /// private table class for holding all data related to a table
+        /// including column data and join information
+        /// </summary>
         private class Table
         {
             public string Name { get; }
             public Type Form { get; }
             public BindingList<Column> Columns { get; }
             public BindingList<Column> GroupBy { get; }
-            public BindingList<Table> ForeignTables { get; }
-            public Dictionary<string, ForeignKey> ForeignKeys { get; }
-
+            public BindingList<Column> Count { get; }
+            public List<Foreign> Primaries { get; }
+            public List<Foreign> Foreigns { get; }
+            public List<Bridge> Bridges { get; }
+            public List<Column> Calculations { get; }
             public string Display => Name;
             public Table Value => this;
 
@@ -33,84 +40,217 @@ namespace CMS
                 if (form == null)
                     return;
                 Form = form;
-                Columns = new BindingList<Column>() { new Column(null, "(Not Selected)", null) };
+                Columns = new BindingList<Column>() { new Column(null, "(Not Selected)", null, null) };
                 foreach (SqlDataReader row in Database.StoredProcedure(
                     "sp_columns", new SqlParameter("@table_name", name)))
                 {
                     Columns.Add(new Column(
                         (string)row["COLUMN_NAME"],
                         Extensions.CamelToHuman((string)row["COLUMN_NAME"]),
+                        Name,
                         Extensions.DatabaseType((string)row["TYPE_NAME"])));
                 }
-                GroupBy = new BindingList<Column>();
-                foreach (Column column in Columns)
-                    GroupBy.Add(column);
-                ForeignTables = new BindingList<Table>() { new Table("(Not Selected)", null) };
-                ForeignKeys = new Dictionary<string, ForeignKey>();
-                foreach (SqlDataReader row in Database.StoredProcedure("sp_fkeys",
-                    new SqlParameter("@fktable_name", Name)))
-                {
-                    ForeignKeys[(string)row["PKTABLE_NAME"]] = new ForeignKey(
-                        (string)row["FKTABLE_NAME"],
-                        (string)row["FKCOLUMN_NAME"],
-                        (string)row["PKTABLE_NAME"],
-                        (string)row["PKCOLUMN_NAME"]);
-                }
+                GroupBy = new BindingList<Column>(Columns);
+                Count = new BindingList<Column>(Columns);
+                Calculations = new List<Column>();
+                Primaries = new List<Foreign>();
+                Foreigns = new List<Foreign>();
+                Bridges = new List<Bridge>();
             }
 
+            /// <summary>
+            /// Adds a dictionary to the table and stores a list to populate the dictionary search.
+            /// </summary>
             public void AddDictionary(string columnName, Dictionary<string, int> dictionary)
             {
                 Column column = Columns.First(c => c.Name?.Equals(columnName, StringComparison.InvariantCultureIgnoreCase) ?? false);
                 column.Dictionary = new BindingList<Data<int>>(dictionary.Select((kvp) => new Data<int>(kvp.Key, kvp.Value)).ToList());
                 column.DataType = typeof(Dictionary<string, int>);
             }
-        }
 
-        private class Column
-        {
-            public string Name { get; }
-            public string Display { get; }
-            public Type DataType { get; set; }
-            public BindingList<Data<int>> Dictionary { get; set; }
-
-            public Column Value => this;
-
-            public Column(string name, string display, Type dataType)
+            /// <summary>
+            /// Adds primary table join information.
+            /// </summary>
+            public void JoinPrimary(Table table, string primary, string foreign)
             {
-                Name = name;
-                Display = display;
-                DataType = dataType;
+                Primaries.Add(new Foreign(table, primary, foreign));
+            }
+
+            /// <summary>
+            /// Adds foreign table join information.
+            /// </summary>
+            public void JoinForeign(Table table, string primary, string foreign)
+            {
+                Foreigns.Add(new Foreign(table, primary, foreign));
+            }
+
+            /// <summary>
+            /// Adds bridging table join information.
+            /// </summary>
+            public void JoinBridge(Table table, string bridge, string primary, string foreign)
+            {
+                Bridges.Add(new Bridge(table, bridge, primary, foreign));
+            }
+            
+            /// <summary>
+            /// Adds an arithmetic calculation column to the table.
+            /// </summary>
+            public void AddCalculation(string name, string calculation)
+            {
+                Column column = new Column(name, name, Name, typeof(int));
+                column.Calculation = calculation;
+                Calculations.Add(column);
+                Columns.Add(column);
+            }
+
+            /// <summary>
+            /// Appends the relevant join information to a string builder
+            /// based on the relation to the table specified.
+            /// </summary>
+            public void AppendJoin(StringBuilder sb, Table table)
+            {
+                Foreign foreign = Primaries.FirstOrDefault(f => f.Table == table);
+                if (foreign != null)
+                {
+                    sb.Append(Name);
+                    sb.Append(".");
+                    sb.Append(foreign.PrimaryId);
+                    sb.Append(" = ");
+                    sb.Append(table.Name);
+                    sb.Append(".");
+                    sb.Append(foreign.ForeignId);
+                    return;
+                }
+                foreign = Foreigns.FirstOrDefault(f => f.Table == table);
+                if (foreign != null)
+                {
+                    sb.Append(Name);
+                    sb.Append(".");
+                    sb.Append(foreign.ForeignId);
+                    sb.Append(" = ");
+                    sb.Append(table.Name);
+                    sb.Append(".");
+                    sb.Append(foreign.PrimaryId);
+                    return;
+                }
+                Bridge bridge = Bridges.FirstOrDefault(b => b.Table == table);
+                if (bridge != null)
+                {
+                    sb.Append(Name);
+                    sb.Append(".");
+                    sb.Append(bridge.PrimaryId);
+                    sb.Append(" = ");
+                    sb.Append(bridge.BridgeTable);
+                    sb.Append(".");
+                    sb.Append(bridge.PrimaryId);
+                    sb.Append(" and ");
+                    sb.Append(table.Name);
+                    sb.Append(".");
+                    sb.Append(bridge.ForeignId);
+                    sb.Append(" = ");
+                    sb.Append(bridge.BridgeTable);
+                    sb.Append(".");
+                    sb.Append(bridge.ForeignId);
+                    return;
+                }
+                throw new Exception($"Failed to join {Name} with {table.Name}");
             }
         }
 
-        private class ForeignKey
+        /// <summary>
+        /// Column information, used by the table.
+        /// </summary>
+        public class Column
         {
-            public string MainTable { get; }
-            public string MainId { get; }
-            public string ForeignTable { get; }
+            public string Name { get; }
+            public string Display { get; }
+            public string Table { get; }
+            public Type DataType { get; set; }
+            public BindingList<Data<int>> Dictionary { get; set; }
+            public string Calculation { get; set; }
+
+            public Column Value => this;
+
+            public Column(string name, string display, string table, Type dataType)
+            {
+                Name = name;
+                Display = display;
+                Table = table;
+                DataType = dataType;
+            }
+
+            public void Append(StringBuilder sb)
+            {
+                if (Calculation == null)
+                {
+                    sb.Append(Table);
+                    sb.Append(".");
+                    sb.Append(Name);
+                }
+                else
+                {
+                    sb.Append(Calculation);
+                }
+            }
+        }
+
+        /// <summary>
+        /// Primary or Foreign table join information.
+        /// </summary>
+        private class Foreign
+        {
+            public Table Table { get; }
+            public string PrimaryId { get; }
             public string ForeignId { get; }
 
-            public ForeignKey(string mainTable, string mainId, string foreignTable, string foreignId)
+            public Foreign(Table table, string primaryId, string foreignId)
             {
-                MainTable = mainTable;
-                MainId = mainId;
-                ForeignTable = foreignTable;
+                Table = table;
+                PrimaryId = primaryId;
                 ForeignId = foreignId;
             }
         }
 
+        /// <summary>
+        /// Bridging table join infromation.
+        /// </summary>
+        private class Bridge
+        {
+            public Table Table { get; }
+            public string BridgeTable { get; }
+            public string PrimaryId { get; }
+            public string ForeignId { get; }
+
+            public Bridge(Table table, string bridgeTable, string primaryId, string foreignId)
+            {
+                Table = table;
+                BridgeTable = bridgeTable;
+                PrimaryId = primaryId;
+                ForeignId = foreignId;
+            }
+        }
+
+        //privates
         private BindingList<Table> tables;
         private Dictionary<Type, UserControl> userControls;
         private UserControl ucSearch;
+
+        //combo box groups
         private ComboBox[] tableGroup;
         private ComboBox[] columnGroup;
+        private ComboBox[] groupByGroup;
+        private ComboBox[] countGroup;
 
+        //string builders
         private StringBuilder select;
         private StringBuilder join;
         private StringBuilder from;
         private StringBuilder condition;
         private StringBuilder groupBy;
 
+        /// <summary>
+        /// Constructor
+        /// </summary>
         public GlobalSearchForm()
         {
             InitializeComponent();
@@ -121,11 +261,16 @@ namespace CMS
             join = new StringBuilder();
             tableGroup = new ComboBox[] { cmbTables, cmbTables2, cmbTables3, cmbTables4 };
             columnGroup = new ComboBox[] { cmbColumns, cmbColumns2, cmbColumns3, cmbColumns4 };
+            groupByGroup = new ComboBox[] { cmbGroupBy, cmbGroupBy2, cmbGroupBy3, cmbGroupBy4 };
+            countGroup = new ComboBox[] { cmbCount, cmbCount2, cmbCount3, cmbCount4 };
             LoadTables();
             LoadControls();
             Forms.SetDataSource(cmbTables, tables);
         }
 
+        /// <summary>
+        /// Loads all table information, dictionaries, look ups and joins.
+        /// </summary>
         private void LoadTables()
         {
             tables = new BindingList<Table>() { new Table("(Not Selected)", null) };
@@ -148,13 +293,32 @@ namespace CMS
             tables.Add(assessment);
             Table skill = new Table("Skills", typeof(SkillsForm));
             tables.Add(skill);
-            student.ForeignTables.Add(enrolment);
-            enrolment.ForeignTables.Add(student);
-            enrolment.ForeignTables.Add(teacher);
-            teacher.ForeignTables.Add(assessment);
+            student.JoinPrimary(enrolment, "studentId", "studentId");
+            enrolment.JoinForeign(student, "studentId", "studentId");
+            enrolment.JoinForeign(course, "courseId", "courseId");
+            teacher.JoinPrimary(assessment, "teacherId", "teacherId");
+            teacher.JoinBridge(course, "Course_Teachers", "teacherId", "courseId");
+            teacher.JoinBridge(unit, "Unit_Teachers", "teacherId", "unitId");
+            teacher.JoinBridge(skill, "Teacher_Skills", "teacherId", "skillId");
+            course.JoinPrimary(enrolment, "courseId", "courseId");
+            course.JoinBridge(teacher, "Course_Teachers", "courseId", "teacherId");
+            course.JoinBridge(unit, "Course_Units", "courseId", "unitId");
+            unit.JoinPrimary(assessment, "unitId", "unitId");
+            unit.JoinBridge(course, "Course_Units", "unitId", "courseId");
+            unit.JoinBridge(teacher, "Unit_Teachers", "unitId", "teacherId");
+            unit.JoinBridge(skill, "Unit_Skills", "unitId", "skillId");
+            assessment.JoinForeign(teacher, "teacherId", "teacherId");
+            assessment.JoinForeign(unit, "unitId", "unitId");
+            skill.JoinBridge(teacher, "Teacher_Skills", "skillId", "teacherId");
+            skill.JoinBridge(unit, "Unit_Skills", "skillId", "unitId");
             AddLookUpTable("departments", "departmentname", "departmentid");
+            assessment.AddCalculation("Month Duration", "datediff(month, Assessments.assessmentStartDate, Assessments.assessmentDueDate)");
         }
 
+        /// <summary>
+        /// Gets look up table information from a database, turns it into a dictionary and
+        /// adds it to all relevant tables.
+        /// </summary>
         private void AddLookUpTable(string tableName, string display, string value)
         {
             BindingList<Data<int>> dictionary = new BindingList<Data<int>>();
@@ -174,6 +338,9 @@ namespace CMS
             }
         }
 
+        /// <summary>
+        /// Loads all custom user controls and stores it in a dictionary.
+        /// </summary>
         private void LoadControls()
         {
             userControls = new Dictionary<Type, UserControl>();
@@ -185,8 +352,12 @@ namespace CMS
             AddUserControl(typeof(SearchCost), typeof(double));
             AddUserControl(typeof(SearchString), typeof(string));
             AddUserControl(typeof(SearchDictionary), typeof(Dictionary<string, int>));
+            AddUserControl(typeof(SearchCount), typeof(SearchCount));
         }
 
+        /// <summary>
+        /// Add a user control to the dictionary and the matching data type.
+        /// </summary>
         private void AddUserControl(Type controlType, Type dataType)
         {
             UserControl control = (UserControl)Activator.CreateInstance(controlType);
@@ -199,7 +370,59 @@ namespace CMS
             userControls[dataType] = control;
         }
 
-        private void ChangeUserControl(ComboBox combo)
+        /// <summary>
+        /// Validates all columns to make sure a condition is selected.
+        /// </summary>
+        private bool ValidateCondition()
+        {
+            if (ComboIndex(columnGroup) >= 0 || ComboIndex(countGroup) >= 0)
+                return true;
+            MessageBox.Show("No column condition or count condition selected.");
+            return false;
+        }
+
+        /// <summary>
+        /// Fills all combos related to the table and fills the next table based
+        /// on relations to this table without and duplicates.
+        /// </summary>
+        private void UpdateTables(ComboBox combo)
+        {
+            int index = Array.IndexOf(tableGroup, combo);
+            if (combo.SelectedIndex > 0)
+            {
+                if (index != tableGroup.Length - 1)
+                {
+                    BindingList<Table> list = new BindingList<Table>() { new Table("(Not Selected)", null) };
+                    foreach (Foreign primary in tableGroup[index].Get<Table>().Primaries)
+                        if (!tableGroup.Any(c => c.Get<Table>() == primary.Table))
+                            list.Add(primary.Table);
+                    foreach (Foreign foreign in tableGroup[index].Get<Table>().Foreigns)
+                        if (!tableGroup.Any(c => c.Get<Table>() == foreign.Table))
+                            list.Add(foreign.Table);
+                    foreach (Bridge bridge in tableGroup[index].Get<Table>().Bridges)
+                        if (!tableGroup.Any(c => c.Get<Table>() == bridge.Table))
+                            list.Add(bridge.Table);
+                    Forms.SetDataSource(tableGroup[index + 1], list);
+                }
+                Forms.SetDataSource(columnGroup[index], tableGroup[index].Get<Table>().Columns);
+                Forms.SetDataSource(groupByGroup[index], tableGroup[index].Get<Table>().GroupBy);
+            }
+            else
+            {
+                for (int i = 3; i >= index; i--)
+                {
+                    if (i != index)
+                        Forms.ClearDataSource(tableGroup[i]);
+                    Forms.ClearDataSource(columnGroup[i]);
+                    Forms.ClearDataSource(groupByGroup[i]);
+                }
+            }
+        }
+
+        /// <summary>
+        /// Switches search control to relevant column data type and resets everthing else.
+        /// </summary>
+        private void UpdateColumns(ComboBox combo)
         {
             if (combo.SelectedIndex < 1)
             {
@@ -207,243 +430,408 @@ namespace CMS
                     ucSearch.Hide();
                 return;
             }
-            foreach (ComboBox cmb in columnGroup)
-            {
-                if (cmb != combo && cmb.Items.Count != 0)
-                    cmb.SelectedIndex = 0;
-            }
-            ucSearch.Hide();
-            ucSearch = userControls[combo.Get<Column>().DataType];
-            ((ISearchControl)ucSearch).Reset();
+            ResetCombos(columnGroup, combo);
+            ResetCombos(groupByGroup);
+            ResetCombos(countGroup);
+            UpdateUserControl(combo.Get<Column>().DataType);
             if (ucSearch is SearchDictionary)
             {
                 SearchDictionary control = (SearchDictionary)ucSearch;
                 control.cmbType.DataSource = combo.Get<Column>().Dictionary;
                 control.lblType.Text = $"{combo.Get<Column>().Display}: ";
             }
+            else if (ucSearch is SearchDate)
+            {
+                SearchDate control = (SearchDate)ucSearch;
+                BindingList<Column> columns = new BindingList<Column>() { new Column(null, "(Not Selected)", null, null) };
+                foreach (ComboBox cmb in tableGroup)
+                {
+                    if (cmb.SelectedIndex > 0)
+                    {
+                        foreach (Column column in cmb.Get<Table>().Columns)
+                        {
+                            if (column != combo.Get<Column>() && column.DataType == typeof(DateTime))
+                                columns.Add(column);
+                        }
+                    }
+                }
+                control.cmbColumn.Enabled = columns.Count > 1;
+                Forms.SetDataSource(control.cmbColumn, columns);
+            }
+        }
+
+        /// <summary>
+        /// Switches focus to the count search control, loads the count combo and resets
+        /// everything else.
+        /// </summary>
+        private void UpdateGroupBy(ComboBox combo)
+        {
+            if (combo.SelectedIndex < 1)
+            {
+                if (ComboIndex(groupByGroup) < 0)
+                {
+                    foreach (ComboBox cmb in countGroup)
+                        Forms.ClearDataSource(cmb);
+                }
+                return;
+            }
+            for (int i = 0; i < TableCount(); i++)
+                Forms.SetDataSource(countGroup[i], tableGroup[i].Get<Table>().Count);
+            int countIndex = ComboIndex(countGroup);
+            if (countIndex < 0)
+            {
+                int groupByIndex = ComboIndex(groupByGroup);
+                countGroup[groupByIndex].SelectedIndex = combo.SelectedIndex;
+            }
+            ResetCombos(groupByGroup, combo);
+        }
+
+        /// <summary>
+        /// Clears the other counts.
+        /// </summary>
+        private void UpdateCount(ComboBox combo)
+        {
+            if (combo.SelectedIndex < 1)
+            {
+                if (ComboIndex(countGroup) < 0)
+                {
+                    ucSearch.Hide();
+                }
+                return;
+            }
+            ResetCombos(columnGroup);
+            ResetCombos(countGroup, combo);
+            UpdateUserControl(typeof(SearchCount));
+        }
+
+        /// <summary>
+        /// Switches the search control to the relevant type.
+        /// </summary>
+        private void UpdateUserControl(Type type)
+        {
+            ucSearch.Hide();
+            ucSearch = userControls[type];
+            ((ISearchControl)ucSearch).Reset();
             ucSearch.Show();
+        }
+
+        /// <summary>
+        /// Resets all combos in a group to not selected.
+        /// </summary>
+        private void ResetCombos(ComboBox[] combos, ComboBox ignore = null)
+        {
+            foreach (ComboBox cmb in combos)
+                if (cmb.Items.Count != 0)
+                    if (ignore == null || ignore != cmb)
+                        cmb.SelectedIndex = 0;
+        }
+
+        /// <summary>
+        /// Gets the index of the selected combo in a group or returns a negative number.
+        /// </summary>
+        private int ComboIndex(ComboBox[] combos)
+        {
+            return Array.IndexOf(combos, combos.FirstOrDefault(c => (c.SelectedIndex > 0)));
+        }
+
+        /// <summary>
+        /// Gets the amount of tables selected.
+        /// </summary>
+        private int TableCount()
+        {
+            int tables = 0;
+            foreach (ComboBox combo in tableGroup)
+                if (combo.SelectedIndex > 0)
+                    tables++;
+            return tables;
         }
 
         private void cmbTables_SelectedIndexChanged(object sender, EventArgs e)
         {
-
-            if (cmbTables.SelectedIndex > 0)
-            {
-                Forms.SetDataSource(cmbColumns, cmbTables.Get<Table>().Columns);
-                Forms.SetDataSource(cmbGroupBy, cmbTables.Get<Table>().GroupBy);
-                Forms.SetDataSource(cmbTables2, cmbTables.Get<Table>().ForeignTables);
-            }
-            else
-            {
-                cmbTables2.DataSource = null;
-                cmbTables3.DataSource = null;
-                cmbTables4.DataSource = null;
-                cmbColumns.DataSource = null;
-                cmbColumns2.DataSource = null;
-                cmbColumns3.DataSource = null;
-                cmbColumns4.DataSource = null;
-                cmbGroupBy.DataSource = null;
-            }
+            UpdateTables(cmbTables);
         }
 
         private void cmbTables2_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (cmbTables2.SelectedIndex > 0)
-            {
-                Forms.SetDataSource(cmbColumns2, cmbTables2.Get<Table>().Columns);
-                //Forms.SetDataSource(cmbGroupBy, cmbTables2.Get<Table>().GroupBy);
-                Forms.SetDataSource(cmbTables3, cmbTables2.Get<Table>().ForeignTables);
-            }
-            else
-            {
-                cmbTables3.DataSource = null;
-                cmbTables4.DataSource = null;
-                cmbColumns2.DataSource = null;
-                cmbColumns3.DataSource = null;
-                cmbColumns4.DataSource = null;
-            }
+            UpdateTables(cmbTables2);
         }
 
         private void cmbTables3_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (cmbTables3.SelectedIndex > 0)
-            {
-                Forms.SetDataSource(cmbColumns3, cmbTables3.Get<Table>().Columns);
-                //Forms.SetDataSource(cmbGroupBy, cmbTables2.Get<Table>().GroupBy);
-                Forms.SetDataSource(cmbTables4, cmbTables3.Get<Table>().ForeignTables);
-            }
-            else
-            {
-                cmbTables4.DataSource = null;
-                cmbColumns3.DataSource = null;
-                cmbColumns4.DataSource = null;
-            }
+            UpdateTables(cmbTables3);
         }
 
         private void cmbTables4_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (cmbTables3.SelectedIndex > 0)
-            {
-                Forms.SetDataSource(cmbColumns3, cmbTables3.Get<Table>().Columns);
-                //Forms.SetDataSource(cmbGroupBy, cmbTables2.Get<Table>().GroupBy);
-            }
-            else
-            {
-                cmbTables4.DataSource = null;
-                cmbColumns3.DataSource = null;
-                cmbColumns4.DataSource = null;
-            }
+            UpdateTables(cmbTables4);
         }
 
         private void cmbColumns_SelectedIndexChanged(object sender, EventArgs e)
         {
-            ChangeUserControl(cmbColumns);
+            UpdateColumns(cmbColumns);
         }
 
         private void cmbColumns2_SelectedIndexChanged(object sender, EventArgs e)
         {
-            ChangeUserControl(cmbColumns2);
+            UpdateColumns(cmbColumns2);
         }
 
         private void cmbColumns3_SelectedIndexChanged(object sender, EventArgs e)
         {
-            ChangeUserControl(cmbColumns3);
+            UpdateColumns(cmbColumns3);
         }
 
         private void cmbColumns4_SelectedIndexChanged(object sender, EventArgs e)
         {
-            ChangeUserControl(cmbColumns4);
+            UpdateColumns(cmbColumns4);
         }
 
-        private bool ValidateColumns()
+        private void cmbGroupBy_SelectedIndexChanged(object sender, EventArgs e)
         {
-            foreach (ComboBox combo in columnGroup)
-            {
-                if (combo.Items.Count != 0 && combo.SelectedIndex > 0)
-                    return true;
-            }
-            MessageBox.Show("No condition is selected.");
-            return false;
+            UpdateGroupBy(cmbGroupBy);
         }
 
+        private void cmbGroupBy2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            UpdateGroupBy(cmbGroupBy2);
+        }
+
+        private void cmbGroupBy3_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            UpdateGroupBy(cmbGroupBy3);
+        }
+
+        private void cmbGroupBy4_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            UpdateGroupBy(cmbGroupBy4);
+        }
+
+        private void cmbCount_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            UpdateCount(cmbCount);
+        }
+
+        private void cmbCount2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            UpdateCount(cmbCount2);
+        }
+
+        private void cmbCount3_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            UpdateCount(cmbCount3);
+        }
+
+        private void cmbCount4_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            UpdateCount(cmbCount4);
+        }
+
+        /// <summary>
+        /// New Search.
+        /// </summary>
         private void btnNewSearch_Click(object sender, EventArgs e)
         {
-            if (!ValidateColumns())
+            if (!ValidateCondition())
                 return;
             if (!Validation.Many(ucSearch))
                 return;
             condition.Clear();
+            groupBy.Clear();
             Append();
         }
 
+        /// <summary>
+        /// Appends Search.
+        /// </summary>
         private void btnAddSearch_Click(object sender, EventArgs e)
         {
-            if (!ValidateColumns())
+            if (!ValidateCondition())
                 return;
             if (!Validation.Many(ucSearch))
                 return;
             Append();
         }
 
-        private void Append()
+        /// <summary>
+        /// Search without conditions.
+        /// </summary>
+        private void btnViewAll_Click(object sender, EventArgs e)
         {
+            if (cmbTables.SelectedIndex < 1)
+            {
+                MessageBox.Show("No table has been selected.");
+                return;
+            }
+            condition.Clear();
+            groupBy.Clear();
             AppendSelect();
             AppendFrom();
             AppendJoin();
-            AppendCondition();
-            AppendGroupBy();
             LoadDataGridViews();
         }
 
+        /// <summary>
+        /// Resets back to original state.
+        /// </summary>
+        private void btnClearForm_Click(object sender, EventArgs e)
+        {
+            condition.Clear();
+            Forms.ClearControls(this);
+        }
+
+        /// <summary>
+        /// Updates all string builders and appends condition.
+        /// </summary>
+        private void Append()
+        {
+            if (ComboIndex(columnGroup) >= 0)
+                AppendCondition();
+            else if (ComboIndex(groupByGroup) >= 0)
+                AppendGroupBy();
+            else
+                throw new Exception("Not validated properly.");
+            AppendSelect();
+            AppendFrom();
+            AppendJoin();
+            LoadDataGridViews();
+        }
+
+        /// <summary>
+        /// Appends select information.
+        /// </summary>
         private void AppendSelect()
         {
-            select.Clear();
-            select.Append("select ");
-            if (cmbGroupBy.SelectedIndex == 0)
+            int groupByIndex = ComboIndex(groupByGroup);
+            int countIndex = ComboIndex(countGroup);
+            if (countIndex < 0)
             {
-                select.Append("* ");
+                if (groupBy.Length == 0)
+                {
+                    select.Clear();
+                    select.Append("select *");
+                    for (int i = 0; i < TableCount(); i++)
+                    {
+                        foreach (Column column in tableGroup[i].Get<Table>().Calculations)
+                        {
+                            select.Append(", ");
+                            select.Append(column.Calculation);
+                            select.Append(" as '");
+                            select.Append(column.Display);
+                            select.Append("'");
+                        }
+                    }
+                }
             }
             else
             {
-                select.Append(cmbGroupBy.Get<Column>().Name);
+                select.Clear();
+                select.Append("select ");
+                select.Append(tableGroup[groupByIndex].Get<Table>().Name);
+                select.Append(".");
+                select.Append(groupByGroup[groupByIndex].Get<Column>().Name);
                 select.Append(" as '");
-                select.Append(cmbGroupBy.Get<Column>().Display);
+                select.Append(groupByGroup[groupByIndex].Get<Column>().Display);
                 select.Append("', count(");
-                select.Append(cmbGroupBy.Get<Column>().Name);
-                select.Append(") as 'Count' ");
+                select.Append(tableGroup[countIndex].Get<Table>().Name);
+                select.Append(".");
+                select.Append(countGroup[countIndex].Get<Column>().Name);
+                select.Append(") as '");
+                select.Append(countGroup[countIndex].Get<Column>().Display);
+                select.Append(" Count'");
             }
         }
 
+        /// <summary>
+        /// Appends from information.
+        /// </summary>
         private void AppendFrom()
         {
             from.Clear();
-            from.Append("from ");
-            foreach (ComboBox combo in tableGroup)
+            from.Append(" from ");
+            for (int i = 0; i < tableGroup.Length; i++)
             {
-                if (combo.SelectedIndex > 0)
+                if (tableGroup[i].SelectedIndex > 0)
                 {
-                    from.Append(combo.Get<Table>().Name);
+                    from.Append(tableGroup[i].Get<Table>().Name);
                     from.Append(", ");
+                    if (i > 0)
+                    {
+                        foreach (Bridge bridge in tableGroup[i].Get<Table>().Bridges)
+                        {
+                            if (bridge.Table == tableGroup[i - 1].Get<Table>())
+                            {
+                                from.Append(bridge.BridgeTable);
+                                from.Append(", ");
+                            }
+                        }
+                    }
                 }
             }
             from.Length -= 2;
         }
 
+        /// <summary>
+        /// Appends join information.
+        /// </summary>
         private void AppendJoin()
         {
             join.Clear();
-            int joins = -1;
-            foreach (ComboBox combo in tableGroup)
-            {
-                if (combo.SelectedIndex > 0)
-                    joins++;
-            }
+            int joins = TableCount() - 1;
             if (joins > 0)
             {
                 for (int i = 0; i < joins; i++)
                 {
-                    ForeignKey fk = tableGroup[i + 1].Get<Table>().ForeignKeys[tableGroup[i].Get<Table>().Name];
-                    join.Append(fk.MainTable);
-                    join.Append(".");
-                    join.Append(fk.MainId);
-                    join.Append(" = ");
-                    join.Append(fk.ForeignTable);
-                    join.Append(".");
-                    join.Append(fk.ForeignId);
+                    tableGroup[i].Get<Table>().AppendJoin(join, tableGroup[i + 1].Get<Table>());
                     join.Append(" and ");
                 }
+                join.Length -= 5;
             }
         }
 
+        /// <summary>
+        /// Appends condition information.
+        /// </summary>
         private void AppendCondition()
         {
-            if (join.Length != 0 || condition.Length != 0)
-            {
+            if (condition.Length != 0)
                 condition.Append(" and ");
-            }
-            int index = Array.IndexOf(columnGroup, columnGroup.First(c => (c.SelectedIndex > 0)));
-            condition.Append(tableGroup[index].Get<Table>().Name);
-            condition.Append(".");
-            condition.Append(columnGroup[index].Get<Column>().Name);
+            int index = ComboIndex(columnGroup);
+            columnGroup[index].Get<Column>().Append(condition);
             ISearchControl control = (ISearchControl)ucSearch;
             control.Append(condition);
         }
 
+        /// <summary>
+        /// Appends group by and having information.
+        /// </summary>
         private void AppendGroupBy()
         {
+            int groupByIndex = ComboIndex(groupByGroup);
             groupBy.Clear();
-            if (cmbGroupBy.SelectedIndex != 0)
-            {
-                groupBy.Append(" group by ");
-                groupBy.Append(cmbTables.Get<Table>().Name);
-                groupBy.Append(".");
-                groupBy.Append(cmbGroupBy.Get<Column>().Name);
-            }
+            groupBy.Append(" group by ");
+            groupByGroup[groupByIndex].Get<Column>().Append(groupBy);
+            int countIndex = ComboIndex(countGroup);
+            SearchCount count = (SearchCount)ucSearch;
+            if (count.AllChecked)
+                return;
+            groupBy.Append(" having count(");
+            countGroup[countIndex].Get<Column>().Append(groupBy);
+            groupBy.Append(")");
+            count.Append(groupBy);
         }
 
+        /// <summary>
+        /// Combines all string builder, executes the query and loads the data grid views.
+        /// </summary>
         private void LoadDataGridViews()
         {
-            string sql = select.ToString() + from.ToString() + " where " + join.ToString() + condition.ToString() + groupBy.ToString();
+            string sql = select.ToString() + from.ToString();
+            if (join.Length != 0 || condition.Length != 0) 
+                sql += " where ";
+            sql += join.ToString();
+            if (join.Length != 0 && condition.Length != 0)
+                sql += " and ";
+            sql += condition.ToString() + groupBy.ToString();
             DataTable dataTable = Database.CreateDataTable(sql);
             if (dataTable.Rows.Count == 0)
             {
@@ -470,9 +858,13 @@ namespace CMS
             dgvTotals.DataSource = totalTable;
         }
 
+        /// <summary>
+        /// Opens the relevant form based on supplied information.
+        /// </summary>
         private void dgvSearch_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            Forms.ShowForm(cmbTables.Get<Table>().Form);
+            if (e.RowIndex >= 0 && e.ColumnIndex >= 0)
+                Forms.ShowForm(cmbTables.Get<Table>().Form);
         }
     }
 }

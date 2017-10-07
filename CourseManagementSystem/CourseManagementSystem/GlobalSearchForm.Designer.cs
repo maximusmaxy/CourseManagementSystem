@@ -31,6 +31,10 @@
             this.components = new System.ComponentModel.Container();
             this.ToolTips = new System.Windows.Forms.ToolTip(this.components);
             this.panel5 = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.btnClearForm = new System.Windows.Forms.Button();
+            this.panel8 = new System.Windows.Forms.Panel();
+            this.btnViewAll = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnAddSearch = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
@@ -61,7 +65,6 @@
             this.cmbColumns = new System.Windows.Forms.ComboBox();
             this.dgvSearch = new System.Windows.Forms.DataGridView();
             this.dgvTotals = new System.Windows.Forms.DataGridView();
-            this.searchInt = new CMS.SearchInt();
             this.label4 = new System.Windows.Forms.Label();
             this.cmbGroupBy = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
@@ -76,7 +79,24 @@
             this.cmbColumns4 = new System.Windows.Forms.ComboBox();
             this.label10 = new System.Windows.Forms.Label();
             this.cmbTables4 = new System.Windows.Forms.ComboBox();
+            this.searchInt = new CMS.SearchInt();
+            this.cmbGroupBy2 = new System.Windows.Forms.ComboBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.cmbGroupBy3 = new System.Windows.Forms.ComboBox();
+            this.label12 = new System.Windows.Forms.Label();
+            this.cmbGroupBy4 = new System.Windows.Forms.ComboBox();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
+            this.cmbCount = new System.Windows.Forms.ComboBox();
+            this.cmbCount2 = new System.Windows.Forms.ComboBox();
+            this.cmbCount3 = new System.Windows.Forms.ComboBox();
+            this.label16 = new System.Windows.Forms.Label();
+            this.cmbCount4 = new System.Windows.Forms.ComboBox();
+            this.label17 = new System.Windows.Forms.Label();
             this.panel5.SuspendLayout();
+            this.panel2.SuspendLayout();
+            this.panel8.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel6.SuspendLayout();
             this.panel7.SuspendLayout();
@@ -88,13 +108,56 @@
             // panel5
             // 
             this.panel5.BackColor = System.Drawing.Color.MediumSlateBlue;
+            this.panel5.Controls.Add(this.panel2);
+            this.panel5.Controls.Add(this.panel8);
             this.panel5.Controls.Add(this.panel1);
             this.panel5.Controls.Add(this.button5);
             this.panel5.Controls.Add(this.panel6);
-            this.panel5.Location = new System.Drawing.Point(687, 27);
+            this.panel5.Location = new System.Drawing.Point(852, 27);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(132, 638);
             this.panel5.TabIndex = 151;
+            // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.Crimson;
+            this.panel2.Controls.Add(this.btnClearForm);
+            this.panel2.Location = new System.Drawing.Point(4, 279);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(125, 50);
+            this.panel2.TabIndex = 160;
+            // 
+            // btnClearForm
+            // 
+            this.btnClearForm.BackColor = System.Drawing.Color.White;
+            this.btnClearForm.Image = global::CMS.Properties.Resources.ClearFormButton;
+            this.btnClearForm.Location = new System.Drawing.Point(3, 3);
+            this.btnClearForm.Name = "btnClearForm";
+            this.btnClearForm.Size = new System.Drawing.Size(120, 45);
+            this.btnClearForm.TabIndex = 18;
+            this.btnClearForm.Tag = "Clear Form";
+            this.btnClearForm.UseVisualStyleBackColor = false;
+            this.btnClearForm.Click += new System.EventHandler(this.btnClearForm_Click);
+            // 
+            // panel8
+            // 
+            this.panel8.BackColor = System.Drawing.Color.Crimson;
+            this.panel8.Controls.Add(this.btnViewAll);
+            this.panel8.Location = new System.Drawing.Point(4, 223);
+            this.panel8.Name = "panel8";
+            this.panel8.Size = new System.Drawing.Size(125, 50);
+            this.panel8.TabIndex = 159;
+            // 
+            // btnViewAll
+            // 
+            this.btnViewAll.BackColor = System.Drawing.Color.White;
+            this.btnViewAll.Image = global::CMS.Properties.Resources.ViewAllButton;
+            this.btnViewAll.Location = new System.Drawing.Point(3, 3);
+            this.btnViewAll.Name = "btnViewAll";
+            this.btnViewAll.Size = new System.Drawing.Size(120, 45);
+            this.btnViewAll.TabIndex = 9;
+            this.btnViewAll.UseVisualStyleBackColor = false;
+            this.btnViewAll.Click += new System.EventHandler(this.btnViewAll_Click);
             // 
             // panel1
             // 
@@ -180,7 +243,7 @@
             this.formsToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(823, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(984, 24);
             this.menuStrip1.TabIndex = 152;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -298,7 +361,7 @@
             // cmbTables
             // 
             this.cmbTables.FormattingEnabled = true;
-            this.cmbTables.Location = new System.Drawing.Point(131, 109);
+            this.cmbTables.Location = new System.Drawing.Point(73, 109);
             this.cmbTables.Name = "cmbTables";
             this.cmbTables.Size = new System.Drawing.Size(121, 21);
             this.cmbTables.TabIndex = 154;
@@ -308,7 +371,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(70, 109);
+            this.label2.Location = new System.Drawing.Point(12, 109);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(55, 21);
             this.label2.TabIndex = 155;
@@ -318,7 +381,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(261, 109);
+            this.label3.Location = new System.Drawing.Point(203, 109);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(73, 21);
             this.label3.TabIndex = 157;
@@ -327,7 +390,7 @@
             // cmbColumns
             // 
             this.cmbColumns.FormattingEnabled = true;
-            this.cmbColumns.Location = new System.Drawing.Point(340, 109);
+            this.cmbColumns.Location = new System.Drawing.Point(282, 109);
             this.cmbColumns.Name = "cmbColumns";
             this.cmbColumns.Size = new System.Drawing.Size(121, 21);
             this.cmbColumns.TabIndex = 156;
@@ -341,7 +404,7 @@
             this.dgvSearch.Location = new System.Drawing.Point(12, 426);
             this.dgvSearch.Name = "dgvSearch";
             this.dgvSearch.ReadOnly = true;
-            this.dgvSearch.Size = new System.Drawing.Size(660, 151);
+            this.dgvSearch.Size = new System.Drawing.Size(834, 151);
             this.dgvSearch.TabIndex = 158;
             this.dgvSearch.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvSearch_CellDoubleClick);
             // 
@@ -353,21 +416,14 @@
             this.dgvTotals.Location = new System.Drawing.Point(12, 583);
             this.dgvTotals.Name = "dgvTotals";
             this.dgvTotals.ReadOnly = true;
-            this.dgvTotals.Size = new System.Drawing.Size(660, 66);
+            this.dgvTotals.Size = new System.Drawing.Size(834, 66);
             this.dgvTotals.TabIndex = 159;
-            // 
-            // searchInt
-            // 
-            this.searchInt.Location = new System.Drawing.Point(74, 250);
-            this.searchInt.Name = "searchInt";
-            this.searchInt.Size = new System.Drawing.Size(540, 152);
-            this.searchInt.TabIndex = 153;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(518, 121);
+            this.label4.Location = new System.Drawing.Point(409, 109);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(87, 21);
             this.label4.TabIndex = 160;
@@ -376,16 +432,17 @@
             // cmbGroupBy
             // 
             this.cmbGroupBy.FormattingEnabled = true;
-            this.cmbGroupBy.Location = new System.Drawing.Point(519, 146);
+            this.cmbGroupBy.Location = new System.Drawing.Point(502, 109);
             this.cmbGroupBy.Name = "cmbGroupBy";
             this.cmbGroupBy.Size = new System.Drawing.Size(121, 21);
             this.cmbGroupBy.TabIndex = 161;
+            this.cmbGroupBy.SelectedIndexChanged += new System.EventHandler(this.cmbGroupBy_SelectedIndexChanged);
             // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(261, 138);
+            this.label5.Location = new System.Drawing.Point(203, 138);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(73, 21);
             this.label5.TabIndex = 165;
@@ -394,7 +451,7 @@
             // cmbColumns2
             // 
             this.cmbColumns2.FormattingEnabled = true;
-            this.cmbColumns2.Location = new System.Drawing.Point(340, 138);
+            this.cmbColumns2.Location = new System.Drawing.Point(282, 138);
             this.cmbColumns2.Name = "cmbColumns2";
             this.cmbColumns2.Size = new System.Drawing.Size(121, 21);
             this.cmbColumns2.TabIndex = 164;
@@ -404,7 +461,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(70, 138);
+            this.label6.Location = new System.Drawing.Point(12, 138);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(55, 21);
             this.label6.TabIndex = 163;
@@ -413,7 +470,7 @@
             // cmbTables2
             // 
             this.cmbTables2.FormattingEnabled = true;
-            this.cmbTables2.Location = new System.Drawing.Point(131, 138);
+            this.cmbTables2.Location = new System.Drawing.Point(73, 138);
             this.cmbTables2.Name = "cmbTables2";
             this.cmbTables2.Size = new System.Drawing.Size(121, 21);
             this.cmbTables2.TabIndex = 162;
@@ -423,7 +480,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(261, 167);
+            this.label7.Location = new System.Drawing.Point(203, 167);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(73, 21);
             this.label7.TabIndex = 169;
@@ -432,7 +489,7 @@
             // cmbColumns3
             // 
             this.cmbColumns3.FormattingEnabled = true;
-            this.cmbColumns3.Location = new System.Drawing.Point(340, 167);
+            this.cmbColumns3.Location = new System.Drawing.Point(282, 167);
             this.cmbColumns3.Name = "cmbColumns3";
             this.cmbColumns3.Size = new System.Drawing.Size(121, 21);
             this.cmbColumns3.TabIndex = 168;
@@ -442,7 +499,7 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(70, 167);
+            this.label8.Location = new System.Drawing.Point(12, 167);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(55, 21);
             this.label8.TabIndex = 167;
@@ -451,7 +508,7 @@
             // cmbTables3
             // 
             this.cmbTables3.FormattingEnabled = true;
-            this.cmbTables3.Location = new System.Drawing.Point(131, 167);
+            this.cmbTables3.Location = new System.Drawing.Point(73, 167);
             this.cmbTables3.Name = "cmbTables3";
             this.cmbTables3.Size = new System.Drawing.Size(121, 21);
             this.cmbTables3.TabIndex = 166;
@@ -461,7 +518,7 @@
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(261, 194);
+            this.label9.Location = new System.Drawing.Point(203, 194);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(73, 21);
             this.label9.TabIndex = 173;
@@ -470,7 +527,7 @@
             // cmbColumns4
             // 
             this.cmbColumns4.FormattingEnabled = true;
-            this.cmbColumns4.Location = new System.Drawing.Point(340, 194);
+            this.cmbColumns4.Location = new System.Drawing.Point(282, 194);
             this.cmbColumns4.Name = "cmbColumns4";
             this.cmbColumns4.Size = new System.Drawing.Size(121, 21);
             this.cmbColumns4.TabIndex = 172;
@@ -480,7 +537,7 @@
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(70, 194);
+            this.label10.Location = new System.Drawing.Point(12, 194);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(55, 21);
             this.label10.TabIndex = 171;
@@ -489,17 +546,171 @@
             // cmbTables4
             // 
             this.cmbTables4.FormattingEnabled = true;
-            this.cmbTables4.Location = new System.Drawing.Point(131, 194);
+            this.cmbTables4.Location = new System.Drawing.Point(73, 194);
             this.cmbTables4.Name = "cmbTables4";
             this.cmbTables4.Size = new System.Drawing.Size(121, 21);
             this.cmbTables4.TabIndex = 170;
             this.cmbTables4.SelectedIndexChanged += new System.EventHandler(this.cmbTables4_SelectedIndexChanged);
             // 
+            // searchInt
+            // 
+            this.searchInt.Location = new System.Drawing.Point(157, 232);
+            this.searchInt.Name = "searchInt";
+            this.searchInt.Size = new System.Drawing.Size(558, 188);
+            this.searchInt.TabIndex = 153;
+            // 
+            // cmbGroupBy2
+            // 
+            this.cmbGroupBy2.FormattingEnabled = true;
+            this.cmbGroupBy2.Location = new System.Drawing.Point(502, 140);
+            this.cmbGroupBy2.Name = "cmbGroupBy2";
+            this.cmbGroupBy2.Size = new System.Drawing.Size(121, 21);
+            this.cmbGroupBy2.TabIndex = 175;
+            this.cmbGroupBy2.SelectedIndexChanged += new System.EventHandler(this.cmbGroupBy2_SelectedIndexChanged);
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.Location = new System.Drawing.Point(409, 138);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(87, 21);
+            this.label11.TabIndex = 174;
+            this.label11.Text = "Group by:";
+            // 
+            // cmbGroupBy3
+            // 
+            this.cmbGroupBy3.FormattingEnabled = true;
+            this.cmbGroupBy3.Location = new System.Drawing.Point(502, 167);
+            this.cmbGroupBy3.Name = "cmbGroupBy3";
+            this.cmbGroupBy3.Size = new System.Drawing.Size(121, 21);
+            this.cmbGroupBy3.TabIndex = 177;
+            this.cmbGroupBy3.SelectedIndexChanged += new System.EventHandler(this.cmbGroupBy3_SelectedIndexChanged);
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.Location = new System.Drawing.Point(409, 167);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(87, 21);
+            this.label12.TabIndex = 176;
+            this.label12.Text = "Group by:";
+            // 
+            // cmbGroupBy4
+            // 
+            this.cmbGroupBy4.FormattingEnabled = true;
+            this.cmbGroupBy4.Location = new System.Drawing.Point(502, 194);
+            this.cmbGroupBy4.Name = "cmbGroupBy4";
+            this.cmbGroupBy4.Size = new System.Drawing.Size(121, 21);
+            this.cmbGroupBy4.TabIndex = 179;
+            this.cmbGroupBy4.SelectedIndexChanged += new System.EventHandler(this.cmbGroupBy4_SelectedIndexChanged);
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.Location = new System.Drawing.Point(409, 194);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(87, 21);
+            this.label13.TabIndex = 178;
+            this.label13.Text = "Group by:";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.Location = new System.Drawing.Point(629, 109);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(60, 21);
+            this.label14.TabIndex = 181;
+            this.label14.Text = "Count:";
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label15.Location = new System.Drawing.Point(629, 141);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(60, 21);
+            this.label15.TabIndex = 182;
+            this.label15.Text = "Count:";
+            // 
+            // cmbCount
+            // 
+            this.cmbCount.FormattingEnabled = true;
+            this.cmbCount.Location = new System.Drawing.Point(695, 109);
+            this.cmbCount.Name = "cmbCount";
+            this.cmbCount.Size = new System.Drawing.Size(121, 21);
+            this.cmbCount.TabIndex = 183;
+            this.cmbCount.SelectedIndexChanged += new System.EventHandler(this.cmbCount_SelectedIndexChanged);
+            // 
+            // cmbCount2
+            // 
+            this.cmbCount2.FormattingEnabled = true;
+            this.cmbCount2.Location = new System.Drawing.Point(695, 140);
+            this.cmbCount2.Name = "cmbCount2";
+            this.cmbCount2.Size = new System.Drawing.Size(121, 21);
+            this.cmbCount2.TabIndex = 184;
+            this.cmbCount2.SelectedIndexChanged += new System.EventHandler(this.cmbCount2_SelectedIndexChanged);
+            // 
+            // cmbCount3
+            // 
+            this.cmbCount3.FormattingEnabled = true;
+            this.cmbCount3.Location = new System.Drawing.Point(695, 167);
+            this.cmbCount3.Name = "cmbCount3";
+            this.cmbCount3.Size = new System.Drawing.Size(121, 21);
+            this.cmbCount3.TabIndex = 186;
+            this.cmbCount3.SelectedIndexChanged += new System.EventHandler(this.cmbCount3_SelectedIndexChanged);
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label16.Location = new System.Drawing.Point(629, 168);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(60, 21);
+            this.label16.TabIndex = 185;
+            this.label16.Text = "Count:";
+            // 
+            // cmbCount4
+            // 
+            this.cmbCount4.FormattingEnabled = true;
+            this.cmbCount4.Location = new System.Drawing.Point(695, 194);
+            this.cmbCount4.Name = "cmbCount4";
+            this.cmbCount4.Size = new System.Drawing.Size(121, 21);
+            this.cmbCount4.TabIndex = 188;
+            this.cmbCount4.SelectedIndexChanged += new System.EventHandler(this.cmbCount4_SelectedIndexChanged);
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label17.Location = new System.Drawing.Point(629, 195);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(60, 21);
+            this.label17.TabIndex = 187;
+            this.label17.Text = "Count:";
+            // 
             // GlobalSearchForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(823, 661);
+            this.ClientSize = new System.Drawing.Size(984, 661);
+            this.Controls.Add(this.cmbCount4);
+            this.Controls.Add(this.label17);
+            this.Controls.Add(this.cmbCount3);
+            this.Controls.Add(this.label16);
+            this.Controls.Add(this.cmbCount2);
+            this.Controls.Add(this.cmbCount);
+            this.Controls.Add(this.label15);
+            this.Controls.Add(this.label14);
+            this.Controls.Add(this.cmbGroupBy4);
+            this.Controls.Add(this.label13);
+            this.Controls.Add(this.cmbGroupBy3);
+            this.Controls.Add(this.label12);
+            this.Controls.Add(this.cmbGroupBy2);
+            this.Controls.Add(this.label11);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.cmbColumns4);
             this.Controls.Add(this.label10);
@@ -527,6 +738,8 @@
             this.Name = "GlobalSearchForm";
             this.Text = "GlobalSearchForm";
             this.panel5.ResumeLayout(false);
+            this.panel2.ResumeLayout(false);
+            this.panel8.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel6.ResumeLayout(false);
             this.panel7.ResumeLayout(false);
@@ -587,5 +800,23 @@
         private System.Windows.Forms.ComboBox cmbColumns4;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.ComboBox cmbTables4;
+        private System.Windows.Forms.Panel panel8;
+        private System.Windows.Forms.Button btnViewAll;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Button btnClearForm;
+        private System.Windows.Forms.ComboBox cmbGroupBy2;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.ComboBox cmbGroupBy3;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.ComboBox cmbGroupBy4;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.ComboBox cmbCount;
+        private System.Windows.Forms.ComboBox cmbCount2;
+        private System.Windows.Forms.ComboBox cmbCount3;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.ComboBox cmbCount4;
+        private System.Windows.Forms.Label label17;
     }
 }

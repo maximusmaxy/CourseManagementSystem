@@ -76,6 +76,12 @@
     <Compile Include="Controls\SearchDictionary.Designer.cs">
       <DependentUpon>SearchDictionary.cs</DependentUpon>
     </Compile>
+    <Compile Include="Controls\SearchCount.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\SearchCount.Designer.cs">
+      <DependentUpon>SearchCount.cs</DependentUpon>
+    </Compile>
     <Compile Include="Controls\SearchString.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -164,6 +170,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Controls\SearchDictionary.resx">
       <DependentUpon>SearchDictionary.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\SearchCount.resx">
+      <DependentUpon>SearchCount.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Controls\SearchString.resx">
       <DependentUpon>SearchString.cs</DependentUpon>

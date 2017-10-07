@@ -18,7 +18,8 @@ namespace CmsLibrary
         //home - MAXIMUMPENIS\\SQLEXPRESS
         //tafe - (local)
         //lisahome - LISAWORKLAPTOP\\SQLEXPRESS
-        public static string ServerName { get; set; } = "LISAWORKLAPTOP\\SQLEXPRESS";
+        //public static string ServerName { get; set; } = "LISAWORKLAPTOP\\SQLEXPRESS";
+        public static string ServerName { get; set; } = "(local)";
         public static string DatabaseName { get; set; } = "CourseManage";
 
         /// <summary>

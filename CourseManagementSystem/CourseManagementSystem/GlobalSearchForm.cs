@@ -91,7 +91,7 @@ namespace CMS
             {
                 Bridges.Add(new Bridge(table, bridge, primary, foreign));
             }
-            
+
             /// <summary>
             /// Adds an arithmetic calculation column to the table.
             /// </summary>
@@ -366,7 +366,7 @@ namespace CMS
             control.Size = ucSearch.Size;
             control.TabIndex = ucSearch.TabIndex;
             control.Hide();
-            Controls.Add(control);
+            pnlForm.Controls.Add(control);
             userControls[dataType] = control;
         }
 
@@ -826,7 +826,7 @@ namespace CMS
         private void LoadDataGridViews()
         {
             string sql = select.ToString() + from.ToString();
-            if (join.Length != 0 || condition.Length != 0) 
+            if (join.Length != 0 || condition.Length != 0)
                 sql += " where ";
             sql += join.ToString();
             if (join.Length != 0 && condition.Length != 0)
@@ -865,11 +865,6 @@ namespace CMS
         {
             if (e.RowIndex >= 0 && e.ColumnIndex >= 0)
                 Forms.ShowForm(cmbTables.Get<Table>().Form);
-        }
-
-        private void searchInt_Load(object sender, EventArgs e)
-        {
-
         }
 
         private void mainMenuToolStripMenuItem_Click(object sender, EventArgs e)
@@ -995,7 +990,7 @@ namespace CMS
         private void allocationToolStripMenuItem_Click(object sender, EventArgs e)
         {
             DialogResult result = MessageBox.Show("Would you like to open this form in a new window", "Question",
-                                              MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
+                                  MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
             if (result == DialogResult.Yes)
             {
                 Forms.ShowForm(typeof(AllocationForm));

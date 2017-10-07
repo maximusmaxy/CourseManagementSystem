@@ -12,6 +12,14 @@ using System.Security.Cryptography;
 
 namespace CmsLibrary
 {
+    public enum Permission
+    {
+        None = 0,
+        User = 1,
+        Teacher = 2,
+        Admin = 3
+    }
+
     public static class Database
     {
         //These can be changed staticly using Database.ServerName = "localHost" or whatever.
@@ -21,6 +29,7 @@ namespace CmsLibrary
         //public static string ServerName { get; set; } = "LISAWORKLAPTOP\\SQLEXPRESS";
         public static string ServerName { get; set; } = "(local)";
         public static string DatabaseName { get; set; } = "CourseManage";
+        public static Permission Permission { get; set; } = Permission.None;
 
         /// <summary>
         /// Initializes a new Sql connection based on the static fields.
@@ -73,17 +82,21 @@ namespace CmsLibrary
         /// </summary>
         /// <param name="sql">Sql statement.</param>
         /// <returns></returns>
-        public static IEnumerable<SqlDataReader> ExecuteQuery(string sql)
+        public static IEnumerable<SqlDataReader> ExecuteQuery(string sql, params SqlParameter[] parameters)
         {
             using (SqlConnection connection = Connection())
             using (SqlCommand command = new SqlCommand(sql, connection))
-            using (SqlDataReader dataReader = command.ExecuteReader())
             {
-                while (dataReader.Read())
+                command.Parameters.AddRange(parameters);
+                using (SqlDataReader dataReader = command.ExecuteReader())
                 {
-                    yield return dataReader;
+                    while (dataReader.Read())
+                    {
+                        yield return dataReader;
+                    }
                 }
             }
+
         }
 
         /// <summary>
@@ -551,6 +564,45 @@ namespace CmsLibrary
                 list.Add((T)column[columnName]);
             dataTable.Columns.Remove(columnName);
             return list;
+        }
+
+        /// <summary>
+        /// Gets a user permission type based on username and password.
+        /// </summary>
+        /// <param name="username">The username.</param>
+        /// <param name="password">The password.</param>
+        /// <returns>Whether the login was successful or not.</returns>
+        public static bool Login(string username, string password)
+        {
+            string sql = "select * from Users where userName = @username";
+            SqlParameter usernameParameter = new SqlParameter("@username", username);
+            foreach (SqlDataReader row in ExecuteQuery(sql, usernameParameter))
+            {
+                Byte[] passwordBytes = null;
+                Byte[] saltBytes = null;
+                Byte[] hashedBytes = null;
+                Byte[] hashedPassword = null;
+                try
+                {
+                    passwordBytes = Convert.FromBase64String(password);
+                    saltBytes = Convert.FromBase64String(Convert.ToString(row["salt"]));
+                    hashedBytes = GetSaltedHashedPassword(passwordBytes, saltBytes);
+                    hashedPassword = Convert.FromBase64String(Convert.ToString(row["passwords"]));
+                    if (hashedPassword.SequenceEqual(hashedBytes))
+                    {
+                        Permission = (Permission)Convert.ToInt32(row["permissionType"]);
+                        return true; 
+                    }
+                }
+                finally
+                {
+                    Array.Clear(passwordBytes, 0, passwordBytes.Length);
+                    Array.Clear(saltBytes, 0, saltBytes.Length);
+                    Array.Clear(hashedBytes, 0, hashedBytes.Length);
+                    Array.Clear(hashedPassword, 0, hashedPassword.Length);
+                }
+            }
+            return false;
         }
 
         /// <summary>

@@ -21,7 +21,7 @@ namespace CMS
         private void Main_Load(object sender, EventArgs e)
         {
             //Database.ServerName = "MAXIMUMPENIS\\SQLEXPRESS";
-            Database.LoadDatabase();
+            //Database.LoadDatabase();
         }
 
         private void btnTeacherForm_Click(object sender, EventArgs e)

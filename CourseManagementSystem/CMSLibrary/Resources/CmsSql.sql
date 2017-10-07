@@ -39,8 +39,8 @@ go
 create table Users(
 UserId smallint primary key identity(1,1) not null,
 username varchar(50) not null,
-passwords varchar(32) not null,
-salt varchar(32) not null,
+passwords varchar(64) not null,
+salt varchar(64) not null,
 permissionType smallint not null
 constraint unique_username unique(username));
 
@@ -300,3 +300,6 @@ insert into Unit_Teachers values(2,2);
 insert into Unit_Teachers values (3,3); 
 insert into Unit_Teachers values(4,4);
 insert into Unit_Teachers values (5,5);
+insert into Users values('user', 'CqOdKkg2e98S1ZWobsUfvE59jBZ/ItDcAIuDh6zvXBc=', '4oUuh8afP/vuwunyxsGrc4SkS9SLqnP0yGiE38B4nE8=', 1);
+insert into Users values('teacher', 'cmshNNPPuajf8sv53QlwnoPFvRfODppUHm7lhYfYlP8=', 'q9WBnDAmA6YHycp1F+UIXesI+iVEC+mhiMVClTMmF4E=', 2);
+insert into Users values('admin', 'Bc/4CmZXpU40BUdxCLa9UkH+oDJJ59FZlq+44TPJLhw=', '5E1q2nxPgI5BG5s4idW9CLd1doLQuAj2QPmZRO9wxT4=', 3);

@@ -15,6 +15,7 @@ namespace CmsLibrary
         private static Regex aliasRegex = new Regex(@"\W");
         private static Dictionary<Type, Form> formsOpen = new Dictionary<Type, Form>();
 
+
         /// <summary>
         /// Gets the string of the checked radio from a panel.
         /// </summary>
@@ -300,6 +301,15 @@ namespace CmsLibrary
             formsOpen.Remove(sender.GetType());
             if (formsOpen.Count == 0)
                 Application.Exit();
+        }
+
+        /// <summary>
+        /// Checks whether the user has the specified permission type.
+        /// </summary>
+        /// <param name="type">The type of permission.</param>
+        public static bool HasPermission(Permission type)
+        {
+            return (Database.Permission >= type);
         }
 
         /// <summary>

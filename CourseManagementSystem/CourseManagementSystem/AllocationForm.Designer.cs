@@ -63,9 +63,8 @@
             this.panel5 = new System.Windows.Forms.Panel();
             this.label12 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
             this.dgvAllocations = new System.Windows.Forms.DataGridView();
-            this.label6 = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.panel7.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.panel8.SuspendLayout();
@@ -73,6 +72,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
             this.panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAllocations)).BeginInit();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // assessmentToolStripMenuItem
@@ -88,16 +88,16 @@
             this.panel7.Controls.Add(this.label1);
             this.panel7.Location = new System.Drawing.Point(0, 27);
             this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(685, 60);
+            this.panel7.Size = new System.Drawing.Size(825, 60);
             this.panel7.TabIndex = 140;
             // 
             // label1
             // 
             this.label1.BackColor = System.Drawing.Color.Gainsboro;
-            this.label1.Font = new System.Drawing.Font("Times New Roman", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Times New Roman", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(12, 9);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(660, 42);
+            this.label1.Size = new System.Drawing.Size(801, 42);
             this.label1.TabIndex = 0;
             this.label1.Text = "Allocation Form";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -110,7 +110,7 @@
             this.formsToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(813, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(988, 24);
             this.menuStrip1.TabIndex = 142;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -217,7 +217,7 @@
             this.button5.Image = global::CMS.Properties.Resources.AllocationButton;
             this.button5.Location = new System.Drawing.Point(3, 3);
             this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(125, 100);
+            this.button5.Size = new System.Drawing.Size(150, 124);
             this.button5.TabIndex = 0;
             this.button5.UseVisualStyleBackColor = false;
             // 
@@ -225,9 +225,9 @@
             // 
             this.panel8.BackColor = System.Drawing.Color.Gainsboro;
             this.panel8.Controls.Add(this.btnViewAll);
-            this.panel8.Location = new System.Drawing.Point(4, 215);
+            this.panel8.Location = new System.Drawing.Point(3, 193);
             this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(125, 50);
+            this.panel8.Size = new System.Drawing.Size(150, 58);
             this.panel8.TabIndex = 1;
             // 
             // btnViewAll
@@ -236,7 +236,7 @@
             this.btnViewAll.Image = global::CMS.Properties.Resources.ViewAllButton;
             this.btnViewAll.Location = new System.Drawing.Point(3, 3);
             this.btnViewAll.Name = "btnViewAll";
-            this.btnViewAll.Size = new System.Drawing.Size(120, 45);
+            this.btnViewAll.Size = new System.Drawing.Size(144, 52);
             this.btnViewAll.TabIndex = 0;
             this.btnViewAll.UseVisualStyleBackColor = false;
             this.btnViewAll.Click += new System.EventHandler(this.btnViewAll_Click);
@@ -245,7 +245,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(51, 122);
+            this.label5.Location = new System.Drawing.Point(121, 13);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(123, 21);
             this.label5.TabIndex = 147;
@@ -255,9 +255,9 @@
             // 
             this.panel3.BackColor = System.Drawing.Color.Gainsboro;
             this.panel3.Controls.Add(this.btnUpdate);
-            this.panel3.Location = new System.Drawing.Point(3, 153);
+            this.panel3.Location = new System.Drawing.Point(3, 130);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(125, 50);
+            this.panel3.Size = new System.Drawing.Size(150, 58);
             this.panel3.TabIndex = 0;
             // 
             // btnUpdate
@@ -266,17 +266,18 @@
             this.btnUpdate.Image = global::CMS.Properties.Resources.UpdateButton;
             this.btnUpdate.Location = new System.Drawing.Point(3, 3);
             this.btnUpdate.Name = "btnUpdate";
-            this.btnUpdate.Size = new System.Drawing.Size(120, 45);
+            this.btnUpdate.Size = new System.Drawing.Size(144, 52);
             this.btnUpdate.TabIndex = 0;
             this.btnUpdate.UseVisualStyleBackColor = false;
             this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
             // cmbAreaOfStudy
             // 
+            this.cmbAreaOfStudy.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbAreaOfStudy.FormattingEnabled = true;
-            this.cmbAreaOfStudy.Location = new System.Drawing.Point(180, 124);
+            this.cmbAreaOfStudy.Location = new System.Drawing.Point(250, 10);
             this.cmbAreaOfStudy.Name = "cmbAreaOfStudy";
-            this.cmbAreaOfStudy.Size = new System.Drawing.Size(334, 21);
+            this.cmbAreaOfStudy.Size = new System.Drawing.Size(236, 28);
             this.cmbAreaOfStudy.TabIndex = 0;
             this.cmbAreaOfStudy.Tag = "Area of Study";
             this.ToolTips.SetToolTip(this.cmbAreaOfStudy, "Select from the list the Appropriate Area of Study");
@@ -284,22 +285,25 @@
             // 
             // lstOption2
             // 
+            this.lstOption2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lstOption2.FormattingEnabled = true;
-            this.lstOption2.Location = new System.Drawing.Point(359, 291);
+            this.lstOption2.ItemHeight = 20;
+            this.lstOption2.Location = new System.Drawing.Point(513, 118);
             this.lstOption2.Name = "lstOption2";
             this.lstOption2.ScrollAlwaysVisible = true;
             this.lstOption2.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;
-            this.lstOption2.Size = new System.Drawing.Size(287, 56);
+            this.lstOption2.Size = new System.Drawing.Size(236, 64);
             this.lstOption2.TabIndex = 4;
             this.lstOption2.Tag = "Option 2";
             this.ToolTips.SetToolTip(this.lstOption2, "Please select an option. You may select multiple options as required.");
             // 
             // cmbSel1
             // 
+            this.cmbSel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbSel1.FormattingEnabled = true;
-            this.cmbSel1.Location = new System.Drawing.Point(35, 216);
+            this.cmbSel1.Location = new System.Drawing.Point(250, 46);
             this.cmbSel1.Name = "cmbSel1";
-            this.cmbSel1.Size = new System.Drawing.Size(287, 21);
+            this.cmbSel1.Size = new System.Drawing.Size(236, 28);
             this.cmbSel1.TabIndex = 1;
             this.cmbSel1.Tag = "Selection 1";
             this.ToolTips.SetToolTip(this.cmbSel1, "Please select an option.");
@@ -307,10 +311,11 @@
             // 
             // cmbSel2
             // 
+            this.cmbSel2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbSel2.FormattingEnabled = true;
-            this.cmbSel2.Location = new System.Drawing.Point(359, 216);
+            this.cmbSel2.Location = new System.Drawing.Point(250, 118);
             this.cmbSel2.Name = "cmbSel2";
-            this.cmbSel2.Size = new System.Drawing.Size(287, 21);
+            this.cmbSel2.Size = new System.Drawing.Size(236, 28);
             this.cmbSel2.TabIndex = 2;
             this.cmbSel2.Tag = "Selection 2";
             this.ToolTips.SetToolTip(this.cmbSel2, "Please select an option.");
@@ -318,11 +323,13 @@
             // 
             // lstOption1
             // 
+            this.lstOption1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lstOption1.FormattingEnabled = true;
-            this.lstOption1.Location = new System.Drawing.Point(35, 291);
+            this.lstOption1.ItemHeight = 20;
+            this.lstOption1.Location = new System.Drawing.Point(513, 46);
             this.lstOption1.Name = "lstOption1";
             this.lstOption1.ScrollAlwaysVisible = true;
-            this.lstOption1.Size = new System.Drawing.Size(287, 56);
+            this.lstOption1.Size = new System.Drawing.Size(236, 64);
             this.lstOption1.TabIndex = 3;
             this.lstOption1.Tag = "Option 1";
             this.ToolTips.SetToolTip(this.lstOption1, "Please select an option.");
@@ -334,16 +341,16 @@
             this.panel5.Controls.Add(this.button5);
             this.panel5.Controls.Add(this.panel8);
             this.panel5.Controls.Add(this.panel3);
-            this.panel5.Location = new System.Drawing.Point(678, 27);
+            this.panel5.Location = new System.Drawing.Point(828, 27);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(132, 524);
+            this.panel5.Size = new System.Drawing.Size(156, 508);
             this.panel5.TabIndex = 5;
             // 
             // label12
             // 
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(31, 180);
+            this.label12.Location = new System.Drawing.Point(148, 49);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(96, 21);
             this.label12.TabIndex = 144;
@@ -353,63 +360,50 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(355, 180);
+            this.label2.Location = new System.Drawing.Point(148, 121);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(96, 21);
             this.label2.TabIndex = 144;
             this.label2.Text = "Selection 2:";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(355, 255);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(80, 21);
-            this.label4.TabIndex = 144;
-            this.label4.Text = "Option 2:";
             // 
             // dgvAllocations
             // 
             this.dgvAllocations.AllowUserToAddRows = false;
             this.dgvAllocations.AllowUserToDeleteRows = false;
             this.dgvAllocations.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvAllocations.Location = new System.Drawing.Point(35, 380);
+            this.dgvAllocations.Location = new System.Drawing.Point(250, 190);
             this.dgvAllocations.Name = "dgvAllocations";
             this.dgvAllocations.ReadOnly = true;
-            this.dgvAllocations.Size = new System.Drawing.Size(617, 161);
+            this.dgvAllocations.Size = new System.Drawing.Size(499, 64);
             this.dgvAllocations.TabIndex = 151;
             // 
-            // label6
+            // panel1
             // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(31, 255);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(80, 21);
-            this.label6.TabIndex = 144;
-            this.label6.Text = "Option 1:";
+            this.panel1.AutoScroll = true;
+            this.panel1.Controls.Add(this.lstOption1);
+            this.panel1.Controls.Add(this.label2);
+            this.panel1.Controls.Add(this.label12);
+            this.panel1.Controls.Add(this.cmbSel2);
+            this.panel1.Controls.Add(this.lstOption2);
+            this.panel1.Controls.Add(this.dgvAllocations);
+            this.panel1.Controls.Add(this.cmbSel1);
+            this.panel1.Controls.Add(this.cmbAreaOfStudy);
+            this.panel1.Controls.Add(this.label5);
+            this.panel1.Location = new System.Drawing.Point(1, 88);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(823, 442);
+            this.panel1.TabIndex = 152;
             // 
             // AllocationForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Lavender;
-            this.ClientSize = new System.Drawing.Size(813, 553);
-            this.Controls.Add(this.dgvAllocations);
-            this.Controls.Add(this.cmbSel2);
-            this.Controls.Add(this.cmbSel1);
-            this.Controls.Add(this.lstOption1);
-            this.Controls.Add(this.lstOption2);
+            this.ClientSize = new System.Drawing.Size(988, 539);
             this.Controls.Add(this.menuStrip1);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.cmbAreaOfStudy);
-            this.Controls.Add(this.label6);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label12);
             this.Controls.Add(this.panel5);
             this.Controls.Add(this.panel7);
+            this.Controls.Add(this.panel1);
             this.Name = "AllocationForm";
             this.Text = "AllocationForm";
             this.panel7.ResumeLayout(false);
@@ -420,6 +414,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
             this.panel5.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvAllocations)).EndInit();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -456,12 +452,11 @@
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ListBox lstOption2;
         private System.Windows.Forms.ComboBox cmbSel1;
         private System.Windows.Forms.ComboBox cmbSel2;
         private System.Windows.Forms.DataGridView dgvAllocations;
-        private System.Windows.Forms.Label label6;
         private System.Windows.Forms.ListBox lstOption1;
+        private System.Windows.Forms.Panel panel1;
     }
 }

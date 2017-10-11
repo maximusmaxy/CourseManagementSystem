@@ -17,7 +17,7 @@ namespace CMS
         {
             InitializeComponent();
             //Database.ServerName = "MAXIMUMPENIS\\SQLEXPRESS";
-         //  Database.LoadDatabase();
+            Database.LoadDatabase();
         }
 
         private void btnLogin_Click(object sender, EventArgs e)

@@ -317,12 +317,22 @@ namespace CmsLibrary
         }
 
         /// <summary>
-        /// Checks whether the user has the specified permission type.
+        /// Gets the permission stored in the database user object.
+        /// </summary>
+        public static Permission Permission => Database.User.Permission;
+        /// <summary>
+        /// Gets the id stored in the database user object.
+        /// </summary>
+        public static int? Id => Database.User.Id;
+
+        /// <summary>
+        /// Checks whether the user has the specified permission type. This uses cascading permissions.
+        /// If you need a specific permissions use 'Database.Permission == Permission.Type'.
         /// </summary>
         /// <param name="type">The type of permission.</param>
         public static bool HasPermission(Permission type)
         {
-            return (Database.Permission >= type);
+            return (Database.User.Permission >= type);
         }
 
         /// <summary>

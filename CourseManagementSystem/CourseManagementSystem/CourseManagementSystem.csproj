@@ -58,6 +58,18 @@
     <Compile Include="AssessmentForm.designer.cs">
       <DependentUpon>AssessmentForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Controls\LoginLogin.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\LoginLogin.Designer.cs">
+      <DependentUpon>LoginLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\LoginSignUp.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\LoginSignUp.Designer.cs">
+      <DependentUpon>LoginSignUp.cs</DependentUpon>
+    </Compile>
     <Compile Include="Controls\SearchDate.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -167,6 +179,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="AssessmentForm.resx">
       <DependentUpon>AssessmentForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\LoginLogin.resx">
+      <DependentUpon>LoginLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\LoginSignUp.resx">
+      <DependentUpon>LoginSignUp.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Controls\SearchDate.resx">
       <DependentUpon>SearchDate.cs</DependentUpon>

@@ -9,6 +9,29 @@ namespace CMS
         public StudentForm()
         {
             InitializeComponent();
+            SetPermission();
+        }
+
+        private void SetPermission()
+        {
+            if (!Forms.HasPermission(Permission.Admin))
+            {
+                btnDelete.Enabled = false;
+                btnViewAll.Enabled = false;
+                btnUpdate.Enabled = false;
+                btnAdd.Enabled = false;
+            }
+            if (!Forms.HasPermission(Permission.Teacher))
+            {
+                btnSearch.Enabled = false;
+            }
+            if (Forms.Permission == Permission.Student)
+            {
+                btnUpdate.Enabled = true;
+                txtId.Text = Forms.Id.ToString();
+                txtId.Enabled = false;
+                Search(Forms.Id.Value);
+            }
         }
 
         private void btnAdd_Click(object sender, EventArgs e)

@@ -15,9 +15,10 @@ namespace CmsLibrary
     public enum Permission
     {
         None = 0,
-        User = 1,
+        Student = 1,
         Teacher = 2,
-        Admin = 3
+        HeadTeacher = 3,
+        Admin = 4
     }
 
     public static class Database
@@ -29,7 +30,7 @@ namespace CmsLibrary
         //public static string ServerName { get; set; } = "LISAWORKLAPTOP\\SQLEXPRESS";
         public static string ServerName { get; set; } = "(local)";
         public static string DatabaseName { get; set; } = "CourseManage";
-        public static Permission Permission { get; set; } = Permission.None;
+        public static User User { get; set; } = new User();
 
         /// <summary>
         /// Initializes a new Sql connection based on the static fields.
@@ -584,13 +585,14 @@ namespace CmsLibrary
                 Byte[] hashedPassword = null;
                 try
                 {
-                    passwordBytes = Convert.FromBase64String(password);
+                    passwordBytes = Encoding.UTF8.GetBytes(password);
                     saltBytes = Convert.FromBase64String(Convert.ToString(row["salt"]));
                     hashedBytes = GetSaltedHashedPassword(passwordBytes, saltBytes);
                     hashedPassword = Convert.FromBase64String(Convert.ToString(row["passwords"]));
                     if (hashedPassword.SequenceEqual(hashedBytes))
                     {
-                        Permission = (Permission)Convert.ToInt32(row["permissionType"]);
+                        User.Permission = (Permission)Convert.ToInt32(row["permissionType"]);
+                        User.Id = Extensions.ConvertDBNullInt(row["studentTeacherId"]);
                         return true; 
                     }
                 }

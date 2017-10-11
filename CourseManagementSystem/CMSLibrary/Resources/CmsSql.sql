@@ -42,7 +42,7 @@ username varchar(50) not null,
 passwords varchar(64) not null,
 salt varchar(64) not null,
 permissionType smallint not null,
-studentTeacherID smallint,
+studentTeacherId smallint,
 constraint unique_username unique(username));
 
 create table Departments(
@@ -303,10 +303,10 @@ insert into Unit_Teachers values(2,2);
 insert into Unit_Teachers values (3,3); 
 insert into Unit_Teachers values(4,4);
 insert into Unit_Teachers values (5,5);
-insert into Users values('user', 'CqOdKkg2e98S1ZWobsUfvE59jBZ/ItDcAIuDh6zvXBc=', '4oUuh8afP/vuwunyxsGrc4SkS9SLqnP0yGiE38B4nE8=', 1);
-insert into Users values('teacher', 'cmshNNPPuajf8sv53QlwnoPFvRfODppUHm7lhYfYlP8=', 'q9WBnDAmA6YHycp1F+UIXesI+iVEC+mhiMVClTMmF4E=', 2);
-insert into Users values('admin', 'Bc/4CmZXpU40BUdxCLa9UkH+oDJJ59FZlq+44TPJLhw=', '5E1q2nxPgI5BG5s4idW9CLd1doLQuAj2QPmZRO9wxT4=', 3);
-
+insert into Users values('student', 'mRocQYnfs3/0/brrpSbyCHOVuFnIk16bNRJzZw4K4/E=', '4ZAXAXF1giXVGgGx6GvwzMEn6tMWmgE/ku7BQDufCqA=', 1, 1);
+insert into Users values('teacher', '2oM5JHkdUkw4Qvhc1XE8wqKlFGgrnasRvJIG1HqO6YM=', '3a9JMvojYWOTnUzhOHPo0Zh+dYdh48KWw65B1OcGcJQ=', 2, 2);
+insert into Users values('head teacher', 'YLG5i+xhYw6Nn5QinZtxisycNnRguB+sq8gjVvDGpLk=', 'Kyc2q1L2/AQsawwzkALAwqA5gXya4CPFlyDH3tsGCDY=', 3, 1);
+insert into Users values('admin', 'EqgnTjTef6LrMjVp6l8Fwu+Na4vvfLMYVVGMcJ931KM=', '8Z7tSOatw/EdpmY8u2ohjAhNA+WLkgLIG5+fUfMEGUM=', 4, null);
 INSERT INTO [dbo].[Units] ([unitId], [departmentId], [unitCode], [unitName], [unitType], [numOfHours], [unitDescription]) VALUES (22, 1, N'ICTICT307', N'Create user documentation', 1, 20, N'This Unit describes the skills and knowledge required to create user documentation that is clear to the target audience and easy to navigate.')
 INSERT INTO [dbo].[Units] ([unitId], [departmentId], [unitCode], [unitName], [unitType], [numOfHours], [unitDescription]) VALUES (23, 1, N'ICTICT409', N'Develop macros and templates for clients', 1, 20, N'This unit describes the skills and knowledge required to develop macros and templates for clients using industry recognised software applications.')
 INSERT INTO [dbo].[Units] ([unitId], [departmentId], [unitCode], [unitName], [unitType], [numOfHours], [unitDescription]) VALUES (27, 1, N'ICTWHS204', N'Follow WHS and environmental policy', 1, 15, N'This unit describes the skills and knowledge required to follow safe working practices and environmental policy in the management of a telecommunications workplace.')
@@ -316,7 +316,7 @@ INSERT INTO [dbo].[Units] ([unitId], [departmentId], [unitCode], [unitName], [un
 INSERT INTO [dbo].[Units] ([unitId], [departmentId], [unitCode], [unitName], [unitType], [numOfHours], [unitDescription]) VALUES (32, 1, N'ICTPRG402', N'Apply query language', 1, 25, N'This unit describes the skills and knowledge required to retrieve and manipulate information stored in information systems, using a query language.')
 INSERT INTO [dbo].[Units] ([unitId], [departmentId], [unitCode], [unitName], [unitType], [numOfHours], [unitDescription]) VALUES (33, 1, N'ICTICT415', N'Apply skills in object-oriented design', 1, 20, N'This unit describes the skills and knowledge required to produce an object-oriented design from specifications, applying the cyclic process of iteration from identification of class, instance, role and type to the final object-oriented model of the application.')
 INSERT INTO [dbo].[Units] ([unitId], [departmentId], [unitCode], [unitName], [unitType], [numOfHours], [unitDescription]) VALUES (34, 1, N'ICTPRG410', N'Build a user interface', 1, 30, N'This unit describes the skills and knowledge required to design, build, and test a user interface (UI) to specification, including command-line interfaces (CLI), graphical user interfaces (GUI), web user interfaces (WUI) and natural user interfaces (NUI).')
-INSERT INTO [dbo].[Units] ([unitId], [departmentId], [unitCode], [unitName], [unitType], [numOfHours], [unitDescription]) VALUES (35, 1, N'ICTICT418', N'Contribute to copyright, ethics and privacy', 1, 8, N'It applies to ICT personnel who are required to gather information to determine the organisation’s code of ethics, and protect and maintain privacy policies and system security.')
+INSERT INTO [dbo].[Units] ([unitId], [departmentId], [unitCode], [unitName], [unitType], [numOfHours], [unitDescription]) VALUES (35, 1, N'ICTICT418', N'Contribute to copyright, ethics and privacy', 1, 8, N'It applies to ICT personnel who are required to gather information to determine the organisationÂ’s code of ethics, and protect and maintain privacy policies and system security.')
 INSERT INTO [dbo].[Units] ([unitId], [departmentId], [unitCode], [unitName], [unitType], [numOfHours], [unitDescription]) VALUES (36, 1, N'ICTWEB414', N'Design simple web page layouts', 1, 30, N'It applies to individuals working as web designers and web developers, who apply a wide range of knowledge and skills for basic web development.')
 INSERT INTO [dbo].[Units] ([unitId], [departmentId], [unitCode], [unitName], [unitType], [numOfHours], [unitDescription]) VALUES (37, 1, N'ICTWEB413', N'Optimise search engines', 2, 25, N'It applies to individuals who make recommendations and monitor keyword enhancements, search engine marketing (SEM) and social network marketing (SNM).')
 INSERT INTO [dbo].[Units] ([unitId], [departmentId], [unitCode], [unitName], [unitType], [numOfHours], [unitDescription]) VALUES (38, 1, N'ICTPRG426', N'Prepare software development review', 1, 20, N'It applies to staff in the software development area who are required to ensure that the software development process incorporates quality considerations.')

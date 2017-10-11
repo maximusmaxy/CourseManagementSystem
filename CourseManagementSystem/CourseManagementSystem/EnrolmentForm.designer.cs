@@ -31,7 +31,7 @@
             this.components = new System.ComponentModel.Container();
             this.ToolTips = new System.Windows.Forms.ToolTip(this.components);
             this.dtpEnrolment = new System.Windows.Forms.DateTimePicker();
-            this.txtId = new System.Windows.Forms.TextBox();
+            this.txtStudentId = new System.Windows.Forms.TextBox();
             this.dtpCompletion = new System.Windows.Forms.DateTimePicker();
             this.txtDiscountCost = new System.Windows.Forms.TextBox();
             this.txtEnrolmentCost = new System.Windows.Forms.TextBox();
@@ -120,15 +120,15 @@
             this.dtpEnrolment.Tag = "EnrolmentDate";
             this.ToolTips.SetToolTip(this.dtpEnrolment, "Insert the Current Date this Enrolment was completed on");
             // 
-            // txtId
+            // txtStudentId
             // 
-            this.txtId.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtId.Location = new System.Drawing.Point(250, 10);
-            this.txtId.Name = "txtId";
-            this.txtId.Size = new System.Drawing.Size(236, 26);
-            this.txtId.TabIndex = 48;
-            this.txtId.Tag = "StudentId";
-            this.ToolTips.SetToolTip(this.txtId, "Insert the Student ID here using Numeric Characters Only!");
+            this.txtStudentId.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtStudentId.Location = new System.Drawing.Point(250, 10);
+            this.txtStudentId.Name = "txtStudentId";
+            this.txtStudentId.Size = new System.Drawing.Size(236, 26);
+            this.txtStudentId.TabIndex = 48;
+            this.txtStudentId.Tag = "StudentId";
+            this.ToolTips.SetToolTip(this.txtStudentId, "Insert the Student ID here using Numeric Characters Only!");
             // 
             // dtpCompletion
             // 
@@ -400,6 +400,7 @@
             this.btnClearForm.TabIndex = 60;
             this.btnClearForm.Tag = "Clear Form";
             this.btnClearForm.UseVisualStyleBackColor = false;
+            this.btnClearForm.Click += new System.EventHandler(this.btnClearForm_Click);
             // 
             // panel8
             // 
@@ -716,7 +717,7 @@
             this.panel1.Controls.Add(this.dgvSearch);
             this.panel1.Controls.Add(this.label5);
             this.panel1.Controls.Add(this.label4);
-            this.panel1.Controls.Add(this.txtId);
+            this.panel1.Controls.Add(this.txtStudentId);
             this.panel1.Controls.Add(this.pnlCourseResults);
             this.panel1.Controls.Add(this.cmbCourseName);
             this.panel1.Controls.Add(this.label8);
@@ -773,7 +774,7 @@
         #endregion
         private System.Windows.Forms.ToolTip ToolTips;
         private System.Windows.Forms.DateTimePicker dtpEnrolment;
-        private System.Windows.Forms.TextBox txtId;
+        private System.Windows.Forms.TextBox txtStudentId;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
         private System.ComponentModel.BackgroundWorker backgroundWorker2;
         private System.Windows.Forms.BindingSource bindingSource1;

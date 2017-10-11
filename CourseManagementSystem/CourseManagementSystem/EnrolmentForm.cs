@@ -24,7 +24,7 @@ namespace CMS
         {
             //this is add button code is stupid for some reason.
             if (!Validation.Many(
-                txtId.ValidateNumeric(),
+                txtStudentId.ValidateNumeric(),
                 cmbCourseName,
                 dtpCompletion,
                 pnlSemester,
@@ -39,7 +39,7 @@ namespace CMS
             {
                 Enrolment enrolment = new Enrolment()
                 {
-                    StudentId = txtId.Int(),
+                    StudentId = txtStudentId.Int(),
                     CourseId = cmbCourseName.Int(),
                     EnrolmentDate = dtpEnrolment.Value,
                     CompletionDate = dtpCompletion.Value,
@@ -52,17 +52,17 @@ namespace CMS
                 }
                 //success!
                 MessageBox.Show($"Enrolment id: {enrolment.Id} added successfully.");
-                txtId.Text = enrolment.Id.ToString();
+                txtStudentId.Text = enrolment.Id.ToString();
             }
 
         }
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
-            if (!Validation.Numeric(txtId))
+            if (!Validation.Numeric(txtStudentId))
                 return;
 
-            DialogResult result = MessageBox.Show("Would you like to search for this Enrolment", "Question",
+            DialogResult result = MessageBox.Show("Would you like to search for this Student's Enrolment", "Question",
                                                MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
             if (result == DialogResult.Yes)
             {
@@ -74,7 +74,7 @@ namespace CMS
                 //    " student.studentId = enrolment.studentId and course.courseId = enrolment.courseId and student.studentId = " + txtId.Int());
 
                 {
-                    Enrolment enrolment = new Enrolment(txtId.Int());
+                    Enrolment enrolment = new Enrolment(txtStudentId.Int());
 
                     if (enrolment.Search())
                     {
@@ -96,7 +96,7 @@ namespace CMS
                     }
 
                     dgvSearch.DataSource = Database.CreateDataTable($"Select students.studentId,(studentFirstName + ' ' + studentLastName) as 'Student Name', courses.courseId,courseName as 'Course Name' from students,enrolments, courses where" +
-                " students.studentId = enrolments.studentId and courses.courseId = enrolments.courseId and students.studentId = " + txtId.Int());
+                " students.studentId = enrolments.studentId and courses.courseId = enrolments.courseId and students.studentId = " + txtStudentId.Int());
                     ;
                 }
             }
@@ -106,7 +106,7 @@ namespace CMS
         private void btnUpdate_Click(object sender, EventArgs e)
         {
             if (!Validation.Many(
-                txtId.ValidateNumeric(),
+                txtStudentId.ValidateNumeric(),
                 cmbCourseName,
                 pnlSemester,
                 pnlCourseResults
@@ -118,25 +118,24 @@ namespace CMS
                                             MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
             if (result == DialogResult.Yes)
             {
-                Enrolment enrolment = new Enrolment()
-                {
-                    Id = txtId.Int(),
-                    EnrolmentDate = dtpEnrolment.Value,
-                    CompletionDate = dtpCompletion.Value,
-                    EnrolmentCost = int.Parse(txtEnrolmentCost.Text),
-                    DiscountCost = int.Parse(txtDiscountCost.Text),
-                    Semester = Forms.RadioValue(pnlSemester, Types.Semester),
-                    Result = Forms.RadioValue(pnlCourseResults, Types.CourseResults)
-                };
-                Course course = new Course(enrolment.CourseId);
-                if (course.Search())
-                {
-                      course.DepartmentId= (int)cmbAreaOfStudy.SelectedValue;
-                      enrolment.CourseId = (int)cmbCourseName.SelectedValue;
-                }
-                {
 
-                }
+
+                Enrolment enrolment = new Enrolment();
+                enrolment.Search("studentId", txtStudentId.Int(), "CourseId", cmbCourseName.Int());
+                enrolment.EnrolmentDate = dtpEnrolment.Value;
+                enrolment.CompletionDate = dtpCompletion.Value;
+                enrolment.EnrolmentCost = int.Parse(txtEnrolmentCost.Text);
+                enrolment.DiscountCost = int.Parse(txtDiscountCost.Text);
+                enrolment.Semester = Forms.RadioValue(pnlSemester, Types.Semester);
+                enrolment.Result = Forms.RadioValue(pnlCourseResults, Types.CourseResults);
+            
+                //Course course = new Course(enrolment.CourseId);
+                //if (course.Search())
+                //{
+                //      course.DepartmentId= (int)cmbAreaOfStudy.SelectedValue;
+                //      enrolment.CourseId = (int)cmbCourseName.SelectedValue;
+                //}
+
                 if (!enrolment.Update())
                 {
                     return;
@@ -149,7 +148,7 @@ namespace CMS
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            if (!Validation.Numeric(txtId))
+            if (!Validation.Numeric(txtStudentId))
             {
                 return;
             }
@@ -159,7 +158,7 @@ namespace CMS
             if (result == DialogResult.Yes)
             {
                 //student
-                Enrolment enrolment = new Enrolment(txtId.Int());
+                Enrolment enrolment = new Enrolment(txtStudentId.Int());
                 if (!enrolment.Delete())
                 {
                     return;
@@ -186,7 +185,7 @@ namespace CMS
             Enrolment enrolment = new Enrolment(id);
             if (enrolment.Search())
             {
-                txtId.Text = enrolment.StudentId.ToString();
+                txtStudentId.Text = enrolment.StudentId.ToString();
                 txtEnrolmentCost.Text = enrolment.EnrolmentCost.ToString();
                 txtDiscountCost.Text = enrolment.DiscountCost.ToString();
                 dtpEnrolment.Value = enrolment.EnrolmentDate;
@@ -240,11 +239,11 @@ namespace CMS
             txtTotal.Text = total.ToString();
             //student
             int i;
-            if (string.IsNullOrEmpty(txtId.Text) || !int.TryParse(txtId.Text, out i))
+            if (string.IsNullOrEmpty(txtStudentId.Text) || !int.TryParse(txtStudentId.Text, out i))
             {
                 return;
             }
-            Student student = new Student() { Id = txtId.Int() };
+            Student student = new Student() { Id = txtStudentId.Int() };
             if (!student.Search())
             {
                 return;
@@ -320,7 +319,7 @@ namespace CMS
             }
         }
 
-     
+
 
         private void courseToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -419,7 +418,7 @@ namespace CMS
             Enrolment enrolment = new Enrolment();
             if (enrolment.Search("studentId", studentId, "courseId", courseId))
             {
-                txtId.Text = enrolment.StudentId.ToString();
+                txtStudentId.Text = enrolment.StudentId.ToString();
 
                 txtEnrolmentCost.Text = enrolment.EnrolmentCost.ToString();
                 txtDiscountCost.Text = enrolment.DiscountCost.ToString();
@@ -434,6 +433,10 @@ namespace CMS
                 cmbAreaOfStudy.SelectedValue = course.DepartmentId;
                 cmbCourseName.SelectedValue = enrolment.CourseId;
             }
+        }
+        private void btnClearForm_Click(object sender, EventArgs e)
+        {
+            Forms.ClearControls(this);
         }
     }
 }

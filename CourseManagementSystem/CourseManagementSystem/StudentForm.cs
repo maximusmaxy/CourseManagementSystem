@@ -30,6 +30,17 @@ namespace CMS
                 btnUpdate.Enabled = true;
                 txtId.Text = Forms.Id.ToString();
                 txtId.Enabled = false;
+                addToolStripMenuItem.Enabled = false;
+                searchToolStripMenuItem.Enabled = false;
+                deleteToolStripMenuItem.Enabled = false;
+                viewAllToolStripMenuItem.Enabled = false;
+                teacherToolStripMenuItem.Enabled = false;
+                courseToolStripMenuItem.Enabled = false;
+                unitToolStripMenuItem.Enabled = false;
+                assessmentToolStripMenuItem.Enabled = false;
+                skillsToolStripMenuItem.Enabled = false;
+                allocationToolStripMenuItem.Enabled = false;
+                globalSearchToolStripMenuItem.Enabled = false;
                 Search(Forms.Id.Value);
             }
         }

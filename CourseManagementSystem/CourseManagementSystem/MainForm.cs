@@ -16,22 +16,20 @@ namespace CMS
         public MainForm()
         {
             InitializeComponent();
-            switch (Forms.Permission)
-            {
-                case Permission.Student:
-                    btnAllocationForm.Enabled = false;
-                    btnAssessmentForm.Enabled = false;
-                    btnCourseForm.Enabled = false;
-                    btnEnrolementForm.Enabled = false;
-                    btnGlobalSearchForm.Enabled = false;
-                    btnSkillsForm.Enabled = false;
-                    btnTeacherForm.Enabled = false;
-                    btnUnitForm.Enabled = false;
-                    break;
-                case Permission.Teacher:
-                    
-                    break;
+            SetPermissions();
+        }
 
+        private void SetPermissions()
+        {
+            if (Forms.Permission == Permission.Student)
+            {
+                btnAllocationForm.Enabled = false;
+                btnAssessmentForm.Enabled = false;
+                btnCourseForm.Enabled = false;
+                btnGlobalSearchForm.Enabled = false;
+                btnSkillsForm.Enabled = false;
+                btnTeacherForm.Enabled = false;
+                btnUnitForm.Enabled = false;
             }
         }
 

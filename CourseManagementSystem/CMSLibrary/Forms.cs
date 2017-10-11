@@ -54,6 +54,26 @@ namespace CmsLibrary
         }
 
         /// <summary>
+        /// Disables all radios in a panel. Use EnableRadio to reverse.
+        /// </summary>
+        /// <param name="pnl">The panel containing the radios.</param>
+        public static void DisableRadio(Panel pnl)
+        {
+            foreach (RadioButton rdb in pnl.Controls.OfType<RadioButton>())
+                rdb.Enabled = false;
+        }
+
+        /// <summary>
+        /// Enables all radios in a panel. Use DisableRadio to reverse.
+        /// </summary>
+        /// <param name="pnl">The panel containing the radios.</param>
+        public static void EnableRadio(Panel pnl)
+        {
+            foreach (RadioButton rdb in pnl.Controls.OfType<RadioButton>())
+                rdb.Enabled = true;
+        }
+
+        /// <summary>
         /// Sets all checked values of radio buttons on a panel to false.
         /// </summary>
         /// <param name="pnl">The panel holding the radio buttons.</param>

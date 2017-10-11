@@ -17,7 +17,34 @@ namespace CMS
         {
             InitializeComponent();
             Forms.FillData(cmbAreaOfStudy, "departments", "departmentname", "departmentid");
-
+            if (!Forms.HasPermission(Permission.Admin))
+            {
+                btnDelete.Enabled = false;
+                btnViewAll.Enabled = false;
+            }
+            if (Forms.Permission == Permission.Teacher || Forms.Permission == Permission.HeadTeacher)
+            {
+                btnAdd.Enabled = false;
+                btnUpdate.Enabled = false;
+            }
+            if (Forms.Permission == Permission.Student)
+            {
+                txtStudentId.Text = Forms.Id.ToString();
+                txtStudentId.Enabled = false;
+                btnSearch.Enabled = false;
+                Forms.CheckRadio(pnlCourseResults, "Not Completed");
+                searchToolStripMenuItem.Enabled = false;
+                deleteToolStripMenuItem.Enabled = false;
+                viewAllToolStripMenuItem.Enabled = false;
+                teacherCoursesToolStripMenuItem.Enabled = false;
+                courseToolStripMenuItem.Enabled = false;
+                unitToolStripMenuItem.Enabled = false;
+                assessmentToolStripMenuItem.Enabled = false;
+                skillsToolStripMenuItem.Enabled = false;
+                allocationToolStripMenuItem.Enabled = false;
+                globalSearchToolStripMenuItem.Enabled = false;
+                Forms.DisableRadio(pnlCourseResults);
+            }
         }
 
         private void btnAdd_Click(object sender, EventArgs e)

@@ -230,6 +230,7 @@ namespace CMS
                     Teacher teacher = new Teacher(form.Id);
                     if (teacher.Search())
                     {
+                        txtId.Text = teacher.Id.ToString();
                         txtFirstName.Text = teacher.FirstName;
                         txtLastName.Text = teacher.LastName;
                         txtContactNumber.Text = teacher.ContactNumber;

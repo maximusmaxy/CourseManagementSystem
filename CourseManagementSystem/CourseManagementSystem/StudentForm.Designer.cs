@@ -323,6 +323,7 @@
             this.searchToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S)));
             this.searchToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
             this.searchToolStripMenuItem.Text = "&Search";
+            this.searchToolStripMenuItem.Click += new System.EventHandler(this.searchToolStripMenuItem_Click);
             // 
             // updateToolStripMenuItem
             // 
@@ -346,6 +347,7 @@
             this.viewAllToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.V)));
             this.viewAllToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
             this.viewAllToolStripMenuItem.Text = "&View All";
+            this.viewAllToolStripMenuItem.Click += new System.EventHandler(this.btnViewAll_Click);
             // 
             // formsToolStripMenuItem
             // 
@@ -697,7 +699,18 @@
             this.cmbCountryOfOrigin.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbCountryOfOrigin.FormattingEnabled = true;
             this.cmbCountryOfOrigin.Items.AddRange(new object[] {
-            "Australia"});
+            "Australia",
+            "America",
+            "China",
+            "England",
+            "France",
+            "Italy",
+            "India",
+            "Korea",
+            "Russia",
+            "Spain",
+            "Uganda",
+            "Zimbabwe"});
             this.cmbCountryOfOrigin.Location = new System.Drawing.Point(250, 424);
             this.cmbCountryOfOrigin.Name = "cmbCountryOfOrigin";
             this.cmbCountryOfOrigin.Size = new System.Drawing.Size(368, 28);

@@ -186,7 +186,7 @@ namespace CmsLibrary
                 "discountCost", discountCost,
                 "totalCost",totalCost,
                 "semester", semester,
-                "result", result);
+                "results", result);
         }
 
         public bool Delete()

@@ -16,16 +16,38 @@ namespace CMS
         public TeacherForm()
         {
             InitializeComponent();
+            Forms.FillData(cmbCampus, "locations", "campus", "locationid", "select campus, locationid from locations where campus is not null");
+            Forms.FillData(cmbDepartment, "Departments", "DepartmentName", "DepartmentId");
+            cmbDepartment_SelectedIndexChanged(null, null);
+            SetPermission();
+        }
+
+        private void SetPermission()
+        {
+            if (!Forms.HasPermission(Permission.Admin))
+            {
+                btnDelete.Enabled = false;
+                btnViewAll.Enabled = false;
+                btnUpdate.Enabled = false;
+                btnAdd.Enabled = false;
+            }
+            if (!Forms.HasPermission(Permission.HeadTeacher))
+            {
+                btnSearch.Enabled = false;
+            }
+            if (Forms.Permission == Permission.Teacher || Forms.Permission == Permission.HeadTeacher)
+            {
+                btnUpdate.Enabled = true;
+                txtId.Text = Forms.Id.ToString();
+                if (Forms.Permission == Permission.Teacher)
+                    txtId.Enabled = false;
+                Search(Forms.Id.Value);
+            }
         }
 
         private void TeacherForm_Load(object sender, EventArgs e)
         {
-            Database.LoadDatabase();
-
-            Forms.FillData(cmbCampus, "locations", "campus", "locationid","select campus, locationid from locations where campus is not null");
-            Forms.FillData(cmbDepartment, "Departments", "DepartmentName", "DepartmentId");
-            cmbDepartment_SelectedIndexChanged(null, null);
-
+            //Database.LoadDatabase();
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
@@ -115,7 +137,6 @@ namespace CMS
                 {
                     cmbCampus.Text = location.Campus;
                 }
-
                 Forms.SelectData(lstSkillsList, "teacher_skills", "teacherid", teacher.Id, "skillid");
             }
         }

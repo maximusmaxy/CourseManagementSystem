@@ -41,7 +41,8 @@ UserId smallint primary key identity(1,1) not null,
 username varchar(50) not null,
 passwords varchar(64) not null,
 salt varchar(64) not null,
-permissionType smallint not null
+permissionType smallint not null,
+studentTeacherId smallint,
 constraint unique_username unique(username));
 
 create table Departments(
@@ -300,6 +301,7 @@ insert into Unit_Teachers values(2,2);
 insert into Unit_Teachers values (3,3); 
 insert into Unit_Teachers values(4,4);
 insert into Unit_Teachers values (5,5);
-insert into Users values('user', 'CqOdKkg2e98S1ZWobsUfvE59jBZ/ItDcAIuDh6zvXBc=', '4oUuh8afP/vuwunyxsGrc4SkS9SLqnP0yGiE38B4nE8=', 1);
-insert into Users values('teacher', 'cmshNNPPuajf8sv53QlwnoPFvRfODppUHm7lhYfYlP8=', 'q9WBnDAmA6YHycp1F+UIXesI+iVEC+mhiMVClTMmF4E=', 2);
-insert into Users values('admin', 'Bc/4CmZXpU40BUdxCLa9UkH+oDJJ59FZlq+44TPJLhw=', '5E1q2nxPgI5BG5s4idW9CLd1doLQuAj2QPmZRO9wxT4=', 3);
+insert into Users values('student', 'mRocQYnfs3/0/brrpSbyCHOVuFnIk16bNRJzZw4K4/E=', '4ZAXAXF1giXVGgGx6GvwzMEn6tMWmgE/ku7BQDufCqA=', 1, 1);
+insert into Users values('teacher', '2oM5JHkdUkw4Qvhc1XE8wqKlFGgrnasRvJIG1HqO6YM=', '3a9JMvojYWOTnUzhOHPo0Zh+dYdh48KWw65B1OcGcJQ=', 2, 2);
+insert into Users values('head teacher', 'YLG5i+xhYw6Nn5QinZtxisycNnRguB+sq8gjVvDGpLk=', 'Kyc2q1L2/AQsawwzkALAwqA5gXya4CPFlyDH3tsGCDY=', 3, 1);
+insert into Users values('admin', 'EqgnTjTef6LrMjVp6l8Fwu+Na4vvfLMYVVGMcJ931KM=', '8Z7tSOatw/EdpmY8u2ohjAhNA+WLkgLIG5+fUfMEGUM=', 4, null);

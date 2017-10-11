@@ -35,6 +35,7 @@
             this.txtPassword = new System.Windows.Forms.TextBox();
             this.btnLogin = new System.Windows.Forms.Button();
             this.txtUsername = new System.Windows.Forms.TextBox();
+            this.button1 = new System.Windows.Forms.Button();
             this.panel7.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -108,6 +109,17 @@
             this.txtUsername.TabIndex = 14;
             this.txtUsername.Text = "admin";
             // 
+            // button1
+            // 
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(563, 319);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(97, 35);
+            this.button1.TabIndex = 13;
+            this.button1.Text = "Sign Up";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.btnLogin_Click);
+            // 
             // LoginForm
             // 
             this.AcceptButton = this.btnLogin;
@@ -116,11 +128,14 @@
             this.BackColor = System.Drawing.Color.Lavender;
             this.ClientSize = new System.Drawing.Size(988, 539);
             this.Controls.Add(this.txtUsername);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.btnLogin);
             this.Controls.Add(this.txtPassword);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.panel7);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
+            this.MaximizeBox = false;
             this.Name = "LoginForm";
             this.Text = "LoginForm";
             this.panel7.ResumeLayout(false);
@@ -138,5 +153,6 @@
         private System.Windows.Forms.TextBox txtPassword;
         private System.Windows.Forms.Button btnLogin;
         private System.Windows.Forms.TextBox txtUsername;
+        private System.Windows.Forms.Button button1;
     }
 }

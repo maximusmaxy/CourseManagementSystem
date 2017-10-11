@@ -695,6 +695,8 @@
             this.Controls.Add(this.panel7);
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.panel9);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
+            this.MaximizeBox = false;
             this.Name = "CourseForm";
             this.Text = "CourseForm";
             this.panel5.ResumeLayout(false);

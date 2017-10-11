@@ -935,6 +935,7 @@
             this.Controls.Add(this.panel10);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.MainMenuStrip = this.menuStrip1;
+            this.MaximizeBox = false;
             this.Name = "StudentForm";
             this.Text = "Student";
             this.Load += new System.EventHandler(this.StudentForm_Load);

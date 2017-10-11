@@ -613,6 +613,8 @@
             this.Controls.Add(this.panel7);
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.panel9);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
+            this.MaximizeBox = false;
             this.Name = "UnitForm";
             this.Load += new System.EventHandler(this.UnitForm_Load);
             this.pnlUnitType.ResumeLayout(false);

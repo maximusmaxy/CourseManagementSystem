@@ -62,7 +62,7 @@ namespace CMS
             if (!Validation.Numeric(txtId))
                 return;
 
-            DialogResult result = MessageBox.Show("Would you like to search for this Enrolment", "Question",
+            DialogResult result = MessageBox.Show("Would you like to search for this Student's Enrolment", "Question",
                                                MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
             if (result == DialogResult.Yes)
             {

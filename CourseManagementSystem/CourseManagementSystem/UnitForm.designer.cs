@@ -471,6 +471,7 @@
             this.addToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.A)));
             this.addToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
             this.addToolStripMenuItem.Text = "&Add";
+            this.addToolStripMenuItem.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // searchToolStripMenuItem
             // 
@@ -478,6 +479,7 @@
             this.searchToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S)));
             this.searchToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
             this.searchToolStripMenuItem.Text = "&Search";
+            this.searchToolStripMenuItem.Click += new System.EventHandler(this.btnSearch_Click);
             // 
             // deleteToolStripMenuItem
             // 
@@ -485,6 +487,7 @@
             this.deleteToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.U)));
             this.deleteToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
             this.deleteToolStripMenuItem.Text = "&Update";
+            this.deleteToolStripMenuItem.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
             // updateToolStripMenuItem
             // 
@@ -492,7 +495,7 @@
             this.updateToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.D)));
             this.updateToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
             this.updateToolStripMenuItem.Text = "&Delete";
-            this.updateToolStripMenuItem.Click += new System.EventHandler(this.updateToolStripMenuItem_Click);
+            this.updateToolStripMenuItem.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // viewAllToolStripMenuItem
             // 
@@ -500,7 +503,7 @@
             this.viewAllToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.V)));
             this.viewAllToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
             this.viewAllToolStripMenuItem.Text = "&View All";
-            this.viewAllToolStripMenuItem.Click += new System.EventHandler(this.viewAllToolStripMenuItem_Click);
+            this.viewAllToolStripMenuItem.Click += new System.EventHandler(this.btnViewAll_Click);
             // 
             // label3
             // 

@@ -370,5 +370,6 @@ namespace CMS
         {
             Forms.FillData(lstSkill, "skills", "skillname", "skillid", "departmentid", cmbAreaOfStudy.SelectedValue);
         }
+
     }
 }

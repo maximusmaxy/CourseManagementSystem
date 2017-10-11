@@ -56,6 +56,7 @@ namespace CMS
                     Email = txtEmail.Text,
                     CountryOfOrigin = cmbCountryOfOrigin.Text,
                     Gender = Forms.RadioValue(pnlGender, Types.GenderType),
+                    ContactNumber = txtContactNumber.Text,
                     Aboriginal = chkDropKick.Checked,
                     Centrelink = chkCentrelink.Checked,
                     Disability = chkDisability.Checked,
@@ -99,6 +100,7 @@ namespace CMS
                 txtEmail.Text = student.Email;
                 cmbCountryOfOrigin.Text = student.CountryOfOrigin;
                 Forms.CheckRadio(pnlGender, Types.GenderType, student.Gender);
+                txtContactNumber.Text = student.ContactNumber;
                 chkDropKick.Checked = student.Aboriginal;
                 chkCentrelink.Checked = student.Centrelink;
                 chkDisability.Checked = student.Disability;
@@ -160,6 +162,7 @@ namespace CMS
                     Email = txtEmail.Text,
                     CountryOfOrigin = cmbCountryOfOrigin.Text,
                     Gender = Forms.RadioValue(pnlGender, Types.GenderType),
+                    ContactNumber = txtContactNumber.Text,
                     Aboriginal = chkDropKick.Checked,
                     Centrelink = chkCentrelink.Checked,
                     Disability = chkDisability.Checked,
@@ -225,6 +228,7 @@ namespace CMS
                         txtEmail.Text = student.Email;
                         cmbCountryOfOrigin.Text = student.CountryOfOrigin;
                         Forms.CheckRadio(pnlGender, Types.GenderType, student.Gender);
+                        txtContactNumber.Text = student.ContactNumber;
                         chkDropKick.Checked = student.Aboriginal;
                         chkCentrelink.Checked = student.Centrelink;
                         chkDisability.Checked = student.Disability;

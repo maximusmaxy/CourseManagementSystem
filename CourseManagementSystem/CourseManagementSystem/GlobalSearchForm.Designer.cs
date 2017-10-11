@@ -756,6 +756,8 @@
             this.Controls.Add(this.panel5);
             this.Controls.Add(this.panel7);
             this.Controls.Add(this.menuStrip1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
+            this.MaximizeBox = false;
             this.Name = "GlobalSearchForm";
             this.Text = "GlobalSearchForm";
             this.menuStrip1.ResumeLayout(false);

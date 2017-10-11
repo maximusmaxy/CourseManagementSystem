@@ -41,7 +41,8 @@ UserId smallint primary key identity(1,1) not null,
 username varchar(50) not null,
 passwords varchar(64) not null,
 salt varchar(64) not null,
-permissionType smallint not null
+permissionType smallint not null,
+studentTeacherID smallint,
 constraint unique_username unique(username));
 
 create table Departments(
@@ -183,11 +184,13 @@ insert into Departments values('Hair Dressing');
 insert into Departments values('Gardening');
 insert into Departments values('Commerce');
 insert into Departments values('Admin');
-insert into Locations values('ekm st',null,'granville','NSW',2161,'granville');
-insert into Locations values('pitt st',null,'merrylands','NSW',2160,null);
+insert into Locations values('elm st',null,'granville','NSW',2161,'granville');
 insert into Locations values('parramatta rd',null,'Parramatta','NSW',2260,'Mt Druitt');
-insert into Locations values('chetwynd rd',null,'guildford','NSW',2141,null);
 insert into Locations values('northumberland st',null,'liverpool','nsw',2001,'liverpool');
+insert into Locations values('place pl',null,'Redfern','NSW',2509,'Redfern');
+insert into Locations values('kingswood rd', null, 'Penrith', 'NSW', 2515, 'Penrith'); 
+insert into Locations values('pitt st',null,'merrylands','NSW',2160,null);
+insert into Locations values('chetwynd rd',null,'guildford','NSW',2141,null);
 insert into Skills values(1,'Java', 'being good at java');
 insert into Skills values(1,'C Sharp', 'being good at C#');
 insert into Skills values (1,'Database','Being awesome at Sql');
@@ -203,8 +206,8 @@ insert into Skills values(5,'Helpfulness','can actually help people with a probl
 insert into Students values(1,'Bob','Saget','1995-05-15','bob-saget@live.com','Australia', 1,'0432165897',0,0, 1, 'Crippling Depression');
 insert into Students values(2,'Jim','Barnes','1994-08-13','Barnesy88@hotmail.com','Australia',2,'963741852',1,0,0,null);
 insert into Students Values(3,'Dave','Hughes','1987-04-22','theGoonie@yahoo.com','Australia',1,'9248657132',0,1,0,null);
-insert into Students values(4,'Floyd','Mayweather','1976-07-11','glassjaw22@hotmail.com','Australia',1,'0436287196',0,0,0,null);
-insert into Students values(5,'Ozzy','Osbourne','1956-05-06','lordofdarnkness@gmail.com','Austalia',1,'9845321672',0,0,1,'Bi-polar');
+insert into Students values(6,'Floyd','Mayweather','1976-07-11','glassjaw22@hotmail.com','Australia',1,'0436287196',0,0,0,null);
+insert into Students values(7,'Ozzy','Osbourne','1956-05-06','lordofdarkness@gmail.com','Australia',1,'9845321672',0,0,1,'Bi-polar');
 insert into Courses values(1,1,'Diploma of Software development',10000.00,2,'2017-06-10','2017-11-26','Final level of education provided at tafe regarding IT');
 insert into Courses values(1,1,'Certificate IV IT',8000.00,1,'2017-06-10','2017-11-26','Further Study in IT');
 insert into Courses values(1,1,'Certificate III IT',5000.00,2,'2017-06-10','2017-11-26','Basic level in IT');
@@ -303,3 +306,27 @@ insert into Unit_Teachers values (5,5);
 insert into Users values('user', 'CqOdKkg2e98S1ZWobsUfvE59jBZ/ItDcAIuDh6zvXBc=', '4oUuh8afP/vuwunyxsGrc4SkS9SLqnP0yGiE38B4nE8=', 1);
 insert into Users values('teacher', 'cmshNNPPuajf8sv53QlwnoPFvRfODppUHm7lhYfYlP8=', 'q9WBnDAmA6YHycp1F+UIXesI+iVEC+mhiMVClTMmF4E=', 2);
 insert into Users values('admin', 'Bc/4CmZXpU40BUdxCLa9UkH+oDJJ59FZlq+44TPJLhw=', '5E1q2nxPgI5BG5s4idW9CLd1doLQuAj2QPmZRO9wxT4=', 3);
+
+INSERT INTO [dbo].[Units] ([unitId], [departmentId], [unitCode], [unitName], [unitType], [numOfHours], [unitDescription]) VALUES (22, 1, N'ICTICT307', N'Create user documentation', 1, 20, N'This Unit describes the skills and knowledge required to create user documentation that is clear to the target audience and easy to navigate.')
+INSERT INTO [dbo].[Units] ([unitId], [departmentId], [unitCode], [unitName], [unitType], [numOfHours], [unitDescription]) VALUES (23, 1, N'ICTICT409', N'Develop macros and templates for clients', 1, 20, N'This unit describes the skills and knowledge required to develop macros and templates for clients using industry recognised software applications.')
+INSERT INTO [dbo].[Units] ([unitId], [departmentId], [unitCode], [unitName], [unitType], [numOfHours], [unitDescription]) VALUES (27, 1, N'ICTWHS204', N'Follow WHS and environmental policy', 1, 15, N'This unit describes the skills and knowledge required to follow safe working practices and environmental policy in the management of a telecommunications workplace.')
+INSERT INTO [dbo].[Units] ([unitId], [departmentId], [unitCode], [unitName], [unitType], [numOfHours], [unitDescription]) VALUES (28, 1, N'ICTICT304', N'Implement system software changes', 1, 20, N'This unit describes the skills and knowledge required to implement system software changes and to hand over the modified system to the client''s operational area.')
+INSERT INTO [dbo].[Units] ([unitId], [departmentId], [unitCode], [unitName], [unitType], [numOfHours], [unitDescription]) VALUES (30, 1, N'ICTICT308', N'Use advanced features of computer applications', 1, 20, N'This unit describes the skills and knowledge required to use computer applications employing advanced features. It involves manipulating data and accessing support resources to solve routine problems.')
+INSERT INTO [dbo].[Units] ([unitId], [departmentId], [unitCode], [unitName], [unitType], [numOfHours], [unitDescription]) VALUES (31, 1, N'ICTPRG414', N'Apply introductory programming skills', 1, 30, N'This unit describes the skills and knowledge required to carry out programming activities using a procedural approach.')
+INSERT INTO [dbo].[Units] ([unitId], [departmentId], [unitCode], [unitName], [unitType], [numOfHours], [unitDescription]) VALUES (32, 1, N'ICTPRG402', N'Apply query language', 1, 25, N'This unit describes the skills and knowledge required to retrieve and manipulate information stored in information systems, using a query language.')
+INSERT INTO [dbo].[Units] ([unitId], [departmentId], [unitCode], [unitName], [unitType], [numOfHours], [unitDescription]) VALUES (33, 1, N'ICTICT415', N'Apply skills in object-oriented design', 1, 20, N'This unit describes the skills and knowledge required to produce an object-oriented design from specifications, applying the cyclic process of iteration from identification of class, instance, role and type to the final object-oriented model of the application.')
+INSERT INTO [dbo].[Units] ([unitId], [departmentId], [unitCode], [unitName], [unitType], [numOfHours], [unitDescription]) VALUES (34, 1, N'ICTPRG410', N'Build a user interface', 1, 30, N'This unit describes the skills and knowledge required to design, build, and test a user interface (UI) to specification, including command-line interfaces (CLI), graphical user interfaces (GUI), web user interfaces (WUI) and natural user interfaces (NUI).')
+INSERT INTO [dbo].[Units] ([unitId], [departmentId], [unitCode], [unitName], [unitType], [numOfHours], [unitDescription]) VALUES (35, 1, N'ICTICT418', N'Contribute to copyright, ethics and privacy', 1, 8, N'It applies to ICT personnel who are required to gather information to determine the organisation’s code of ethics, and protect and maintain privacy policies and system security.')
+INSERT INTO [dbo].[Units] ([unitId], [departmentId], [unitCode], [unitName], [unitType], [numOfHours], [unitDescription]) VALUES (36, 1, N'ICTWEB414', N'Design simple web page layouts', 1, 30, N'It applies to individuals working as web designers and web developers, who apply a wide range of knowledge and skills for basic web development.')
+INSERT INTO [dbo].[Units] ([unitId], [departmentId], [unitCode], [unitName], [unitType], [numOfHours], [unitDescription]) VALUES (37, 1, N'ICTWEB413', N'Optimise search engines', 2, 25, N'It applies to individuals who make recommendations and monitor keyword enhancements, search engine marketing (SEM) and social network marketing (SNM).')
+INSERT INTO [dbo].[Units] ([unitId], [departmentId], [unitCode], [unitName], [unitType], [numOfHours], [unitDescription]) VALUES (38, 1, N'ICTPRG426', N'Prepare software development review', 1, 20, N'It applies to staff in the software development area who are required to ensure that the software development process incorporates quality considerations.')
+INSERT INTO [dbo].[Units] ([unitId], [departmentId], [unitCode], [unitName], [unitType], [numOfHours], [unitDescription]) VALUES (39, 1, N'ICTWEB411', N'Produce basic client-side script', 1, 8, N'This unit describes the skills and knowledge required to develop interactive and engaging websites, using a range of features from various, appropriate languages.')
+INSERT INTO [dbo].[Units] ([unitId], [departmentId], [unitCode], [unitName], [unitType], [numOfHours], [unitDescription]) VALUES (40, 1, N'ICTPRG404', N'Test applications', 1, 30, N'This unit describes the skills and knowledge required to prepare test plans, write test procedures or scripts according to test plans, and maintain test plans and scripts.')
+INSERT INTO [dbo].[Units] ([unitId], [departmentId], [unitCode], [unitName], [unitType], [numOfHours], [unitDescription]) VALUES (41, 1, N'ICTPRG501', N'Apply advanced object-oriented language skills', 1, 40, N'This unit describes the skills and knowledge required to undertake advanced programming tasks using an object-oriented programming language.')
+INSERT INTO [dbo].[Units] ([unitId], [departmentId], [unitCode], [unitName], [unitType], [numOfHours], [unitDescription]) VALUES (44, 1, N'ICTPRG604', N'Create cloud computing services', 1, 40, N'This unit describes the skills and knowledge required to design, build, test and deploy web services and cloud computing applications to specifications.')
+INSERT INTO [dbo].[Units] ([unitId], [departmentId], [unitCode], [unitName], [unitType], [numOfHours], [unitDescription]) VALUES (45, 1, N'ICTPRG503', N'Debug and monitor applications', 1, 40, N'It applies to individuals who work as developers, testers and support engineers, using logging and tracing techniques to identify software problems and to monitor systems.')
+INSERT INTO [dbo].[Units] ([unitId], [departmentId], [unitCode], [unitName], [unitType], [numOfHours], [unitDescription]) VALUES (46, 1, N'ICTDBS412', N'Build a database', 1, 30, N'This unit describes the skills and knowledge required to build, implement, test and evaluate a database, using an established design.')
+INSERT INTO [dbo].[Units] ([unitId], [departmentId], [unitCode], [unitName], [unitType], [numOfHours], [unitDescription]) VALUES (47, 1, N'ICTWEB501', N'Build a dynamic website', 1, 8, N'It applies to individuals working as web developers who are responsible for the analysis, design, implementation, and testing of websites.')
+INSERT INTO [dbo].[Units] ([unitId], [departmentId], [unitCode], [unitName], [unitType], [numOfHours], [unitDescription]) VALUES (48, 1, N'ICTICT406', N'Build a graphical user interface', 1, 30, N'This unit describes the skills and knowledge required to design, build and test a graphical user interface (GUI) to specification.')
+INSERT INTO [dbo].[Units] ([unitId], [departmentId], [unitCode], [unitName], [unitType], [numOfHours], [unitDescription]) VALUES (49, 1, N'ICTPRG505', N'Build advanced user interface', 1, 40, N'This unit describes the skills and knowledge required to design, build and test an advanced user interface (UI), including interaction techniques, rich controls, improved client-side validation, customisation and personalisation, graphics and multimedia.')
+INSERT INTO [dbo].[Units] ([unitId], [departmentId], [unitCode], [unitName], [unitType], [numOfHours], [unitDescription]) VALUES (50, 1, N'ICTPRG509', N'Build using rapid application development', 1, 40, N'This unit describes the skills and knowledge required to build using rapid application development (RAD) tools.')

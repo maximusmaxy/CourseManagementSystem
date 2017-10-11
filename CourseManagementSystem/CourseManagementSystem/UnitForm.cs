@@ -370,6 +370,7 @@ namespace CMS
         {
             Forms.FillData(lstSkill, "skills", "skillname", "skillid", "departmentid", cmbAreaOfStudy.SelectedValue);
         }
+        
         private void btnClearForm_Click(object sender, EventArgs e)
         {
             Forms.ClearControls(this);

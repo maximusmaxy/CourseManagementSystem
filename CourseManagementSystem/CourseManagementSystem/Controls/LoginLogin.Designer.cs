@@ -1,4 +1,4 @@
-﻿namespace CMS.Controls
+﻿namespace CMS
 {
     partial class LoginLogin
     {

@@ -7,14 +7,19 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using CmsLibrary;
 
-namespace CMS.Controls
+namespace CMS
 {
-    public partial class LoginLogin : UserControl
+    public partial class LoginLogin : UserControl, ILoginControl
     {
         public LoginLogin()
         {
             InitializeComponent();
         }
+
+        public TextBox TxtUsername => txtUsername;
+        public TextBox TxtPassword => txtPassword;
+        public TextBox TxtConfirmPassword => null;
     }
 }

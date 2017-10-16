@@ -54,6 +54,7 @@
     <Compile Include="Forms.cs" />
     <Compile Include="IBridgingData.cs" />
     <Compile Include="IData.cs" />
+    <Compile Include="ILoginControl.cs" />
     <Compile Include="ISearchControl.cs" />
     <Compile Include="ISearchForm.cs" />
     <Compile Include="Location.cs" />

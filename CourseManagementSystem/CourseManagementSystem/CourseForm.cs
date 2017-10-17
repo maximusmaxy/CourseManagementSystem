@@ -20,6 +20,20 @@ namespace CMS
             Forms.FillData(cmbCampus, null, "campus", "locationid", "select locationid, campus from locations where campus is not null ");
             Forms.FillData(cmbAreaOfStudy, "departments", "departmentname", "departmentid");
             cboxAreaOfStudy_SelectedIndexChanged(null, null);
+            SetPermission();
+        }
+
+        private void SetPermission()
+        {
+            if (!Forms.HasPermission(Permission.Admin))
+            {
+                btnDelete.Enabled = false;
+            }
+            if (Forms.Permission == Permission.Teacher)
+            {
+                btnAdd.Enabled = false;
+                btnUpdate.Enabled = false;
+            }
         }
 
 

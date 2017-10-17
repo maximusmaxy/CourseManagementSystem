@@ -31,6 +31,12 @@ namespace CMS
                 btnTeacherForm.Enabled = false;
                 btnUnitForm.Enabled = false;
             }
+            else if (Forms.Permission == Permission.Teacher)
+            {
+                btnSkillsForm.Enabled = false;
+                btnAllocationForm.Enabled = false;
+                btnGlobalSearchForm.Enabled = false;
+            }
         }
 
         private void Main_Load(object sender, EventArgs e)

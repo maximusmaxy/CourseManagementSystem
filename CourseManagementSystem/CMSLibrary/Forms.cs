@@ -340,10 +340,19 @@ namespace CmsLibrary
         /// Gets the permission stored in the database user object.
         /// </summary>
         public static Permission Permission => Database.User.Permission;
+
         /// <summary>
         /// Gets the id stored in the database user object.
         /// </summary>
-        public static int? Id => Database.User.Id;
+        public static int Id {
+            get
+            {
+                if (Database.User.Id.HasValue)
+                    return Database.User.Id.Value;
+                else
+                    return -1;
+            }
+        }
 
         /// <summary>
         /// Checks whether the user has the specified permission type. This uses cascading permissions.

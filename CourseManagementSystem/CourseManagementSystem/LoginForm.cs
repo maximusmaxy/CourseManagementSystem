@@ -14,11 +14,11 @@ namespace CMS
     public partial class LoginForm : Form
     {
         private ILoginControl userControl;
-        private LoginSignUp ucSignUp;
+
         public LoginForm()
         {
             InitializeComponent();
-            //Database.ServerName = "MAXIMUMPENIS\\SQLEXPRESS";
+            Database.ServerName = "MAXIMUMPENIS\\SQLEXPRESS";
             Database.LoadDatabase();
             userControl = ucLogin;
         }

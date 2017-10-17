@@ -16,6 +16,20 @@ namespace CMS
         public UnitForm()
         {
             InitializeComponent();
+            SetPermission();
+        }
+
+        private void SetPermission()
+        {
+            if (!Forms.HasPermission(Permission.Admin))
+            {
+                btnDelete.Enabled = false;
+            }
+            if (Forms.Permission == Permission.Teacher)
+            {
+                btnAdd.Enabled = false;
+                btnUpdate.Enabled = false;
+            }
         }
 
         private void UnitForm_Load(object sender, EventArgs e)

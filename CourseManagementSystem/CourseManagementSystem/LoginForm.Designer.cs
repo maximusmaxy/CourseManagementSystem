@@ -30,9 +30,8 @@
         {
             this.panel7 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
-            this.btnLogin = new System.Windows.Forms.Button();
-            this.btnSignUp = new System.Windows.Forms.Button();
             this.ucLogin = new CMS.LoginLogin();
+            this.btnLogin = new System.Windows.Forms.Button();
             this.panel7.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -56,34 +55,23 @@
             this.label1.Text = "Course Management System";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // ucLogin
+            // 
+            this.ucLogin.Location = new System.Drawing.Point(250, 197);
+            this.ucLogin.Name = "ucLogin";
+            this.ucLogin.Size = new System.Drawing.Size(446, 78);
+            this.ucLogin.TabIndex = 14;
+            // 
             // btnLogin
             // 
             this.btnLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLogin.Location = new System.Drawing.Point(373, 319);
+            this.btnLogin.Location = new System.Drawing.Point(451, 281);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(97, 35);
             this.btnLogin.TabIndex = 13;
             this.btnLogin.Text = "Login";
             this.btnLogin.UseVisualStyleBackColor = true;
             this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
-            // 
-            // btnSignUp
-            // 
-            this.btnSignUp.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSignUp.Location = new System.Drawing.Point(512, 319);
-            this.btnSignUp.Name = "btnSignUp";
-            this.btnSignUp.Size = new System.Drawing.Size(97, 35);
-            this.btnSignUp.TabIndex = 13;
-            this.btnSignUp.Text = "Sign Up";
-            this.btnSignUp.UseVisualStyleBackColor = true;
-            this.btnSignUp.Click += new System.EventHandler(this.btnSignUp_Click);
-            // 
-            // ucLogin
-            // 
-            this.ucLogin.Location = new System.Drawing.Point(250, 197);
-            this.ucLogin.Name = "ucLogin";
-            this.ucLogin.Size = new System.Drawing.Size(446, 116);
-            this.ucLogin.TabIndex = 14;
             // 
             // LoginForm
             // 
@@ -93,7 +81,6 @@
             this.BackColor = System.Drawing.Color.Lavender;
             this.ClientSize = new System.Drawing.Size(988, 539);
             this.Controls.Add(this.ucLogin);
-            this.Controls.Add(this.btnSignUp);
             this.Controls.Add(this.btnLogin);
             this.Controls.Add(this.panel7);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
@@ -109,8 +96,7 @@
 
         private System.Windows.Forms.Panel panel7;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button btnLogin;
-        private System.Windows.Forms.Button btnSignUp;
         private LoginLogin ucLogin;
+        private System.Windows.Forms.Button btnLogin;
     }
 }

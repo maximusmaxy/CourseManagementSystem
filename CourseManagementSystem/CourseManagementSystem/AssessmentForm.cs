@@ -18,6 +18,15 @@ namespace CMS
             InitializeComponent();
             Forms.FillData(cmbAreaOfStudy, "departments", "departmentname", "departmentid");
             Forms.FillData(cmbUnit, "units", "unitname", "unitid");
+            SetPermission();
+        }
+
+        private void SetPermission()
+        {
+            if (!Forms.HasPermission(Permission.Admin))
+            {
+                btnDelete.Enabled = false;
+            }
         }
 
         private void addToolStripMenuItem_Click(object sender, EventArgs e)

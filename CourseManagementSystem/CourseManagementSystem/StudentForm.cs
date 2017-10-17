@@ -41,7 +41,7 @@ namespace CMS
                 skillsToolStripMenuItem.Enabled = false;
                 allocationToolStripMenuItem.Enabled = false;
                 globalSearchToolStripMenuItem.Enabled = false;
-                Search(Forms.Id.Value);
+                Search(Forms.Id);
             }
         }
 
@@ -425,6 +425,8 @@ namespace CMS
         private void btnClearForm_Click(object sender, EventArgs e)
         {
             Forms.ClearControls(this);
+            if (Forms.Permission == Permission.Student)
+                txtId.Text = Forms.Id.ToString();
         }
 
         private void StudentForm_Load(object sender, EventArgs e)

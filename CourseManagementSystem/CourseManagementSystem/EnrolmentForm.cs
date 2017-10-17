@@ -17,6 +17,11 @@ namespace CMS
         {
             InitializeComponent();
             Forms.FillData(cmbAreaOfStudy, "departments", "departmentname", "departmentid");
+            SetPermission();
+        }
+
+        private void SetPermission()
+        {
             if (!Forms.HasPermission(Permission.Admin))
             {
                 btnDelete.Enabled = false;
@@ -25,7 +30,6 @@ namespace CMS
             if (Forms.Permission == Permission.Teacher || Forms.Permission == Permission.HeadTeacher)
             {
                 btnAdd.Enabled = false;
-                btnUpdate.Enabled = false;
             }
             if (Forms.Permission == Permission.Student)
             {
@@ -464,6 +468,11 @@ namespace CMS
         private void btnClearForm_Click(object sender, EventArgs e)
         {
             Forms.ClearControls(this);
+            if (Forms.Permission == Permission.Student)
+            {
+                txtStudentId.Text = Forms.Id.ToString();
+                Forms.CheckRadio(pnlCourseResults, "Not Completed");
+            }
         }
     }
 }

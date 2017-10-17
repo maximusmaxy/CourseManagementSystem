@@ -28,20 +28,19 @@ namespace CMS
             {
                 btnDelete.Enabled = false;
                 btnViewAll.Enabled = false;
-                btnUpdate.Enabled = false;
                 btnAdd.Enabled = false;
             }
-            if (!Forms.HasPermission(Permission.HeadTeacher))
+            if (Forms.Permission == Permission.HeadTeacher)
+            {
+                Search(Forms.Id);
+            }
+            if (Forms.Permission == Permission.Teacher)
             {
                 btnSearch.Enabled = false;
-            }
-            if (Forms.Permission == Permission.Teacher || Forms.Permission == Permission.HeadTeacher)
-            {
-                btnUpdate.Enabled = true;
                 txtId.Text = Forms.Id.ToString();
                 if (Forms.Permission == Permission.Teacher)
                     txtId.Enabled = false;
-                Search(Forms.Id.Value);
+                Search(Forms.Id);
             }
         }
 
@@ -155,6 +154,15 @@ namespace CMS
                 ))
             {
                 return;
+            }
+            //make sure head teachers can only update themself
+            if (Forms.Permission == Permission.HeadTeacher)
+            {
+                if (txtId.Int() != Forms.Id)
+                {
+                    MessageBox.Show("You can only update your own record.");
+                    return;
+                }
             }
 
             DialogResult result = MessageBox.Show("Would you like to update this record", "Question",
@@ -389,6 +397,10 @@ namespace CMS
         private void btnClearForm_Click(object sender, EventArgs e)
         {
             Forms.ClearControls(this);
+            if (Forms.Permission == Permission.Teacher || Forms.Permission == Permission.HeadTeacher)
+            {
+                txtId.Text = Forms.Id.ToString();
+            }
         }
 
         private void allocationToolStripMenuItem_Click(object sender, EventArgs e)

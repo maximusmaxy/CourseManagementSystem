@@ -14,7 +14,7 @@ namespace CMS
     public partial class LoginForm : Form
     {
         private ILoginControl userControl;
-        private LoginSignUp ucSignUp;
+
         public LoginForm()
         {
             InitializeComponent();

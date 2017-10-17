@@ -18,7 +18,7 @@ namespace CMS
         public LoginForm()
         {
             InitializeComponent();
-            Database.ServerName = "MAXIMUMPENIS\\SQLEXPRESS";
+            //Database.ServerName = "MAXIMUMPENIS\\SQLEXPRESS";
             Database.LoadDatabase();
             userControl = ucLogin;
         }

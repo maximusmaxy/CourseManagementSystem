@@ -95,9 +95,9 @@ namespace CMS
             /// <summary>
             /// Adds an arithmetic calculation column to the table.
             /// </summary>
-            public void AddCalculation(string name, string calculation)
+            public void AddCalculation(string name, string calculation, Type type)
             {
-                Column column = new Column(name, name, Name, typeof(int));
+                Column column = new Column(name, name, Name, type);
                 column.Calculation = calculation;
                 Calculations.Add(column);
                 Columns.Add(column);
@@ -313,7 +313,8 @@ namespace CMS
             skill.JoinBridge(teacher, "Teacher_Skills", "skillId", "teacherId");
             skill.JoinBridge(unit, "Unit_Skills", "skillId", "unitId");
             AddLookUpTable("departments", "departmentname", "departmentid");
-            assessment.AddCalculation("Month Duration", "datediff(month, Assessments.assessmentStartDate, Assessments.assessmentDueDate)");
+            assessment.AddCalculation("Day Duration", "datediff(month, Assessments.assessmentStartDate, Assessments.assessmentDueDate)", typeof(int));
+            assessment.AddCalculation("Month Duration", "datediff(month, Assessments.assessmentStartDate, Assessments.assessmentDueDate)", typeof(int));
         }
 
         /// <summary>

@@ -209,7 +209,7 @@
             this.rdb2.TabStop = true;
             this.rdb2.Tag = "Elective";
             this.rdb2.Text = "Elective";
-            this.ToolTips.SetToolTip(this.rdb2, "Select this option if the person is a Female");
+            this.ToolTips.SetToolTip(this.rdb2, "Select this option if the unit is an elective");
             this.rdb2.UseVisualStyleBackColor = true;
             // 
             // rdb1
@@ -223,7 +223,7 @@
             this.rdb1.TabStop = true;
             this.rdb1.Tag = "Core";
             this.rdb1.Text = "Core";
-            this.ToolTips.SetToolTip(this.rdb1, "Select this option if this person is a Male");
+            this.ToolTips.SetToolTip(this.rdb1, "Select this option if this unit is core component");
             this.rdb1.UseVisualStyleBackColor = true;
             // 
             // txtNoOfHours
@@ -545,6 +545,7 @@
             this.cmbAreaOfStudy.Name = "cmbAreaOfStudy";
             this.cmbAreaOfStudy.Size = new System.Drawing.Size(368, 28);
             this.cmbAreaOfStudy.TabIndex = 5;
+            this.ToolTips.SetToolTip(this.cmbAreaOfStudy, "Select on determining what specialty the unit si related to.");
             this.cmbAreaOfStudy.ValueMember = "Area of study";
             this.cmbAreaOfStudy.SelectedIndexChanged += new System.EventHandler(this.cmbAreaOfStudy_SelectedIndexChanged_1);
             // 
@@ -579,6 +580,7 @@
             this.lstSkill.Size = new System.Drawing.Size(499, 84);
             this.lstSkill.TabIndex = 6;
             this.lstSkill.Tag = "Skill";
+            this.ToolTips.SetToolTip(this.lstSkill, "Please select all present skills related to this area");
             // 
             // panel9
             // 

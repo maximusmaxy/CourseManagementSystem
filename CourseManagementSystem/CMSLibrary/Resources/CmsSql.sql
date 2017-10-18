@@ -303,9 +303,9 @@ insert into Unit_Teachers values(2,2);
 insert into Unit_Teachers values (3,3); 
 insert into Unit_Teachers values(4,4);
 insert into Unit_Teachers values (5,5);
-insert into Users values('student', 'mRocQYnfs3/0/brrpSbyCHOVuFnIk16bNRJzZw4K4/E=', '4ZAXAXF1giXVGgGx6GvwzMEn6tMWmgE/ku7BQDufCqA=', 1, 1);
-insert into Users values('teacher', '2oM5JHkdUkw4Qvhc1XE8wqKlFGgrnasRvJIG1HqO6YM=', '3a9JMvojYWOTnUzhOHPo0Zh+dYdh48KWw65B1OcGcJQ=', 2, 2);
-insert into Users values('head teacher', 'YLG5i+xhYw6Nn5QinZtxisycNnRguB+sq8gjVvDGpLk=', 'Kyc2q1L2/AQsawwzkALAwqA5gXya4CPFlyDH3tsGCDY=', 3, 1);
+insert into Users values('Bob Saget', 'mRocQYnfs3/0/brrpSbyCHOVuFnIk16bNRJzZw4K4/E=', '4ZAXAXF1giXVGgGx6GvwzMEn6tMWmgE/ku7BQDufCqA=', 1, 1);
+insert into Users values('Shubha Too', '2oM5JHkdUkw4Qvhc1XE8wqKlFGgrnasRvJIG1HqO6YM=', '3a9JMvojYWOTnUzhOHPo0Zh+dYdh48KWw65B1OcGcJQ=', 2, 2);
+insert into Users values('Ned Bond', 'YLG5i+xhYw6Nn5QinZtxisycNnRguB+sq8gjVvDGpLk=', 'Kyc2q1L2/AQsawwzkALAwqA5gXya4CPFlyDH3tsGCDY=', 3, 1);
 insert into Users values('admin', 'EqgnTjTef6LrMjVp6l8Fwu+Na4vvfLMYVVGMcJ931KM=', '8Z7tSOatw/EdpmY8u2ohjAhNA+WLkgLIG5+fUfMEGUM=', 4, null);
 SET IDENTITY_INSERT [dbo].[Units] ON
 INSERT INTO [dbo].[Units] ([unitId], [departmentId], [unitCode], [unitName], [unitType], [numOfHours], [unitDescription]) VALUES (22, 1, N'ICTICT307', N'Create user documentation', 1, 20, N'This Unit describes the skills and knowledge required to create user documentation that is clear to the target audience and easy to navigate.')

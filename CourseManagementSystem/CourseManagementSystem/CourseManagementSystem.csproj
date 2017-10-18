@@ -310,5 +310,11 @@
   <ItemGroup>
     <None Include="Resources\ClearFormButton.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\FilterButton.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\FilterButton.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

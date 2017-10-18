@@ -520,6 +520,7 @@
             this.btnClearForm.TabIndex = 18;
             this.btnClearForm.Tag = "Clear Form";
             this.btnClearForm.UseVisualStyleBackColor = false;
+            this.btnClearForm.Click += new System.EventHandler(this.btnClearForm_Click);
             // 
             // label8
             // 

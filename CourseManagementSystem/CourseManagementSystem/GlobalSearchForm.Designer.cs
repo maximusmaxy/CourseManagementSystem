@@ -73,17 +73,17 @@
             this.label1 = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
             this.panel9 = new System.Windows.Forms.Panel();
-            this.btnClearForm = new System.Windows.Forms.Button();
             this.panel6 = new System.Windows.Forms.Panel();
-            this.btnSearch = new System.Windows.Forms.Button();
             this.panel8 = new System.Windows.Forms.Panel();
+            this.pnlForm = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.searchInt = new CMS.SearchInt();
+            this.button1 = new System.Windows.Forms.Button();
+            this.btnClearForm = new System.Windows.Forms.Button();
+            this.btnSearch = new System.Windows.Forms.Button();
             this.btnViewAll = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
-            this.pnlForm = new System.Windows.Forms.Panel();
-            this.searchInt = new CMS.SearchInt();
-            this.panel2 = new System.Windows.Forms.Panel();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSearch)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTotals)).BeginInit();
@@ -100,7 +100,7 @@
             // assessmentToolStripMenuItem
             // 
             this.assessmentToolStripMenuItem.Name = "assessmentToolStripMenuItem";
-            this.assessmentToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.assessmentToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
             this.assessmentToolStripMenuItem.Text = "Assessment";
             this.assessmentToolStripMenuItem.Click += new System.EventHandler(this.assessmentToolStripMenuItem_Click);
             // 
@@ -182,56 +182,56 @@
             // mainMenuToolStripMenuItem
             // 
             this.mainMenuToolStripMenuItem.Name = "mainMenuToolStripMenuItem";
-            this.mainMenuToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.mainMenuToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
             this.mainMenuToolStripMenuItem.Text = "Main Menu";
             this.mainMenuToolStripMenuItem.Click += new System.EventHandler(this.mainMenuToolStripMenuItem_Click);
             // 
             // studentToolStripMenuItem
             // 
             this.studentToolStripMenuItem.Name = "studentToolStripMenuItem";
-            this.studentToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.studentToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
             this.studentToolStripMenuItem.Text = "Student";
             this.studentToolStripMenuItem.Click += new System.EventHandler(this.studentToolStripMenuItem_Click);
             // 
             // teacherToolStripMenuItem
             // 
             this.teacherToolStripMenuItem.Name = "teacherToolStripMenuItem";
-            this.teacherToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.teacherToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
             this.teacherToolStripMenuItem.Text = "Teacher";
             this.teacherToolStripMenuItem.Click += new System.EventHandler(this.teacherCoursesToolStripMenuItem_Click);
             // 
             // enrolmentToolStripMenuItem
             // 
             this.enrolmentToolStripMenuItem.Name = "enrolmentToolStripMenuItem";
-            this.enrolmentToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.enrolmentToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
             this.enrolmentToolStripMenuItem.Text = "Enrolment";
             this.enrolmentToolStripMenuItem.Click += new System.EventHandler(this.enrolmentToolStripMenuItem_Click);
             // 
             // courseToolStripMenuItem
             // 
             this.courseToolStripMenuItem.Name = "courseToolStripMenuItem";
-            this.courseToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.courseToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
             this.courseToolStripMenuItem.Text = "Course";
             this.courseToolStripMenuItem.Click += new System.EventHandler(this.courseToolStripMenuItem_Click);
             // 
             // unitToolStripMenuItem
             // 
             this.unitToolStripMenuItem.Name = "unitToolStripMenuItem";
-            this.unitToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.unitToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
             this.unitToolStripMenuItem.Text = "Unit";
             this.unitToolStripMenuItem.Click += new System.EventHandler(this.unitToolStripMenuItem_Click);
             // 
             // skillsToolStripMenuItem
             // 
             this.skillsToolStripMenuItem.Name = "skillsToolStripMenuItem";
-            this.skillsToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.skillsToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
             this.skillsToolStripMenuItem.Text = "Skills";
             this.skillsToolStripMenuItem.Click += new System.EventHandler(this.skillsToolStripMenuItem_Click);
             // 
             // allocationToolStripMenuItem
             // 
             this.allocationToolStripMenuItem.Name = "allocationToolStripMenuItem";
-            this.allocationToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.allocationToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
             this.allocationToolStripMenuItem.Text = "Allocation";
             this.allocationToolStripMenuItem.Click += new System.EventHandler(this.allocationToolStripMenuItem_Click);
             // 
@@ -500,17 +500,6 @@
             this.panel1.Size = new System.Drawing.Size(150, 58);
             this.panel1.TabIndex = 20;
             // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.Color.White;
-            this.button1.Image = global::CMS.Properties.Resources.SearchButton;
-            this.button1.Location = new System.Drawing.Point(3, 3);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(144, 52);
-            this.button1.TabIndex = 18;
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.btnNewSearch_Click);
-            // 
             // panel9
             // 
             this.panel9.BackColor = System.Drawing.Color.Crimson;
@@ -519,18 +508,6 @@
             this.panel9.Name = "panel9";
             this.panel9.Size = new System.Drawing.Size(150, 58);
             this.panel9.TabIndex = 110;
-            // 
-            // btnClearForm
-            // 
-            this.btnClearForm.BackColor = System.Drawing.Color.White;
-            this.btnClearForm.Image = global::CMS.Properties.Resources.ClearFormButton;
-            this.btnClearForm.Location = new System.Drawing.Point(3, 3);
-            this.btnClearForm.Name = "btnClearForm";
-            this.btnClearForm.Size = new System.Drawing.Size(144, 52);
-            this.btnClearForm.TabIndex = 60;
-            this.btnClearForm.Tag = "Clear Form";
-            this.btnClearForm.UseVisualStyleBackColor = false;
-            this.btnClearForm.Click += new System.EventHandler(this.btnClearForm_Click);
             // 
             // panel6
             // 
@@ -541,17 +518,6 @@
             this.panel6.Size = new System.Drawing.Size(150, 58);
             this.panel6.TabIndex = 19;
             // 
-            // btnSearch
-            // 
-            this.btnSearch.BackColor = System.Drawing.Color.White;
-            this.btnSearch.Image = global::CMS.Properties.Resources.SearchButton;
-            this.btnSearch.Location = new System.Drawing.Point(3, 3);
-            this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(144, 52);
-            this.btnSearch.TabIndex = 18;
-            this.btnSearch.UseVisualStyleBackColor = false;
-            this.btnSearch.Click += new System.EventHandler(this.btnAddSearch_Click);
-            // 
             // panel8
             // 
             this.panel8.BackColor = System.Drawing.Color.Crimson;
@@ -560,27 +526,6 @@
             this.panel8.Name = "panel8";
             this.panel8.Size = new System.Drawing.Size(150, 58);
             this.panel8.TabIndex = 22;
-            // 
-            // btnViewAll
-            // 
-            this.btnViewAll.BackColor = System.Drawing.Color.White;
-            this.btnViewAll.Image = global::CMS.Properties.Resources.ViewAllButton;
-            this.btnViewAll.Location = new System.Drawing.Point(3, 3);
-            this.btnViewAll.Name = "btnViewAll";
-            this.btnViewAll.Size = new System.Drawing.Size(144, 52);
-            this.btnViewAll.TabIndex = 21;
-            this.btnViewAll.UseVisualStyleBackColor = false;
-            this.btnViewAll.Click += new System.EventHandler(this.btnViewAll_Click);
-            // 
-            // button5
-            // 
-            this.button5.BackColor = System.Drawing.Color.Crimson;
-            this.button5.Image = global::CMS.Properties.Resources.GlobalSearchButton;
-            this.button5.Location = new System.Drawing.Point(3, 3);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(150, 124);
-            this.button5.TabIndex = 5;
-            this.button5.UseVisualStyleBackColor = false;
             // 
             // pnlForm
             // 
@@ -614,13 +559,6 @@
             this.pnlForm.Size = new System.Drawing.Size(826, 448);
             this.pnlForm.TabIndex = 191;
             // 
-            // searchInt
-            // 
-            this.searchInt.Location = new System.Drawing.Point(3, 3);
-            this.searchInt.Name = "searchInt";
-            this.searchInt.Size = new System.Drawing.Size(558, 168);
-            this.searchInt.TabIndex = 153;
-            // 
             // panel2
             // 
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -629,6 +567,68 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(721, 176);
             this.panel2.TabIndex = 189;
+            // 
+            // searchInt
+            // 
+            this.searchInt.Location = new System.Drawing.Point(3, 3);
+            this.searchInt.Name = "searchInt";
+            this.searchInt.Size = new System.Drawing.Size(558, 168);
+            this.searchInt.TabIndex = 153;
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.White;
+            this.button1.Image = global::CMS.Properties.Resources.SearchButton;
+            this.button1.Location = new System.Drawing.Point(3, 3);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(144, 52);
+            this.button1.TabIndex = 18;
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.btnNewSearch_Click);
+            // 
+            // btnClearForm
+            // 
+            this.btnClearForm.BackColor = System.Drawing.Color.White;
+            this.btnClearForm.Image = global::CMS.Properties.Resources.ClearFormButton;
+            this.btnClearForm.Location = new System.Drawing.Point(3, 3);
+            this.btnClearForm.Name = "btnClearForm";
+            this.btnClearForm.Size = new System.Drawing.Size(144, 52);
+            this.btnClearForm.TabIndex = 60;
+            this.btnClearForm.Tag = "Clear Form";
+            this.btnClearForm.UseVisualStyleBackColor = false;
+            this.btnClearForm.Click += new System.EventHandler(this.btnClearForm_Click);
+            // 
+            // btnSearch
+            // 
+            this.btnSearch.BackColor = System.Drawing.Color.White;
+            this.btnSearch.Image = global::CMS.Properties.Resources.FilterButton;
+            this.btnSearch.Location = new System.Drawing.Point(3, 3);
+            this.btnSearch.Name = "btnSearch";
+            this.btnSearch.Size = new System.Drawing.Size(144, 52);
+            this.btnSearch.TabIndex = 18;
+            this.btnSearch.UseVisualStyleBackColor = false;
+            this.btnSearch.Click += new System.EventHandler(this.btnAddSearch_Click);
+            // 
+            // btnViewAll
+            // 
+            this.btnViewAll.BackColor = System.Drawing.Color.White;
+            this.btnViewAll.Image = global::CMS.Properties.Resources.ViewAllButton;
+            this.btnViewAll.Location = new System.Drawing.Point(3, 3);
+            this.btnViewAll.Name = "btnViewAll";
+            this.btnViewAll.Size = new System.Drawing.Size(144, 52);
+            this.btnViewAll.TabIndex = 21;
+            this.btnViewAll.UseVisualStyleBackColor = false;
+            this.btnViewAll.Click += new System.EventHandler(this.btnViewAll_Click);
+            // 
+            // button5
+            // 
+            this.button5.BackColor = System.Drawing.Color.Crimson;
+            this.button5.Image = global::CMS.Properties.Resources.GlobalSearchButton;
+            this.button5.Location = new System.Drawing.Point(3, 3);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(150, 124);
+            this.button5.TabIndex = 5;
+            this.button5.UseVisualStyleBackColor = false;
             // 
             // GlobalSearchForm
             // 

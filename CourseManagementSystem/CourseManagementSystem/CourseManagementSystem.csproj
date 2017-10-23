@@ -264,6 +264,10 @@
       <Project>{b8a7d8b1-3e3c-412b-bd1d-8150c6e3348e}</Project>
       <Name>CmsLibrary</Name>
     </ProjectReference>
+    <ProjectReference Include="..\VBProject\VBProject.vbproj">
+      <Project>{d9841820-59b3-460d-a767-8b5d7e7bfa7b}</Project>
+      <Name>VBProject</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AddButton.png" />

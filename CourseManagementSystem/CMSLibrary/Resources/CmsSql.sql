@@ -16,6 +16,10 @@ if object_id('Teacher_Skills', 'U') is not null
 drop table Teacher_Skills;
 if object_id('Enrolments', 'U') is not null
 drop table Enrolments;
+if object_id('Student_Units', 'U') is not null
+drop table Student_Units;
+if object_id('Student_Assessments', 'U') is not null
+drop table Student_Assessments
 
 if object_id('Skills', 'U') is not null
 drop table Skills;
@@ -160,24 +164,40 @@ constraint unit_skill_skill_fk foreign key (skillId) references Skills(skillId))
 
 create table Course_Teachers(
 courseId smallint not null,
-teacherId smallint not null
-primary key(courseId,teacherId)
+teacherId smallint not null,
+primary key(courseId,teacherId),
 constraint course_teacher_course_fk foreign key (courseId) references Courses(courseId),
 constraint course_teacher_teacher_fk foreign key (teacherId) references Teachers(teacherId));
 
 create table Course_Units(
 courseId smallint not null,
-unitId smallint not null
-primary key(courseId,unitId)
+unitId smallint not null,
+primary key(courseId,unitId),
 constraint course_unit_course_fk foreign key (courseId) references Courses(courseId),
 constraint course_unit_unit_fk foreign key (unitId) references Units(unitId));
 
 create table Unit_Teachers(
 unitId smallint not null,
-teacherId smallint not null
-primary key(unitId,teacherId)
+teacherId smallint not null,
+primary key(unitId,teacherId),
 constraint unit_teacher_unit_fk foreign key (unitId) references Units(unitId),
 constraint unit_teacher_teacher_fk foreign key (teacherId) references Teachers(teacherId));
+
+create table Student_Units(
+studentId smallint not null,
+unitId smallint not null,
+results tinyint not null,
+primary key(studentId,unitId),
+constraint student_unit_student_fk foreign key (studentId) references Students(studentId),
+constraint student_unit_unit_fk foreign key (unitId) references Units(unitId));
+
+create table Student_Assessments(
+studentId smallint not null,
+assessmentId smallint not null,
+results tinyint not null,
+primary key(studentId,assessmentId),
+constraint student_assessment_student_fk foreign key (studentId) references Students(studentId),
+constraint student_assessment_assessment_fk foreign key (assessmentId) references Assessments(assessmentId));
 --Populate Tables
 insert into Departments values('IT');
 insert into Departments values('Hair Dressing');

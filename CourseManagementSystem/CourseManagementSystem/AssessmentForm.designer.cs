@@ -84,6 +84,9 @@
             this.label4 = new System.Windows.Forms.Label();
             this.panel9 = new System.Windows.Forms.Panel();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.lstResults = new System.Windows.Forms.ListBox();
+            this.lstStudents = new System.Windows.Forms.ListBox();
+            this.label6 = new System.Windows.Forms.Label();
             this.panel8.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel7.SuspendLayout();

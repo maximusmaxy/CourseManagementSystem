@@ -48,6 +48,11 @@ namespace CMS
                 allocationToolStripMenuItem.Enabled = false;
                 globalSearchToolStripMenuItem.Enabled = false;
                 Forms.DisableRadio(pnlCourseResults);
+                dgvSearch.DataSource = Database.CreateDataTable($"Select students.studentId,(studentFirstName + ' ' + studentLastName) as 'Student Name', courses.courseId,courseName as 'Course Name' from students,enrolments, courses where" +
+" students.studentId = enrolments.studentId and courses.courseId = enrolments.courseId and students.studentId = " + txtStudentId.Int());
+                //DataTable table = Database.CreateDataTable($"select * from enrolments where studentId = {Forms.Id}");
+                //dgvSearch.DataSource = null;
+                //dgvSearch.DataSource = table;
             }
         }
 

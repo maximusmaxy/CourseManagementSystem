@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using CmsLibrary;
+using VBProject;
 
 namespace CMS
 {
@@ -18,6 +19,7 @@ namespace CMS
         public LoginForm()
         {
             InitializeComponent();
+            //VBClass.ShowCredits();
             //Database.ServerName = "MAXIMUMPENIS\\SQLEXPRESS";
             Database.LoadDatabase();
             userControl = ucLogin;
@@ -25,6 +27,7 @@ namespace CMS
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
+            
             if (!Validation.Many(userControl.TxtUsername.ValidateEmpty(), userControl.TxtPassword.ValidateEmpty()))
             {
                 return;

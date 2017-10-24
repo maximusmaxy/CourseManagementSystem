@@ -16,6 +16,20 @@ namespace CMS
         public UnitForm()
         {
             InitializeComponent();
+            SetPermission();
+        }
+
+        private void SetPermission()
+        {
+            if (!Forms.HasPermission(Permission.Admin))
+            {
+                btnDelete.Enabled = false;
+            }
+            if (Forms.Permission == Permission.Teacher)
+            {
+                btnAdd.Enabled = false;
+                btnUpdate.Enabled = false;
+            }
         }
 
         private void UnitForm_Load(object sender, EventArgs e)
@@ -369,6 +383,11 @@ namespace CMS
         private void cmbAreaOfStudy_SelectedIndexChanged_1(object sender, EventArgs e)
         {
             Forms.FillData(lstSkill, "skills", "skillname", "skillid", "departmentid", cmbAreaOfStudy.SelectedValue);
+        }
+        
+        private void btnClearForm_Click(object sender, EventArgs e)
+        {
+            Forms.ClearControls(this);
         }
     }
 }

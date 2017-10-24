@@ -8,26 +8,32 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using CmsLibrary;
+using VBProject;
 
 namespace CMS
 {
     public partial class LoginForm : Form
     {
+        private ILoginControl userControl;
+
         public LoginForm()
         {
             InitializeComponent();
+            //VBClass.ShowCredits();
             //Database.ServerName = "MAXIMUMPENIS\\SQLEXPRESS";
             Database.LoadDatabase();
+            userControl = ucLogin;
         }
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            if (!Validation.Many(txtUsername.ValidateEmpty(), txtPassword.ValidateEmpty()))
+            
+            if (!Validation.Many(userControl.TxtUsername.ValidateEmpty(), userControl.TxtPassword.ValidateEmpty()))
             {
                 return;
             }
-            string username = txtUsername.Text;
-            string password = txtPassword.Text;
+            string username = userControl.TxtUsername.Text;
+            string password = userControl.TxtPassword.Text;
             if (!Database.Login(username, password))
             {
                 MessageBox.Show("Username or password was incorrect.");
@@ -35,6 +41,11 @@ namespace CMS
             }
             Forms.ShowForm(typeof(MainForm));
             Close();
+        }
+
+        private void btnSignUp_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Not Implemented Yet.");
         }
     }
 }

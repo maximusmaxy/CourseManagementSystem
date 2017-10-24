@@ -16,16 +16,37 @@ namespace CMS
         public TeacherForm()
         {
             InitializeComponent();
+            Forms.FillData(cmbCampus, "locations", "campus", "locationid", "select campus, locationid from locations where campus is not null");
+            Forms.FillData(cmbDepartment, "Departments", "DepartmentName", "DepartmentId");
+            cmbDepartment_SelectedIndexChanged(null, null);
+            SetPermission();
+        }
+
+        private void SetPermission()
+        {
+            if (!Forms.HasPermission(Permission.Admin))
+            {
+                btnDelete.Enabled = false;
+                btnViewAll.Enabled = false;
+                btnAdd.Enabled = false;
+            }
+            if (Forms.Permission == Permission.HeadTeacher)
+            {
+                Search(Forms.Id);
+            }
+            if (Forms.Permission == Permission.Teacher)
+            {
+                btnSearch.Enabled = false;
+                txtId.Text = Forms.Id.ToString();
+                if (Forms.Permission == Permission.Teacher)
+                    txtId.Enabled = false;
+                Search(Forms.Id);
+            }
         }
 
         private void TeacherForm_Load(object sender, EventArgs e)
         {
-            Database.LoadDatabase();
-
-            Forms.FillData(cmbCampus, "locations", "campus", "locationid","select campus, locationid from locations where campus is not null");
-            Forms.FillData(cmbDepartment, "Departments", "DepartmentName", "DepartmentId");
-            cmbDepartment_SelectedIndexChanged(null, null);
-
+            //Database.LoadDatabase();
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
@@ -115,7 +136,6 @@ namespace CMS
                 {
                     cmbCampus.Text = location.Campus;
                 }
-
                 Forms.SelectData(lstSkillsList, "teacher_skills", "teacherid", teacher.Id, "skillid");
             }
         }
@@ -134,6 +154,15 @@ namespace CMS
                 ))
             {
                 return;
+            }
+            //make sure head teachers can only update themself
+            if (Forms.Permission == Permission.HeadTeacher)
+            {
+                if (txtId.Int() != Forms.Id)
+                {
+                    MessageBox.Show("You can only update your own record.");
+                    return;
+                }
             }
 
             DialogResult result = MessageBox.Show("Would you like to update this record", "Question",
@@ -209,6 +238,7 @@ namespace CMS
                     Teacher teacher = new Teacher(form.Id);
                     if (teacher.Search())
                     {
+                        txtId.Text = teacher.Id.ToString();
                         txtFirstName.Text = teacher.FirstName;
                         txtLastName.Text = teacher.LastName;
                         txtContactNumber.Text = teacher.ContactNumber;
@@ -367,6 +397,10 @@ namespace CMS
         private void btnClearForm_Click(object sender, EventArgs e)
         {
             Forms.ClearControls(this);
+            if (Forms.Permission == Permission.Teacher || Forms.Permission == Permission.HeadTeacher)
+            {
+                txtId.Text = Forms.Id.ToString();
+            }
         }
 
         private void allocationToolStripMenuItem_Click(object sender, EventArgs e)

@@ -16,6 +16,22 @@ namespace CMS
         {
             InitializeComponent();
             Forms.FillData(cmbAreaOfStudy, "departments", "departmentname", "departmentid");
+            SetPermission();
+        }
+
+        private void SetPermission()
+        {
+            if (!Forms.HasPermission(Permission.Admin))
+            {
+                btnDelete.Enabled = false;
+            }
+            if (Forms.Permission == Permission.Teacher)
+            {
+                btnAdd.Enabled = false;
+                btnUpdate.Enabled = false;
+                btnSearch.Enabled = false;
+                btnViewAll.Enabled = false;
+            }
         }
 
         private void btnAdd_Click(object sender, EventArgs e)

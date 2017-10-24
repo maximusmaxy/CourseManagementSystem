@@ -31,7 +31,7 @@
             this.components = new System.ComponentModel.Container();
             this.ToolTips = new System.Windows.Forms.ToolTip(this.components);
             this.dtpEnrolment = new System.Windows.Forms.DateTimePicker();
-            this.txtId = new System.Windows.Forms.TextBox();
+            this.txtStudentId = new System.Windows.Forms.TextBox();
             this.dtpCompletion = new System.Windows.Forms.DateTimePicker();
             this.txtDiscountCost = new System.Windows.Forms.TextBox();
             this.txtEnrolmentCost = new System.Windows.Forms.TextBox();
@@ -93,6 +93,7 @@
             this.cmbCourseName = new System.Windows.Forms.ComboBox();
             this.dgvSearch = new System.Windows.Forms.DataGridView();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label2 = new System.Windows.Forms.Label();
             this.pnlSemester.SuspendLayout();
             this.pnlCourseResults.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
@@ -120,15 +121,15 @@
             this.dtpEnrolment.Tag = "EnrolmentDate";
             this.ToolTips.SetToolTip(this.dtpEnrolment, "Insert the Current Date this Enrolment was completed on");
             // 
-            // txtId
+            // txtStudentId
             // 
-            this.txtId.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtId.Location = new System.Drawing.Point(250, 10);
-            this.txtId.Name = "txtId";
-            this.txtId.Size = new System.Drawing.Size(236, 26);
-            this.txtId.TabIndex = 48;
-            this.txtId.Tag = "StudentId";
-            this.ToolTips.SetToolTip(this.txtId, "Insert the Student ID here using Numeric Characters Only!");
+            this.txtStudentId.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtStudentId.Location = new System.Drawing.Point(250, 10);
+            this.txtStudentId.Name = "txtStudentId";
+            this.txtStudentId.Size = new System.Drawing.Size(236, 26);
+            this.txtStudentId.TabIndex = 48;
+            this.txtStudentId.Tag = "StudentId";
+            this.ToolTips.SetToolTip(this.txtStudentId, "Insert the Student ID here using Numeric Characters Only!");
             // 
             // dtpCompletion
             // 
@@ -369,6 +370,7 @@
             // panel5
             // 
             this.panel5.BackColor = System.Drawing.Color.MediumSlateBlue;
+            this.panel5.Controls.Add(this.label2);
             this.panel5.Controls.Add(this.panel9);
             this.panel5.Controls.Add(this.panel8);
             this.panel5.Controls.Add(this.panel4);
@@ -400,6 +402,7 @@
             this.btnClearForm.TabIndex = 60;
             this.btnClearForm.Tag = "Clear Form";
             this.btnClearForm.UseVisualStyleBackColor = false;
+            this.btnClearForm.Click += new System.EventHandler(this.btnClearForm_Click);
             // 
             // panel8
             // 
@@ -716,7 +719,7 @@
             this.panel1.Controls.Add(this.dgvSearch);
             this.panel1.Controls.Add(this.label5);
             this.panel1.Controls.Add(this.label4);
-            this.panel1.Controls.Add(this.txtId);
+            this.panel1.Controls.Add(this.txtStudentId);
             this.panel1.Controls.Add(this.pnlCourseResults);
             this.panel1.Controls.Add(this.cmbCourseName);
             this.panel1.Controls.Add(this.label8);
@@ -734,6 +737,17 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(823, 442);
             this.panel1.TabIndex = 110;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.DeepSkyBlue;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(23, 92);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(109, 25);
+            this.label2.TabIndex = 11;
+            this.label2.Text = "Enrolment";
             // 
             // EnrolmentForm
             // 
@@ -755,6 +769,7 @@
             this.pnlCourseResults.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
             this.panel5.ResumeLayout(false);
+            this.panel5.PerformLayout();
             this.panel9.ResumeLayout(false);
             this.panel8.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
@@ -775,7 +790,7 @@
         #endregion
         private System.Windows.Forms.ToolTip ToolTips;
         private System.Windows.Forms.DateTimePicker dtpEnrolment;
-        private System.Windows.Forms.TextBox txtId;
+        private System.Windows.Forms.TextBox txtStudentId;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
         private System.ComponentModel.BackgroundWorker backgroundWorker2;
         private System.Windows.Forms.BindingSource bindingSource1;
@@ -837,5 +852,6 @@
         private System.Windows.Forms.Panel panel9;
         private System.Windows.Forms.Button btnClearForm;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Label label2;
     }
 }

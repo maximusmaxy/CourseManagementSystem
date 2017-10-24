@@ -17,6 +17,12 @@ namespace CMS
         {
             InitializeComponent();
             Forms.FillData(cmbAreaOfStudy, "departments", "departmentname", "departmentid");
+            SetPermission();
+        }
+
+        private void SetPermission()
+        {
+
         }
 
         private void cmbAreaOfStudy_SelectedIndexChanged(object sender, EventArgs e)

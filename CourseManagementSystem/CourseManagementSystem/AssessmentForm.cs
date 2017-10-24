@@ -18,6 +18,15 @@ namespace CMS
             InitializeComponent();
             Forms.FillData(cmbAreaOfStudy, "departments", "departmentname", "departmentid");
             Forms.FillData(cmbUnit, "units", "unitname", "unitid");
+            SetPermission();
+        }
+
+        private void SetPermission()
+        {
+            if (!Forms.HasPermission(Permission.Admin))
+            {
+                btnDelete.Enabled = false;
+            }
         }
 
         private void addToolStripMenuItem_Click(object sender, EventArgs e)
@@ -187,9 +196,12 @@ namespace CMS
                 )
             {
                 MessageBox.Show("Failed to Validate, please try again");
+                return;
             }
 
-            else
+            DialogResult result = MessageBox.Show("Would you like to Add this Assessment?", "Question", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
+
+            if (result == DialogResult.Yes)
             {
                 Assessment Assessment = new Assessment();
                 Assessment.Name = txtAssessmentName.Text;
@@ -214,9 +226,12 @@ namespace CMS
 )
             {
                 MessageBox.Show("Failed to Validate, please try again");
+                return;
             }
 
-            else
+            DialogResult result = MessageBox.Show("Would you like to search for this Assessment?", "Question", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question); 
+
+            if (result == DialogResult.Yes)
             {
                 Search(txtAssessmentId.Int());
             }
@@ -250,10 +265,12 @@ namespace CMS
             )
             {
                 MessageBox.Show("Failed to Validate, please try again");
+                return;
             }
 
+            DialogResult result = MessageBox.Show("Would you like to update this Assessment?", "Question", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question); 
 
-            else
+            if (result == DialogResult.Yes)
             {
                 Assessment Assessment = new Assessment();
                 Assessment.Id = txtAssessmentId.Int();
@@ -274,11 +291,20 @@ namespace CMS
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
+            if (!Validation.Numeric(txtAssessmentId))
+            {
+                MessageBox.Show("Failed to Validate, please try again");
+                return;
+            }
             Assessment Assessment = new Assessment();
             Assessment.Id = txtAssessmentId.Int();
-            if (!Assessment.Delete())
+            DialogResult result = MessageBox.Show("Would you like to delete this Assessment?", "Question", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
+            if (result == DialogResult.Yes)
             {
-                MessageBox.Show("Failed to Delete the Selected Assessment");
+                if (!Assessment.Delete())
+                {
+                    MessageBox.Show("Failed to Delete the Selected Assessment");
+                }
             }
         }
 
@@ -308,6 +334,11 @@ namespace CMS
         private void cmbAreaOfStudy_SelectedIndexChanged(object sender, EventArgs e)
         {
             Forms.FillData(cmbTeacher, "teachers", "(teacherfirstname + ' ' + teacherlastname)", "teacherid", "departmentid", cmbAreaOfStudy.SelectedValue);
+        }
+
+        private void btnClearForm_Click(object sender, EventArgs e)
+        {
+            Forms.ClearControls(this);
         }
     }
 }

@@ -83,9 +83,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.panel9 = new System.Windows.Forms.Panel();
-            this.label6 = new System.Windows.Forms.Label();
-            this.lstStudents = new System.Windows.Forms.ListBox();
-            this.lstResults = new System.Windows.Forms.ListBox();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.panel8.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel7.SuspendLayout();
@@ -492,6 +490,7 @@
             // panel5
             // 
             this.panel5.BackColor = System.Drawing.Color.MediumSlateBlue;
+            this.panel5.Controls.Add(this.label6);
             this.panel5.Controls.Add(this.panel1);
             this.panel5.Controls.Add(this.button5);
             this.panel5.Controls.Add(this.panel8);
@@ -523,6 +522,7 @@
             this.btnClearForm.TabIndex = 18;
             this.btnClearForm.Tag = "Clear Form";
             this.btnClearForm.UseVisualStyleBackColor = false;
+            this.btnClearForm.Click += new System.EventHandler(this.btnClearForm_Click);
             // 
             // label8
             // 
@@ -659,6 +659,7 @@
             this.panel6.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel5.ResumeLayout(false);
+            this.panel5.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel9.ResumeLayout(false);
             this.panel9.PerformLayout();
@@ -725,6 +726,7 @@
         private System.Windows.Forms.Panel panel9;
         private System.Windows.Forms.ListBox lstResults;
         private System.Windows.Forms.ListBox lstStudents;
+        private System.Windows.Forms.ToolTip toolTip1;
         private System.Windows.Forms.Label label6;
     }
 }

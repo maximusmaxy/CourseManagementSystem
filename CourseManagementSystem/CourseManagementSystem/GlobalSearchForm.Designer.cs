@@ -41,7 +41,7 @@
             this.formsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mainMenuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.studentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.teacherCoursesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.teacherToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.enrolmentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.courseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.unitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -53,48 +53,38 @@
             this.cmbColumns = new System.Windows.Forms.ComboBox();
             this.dgvSearch = new System.Windows.Forms.DataGridView();
             this.dgvTotals = new System.Windows.Forms.DataGridView();
-            this.label4 = new System.Windows.Forms.Label();
             this.cmbGroupBy = new System.Windows.Forms.ComboBox();
-            this.label5 = new System.Windows.Forms.Label();
             this.cmbColumns2 = new System.Windows.Forms.ComboBox();
-            this.label6 = new System.Windows.Forms.Label();
             this.cmbTables2 = new System.Windows.Forms.ComboBox();
-            this.label7 = new System.Windows.Forms.Label();
             this.cmbColumns3 = new System.Windows.Forms.ComboBox();
-            this.label8 = new System.Windows.Forms.Label();
             this.cmbTables3 = new System.Windows.Forms.ComboBox();
-            this.label9 = new System.Windows.Forms.Label();
             this.cmbColumns4 = new System.Windows.Forms.ComboBox();
-            this.label10 = new System.Windows.Forms.Label();
             this.cmbTables4 = new System.Windows.Forms.ComboBox();
             this.cmbGroupBy2 = new System.Windows.Forms.ComboBox();
-            this.label11 = new System.Windows.Forms.Label();
             this.cmbGroupBy3 = new System.Windows.Forms.ComboBox();
-            this.label12 = new System.Windows.Forms.Label();
             this.cmbGroupBy4 = new System.Windows.Forms.ComboBox();
             this.label13 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
-            this.label15 = new System.Windows.Forms.Label();
             this.cmbCount = new System.Windows.Forms.ComboBox();
             this.cmbCount2 = new System.Windows.Forms.ComboBox();
             this.cmbCount3 = new System.Windows.Forms.ComboBox();
-            this.label16 = new System.Windows.Forms.Label();
             this.cmbCount4 = new System.Windows.Forms.ComboBox();
-            this.label17 = new System.Windows.Forms.Label();
             this.panel7 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnSearch = new System.Windows.Forms.Button();
             this.panel9 = new System.Windows.Forms.Panel();
             this.btnClearForm = new System.Windows.Forms.Button();
             this.panel6 = new System.Windows.Forms.Panel();
-            this.btnSearch = new System.Windows.Forms.Button();
+            this.btnRefineSearch = new System.Windows.Forms.Button();
             this.panel8 = new System.Windows.Forms.Panel();
             this.btnViewAll = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
             this.pnlForm = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
             this.searchInt = new CMS.SearchInt();
+            this.label4 = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSearch)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTotals)).BeginInit();
@@ -105,6 +95,7 @@
             this.panel6.SuspendLayout();
             this.panel8.SuspendLayout();
             this.pnlForm.SuspendLayout();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // assessmentToolStripMenuItem
@@ -178,7 +169,7 @@
             this.formsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.mainMenuToolStripMenuItem,
             this.studentToolStripMenuItem,
-            this.teacherCoursesToolStripMenuItem,
+            this.teacherToolStripMenuItem,
             this.enrolmentToolStripMenuItem,
             this.courseToolStripMenuItem,
             this.unitToolStripMenuItem,
@@ -203,12 +194,12 @@
             this.studentToolStripMenuItem.Text = "Student";
             this.studentToolStripMenuItem.Click += new System.EventHandler(this.studentToolStripMenuItem_Click);
             // 
-            // teacherCoursesToolStripMenuItem
+            // teacherToolStripMenuItem
             // 
-            this.teacherCoursesToolStripMenuItem.Name = "teacherCoursesToolStripMenuItem";
-            this.teacherCoursesToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
-            this.teacherCoursesToolStripMenuItem.Text = "Teacher";
-            this.teacherCoursesToolStripMenuItem.Click += new System.EventHandler(this.teacherCoursesToolStripMenuItem_Click);
+            this.teacherToolStripMenuItem.Name = "teacherToolStripMenuItem";
+            this.teacherToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
+            this.teacherToolStripMenuItem.Text = "Teacher";
+            this.teacherToolStripMenuItem.Click += new System.EventHandler(this.teacherCoursesToolStripMenuItem_Click);
             // 
             // enrolmentToolStripMenuItem
             // 
@@ -247,10 +238,11 @@
             // 
             // cmbTables
             // 
+            this.cmbTables.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbTables.FormattingEnabled = true;
-            this.cmbTables.Location = new System.Drawing.Point(64, 13);
+            this.cmbTables.Location = new System.Drawing.Point(43, 47);
             this.cmbTables.Name = "cmbTables";
-            this.cmbTables.Size = new System.Drawing.Size(121, 21);
+            this.cmbTables.Size = new System.Drawing.Size(160, 28);
             this.cmbTables.TabIndex = 154;
             this.cmbTables.SelectedIndexChanged += new System.EventHandler(this.cmbTables_SelectedIndexChanged);
             // 
@@ -258,7 +250,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(3, 11);
+            this.label2.Location = new System.Drawing.Point(39, 23);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(55, 21);
             this.label2.TabIndex = 155;
@@ -268,7 +260,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(194, 13);
+            this.label3.Location = new System.Drawing.Point(226, 23);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(73, 21);
             this.label3.TabIndex = 157;
@@ -276,10 +268,11 @@
             // 
             // cmbColumns
             // 
+            this.cmbColumns.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbColumns.FormattingEnabled = true;
-            this.cmbColumns.Location = new System.Drawing.Point(273, 13);
+            this.cmbColumns.Location = new System.Drawing.Point(230, 47);
             this.cmbColumns.Name = "cmbColumns";
-            this.cmbColumns.Size = new System.Drawing.Size(121, 21);
+            this.cmbColumns.Size = new System.Drawing.Size(160, 28);
             this.cmbColumns.TabIndex = 156;
             this.cmbColumns.SelectedIndexChanged += new System.EventHandler(this.cmbColumns_SelectedIndexChanged);
             // 
@@ -288,7 +281,7 @@
             this.dgvSearch.AllowUserToAddRows = false;
             this.dgvSearch.AllowUserToDeleteRows = false;
             this.dgvSearch.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvSearch.Location = new System.Drawing.Point(7, 295);
+            this.dgvSearch.Location = new System.Drawing.Point(7, 365);
             this.dgvSearch.Name = "dgvSearch";
             this.dgvSearch.ReadOnly = true;
             this.dgvSearch.Size = new System.Drawing.Size(794, 151);
@@ -300,189 +293,109 @@
             this.dgvTotals.AllowUserToAddRows = false;
             this.dgvTotals.AllowUserToDeleteRows = false;
             this.dgvTotals.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvTotals.Location = new System.Drawing.Point(7, 452);
+            this.dgvTotals.Location = new System.Drawing.Point(7, 522);
             this.dgvTotals.Name = "dgvTotals";
             this.dgvTotals.ReadOnly = true;
             this.dgvTotals.Size = new System.Drawing.Size(794, 76);
             this.dgvTotals.TabIndex = 159;
             // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(400, 11);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(87, 21);
-            this.label4.TabIndex = 160;
-            this.label4.Text = "Group by:";
-            // 
             // cmbGroupBy
             // 
+            this.cmbGroupBy.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbGroupBy.FormattingEnabled = true;
-            this.cmbGroupBy.Location = new System.Drawing.Point(493, 13);
+            this.cmbGroupBy.Location = new System.Drawing.Point(417, 47);
             this.cmbGroupBy.Name = "cmbGroupBy";
-            this.cmbGroupBy.Size = new System.Drawing.Size(121, 21);
+            this.cmbGroupBy.Size = new System.Drawing.Size(160, 28);
             this.cmbGroupBy.TabIndex = 161;
             this.cmbGroupBy.SelectedIndexChanged += new System.EventHandler(this.cmbGroupBy_SelectedIndexChanged);
             // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(194, 38);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(73, 21);
-            this.label5.TabIndex = 165;
-            this.label5.Text = "Column:";
-            // 
             // cmbColumns2
             // 
+            this.cmbColumns2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbColumns2.FormattingEnabled = true;
-            this.cmbColumns2.Location = new System.Drawing.Point(273, 40);
+            this.cmbColumns2.Location = new System.Drawing.Point(230, 81);
             this.cmbColumns2.Name = "cmbColumns2";
-            this.cmbColumns2.Size = new System.Drawing.Size(121, 21);
+            this.cmbColumns2.Size = new System.Drawing.Size(160, 28);
             this.cmbColumns2.TabIndex = 164;
             this.cmbColumns2.SelectedIndexChanged += new System.EventHandler(this.cmbColumns2_SelectedIndexChanged);
             // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(3, 38);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(55, 21);
-            this.label6.TabIndex = 163;
-            this.label6.Text = "Table:";
-            // 
             // cmbTables2
             // 
+            this.cmbTables2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbTables2.FormattingEnabled = true;
-            this.cmbTables2.Location = new System.Drawing.Point(64, 40);
+            this.cmbTables2.Location = new System.Drawing.Point(43, 81);
             this.cmbTables2.Name = "cmbTables2";
-            this.cmbTables2.Size = new System.Drawing.Size(121, 21);
+            this.cmbTables2.Size = new System.Drawing.Size(160, 28);
             this.cmbTables2.TabIndex = 162;
             this.cmbTables2.SelectedIndexChanged += new System.EventHandler(this.cmbTables2_SelectedIndexChanged);
             // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(194, 67);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(73, 21);
-            this.label7.TabIndex = 169;
-            this.label7.Text = "Column:";
-            // 
             // cmbColumns3
             // 
+            this.cmbColumns3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbColumns3.FormattingEnabled = true;
-            this.cmbColumns3.Location = new System.Drawing.Point(273, 67);
+            this.cmbColumns3.Location = new System.Drawing.Point(230, 115);
             this.cmbColumns3.Name = "cmbColumns3";
-            this.cmbColumns3.Size = new System.Drawing.Size(121, 21);
+            this.cmbColumns3.Size = new System.Drawing.Size(160, 28);
             this.cmbColumns3.TabIndex = 168;
             this.cmbColumns3.SelectedIndexChanged += new System.EventHandler(this.cmbColumns3_SelectedIndexChanged);
             // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(3, 67);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(55, 21);
-            this.label8.TabIndex = 167;
-            this.label8.Text = "Table:";
-            // 
             // cmbTables3
             // 
+            this.cmbTables3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbTables3.FormattingEnabled = true;
-            this.cmbTables3.Location = new System.Drawing.Point(64, 67);
+            this.cmbTables3.Location = new System.Drawing.Point(43, 115);
             this.cmbTables3.Name = "cmbTables3";
-            this.cmbTables3.Size = new System.Drawing.Size(121, 21);
+            this.cmbTables3.Size = new System.Drawing.Size(160, 28);
             this.cmbTables3.TabIndex = 166;
             this.cmbTables3.SelectedIndexChanged += new System.EventHandler(this.cmbTables3_SelectedIndexChanged);
             // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(194, 94);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(73, 21);
-            this.label9.TabIndex = 173;
-            this.label9.Text = "Column:";
-            // 
             // cmbColumns4
             // 
+            this.cmbColumns4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbColumns4.FormattingEnabled = true;
-            this.cmbColumns4.Location = new System.Drawing.Point(273, 94);
+            this.cmbColumns4.Location = new System.Drawing.Point(230, 149);
             this.cmbColumns4.Name = "cmbColumns4";
-            this.cmbColumns4.Size = new System.Drawing.Size(121, 21);
+            this.cmbColumns4.Size = new System.Drawing.Size(160, 28);
             this.cmbColumns4.TabIndex = 172;
             this.cmbColumns4.SelectedIndexChanged += new System.EventHandler(this.cmbColumns4_SelectedIndexChanged);
             // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(3, 94);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(55, 21);
-            this.label10.TabIndex = 171;
-            this.label10.Text = "Table:";
-            // 
             // cmbTables4
             // 
+            this.cmbTables4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbTables4.FormattingEnabled = true;
-            this.cmbTables4.Location = new System.Drawing.Point(64, 94);
+            this.cmbTables4.Location = new System.Drawing.Point(43, 149);
             this.cmbTables4.Name = "cmbTables4";
-            this.cmbTables4.Size = new System.Drawing.Size(121, 21);
+            this.cmbTables4.Size = new System.Drawing.Size(160, 28);
             this.cmbTables4.TabIndex = 170;
             this.cmbTables4.SelectedIndexChanged += new System.EventHandler(this.cmbTables4_SelectedIndexChanged);
             // 
             // cmbGroupBy2
             // 
+            this.cmbGroupBy2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbGroupBy2.FormattingEnabled = true;
-            this.cmbGroupBy2.Location = new System.Drawing.Point(493, 40);
+            this.cmbGroupBy2.Location = new System.Drawing.Point(417, 81);
             this.cmbGroupBy2.Name = "cmbGroupBy2";
-            this.cmbGroupBy2.Size = new System.Drawing.Size(121, 21);
+            this.cmbGroupBy2.Size = new System.Drawing.Size(160, 28);
             this.cmbGroupBy2.TabIndex = 175;
             this.cmbGroupBy2.SelectedIndexChanged += new System.EventHandler(this.cmbGroupBy2_SelectedIndexChanged);
             // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(400, 38);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(87, 21);
-            this.label11.TabIndex = 174;
-            this.label11.Text = "Group by:";
-            // 
             // cmbGroupBy3
             // 
+            this.cmbGroupBy3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbGroupBy3.FormattingEnabled = true;
-            this.cmbGroupBy3.Location = new System.Drawing.Point(493, 67);
+            this.cmbGroupBy3.Location = new System.Drawing.Point(417, 115);
             this.cmbGroupBy3.Name = "cmbGroupBy3";
-            this.cmbGroupBy3.Size = new System.Drawing.Size(121, 21);
+            this.cmbGroupBy3.Size = new System.Drawing.Size(160, 28);
             this.cmbGroupBy3.TabIndex = 177;
             this.cmbGroupBy3.SelectedIndexChanged += new System.EventHandler(this.cmbGroupBy3_SelectedIndexChanged);
             // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(400, 67);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(87, 21);
-            this.label12.TabIndex = 176;
-            this.label12.Text = "Group by:";
-            // 
             // cmbGroupBy4
             // 
+            this.cmbGroupBy4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbGroupBy4.FormattingEnabled = true;
-            this.cmbGroupBy4.Location = new System.Drawing.Point(493, 94);
+            this.cmbGroupBy4.Location = new System.Drawing.Point(417, 149);
             this.cmbGroupBy4.Name = "cmbGroupBy4";
-            this.cmbGroupBy4.Size = new System.Drawing.Size(121, 21);
+            this.cmbGroupBy4.Size = new System.Drawing.Size(160, 28);
             this.cmbGroupBy4.TabIndex = 179;
             this.cmbGroupBy4.SelectedIndexChanged += new System.EventHandler(this.cmbGroupBy4_SelectedIndexChanged);
             // 
@@ -490,7 +403,7 @@
             // 
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(400, 94);
+            this.label13.Location = new System.Drawing.Point(413, 23);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(87, 21);
             this.label13.TabIndex = 178;
@@ -500,77 +413,51 @@
             // 
             this.label14.AutoSize = true;
             this.label14.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.Location = new System.Drawing.Point(620, 13);
+            this.label14.Location = new System.Drawing.Point(600, 23);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(60, 21);
             this.label14.TabIndex = 181;
             this.label14.Text = "Count:";
             // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.Location = new System.Drawing.Point(620, 41);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(60, 21);
-            this.label15.TabIndex = 182;
-            this.label15.Text = "Count:";
-            // 
             // cmbCount
             // 
+            this.cmbCount.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbCount.FormattingEnabled = true;
-            this.cmbCount.Location = new System.Drawing.Point(686, 13);
+            this.cmbCount.Location = new System.Drawing.Point(604, 47);
             this.cmbCount.Name = "cmbCount";
-            this.cmbCount.Size = new System.Drawing.Size(121, 21);
+            this.cmbCount.Size = new System.Drawing.Size(160, 28);
             this.cmbCount.TabIndex = 183;
             this.cmbCount.SelectedIndexChanged += new System.EventHandler(this.cmbCount_SelectedIndexChanged);
             // 
             // cmbCount2
             // 
+            this.cmbCount2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbCount2.FormattingEnabled = true;
-            this.cmbCount2.Location = new System.Drawing.Point(686, 40);
+            this.cmbCount2.Location = new System.Drawing.Point(604, 81);
             this.cmbCount2.Name = "cmbCount2";
-            this.cmbCount2.Size = new System.Drawing.Size(121, 21);
+            this.cmbCount2.Size = new System.Drawing.Size(160, 28);
             this.cmbCount2.TabIndex = 184;
             this.cmbCount2.SelectedIndexChanged += new System.EventHandler(this.cmbCount2_SelectedIndexChanged);
             // 
             // cmbCount3
             // 
+            this.cmbCount3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbCount3.FormattingEnabled = true;
-            this.cmbCount3.Location = new System.Drawing.Point(686, 67);
+            this.cmbCount3.Location = new System.Drawing.Point(604, 115);
             this.cmbCount3.Name = "cmbCount3";
-            this.cmbCount3.Size = new System.Drawing.Size(121, 21);
+            this.cmbCount3.Size = new System.Drawing.Size(160, 28);
             this.cmbCount3.TabIndex = 186;
             this.cmbCount3.SelectedIndexChanged += new System.EventHandler(this.cmbCount3_SelectedIndexChanged);
             // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.Location = new System.Drawing.Point(620, 68);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(60, 21);
-            this.label16.TabIndex = 185;
-            this.label16.Text = "Count:";
-            // 
             // cmbCount4
             // 
+            this.cmbCount4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbCount4.FormattingEnabled = true;
-            this.cmbCount4.Location = new System.Drawing.Point(686, 94);
+            this.cmbCount4.Location = new System.Drawing.Point(604, 149);
             this.cmbCount4.Name = "cmbCount4";
-            this.cmbCount4.Size = new System.Drawing.Size(121, 21);
+            this.cmbCount4.Size = new System.Drawing.Size(160, 28);
             this.cmbCount4.TabIndex = 188;
             this.cmbCount4.SelectedIndexChanged += new System.EventHandler(this.cmbCount4_SelectedIndexChanged);
-            // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label17.Location = new System.Drawing.Point(620, 95);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(60, 21);
-            this.label17.TabIndex = 187;
-            this.label17.Text = "Count:";
             // 
             // panel7
             // 
@@ -595,6 +482,7 @@
             // panel5
             // 
             this.panel5.BackColor = System.Drawing.Color.MediumSlateBlue;
+            this.panel5.Controls.Add(this.label4);
             this.panel5.Controls.Add(this.panel1);
             this.panel5.Controls.Add(this.panel9);
             this.panel5.Controls.Add(this.panel6);
@@ -608,22 +496,22 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.Crimson;
-            this.panel1.Controls.Add(this.button1);
+            this.panel1.Controls.Add(this.btnSearch);
             this.panel1.Location = new System.Drawing.Point(3, 131);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(150, 58);
             this.panel1.TabIndex = 20;
             // 
-            // button1
+            // btnSearch
             // 
-            this.button1.BackColor = System.Drawing.Color.White;
-            this.button1.Image = global::CMS.Properties.Resources.SearchButton;
-            this.button1.Location = new System.Drawing.Point(3, 3);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(144, 52);
-            this.button1.TabIndex = 18;
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.btnNewSearch_Click);
+            this.btnSearch.BackColor = System.Drawing.Color.White;
+            this.btnSearch.Image = global::CMS.Properties.Resources.SearchButton;
+            this.btnSearch.Location = new System.Drawing.Point(3, 3);
+            this.btnSearch.Name = "btnSearch";
+            this.btnSearch.Size = new System.Drawing.Size(144, 52);
+            this.btnSearch.TabIndex = 18;
+            this.btnSearch.UseVisualStyleBackColor = false;
+            this.btnSearch.Click += new System.EventHandler(this.btnNewSearch_Click);
             // 
             // panel9
             // 
@@ -649,22 +537,22 @@
             // panel6
             // 
             this.panel6.BackColor = System.Drawing.Color.Crimson;
-            this.panel6.Controls.Add(this.btnSearch);
+            this.panel6.Controls.Add(this.btnRefineSearch);
             this.panel6.Location = new System.Drawing.Point(3, 193);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(150, 58);
             this.panel6.TabIndex = 19;
             // 
-            // btnSearch
+            // btnRefineSearch
             // 
-            this.btnSearch.BackColor = System.Drawing.Color.White;
-            this.btnSearch.Image = global::CMS.Properties.Resources.SearchButton;
-            this.btnSearch.Location = new System.Drawing.Point(3, 3);
-            this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(144, 52);
-            this.btnSearch.TabIndex = 18;
-            this.btnSearch.UseVisualStyleBackColor = false;
-            this.btnSearch.Click += new System.EventHandler(this.btnAddSearch_Click);
+            this.btnRefineSearch.BackColor = System.Drawing.Color.White;
+            this.btnRefineSearch.Image = global::CMS.Properties.Resources.FilterButton;
+            this.btnRefineSearch.Location = new System.Drawing.Point(3, 3);
+            this.btnRefineSearch.Name = "btnRefineSearch";
+            this.btnRefineSearch.Size = new System.Drawing.Size(144, 52);
+            this.btnRefineSearch.TabIndex = 18;
+            this.btnRefineSearch.UseVisualStyleBackColor = false;
+            this.btnRefineSearch.Click += new System.EventHandler(this.btnAddSearch_Click);
             // 
             // panel8
             // 
@@ -700,52 +588,60 @@
             // 
             this.pnlForm.AutoScroll = true;
             this.pnlForm.AutoScrollMargin = new System.Drawing.Size(0, 20);
-            this.pnlForm.Controls.Add(this.searchInt);
+            this.pnlForm.Controls.Add(this.panel2);
             this.pnlForm.Controls.Add(this.dgvSearch);
             this.pnlForm.Controls.Add(this.dgvTotals);
             this.pnlForm.Controls.Add(this.cmbCount4);
             this.pnlForm.Controls.Add(this.label2);
-            this.pnlForm.Controls.Add(this.label17);
             this.pnlForm.Controls.Add(this.cmbTables);
             this.pnlForm.Controls.Add(this.cmbCount3);
             this.pnlForm.Controls.Add(this.cmbColumns);
-            this.pnlForm.Controls.Add(this.label16);
             this.pnlForm.Controls.Add(this.label3);
             this.pnlForm.Controls.Add(this.cmbCount2);
-            this.pnlForm.Controls.Add(this.label4);
             this.pnlForm.Controls.Add(this.cmbCount);
             this.pnlForm.Controls.Add(this.cmbGroupBy);
-            this.pnlForm.Controls.Add(this.label15);
             this.pnlForm.Controls.Add(this.cmbTables2);
             this.pnlForm.Controls.Add(this.label14);
-            this.pnlForm.Controls.Add(this.label6);
             this.pnlForm.Controls.Add(this.cmbGroupBy4);
             this.pnlForm.Controls.Add(this.cmbColumns2);
             this.pnlForm.Controls.Add(this.label13);
-            this.pnlForm.Controls.Add(this.label5);
             this.pnlForm.Controls.Add(this.cmbGroupBy3);
             this.pnlForm.Controls.Add(this.cmbTables3);
-            this.pnlForm.Controls.Add(this.label12);
-            this.pnlForm.Controls.Add(this.label8);
             this.pnlForm.Controls.Add(this.cmbGroupBy2);
             this.pnlForm.Controls.Add(this.cmbColumns3);
-            this.pnlForm.Controls.Add(this.label11);
-            this.pnlForm.Controls.Add(this.label7);
-            this.pnlForm.Controls.Add(this.label9);
             this.pnlForm.Controls.Add(this.cmbTables4);
             this.pnlForm.Controls.Add(this.cmbColumns4);
-            this.pnlForm.Controls.Add(this.label10);
             this.pnlForm.Location = new System.Drawing.Point(0, 87);
             this.pnlForm.Name = "pnlForm";
             this.pnlForm.Size = new System.Drawing.Size(826, 448);
             this.pnlForm.TabIndex = 191;
             // 
+            // panel2
+            // 
+            this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel2.Controls.Add(this.searchInt);
+            this.panel2.Location = new System.Drawing.Point(43, 183);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(721, 176);
+            this.panel2.TabIndex = 189;
+            // 
             // searchInt
             // 
-            this.searchInt.Location = new System.Drawing.Point(135, 121);
+            this.searchInt.Location = new System.Drawing.Point(3, 3);
             this.searchInt.Name = "searchInt";
             this.searchInt.Size = new System.Drawing.Size(558, 168);
             this.searchInt.TabIndex = 153;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.BackColor = System.Drawing.Color.Crimson;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(38, 94);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(80, 25);
+            this.label4.TabIndex = 15;
+            this.label4.Text = "Search";
             // 
             // GlobalSearchForm
             // 
@@ -766,12 +662,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvTotals)).EndInit();
             this.panel7.ResumeLayout(false);
             this.panel5.ResumeLayout(false);
+            this.panel5.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel9.ResumeLayout(false);
             this.panel6.ResumeLayout(false);
             this.panel8.ResumeLayout(false);
             this.pnlForm.ResumeLayout(false);
             this.pnlForm.PerformLayout();
+            this.panel2.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -790,7 +688,7 @@
         private System.Windows.Forms.ToolStripMenuItem formsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem mainMenuToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem studentToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem teacherCoursesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem teacherToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem enrolmentToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem courseToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem unitToolStripMenuItem;
@@ -802,34 +700,22 @@
         private System.Windows.Forms.DataGridView dgvSearch;
         private SearchInt searchInt;
         private System.Windows.Forms.DataGridView dgvTotals;
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ComboBox cmbGroupBy;
-        private System.Windows.Forms.Label label5;
         private System.Windows.Forms.ComboBox cmbColumns2;
-        private System.Windows.Forms.Label label6;
         private System.Windows.Forms.ComboBox cmbTables2;
-        private System.Windows.Forms.Label label7;
         private System.Windows.Forms.ComboBox cmbColumns3;
-        private System.Windows.Forms.Label label8;
         private System.Windows.Forms.ComboBox cmbTables3;
-        private System.Windows.Forms.Label label9;
         private System.Windows.Forms.ComboBox cmbColumns4;
-        private System.Windows.Forms.Label label10;
         private System.Windows.Forms.ComboBox cmbTables4;
         private System.Windows.Forms.ComboBox cmbGroupBy2;
-        private System.Windows.Forms.Label label11;
         private System.Windows.Forms.ComboBox cmbGroupBy3;
-        private System.Windows.Forms.Label label12;
         private System.Windows.Forms.ComboBox cmbGroupBy4;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.Label label15;
         private System.Windows.Forms.ComboBox cmbCount;
         private System.Windows.Forms.ComboBox cmbCount2;
         private System.Windows.Forms.ComboBox cmbCount3;
-        private System.Windows.Forms.Label label16;
         private System.Windows.Forms.ComboBox cmbCount4;
-        private System.Windows.Forms.Label label17;
         private System.Windows.Forms.ToolStripMenuItem allocationToolStripMenuItem;
         private System.Windows.Forms.Panel panel7;
         private System.Windows.Forms.Label label1;
@@ -839,10 +725,12 @@
         private System.Windows.Forms.Panel panel8;
         private System.Windows.Forms.Button btnViewAll;
         private System.Windows.Forms.Panel panel6;
-        private System.Windows.Forms.Button btnSearch;
+        private System.Windows.Forms.Button btnRefineSearch;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.Panel pnlForm;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Label label4;
     }
 }

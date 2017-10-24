@@ -20,6 +20,20 @@ namespace CMS
             Forms.FillData(cmbCampus, null, "campus", "locationid", "select locationid, campus from locations where campus is not null ");
             Forms.FillData(cmbAreaOfStudy, "departments", "departmentname", "departmentid");
             cboxAreaOfStudy_SelectedIndexChanged(null, null);
+            SetPermission();
+        }
+
+        private void SetPermission()
+        {
+            if (!Forms.HasPermission(Permission.Admin))
+            {
+                btnDelete.Enabled = false;
+            }
+            if (Forms.Permission == Permission.Teacher)
+            {
+                btnAdd.Enabled = false;
+                btnUpdate.Enabled = false;
+            }
         }
 
 
@@ -31,10 +45,13 @@ namespace CMS
                 )
             {
                 MessageBox.Show("Failed to Validate, please try again");
+                return;
             }
 
+            DialogResult result = MessageBox.Show("Would you like to Add this Course?", "Question", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
 
-            else
+
+            if(result == DialogResult.Yes)
             {
                 Course newCourse = new Course();
                 newCourse.Name = txtCourseName.Text;
@@ -48,14 +65,16 @@ namespace CMS
 
                 if(!newCourse.Add())
                 {
-                    MessageBox.Show("Failed to Add new Course");
+                    return;
                 }
 
                 CourseUnit CourseBridge = new CourseUnit(newCourse.Id, lstUnitslist);
                 if(!CourseBridge.Update())
                 {
-                    MessageBox.Show("Failed to link the Course with the selected Units");
+                    return;
                 }
+
+                MessageBox.Show($"Course id: {newCourse.Id} added successfully.");
             }
         }
 
@@ -65,8 +84,12 @@ namespace CMS
             )
             {
                 MessageBox.Show("Failed to Validate, please try again");
+                return;
             }
-            else
+
+            DialogResult result = MessageBox.Show("Would you like to Search for this Course?", "Question", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
+
+            if(result == DialogResult.Yes)
             {
                 Search(txtCourseID.Int());
             }
@@ -104,10 +127,12 @@ namespace CMS
             )
             {
                 MessageBox.Show("Failed to Validate, please try again");
+                return;
             }
 
+            DialogResult result = MessageBox.Show("Would you like to Update this Course?", "Question", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
 
-            else
+            if(result == DialogResult.Yes)
             {
                 Course newCourse = new Course();
                 newCourse.Id = txtCourseID.Int();
@@ -122,14 +147,16 @@ namespace CMS
 
                 if (!newCourse.Update())
                 {
-                    MessageBox.Show("Failed to Update the Selected Course");
+                    return;
                 }
 
                 CourseUnit CourseBridge = new CourseUnit(newCourse.Id, lstUnitslist);
                 if (!CourseBridge.Update())
                 {
-                    MessageBox.Show("Failed to link the current Course with the selected Units");
+                    return;
                 }
+
+                MessageBox.Show($"Course id: {newCourse.Id} updated successfully.");
             }
         }
 
@@ -142,16 +169,23 @@ namespace CMS
             //CourseUnit
             CourseUnit newCourseUnit = new CourseUnit();
             newCourseUnit.CourseId = txtCourseID.Int();
-            if (!newCourseUnit.Delete())
+
+            DialogResult result = MessageBox.Show("Would you like to Delete this Course?", "Question", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
+            if (result == DialogResult.Yes)
             {
-                MessageBox.Show("Failed to Delete the Selected Course");
-            }
-            //Course
-            Course newCourse = new Course();
-            newCourse.Id = txtCourseID.Int();
-            if (!newCourse.Delete())
-            {
-                MessageBox.Show("Failed to Delete the Selected Course");
+                if (!newCourseUnit.Delete())
+                {
+                    return;
+                }
+                //Course
+                Course newCourse = new Course();
+                newCourse.Id = txtCourseID.Int();
+                if (!newCourse.Delete())
+                {
+                    return;
+                }
+
+                MessageBox.Show($"Course id: {newCourse.Id} deleted successfully.");
             }
 
         }

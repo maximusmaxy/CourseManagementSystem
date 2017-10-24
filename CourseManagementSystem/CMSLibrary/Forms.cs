@@ -54,6 +54,26 @@ namespace CmsLibrary
         }
 
         /// <summary>
+        /// Disables all radios in a panel. Use EnableRadio to reverse.
+        /// </summary>
+        /// <param name="pnl">The panel containing the radios.</param>
+        public static void DisableRadio(Panel pnl)
+        {
+            foreach (RadioButton rdb in pnl.Controls.OfType<RadioButton>())
+                rdb.Enabled = false;
+        }
+
+        /// <summary>
+        /// Enables all radios in a panel. Use DisableRadio to reverse.
+        /// </summary>
+        /// <param name="pnl">The panel containing the radios.</param>
+        public static void EnableRadio(Panel pnl)
+        {
+            foreach (RadioButton rdb in pnl.Controls.OfType<RadioButton>())
+                rdb.Enabled = true;
+        }
+
+        /// <summary>
         /// Sets all checked values of radio buttons on a panel to false.
         /// </summary>
         /// <param name="pnl">The panel holding the radio buttons.</param>
@@ -317,12 +337,31 @@ namespace CmsLibrary
         }
 
         /// <summary>
-        /// Checks whether the user has the specified permission type.
+        /// Gets the permission stored in the database user object.
+        /// </summary>
+        public static Permission Permission => Database.User.Permission;
+
+        /// <summary>
+        /// Gets the id stored in the database user object.
+        /// </summary>
+        public static int Id {
+            get
+            {
+                if (Database.User.Id.HasValue)
+                    return Database.User.Id.Value;
+                else
+                    return -1;
+            }
+        }
+
+        /// <summary>
+        /// Checks whether the user has the specified permission type. This uses cascading permissions.
+        /// If you need a specific permissions use 'Database.Permission == Permission.Type'.
         /// </summary>
         /// <param name="type">The type of permission.</param>
         public static bool HasPermission(Permission type)
         {
-            return (Database.Permission >= type);
+            return (Database.User.Permission >= type);
         }
 
         /// <summary>

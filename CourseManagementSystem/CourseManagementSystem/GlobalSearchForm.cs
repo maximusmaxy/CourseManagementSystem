@@ -95,9 +95,9 @@ namespace CMS
             /// <summary>
             /// Adds an arithmetic calculation column to the table.
             /// </summary>
-            public void AddCalculation(string name, string calculation)
+            public void AddCalculation(string name, string calculation, Type type)
             {
-                Column column = new Column(name, name, Name, typeof(int));
+                Column column = new Column(name, name, Name, type);
                 column.Calculation = calculation;
                 Calculations.Add(column);
                 Columns.Add(column);
@@ -265,7 +265,8 @@ namespace CMS
             countGroup = new ComboBox[] { cmbCount, cmbCount2, cmbCount3, cmbCount4 };
             LoadTables();
             LoadControls();
-            Forms.SetDataSource(cmbTables, tables);
+            SetDataSource(cmbTables, tables);
+            UpdateCombosVisibility();
         }
 
         /// <summary>
@@ -312,7 +313,8 @@ namespace CMS
             skill.JoinBridge(teacher, "Teacher_Skills", "skillId", "teacherId");
             skill.JoinBridge(unit, "Unit_Skills", "skillId", "unitId");
             AddLookUpTable("departments", "departmentname", "departmentid");
-            assessment.AddCalculation("Month Duration", "datediff(month, Assessments.assessmentStartDate, Assessments.assessmentDueDate)");
+            assessment.AddCalculation("Day Duration", "datediff(month, Assessments.assessmentStartDate, Assessments.assessmentDueDate)", typeof(int));
+            assessment.AddCalculation("Month Duration", "datediff(month, Assessments.assessmentStartDate, Assessments.assessmentDueDate)", typeof(int));
         }
 
         /// <summary>
@@ -366,7 +368,7 @@ namespace CMS
             control.Size = ucSearch.Size;
             control.TabIndex = ucSearch.TabIndex;
             control.Hide();
-            pnlForm.Controls.Add(control);
+            ucSearch.Parent.Controls.Add(control);
             userControls[dataType] = control;
         }
 
@@ -402,19 +404,21 @@ namespace CMS
                     foreach (Bridge bridge in tableGroup[index].Get<Table>().Bridges)
                         if (!tableGroup.Any(c => c.Get<Table>() == bridge.Table))
                             list.Add(bridge.Table);
-                    Forms.SetDataSource(tableGroup[index + 1], list);
+                    SetDataSource(tableGroup[index + 1], list);
                 }
-                Forms.SetDataSource(columnGroup[index], tableGroup[index].Get<Table>().Columns);
-                Forms.SetDataSource(groupByGroup[index], tableGroup[index].Get<Table>().GroupBy);
+                SetDataSource(columnGroup[index], tableGroup[index].Get<Table>().Columns);
+                SetDataSource(groupByGroup[index], tableGroup[index].Get<Table>().GroupBy);
+                if (ComboIndex(groupByGroup) >= 0)
+                    SetDataSource(countGroup[index], tableGroup[index].Get<Table>().Count);
             }
             else
             {
                 for (int i = 3; i >= index; i--)
                 {
                     if (i != index)
-                        Forms.ClearDataSource(tableGroup[i]);
-                    Forms.ClearDataSource(columnGroup[i]);
-                    Forms.ClearDataSource(groupByGroup[i]);
+                        ClearDataSource(tableGroup[i]);
+                    ClearDataSource(columnGroup[i]);
+                    ClearDataSource(groupByGroup[i]);
                 }
             }
         }
@@ -456,7 +460,7 @@ namespace CMS
                     }
                 }
                 control.cmbColumn.Enabled = columns.Count > 1;
-                Forms.SetDataSource(control.cmbColumn, columns);
+                SetDataSource(control.cmbColumn, columns);
             }
         }
 
@@ -471,12 +475,12 @@ namespace CMS
                 if (ComboIndex(groupByGroup) < 0)
                 {
                     foreach (ComboBox cmb in countGroup)
-                        Forms.ClearDataSource(cmb);
+                        ClearDataSource(cmb);
                 }
                 return;
             }
             for (int i = 0; i < TableCount(); i++)
-                Forms.SetDataSource(countGroup[i], tableGroup[i].Get<Table>().Count);
+                SetDataSource(countGroup[i], tableGroup[i].Get<Table>().Count);
             int countIndex = ComboIndex(countGroup);
             if (countIndex < 0)
             {
@@ -544,6 +548,44 @@ namespace CMS
                 if (combo.SelectedIndex > 0)
                     tables++;
             return tables;
+        }
+
+        /// <summary>
+        /// Sets the data source and visibility of a combo box.
+        /// </summary>
+        private void SetDataSource(ComboBox control, object table)
+        {
+            Forms.SetDataSource(control, table);
+            control.Visible = true;
+        }
+
+        /// <summary>
+        /// Clears the data source of a combo box and sets visibility.
+        /// </summary>
+        private void ClearDataSource(ComboBox control)
+        {
+            Forms.ClearDataSource(control);
+            control.Visible = false;
+        }
+
+        /// <summary>
+        /// Updates the visibility of all combo boxes.
+        /// </summary>
+        private void UpdateCombosVisibility()
+        {
+            UpdateComboVisibility(tableGroup);
+            UpdateComboVisibility(columnGroup);
+            UpdateComboVisibility(groupByGroup);
+            UpdateComboVisibility(countGroup);
+        }
+
+        /// <summary>
+        /// Updates the visibility of a combo box array.
+        /// </summary>
+        private void UpdateComboVisibility(ComboBox[] combos)
+        {
+            foreach (ComboBox combo in combos)
+                combo.Visible = combo.Items.Count != 0;
         }
 
         private void cmbTables_SelectedIndexChanged(object sender, EventArgs e)
@@ -938,7 +980,17 @@ namespace CMS
 
         private void courseToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            DialogResult result = MessageBox.Show("Would you like to open this form in a new window", "Question",
+                                 MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
+            if (result == DialogResult.Yes)
+            {
+                Forms.ShowForm(typeof(CourseForm));
+            }
+            else if (result == DialogResult.No)
+            {
+                Forms.ShowForm(typeof(CourseForm));
+                Close();
+            }
         }
 
         private void unitToolStripMenuItem_Click(object sender, EventArgs e)

@@ -47,6 +47,8 @@
             this.rdb1 = new System.Windows.Forms.RadioButton();
             this.txtNoOfHours = new System.Windows.Forms.TextBox();
             this.txtUnitCode = new System.Windows.Forms.TextBox();
+            this.cmbAreaOfStudy = new System.Windows.Forms.ComboBox();
+            this.lstSkill = new System.Windows.Forms.ListBox();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.mainMenuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
@@ -78,11 +80,10 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.cmbAreaOfStudy = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            this.lstSkill = new System.Windows.Forms.ListBox();
             this.panel9 = new System.Windows.Forms.Panel();
+            this.label2 = new System.Windows.Forms.Label();
             this.pnlUnitType.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
             this.panel5.SuspendLayout();
@@ -246,6 +247,32 @@
             this.txtUnitCode.Tag = "Unit Code";
             this.ToolTips.SetToolTip(this.txtUnitCode, "Unit Code must be no longer than 9 digits and contain 6 ");
             // 
+            // cmbAreaOfStudy
+            // 
+            this.cmbAreaOfStudy.DisplayMember = "Area of study";
+            this.cmbAreaOfStudy.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbAreaOfStudy.FormattingEnabled = true;
+            this.cmbAreaOfStudy.Location = new System.Drawing.Point(250, 154);
+            this.cmbAreaOfStudy.Name = "cmbAreaOfStudy";
+            this.cmbAreaOfStudy.Size = new System.Drawing.Size(368, 28);
+            this.cmbAreaOfStudy.TabIndex = 5;
+            this.ToolTips.SetToolTip(this.cmbAreaOfStudy, "Select on determining what specialty the unit si related to.");
+            this.cmbAreaOfStudy.ValueMember = "Area of study";
+            this.cmbAreaOfStudy.SelectedIndexChanged += new System.EventHandler(this.cmbAreaOfStudy_SelectedIndexChanged_1);
+            // 
+            // lstSkill
+            // 
+            this.lstSkill.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lstSkill.FormattingEnabled = true;
+            this.lstSkill.ItemHeight = 20;
+            this.lstSkill.Location = new System.Drawing.Point(250, 190);
+            this.lstSkill.Name = "lstSkill";
+            this.lstSkill.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;
+            this.lstSkill.Size = new System.Drawing.Size(499, 84);
+            this.lstSkill.TabIndex = 6;
+            this.lstSkill.Tag = "Skill";
+            this.ToolTips.SetToolTip(this.lstSkill, "Please select all present skills related to this area");
+            // 
             // mainMenuToolStripMenuItem
             // 
             this.mainMenuToolStripMenuItem.Name = "mainMenuToolStripMenuItem";
@@ -279,6 +306,7 @@
             // panel5
             // 
             this.panel5.BackColor = System.Drawing.Color.MediumSlateBlue;
+            this.panel5.Controls.Add(this.label2);
             this.panel5.Controls.Add(this.panel1);
             this.panel5.Controls.Add(this.panel8);
             this.panel5.Controls.Add(this.panel4);
@@ -536,19 +564,6 @@
             this.label6.TabIndex = 104;
             this.label6.Text = "Number of Hours:";
             // 
-            // cmbAreaOfStudy
-            // 
-            this.cmbAreaOfStudy.DisplayMember = "Area of study";
-            this.cmbAreaOfStudy.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmbAreaOfStudy.FormattingEnabled = true;
-            this.cmbAreaOfStudy.Location = new System.Drawing.Point(250, 154);
-            this.cmbAreaOfStudy.Name = "cmbAreaOfStudy";
-            this.cmbAreaOfStudy.Size = new System.Drawing.Size(368, 28);
-            this.cmbAreaOfStudy.TabIndex = 5;
-            this.ToolTips.SetToolTip(this.cmbAreaOfStudy, "Select on determining what specialty the unit si related to.");
-            this.cmbAreaOfStudy.ValueMember = "Area of study";
-            this.cmbAreaOfStudy.SelectedIndexChanged += new System.EventHandler(this.cmbAreaOfStudy_SelectedIndexChanged_1);
-            // 
             // label7
             // 
             this.label7.AutoSize = true;
@@ -568,19 +583,6 @@
             this.label8.Size = new System.Drawing.Size(102, 23);
             this.label8.TabIndex = 95;
             this.label8.Text = "Unit Code:";
-            // 
-            // lstSkill
-            // 
-            this.lstSkill.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lstSkill.FormattingEnabled = true;
-            this.lstSkill.ItemHeight = 20;
-            this.lstSkill.Location = new System.Drawing.Point(250, 190);
-            this.lstSkill.Name = "lstSkill";
-            this.lstSkill.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;
-            this.lstSkill.Size = new System.Drawing.Size(499, 84);
-            this.lstSkill.TabIndex = 6;
-            this.lstSkill.Tag = "Skill";
-            this.ToolTips.SetToolTip(this.lstSkill, "Please select all present skills related to this area");
             // 
             // panel9
             // 
@@ -605,6 +607,17 @@
             this.panel9.Size = new System.Drawing.Size(823, 442);
             this.panel9.TabIndex = 106;
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.Gold;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(48, 91);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(61, 25);
+            this.label2.TabIndex = 7;
+            this.label2.Text = "Units";
+            // 
             // UnitForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -623,6 +636,7 @@
             this.pnlUnitType.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
             this.panel5.ResumeLayout(false);
+            this.panel5.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel8.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
@@ -695,5 +709,6 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button btnClearForm;
         private System.Windows.Forms.Panel panel9;
+        private System.Windows.Forms.Label label2;
     }
 }

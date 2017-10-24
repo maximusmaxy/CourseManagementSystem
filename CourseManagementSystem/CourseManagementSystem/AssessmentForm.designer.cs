@@ -84,7 +84,6 @@
             this.label4 = new System.Windows.Forms.Label();
             this.panel9 = new System.Windows.Forms.Panel();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.label6 = new System.Windows.Forms.Label();
             this.panel8.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel7.SuspendLayout();
@@ -580,6 +579,9 @@
             // 
             this.panel9.AutoScroll = true;
             this.panel9.AutoScrollMargin = new System.Drawing.Size(0, 20);
+            this.panel9.Controls.Add(this.lstResults);
+            this.panel9.Controls.Add(this.lstStudents);
+            this.panel9.Controls.Add(this.label6);
             this.panel9.Controls.Add(this.label4);
             this.panel9.Controls.Add(this.label2);
             this.panel9.Controls.Add(this.txtAssessmentName);
@@ -604,13 +606,34 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.BackColor = System.Drawing.Color.Tan;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(14, 93);
+            this.label6.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(98, 337);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(129, 25);
-            this.label6.TabIndex = 12;
-            this.label6.Text = "Assessment";
+            this.label6.Size = new System.Drawing.Size(146, 23);
+            this.label6.TabIndex = 130;
+            this.label6.Text = "Student Results:";
+            // 
+            // lstStudents
+            // 
+            this.lstStudents.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lstStudents.FormattingEnabled = true;
+            this.lstStudents.ItemHeight = 20;
+            this.lstStudents.Location = new System.Drawing.Point(250, 332);
+            this.lstStudents.Name = "lstStudents";
+            this.lstStudents.ScrollAlwaysVisible = true;
+            this.lstStudents.Size = new System.Drawing.Size(236, 64);
+            this.lstStudents.TabIndex = 131;
+            // 
+            // lstResults
+            // 
+            this.lstResults.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lstResults.FormattingEnabled = true;
+            this.lstResults.ItemHeight = 20;
+            this.lstResults.Location = new System.Drawing.Point(513, 332);
+            this.lstResults.Name = "lstResults";
+            this.lstResults.ScrollAlwaysVisible = true;
+            this.lstResults.Size = new System.Drawing.Size(236, 64);
+            this.lstResults.TabIndex = 132;
             // 
             // AssessmentForm
             // 
@@ -701,6 +724,8 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button btnClearForm;
         private System.Windows.Forms.Panel panel9;
+        private System.Windows.Forms.ListBox lstResults;
+        private System.Windows.Forms.ListBox lstStudents;
         private System.Windows.Forms.ToolTip toolTip1;
         private System.Windows.Forms.Label label6;
     }

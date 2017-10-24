@@ -75,6 +75,7 @@
             this.panel6 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
+            this.label6 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnClearForm = new System.Windows.Forms.Button();
             this.label8 = new System.Windows.Forms.Label();
@@ -83,10 +84,10 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.panel9 = new System.Windows.Forms.Panel();
-            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.lstResults = new System.Windows.Forms.ListBox();
             this.lstStudents = new System.Windows.Forms.ListBox();
-            this.label6 = new System.Windows.Forms.Label();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.label9 = new System.Windows.Forms.Label();
             this.panel8.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel7.SuspendLayout();
@@ -493,7 +494,7 @@
             // panel5
             // 
             this.panel5.BackColor = System.Drawing.Color.MediumSlateBlue;
-            this.panel5.Controls.Add(this.label6);
+            this.panel5.Controls.Add(this.label9);
             this.panel5.Controls.Add(this.panel1);
             this.panel5.Controls.Add(this.button5);
             this.panel5.Controls.Add(this.panel8);
@@ -505,6 +506,16 @@
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(156, 508);
             this.panel5.TabIndex = 109;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(98, 337);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(146, 23);
+            this.label6.TabIndex = 130;
+            this.label6.Text = "Student Results:";
             // 
             // panel1
             // 
@@ -606,15 +617,16 @@
             this.panel9.Size = new System.Drawing.Size(823, 442);
             this.panel9.TabIndex = 130;
             // 
-            // label6
+            // lstResults
             // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(98, 337);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(146, 23);
-            this.label6.TabIndex = 130;
-            this.label6.Text = "Student Results:";
+            this.lstResults.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lstResults.FormattingEnabled = true;
+            this.lstResults.ItemHeight = 20;
+            this.lstResults.Location = new System.Drawing.Point(513, 332);
+            this.lstResults.Name = "lstResults";
+            this.lstResults.ScrollAlwaysVisible = true;
+            this.lstResults.Size = new System.Drawing.Size(236, 64);
+            this.lstResults.TabIndex = 132;
             // 
             // lstStudents
             // 
@@ -627,16 +639,16 @@
             this.lstStudents.Size = new System.Drawing.Size(236, 64);
             this.lstStudents.TabIndex = 131;
             // 
-            // lstResults
+            // label9
             // 
-            this.lstResults.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lstResults.FormattingEnabled = true;
-            this.lstResults.ItemHeight = 20;
-            this.lstResults.Location = new System.Drawing.Point(513, 332);
-            this.lstResults.Name = "lstResults";
-            this.lstResults.ScrollAlwaysVisible = true;
-            this.lstResults.Size = new System.Drawing.Size(236, 64);
-            this.lstResults.TabIndex = 132;
+            this.label9.AutoSize = true;
+            this.label9.BackColor = System.Drawing.Color.Tan;
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(14, 94);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(129, 25);
+            this.label9.TabIndex = 133;
+            this.label9.Text = "Assessment";
             // 
             // AssessmentForm
             // 
@@ -731,5 +743,6 @@
         private System.Windows.Forms.ListBox lstStudents;
         private System.Windows.Forms.ToolTip toolTip1;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label9;
     }
 }

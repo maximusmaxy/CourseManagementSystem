@@ -61,11 +61,11 @@
             this.lstOption1 = new System.Windows.Forms.ListBox();
             this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.panel5 = new System.Windows.Forms.Panel();
+            this.label3 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.dgvAllocations = new System.Windows.Forms.DataGridView();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.label3 = new System.Windows.Forms.Label();
             this.panel7.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.panel8.SuspendLayout();
@@ -100,7 +100,7 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(801, 42);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Allocation Form";
+            this.label1.Text = "Allocations";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // menuStrip1
@@ -348,6 +348,17 @@
             this.panel5.Size = new System.Drawing.Size(156, 508);
             this.panel5.TabIndex = 5;
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.Color.Gainsboro;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(26, 93);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(106, 25);
+            this.label3.TabIndex = 14;
+            this.label3.Text = "Allocation";
+            // 
             // label12
             // 
             this.label12.AutoSize = true;
@@ -395,17 +406,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(823, 442);
             this.panel1.TabIndex = 152;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.BackColor = System.Drawing.Color.Gainsboro;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(26, 93);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(106, 25);
-            this.label3.TabIndex = 14;
-            this.label3.Text = "Allocation";
             // 
             // AllocationForm
             // 

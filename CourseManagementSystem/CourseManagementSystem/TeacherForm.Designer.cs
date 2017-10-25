@@ -44,6 +44,7 @@
             this.mainMenuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.label1 = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
+            this.label6 = new System.Windows.Forms.Label();
             this.panel9 = new System.Windows.Forms.Panel();
             this.btnClearForm = new System.Windows.Forms.Button();
             this.panel8 = new System.Windows.Forms.Panel();
@@ -82,7 +83,6 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.label6 = new System.Windows.Forms.Label();
             this.panel5.SuspendLayout();
             this.panel9.SuspendLayout();
             this.panel8.SuspendLayout();
@@ -208,7 +208,7 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(801, 42);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Teacher Form";
+            this.label1.Text = "Teachers";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // panel5
@@ -226,6 +226,17 @@
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(156, 508);
             this.panel5.TabIndex = 59;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.BackColor = System.Drawing.Color.Plum;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(33, 94);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(91, 25);
+            this.label6.TabIndex = 10;
+            this.label6.Text = "Teacher";
             // 
             // panel9
             // 
@@ -580,17 +591,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(823, 442);
             this.panel1.TabIndex = 78;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.BackColor = System.Drawing.Color.Plum;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(33, 94);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(91, 25);
-            this.label6.TabIndex = 10;
-            this.label6.Text = "Teacher";
             // 
             // TeacherForm
             // 

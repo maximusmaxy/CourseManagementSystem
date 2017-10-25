@@ -55,6 +55,7 @@
             this.formsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.allocationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel5 = new System.Windows.Forms.Panel();
+            this.label2 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnClearForm = new System.Windows.Forms.Button();
             this.panel8 = new System.Windows.Forms.Panel();
@@ -83,7 +84,6 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.panel9 = new System.Windows.Forms.Panel();
-            this.label2 = new System.Windows.Forms.Label();
             this.pnlUnitType.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
             this.panel5.SuspendLayout();
@@ -319,6 +319,17 @@
             this.panel5.Size = new System.Drawing.Size(156, 508);
             this.panel5.TabIndex = 8;
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.Gold;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(48, 91);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(61, 25);
+            this.label2.TabIndex = 7;
+            this.label2.Text = "Units";
+            // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.Gold;
@@ -467,7 +478,7 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(801, 42);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Unit Form";
+            this.label1.Text = "Units";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // menuStrip1
@@ -606,17 +617,6 @@
             this.panel9.Name = "panel9";
             this.panel9.Size = new System.Drawing.Size(823, 442);
             this.panel9.TabIndex = 106;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.Gold;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(48, 91);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(61, 25);
-            this.label2.TabIndex = 7;
-            this.label2.Text = "Units";
             // 
             // UnitForm
             // 

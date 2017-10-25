@@ -58,6 +58,7 @@
             this.unitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.label1 = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
+            this.label2 = new System.Windows.Forms.Label();
             this.panel9 = new System.Windows.Forms.Panel();
             this.btnClearForm = new System.Windows.Forms.Button();
             this.panel8 = new System.Windows.Forms.Panel();
@@ -93,7 +94,6 @@
             this.cmbCourseName = new System.Windows.Forms.ComboBox();
             this.dgvSearch = new System.Windows.Forms.DataGridView();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.label2 = new System.Windows.Forms.Label();
             this.pnlSemester.SuspendLayout();
             this.pnlCourseResults.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
@@ -364,7 +364,7 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(801, 42);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Enrolment Form";
+            this.label1.Text = "Enrolments";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // panel5
@@ -382,6 +382,17 @@
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(156, 508);
             this.panel5.TabIndex = 59;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.DeepSkyBlue;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(23, 92);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(109, 25);
+            this.label2.TabIndex = 11;
+            this.label2.Text = "Enrolment";
             // 
             // panel9
             // 
@@ -737,17 +748,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(823, 442);
             this.panel1.TabIndex = 110;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.DeepSkyBlue;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(23, 92);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(109, 25);
-            this.label2.TabIndex = 11;
-            this.label2.Text = "Enrolment";
             // 
             // EnrolmentForm
             // 

@@ -33,6 +33,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.panel7 = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
+            this.label22 = new System.Windows.Forms.Label();
             this.panel9 = new System.Windows.Forms.Panel();
             this.btnClearForm = new System.Windows.Forms.Button();
             this.panel8 = new System.Windows.Forms.Panel();
@@ -105,7 +106,6 @@
             this.label20 = new System.Windows.Forms.Label();
             this.panel10 = new System.Windows.Forms.Panel();
             this.label21 = new System.Windows.Forms.Label();
-            this.label22 = new System.Windows.Forms.Label();
             this.panel7.SuspendLayout();
             this.panel5.SuspendLayout();
             this.panel9.SuspendLayout();
@@ -128,7 +128,7 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(801, 42);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Student Form";
+            this.label1.Text = "Students";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // panel7
@@ -155,6 +155,17 @@
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(156, 508);
             this.panel5.TabIndex = 17;
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.BackColor = System.Drawing.Color.PaleGreen;
+            this.label22.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label22.Location = new System.Drawing.Point(35, 92);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(86, 25);
+            this.label22.TabIndex = 9;
+            this.label22.Text = "Student";
             // 
             // panel9
             // 
@@ -923,17 +934,6 @@
             this.label21.Size = new System.Drawing.Size(190, 23);
             this.label21.TabIndex = 84;
             this.label21.Text = "Discount Eligiability:";
-            // 
-            // label22
-            // 
-            this.label22.AutoSize = true;
-            this.label22.BackColor = System.Drawing.Color.PaleGreen;
-            this.label22.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label22.Location = new System.Drawing.Point(35, 92);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(86, 25);
-            this.label22.TabIndex = 9;
-            this.label22.Text = "Student";
             // 
             // StudentForm
             // 

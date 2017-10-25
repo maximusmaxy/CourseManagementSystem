@@ -30,6 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             this.panel5 = new System.Windows.Forms.Panel();
+            this.label10 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnClearForm = new System.Windows.Forms.Button();
             this.panel8 = new System.Windows.Forms.Panel();
@@ -42,6 +43,7 @@
             this.btnAdd = new System.Windows.Forms.Button();
             this.panel6 = new System.Windows.Forms.Panel();
             this.btnSearch = new System.Windows.Forms.Button();
+            this.button5 = new System.Windows.Forms.Button();
             this.panel7 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
@@ -88,8 +90,6 @@
             this.label13 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.panel9 = new System.Windows.Forms.Panel();
-            this.button5 = new System.Windows.Forms.Button();
-            this.label10 = new System.Windows.Forms.Label();
             this.panel5.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel8.SuspendLayout();
@@ -119,6 +119,17 @@
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(156, 508);
             this.panel5.TabIndex = 77;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.BackColor = System.Drawing.Color.DarkOrange;
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Location = new System.Drawing.Point(38, 92);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(81, 25);
+            this.label10.TabIndex = 8;
+            this.label10.Text = "Course";
             // 
             // panel1
             // 
@@ -246,6 +257,16 @@
             this.btnSearch.UseVisualStyleBackColor = false;
             this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
+            // button5
+            // 
+            this.button5.BackColor = System.Drawing.Color.DarkOrange;
+            this.button5.Image = global::CMS.Properties.Resources.CourseButton;
+            this.button5.Location = new System.Drawing.Point(3, 3);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(150, 124);
+            this.button5.TabIndex = 5;
+            this.button5.UseVisualStyleBackColor = false;
+            // 
             // panel7
             // 
             this.panel7.BackColor = System.Drawing.Color.MediumSlateBlue;
@@ -263,7 +284,7 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(801, 42);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Course Form";
+            this.label1.Text = "Courses";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // menuStrip1
@@ -676,27 +697,6 @@
             this.panel9.Name = "panel9";
             this.panel9.Size = new System.Drawing.Size(823, 442);
             this.panel9.TabIndex = 101;
-            // 
-            // button5
-            // 
-            this.button5.BackColor = System.Drawing.Color.DarkOrange;
-            this.button5.Image = global::CMS.Properties.Resources.CourseButton;
-            this.button5.Location = new System.Drawing.Point(3, 3);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(150, 124);
-            this.button5.TabIndex = 5;
-            this.button5.UseVisualStyleBackColor = false;
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.BackColor = System.Drawing.Color.DarkOrange;
-            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(38, 92);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(81, 25);
-            this.label10.TabIndex = 8;
-            this.label10.Text = "Course";
             // 
             // CourseForm
             // 

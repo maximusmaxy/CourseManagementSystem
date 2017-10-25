@@ -72,6 +72,7 @@
             this.panel7 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
+            this.label4 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnSearch = new System.Windows.Forms.Button();
             this.panel9 = new System.Windows.Forms.Panel();
@@ -84,7 +85,6 @@
             this.pnlForm = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.searchInt = new CMS.SearchInt();
-            this.label4 = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSearch)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTotals)).BeginInit();
@@ -476,7 +476,7 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(801, 42);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Global Search";
+            this.label1.Text = "Search";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // panel5
@@ -492,6 +492,17 @@
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(156, 508);
             this.panel5.TabIndex = 190;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.BackColor = System.Drawing.Color.Crimson;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(38, 94);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(80, 25);
+            this.label4.TabIndex = 15;
+            this.label4.Text = "Search";
             // 
             // panel1
             // 
@@ -631,17 +642,6 @@
             this.searchInt.Name = "searchInt";
             this.searchInt.Size = new System.Drawing.Size(558, 168);
             this.searchInt.TabIndex = 153;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.BackColor = System.Drawing.Color.Crimson;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(38, 94);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(80, 25);
-            this.label4.TabIndex = 15;
-            this.label4.Text = "Search";
             // 
             // GlobalSearchForm
             // 

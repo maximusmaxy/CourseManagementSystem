@@ -45,6 +45,7 @@
             this.panel6 = new System.Windows.Forms.Panel();
             this.btnSearch = new System.Windows.Forms.Button();
             this.panel5 = new System.Windows.Forms.Panel();
+            this.label4 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnClearForm = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
@@ -75,7 +76,6 @@
             this.label5 = new System.Windows.Forms.Label();
             this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.panel9 = new System.Windows.Forms.Panel();
-            this.label4 = new System.Windows.Forms.Label();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel6.SuspendLayout();
@@ -236,6 +236,17 @@
             this.panel5.Size = new System.Drawing.Size(156, 508);
             this.panel5.TabIndex = 130;
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.BackColor = System.Drawing.Color.HotPink;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(56, 95);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(52, 25);
+            this.label4.TabIndex = 13;
+            this.label4.Text = "Skill";
+            // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.HotPink;
@@ -330,7 +341,7 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(801, 42);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Skill Form";
+            this.label1.Text = "Skills";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // menuStrip1
@@ -498,17 +509,6 @@
             this.panel9.Name = "panel9";
             this.panel9.Size = new System.Drawing.Size(823, 442);
             this.panel9.TabIndex = 137;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.BackColor = System.Drawing.Color.HotPink;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(56, 95);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(52, 25);
-            this.label4.TabIndex = 13;
-            this.label4.Text = "Skill";
             // 
             // SkillsForm
             // 

@@ -15,7 +15,6 @@ namespace CMS
     {
         public CourseForm()
         {
-            //Database.LoadDatabase();
             InitializeComponent();
             Forms.FillData(cmbCampus, null, "campus", "locationid", "select locationid, campus from locations where campus is not null ");
             Forms.FillData(cmbAreaOfStudy, "departments", "departmentname", "departmentid");

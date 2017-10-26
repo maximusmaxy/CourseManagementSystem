@@ -44,11 +44,6 @@ namespace CMS
             }
         }
 
-        private void TeacherForm_Load(object sender, EventArgs e)
-        {
-            //Database.LoadDatabase();
-        }
-
         private void btnAdd_Click(object sender, EventArgs e)
         {
             //validation

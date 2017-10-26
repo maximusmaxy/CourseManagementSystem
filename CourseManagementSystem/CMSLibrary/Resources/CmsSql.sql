@@ -5,7 +5,7 @@
 if OBJECT_id('Users','U') is not null
 drop table Users;
 if object_id('Unit_Teachers','U') is not null
-drop table unit_teachers;
+drop table Unit_Teachers;
 if object_id('Unit_Skills', 'U') is not null
 drop table Unit_Skills;
 if object_id('Course_Teachers', 'U') is not null
@@ -174,7 +174,10 @@ courseId smallint not null,
 unitId smallint not null,
 primary key(courseId,unitId),
 constraint course_unit_course_fk foreign key (courseId) references Courses(courseId),
-constraint course_unit_unit_fk foreign key (unitId) references Units(unitId));
+constraint course_unit_unit_fk foreign key (unitId) references Units(unitId)
+--,constraint course_unit_elective_count check (dbo.UnitCount(courseId, 1) < 10)
+--,constraint course_unit_core_count check (dbo.UnitCount(courseId, 2) < 10)
+);
 
 create table Unit_Teachers(
 unitId smallint not null,
@@ -198,6 +201,7 @@ results tinyint not null,
 primary key(studentId,assessmentId),
 constraint student_assessment_student_fk foreign key (studentId) references Students(studentId),
 constraint student_assessment_assessment_fk foreign key (assessmentId) references Assessments(assessmentId));
+
 --Populate Tables
 insert into Departments values('IT');
 insert into Departments values('Hair Dressing');
@@ -314,6 +318,16 @@ insert into Course_Teachers values(3,3);
 insert into Course_Teachers values (4,4);
 insert into Course_Teachers values (5,5);
 insert into Course_Units values(1,1);
+insert into Course_Units values(1,2);
+insert into Course_Units values(1,3);
+insert into Course_Units values(1,4);
+insert into Course_Units values(1,5);
+insert into Course_Units values(1,6);
+insert into Course_Units values(1,7);
+insert into Course_Units values(1,8);
+insert into Course_Units values(1,9);
+insert into Course_Units values(1,10);
+insert into Course_Units values(1,11);
 insert into Course_Units values(2,2); 
 insert into Course_Units values(3,3); 
 insert into Course_Units values(4,4); 

@@ -613,7 +613,6 @@
             this.MaximizeBox = false;
             this.Name = "TeacherForm";
             this.Text = "Teacher";
-            this.Load += new System.EventHandler(this.TeacherForm_Load);
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
             this.panel9.ResumeLayout(false);

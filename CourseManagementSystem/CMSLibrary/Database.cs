@@ -9,6 +9,7 @@ using System.Windows.Forms;
 using System.IO;
 using System.ComponentModel;
 using System.Security.Cryptography;
+using System.Net.NetworkInformation;
 
 namespace CmsLibrary
 {
@@ -52,15 +53,30 @@ namespace CmsLibrary
         {
             string connectionString = $"server={ServerName};database=master;Trusted_Connection=yes";
             string commandString = $"if db_id('{DatabaseName}') is null create database {DatabaseName};";
-            using (SqlConnection connection = new SqlConnection(connectionString))
-            using (SqlCommand command = new SqlCommand(commandString, connection))
+            try
             {
-                connection.Open();
-                command.ExecuteNonQuery();
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                using (SqlCommand command = new SqlCommand(commandString, connection))
+                {
+                    connection.Open();
+                    command.ExecuteNonQuery();
+                }
+                string[] queries = Properties.Resources.CmsSql.Split(new string[] { "\r\ngo\r\n" }, StringSplitOptions.RemoveEmptyEntries);
+                for (int i = 0; i < queries.Length; i++)
+                    ExecuteNonQuery(queries[i]);
+
             }
-            string[] queries = Properties.Resources.CmsSql.Split(new string[] { "\r\ngo\r\n" }, StringSplitOptions.RemoveEmptyEntries);
-            for (int i = 0; i < queries.Length; i++)
-                ExecuteNonQuery(queries[i]);
+            catch (SqlException ex)
+            {
+                if (ex.Number == -1)
+                {
+                    MessageBox.Show($"The server '{ServerName}' is either not running or could not be found.");
+                }
+                else
+                {
+                    MessageBox.Show(ex.Message);
+                }
+            }
         }
 
         /// <summary>
@@ -624,6 +640,14 @@ namespace CmsLibrary
         public static byte[] GetSaltedHashedPassword(byte[] password, byte[] salt)
         {
             return new SHA256Managed().ComputeHash(salt.Concat(password).ToArray());
+        }
+
+        /// <summary>
+        /// Returns the mac address of the current computer
+        /// </summary>
+        public static string MacAddress()
+        {
+            return NetworkInterface.GetAllNetworkInterfaces().Where(nic => nic.OperationalStatus == OperationalStatus.Up).Select(nic => nic.GetPhysicalAddress().ToString()).FirstOrDefault();
         }
     }
 }

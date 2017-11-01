@@ -44,11 +44,6 @@ namespace CMS
             }
         }
 
-        private void TeacherForm_Load(object sender, EventArgs e)
-        {
-            //Database.LoadDatabase();
-        }
-
         private void btnAdd_Click(object sender, EventArgs e)
         {
             //validation
@@ -431,6 +426,16 @@ namespace CMS
                 Forms.ShowForm(typeof(GlobalSearchForm));
                 Close();
             }
+        }
+
+        private void logOutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Forms.LogOut(typeof(LoginForm));
+        }
+
+        private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            VBProject.VBClass.ShowCredits();
         }
     }
 }

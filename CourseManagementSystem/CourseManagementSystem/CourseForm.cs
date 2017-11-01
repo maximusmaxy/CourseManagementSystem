@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using CmsLibrary;
+using System.Data.SqlClient;
 
 namespace CMS
 {
@@ -15,11 +16,10 @@ namespace CMS
     {
         public CourseForm()
         {
-            //Database.LoadDatabase();
             InitializeComponent();
             Forms.FillData(cmbCampus, null, "campus", "locationid", "select locationid, campus from locations where campus is not null ");
             Forms.FillData(cmbAreaOfStudy, "departments", "departmentname", "departmentid");
-            cboxAreaOfStudy_SelectedIndexChanged(null, null);
+            //cboxAreaOfStudy_SelectedIndexChanged(null, null);
             SetPermission();
         }
 
@@ -39,8 +39,8 @@ namespace CMS
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            if (!Validation.Word(txtCourseName) || !Validation.Numeric(txtCourseCost) || !Validation.Radio(pnlDeliveryType) 
-                || !Validation.Date(dtpStart) || !Validation.Date(dtpEnd) || !Validation.Combo(cmbCampus) 
+            if (!Validation.Word(txtCourseName) || !Validation.Numeric(txtCourseCost) || !Validation.Radio(pnlDeliveryType)
+                || !Validation.Date(dtpStart) || !Validation.Date(dtpEnd) || !Validation.Combo(cmbCampus)
                 || !Validation.Combo(cmbAreaOfStudy) || !Validation.Word(txtCourseDescription)
                 )
             {
@@ -48,10 +48,14 @@ namespace CMS
                 return;
             }
 
+            if (!CheckUnitCount())
+            {
+                return;
+            }
             DialogResult result = MessageBox.Show("Would you like to Add this Course?", "Question", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
 
 
-            if(result == DialogResult.Yes)
+            if (result == DialogResult.Yes)
             {
                 Course newCourse = new Course();
                 newCourse.Name = txtCourseName.Text;
@@ -63,18 +67,20 @@ namespace CMS
                 newCourse.DepartmentId = Convert.ToInt32(cmbAreaOfStudy.SelectedValue);
                 newCourse.Description = txtCourseDescription.Text;
 
-                if(!newCourse.Add())
+                if (!newCourse.Add())
                 {
                     return;
                 }
 
                 CourseUnit CourseBridge = new CourseUnit(newCourse.Id, lstUnitslist);
-                if(!CourseBridge.Update())
+                if (!CourseBridge.Update())
                 {
                     return;
                 }
 
+
                 MessageBox.Show($"Course id: {newCourse.Id} added successfully.");
+
             }
         }
 
@@ -89,7 +95,7 @@ namespace CMS
 
             DialogResult result = MessageBox.Show("Would you like to Search for this Course?", "Question", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
 
-            if(result == DialogResult.Yes)
+            if (result == DialogResult.Yes)
             {
                 Search(txtCourseID.Int());
             }
@@ -130,9 +136,14 @@ namespace CMS
                 return;
             }
 
+            if (!CheckUnitCount())
+            {
+                return;
+            }
+
             DialogResult result = MessageBox.Show("Would you like to Update this Course?", "Question", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
 
-            if(result == DialogResult.Yes)
+            if (result == DialogResult.Yes)
             {
                 Course newCourse = new Course();
                 newCourse.Id = txtCourseID.Int();
@@ -227,6 +238,39 @@ namespace CMS
             Forms.FillData(lstUnitslist, "units", "unitname", "unitid", "departmentid", cmbAreaOfStudy.SelectedValue);
         }
 
+        private bool CheckUnitCount()
+        {
+            int core = Types.UnitType["Core"];
+            int elective = Types.UnitType["Elective"];
+            int coreCount = 0;
+            int electiveCount = 0;
+            foreach (DataRowView row in lstUnitslist.SelectedItems)
+            {
+                foreach (SqlDataReader reader in Database.StoredProcedure("UnitType", new SqlParameter("@unitId", row["unitid"])))
+                {
+                    int type = Convert.ToInt32(reader[0]);
+                    if (type == core)
+                        coreCount++;
+                    if (type == elective)
+                        electiveCount++;
+                }
+            }
+#if DEBUG
+            MessageBox.Show($"core: {coreCount} elective: {electiveCount}");
+#endif
+            if (coreCount > 10)
+            {
+                MessageBox.Show("Core unit count exceeds limit of 10.");
+                return false;
+            }
+            if (electiveCount > 10)
+            {
+                MessageBox.Show("Elective unit count exceeds limit of 10.");
+                return false;
+            }
+            return true;
+        }
+
         private void mainMenuToolStripMenuItem_Click(object sender, EventArgs e)
         {
             DialogResult result = MessageBox.Show("Would you like to open this form in a new window", "Question",
@@ -286,7 +330,7 @@ namespace CMS
                 Close();
             }
         }
-        
+
         private void unitToolStripMenuItem_Click(object sender, EventArgs e)
         {
             DialogResult result = MessageBox.Show("Would you like to open this form in a new window", "Question",
@@ -390,6 +434,16 @@ namespace CMS
         private void btnClearForm_Click(object sender, EventArgs e)
         {
             Forms.ClearControls(this);
+        }
+
+        private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            VBProject.VBClass.ShowCredits();
+        }
+
+        private void logOutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Forms.LogOut(typeof(LoginForm));
         }
     }
 }

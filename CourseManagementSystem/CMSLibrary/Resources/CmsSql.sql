@@ -229,6 +229,7 @@ insert into Students values(2,'Jim','Barnes','1994-08-13','Barnesy88@hotmail.com
 insert into Students Values(3,'Dave','Hughes','1987-04-22','theGoonie@yahoo.com','Australia',1,'9248657132',0,1,0,null);
 insert into Students values(6,'Floyd','Mayweather','1976-07-11','glassjaw22@hotmail.com','Australia',1,'0436287196',0,0,0,null);
 insert into Students values(7,'Ozzy','Osbourne','1956-05-06','lordofdarkness@gmail.com','Australia',1,'9845321672',0,0,1,'Bi-polar');
+insert into Students values(6,'Gunter','Rookenburg','1996-01-26','rookenburger@live.com','Zimbabwe',1,'9845391672',0,0,0,null);
 insert into Courses values(1,1,'Diploma of Software development',10000.00,2,'2017-06-10','2017-11-26','Final level of education provided at tafe regarding IT');
 insert into Courses values(1,1,'Certificate IV IT',8000.00,1,'2017-06-10','2017-11-26','Further Study in IT');
 insert into Courses values(1,1,'Certificate III IT',5000.00,2,'2017-06-10','2017-11-26','Basic level in IT');
@@ -295,6 +296,8 @@ insert into Assessments values(10,10,4,'Make money','2017-08-13','2017-09-01','C
 insert into Assessments values(12,12,5,'Answer the phone','2017-08-13','2017-09-01','Pick up the dang phone');
 insert into Assessments values(12,12,5,'help desk','2017-08-13','2017-09-01','being helpful at a desk');
 insert into Enrolments values(1,1,'2017-06-19','2017-11-15',10000.00,5000.00,5000.00,2,3);
+insert into Enrolments values(1,3,'2016-06-19','2016-11-15',5000.00,2500.00,2500.00,2,3);
+insert into Enrolments values(1,4,'2016-01-30','2016-06-02',3000.00,1500.00,1500.00,2,3);
 insert into Enrolments values(2,2,'2017-06-19','2017-11-15',8000.00,5000.00,3000.00,2,3);
 insert into Enrolments values(3,3,'2017-06-19','2017-11-15',5000.00,4500.00,500.00,2,3);
 insert into Enrolments values(4,4,'2017-06-19','2017-11-15',3000.00,3000.00,0,2,3);
@@ -328,6 +331,12 @@ insert into Users values('Bob Saget', 'mRocQYnfs3/0/brrpSbyCHOVuFnIk16bNRJzZw4K4
 insert into Users values('Shubha Too', '2oM5JHkdUkw4Qvhc1XE8wqKlFGgrnasRvJIG1HqO6YM=', '3a9JMvojYWOTnUzhOHPo0Zh+dYdh48KWw65B1OcGcJQ=', 2, 2);
 insert into Users values('Ned Bond', 'YLG5i+xhYw6Nn5QinZtxisycNnRguB+sq8gjVvDGpLk=', 'Kyc2q1L2/AQsawwzkALAwqA5gXya4CPFlyDH3tsGCDY=', 3, 1);
 insert into Users values('admin', 'EqgnTjTef6LrMjVp6l8Fwu+Na4vvfLMYVVGMcJ931KM=', '8Z7tSOatw/EdpmY8u2ohjAhNA+WLkgLIG5+fUfMEGUM=', 4, null);
+insert into student_units values (1,1,1);
+insert into student_units values (1,3,2);
+insert into student_units values (2,2,1);
+insert into Student_Assessments values(1,1,1);
+insert into Student_Assessments values(1,5,2);
+insert into Student_Assessments values(2,2,1);
 SET IDENTITY_INSERT [dbo].[Units] ON
 INSERT INTO [dbo].[Units] ([unitId], [departmentId], [unitCode], [unitName], [unitType], [numOfHours], [unitDescription]) VALUES (22, 1, N'ICTICT307', N'Create user documentation', 1, 20, N'This Unit describes the skills and knowledge required to create user documentation that is clear to the target audience and easy to navigate.')
 INSERT INTO [dbo].[Units] ([unitId], [departmentId], [unitCode], [unitName], [unitType], [numOfHours], [unitDescription]) VALUES (23, 1, N'ICTICT409', N'Develop macros and templates for clients', 1, 20, N'This unit describes the skills and knowledge required to develop macros and templates for clients using industry recognised software applications.')

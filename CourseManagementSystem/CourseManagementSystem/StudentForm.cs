@@ -53,6 +53,9 @@ namespace CMS
             txtFirstName.ValidateWord(),
             txtLastName.ValidateWord(),
             txtStreet1.ValidateEmpty(),
+            txtSuburb.ValidateEmpty(),
+            cmbState,
+            txtPostCode.ValidateNumericEmpty(),
             txtContactNumber.ValidatePhone(),
             txtEmail.ValidateEmail(),
             dtpDateOfBirth,
@@ -462,6 +465,16 @@ namespace CMS
                 Forms.ShowForm(typeof(GlobalSearchForm));
                 Close();
             }
+        }
+
+        private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            VBProject.VBClass.ShowCredits();
+        }
+
+        private void logOutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Forms.LogOut(typeof(LoginForm));
         }
     }
 }

@@ -45,6 +45,8 @@
             this.updateToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.deleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.viewAllToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.logOutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.formsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mainMenuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.studentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -75,9 +77,10 @@
             this.panel6 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
-            this.label6 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnClearForm = new System.Windows.Forms.Button();
+            this.label6 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.cmbAreaOfStudy = new System.Windows.Forms.ComboBox();
@@ -87,7 +90,8 @@
             this.lstResults = new System.Windows.Forms.ListBox();
             this.lstStudents = new System.Windows.Forms.ListBox();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.label9 = new System.Windows.Forms.Label();
+            this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel8.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel7.SuspendLayout();
@@ -193,14 +197,14 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Assessments";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // menuStrip1
             // 
             this.menuStrip1.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fileToolStripMenuItem,
-            this.formsToolStripMenuItem});
+            this.formsToolStripMenuItem,
+            this.helpToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(988, 24);
@@ -214,7 +218,9 @@
             this.searchToolStripMenuItem,
             this.updateToolStripMenuItem,
             this.deleteToolStripMenuItem,
-            this.viewAllToolStripMenuItem});
+            this.viewAllToolStripMenuItem,
+            this.toolStripSeparator1,
+            this.logOutToolStripMenuItem});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
             this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
             this.fileToolStripMenuItem.Text = "File";
@@ -258,6 +264,19 @@
             this.viewAllToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
             this.viewAllToolStripMenuItem.Text = "&View All";
             this.viewAllToolStripMenuItem.Click += new System.EventHandler(this.viewAllToolStripMenuItem_Click);
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(154, 6);
+            // 
+            // logOutToolStripMenuItem
+            // 
+            this.logOutToolStripMenuItem.Name = "logOutToolStripMenuItem";
+            this.logOutToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.L)));
+            this.logOutToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
+            this.logOutToolStripMenuItem.Text = "&Log Out";
+            this.logOutToolStripMenuItem.Click += new System.EventHandler(this.logOutToolStripMenuItem_Click);
             // 
             // formsToolStripMenuItem
             // 
@@ -508,15 +527,16 @@
             this.panel5.Size = new System.Drawing.Size(156, 508);
             this.panel5.TabIndex = 109;
             // 
-            // label6
+            // label9
             // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(98, 337);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(146, 23);
-            this.label6.TabIndex = 130;
-            this.label6.Text = "Student Results:";
+            this.label9.AutoSize = true;
+            this.label9.BackColor = System.Drawing.Color.Tan;
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(14, 94);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(129, 25);
+            this.label9.TabIndex = 133;
+            this.label9.Text = "Assessment";
             // 
             // panel1
             // 
@@ -538,6 +558,16 @@
             this.btnClearForm.Tag = "Clear Form";
             this.btnClearForm.UseVisualStyleBackColor = false;
             this.btnClearForm.Click += new System.EventHandler(this.btnClearForm_Click);
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(98, 337);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(146, 23);
+            this.label6.TabIndex = 130;
+            this.label6.Text = "Student Results:";
             // 
             // label8
             // 
@@ -640,16 +670,20 @@
             this.lstStudents.Size = new System.Drawing.Size(236, 64);
             this.lstStudents.TabIndex = 131;
             // 
-            // label9
+            // helpToolStripMenuItem
             // 
-            this.label9.AutoSize = true;
-            this.label9.BackColor = System.Drawing.Color.Tan;
-            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(14, 94);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(129, 25);
-            this.label9.TabIndex = 133;
-            this.label9.Text = "Assessment";
+            this.helpToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.aboutToolStripMenuItem});
+            this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
+            this.helpToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
+            this.helpToolStripMenuItem.Text = "Help";
+            // 
+            // aboutToolStripMenuItem
+            // 
+            this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.aboutToolStripMenuItem.Text = "About";
+            this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
             // 
             // AssessmentForm
             // 
@@ -745,5 +779,9 @@
         private System.Windows.Forms.ToolTip toolTip1;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+        private System.Windows.Forms.ToolStripMenuItem logOutToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
     }
 }

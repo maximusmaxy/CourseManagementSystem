@@ -4,8 +4,8 @@
 
 if object_id ( 'Location', 'P' ) is not null
     drop procedure Location;  
-if object_id ( 'UnitCount', 'FN' ) is not null
-    drop function CoreCount;  
+if object_id ( 'UnitType', 'P' ) is not null
+    drop procedure UnitType;  
 go
 
 --creates
@@ -42,15 +42,12 @@ begin
 end
 go
 
-
---Counts the amount of units for a specific unit type.
-create function UnitCount(@courseId smallint, @unitType smallint) returns int
+--Gets the unit type of the specified unit
+create procedure UnitType
+@unitId smallint
 as 
 begin
-	return (
-	select count(*) 
-	from Course_Units
-	join Units on Course_Units.unitId = Units.unitId
-	where Units.unitType = @unitType
-	);
+	select unitType
+	from Units
+	where unitId = @unitId;
 end

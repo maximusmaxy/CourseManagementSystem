@@ -483,6 +483,16 @@ namespace CMS
                 Forms.CheckRadio(pnlCourseResults, "Not Completed");
             }
         }
+
+        private void logOutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Forms.LogOut(typeof(LoginForm));
+        }
+
+        private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            VBProject.VBClass.ShowCredits();
+        }
     }
 }
 

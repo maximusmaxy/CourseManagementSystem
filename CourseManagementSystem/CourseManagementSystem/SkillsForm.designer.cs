@@ -64,6 +64,8 @@
             this.updateToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.deleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.viewAllToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.logOutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.formsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mainMenuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.studentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -72,14 +74,12 @@
             this.courseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.unitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.allocationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.label3 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.panel9 = new System.Windows.Forms.Panel();
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.logOutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel6.SuspendLayout();
@@ -96,7 +96,7 @@
             // globalSearchToolStripMenuItem
             // 
             this.globalSearchToolStripMenuItem.Name = "globalSearchToolStripMenuItem";
-            this.globalSearchToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.globalSearchToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
             this.globalSearchToolStripMenuItem.Text = "Global Search";
             this.globalSearchToolStripMenuItem.Click += new System.EventHandler(this.globalSearchToolStripMenuItem_Click);
             // 
@@ -324,7 +324,7 @@
             // assessmentToolStripMenuItem
             // 
             this.assessmentToolStripMenuItem.Name = "assessmentToolStripMenuItem";
-            this.assessmentToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.assessmentToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
             this.assessmentToolStripMenuItem.Text = "Assessment";
             this.assessmentToolStripMenuItem.Click += new System.EventHandler(this.assessmentToolStripMenuItem_Click);
             // 
@@ -415,6 +415,19 @@
             this.viewAllToolStripMenuItem.Text = "&View All";
             this.viewAllToolStripMenuItem.Click += new System.EventHandler(this.viewAllToolStripMenuItem_Click);
             // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(154, 6);
+            // 
+            // logOutToolStripMenuItem
+            // 
+            this.logOutToolStripMenuItem.Name = "logOutToolStripMenuItem";
+            this.logOutToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.L)));
+            this.logOutToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
+            this.logOutToolStripMenuItem.Text = "&Log Out";
+            this.logOutToolStripMenuItem.Click += new System.EventHandler(this.logOutToolStripMenuItem_Click);
+            // 
             // formsToolStripMenuItem
             // 
             this.formsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -434,51 +447,66 @@
             // mainMenuToolStripMenuItem
             // 
             this.mainMenuToolStripMenuItem.Name = "mainMenuToolStripMenuItem";
-            this.mainMenuToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.mainMenuToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
             this.mainMenuToolStripMenuItem.Text = "Main Menu";
             this.mainMenuToolStripMenuItem.Click += new System.EventHandler(this.mainMenuToolStripMenuItem_Click);
             // 
             // studentToolStripMenuItem
             // 
             this.studentToolStripMenuItem.Name = "studentToolStripMenuItem";
-            this.studentToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.studentToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
             this.studentToolStripMenuItem.Text = "Student";
             this.studentToolStripMenuItem.Click += new System.EventHandler(this.studentToolStripMenuItem_Click);
             // 
             // teacherCoursesToolStripMenuItem
             // 
             this.teacherCoursesToolStripMenuItem.Name = "teacherCoursesToolStripMenuItem";
-            this.teacherCoursesToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.teacherCoursesToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
             this.teacherCoursesToolStripMenuItem.Text = "Teacher";
             this.teacherCoursesToolStripMenuItem.Click += new System.EventHandler(this.teacherCoursesToolStripMenuItem_Click);
             // 
             // enrolmentToolStripMenuItem
             // 
             this.enrolmentToolStripMenuItem.Name = "enrolmentToolStripMenuItem";
-            this.enrolmentToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.enrolmentToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
             this.enrolmentToolStripMenuItem.Text = "Enrolment";
             this.enrolmentToolStripMenuItem.Click += new System.EventHandler(this.enrolmentToolStripMenuItem_Click);
             // 
             // courseToolStripMenuItem
             // 
             this.courseToolStripMenuItem.Name = "courseToolStripMenuItem";
-            this.courseToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.courseToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
             this.courseToolStripMenuItem.Text = "Course";
             this.courseToolStripMenuItem.Click += new System.EventHandler(this.courseToolStripMenuItem_Click);
             // 
             // unitToolStripMenuItem
             // 
             this.unitToolStripMenuItem.Name = "unitToolStripMenuItem";
-            this.unitToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.unitToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
             this.unitToolStripMenuItem.Text = "Unit";
             this.unitToolStripMenuItem.Click += new System.EventHandler(this.unitToolStripMenuItem_Click);
             // 
             // allocationToolStripMenuItem
             // 
             this.allocationToolStripMenuItem.Name = "allocationToolStripMenuItem";
-            this.allocationToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.allocationToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
             this.allocationToolStripMenuItem.Text = "Allocation";
             this.allocationToolStripMenuItem.Click += new System.EventHandler(this.allocationToolStripMenuItem_Click);
+            // 
+            // helpToolStripMenuItem
+            // 
+            this.helpToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.aboutToolStripMenuItem});
+            this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
+            this.helpToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
+            this.helpToolStripMenuItem.Text = "Help";
+            // 
+            // aboutToolStripMenuItem
+            // 
+            this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.aboutToolStripMenuItem.Text = "About";
+            this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
             // 
             // label3
             // 
@@ -516,32 +544,6 @@
             this.panel9.Name = "panel9";
             this.panel9.Size = new System.Drawing.Size(823, 442);
             this.panel9.TabIndex = 137;
-            // 
-            // toolStripSeparator1
-            // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(154, 6);
-            // 
-            // logOutToolStripMenuItem
-            // 
-            this.logOutToolStripMenuItem.Name = "logOutToolStripMenuItem";
-            this.logOutToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.L)));
-            this.logOutToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
-            this.logOutToolStripMenuItem.Text = "&Log Out";
-            // 
-            // helpToolStripMenuItem
-            // 
-            this.helpToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.aboutToolStripMenuItem});
-            this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
-            this.helpToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
-            this.helpToolStripMenuItem.Text = "Help";
-            // 
-            // aboutToolStripMenuItem
-            // 
-            this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.aboutToolStripMenuItem.Text = "About";
             // 
             // SkillsForm
             // 

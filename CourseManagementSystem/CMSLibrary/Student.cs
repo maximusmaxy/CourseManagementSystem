@@ -215,7 +215,18 @@ namespace CmsLibrary
 
         public bool Add()
         {
-            return Database.Add("students", out id, locationId, firstName, lastName, dateOfBirth, email, countryOfOrigin, gender, contactNumber, aboriginal, centrelink, disability, disabilityDescription);
+            try
+            {
+                return Database.Add("students", out id, locationId, firstName, lastName, dateOfBirth, email, countryOfOrigin, gender, contactNumber, aboriginal, centrelink, disability, disabilityDescription);
+            }
+            catch (UniqueConstraintException ex)
+            {
+                if (ex.UniqueConstraint == "unique_email")
+                    MessageBox.Show("The selected email is already in use. Please choose a different email address.");
+                else
+                    MessageBox.Show(ex.Message);
+                return false;
+            }
         }
 
         public bool Update()

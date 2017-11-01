@@ -69,6 +69,7 @@
     <Compile Include="Teacher.cs" />
     <Compile Include="TeacherSkill.cs" />
     <Compile Include="Types.cs" />
+    <Compile Include="UniqueConstraintException.cs" />
     <Compile Include="Unit.cs" />
     <Compile Include="UnitSkill.cs" />
     <Compile Include="UnitTeacher.cs" />

@@ -181,7 +181,7 @@ namespace CmsLibrary
         /// </summary>
         public static string ConvertDBNullString<T>(T value)
         {
-            if (value.Equals(DBNull.Value))
+            if (Convert.IsDBNull(value))
                 return null;
             else
                 return Convert.ToString(value);
@@ -192,7 +192,7 @@ namespace CmsLibrary
         /// </summary>
         public static int? ConvertDBNullInt<T>(T value)
         {
-            if (value.Equals(DBNull.Value))
+            if (Convert.IsDBNull(value))
                 return null;
             else
                 return Convert.ToInt32(value);

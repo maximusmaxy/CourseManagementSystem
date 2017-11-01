@@ -5,7 +5,7 @@
 if OBJECT_id('Users','U') is not null
 drop table Users;
 if object_id('Unit_Teachers','U') is not null
-drop table unit_teachers;
+drop table Unit_Teachers;
 if object_id('Unit_Skills', 'U') is not null
 drop table Unit_Skills;
 if object_id('Course_Teachers', 'U') is not null
@@ -198,6 +198,7 @@ results tinyint not null,
 primary key(studentId,assessmentId),
 constraint student_assessment_student_fk foreign key (studentId) references Students(studentId),
 constraint student_assessment_assessment_fk foreign key (assessmentId) references Assessments(assessmentId));
+
 --Populate Tables
 insert into Departments values('IT');
 insert into Departments values('Hair Dressing');

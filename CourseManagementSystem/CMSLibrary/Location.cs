@@ -5,6 +5,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace CmsLibrary
 {
@@ -125,7 +126,7 @@ namespace CmsLibrary
             }
         }
 
-        
+
         public bool Add()
         {
             return AddUpdate();
@@ -142,45 +143,25 @@ namespace CmsLibrary
         /// </summary>
         private bool AddUpdate()
         {
-            string sql = @"select locationid from locations
-                           where addressstreet1 = @street1
-                           and addressstreet2 = @street2
-                           and addresssuburb = @suburb
-                           and addressstate = @state
-                           and addresspostcode = @postcode
-                           and campus = @campus;
-                           if @@ROWCOUNT = 0
-                           begin
-                           insert into locations
-                           values (@street1, @street2, @suburb, @state, @postcode, @campus);
-                           select @@identity;
-                           end";
-            using (SqlConnection connection = Database.Connection())
-            using (SqlCommand command = new SqlCommand(sql, connection))
+            try
             {
-
-                command.Parameters.AddWithNullValue("@street1", addressStreet1);
-                command.Parameters.AddWithNullValue("@street2", addressStreet2);
-                command.Parameters.AddWithNullValue("@suburb", addressSuburb);
-                command.Parameters.AddWithNullValue("@state", addressState);
-                command.Parameters.AddWithNullValue("@postcode", addressPostCode);
-                command.Parameters.AddWithNullValue("@campus", campus);
-                using (SqlDataReader dataReader = command.ExecuteReader())
+                foreach (SqlDataReader reader in Database.StoredProcedure("Location",
+                   new SqlParameter("@street1", Extensions.ConvertDBNullString(addressStreet1)),
+                   new SqlParameter("@street2", Extensions.ConvertDBNullString(addressStreet2)),
+                   new SqlParameter("@suburb", Extensions.ConvertDBNullString(addressSuburb)),
+                   new SqlParameter("@state", Extensions.ConvertDBNullString(addressState)),
+                   new SqlParameter("@postcode", Extensions.ConvertDBNullInt(addressPostCode)),
+                   new SqlParameter("@campus", Extensions.ConvertDBNullString(campus))))
                 {
-                    if (dataReader.HasRows)
-                    {
-                        id = Convert.ToInt32(dataReader[0]);
-                        return true;
-                    }
-                    else if (dataReader.NextResult())
-                    {
-                        dataReader.Read();
-                        id = Convert.ToInt32(dataReader[0]);
-                        return true;
-                    }
-                    return false;
+                    id = Convert.ToInt32(reader[0]);
+                    return true;
                 }
             }
+            catch (SqlException ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            return false;
         }
 
         public bool Delete()

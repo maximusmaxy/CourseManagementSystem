@@ -9,6 +9,6 @@ Contributors
 -Lisa Cunningham
 -Simon Cunningham
 -Liam Gornall
--Maxwell LittleJohn")
+-Maxwell Littlejohn")
     End Sub
 End Class

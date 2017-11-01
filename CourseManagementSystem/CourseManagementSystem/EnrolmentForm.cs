@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using CmsLibrary;
+using System.Globalization;
 
 namespace CMS
 {
@@ -269,10 +270,12 @@ namespace CMS
             {
                 return;
             }
-            txtEnrolmentCost.Text = course.Cost.ToString();
-            txtDiscountCost.Text = discount.ToString();
+            CultureInfo ci = new CultureInfo("en-au");
+            //String.Equals("AAAAA", "aaaaa", StringComparison.InvariantCultureIgnoreCase);
+            txtEnrolmentCost.Text = String.Format(ci, "{0:C}", course.Cost);
+            txtDiscountCost.Text = String.Format(ci, "{0:C}", discount); 
             total = course.Cost;
-            txtTotal.Text = total.ToString();
+            txtTotal.Text = String.Format(ci, "{0:C}", total);
             //student
             int i;
             if (string.IsNullOrEmpty(txtStudentId.Text) || !int.TryParse(txtStudentId.Text, out i))
@@ -305,9 +308,10 @@ namespace CMS
             {
                 discount = 0.0;
             }
-            txtDiscountCost.Text = discount.ToString();
+
+            txtDiscountCost.Text = String.Format(ci, "{0:C}", discount);
             total = course.Cost - discount;
-            txtTotal.Text = total.ToString();
+            txtTotal.Text = String.Format(ci, "{0:C}", total);
 
         }
         private void mainMenuToolStripMenuItem_Click(object sender, EventArgs e)

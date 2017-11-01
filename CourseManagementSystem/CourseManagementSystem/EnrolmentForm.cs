@@ -8,7 +8,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using CmsLibrary;
-using System.Globalization;
 
 namespace CMS
 {
@@ -270,12 +269,10 @@ namespace CMS
             {
                 return;
             }
-            CultureInfo ci = new CultureInfo("en-au");
-            //String.Equals("AAAAA", "aaaaa", StringComparison.InvariantCultureIgnoreCase);
-            txtEnrolmentCost.Text = String.Format(ci, "{0:C}", course.Cost);
-            txtDiscountCost.Text = String.Format(ci, "{0:C}", discount); 
+            txtEnrolmentCost.Text = course.Cost.ToString();
+            txtDiscountCost.Text = discount.ToString();
             total = course.Cost;
-            txtTotal.Text = String.Format(ci, "{0:C}", total);
+            txtTotal.Text = total.ToString();
             //student
             int i;
             if (string.IsNullOrEmpty(txtStudentId.Text) || !int.TryParse(txtStudentId.Text, out i))
@@ -308,10 +305,9 @@ namespace CMS
             {
                 discount = 0.0;
             }
-
-            txtDiscountCost.Text = String.Format(ci, "{0:C}", discount);
+            txtDiscountCost.Text = discount.ToString();
             total = course.Cost - discount;
-            txtTotal.Text = String.Format(ci, "{0:C}", total);
+            txtTotal.Text = total.ToString();
 
         }
         private void mainMenuToolStripMenuItem_Click(object sender, EventArgs e)
@@ -482,16 +478,6 @@ namespace CMS
                 txtStudentId.Text = Forms.Id.ToString();
                 Forms.CheckRadio(pnlCourseResults, "Not Completed");
             }
-        }
-
-        private void logOutToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Forms.LogOut(typeof(LoginForm));
-        }
-
-        private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            VBProject.VBClass.ShowCredits();
         }
     }
 }

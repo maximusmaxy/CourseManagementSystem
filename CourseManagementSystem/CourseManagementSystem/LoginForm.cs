@@ -15,22 +15,19 @@ namespace CMS
     public partial class LoginForm : Form
     {
         private ILoginControl userControl;
-        private int attempts;
 
         public LoginForm()
         {
             InitializeComponent();
+            //VBClass.ShowCredits();
+            //Database.ServerName = "MAXIMUMPENIS\\SQLEXPRESS";
+            Database.LoadDatabase();
             userControl = ucLogin;
-            attempts = 0;
         }
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            if (attempts >= 5)
-            {
-                MessageBox.Show("You have entered an incorrect username or password too many times. Please see an administrator.");
-                return;
-            }
+            
             if (!Validation.Many(userControl.TxtUsername.ValidateEmpty(), userControl.TxtPassword.ValidateEmpty()))
             {
                 return;
@@ -40,7 +37,6 @@ namespace CMS
             if (!Database.Login(username, password))
             {
                 MessageBox.Show("Username or password was incorrect.");
-                attempts++;
                 return;
             }
             Forms.ShowForm(typeof(MainForm));

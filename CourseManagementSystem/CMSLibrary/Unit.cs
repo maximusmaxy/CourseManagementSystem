@@ -4,6 +4,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace CmsLibrary
 {
@@ -131,7 +132,18 @@ namespace CmsLibrary
 
         public bool Add()
         {
-            return Database.Add("units", out id, departmentId, code, name, type, numOfHours, description);
+            try
+            {
+                return Database.Add("units", out id, departmentId, code, name, type, numOfHours, description);
+            }
+            catch (UniqueConstraintException ex)
+            {
+                if (ex.UniqueConstraint == "unique_unit_code")
+                    MessageBox.Show("Unit code is already in use. Please choose a different unit code.");
+                else
+                    MessageBox.Show(ex.Message);
+                return false;
+            }
         }
 
         public bool Update()

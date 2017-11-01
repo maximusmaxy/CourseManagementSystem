@@ -69,6 +69,7 @@
     <Compile Include="Teacher.cs" />
     <Compile Include="TeacherSkill.cs" />
     <Compile Include="Types.cs" />
+    <Compile Include="UniqueConstraintException.cs" />
     <Compile Include="Unit.cs" />
     <Compile Include="UnitSkill.cs" />
     <Compile Include="UnitTeacher.cs" />
@@ -85,6 +86,8 @@
       <SubType>Designer</SubType>
     </EmbeddedResource>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Content Include="Resources\CmsStoredProcedures.sql" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

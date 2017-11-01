@@ -172,7 +172,18 @@ namespace CmsLibrary
 
         public bool Add()
         {
-            return Database.Add("enrolments", out id, studentId, courseId, enrolmentDate, completionDate,enrolmentCost,discountCost,totalCost, semester, result);
+            try
+            {
+                return Database.Add("enrolments", out id, studentId, courseId, enrolmentDate, completionDate, enrolmentCost, discountCost, totalCost, semester, result);
+            }
+            catch (UniqueConstraintException ex)
+            {
+                if (ex.UniqueConstraint == "student_course_unique")
+                    MessageBox.Show($"The selected student has already enrolled in the selected course.");
+                else
+                    MessageBox.Show(ex.Message);
+                return false;
+            }
         }
 
         public bool Update()

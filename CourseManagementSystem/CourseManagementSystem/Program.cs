@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using CmsLibrary;
+using VBProject;
 
 namespace CMS
 {
@@ -16,7 +18,14 @@ namespace CMS
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            CmsLibrary.Forms.ShowForm(typeof(LoginForm));
+            //VBClass.ShowCredits();
+            //Database.ServerName = "MAXIMUMPENIS\\SQLEXPRESS";
+            if (!Database.LoadDatabase())
+            {
+                Application.Exit();
+                return;
+            }
+            Forms.ShowForm(typeof(LoginForm));
             Application.Run();
         }
     }

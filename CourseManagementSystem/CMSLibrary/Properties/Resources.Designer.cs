@@ -19,7 +19,7 @@ namespace CmsLibrary.Properties {
     // class via a tool like ResGen or Visual Studio.
     // To add or remove a member, edit your .ResX file then rerun ResGen
     // with the /str option, or rebuild your VS project.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "15.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     internal class Resources {
@@ -61,14 +61,9 @@ namespace CmsLibrary.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to --drop database courseManage;
-        ///--create database courseManage; 
-        ///
-        ///--Drop tables
-        ///if OBJECT_id(&apos;Users&apos;,&apos;U&apos;) is not null
-        ///drop table Users;
+        ///   Looks up a localized string similar to --Drop tables
         ///if object_id(&apos;Unit_Teachers&apos;,&apos;U&apos;) is not null
-        ///drop table Unit_Teachers;
+        ///drop table unit_teachers;
         ///if object_id(&apos;Unit_Skills&apos;, &apos;U&apos;) is not null
         ///drop table Unit_Skills;
         ///if object_id(&apos;Course_Teachers&apos;, &apos;U&apos;) is not null
@@ -76,42 +71,16 @@ namespace CmsLibrary.Properties {
         ///if object_id(&apos;Course_Units&apos;, &apos;U&apos;) is not null
         ///drop table Course_Units;
         ///if object_id(&apos;Teacher_Skills&apos;, &apos;U&apos;) is not null
-        ///drop table Teacher_Skills; [rest of string was truncated]&quot;;.
+        ///drop table Teacher_Skills;
+        ///if object_id(&apos;Enrolments&apos;, &apos;U&apos;) is not null
+        ///drop table Enrolments;
+        ///
+        ///if object_id(&apos;Skills&apos;, &apos;U&apos;) is not null
+        ///drop table  [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string CmsSql {
             get {
                 return ResourceManager.GetString("CmsSql", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to --Stored Procedures
-        ///
-        ///--drops
-        ///
-        ///if object_id ( &apos;Location&apos;, &apos;P&apos; ) is not null
-        ///    drop procedure Location;  
-        ///if object_id ( &apos;UnitCount&apos;, &apos;FN&apos; ) is not null
-        ///    drop function CoreCount;  
-        ///go
-        ///
-        ///--creates
-        ///
-        ///--Location returns the location id if it exists, otherwise inserts it and returns it.
-        ///create procedure Location
-        ///@street1 varchar(100) = null,
-        ///@street2 varchar(50) = null,
-        ///@suburb varchar(50) = null,
-        ///@state varchar(50) = null,
-        ///@postcode smallint = null,
-        ///@campus varchar(50) = null 
-        ///as 
-        ///begin
-        /// [rest of string was truncated]&quot;;.
-        /// </summary>
-        internal static string CmsStoredProcedures {
-            get {
-                return ResourceManager.GetString("CmsStoredProcedures", resourceCulture);
             }
         }
     }

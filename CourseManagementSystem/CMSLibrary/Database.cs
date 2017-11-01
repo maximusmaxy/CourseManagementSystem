@@ -9,7 +9,6 @@ using System.Windows.Forms;
 using System.IO;
 using System.ComponentModel;
 using System.Security.Cryptography;
-using System.Net.NetworkInformation;
 
 namespace CmsLibrary
 {
@@ -24,15 +23,13 @@ namespace CmsLibrary
 
     public static class Database
     {
-
-        //The static server name that is used for every connection.
+        //These can be changed staticly using Database.ServerName = "localHost" or whatever.
+        //home - MAXIMUMPENIS\\SQLEXPRESS
+        //tafe - (local)
+        //lisahome - LISAWORKLAPTOP\\SQLEXPRESS
         //public static string ServerName { get; set; } = "LISAWORKLAPTOP\\SQLEXPRESS";
         public static string ServerName { get; set; } = "(local)";
-
-        //Database Name
         public static string DatabaseName { get; set; } = "CourseManage";
-
-        //User Object
         public static User User { get; set; } = new User();
 
         /// <summary>
@@ -51,62 +48,19 @@ namespace CmsLibrary
         /// <summary>
         /// Loads the database using sql file in the library
         /// </summary>
-        /// <returns>Whether the load was successful.</returns>
-        public static bool LoadDatabase()
+        public static void LoadDatabase()
         {
             string connectionString = $"server={ServerName};database=master;Trusted_Connection=yes";
             string commandString = $"if db_id('{DatabaseName}') is null create database {DatabaseName};";
-            try
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            using (SqlCommand command = new SqlCommand(commandString, connection))
             {
-                using (SqlConnection connection = new SqlConnection(connectionString))
-                using (SqlCommand command = new SqlCommand(commandString, connection))
-                {
-                    connection.Open();
-                    command.ExecuteNonQuery();
-                }
-                if (!ExecuteSqlString(Properties.Resources.CmsSql, "CmsSql.sql"))
-                    return false;
-                if (!ExecuteSqlString(Properties.Resources.CmsStoredProcedures, "CmdStoredProcedures.sql"))
-                    return false;
-                string[] queries = Properties.Resources.CmsSql.Split(new string[] { "\r\ngo\r\n" }, StringSplitOptions.RemoveEmptyEntries);
-                for (int i = 0; i < queries.Length; i++)
-                    ExecuteNonQuery(queries[i]);
-                return true;
+                connection.Open();
+                command.ExecuteNonQuery();
             }
-            catch (SqlException ex)
-            {
-                if (new int[] {-1, 2}.Contains(ex.Number))
-                {
-                    MessageBox.Show($"The server \"{ServerName}\" is either not running or could not be found. Please make sure the server exists and is running.");
-                }
-                else
-                {
-                    MessageBox.Show($"{ex.Number}\n{ex.Message}");
-                }
-                return false;
-            }
-        }
-
-        /// <summary>
-        /// Executes an sql resource string.
-        /// </summary>
-        /// <param name="sql">The sql resource string to execute.</param>
-        /// <param name="name">The name of the resource file for debugging purposes.</param>
-        /// <returns></returns>
-        public static bool ExecuteSqlString(string sql, string name)
-        {
-            try
-            {
-                string[] queries = sql.Split(new string[] { "\r\ngo\r\n" }, StringSplitOptions.RemoveEmptyEntries);
-                for (int i = 0; i < queries.Length; i++)
-                    ExecuteNonQuery(queries[i]);
-                return true;
-            }
-            catch (SqlException ex)
-            {
-                MessageBox.Show($"Error executing {name}\n{ex.Message}");
-                return false;
-            }
+            string[] queries = Properties.Resources.CmsSql.Split(new string[] { "\r\ngo\r\n" }, StringSplitOptions.RemoveEmptyEntries);
+            for (int i = 0; i < queries.Length; i++)
+                ExecuteNonQuery(queries[i]);
         }
 
         /// <summary>
@@ -175,12 +129,9 @@ namespace CmsLibrary
                 command.Parameters.AddRange(parameters);
                 using (SqlDataReader reader = command.ExecuteReader())
                 {
-                    while (true)
+                    while (reader.Read())
                     {
-                        if (reader.Read())
-                            yield return reader;
-                        else if (!reader.NextResult())
-                            break;
+                        yield return reader;
                     }
                 }
             }
@@ -230,12 +181,9 @@ namespace CmsLibrary
                             return false;
                     }
                 }
-                catch (SqlException ex)
+                catch (Exception ex)
                 {
-                    if (ex.Number == 2627)
-                        throw new UniqueConstraintException(ex.Message);
-                    else
-                        MessageBox.Show($"{ex.Number}\n{ex.Message}");
+                    MessageBox.Show(ex.Message);
                     return false;
                 }
             }
@@ -282,9 +230,9 @@ namespace CmsLibrary
                     command.ExecuteNonQuery();
                     return true;
                 }
-                catch (SqlException ex)
+                catch (Exception ex)
                 {
-                    MessageBox.Show($"{ex.Number}\n{ex.Message}");
+                    MessageBox.Show(ex.Message);
                     return false;
                 }
             }
@@ -309,9 +257,9 @@ namespace CmsLibrary
                     command.ExecuteNonQuery();
                     return true;
                 }
-                catch (SqlException ex)
+                catch (Exception ex)
                 {
-                    MessageBox.Show($"{ex.Number}\n{ex.Message}");
+                    MessageBox.Show(ex.Message);
                     return false;
                 }
             }
@@ -365,9 +313,9 @@ namespace CmsLibrary
                         return false;
                     }
                 }
-                catch (SqlException ex)
+                catch (Exception ex)
                 {
-                    MessageBox.Show($"{ex.Number}\n{ex.Message}");
+                    MessageBox.Show(ex.Message);
                     return false;
                 }
             }
@@ -387,6 +335,7 @@ namespace CmsLibrary
         {
             List<int> adds = new List<int>();
             List<int> deletes = new List<int>();
+            DataTable dataTable = (DataTable)control.DataSource;
             foreach (DataRowView row in control.SelectedItems)
             {
                 adds.Add(Convert.ToInt32(row[controlName]));
@@ -403,9 +352,9 @@ namespace CmsLibrary
                         deletes.Add(id);
                 }
             }
-            catch (SqlException ex)
+            catch (Exception ex)
             {
-                MessageBox.Show($"{ex.Number}\n{ex.Message}");
+                MessageBox.Show(ex.Message);
                 return false;
             }
             if (adds.Count == 0 && deletes.Count == 0)
@@ -484,9 +433,9 @@ namespace CmsLibrary
                     command.ExecuteNonQuery();
                     return true;
                 }
-                catch (SqlException ex)
+                catch (Exception ex)
                 {
-                    MessageBox.Show($"{ex.Number}\n{ex.Message}");
+                    MessageBox.Show(ex.Message);
                     return false;
                 }
             }
@@ -506,9 +455,9 @@ namespace CmsLibrary
                 ExecuteNonQuery(sql);
                 return true;
             }
-            catch (SqlException ex)
+            catch (Exception ex)
             {
-                MessageBox.Show($"{ex.Number}\n{ex.Message}");
+                MessageBox.Show(ex.Message);
                 return false;
             }
         }
@@ -644,7 +593,7 @@ namespace CmsLibrary
                     {
                         User.Permission = (Permission)Convert.ToInt32(row["permissionType"]);
                         User.Id = Extensions.ConvertDBNullInt(row["studentTeacherId"]);
-                        return true;
+                        return true; 
                     }
                 }
                 finally
@@ -675,14 +624,6 @@ namespace CmsLibrary
         public static byte[] GetSaltedHashedPassword(byte[] password, byte[] salt)
         {
             return new SHA256Managed().ComputeHash(salt.Concat(password).ToArray());
-        }
-
-        /// <summary>
-        /// Returns the mac address of the current computer
-        /// </summary>
-        public static string MacAddress()
-        {
-            return NetworkInterface.GetAllNetworkInterfaces().Where(nic => nic.OperationalStatus == OperationalStatus.Up).Select(nic => nic.GetPhysicalAddress().ToString()).FirstOrDefault();
         }
     }
 }

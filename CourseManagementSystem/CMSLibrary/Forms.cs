@@ -337,20 +337,6 @@ namespace CmsLibrary
         }
 
         /// <summary>
-        /// Closes all forms and displays the specified form.
-        /// </summary>
-        /// <param name="formType">The login form form type.</param>
-        public static void LogOut(Type formType)
-        {
-            ShowForm(formType);
-            foreach (var kvp in formsOpen.ToDictionary(kvp => kvp.Key, kvp => kvp.Value))
-            {
-                if (kvp.Key != formType)
-                    kvp.Value.Close();
-            }
-        }
-
-        /// <summary>
         /// Gets the permission stored in the database user object.
         /// </summary>
         public static Permission Permission => Database.User.Permission;

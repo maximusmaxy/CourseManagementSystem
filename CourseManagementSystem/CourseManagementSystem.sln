@@ -1,15 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.26430.14
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CourseManagementSystem", "CourseManagementSystem\CourseManagementSystem.csproj", "{7E69DB57-4150-490A-9ADA-D110778B6571}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CmsLibrary", "CMSLibrary\CmsLibrary.csproj", "{B8A7D8B1-3E3C-412B-BD1D-8150C6E3348E}"
 EndProject
 Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "VBProject", "VBProject\VBProject.vbproj", "{D9841820-59B3-460D-A767-8B5D7E7BFA7B}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CmsUnitTest", "UnitTestProject1\CmsUnitTest.csproj", "{BF163B7B-07FA-44C1-BD27-776BAED00976}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -29,10 +27,6 @@ Global
 		{D9841820-59B3-460D-A767-8B5D7E7BFA7B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D9841820-59B3-460D-A767-8B5D7E7BFA7B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D9841820-59B3-460D-A767-8B5D7E7BFA7B}.Release|Any CPU.Build.0 = Release|Any CPU
-		{BF163B7B-07FA-44C1-BD27-776BAED00976}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{BF163B7B-07FA-44C1-BD27-776BAED00976}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{BF163B7B-07FA-44C1-BD27-776BAED00976}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{BF163B7B-07FA-44C1-BD27-776BAED00976}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

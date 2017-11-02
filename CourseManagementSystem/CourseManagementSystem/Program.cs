@@ -16,9 +16,9 @@ namespace CMS
         [STAThread]
         static void Main()
         {
+ 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            //VBClass.ShowCredits();
             //Database.ServerName = "MAXIMUMPENIS\\SQLEXPRESS";
             if (!Database.LoadDatabase())
             {

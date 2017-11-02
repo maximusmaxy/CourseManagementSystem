@@ -24,7 +24,7 @@ namespace CmsLibrary
         ForceEmpty
     }
 
-    public class Validation
+    public static class Validation
     {
         private static Regex numericRegex = new Regex(@"^[\d\.]+$");
         private static Regex wordRegex = new Regex(@"^[A-z\s]+$");

@@ -7,11 +7,13 @@ using System.Threading.Tasks;
 
 namespace CmsLibrary
 {
-    public class UniqueConstraintException : Exception
+    public class UniqueConstraintException : ConstraintException
     {
         private static Regex uniqueConstraintRegex = new Regex(@"^Violation of UNIQUE KEY constraint '([^']+?)'");
 
         public string UniqueConstraint { get; private set; }
+
+        public override string Constraint => UniqueConstraint;
 
         public UniqueConstraintException(string message) : base(message)
         {

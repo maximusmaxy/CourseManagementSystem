@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace CmsLibrary
 {
-    public class Forms
+    public static class Forms
     {
         private static Regex aliasRegex = new Regex(@"\W");
         private static Dictionary<Type, Form> formsOpen = new Dictionary<Type, Form>();

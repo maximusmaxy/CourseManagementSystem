@@ -66,6 +66,7 @@ skillId smallint primary key not null identity(1,1),
 departmentId smallint not null,
 skillName varchar(80) not null,
 skillDescription varchar(500) not null
+constraint unique_skill_name unique(skillName),
 constraint Skill_department_fk foreign key (departmentId) references Departments(departmentId));
 
 create table Students(
@@ -96,6 +97,7 @@ courseDeliveryType tinyint not null,
 courseStartDate date not null,
 courseEndDate date not null,
 courseDescription varchar(5000) not null
+constraint unique_course_name unique (courseName),
 constraint Course_department_fk foreign key (departmentId) references Departments(departmentId),
 constraint Course_location_fk foreign key (locationId) references Locations(locationId));
 
@@ -107,6 +109,7 @@ teacherFirstName varchar(50) not null,
 teacherLastName varchar(50) not null,
 teacherEmail varchar(100) not null,
 contactNumber varchar(12) not null,
+constraint unique_Teacher_email unique (teacherEmail),
 constraint teacher_department_fk foreign key (departmentId) references Departments(departmentId),
 constraint teacher_location_fk foreign key (locationId) references Locations(locationId));
 
@@ -119,6 +122,7 @@ unitType tinyint not null,
 numOfHours smallint not null,
 unitDescription varchar(500) not null,
 constraint unique_unit_code unique(unitCode),
+constraint unique_unit_name unique(unitName),
 constraint Unit_department_fk foreign key (departmentId) references Departments(departmentId));
  
 create table Assessments(

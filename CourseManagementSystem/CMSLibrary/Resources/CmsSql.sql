@@ -134,6 +134,7 @@ assessmentName varchar(40) not null,
 assessmentStartDate date not null,
 assessmentDueDate date not null,
 assessmentDescription varchar(500) not null,
+constraint unique_assessment_name unique(assessmentname),
 constraint assessment_unit_fk foreign key (unitId) references Units(unitId),
 constraint assessment_teacher_fk foreign key (teacherId) references Teachers(teacherId),
 constraint assessment_department_fk foreign key (departmentId) references Departments(departmentId));

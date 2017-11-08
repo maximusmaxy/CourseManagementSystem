@@ -221,7 +221,7 @@ namespace CmsLibrary
             }
             catch (UniqueConstraintException ex)
             {
-                if (ex.UniqueConstraint == "unique_email")
+                if (ex.Constraint == "unique_email")
                     MessageBox.Show("The selected email is already in use. Please choose a different email address.");
                 else
                     MessageBox.Show(ex.Message);

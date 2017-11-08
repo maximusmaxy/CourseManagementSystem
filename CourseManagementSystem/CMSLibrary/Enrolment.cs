@@ -178,7 +178,7 @@ namespace CmsLibrary
             }
             catch (UniqueConstraintException ex)
             {
-                if (ex.UniqueConstraint == "student_course_unique")
+                if (ex.Constraint == "student_course_unique")
                     MessageBox.Show($"The selected student has already enrolled in the selected course.");
                 else
                     MessageBox.Show(ex.Message);

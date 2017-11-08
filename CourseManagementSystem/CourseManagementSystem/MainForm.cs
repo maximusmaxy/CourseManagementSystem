@@ -30,6 +30,7 @@ namespace CMS
                 btnSkillsForm.Enabled = false;
                 btnTeacherForm.Enabled = false;
                 btnUnitForm.Enabled = false;
+                label2.Enabled = false;
             }
             else if (Forms.Permission == Permission.Teacher)
             {

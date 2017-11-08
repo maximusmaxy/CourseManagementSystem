@@ -138,7 +138,7 @@ namespace CmsLibrary
             }
             catch (UniqueConstraintException ex)
             {
-                if (ex.UniqueConstraint == "unique_unit_code")
+                if (ex.Constraint == "unique_unit_code")
                     MessageBox.Show("Unit code is already in use. Please choose a different unit code.");
                 else
                     MessageBox.Show(ex.Message);

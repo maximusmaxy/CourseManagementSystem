@@ -311,7 +311,11 @@ namespace CmsLibrary
                 }
                 catch (SqlException ex)
                 {
-                    MessageBox.Show($"{ex.Number}\n{ex.Message}");
+                    if (ex.Number == 547)
+                        MessageBox.Show($"This {table} is being referenced somewhere else and connot be deleted");
+                    else
+
+                        MessageBox.Show($"{ex.Number}\n{ex.Message}");
                     return false;
                 }
             }

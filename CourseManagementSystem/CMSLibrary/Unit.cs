@@ -140,6 +140,8 @@ namespace CmsLibrary
             {
                 if (ex.Constraint == "unique_unit_code")
                     MessageBox.Show("Unit code is already in use. Please choose a different unit code.");
+                else if (ex.Constraint == "unique_unit_name")
+                    MessageBox.Show("Unit name is already in use. Please choose a different unit name.");
                 else
                     MessageBox.Show(ex.Message);
                 return false;

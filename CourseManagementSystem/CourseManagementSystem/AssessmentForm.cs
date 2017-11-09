@@ -350,5 +350,25 @@ namespace CMS
         {
             VBProject.VBClass.ShowCredits();
         }
+
+        private void txtAssessmentId_TextChanged(object sender, EventArgs e)
+        {
+            if (!Validation.Numeric(txtAssessmentId, ""))
+            {
+                Forms.ClearDataSource(lstStudents);
+                return;
+            }
+            DataTable table = Database.CreateDataTable("select (students.studentFirstName + ' ' + students.studentLastName) as studentFullName, students.studentId, Student_Assessments.results as result from Students, Student_Assessments " +
+                $"where students.studentId = Student_Assessments.studentId and Student_Assessments.assessmentId = {txtAssessmentId.Int()}");
+            Forms.SetDataSource(lstStudents, "studentFullName", "students.studentId", table);
+        }
+
+        private void lstStudents_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (lstStudents.DataSource == null)
+                return;
+            DataTable table = (DataTable) lstStudents.DataSource;
+            Forms.CheckRadio(pnlCourseResults, Types.CourseResults, Convert.ToInt32(table.Rows[lstStudents.SelectedIndex]["result"]));
+        }
     }
 }

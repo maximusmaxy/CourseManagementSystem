@@ -191,11 +191,11 @@ namespace CMS
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            if (!Validation.Combo(cmbAreaOfStudy) || !Validation.Combo(cmbUnit) || !Validation.Combo(cmbTeacher) || 
+            if (!Validation.Combo(cmbAreaOfStudy) || !Validation.Combo(cmbUnit) || !Validation.Combo(cmbTeacher) ||
                 !Validation.Date(dtpStart) || !Validation.Date(dtpDue) || !Validation.Word(txtDescription)
                 )
             {
-                MessageBox.Show("Failed to Validate, please try again");
+                //MessageBox.Show("Failed to Validate, please try again");
                 return;
             }
 
@@ -214,8 +214,9 @@ namespace CMS
 
                 if (!Assessment.Add())
                 {
-                    MessageBox.Show("Failed to Add new Assessment");
+                    //MessageBox.Show("Failed to Add new Assessment");
                 }
+                MessageBox.Show("Assessment added successfully.");
 
             }
         }
@@ -225,11 +226,11 @@ namespace CMS
             if (!Validation.Numeric(txtAssessmentId)
 )
             {
-                MessageBox.Show("Failed to Validate, please try again");
+                //MessageBox.Show("Failed to Validate, please try again");
                 return;
             }
 
-            DialogResult result = MessageBox.Show("Would you like to search for this Assessment?", "Question", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question); 
+            DialogResult result = MessageBox.Show("Would you like to search for this Assessment?", "Question", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
 
             if (result == DialogResult.Yes)
             {
@@ -243,19 +244,17 @@ namespace CMS
             Assessment.Id = id;
             if (!Assessment.Search())
             {
-                MessageBox.Show("Failed to find an Assessment with the ID :" + txtAssessmentId.Text);
+                return;
+                //MessageBox.Show("Failed to find an Assessment with the ID :" + txtAssessmentId.Text);
             }
-            else
-            {
-                txtAssessmentId.Text = Assessment.Id.ToString();
-                txtAssessmentName.Text = Assessment.Name;
-                cmbAreaOfStudy.SelectedValue = Assessment.DepartmentId;
-                cmbUnit.SelectedValue = Assessment.UnitId;
-                cmbTeacher.SelectedValue = Assessment.TeacherId;
-                dtpStart.Value = Assessment.StartDate;
-                dtpDue.Value = Assessment.DueDate;
-                txtDescription.Text = Assessment.Description;
-            }
+            txtAssessmentId.Text = Assessment.Id.ToString();
+            txtAssessmentName.Text = Assessment.Name;
+            cmbAreaOfStudy.SelectedValue = Assessment.DepartmentId;
+            cmbUnit.SelectedValue = Assessment.UnitId;
+            cmbTeacher.SelectedValue = Assessment.TeacherId;
+            dtpStart.Value = Assessment.StartDate;
+            dtpDue.Value = Assessment.DueDate;
+            txtDescription.Text = Assessment.Description;
         }
 
         private void btnUpdate_Click(object sender, EventArgs e)
@@ -264,11 +263,11 @@ namespace CMS
                 || !Validation.Combo(cmbTeacher) || !Validation.Date(dtpStart) || !Validation.Date(dtpDue) || !Validation.Word(txtDescription)
             )
             {
-                MessageBox.Show("Failed to Validate, please try again");
+                //MessageBox.Show("Failed to Validate, please try again");
                 return;
             }
 
-            DialogResult result = MessageBox.Show("Would you like to update this Assessment?", "Question", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question); 
+            DialogResult result = MessageBox.Show("Would you like to update this Assessment?", "Question", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
 
             if (result == DialogResult.Yes)
             {
@@ -284,8 +283,15 @@ namespace CMS
 
                 if (!Assessment.Update())
                 {
-                    MessageBox.Show("Failed to Update the Selected Assessment");
+                    //MessageBox.Show("Failed to Update the Selected Assessment");
+                    return;
                 }
+                StudentAssessment studentAssessment = new StudentAssessment(txtAssessmentId.Int(), lstStudents);
+                if (!studentAssessment.Update())
+                {
+                    return;
+                }
+                MessageBox.Show("Successfully updated assessment.");
             }
         }
 
@@ -303,8 +309,14 @@ namespace CMS
             {
                 if (!Assessment.Delete())
                 {
-                    MessageBox.Show("Failed to Delete the Selected Assessment");
+                    
+                    //MessageBox.Show("Failed to Delete the Selected Assessment");
+                    return;
                 }
+                StudentAssessment studentAssessment = new StudentAssessment(txtAssessmentId.Int(), lstStudents);
+                if (!studentAssessment.Delete())
+                    return;
+                MessageBox.Show("Successfully Deleted assessment.");
             }
         }
 
@@ -366,9 +378,36 @@ namespace CMS
         private void lstStudents_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (lstStudents.DataSource == null)
+            {
+                Forms.ClearRadio(pnlCourseResults);
                 return;
-            DataTable table = (DataTable) lstStudents.DataSource;
+            } 
+            DataTable table = (DataTable)lstStudents.DataSource;
             Forms.CheckRadio(pnlCourseResults, Types.CourseResults, Convert.ToInt32(table.Rows[lstStudents.SelectedIndex]["result"]));
+        }
+
+        private void rdbPass_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rdbPass.Checked)
+                SetStudentResult(Types.CourseResults["Pass"]);
+        }
+
+        private void rdbFail_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rdbFail.Checked)
+                SetStudentResult(Types.CourseResults["Fail"]);
+        }
+
+        private void rdbNotComplete_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rdbNotComplete.Checked)
+                SetStudentResult(Types.CourseResults["Not Completed"]);
+        }
+
+        private void SetStudentResult(int result)
+        {
+            DataTable table = (DataTable)lstStudents.DataSource;
+            table.Rows[lstStudents.SelectedIndex]["result"] = result;
         }
     }
 }

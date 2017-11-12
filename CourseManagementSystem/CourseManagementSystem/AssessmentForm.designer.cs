@@ -73,6 +73,10 @@
             this.dtpStart = new System.Windows.Forms.DateTimePicker();
             this.cmbUnit = new System.Windows.Forms.ComboBox();
             this.txtAssessmentName = new System.Windows.Forms.TextBox();
+            this.pnlCourseResults = new System.Windows.Forms.Panel();
+            this.rdbNotComplete = new System.Windows.Forms.RadioButton();
+            this.rdbPass = new System.Windows.Forms.RadioButton();
+            this.rdbFail = new System.Windows.Forms.RadioButton();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.button5 = new System.Windows.Forms.Button();
             this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
@@ -91,22 +95,18 @@
             this.panel9 = new System.Windows.Forms.Panel();
             this.lstStudents = new System.Windows.Forms.ListBox();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.pnlCourseResults = new System.Windows.Forms.Panel();
-            this.rdbNotComplete = new System.Windows.Forms.RadioButton();
-            this.rdbPass = new System.Windows.Forms.RadioButton();
-            this.rdbFail = new System.Windows.Forms.RadioButton();
             this.panel8.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel7.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.panel3.SuspendLayout();
+            this.pnlCourseResults.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
             this.panel6.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel5.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel9.SuspendLayout();
-            this.pnlCourseResults.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel8
@@ -503,6 +503,62 @@
             this.txtAssessmentName.Tag = "Assesment ID";
             this.ToolTips.SetToolTip(this.txtAssessmentName, "Insert a Numeric value for the Assessment ID, using 0-9 numbers Only");
             // 
+            // pnlCourseResults
+            // 
+            this.pnlCourseResults.Controls.Add(this.rdbNotComplete);
+            this.pnlCourseResults.Controls.Add(this.rdbPass);
+            this.pnlCourseResults.Controls.Add(this.rdbFail);
+            this.pnlCourseResults.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pnlCourseResults.Location = new System.Drawing.Point(492, 332);
+            this.pnlCourseResults.Name = "pnlCourseResults";
+            this.pnlCourseResults.Size = new System.Drawing.Size(304, 29);
+            this.pnlCourseResults.TabIndex = 132;
+            this.pnlCourseResults.Tag = "CourseResult";
+            this.ToolTips.SetToolTip(this.pnlCourseResults, "Select the State of the enrolment at the end of Completion Date (Select Not Compl" +
+        "eted until results are recieved)");
+            // 
+            // rdbNotComplete
+            // 
+            this.rdbNotComplete.AutoSize = true;
+            this.rdbNotComplete.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rdbNotComplete.Location = new System.Drawing.Point(129, 2);
+            this.rdbNotComplete.Name = "rdbNotComplete";
+            this.rdbNotComplete.Size = new System.Drawing.Size(133, 24);
+            this.rdbNotComplete.TabIndex = 74;
+            this.rdbNotComplete.TabStop = true;
+            this.rdbNotComplete.Tag = "CourseNot";
+            this.rdbNotComplete.Text = "Not Completed";
+            this.rdbNotComplete.UseVisualStyleBackColor = true;
+            this.rdbNotComplete.CheckedChanged += new System.EventHandler(this.rdbNotComplete_CheckedChanged);
+            // 
+            // rdbPass
+            // 
+            this.rdbPass.AutoSize = true;
+            this.rdbPass.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rdbPass.Location = new System.Drawing.Point(3, 3);
+            this.rdbPass.Name = "rdbPass";
+            this.rdbPass.Size = new System.Drawing.Size(62, 24);
+            this.rdbPass.TabIndex = 72;
+            this.rdbPass.TabStop = true;
+            this.rdbPass.Tag = "CoursePass";
+            this.rdbPass.Text = "Pass";
+            this.rdbPass.UseVisualStyleBackColor = true;
+            this.rdbPass.CheckedChanged += new System.EventHandler(this.rdbPass_CheckedChanged);
+            // 
+            // rdbFail
+            // 
+            this.rdbFail.AutoSize = true;
+            this.rdbFail.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rdbFail.Location = new System.Drawing.Point(71, 3);
+            this.rdbFail.Name = "rdbFail";
+            this.rdbFail.Size = new System.Drawing.Size(52, 24);
+            this.rdbFail.TabIndex = 73;
+            this.rdbFail.TabStop = true;
+            this.rdbFail.Tag = "CourseFail";
+            this.rdbFail.Text = "Fail";
+            this.rdbFail.UseVisualStyleBackColor = true;
+            this.rdbFail.CheckedChanged += new System.EventHandler(this.rdbFail_CheckedChanged);
+            // 
             // button5
             // 
             this.button5.BackColor = System.Drawing.Color.Tan;
@@ -680,59 +736,6 @@
             this.lstStudents.TabIndex = 131;
             this.lstStudents.SelectedIndexChanged += new System.EventHandler(this.lstStudents_SelectedIndexChanged);
             // 
-            // pnlCourseResults
-            // 
-            this.pnlCourseResults.Controls.Add(this.rdbNotComplete);
-            this.pnlCourseResults.Controls.Add(this.rdbPass);
-            this.pnlCourseResults.Controls.Add(this.rdbFail);
-            this.pnlCourseResults.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.pnlCourseResults.Location = new System.Drawing.Point(492, 332);
-            this.pnlCourseResults.Name = "pnlCourseResults";
-            this.pnlCourseResults.Size = new System.Drawing.Size(304, 29);
-            this.pnlCourseResults.TabIndex = 132;
-            this.pnlCourseResults.Tag = "CourseResult";
-            this.ToolTips.SetToolTip(this.pnlCourseResults, "Select the State of the enrolment at the end of Completion Date (Select Not Compl" +
-        "eted until results are recieved)");
-            // 
-            // rdbNotComplete
-            // 
-            this.rdbNotComplete.AutoSize = true;
-            this.rdbNotComplete.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rdbNotComplete.Location = new System.Drawing.Point(129, 2);
-            this.rdbNotComplete.Name = "rdbNotComplete";
-            this.rdbNotComplete.Size = new System.Drawing.Size(133, 24);
-            this.rdbNotComplete.TabIndex = 74;
-            this.rdbNotComplete.TabStop = true;
-            this.rdbNotComplete.Tag = "CourseNot";
-            this.rdbNotComplete.Text = "Not Completed";
-            this.rdbNotComplete.UseVisualStyleBackColor = true;
-            // 
-            // rdbPass
-            // 
-            this.rdbPass.AutoSize = true;
-            this.rdbPass.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rdbPass.Location = new System.Drawing.Point(3, 3);
-            this.rdbPass.Name = "rdbPass";
-            this.rdbPass.Size = new System.Drawing.Size(62, 24);
-            this.rdbPass.TabIndex = 72;
-            this.rdbPass.TabStop = true;
-            this.rdbPass.Tag = "CoursePass";
-            this.rdbPass.Text = "Pass";
-            this.rdbPass.UseVisualStyleBackColor = true;
-            // 
-            // rdbFail
-            // 
-            this.rdbFail.AutoSize = true;
-            this.rdbFail.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rdbFail.Location = new System.Drawing.Point(71, 3);
-            this.rdbFail.Name = "rdbFail";
-            this.rdbFail.Size = new System.Drawing.Size(52, 24);
-            this.rdbFail.TabIndex = 73;
-            this.rdbFail.TabStop = true;
-            this.rdbFail.Tag = "CourseFail";
-            this.rdbFail.Text = "Fail";
-            this.rdbFail.UseVisualStyleBackColor = true;
-            // 
             // AssessmentForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -753,6 +756,8 @@
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.panel3.ResumeLayout(false);
+            this.pnlCourseResults.ResumeLayout(false);
+            this.pnlCourseResults.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
             this.panel6.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
@@ -761,8 +766,6 @@
             this.panel1.ResumeLayout(false);
             this.panel9.ResumeLayout(false);
             this.panel9.PerformLayout();
-            this.pnlCourseResults.ResumeLayout(false);
-            this.pnlCourseResults.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -258,61 +258,7 @@ namespace CMS
         }
         private void CourseId_SelectedIndexChanged(object sender, EventArgs e)
         {
-            //course
-            if (cmbCourseName.SelectedIndex <= 0)
-            {
-                return;
-            }
-            Course course = new Course() { Id = cmbCourseName.Int() };
-            double discount = 0.0;
-            double total = 0.0;
-            if (!course.Search())
-            {
-                return;
-            }
-            CultureInfo ci = new CultureInfo("en-au");
-            //String.Equals("AAAAA", "aaaaa", StringComparison.InvariantCultureIgnoreCase);
-            txtEnrolmentCost.Text = String.Format(ci, "{0:C}", course.Cost);
-            txtDiscountCost.Text = String.Format(ci, "{0:C}", discount); 
-            total = course.Cost;
-            txtTotal.Text = String.Format(ci, "{0:C}", total);
-            //student
-            int i;
-            if (string.IsNullOrEmpty(txtStudentId.Text) || !int.TryParse(txtStudentId.Text, out i))
-            {
-                return;
-            }
-            Student student = new Student() { Id = txtStudentId.Int() };
-            if (!student.Search())
-            {
-                return;
-            }
-
-            if (student.Aboriginal)
-            {
-                discount = course.Cost * 0.5;
-            }
-            else if (student.Centrelink)
-            {
-                discount = course.Cost * 0.2;
-            }
-            else if (student.Disability && student.Centrelink)
-            {
-                discount = course.Cost * 0.4;
-            }
-            else if (student.Aboriginal && student.Disability && student.Centrelink)
-            {
-                discount = course.Cost * 0.9;
-            }
-            else
-            {
-                discount = 0.0;
-            }
-
-            txtDiscountCost.Text = String.Format(ci, "{0:C}", discount);
-            total = course.Cost - discount;
-            txtTotal.Text = String.Format(ci, "{0:C}", total);
-
+            StudentCourseChange();
         }
         private void mainMenuToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -492,6 +438,104 @@ namespace CMS
         private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
         {
             VBProject.VBClass.ShowCredits();
+        }
+
+        private void txtStudentId_TextChanged(object sender, EventArgs e)
+        {
+            StudentCourseChange();
+        }
+
+        private void StudentCourseChange()
+        {
+            try
+            {
+                //disable search errors
+                Validation.ShowErrors = false;
+                //course
+                if (cmbCourseName.SelectedIndex <= 0)
+                {
+                    Forms.ClearRadio(pnlCourseResults);
+                    txtEnrolmentCost.Text = string.Empty;
+                    txtDiscountCost.Text = string.Empty;
+                    txtTotal.Text = string.Empty;
+                    return;
+                }
+                Course course = new Course() { Id = cmbCourseName.Int() };
+                double discount = 0.0;
+                double total = 0.0;
+                if (!course.Search())
+                {
+                    Forms.ClearRadio(pnlCourseResults);
+                    txtEnrolmentCost.Text = string.Empty;
+                    txtDiscountCost.Text = string.Empty;
+                    txtTotal.Text = string.Empty;
+                    return;
+                }
+                CultureInfo ci = new CultureInfo("en-au");
+                //String.Equals("AAAAA", "aaaaa", StringComparison.InvariantCultureIgnoreCase);
+                txtEnrolmentCost.Text = String.Format(ci, "{0:C}", course.Cost);
+                txtDiscountCost.Text = String.Format(ci, "{0:C}", discount);
+                total = course.Cost;
+                txtTotal.Text = String.Format(ci, "{0:C}", total);
+                //student
+                int i;
+                if (string.IsNullOrEmpty(txtStudentId.Text) || !int.TryParse(txtStudentId.Text, out i))
+                {
+                    Forms.ClearRadio(pnlCourseResults);
+                    return;
+                }
+                Student student = new Student() { Id = txtStudentId.Int() };
+                if (!student.Search())
+                {
+                    Forms.ClearRadio(pnlCourseResults);
+                    return;
+                }
+
+                if (student.Aboriginal)
+                {
+                    discount = course.Cost * 0.5;
+                }
+                else if (student.Centrelink)
+                {
+                    discount = course.Cost * 0.2;
+                }
+                else if (student.Disability && student.Centrelink)
+                {
+                    discount = course.Cost * 0.4;
+                }
+                else if (student.Aboriginal && student.Disability && student.Centrelink)
+                {
+                    discount = course.Cost * 0.9;
+                }
+                else
+                {
+                    discount = 0.0;
+                }
+
+                txtDiscountCost.Text = String.Format(ci, "{0:C}", discount);
+                total = course.Cost - discount;
+                txtTotal.Text = String.Format(ci, "{0:C}", total);
+
+                string sql = "select Student_Assessments.results as result from Student_Assessments, Assessments, Courses, Enrolments, Course_Units, Units where " +
+                    "Enrolments.courseId = Courses.courseId and Courses.courseId = Course_Units.courseId and " +
+                    "Course_Units.unitId = Units.unitId and Units.unitId = Assessments.unitId and " +
+                    "Student_Assessments.assessmentId = Assessments.assessmentId and " +
+                    "Enrolments.studentId = " + student.Id + " and Enrolments.courseId = " + course.Id;
+                DataTable table = Database.CreateDataTable(sql);
+                if (table.Rows.Count == 0)
+                    Forms.CheckRadio(pnlCourseResults, "Not Completed");
+                else if (table.AsEnumerable().Any(r => Convert.ToInt32(r["result"]) == Types.CourseResults["Fail"]))
+                    Forms.CheckRadio(pnlCourseResults, "Fail");
+                else if (table.AsEnumerable().Any(r => Convert.ToInt32(r["result"]) == Types.CourseResults["Not Completed"]))
+                    Forms.CheckRadio(pnlCourseResults, "Not Completed");
+                else
+                    Forms.CheckRadio(pnlCourseResults, "Pass");
+            }
+            finally
+            {
+                //re-enable search errors
+                Validation.ShowErrors = true;
+            }
         }
     }
 }

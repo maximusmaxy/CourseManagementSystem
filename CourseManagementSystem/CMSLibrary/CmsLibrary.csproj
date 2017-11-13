@@ -68,7 +68,6 @@
     <Compile Include="Skill.cs" />
     <Compile Include="Student.cs" />
     <Compile Include="StudentAssessment.cs" />
-    <Compile Include="StudentUnit.cs" />
     <Compile Include="Teacher.cs" />
     <Compile Include="TeacherSkill.cs" />
     <Compile Include="Types.cs" />

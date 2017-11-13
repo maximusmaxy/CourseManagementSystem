@@ -69,7 +69,7 @@ namespace CmsLibrary
             {
                 Database.ExecuteNonQuery(sb.ToString());
                 return true;
-            } catch (SqlException ex) {
+            } catch (SqlException) {
                 MessageBox.Show("Error updating Student Assessment results.");
                 return false;
             }

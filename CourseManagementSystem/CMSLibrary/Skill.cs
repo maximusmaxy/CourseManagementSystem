@@ -4,6 +4,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace CmsLibrary
 {
@@ -81,7 +82,18 @@ namespace CmsLibrary
 
         public bool Add()
         {
-            return Database.Add("skills", out id, departmentId, name, description);
+            try
+            {
+                return Database.Add("skills", out id, departmentId, name, description);
+            }
+            catch (UniqueConstraintException ex)
+            {
+                if (ex.Constraint == "unique_skill_name")
+                    MessageBox.Show("The selected skill name is already in use. Please choose a different skill name.");
+                else
+                    MessageBox.Show(ex.Message);
+                return false;
+            }
         }
 
         public bool Delete()

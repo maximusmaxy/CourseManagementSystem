@@ -4,6 +4,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace CmsLibrary
 {
@@ -124,7 +125,18 @@ namespace CmsLibrary
 
         public bool Add()
         {
-            return Database.Add("teachers", out id, locationId, departmentId, firstName, lastName, email, contactNumber);
+            try
+            {
+                return Database.Add("teachers", out id, locationId, departmentId, firstName, lastName, email, contactNumber);
+            }
+            catch (UniqueConstraintException ex)
+            {
+                if (ex.Constraint == "unique_Teacher_email")
+                    MessageBox.Show("The selected email is already in use. Please choose a different email.");
+                else
+                    MessageBox.Show(ex.Message);
+                return false;
+            }
         }
 
 

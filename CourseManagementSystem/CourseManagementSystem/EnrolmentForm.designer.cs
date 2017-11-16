@@ -75,11 +75,15 @@
             this.updateToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.deleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.viewAllToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.logOutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.formsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mainMenuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.studentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.teacherCoursesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.allocationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.label6 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
@@ -94,10 +98,6 @@
             this.cmbCourseName = new System.Windows.Forms.ComboBox();
             this.dgvSearch = new System.Windows.Forms.DataGridView();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.logOutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pnlSemester.SuspendLayout();
             this.pnlCourseResults.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
@@ -134,6 +134,7 @@
             this.txtStudentId.TabIndex = 48;
             this.txtStudentId.Tag = "StudentId";
             this.ToolTips.SetToolTip(this.txtStudentId, "Insert the Student ID here using Numeric Characters Only!");
+            this.txtStudentId.TextChanged += new System.EventHandler(this.txtStudentId_TextChanged);
             // 
             // dtpCompletion
             // 
@@ -211,6 +212,7 @@
             this.pnlCourseResults.Controls.Add(this.rdbNotComplete);
             this.pnlCourseResults.Controls.Add(this.rdbPass);
             this.pnlCourseResults.Controls.Add(this.rdbFail);
+            this.pnlCourseResults.Enabled = false;
             this.pnlCourseResults.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.pnlCourseResults.Location = new System.Drawing.Point(250, 334);
             this.pnlCourseResults.Name = "pnlCourseResults";
@@ -550,6 +552,19 @@
             this.viewAllToolStripMenuItem.Text = "&View All";
             this.viewAllToolStripMenuItem.Click += new System.EventHandler(this.btnViewAll_Click);
             // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(154, 6);
+            // 
+            // logOutToolStripMenuItem
+            // 
+            this.logOutToolStripMenuItem.Name = "logOutToolStripMenuItem";
+            this.logOutToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.L)));
+            this.logOutToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
+            this.logOutToolStripMenuItem.Text = "&Log Out";
+            this.logOutToolStripMenuItem.Click += new System.EventHandler(this.logOutToolStripMenuItem_Click);
+            // 
             // formsToolStripMenuItem
             // 
             this.formsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -593,6 +608,21 @@
             this.allocationToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
             this.allocationToolStripMenuItem.Text = "Allocation";
             this.allocationToolStripMenuItem.Click += new System.EventHandler(this.allocationToolStripMenuItem_Click);
+            // 
+            // helpToolStripMenuItem
+            // 
+            this.helpToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.aboutToolStripMenuItem});
+            this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
+            this.helpToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
+            this.helpToolStripMenuItem.Text = "Help";
+            // 
+            // aboutToolStripMenuItem
+            // 
+            this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
+            this.aboutToolStripMenuItem.Text = "About";
+            this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
             // 
             // label6
             // 
@@ -755,34 +785,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(823, 442);
             this.panel1.TabIndex = 110;
-            // 
-            // logOutToolStripMenuItem
-            // 
-            this.logOutToolStripMenuItem.Name = "logOutToolStripMenuItem";
-            this.logOutToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.L)));
-            this.logOutToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
-            this.logOutToolStripMenuItem.Text = "&Log Out";
-            this.logOutToolStripMenuItem.Click += new System.EventHandler(this.logOutToolStripMenuItem_Click);
-            // 
-            // toolStripSeparator1
-            // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(154, 6);
-            // 
-            // helpToolStripMenuItem
-            // 
-            this.helpToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.aboutToolStripMenuItem});
-            this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
-            this.helpToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
-            this.helpToolStripMenuItem.Text = "Help";
-            // 
-            // aboutToolStripMenuItem
-            // 
-            this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.aboutToolStripMenuItem.Text = "About";
-            this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
             // 
             // EnrolmentForm
             // 

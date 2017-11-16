@@ -4,6 +4,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace CmsLibrary
 {
@@ -141,7 +142,18 @@ namespace CmsLibrary
 
         public bool Add()
         {
-            return Database.Add("assessments", out id, unitId, teacherId, departmentId, name, startDate, dueDate, description);
+            try
+            {
+                return Database.Add("assessments", out id, unitId, teacherId, departmentId, name, startDate, dueDate, description);
+            }
+            catch (UniqueConstraintException ex)
+            {
+                if (ex.Constraint == "unique_assessment_name")
+                    MessageBox.Show("The selected assessment name is already in use. Please choose a different assessment name.");
+                else
+                    MessageBox.Show(ex.Message);
+                return false;
+            }
         }
 
         public bool Update()

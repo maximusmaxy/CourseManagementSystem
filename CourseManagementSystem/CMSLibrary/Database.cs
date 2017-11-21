@@ -58,12 +58,17 @@ namespace CmsLibrary
             string commandString = $"if db_id('{DatabaseName}') is null create database {DatabaseName};";
             try
             {
+                int databaseCount;
                 using (SqlConnection connection = new SqlConnection(connectionString))
                 using (SqlCommand command = new SqlCommand(commandString, connection))
                 {
                     connection.Open();
-                    command.ExecuteNonQuery();
+                    databaseCount = command.ExecuteNonQuery();
                 }
+#if !DEBUG
+                if (databaseCount == -1)
+                    return true;
+#endif
                 if (!ExecuteSqlString(Properties.Resources.CmsSql, "CmsSql.sql"))
                     return false;
                 if (!ExecuteSqlString(Properties.Resources.CmsStoredProcedures, "CmdStoredProcedures.sql"))
@@ -71,6 +76,7 @@ namespace CmsLibrary
                 string[] queries = Properties.Resources.CmsSql.Split(new string[] { "\r\ngo\r\n" }, StringSplitOptions.RemoveEmptyEntries);
                 for (int i = 0; i < queries.Length; i++)
                     ExecuteNonQuery(queries[i]);
+
                 return true;
             }
             catch (SqlException ex)

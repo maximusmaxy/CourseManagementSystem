@@ -22,6 +22,10 @@ namespace CMS
             InitializeComponent();
             userControl = ucLogin;
             attempts = 0;
+#if !DEBUG
+            userControl.TxtUsername.Text = string.Empty;
+            userControl.TxtPassword.Text = string.Empty;
+#endif
         }
 
         private void btnLogin_Click(object sender, EventArgs e)

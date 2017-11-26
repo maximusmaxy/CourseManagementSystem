@@ -89,7 +89,6 @@ namespace CMS
                 }
                 //success!
                 MessageBox.Show($"Enrolment id: {enrolment.Id} added successfully.");
-                txtStudentId.Text = enrolment.Id.ToString();
             }
 
         }
@@ -97,6 +96,8 @@ namespace CMS
         private void btnSearch_Click(object sender, EventArgs e)
         {
             if (!Validation.Numeric(txtStudentId))
+                return;
+            if (!Validation.Combo(cmbCourseName))
                 return;
 
             DialogResult result = MessageBox.Show("Would you like to search for this Student's Enrolment", "Question",
@@ -110,35 +111,32 @@ namespace CMS
                 //Database.CreateDataTable("Select (studentFirstName + ' ' + studentLastName) as 'Student Name', courseName from students,enrolments, courses where" +
                 //    " student.studentId = enrolment.studentId and course.courseId = enrolment.courseId and student.studentId = " + txtId.Int());
 
+                Enrolment enrolment = new Enrolment();
+
+                if (!enrolment.Search("studentid", txtStudentId.Int(), "courseid", cmbCourseName.Int()))
                 {
-                    Enrolment enrolment = new Enrolment(txtStudentId.Int());
-
-                    if (enrolment.Search())
-                    {
-
-                        txtEnrolmentCost.Text = enrolment.EnrolmentCost.ToString();
-                        txtDiscountCost.Text = enrolment.DiscountCost.ToString();
-                        dtpEnrolment.Value = enrolment.EnrolmentDate;
-                        dtpCompletion.Value = enrolment.CompletionDate;
-                        Forms.CheckRadio(pnlSemester, Types.Semester, enrolment.Semester);
-                        Forms.CheckRadio(pnlCourseResults, Types.CourseResults, enrolment.Result);
-
-                    }
-                    Course course = new Course(enrolment.CourseId);
-                    if (course.Search())
-                    {
-                        cmbAreaOfStudy.SelectedValue = course.DepartmentId;
-                        cmbCourseName.SelectedValue = enrolment.CourseId;
-
-                    }
-
-                    dgvSearch.DataSource = Database.CreateDataTable($"Select students.studentId,(studentFirstName + ' ' + studentLastName) as 'Student Name', courses.courseId,courseName as 'Course Name' from students,enrolments, courses where" +
-                " students.studentId = enrolments.studentId and courses.courseId = enrolments.courseId and students.studentId = " + txtStudentId.Int());
-                    ;
+                    return;
                 }
+                txtEnrolmentCost.Text = enrolment.EnrolmentCost.ToString();
+                txtDiscountCost.Text = enrolment.DiscountCost.ToString();
+                dtpEnrolment.Value = enrolment.EnrolmentDate;
+                dtpCompletion.Value = enrolment.CompletionDate;
+                Forms.CheckRadio(pnlSemester, Types.Semester, enrolment.Semester);
+                Forms.CheckRadio(pnlCourseResults, Types.CourseResults, enrolment.Result);
+
+                Course course = new Course(enrolment.CourseId);
+                if (!course.Search())
+                {
+                    return;
+                }
+                cmbAreaOfStudy.SelectedValue = course.DepartmentId;
+                cmbCourseName.SelectedValue = enrolment.CourseId;
+                dgvSearch.DataSource = Database.CreateDataTable($"Select students.studentId,(studentFirstName + ' ' + studentLastName) as 'Student Name', courses.courseId,courseName as 'Course Name' from students,enrolments, courses where" +
+                    " students.studentId = enrolments.studentId and courses.courseId = enrolments.courseId and students.studentId = " + txtStudentId.Int());
+                ;
+
             }
         }
-
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
@@ -165,7 +163,7 @@ namespace CMS
                 enrolment.DiscountCost = int.Parse(txtDiscountCost.Text);
                 enrolment.Semester = Forms.RadioValue(pnlSemester, Types.Semester);
                 enrolment.Result = Forms.RadioValue(pnlCourseResults, Types.CourseResults);
-            
+
                 //Course course = new Course(enrolment.CourseId);
                 //if (course.Search())
                 //{
@@ -195,7 +193,11 @@ namespace CMS
             if (result == DialogResult.Yes)
             {
                 //student
-                Enrolment enrolment = new Enrolment(txtStudentId.Int());
+                Enrolment enrolment = new Enrolment();
+                if (!enrolment.Search("studentid", txtStudentId.Int(), "courseid", cmbCourseName.Int()))
+                {
+                    return;
+                }
                 if (!enrolment.Delete())
                 {
                     return;
@@ -220,22 +222,29 @@ namespace CMS
         public void Search(int id)
         {
             Enrolment enrolment = new Enrolment(id);
-            if (enrolment.Search())
+            if (!enrolment.Search())
             {
-                txtStudentId.Text = enrolment.StudentId.ToString();
-                txtEnrolmentCost.Text = enrolment.EnrolmentCost.ToString();
-                txtDiscountCost.Text = enrolment.DiscountCost.ToString();
-                dtpEnrolment.Value = enrolment.EnrolmentDate;
-                dtpEnrolment.Value = enrolment.CompletionDate;
-                Forms.CheckRadio(pnlSemester, Types.Semester, enrolment.Semester);
-                Forms.CheckRadio(pnlCourseResults, Types.CourseResults, enrolment.Result);
+                return;
+
             }
+            txtStudentId.Text = enrolment.StudentId.ToString();
+            txtEnrolmentCost.Text = enrolment.EnrolmentCost.ToString();
+            txtDiscountCost.Text = enrolment.DiscountCost.ToString();
+            dtpEnrolment.Value = enrolment.EnrolmentDate;
+            dtpCompletion.Value = enrolment.CompletionDate;
+            Forms.CheckRadio(pnlSemester, Types.Semester, enrolment.Semester);
+            Forms.CheckRadio(pnlCourseResults, Types.CourseResults, enrolment.Result);
+
             Course course = new Course(enrolment.CourseId);
-            if (course.Search())
+            if (!course.Search())
             {
-                cmbAreaOfStudy.SelectedValue = course.DepartmentId;
-                cmbCourseName.SelectedValue = enrolment.CourseId;
+                return;
             }
+            cmbAreaOfStudy.SelectedValue = course.DepartmentId;
+            cmbCourseName.SelectedValue = enrolment.CourseId;
+            dgvSearch.DataSource = Database.CreateDataTable($"Select students.studentId,(studentFirstName + ' ' + studentLastName) as 'Student Name', courses.courseId,courseName as 'Course Name' from students,enrolments, courses where" +
+                " students.studentId = enrolments.studentId and courses.courseId = enrolments.courseId and students.studentId = " + txtStudentId.Int());
+            ;
         }
 
         private void cmbAreaOfStudy_SelectedIndexChanged(object sender, EventArgs e)

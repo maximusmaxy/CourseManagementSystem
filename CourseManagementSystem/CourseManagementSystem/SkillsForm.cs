@@ -130,8 +130,9 @@ namespace CMS
 
         private void btnViewAll_Click(object sender, EventArgs e)
         {
-            using (ViewAllForm form = new ViewAllForm("Units"))
+            using (ViewAllForm form = new ViewAllForm("Skills"))
             {
+                form.AddLookUp("departments", "departmentId", "departmentid", "departmentname");
                 form.ShowDialog(this);
                 if (form.Id != -1)
                 {

@@ -211,6 +211,11 @@ namespace CMS
         {
             using (ViewAllForm form = new ViewAllForm("Enrolments"))
             {
+                form.ReplaceColumn("students", "studentId", "studentFirstName");
+                form.AddColumn("students", "studentId", "studentLastName");
+                form.ReplaceColumn("courses", "courseId", "courseName");
+                form.AddType("semester", Types.Semester);
+                form.AddType("results", Types.CourseResults);
                 form.ShowDialog(this);
                 if (form.Id != -1)
                 {

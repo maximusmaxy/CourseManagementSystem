@@ -226,7 +226,8 @@ namespace CMS
         {
             using (ViewAllForm form = new ViewAllForm("teachers"))
             {
-               
+                form.AddLookUp("departments", "departmentId", "departmentid", "departmentname");
+                form.ReplaceColumn("locations", "locationId", "campus");
                 form.ShowDialog(this);
                 if (form.Id != -1)
                 {

@@ -205,9 +205,9 @@ namespace CMS
         {
             using (ViewAllForm form = new ViewAllForm("Courses"))
             {
-
-                //form.AddColumn("Courses", "UnitId");
-                form.AddType("deliveryType", Types.DeliveryType);
+                form.AddType("courseDeliveryType", Types.DeliveryType);
+                form.AddLookUp("departments", "departmentId", "departmentid", "departmentname");
+                form.ReplaceColumn("locations", "locationId", "campus");
                 form.ShowDialog(this);
                 if (form.Id != -1)
                 {

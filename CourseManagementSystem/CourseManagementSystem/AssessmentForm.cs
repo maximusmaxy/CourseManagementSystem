@@ -324,6 +324,10 @@ namespace CMS
         {
             using (ViewAllForm form = new ViewAllForm("Assessments"))
             {
+                form.AddLookUp("departments", "departmentId", "departmentid", "departmentname");
+                form.ReplaceColumn("teachers", "teacherId", "teacherFirstName");
+                form.AddColumn("teachers", "teacherId", "teacherLastName");
+                form.ReplaceColumn("units", "unitId", "unitName");
                 form.ShowDialog(this);
                 if (form.Id != -1)
                 {

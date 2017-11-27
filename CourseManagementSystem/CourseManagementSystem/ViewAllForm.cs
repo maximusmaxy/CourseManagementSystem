@@ -35,6 +35,7 @@ namespace CMS
         private List<Column> replaceColumns = new List<Column>();
         private List<string> hideColumns = new List<string>();
         private Dictionary<string, Dictionary<string, int>> dictionaries = new Dictionary<string, Dictionary<string, int>>();
+        private Dictionary<string, Dictionary<int, string>> lookUps = new Dictionary<string, Dictionary<int, string>>();
         private List<Bridge> bridges = new List<Bridge>();
         private List<int> storedIdColumn;
 
@@ -85,6 +86,16 @@ namespace CMS
             dictionaries[columnName] = dictionary;
         }
 
+        public void AddLookUp(string table, string columnName, string id, string value)
+        {
+            string sql = $"select {id} as id, {value} as value from {table}";
+            lookUps[columnName] = new Dictionary<int, string>();
+            foreach (var row in Database.ExecuteQuery(sql))
+            {
+                lookUps[columnName][Convert.ToInt32(row["id"])] = Convert.ToString(row["value"]);
+            }
+        }
+
         /// <summary>
         /// Adds a bridging tables values to the data grid view.
         /// </summary>
@@ -104,8 +115,9 @@ namespace CMS
             StringBuilder sb = new StringBuilder("select ");
             for (int i = 0; i < columnNames.Length; i++)
             {
-                //Replace columns
                 Column replace = replaceColumns.FirstOrDefault((c) => c.IdColumn.Equals(columnNames[i], StringComparison.InvariantCultureIgnoreCase));
+                IEnumerable<Column> adds = addColumns.Where((c) => c.IdColumn.Equals(columnNames[i], StringComparison.InvariantCultureIgnoreCase));
+                //Replace columns
                 if (replace != null)
                 {
                     sb.Append(replace.Table);
@@ -113,10 +125,11 @@ namespace CMS
                     sb.Append(replace.DisplayColumn);
                     sb.Append(" as '");
                     sb.Append(Extensions.CamelToHuman(replace.DisplayColumn));
-                    sb.Append("', ");
+                    sb.Append("'");
+                    if (adds.Count() != 0)
+                        sb.Append(", ");
                 }
                 //Add columns
-                IEnumerable<Column> adds = addColumns.Where((c) => c.IdColumn.Equals(columnNames[i], StringComparison.InvariantCultureIgnoreCase));
                 if (adds.Count() != 0)
                 {
                     foreach (Column column in adds)
@@ -150,6 +163,26 @@ namespace CMS
                     sb.Append(Extensions.CamelToHuman(columnNames[i]));
                     sb.Append("'");
                 }
+                //Look ups
+                else if (lookUps.ContainsKey(columnNames[i]))
+                {
+                    sb.Append(" case ");
+                    sb.Append(table);
+                    sb.Append(".");
+                    sb.Append(columnNames[i]);
+                    sb.Append(" ");
+                    foreach (KeyValuePair<int, string> kvp in lookUps[columnNames[i]])
+                    {
+                        sb.Append("when ");
+                        sb.Append(kvp.Key);
+                        sb.Append(" then '");
+                        sb.Append(kvp.Value);
+                        sb.Append("' ");
+                    }
+                    sb.Append("end as '");
+                    sb.Append(Extensions.CamelToHuman(columnNames[i]));
+                    sb.Append("'");
+                }
                 //Unmodified
                 else if (replace == null)
                 {
@@ -166,7 +199,7 @@ namespace CMS
             sb.Append(" from ");
             sb.Append(table);
             //Join unique tables
-            var uniqueTables = addColumns.GroupBy((c) => c.Table).Select((c) => c.FirstOrDefault());
+            var uniqueTables = addColumns.Union(replaceColumns).GroupBy((c) => c.Table).Select((c) => c.FirstOrDefault());
             if (uniqueTables.Count() != 0)
             {
                 foreach (Column column in uniqueTables)
@@ -184,7 +217,7 @@ namespace CMS
                     sb.Append(column.Table);
                     sb.Append(".");
                     sb.Append(column.IdColumn);
-                    sb.Append("and ");
+                    sb.Append(" and ");
                 }
                 sb.Length -= 4;
             }

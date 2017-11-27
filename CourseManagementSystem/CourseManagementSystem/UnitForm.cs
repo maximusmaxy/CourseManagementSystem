@@ -287,6 +287,8 @@ namespace CMS
             {
                 form.HideColumn("unitId");
                 form.AddBridging("Unit_Skills", "Skills", "unitId", "skillId", "skillName");
+                form.AddLookUp("departments", "departmentId", "departmentid", "departmentname");
+                form.AddType("unitType", Types.UnitType);
                 form.ShowDialog(this);
                 if (form.Id != -1)
                 {

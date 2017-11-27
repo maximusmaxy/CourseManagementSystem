@@ -38,6 +38,8 @@
             this.updateToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.deleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.viewAllToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.logOutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.formsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mainMenuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.studentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -47,6 +49,8 @@
             this.unitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.skillsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.allocationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cmbTables = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -85,10 +89,6 @@
             this.pnlForm = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.searchInt = new CMS.SearchInt();
-            this.logOutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSearch)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTotals)).BeginInit();
@@ -171,6 +171,19 @@
             this.viewAllToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
             this.viewAllToolStripMenuItem.Text = "&View All";
             // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(154, 6);
+            // 
+            // logOutToolStripMenuItem
+            // 
+            this.logOutToolStripMenuItem.Name = "logOutToolStripMenuItem";
+            this.logOutToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.L)));
+            this.logOutToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
+            this.logOutToolStripMenuItem.Text = "&Log Out";
+            this.logOutToolStripMenuItem.Click += new System.EventHandler(this.logOutToolStripMenuItem_Click);
+            // 
             // formsToolStripMenuItem
             // 
             this.formsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -243,6 +256,21 @@
             this.allocationToolStripMenuItem.Text = "Allocation";
             this.allocationToolStripMenuItem.Click += new System.EventHandler(this.allocationToolStripMenuItem_Click);
             // 
+            // helpToolStripMenuItem
+            // 
+            this.helpToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.aboutToolStripMenuItem});
+            this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
+            this.helpToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
+            this.helpToolStripMenuItem.Text = "Help";
+            // 
+            // aboutToolStripMenuItem
+            // 
+            this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
+            this.aboutToolStripMenuItem.Text = "About";
+            this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
+            // 
             // cmbTables
             // 
             this.cmbTables.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -251,6 +279,7 @@
             this.cmbTables.Name = "cmbTables";
             this.cmbTables.Size = new System.Drawing.Size(160, 28);
             this.cmbTables.TabIndex = 154;
+            this.ToolTips.SetToolTip(this.cmbTables, "Please select the form to obtain conditions from.");
             this.cmbTables.SelectedIndexChanged += new System.EventHandler(this.cmbTables_SelectedIndexChanged);
             // 
             // label2
@@ -281,12 +310,14 @@
             this.cmbColumns.Name = "cmbColumns";
             this.cmbColumns.Size = new System.Drawing.Size(160, 28);
             this.cmbColumns.TabIndex = 156;
+            this.ToolTips.SetToolTip(this.cmbColumns, "Please select the attribute of the form to condition.");
             this.cmbColumns.SelectedIndexChanged += new System.EventHandler(this.cmbColumns_SelectedIndexChanged);
             // 
             // dgvSearch
             // 
             this.dgvSearch.AllowUserToAddRows = false;
             this.dgvSearch.AllowUserToDeleteRows = false;
+            this.dgvSearch.AllowUserToOrderColumns = true;
             this.dgvSearch.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvSearch.Location = new System.Drawing.Point(7, 365);
             this.dgvSearch.Name = "dgvSearch";
@@ -299,6 +330,7 @@
             // 
             this.dgvTotals.AllowUserToAddRows = false;
             this.dgvTotals.AllowUserToDeleteRows = false;
+            this.dgvTotals.AllowUserToOrderColumns = true;
             this.dgvTotals.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvTotals.Location = new System.Drawing.Point(7, 522);
             this.dgvTotals.Name = "dgvTotals";
@@ -314,6 +346,7 @@
             this.cmbGroupBy.Name = "cmbGroupBy";
             this.cmbGroupBy.Size = new System.Drawing.Size(160, 28);
             this.cmbGroupBy.TabIndex = 161;
+            this.ToolTips.SetToolTip(this.cmbGroupBy, "Please select the attribute to group by.");
             this.cmbGroupBy.SelectedIndexChanged += new System.EventHandler(this.cmbGroupBy_SelectedIndexChanged);
             // 
             // cmbColumns2
@@ -324,6 +357,7 @@
             this.cmbColumns2.Name = "cmbColumns2";
             this.cmbColumns2.Size = new System.Drawing.Size(160, 28);
             this.cmbColumns2.TabIndex = 164;
+            this.ToolTips.SetToolTip(this.cmbColumns2, "Please select the attribute of the form to condition.");
             this.cmbColumns2.SelectedIndexChanged += new System.EventHandler(this.cmbColumns2_SelectedIndexChanged);
             // 
             // cmbTables2
@@ -334,6 +368,7 @@
             this.cmbTables2.Name = "cmbTables2";
             this.cmbTables2.Size = new System.Drawing.Size(160, 28);
             this.cmbTables2.TabIndex = 162;
+            this.ToolTips.SetToolTip(this.cmbTables2, "Please select the form to obtain conditions from.");
             this.cmbTables2.SelectedIndexChanged += new System.EventHandler(this.cmbTables2_SelectedIndexChanged);
             // 
             // cmbColumns3
@@ -344,6 +379,7 @@
             this.cmbColumns3.Name = "cmbColumns3";
             this.cmbColumns3.Size = new System.Drawing.Size(160, 28);
             this.cmbColumns3.TabIndex = 168;
+            this.ToolTips.SetToolTip(this.cmbColumns3, "Please select the attribute of the form to condition.");
             this.cmbColumns3.SelectedIndexChanged += new System.EventHandler(this.cmbColumns3_SelectedIndexChanged);
             // 
             // cmbTables3
@@ -354,6 +390,7 @@
             this.cmbTables3.Name = "cmbTables3";
             this.cmbTables3.Size = new System.Drawing.Size(160, 28);
             this.cmbTables3.TabIndex = 166;
+            this.ToolTips.SetToolTip(this.cmbTables3, "Please select the form to obtain conditions from.");
             this.cmbTables3.SelectedIndexChanged += new System.EventHandler(this.cmbTables3_SelectedIndexChanged);
             // 
             // cmbColumns4
@@ -364,6 +401,7 @@
             this.cmbColumns4.Name = "cmbColumns4";
             this.cmbColumns4.Size = new System.Drawing.Size(160, 28);
             this.cmbColumns4.TabIndex = 172;
+            this.ToolTips.SetToolTip(this.cmbColumns4, "Please select the attribute of the form to condition.");
             this.cmbColumns4.SelectedIndexChanged += new System.EventHandler(this.cmbColumns4_SelectedIndexChanged);
             // 
             // cmbTables4
@@ -374,6 +412,7 @@
             this.cmbTables4.Name = "cmbTables4";
             this.cmbTables4.Size = new System.Drawing.Size(160, 28);
             this.cmbTables4.TabIndex = 170;
+            this.ToolTips.SetToolTip(this.cmbTables4, "Please select the form to obtain conditions from.");
             this.cmbTables4.SelectedIndexChanged += new System.EventHandler(this.cmbTables4_SelectedIndexChanged);
             // 
             // cmbGroupBy2
@@ -384,6 +423,7 @@
             this.cmbGroupBy2.Name = "cmbGroupBy2";
             this.cmbGroupBy2.Size = new System.Drawing.Size(160, 28);
             this.cmbGroupBy2.TabIndex = 175;
+            this.ToolTips.SetToolTip(this.cmbGroupBy2, "Please select the attribute to group by.");
             this.cmbGroupBy2.SelectedIndexChanged += new System.EventHandler(this.cmbGroupBy2_SelectedIndexChanged);
             // 
             // cmbGroupBy3
@@ -394,6 +434,7 @@
             this.cmbGroupBy3.Name = "cmbGroupBy3";
             this.cmbGroupBy3.Size = new System.Drawing.Size(160, 28);
             this.cmbGroupBy3.TabIndex = 177;
+            this.ToolTips.SetToolTip(this.cmbGroupBy3, "Please select the attribute to group by.");
             this.cmbGroupBy3.SelectedIndexChanged += new System.EventHandler(this.cmbGroupBy3_SelectedIndexChanged);
             // 
             // cmbGroupBy4
@@ -404,6 +445,7 @@
             this.cmbGroupBy4.Name = "cmbGroupBy4";
             this.cmbGroupBy4.Size = new System.Drawing.Size(160, 28);
             this.cmbGroupBy4.TabIndex = 179;
+            this.ToolTips.SetToolTip(this.cmbGroupBy4, "Please select the attribute to group by.");
             this.cmbGroupBy4.SelectedIndexChanged += new System.EventHandler(this.cmbGroupBy4_SelectedIndexChanged);
             // 
             // label13
@@ -434,6 +476,7 @@
             this.cmbCount.Name = "cmbCount";
             this.cmbCount.Size = new System.Drawing.Size(160, 28);
             this.cmbCount.TabIndex = 183;
+            this.ToolTips.SetToolTip(this.cmbCount, "Please select the attribute to count.");
             this.cmbCount.SelectedIndexChanged += new System.EventHandler(this.cmbCount_SelectedIndexChanged);
             // 
             // cmbCount2
@@ -444,6 +487,7 @@
             this.cmbCount2.Name = "cmbCount2";
             this.cmbCount2.Size = new System.Drawing.Size(160, 28);
             this.cmbCount2.TabIndex = 184;
+            this.ToolTips.SetToolTip(this.cmbCount2, "Please select the attribute to count.");
             this.cmbCount2.SelectedIndexChanged += new System.EventHandler(this.cmbCount2_SelectedIndexChanged);
             // 
             // cmbCount3
@@ -454,6 +498,7 @@
             this.cmbCount3.Name = "cmbCount3";
             this.cmbCount3.Size = new System.Drawing.Size(160, 28);
             this.cmbCount3.TabIndex = 186;
+            this.ToolTips.SetToolTip(this.cmbCount3, "Please select the attribute to count.");
             this.cmbCount3.SelectedIndexChanged += new System.EventHandler(this.cmbCount3_SelectedIndexChanged);
             // 
             // cmbCount4
@@ -464,6 +509,7 @@
             this.cmbCount4.Name = "cmbCount4";
             this.cmbCount4.Size = new System.Drawing.Size(160, 28);
             this.cmbCount4.TabIndex = 188;
+            this.ToolTips.SetToolTip(this.cmbCount4, "Please select the attribute to count.");
             this.cmbCount4.SelectedIndexChanged += new System.EventHandler(this.cmbCount4_SelectedIndexChanged);
             // 
             // panel7
@@ -483,7 +529,7 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(801, 42);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Search";
+            this.label1.Text = "Advanced Search";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // panel5
@@ -528,6 +574,7 @@
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(144, 52);
             this.btnSearch.TabIndex = 18;
+            this.ToolTips.SetToolTip(this.btnSearch, "Start a new search with the selected condition, group by and count. ");
             this.btnSearch.UseVisualStyleBackColor = false;
             this.btnSearch.Click += new System.EventHandler(this.btnNewSearch_Click);
             // 
@@ -549,6 +596,7 @@
             this.btnClearForm.Size = new System.Drawing.Size(144, 52);
             this.btnClearForm.TabIndex = 60;
             this.btnClearForm.Tag = "Clear Form";
+            this.ToolTips.SetToolTip(this.btnClearForm, "Clear all combo boxes.");
             this.btnClearForm.UseVisualStyleBackColor = false;
             this.btnClearForm.Click += new System.EventHandler(this.btnClearForm_Click);
             // 
@@ -569,6 +617,7 @@
             this.btnRefineSearch.Name = "btnRefineSearch";
             this.btnRefineSearch.Size = new System.Drawing.Size(144, 52);
             this.btnRefineSearch.TabIndex = 18;
+            this.ToolTips.SetToolTip(this.btnRefineSearch, "Refine the current search with additional conditions and new group by or count. ");
             this.btnRefineSearch.UseVisualStyleBackColor = false;
             this.btnRefineSearch.Click += new System.EventHandler(this.btnAddSearch_Click);
             // 
@@ -589,6 +638,7 @@
             this.btnViewAll.Name = "btnViewAll";
             this.btnViewAll.Size = new System.Drawing.Size(144, 52);
             this.btnViewAll.TabIndex = 21;
+            this.ToolTips.SetToolTip(this.btnViewAll, "Display everything from the currently selected tables.");
             this.btnViewAll.UseVisualStyleBackColor = false;
             this.btnViewAll.Click += new System.EventHandler(this.btnViewAll_Click);
             // 
@@ -649,34 +699,6 @@
             this.searchInt.Name = "searchInt";
             this.searchInt.Size = new System.Drawing.Size(558, 168);
             this.searchInt.TabIndex = 153;
-            // 
-            // logOutToolStripMenuItem
-            // 
-            this.logOutToolStripMenuItem.Name = "logOutToolStripMenuItem";
-            this.logOutToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.L)));
-            this.logOutToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
-            this.logOutToolStripMenuItem.Text = "&Log Out";
-            this.logOutToolStripMenuItem.Click += new System.EventHandler(this.logOutToolStripMenuItem_Click);
-            // 
-            // toolStripSeparator1
-            // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(154, 6);
-            // 
-            // helpToolStripMenuItem
-            // 
-            this.helpToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.aboutToolStripMenuItem});
-            this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
-            this.helpToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
-            this.helpToolStripMenuItem.Text = "Help";
-            // 
-            // aboutToolStripMenuItem
-            // 
-            this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.aboutToolStripMenuItem.Text = "About";
-            this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
             // 
             // GlobalSearchForm
             // 

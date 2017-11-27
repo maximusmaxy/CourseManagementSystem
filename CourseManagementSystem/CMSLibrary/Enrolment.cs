@@ -174,7 +174,50 @@ namespace CmsLibrary
         {
             try
             {
-                return Database.Add("enrolments", out id, studentId, courseId, enrolmentDate, completionDate, enrolmentCost, discountCost, totalCost, semester, result);
+                bool success = Database.Add("enrolments", out id, studentId, courseId, enrolmentDate, completionDate, enrolmentCost, discountCost, totalCost, semester, result);
+                if (success)
+                {
+                    StringBuilder suInsert = new StringBuilder("insert into student_units values ");
+                    int suLength = suInsert.Length;
+                    StringBuilder saInsert = new StringBuilder("insert into student_assessments values ");
+                    int saLength = saInsert.Length;
+                    int result = Types.CourseResults["Not Completed"];
+                    string courseSql = $"select * from course_units where courseid = {CourseId}";
+                    foreach (var row in Database.ExecuteQuery(courseSql))
+                    {
+                        int unitId = Convert.ToInt32(row["unitId"]);
+                        suInsert.Append("(");
+                        suInsert.Append(studentId);
+                        suInsert.Append(", ");
+                        suInsert.Append(unitId);
+                        suInsert.Append(", ");
+                        suInsert.Append(result);
+                        suInsert.Append("), ");
+                        string assessmentSql = $"select * from assessments where unitId = {unitId}";
+                        foreach (var row2 in Database.ExecuteQuery(assessmentSql))
+                        {
+                            int assessmentId = Convert.ToInt32(row["assessmentId"]);
+                            saInsert.Append("(");
+                            saInsert.Append(studentId);
+                            saInsert.Append(", ");
+                            saInsert.Append(assessmentId);
+                            suInsert.Append(", ");
+                            suInsert.Append(result);
+                            suInsert.Append("), ");
+                        }
+                    }
+                    if (suLength != suInsert.Length)
+                    {
+                        suInsert.Length -= 2;
+                        Database.ExecuteNonQuery(suInsert.ToString());
+                    }
+                    if (saLength != saInsert.Length)
+                    {
+                        saInsert.Length -= 2;
+                        Database.ExecuteNonQuery(saInsert.ToString());
+                    }
+                }
+                return success;
             }
             catch (UniqueConstraintException ex)
             {
@@ -195,7 +238,7 @@ namespace CmsLibrary
                 "completionDate", completionDate,
                 "enrolmentCost", enrolmentCost,
                 "discountCost", discountCost,
-                "totalCost",totalCost,
+                "totalCost", totalCost,
                 "semester", semester,
                 "results", result);
         }

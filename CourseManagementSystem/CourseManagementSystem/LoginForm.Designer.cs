@@ -60,7 +60,7 @@
             this.ucLogin.Location = new System.Drawing.Point(250, 197);
             this.ucLogin.Name = "ucLogin";
             this.ucLogin.Size = new System.Drawing.Size(446, 78);
-            this.ucLogin.TabIndex = 14;
+            this.ucLogin.TabIndex = 0;
             // 
             // btnLogin
             // 
@@ -68,7 +68,7 @@
             this.btnLogin.Location = new System.Drawing.Point(451, 281);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(97, 35);
-            this.btnLogin.TabIndex = 13;
+            this.btnLogin.TabIndex = 1;
             this.btnLogin.Text = "Login";
             this.btnLogin.UseVisualStyleBackColor = true;
             this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);

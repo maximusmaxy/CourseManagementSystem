@@ -750,18 +750,52 @@ namespace CMS
                 if (groupBy.Length == 0)
                 {
                     select.Clear();
-                    select.Append("select *");
+                    //select.Append("select *");
+                    select.Append("select ");
                     for (int i = 0; i < TableCount(); i++)
                     {
+                        foreach (Column column in tableGroup[i].Get<Table>().Columns)
+                        {
+                            if (column.Name == null || tableGroup[i].Get<Table>().Calculations.Contains(column)) 
+                                continue;
+                            if (column.Dictionary != null)
+                            {
+                                select.Append(" case ");
+                                select.Append(column.Table);
+                                select.Append(".");
+                                select.Append(column.Name);
+                                select.Append(" ");
+                                foreach (Data<int> data in column.Dictionary)
+                                {
+                                    select.Append("when ");
+                                    select.Append(data.Value);
+                                    select.Append(" then '");
+                                    select.Append(data.Display);
+                                    select.Append("' ");
+                                }
+                                select.Append("end as '");
+                                select.Append(column.Display);
+                                select.Append("', ");
+                            }
+                            else
+                            {
+                                select.Append(column.Table);
+                                select.Append(".");
+                                select.Append(column.Name);
+                                select.Append(" as '");
+                                select.Append(column.Display);
+                                select.Append("', ");
+                            }
+                        }
                         foreach (Column column in tableGroup[i].Get<Table>().Calculations)
                         {
-                            select.Append(", ");
                             select.Append(column.Calculation);
                             select.Append(" as '");
                             select.Append(column.Display);
-                            select.Append("'");
+                            select.Append("', ");
                         }
                     }
+                    select.Length -= 2;
                 }
             }
             else

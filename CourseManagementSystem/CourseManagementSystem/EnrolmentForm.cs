@@ -159,8 +159,8 @@ namespace CMS
                 enrolment.Search("studentId", txtStudentId.Int(), "CourseId", cmbCourseName.Int());
                 enrolment.EnrolmentDate = dtpEnrolment.Value;
                 enrolment.CompletionDate = dtpCompletion.Value;
-                enrolment.EnrolmentCost = int.Parse(txtEnrolmentCost.Text);
-                enrolment.DiscountCost = int.Parse(txtDiscountCost.Text);
+                enrolment.EnrolmentCost = double.Parse(txtEnrolmentCost.Text);
+                enrolment.DiscountCost = double.Parse(txtDiscountCost.Text);
                 enrolment.Semester = Forms.RadioValue(pnlSemester, Types.Semester);
                 enrolment.Result = Forms.RadioValue(pnlCourseResults, Types.CourseResults);
 
@@ -534,7 +534,8 @@ namespace CMS
                     "Enrolments.courseId = Courses.courseId and Courses.courseId = Course_Units.courseId and " +
                     "Course_Units.unitId = Units.unitId and Units.unitId = Assessments.unitId and " +
                     "Student_Assessments.assessmentId = Assessments.assessmentId and " +
-                    "Enrolments.studentId = " + student.Id + " and Enrolments.courseId = " + course.Id;
+                    "Enrolments.studentId = " + student.Id + " and Enrolments.courseId = " + course.Id +
+                    " and Student_Assessments.studentId = " + student.Id;
                 DataTable table = Database.CreateDataTable(sql);
                 if (table.Rows.Count == 0)
                     Forms.CheckRadio(pnlCourseResults, "Not Completed");

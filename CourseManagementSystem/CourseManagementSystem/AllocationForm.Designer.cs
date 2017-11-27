@@ -352,7 +352,7 @@
             this.cmbSel2.Location = new System.Drawing.Point(250, 118);
             this.cmbSel2.Name = "cmbSel2";
             this.cmbSel2.Size = new System.Drawing.Size(236, 28);
-            this.cmbSel2.TabIndex = 2;
+            this.cmbSel2.TabIndex = 3;
             this.cmbSel2.Tag = "Selection 2";
             this.ToolTips.SetToolTip(this.cmbSel2, "Please select an option.");
             this.cmbSel2.SelectedIndexChanged += new System.EventHandler(this.cmbSel2_SelectedIndexChanged);
@@ -366,7 +366,7 @@
             this.lstOption1.Name = "lstOption1";
             this.lstOption1.ScrollAlwaysVisible = true;
             this.lstOption1.Size = new System.Drawing.Size(236, 64);
-            this.lstOption1.TabIndex = 3;
+            this.lstOption1.TabIndex = 2;
             this.lstOption1.Tag = "Option 1";
             this.ToolTips.SetToolTip(this.lstOption1, "Please select an option.");
             this.lstOption1.SelectedIndexChanged += new System.EventHandler(this.lstOption1_SelectedIndexChanged);
@@ -381,7 +381,7 @@
             this.panel5.Location = new System.Drawing.Point(828, 27);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(156, 508);
-            this.panel5.TabIndex = 5;
+            this.panel5.TabIndex = 1;
             // 
             // label3
             // 
@@ -422,8 +422,8 @@
             this.dgvAllocations.Location = new System.Drawing.Point(250, 190);
             this.dgvAllocations.Name = "dgvAllocations";
             this.dgvAllocations.ReadOnly = true;
+            this.dgvAllocations.TabIndex = 5;
             this.dgvAllocations.Size = new System.Drawing.Size(499, 236);
-            this.dgvAllocations.TabIndex = 151;
             // 
             // panel1
             // 
@@ -440,7 +440,7 @@
             this.panel1.Location = new System.Drawing.Point(1, 88);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(823, 442);
-            this.panel1.TabIndex = 152;
+            this.panel1.TabIndex = 0;
             // 
             // AllocationForm
             // 

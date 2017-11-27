@@ -121,7 +121,7 @@
             this.dtpEnrolment.Location = new System.Drawing.Point(250, 118);
             this.dtpEnrolment.Name = "dtpEnrolment";
             this.dtpEnrolment.Size = new System.Drawing.Size(236, 26);
-            this.dtpEnrolment.TabIndex = 50;
+            this.dtpEnrolment.TabIndex = 3;
             this.dtpEnrolment.Tag = "EnrolmentDate";
             this.ToolTips.SetToolTip(this.dtpEnrolment, "Insert the Current Date this Enrolment was completed on");
             // 
@@ -131,7 +131,7 @@
             this.txtStudentId.Location = new System.Drawing.Point(250, 10);
             this.txtStudentId.Name = "txtStudentId";
             this.txtStudentId.Size = new System.Drawing.Size(236, 26);
-            this.txtStudentId.TabIndex = 48;
+            this.txtStudentId.TabIndex = 0;
             this.txtStudentId.Tag = "StudentId";
             this.ToolTips.SetToolTip(this.txtStudentId, "Insert the Student ID here using Numeric Characters Only!");
             this.txtStudentId.TextChanged += new System.EventHandler(this.txtStudentId_TextChanged);
@@ -143,7 +143,7 @@
             this.dtpCompletion.Location = new System.Drawing.Point(250, 154);
             this.dtpCompletion.Name = "dtpCompletion";
             this.dtpCompletion.Size = new System.Drawing.Size(236, 26);
-            this.dtpCompletion.TabIndex = 70;
+            this.dtpCompletion.TabIndex = 4;
             this.dtpCompletion.Tag = "CompletionDate";
             this.ToolTips.SetToolTip(this.dtpCompletion, "Insert the Course Completion Date Here");
             // 
@@ -154,7 +154,7 @@
             this.txtDiscountCost.Location = new System.Drawing.Point(250, 226);
             this.txtDiscountCost.Name = "txtDiscountCost";
             this.txtDiscountCost.Size = new System.Drawing.Size(236, 26);
-            this.txtDiscountCost.TabIndex = 76;
+            this.txtDiscountCost.TabIndex = 6;
             this.txtDiscountCost.Tag = "DiscountCost";
             this.ToolTips.SetToolTip(this.txtDiscountCost, "This is the Final amount including discounts for the Enrolment");
             // 
@@ -165,7 +165,7 @@
             this.txtEnrolmentCost.Location = new System.Drawing.Point(250, 190);
             this.txtEnrolmentCost.Name = "txtEnrolmentCost";
             this.txtEnrolmentCost.Size = new System.Drawing.Size(236, 26);
-            this.txtEnrolmentCost.TabIndex = 75;
+            this.txtEnrolmentCost.TabIndex = 5;
             this.txtEnrolmentCost.Tag = "EnrolmentCost";
             this.ToolTips.SetToolTip(this.txtEnrolmentCost, "This is the base cost for the Enrolment");
             // 
@@ -177,7 +177,7 @@
             this.pnlSemester.Location = new System.Drawing.Point(250, 298);
             this.pnlSemester.Name = "pnlSemester";
             this.pnlSemester.Size = new System.Drawing.Size(368, 29);
-            this.pnlSemester.TabIndex = 81;
+            this.pnlSemester.TabIndex = 8;
             this.pnlSemester.Tag = "Semester";
             this.ToolTips.SetToolTip(this.pnlSemester, "Select The Semester this course is being undertaken in");
             // 
@@ -188,7 +188,7 @@
             this.rdbSemesterOne.Location = new System.Drawing.Point(3, 3);
             this.rdbSemesterOne.Name = "rdbSemesterOne";
             this.rdbSemesterOne.Size = new System.Drawing.Size(57, 24);
-            this.rdbSemesterOne.TabIndex = 72;
+            this.rdbSemesterOne.TabIndex = 0;
             this.rdbSemesterOne.TabStop = true;
             this.rdbSemesterOne.Tag = "SemesterOne";
             this.rdbSemesterOne.Text = "One";
@@ -201,7 +201,7 @@
             this.rdbSemesterTwo.Location = new System.Drawing.Point(71, 2);
             this.rdbSemesterTwo.Name = "rdbSemesterTwo";
             this.rdbSemesterTwo.Size = new System.Drawing.Size(56, 24);
-            this.rdbSemesterTwo.TabIndex = 73;
+            this.rdbSemesterTwo.TabIndex = 1;
             this.rdbSemesterTwo.TabStop = true;
             this.rdbSemesterTwo.Tag = "SemesterTwo";
             this.rdbSemesterTwo.Text = "Two";
@@ -217,7 +217,7 @@
             this.pnlCourseResults.Location = new System.Drawing.Point(250, 334);
             this.pnlCourseResults.Name = "pnlCourseResults";
             this.pnlCourseResults.Size = new System.Drawing.Size(368, 29);
-            this.pnlCourseResults.TabIndex = 82;
+            this.pnlCourseResults.TabIndex = 9;
             this.pnlCourseResults.Tag = "CourseResult";
             this.ToolTips.SetToolTip(this.pnlCourseResults, "Select the State of the enrolment at the end of Completion Date (Select Not Compl" +
         "eted until results are recieved)");
@@ -229,7 +229,7 @@
             this.rdbNotComplete.Location = new System.Drawing.Point(129, 2);
             this.rdbNotComplete.Name = "rdbNotComplete";
             this.rdbNotComplete.Size = new System.Drawing.Size(133, 24);
-            this.rdbNotComplete.TabIndex = 74;
+            this.rdbNotComplete.TabIndex = 2;
             this.rdbNotComplete.TabStop = true;
             this.rdbNotComplete.Tag = "CourseNot";
             this.rdbNotComplete.Text = "Not Completed";
@@ -242,7 +242,7 @@
             this.rdbPass.Location = new System.Drawing.Point(3, 3);
             this.rdbPass.Name = "rdbPass";
             this.rdbPass.Size = new System.Drawing.Size(62, 24);
-            this.rdbPass.TabIndex = 72;
+            this.rdbPass.TabIndex = 0;
             this.rdbPass.TabStop = true;
             this.rdbPass.Tag = "CoursePass";
             this.rdbPass.Text = "Pass";
@@ -255,7 +255,7 @@
             this.rdbFail.Location = new System.Drawing.Point(71, 3);
             this.rdbFail.Name = "rdbFail";
             this.rdbFail.Size = new System.Drawing.Size(52, 24);
-            this.rdbFail.TabIndex = 73;
+            this.rdbFail.TabIndex = 1;
             this.rdbFail.TabStop = true;
             this.rdbFail.Tag = "CourseFail";
             this.rdbFail.Text = "Fail";
@@ -268,7 +268,7 @@
             this.txtTotal.Location = new System.Drawing.Point(250, 262);
             this.txtTotal.Name = "txtTotal";
             this.txtTotal.Size = new System.Drawing.Size(236, 26);
-            this.txtTotal.TabIndex = 83;
+            this.txtTotal.TabIndex = 7;
             this.txtTotal.Tag = "DiscountCost";
             this.ToolTips.SetToolTip(this.txtTotal, "This is the Final amount including discounts for the Enrolment");
             // 
@@ -279,7 +279,7 @@
             this.btnSearch.Location = new System.Drawing.Point(3, 3);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(144, 52);
-            this.btnSearch.TabIndex = 18;
+            this.btnSearch.TabIndex = 0;
             this.btnSearch.UseVisualStyleBackColor = false;
             this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
@@ -290,7 +290,7 @@
             this.btnAdd.Location = new System.Drawing.Point(3, 3);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(144, 52);
-            this.btnAdd.TabIndex = 17;
+            this.btnAdd.TabIndex = 0;
             this.btnAdd.UseVisualStyleBackColor = false;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
@@ -308,7 +308,7 @@
             this.btnDelete.Location = new System.Drawing.Point(3, 3);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(144, 52);
-            this.btnDelete.TabIndex = 20;
+            this.btnDelete.TabIndex = 0;
             this.btnDelete.UseVisualStyleBackColor = false;
             this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
@@ -319,7 +319,7 @@
             this.btnViewAll.Location = new System.Drawing.Point(3, 3);
             this.btnViewAll.Name = "btnViewAll";
             this.btnViewAll.Size = new System.Drawing.Size(144, 52);
-            this.btnViewAll.TabIndex = 21;
+            this.btnViewAll.TabIndex = 0;
             this.btnViewAll.UseVisualStyleBackColor = false;
             this.btnViewAll.Click += new System.EventHandler(this.btnViewAll_Click);
             // 
@@ -351,7 +351,7 @@
             this.btnUpdate.Location = new System.Drawing.Point(3, 3);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(144, 52);
-            this.btnUpdate.TabIndex = 19;
+            this.btnUpdate.TabIndex = 0;
             this.btnUpdate.UseVisualStyleBackColor = false;
             this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
@@ -387,7 +387,7 @@
             this.panel5.Location = new System.Drawing.Point(829, 27);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(156, 508);
-            this.panel5.TabIndex = 59;
+            this.panel5.TabIndex = 1;
             // 
             // label2
             // 
@@ -407,7 +407,7 @@
             this.panel9.Location = new System.Drawing.Point(3, 445);
             this.panel9.Name = "panel9";
             this.panel9.Size = new System.Drawing.Size(150, 58);
-            this.panel9.TabIndex = 110;
+            this.panel9.TabIndex = 5;
             // 
             // btnClearForm
             // 
@@ -416,7 +416,7 @@
             this.btnClearForm.Location = new System.Drawing.Point(3, 3);
             this.btnClearForm.Name = "btnClearForm";
             this.btnClearForm.Size = new System.Drawing.Size(144, 52);
-            this.btnClearForm.TabIndex = 60;
+            this.btnClearForm.TabIndex = 0;
             this.btnClearForm.Tag = "Clear Form";
             this.btnClearForm.UseVisualStyleBackColor = false;
             this.btnClearForm.Click += new System.EventHandler(this.btnClearForm_Click);
@@ -428,7 +428,7 @@
             this.panel8.Location = new System.Drawing.Point(3, 382);
             this.panel8.Name = "panel8";
             this.panel8.Size = new System.Drawing.Size(150, 58);
-            this.panel8.TabIndex = 22;
+            this.panel8.TabIndex = 4;
             // 
             // panel4
             // 
@@ -437,7 +437,7 @@
             this.panel4.Location = new System.Drawing.Point(3, 319);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(150, 58);
-            this.panel4.TabIndex = 21;
+            this.panel4.TabIndex = 3;
             // 
             // panel3
             // 
@@ -446,7 +446,7 @@
             this.panel3.Location = new System.Drawing.Point(3, 256);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(150, 58);
-            this.panel3.TabIndex = 21;
+            this.panel3.TabIndex = 2;
             // 
             // panel2
             // 
@@ -455,7 +455,7 @@
             this.panel2.Location = new System.Drawing.Point(3, 130);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(150, 58);
-            this.panel2.TabIndex = 21;
+            this.panel2.TabIndex = 0;
             // 
             // panel6
             // 
@@ -464,7 +464,7 @@
             this.panel6.Location = new System.Drawing.Point(3, 193);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(150, 58);
-            this.panel6.TabIndex = 19;
+            this.panel6.TabIndex = 1;
             // 
             // button5
             // 
@@ -724,7 +724,7 @@
             this.cmbAreaOfStudy.Location = new System.Drawing.Point(250, 46);
             this.cmbAreaOfStudy.Name = "cmbAreaOfStudy";
             this.cmbAreaOfStudy.Size = new System.Drawing.Size(368, 28);
-            this.cmbAreaOfStudy.TabIndex = 106;
+            this.cmbAreaOfStudy.TabIndex = 1;
             this.cmbAreaOfStudy.ValueMember = "Area of study";
             this.cmbAreaOfStudy.SelectedIndexChanged += new System.EventHandler(this.cmbAreaOfStudy_SelectedIndexChanged);
             // 
@@ -745,7 +745,7 @@
             this.cmbCourseName.Location = new System.Drawing.Point(250, 82);
             this.cmbCourseName.Name = "cmbCourseName";
             this.cmbCourseName.Size = new System.Drawing.Size(499, 28);
-            this.cmbCourseName.TabIndex = 108;
+            this.cmbCourseName.TabIndex = 2;
             this.cmbCourseName.SelectedIndexChanged += new System.EventHandler(this.CourseId_SelectedIndexChanged);
             // 
             // dgvSearch
@@ -784,7 +784,7 @@
             this.panel1.Location = new System.Drawing.Point(1, 88);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(823, 442);
-            this.panel1.TabIndex = 110;
+            this.panel1.TabIndex = 0;
             // 
             // EnrolmentForm
             // 

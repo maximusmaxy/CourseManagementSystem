@@ -107,7 +107,7 @@
             this.panel3.Location = new System.Drawing.Point(3, 256);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(150, 58);
-            this.panel3.TabIndex = 21;
+            this.panel3.TabIndex = 2;
             // 
             // btnUpdate
             // 
@@ -116,7 +116,7 @@
             this.btnUpdate.Location = new System.Drawing.Point(3, 3);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(144, 52);
-            this.btnUpdate.TabIndex = 7;
+            this.btnUpdate.TabIndex = 0;
             this.btnUpdate.UseVisualStyleBackColor = false;
             this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
@@ -126,7 +126,7 @@
             this.txtSkillID.Location = new System.Drawing.Point(250, 10);
             this.txtSkillID.Name = "txtSkillID";
             this.txtSkillID.Size = new System.Drawing.Size(368, 26);
-            this.txtSkillID.TabIndex = 1;
+            this.txtSkillID.TabIndex = 0;
             this.txtSkillID.Tag = "Skill ID";
             this.ToolTips.SetToolTip(this.txtSkillID, "Insert a Numeric value for the Skill ID, using 0-9 numbers Only");
             // 
@@ -138,7 +138,7 @@
             this.txtSkillDescription.Name = "txtSkillDescription";
             this.txtSkillDescription.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.txtSkillDescription.Size = new System.Drawing.Size(499, 64);
-            this.txtSkillDescription.TabIndex = 4;
+            this.txtSkillDescription.TabIndex = 3;
             this.txtSkillDescription.Tag = "Skill Description";
             this.ToolTips.SetToolTip(this.txtSkillDescription, "Insert a Small description on what this Skill is about and what are they able tod" +
         "o with this skill");
@@ -149,7 +149,7 @@
             this.txtSkillName.Location = new System.Drawing.Point(250, 46);
             this.txtSkillName.Name = "txtSkillName";
             this.txtSkillName.Size = new System.Drawing.Size(368, 26);
-            this.txtSkillName.TabIndex = 2;
+            this.txtSkillName.TabIndex = 1;
             this.txtSkillName.Tag = "Skill Name";
             this.ToolTips.SetToolTip(this.txtSkillName, "Insert a Name for the Skill Using Alphabetical Charcters Only");
             // 
@@ -160,7 +160,7 @@
             this.cmbAreaOfStudy.Location = new System.Drawing.Point(250, 82);
             this.cmbAreaOfStudy.Name = "cmbAreaOfStudy";
             this.cmbAreaOfStudy.Size = new System.Drawing.Size(368, 28);
-            this.cmbAreaOfStudy.TabIndex = 3;
+            this.cmbAreaOfStudy.TabIndex = 2;
             this.cmbAreaOfStudy.Tag = "Area Of Study";
             this.ToolTips.SetToolTip(this.cmbAreaOfStudy, "Select from the list the Appropriate Area of Study for this Course");
             // 
@@ -191,7 +191,7 @@
             this.panel2.Location = new System.Drawing.Point(3, 130);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(150, 58);
-            this.panel2.TabIndex = 21;
+            this.panel2.TabIndex = 0;
             // 
             // btnAdd
             // 
@@ -200,7 +200,7 @@
             this.btnAdd.Location = new System.Drawing.Point(3, 3);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(144, 52);
-            this.btnAdd.TabIndex = 5;
+            this.btnAdd.TabIndex = 0;
             this.btnAdd.UseVisualStyleBackColor = false;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
@@ -211,7 +211,7 @@
             this.panel6.Location = new System.Drawing.Point(3, 193);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(150, 58);
-            this.panel6.TabIndex = 19;
+            this.panel6.TabIndex = 1;
             // 
             // btnSearch
             // 
@@ -220,7 +220,7 @@
             this.btnSearch.Location = new System.Drawing.Point(3, 3);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(144, 52);
-            this.btnSearch.TabIndex = 6;
+            this.btnSearch.TabIndex = 0;
             this.btnSearch.UseVisualStyleBackColor = false;
             this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
@@ -238,7 +238,7 @@
             this.panel5.Location = new System.Drawing.Point(828, 27);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(156, 508);
-            this.panel5.TabIndex = 130;
+            this.panel5.TabIndex = 1;
             // 
             // label4
             // 
@@ -258,7 +258,7 @@
             this.panel1.Location = new System.Drawing.Point(3, 445);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(150, 58);
-            this.panel1.TabIndex = 137;
+            this.panel1.TabIndex = 5;
             // 
             // btnClearForm
             // 
@@ -267,7 +267,7 @@
             this.btnClearForm.Location = new System.Drawing.Point(3, 3);
             this.btnClearForm.Name = "btnClearForm";
             this.btnClearForm.Size = new System.Drawing.Size(144, 52);
-            this.btnClearForm.TabIndex = 18;
+            this.btnClearForm.TabIndex = 0;
             this.btnClearForm.Tag = "Clear Form";
             this.btnClearForm.UseVisualStyleBackColor = false;
             // 
@@ -288,7 +288,7 @@
             this.panel8.Location = new System.Drawing.Point(3, 382);
             this.panel8.Name = "panel8";
             this.panel8.Size = new System.Drawing.Size(150, 58);
-            this.panel8.TabIndex = 22;
+            this.panel8.TabIndex = 4;
             // 
             // btnViewAll
             // 
@@ -297,7 +297,7 @@
             this.btnViewAll.Location = new System.Drawing.Point(3, 3);
             this.btnViewAll.Name = "btnViewAll";
             this.btnViewAll.Size = new System.Drawing.Size(144, 52);
-            this.btnViewAll.TabIndex = 9;
+            this.btnViewAll.TabIndex = 0;
             this.btnViewAll.UseVisualStyleBackColor = false;
             this.btnViewAll.Click += new System.EventHandler(this.btnViewAll_Click);
             // 
@@ -308,7 +308,7 @@
             this.panel4.Location = new System.Drawing.Point(3, 319);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(150, 58);
-            this.panel4.TabIndex = 21;
+            this.panel4.TabIndex = 3;
             // 
             // btnDelete
             // 
@@ -317,7 +317,7 @@
             this.btnDelete.Location = new System.Drawing.Point(3, 3);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(144, 52);
-            this.btnDelete.TabIndex = 8;
+            this.btnDelete.TabIndex = 0;
             this.btnDelete.UseVisualStyleBackColor = false;
             this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
@@ -504,7 +504,7 @@
             // aboutToolStripMenuItem
             // 
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
             this.aboutToolStripMenuItem.Text = "About";
             this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
             // 
@@ -543,7 +543,7 @@
             this.panel9.Location = new System.Drawing.Point(1, 88);
             this.panel9.Name = "panel9";
             this.panel9.Size = new System.Drawing.Size(823, 442);
-            this.panel9.TabIndex = 137;
+            this.panel9.TabIndex = 0;
             // 
             // SkillsForm
             // 

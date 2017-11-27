@@ -158,7 +158,7 @@
             this.panel5.Location = new System.Drawing.Point(828, 27);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(156, 508);
-            this.panel5.TabIndex = 17;
+            this.panel5.TabIndex = 1;
             // 
             // label22
             // 
@@ -178,7 +178,7 @@
             this.panel9.Location = new System.Drawing.Point(3, 445);
             this.panel9.Name = "panel9";
             this.panel9.Size = new System.Drawing.Size(150, 58);
-            this.panel9.TabIndex = 23;
+            this.panel9.TabIndex = 5;
             // 
             // btnClearForm
             // 
@@ -187,7 +187,7 @@
             this.btnClearForm.Location = new System.Drawing.Point(3, 3);
             this.btnClearForm.Name = "btnClearForm";
             this.btnClearForm.Size = new System.Drawing.Size(144, 52);
-            this.btnClearForm.TabIndex = 60;
+            this.btnClearForm.TabIndex = 0;
             this.btnClearForm.Tag = "Clear Form";
             this.btnClearForm.UseVisualStyleBackColor = false;
             this.btnClearForm.Click += new System.EventHandler(this.btnClearForm_Click);
@@ -199,7 +199,7 @@
             this.panel8.Location = new System.Drawing.Point(3, 382);
             this.panel8.Name = "panel8";
             this.panel8.Size = new System.Drawing.Size(150, 58);
-            this.panel8.TabIndex = 22;
+            this.panel8.TabIndex = 4;
             // 
             // btnViewAll
             // 
@@ -208,7 +208,7 @@
             this.btnViewAll.Location = new System.Drawing.Point(3, 3);
             this.btnViewAll.Name = "btnViewAll";
             this.btnViewAll.Size = new System.Drawing.Size(144, 52);
-            this.btnViewAll.TabIndex = 59;
+            this.btnViewAll.TabIndex = 0;
             this.btnViewAll.UseVisualStyleBackColor = false;
             this.btnViewAll.Click += new System.EventHandler(this.btnViewAll_Click);
             // 
@@ -219,7 +219,7 @@
             this.panel4.Location = new System.Drawing.Point(3, 319);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(150, 58);
-            this.panel4.TabIndex = 21;
+            this.panel4.TabIndex = 3;
             // 
             // btnDelete
             // 
@@ -228,7 +228,7 @@
             this.btnDelete.Location = new System.Drawing.Point(3, 3);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(144, 52);
-            this.btnDelete.TabIndex = 58;
+            this.btnDelete.TabIndex = 0;
             this.btnDelete.UseVisualStyleBackColor = false;
             this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
@@ -239,7 +239,7 @@
             this.panel3.Location = new System.Drawing.Point(3, 256);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(150, 58);
-            this.panel3.TabIndex = 21;
+            this.panel3.TabIndex = 2;
             // 
             // btnUpdate
             // 
@@ -248,7 +248,7 @@
             this.btnUpdate.Location = new System.Drawing.Point(3, 3);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(144, 52);
-            this.btnUpdate.TabIndex = 57;
+            this.btnUpdate.TabIndex = 0;
             this.btnUpdate.UseVisualStyleBackColor = false;
             this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
@@ -259,7 +259,7 @@
             this.panel2.Location = new System.Drawing.Point(3, 130);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(150, 58);
-            this.panel2.TabIndex = 21;
+            this.panel2.TabIndex = 0;
             // 
             // btnAdd
             // 
@@ -268,7 +268,7 @@
             this.btnAdd.Location = new System.Drawing.Point(3, 3);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(144, 52);
-            this.btnAdd.TabIndex = 55;
+            this.btnAdd.TabIndex = 0;
             this.btnAdd.UseVisualStyleBackColor = false;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
@@ -279,7 +279,7 @@
             this.panel6.Location = new System.Drawing.Point(3, 193);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(150, 58);
-            this.panel6.TabIndex = 19;
+            this.panel6.TabIndex = 1;
             // 
             // btnSearch
             // 
@@ -288,7 +288,7 @@
             this.btnSearch.Location = new System.Drawing.Point(3, 3);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(144, 52);
-            this.btnSearch.TabIndex = 56;
+            this.btnSearch.TabIndex = 0;
             this.btnSearch.UseVisualStyleBackColor = false;
             this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
@@ -586,7 +586,7 @@
             this.panel1.Location = new System.Drawing.Point(250, 82);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(499, 226);
-            this.panel1.TabIndex = 16;
+            this.panel1.TabIndex = 3;
             // 
             // label16
             // 
@@ -624,7 +624,7 @@
             this.txtPostCode.Location = new System.Drawing.Point(115, 187);
             this.txtPostCode.Name = "txtPostCode";
             this.txtPostCode.Size = new System.Drawing.Size(236, 26);
-            this.txtPostCode.TabIndex = 8;
+            this.txtPostCode.TabIndex = 4;
             this.txtPostCode.Tag = "Postcode";
             this.ToolTips.SetToolTip(this.txtPostCode, "Insert the 4 Digit Post code for the provided suburb");
             // 
@@ -644,7 +644,7 @@
             this.cmbState.Location = new System.Drawing.Point(115, 149);
             this.cmbState.Name = "cmbState";
             this.cmbState.Size = new System.Drawing.Size(236, 28);
-            this.cmbState.TabIndex = 7;
+            this.cmbState.TabIndex = 3;
             this.cmbState.Tag = "State";
             this.ToolTips.SetToolTip(this.cmbState, "Select state from the list provided");
             // 
@@ -654,7 +654,7 @@
             this.txtStreet2.Location = new System.Drawing.Point(113, 61);
             this.txtStreet2.Name = "txtStreet2";
             this.txtStreet2.Size = new System.Drawing.Size(368, 26);
-            this.txtStreet2.TabIndex = 5;
+            this.txtStreet2.TabIndex = 1;
             this.txtStreet2.Tag = "Street 2";
             this.ToolTips.SetToolTip(this.txtStreet2, "Insert additional unit/apartment/place name and number here using 0-9 and A-Z cha" +
         "racters only, use a , to seperate details");
@@ -665,7 +665,7 @@
             this.txtStreet1.Location = new System.Drawing.Point(113, 10);
             this.txtStreet1.Name = "txtStreet1";
             this.txtStreet1.Size = new System.Drawing.Size(368, 26);
-            this.txtStreet1.TabIndex = 4;
+            this.txtStreet1.TabIndex = 0;
             this.txtStreet1.Tag = "Street 1";
             this.ToolTips.SetToolTip(this.txtStreet1, "Insert the street name and number here using 0-9 and A-Z characters only, use a ," +
         " to seperate details");
@@ -676,7 +676,7 @@
             this.txtSuburb.Location = new System.Drawing.Point(115, 113);
             this.txtSuburb.Name = "txtSuburb";
             this.txtSuburb.Size = new System.Drawing.Size(368, 26);
-            this.txtSuburb.TabIndex = 6;
+            this.txtSuburb.TabIndex = 2;
             this.txtSuburb.Tag = "Suburb";
             this.ToolTips.SetToolTip(this.txtSuburb, "Insert the suburb of the home here using A-Z Characters Only!");
             // 
@@ -686,7 +686,7 @@
             this.txtId.Location = new System.Drawing.Point(250, 10);
             this.txtId.Name = "txtId";
             this.txtId.Size = new System.Drawing.Size(236, 26);
-            this.txtId.TabIndex = 1;
+            this.txtId.TabIndex = 0;
             this.txtId.Tag = "Student ID";
             this.ToolTips.SetToolTip(this.txtId, "Use for Search, Update and Delete functions only\r\n[Insert a Numeric value for the" +
         " ID]");
@@ -697,7 +697,7 @@
             this.txtFirstName.Location = new System.Drawing.Point(250, 46);
             this.txtFirstName.Name = "txtFirstName";
             this.txtFirstName.Size = new System.Drawing.Size(236, 26);
-            this.txtFirstName.TabIndex = 2;
+            this.txtFirstName.TabIndex = 1;
             this.txtFirstName.Tag = "First name";
             this.ToolTips.SetToolTip(this.txtFirstName, "Insert the First Name here, using A-Z characters Only!");
             // 
@@ -707,7 +707,7 @@
             this.txtLastName.Location = new System.Drawing.Point(513, 47);
             this.txtLastName.Name = "txtLastName";
             this.txtLastName.Size = new System.Drawing.Size(236, 26);
-            this.txtLastName.TabIndex = 3;
+            this.txtLastName.TabIndex = 2;
             this.txtLastName.Tag = "Last name";
             this.ToolTips.SetToolTip(this.txtLastName, "Insert the Last Name here, using A-Z characters Only!");
             // 
@@ -718,7 +718,7 @@
             this.dtpDateOfBirth.Location = new System.Drawing.Point(250, 352);
             this.dtpDateOfBirth.Name = "dtpDateOfBirth";
             this.dtpDateOfBirth.Size = new System.Drawing.Size(236, 26);
-            this.dtpDateOfBirth.TabIndex = 10;
+            this.dtpDateOfBirth.TabIndex = 5;
             this.dtpDateOfBirth.Tag = "Date of birth";
             this.ToolTips.SetToolTip(this.dtpDateOfBirth, resources.GetString("dtpDateOfBirth.ToolTip"));
             // 
@@ -728,7 +728,7 @@
             this.txtEmail.Location = new System.Drawing.Point(250, 388);
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(499, 26);
-            this.txtEmail.TabIndex = 11;
+            this.txtEmail.TabIndex = 7;
             this.txtEmail.Tag = "Email";
             this.ToolTips.SetToolTip(this.txtEmail, "Please insert the Student Email here, Must contain one @ symbol");
             // 
@@ -762,7 +762,7 @@
             this.cmbCountryOfOrigin.Location = new System.Drawing.Point(250, 424);
             this.cmbCountryOfOrigin.Name = "cmbCountryOfOrigin";
             this.cmbCountryOfOrigin.Size = new System.Drawing.Size(368, 28);
-            this.cmbCountryOfOrigin.TabIndex = 12;
+            this.cmbCountryOfOrigin.TabIndex = 8;
             this.cmbCountryOfOrigin.Tag = "Country of Origin";
             this.ToolTips.SetToolTip(this.cmbCountryOfOrigin, "Select the country of birth from the provided list");
             // 
@@ -783,7 +783,7 @@
             this.rdbMale.Location = new System.Drawing.Point(9, 3);
             this.rdbMale.Name = "rdbMale";
             this.rdbMale.Size = new System.Drawing.Size(61, 24);
-            this.rdbMale.TabIndex = 13;
+            this.rdbMale.TabIndex = 0;
             this.rdbMale.TabStop = true;
             this.rdbMale.Tag = "Male";
             this.rdbMale.Text = "Male";
@@ -797,7 +797,7 @@
             this.rdbFemale.Location = new System.Drawing.Point(76, 3);
             this.rdbFemale.Name = "rdbFemale";
             this.rdbFemale.Size = new System.Drawing.Size(80, 24);
-            this.rdbFemale.TabIndex = 14;
+            this.rdbFemale.TabIndex = 1;
             this.rdbFemale.TabStop = true;
             this.rdbFemale.Tag = "Female";
             this.rdbFemale.Text = "Female";
@@ -821,7 +821,7 @@
             this.chkDisability.Location = new System.Drawing.Point(250, 509);
             this.chkDisability.Name = "chkDisability";
             this.chkDisability.Size = new System.Drawing.Size(15, 14);
-            this.chkDisability.TabIndex = 17;
+            this.chkDisability.TabIndex = 11;
             this.chkDisability.Tag = "Disability";
             this.ToolTips.SetToolTip(this.chkDisability, "Select this option if the Student has a Disability");
             this.chkDisability.UseVisualStyleBackColor = true;
@@ -836,7 +836,7 @@
             this.txtDisabilityDescription.Name = "txtDisabilityDescription";
             this.txtDisabilityDescription.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.txtDisabilityDescription.Size = new System.Drawing.Size(499, 68);
-            this.txtDisabilityDescription.TabIndex = 18;
+            this.txtDisabilityDescription.TabIndex = 12;
             this.txtDisabilityDescription.Tag = "Disability Description";
             this.ToolTips.SetToolTip(this.txtDisabilityDescription, "Please describe the Disability here Only if you have selected Yes to having a Dis" +
         "ability");
@@ -847,7 +847,7 @@
             this.txtContactNumber.Location = new System.Drawing.Point(250, 316);
             this.txtContactNumber.Name = "txtContactNumber";
             this.txtContactNumber.Size = new System.Drawing.Size(236, 26);
-            this.txtContactNumber.TabIndex = 9;
+            this.txtContactNumber.TabIndex = 4;
             this.txtContactNumber.Tag = "Contact Number";
             this.ToolTips.SetToolTip(this.txtContactNumber, "Please insert the Student Email here, Must contain one @ symbol");
             // 
@@ -858,7 +858,7 @@
             this.chkCentrelink.Location = new System.Drawing.Point(250, 468);
             this.chkCentrelink.Name = "chkCentrelink";
             this.chkCentrelink.Size = new System.Drawing.Size(15, 14);
-            this.chkCentrelink.TabIndex = 16;
+            this.chkCentrelink.TabIndex = 9;
             this.chkCentrelink.Tag = "CentreLink";
             this.ToolTips.SetToolTip(this.chkCentrelink, "Select this option if the Student has a Disability");
             this.chkCentrelink.UseVisualStyleBackColor = true;
@@ -870,7 +870,7 @@
             this.chkDropKick.Location = new System.Drawing.Point(250, 488);
             this.chkDropKick.Name = "chkDropKick";
             this.chkDropKick.Size = new System.Drawing.Size(15, 14);
-            this.chkDropKick.TabIndex = 15;
+            this.chkDropKick.TabIndex = 10;
             this.chkDropKick.Tag = "CentreLink";
             this.ToolTips.SetToolTip(this.chkDropKick, "Select this option if the Student has a Disability");
             this.chkDropKick.UseVisualStyleBackColor = true;
@@ -892,7 +892,7 @@
             this.pnlGender.Location = new System.Drawing.Point(588, 349);
             this.pnlGender.Name = "pnlGender";
             this.pnlGender.Size = new System.Drawing.Size(161, 29);
-            this.pnlGender.TabIndex = 47;
+            this.pnlGender.TabIndex = 6;
             this.pnlGender.Tag = "Gender";
             // 
             // label18
@@ -958,7 +958,7 @@
             this.panel10.Location = new System.Drawing.Point(1, 88);
             this.panel10.Name = "panel10";
             this.panel10.Size = new System.Drawing.Size(823, 442);
-            this.panel10.TabIndex = 84;
+            this.panel10.TabIndex = 0;
             // 
             // label21
             // 

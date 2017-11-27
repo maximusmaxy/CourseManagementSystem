@@ -116,7 +116,7 @@
             this.panel8.Location = new System.Drawing.Point(3, 382);
             this.panel8.Name = "panel8";
             this.panel8.Size = new System.Drawing.Size(150, 58);
-            this.panel8.TabIndex = 22;
+            this.panel8.TabIndex = 4;
             // 
             // btnViewAll
             // 
@@ -125,7 +125,7 @@
             this.btnViewAll.Location = new System.Drawing.Point(3, 3);
             this.btnViewAll.Name = "btnViewAll";
             this.btnViewAll.Size = new System.Drawing.Size(144, 52);
-            this.btnViewAll.TabIndex = 21;
+            this.btnViewAll.TabIndex = 0;
             this.btnViewAll.UseVisualStyleBackColor = false;
             this.btnViewAll.Click += new System.EventHandler(this.btnViewAll_Click);
             // 
@@ -136,7 +136,7 @@
             this.panel4.Location = new System.Drawing.Point(3, 319);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(150, 58);
-            this.panel4.TabIndex = 21;
+            this.panel4.TabIndex = 3;
             // 
             // btnDelete
             // 
@@ -145,7 +145,7 @@
             this.btnDelete.Location = new System.Drawing.Point(3, 3);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(144, 52);
-            this.btnDelete.TabIndex = 20;
+            this.btnDelete.TabIndex = 0;
             this.btnDelete.UseVisualStyleBackColor = false;
             this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
@@ -156,7 +156,7 @@
             this.btnUpdate.Location = new System.Drawing.Point(3, 3);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(144, 52);
-            this.btnUpdate.TabIndex = 19;
+            this.btnUpdate.TabIndex = 0;
             this.btnUpdate.UseVisualStyleBackColor = false;
             this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
@@ -167,7 +167,7 @@
             this.btnAdd.Location = new System.Drawing.Point(3, 3);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(144, 52);
-            this.btnAdd.TabIndex = 17;
+            this.btnAdd.TabIndex = 0;
             this.btnAdd.UseVisualStyleBackColor = false;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
@@ -178,7 +178,7 @@
             this.btnSearch.Location = new System.Drawing.Point(3, 3);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(144, 52);
-            this.btnSearch.TabIndex = 18;
+            this.btnSearch.TabIndex = 0;
             this.btnSearch.UseVisualStyleBackColor = false;
             this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
@@ -404,7 +404,7 @@
             this.panel3.Location = new System.Drawing.Point(3, 256);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(150, 58);
-            this.panel3.TabIndex = 21;
+            this.panel3.TabIndex = 2;
             // 
             // label2
             // 
@@ -455,7 +455,7 @@
             this.txtAssessmentId.Location = new System.Drawing.Point(250, 10);
             this.txtAssessmentId.Name = "txtAssessmentId";
             this.txtAssessmentId.Size = new System.Drawing.Size(236, 26);
-            this.txtAssessmentId.TabIndex = 1;
+            this.txtAssessmentId.TabIndex = 0;
             this.txtAssessmentId.Tag = "Assesment ID";
             this.ToolTips.SetToolTip(this.txtAssessmentId, "Insert a Numeric value for the Assessment ID, using 0-9 numbers Only");
             this.txtAssessmentId.TextChanged += new System.EventHandler(this.txtAssessmentId_TextChanged);
@@ -499,7 +499,7 @@
             this.txtAssessmentName.Location = new System.Drawing.Point(250, 46);
             this.txtAssessmentName.Name = "txtAssessmentName";
             this.txtAssessmentName.Size = new System.Drawing.Size(499, 26);
-            this.txtAssessmentName.TabIndex = 128;
+            this.txtAssessmentName.TabIndex = 1;
             this.txtAssessmentName.Tag = "Assesment ID";
             this.ToolTips.SetToolTip(this.txtAssessmentName, "Insert a Numeric value for the Assessment ID, using 0-9 numbers Only");
             // 
@@ -512,7 +512,7 @@
             this.pnlCourseResults.Location = new System.Drawing.Point(492, 332);
             this.pnlCourseResults.Name = "pnlCourseResults";
             this.pnlCourseResults.Size = new System.Drawing.Size(304, 29);
-            this.pnlCourseResults.TabIndex = 132;
+            this.pnlCourseResults.TabIndex = 9;
             this.pnlCourseResults.Tag = "CourseResult";
             this.ToolTips.SetToolTip(this.pnlCourseResults, "Select the State of the enrolment at the end of Completion Date (Select Not Compl" +
         "eted until results are recieved)");
@@ -524,7 +524,7 @@
             this.rdbNotComplete.Location = new System.Drawing.Point(129, 2);
             this.rdbNotComplete.Name = "rdbNotComplete";
             this.rdbNotComplete.Size = new System.Drawing.Size(133, 24);
-            this.rdbNotComplete.TabIndex = 74;
+            this.rdbNotComplete.TabIndex = 2;
             this.rdbNotComplete.TabStop = true;
             this.rdbNotComplete.Tag = "CourseNot";
             this.rdbNotComplete.Text = "Not Completed";
@@ -538,7 +538,7 @@
             this.rdbPass.Location = new System.Drawing.Point(3, 3);
             this.rdbPass.Name = "rdbPass";
             this.rdbPass.Size = new System.Drawing.Size(62, 24);
-            this.rdbPass.TabIndex = 72;
+            this.rdbPass.TabIndex = 0;
             this.rdbPass.TabStop = true;
             this.rdbPass.Tag = "CoursePass";
             this.rdbPass.Text = "Pass";
@@ -552,7 +552,7 @@
             this.rdbFail.Location = new System.Drawing.Point(71, 3);
             this.rdbFail.Name = "rdbFail";
             this.rdbFail.Size = new System.Drawing.Size(52, 24);
-            this.rdbFail.TabIndex = 73;
+            this.rdbFail.TabIndex = 1;
             this.rdbFail.TabStop = true;
             this.rdbFail.Tag = "CourseFail";
             this.rdbFail.Text = "Fail";
@@ -576,7 +576,7 @@
             this.panel6.Location = new System.Drawing.Point(3, 193);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(150, 58);
-            this.panel6.TabIndex = 19;
+            this.panel6.TabIndex = 1;
             // 
             // panel2
             // 
@@ -585,7 +585,7 @@
             this.panel2.Location = new System.Drawing.Point(3, 130);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(150, 58);
-            this.panel2.TabIndex = 21;
+            this.panel2.TabIndex = 0;
             // 
             // panel5
             // 
@@ -601,7 +601,7 @@
             this.panel5.Location = new System.Drawing.Point(828, 27);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(156, 508);
-            this.panel5.TabIndex = 109;
+            this.panel5.TabIndex = 1;
             // 
             // label9
             // 
@@ -621,7 +621,7 @@
             this.panel1.Location = new System.Drawing.Point(3, 445);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(150, 58);
-            this.panel1.TabIndex = 107;
+            this.panel1.TabIndex = 5;
             // 
             // btnClearForm
             // 
@@ -630,7 +630,7 @@
             this.btnClearForm.Location = new System.Drawing.Point(3, 3);
             this.btnClearForm.Name = "btnClearForm";
             this.btnClearForm.Size = new System.Drawing.Size(144, 52);
-            this.btnClearForm.TabIndex = 18;
+            this.btnClearForm.TabIndex = 0;
             this.btnClearForm.Tag = "Clear Form";
             this.btnClearForm.UseVisualStyleBackColor = false;
             this.btnClearForm.Click += new System.EventHandler(this.btnClearForm_Click);
@@ -722,7 +722,7 @@
             this.panel9.Location = new System.Drawing.Point(1, 88);
             this.panel9.Name = "panel9";
             this.panel9.Size = new System.Drawing.Size(823, 442);
-            this.panel9.TabIndex = 130;
+            this.panel9.TabIndex = 0;
             // 
             // lstStudents
             // 
@@ -733,7 +733,7 @@
             this.lstStudents.Name = "lstStudents";
             this.lstStudents.ScrollAlwaysVisible = true;
             this.lstStudents.Size = new System.Drawing.Size(236, 84);
-            this.lstStudents.TabIndex = 131;
+            this.lstStudents.TabIndex = 8;
             this.lstStudents.SelectedIndexChanged += new System.EventHandler(this.lstStudents_SelectedIndexChanged);
             // 
             // AssessmentForm

@@ -30,6 +30,26 @@
         {
             this.components = new System.ComponentModel.Container();
             this.ToolTips = new System.Windows.Forms.ToolTip(this.components);
+            this.cmbTables = new System.Windows.Forms.ComboBox();
+            this.cmbColumns = new System.Windows.Forms.ComboBox();
+            this.cmbGroupBy = new System.Windows.Forms.ComboBox();
+            this.cmbColumns2 = new System.Windows.Forms.ComboBox();
+            this.cmbTables2 = new System.Windows.Forms.ComboBox();
+            this.cmbColumns3 = new System.Windows.Forms.ComboBox();
+            this.cmbTables3 = new System.Windows.Forms.ComboBox();
+            this.cmbColumns4 = new System.Windows.Forms.ComboBox();
+            this.cmbTables4 = new System.Windows.Forms.ComboBox();
+            this.cmbGroupBy2 = new System.Windows.Forms.ComboBox();
+            this.cmbGroupBy3 = new System.Windows.Forms.ComboBox();
+            this.cmbGroupBy4 = new System.Windows.Forms.ComboBox();
+            this.cmbCount = new System.Windows.Forms.ComboBox();
+            this.cmbCount2 = new System.Windows.Forms.ComboBox();
+            this.cmbCount3 = new System.Windows.Forms.ComboBox();
+            this.cmbCount4 = new System.Windows.Forms.ComboBox();
+            this.btnSearch = new System.Windows.Forms.Button();
+            this.btnClearForm = new System.Windows.Forms.Button();
+            this.btnRefineSearch = new System.Windows.Forms.Button();
+            this.btnViewAll = new System.Windows.Forms.Button();
             this.assessmentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -51,40 +71,20 @@
             this.allocationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.cmbTables = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.cmbColumns = new System.Windows.Forms.ComboBox();
             this.dgvSearch = new System.Windows.Forms.DataGridView();
             this.dgvTotals = new System.Windows.Forms.DataGridView();
-            this.cmbGroupBy = new System.Windows.Forms.ComboBox();
-            this.cmbColumns2 = new System.Windows.Forms.ComboBox();
-            this.cmbTables2 = new System.Windows.Forms.ComboBox();
-            this.cmbColumns3 = new System.Windows.Forms.ComboBox();
-            this.cmbTables3 = new System.Windows.Forms.ComboBox();
-            this.cmbColumns4 = new System.Windows.Forms.ComboBox();
-            this.cmbTables4 = new System.Windows.Forms.ComboBox();
-            this.cmbGroupBy2 = new System.Windows.Forms.ComboBox();
-            this.cmbGroupBy3 = new System.Windows.Forms.ComboBox();
-            this.cmbGroupBy4 = new System.Windows.Forms.ComboBox();
             this.label13 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
-            this.cmbCount = new System.Windows.Forms.ComboBox();
-            this.cmbCount2 = new System.Windows.Forms.ComboBox();
-            this.cmbCount3 = new System.Windows.Forms.ComboBox();
-            this.cmbCount4 = new System.Windows.Forms.ComboBox();
             this.panel7 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
             this.label4 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.btnSearch = new System.Windows.Forms.Button();
             this.panel9 = new System.Windows.Forms.Panel();
-            this.btnClearForm = new System.Windows.Forms.Button();
             this.panel6 = new System.Windows.Forms.Panel();
-            this.btnRefineSearch = new System.Windows.Forms.Button();
             this.panel8 = new System.Windows.Forms.Panel();
-            this.btnViewAll = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
             this.pnlForm = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -101,6 +101,231 @@
             this.pnlForm.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
+            // 
+            // cmbTables
+            // 
+            this.cmbTables.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbTables.FormattingEnabled = true;
+            this.cmbTables.Location = new System.Drawing.Point(43, 47);
+            this.cmbTables.Name = "cmbTables";
+            this.cmbTables.Size = new System.Drawing.Size(160, 28);
+            this.cmbTables.TabIndex = 0;
+            this.ToolTips.SetToolTip(this.cmbTables, "Please select the form to obtain conditions from.");
+            this.cmbTables.SelectedIndexChanged += new System.EventHandler(this.cmbTables_SelectedIndexChanged);
+            // 
+            // cmbColumns
+            // 
+            this.cmbColumns.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbColumns.FormattingEnabled = true;
+            this.cmbColumns.Location = new System.Drawing.Point(230, 47);
+            this.cmbColumns.Name = "cmbColumns";
+            this.cmbColumns.Size = new System.Drawing.Size(160, 28);
+            this.cmbColumns.TabIndex = 1;
+            this.ToolTips.SetToolTip(this.cmbColumns, "Please select the attribute of the form to condition.");
+            this.cmbColumns.SelectedIndexChanged += new System.EventHandler(this.cmbColumns_SelectedIndexChanged);
+            // 
+            // cmbGroupBy
+            // 
+            this.cmbGroupBy.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbGroupBy.FormattingEnabled = true;
+            this.cmbGroupBy.Location = new System.Drawing.Point(417, 47);
+            this.cmbGroupBy.Name = "cmbGroupBy";
+            this.cmbGroupBy.Size = new System.Drawing.Size(160, 28);
+            this.cmbGroupBy.TabIndex = 2;
+            this.ToolTips.SetToolTip(this.cmbGroupBy, "Please select the attribute to group by.");
+            this.cmbGroupBy.SelectedIndexChanged += new System.EventHandler(this.cmbGroupBy_SelectedIndexChanged);
+            // 
+            // cmbColumns2
+            // 
+            this.cmbColumns2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbColumns2.FormattingEnabled = true;
+            this.cmbColumns2.Location = new System.Drawing.Point(230, 81);
+            this.cmbColumns2.Name = "cmbColumns2";
+            this.cmbColumns2.Size = new System.Drawing.Size(160, 28);
+            this.cmbColumns2.TabIndex = 5;
+            this.ToolTips.SetToolTip(this.cmbColumns2, "Please select the attribute of the form to condition.");
+            this.cmbColumns2.SelectedIndexChanged += new System.EventHandler(this.cmbColumns2_SelectedIndexChanged);
+            // 
+            // cmbTables2
+            // 
+            this.cmbTables2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbTables2.FormattingEnabled = true;
+            this.cmbTables2.Location = new System.Drawing.Point(43, 81);
+            this.cmbTables2.Name = "cmbTables2";
+            this.cmbTables2.Size = new System.Drawing.Size(160, 28);
+            this.cmbTables2.TabIndex = 4;
+            this.ToolTips.SetToolTip(this.cmbTables2, "Please select the form to obtain conditions from.");
+            this.cmbTables2.SelectedIndexChanged += new System.EventHandler(this.cmbTables2_SelectedIndexChanged);
+            // 
+            // cmbColumns3
+            // 
+            this.cmbColumns3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbColumns3.FormattingEnabled = true;
+            this.cmbColumns3.Location = new System.Drawing.Point(230, 115);
+            this.cmbColumns3.Name = "cmbColumns3";
+            this.cmbColumns3.Size = new System.Drawing.Size(160, 28);
+            this.cmbColumns3.TabIndex = 9;
+            this.ToolTips.SetToolTip(this.cmbColumns3, "Please select the attribute of the form to condition.");
+            this.cmbColumns3.SelectedIndexChanged += new System.EventHandler(this.cmbColumns3_SelectedIndexChanged);
+            // 
+            // cmbTables3
+            // 
+            this.cmbTables3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbTables3.FormattingEnabled = true;
+            this.cmbTables3.Location = new System.Drawing.Point(43, 115);
+            this.cmbTables3.Name = "cmbTables3";
+            this.cmbTables3.Size = new System.Drawing.Size(160, 28);
+            this.cmbTables3.TabIndex = 8;
+            this.ToolTips.SetToolTip(this.cmbTables3, "Please select the form to obtain conditions from.");
+            this.cmbTables3.SelectedIndexChanged += new System.EventHandler(this.cmbTables3_SelectedIndexChanged);
+            // 
+            // cmbColumns4
+            // 
+            this.cmbColumns4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbColumns4.FormattingEnabled = true;
+            this.cmbColumns4.Location = new System.Drawing.Point(230, 149);
+            this.cmbColumns4.Name = "cmbColumns4";
+            this.cmbColumns4.Size = new System.Drawing.Size(160, 28);
+            this.cmbColumns4.TabIndex = 13;
+            this.ToolTips.SetToolTip(this.cmbColumns4, "Please select the attribute of the form to condition.");
+            this.cmbColumns4.SelectedIndexChanged += new System.EventHandler(this.cmbColumns4_SelectedIndexChanged);
+            // 
+            // cmbTables4
+            // 
+            this.cmbTables4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbTables4.FormattingEnabled = true;
+            this.cmbTables4.Location = new System.Drawing.Point(43, 149);
+            this.cmbTables4.Name = "cmbTables4";
+            this.cmbTables4.Size = new System.Drawing.Size(160, 28);
+            this.cmbTables4.TabIndex = 12;
+            this.ToolTips.SetToolTip(this.cmbTables4, "Please select the form to obtain conditions from.");
+            this.cmbTables4.SelectedIndexChanged += new System.EventHandler(this.cmbTables4_SelectedIndexChanged);
+            // 
+            // cmbGroupBy2
+            // 
+            this.cmbGroupBy2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbGroupBy2.FormattingEnabled = true;
+            this.cmbGroupBy2.Location = new System.Drawing.Point(417, 81);
+            this.cmbGroupBy2.Name = "cmbGroupBy2";
+            this.cmbGroupBy2.Size = new System.Drawing.Size(160, 28);
+            this.cmbGroupBy2.TabIndex = 6;
+            this.ToolTips.SetToolTip(this.cmbGroupBy2, "Please select the attribute to group by.");
+            this.cmbGroupBy2.SelectedIndexChanged += new System.EventHandler(this.cmbGroupBy2_SelectedIndexChanged);
+            // 
+            // cmbGroupBy3
+            // 
+            this.cmbGroupBy3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbGroupBy3.FormattingEnabled = true;
+            this.cmbGroupBy3.Location = new System.Drawing.Point(417, 115);
+            this.cmbGroupBy3.Name = "cmbGroupBy3";
+            this.cmbGroupBy3.Size = new System.Drawing.Size(160, 28);
+            this.cmbGroupBy3.TabIndex = 10;
+            this.ToolTips.SetToolTip(this.cmbGroupBy3, "Please select the attribute to group by.");
+            this.cmbGroupBy3.SelectedIndexChanged += new System.EventHandler(this.cmbGroupBy3_SelectedIndexChanged);
+            // 
+            // cmbGroupBy4
+            // 
+            this.cmbGroupBy4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbGroupBy4.FormattingEnabled = true;
+            this.cmbGroupBy4.Location = new System.Drawing.Point(417, 149);
+            this.cmbGroupBy4.Name = "cmbGroupBy4";
+            this.cmbGroupBy4.Size = new System.Drawing.Size(160, 28);
+            this.cmbGroupBy4.TabIndex = 14;
+            this.ToolTips.SetToolTip(this.cmbGroupBy4, "Please select the attribute to group by.");
+            this.cmbGroupBy4.SelectedIndexChanged += new System.EventHandler(this.cmbGroupBy4_SelectedIndexChanged);
+            // 
+            // cmbCount
+            // 
+            this.cmbCount.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbCount.FormattingEnabled = true;
+            this.cmbCount.Location = new System.Drawing.Point(604, 47);
+            this.cmbCount.Name = "cmbCount";
+            this.cmbCount.Size = new System.Drawing.Size(160, 28);
+            this.cmbCount.TabIndex = 3;
+            this.ToolTips.SetToolTip(this.cmbCount, "Please select the attribute to count.");
+            this.cmbCount.SelectedIndexChanged += new System.EventHandler(this.cmbCount_SelectedIndexChanged);
+            // 
+            // cmbCount2
+            // 
+            this.cmbCount2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbCount2.FormattingEnabled = true;
+            this.cmbCount2.Location = new System.Drawing.Point(604, 81);
+            this.cmbCount2.Name = "cmbCount2";
+            this.cmbCount2.Size = new System.Drawing.Size(160, 28);
+            this.cmbCount2.TabIndex = 7;
+            this.ToolTips.SetToolTip(this.cmbCount2, "Please select the attribute to count.");
+            this.cmbCount2.SelectedIndexChanged += new System.EventHandler(this.cmbCount2_SelectedIndexChanged);
+            // 
+            // cmbCount3
+            // 
+            this.cmbCount3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbCount3.FormattingEnabled = true;
+            this.cmbCount3.Location = new System.Drawing.Point(604, 115);
+            this.cmbCount3.Name = "cmbCount3";
+            this.cmbCount3.Size = new System.Drawing.Size(160, 28);
+            this.cmbCount3.TabIndex = 11;
+            this.ToolTips.SetToolTip(this.cmbCount3, "Please select the attribute to count.");
+            this.cmbCount3.SelectedIndexChanged += new System.EventHandler(this.cmbCount3_SelectedIndexChanged);
+            // 
+            // cmbCount4
+            // 
+            this.cmbCount4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbCount4.FormattingEnabled = true;
+            this.cmbCount4.Location = new System.Drawing.Point(604, 149);
+            this.cmbCount4.Name = "cmbCount4";
+            this.cmbCount4.Size = new System.Drawing.Size(160, 28);
+            this.cmbCount4.TabIndex = 15;
+            this.ToolTips.SetToolTip(this.cmbCount4, "Please select the attribute to count.");
+            this.cmbCount4.SelectedIndexChanged += new System.EventHandler(this.cmbCount4_SelectedIndexChanged);
+            // 
+            // btnSearch
+            // 
+            this.btnSearch.BackColor = System.Drawing.Color.White;
+            this.btnSearch.Image = global::CMS.Properties.Resources.SearchButton;
+            this.btnSearch.Location = new System.Drawing.Point(3, 3);
+            this.btnSearch.Name = "btnSearch";
+            this.btnSearch.Size = new System.Drawing.Size(144, 52);
+            this.btnSearch.TabIndex = 0;
+            this.ToolTips.SetToolTip(this.btnSearch, "Start a new search with the selected condition, group by and count. ");
+            this.btnSearch.UseVisualStyleBackColor = false;
+            this.btnSearch.Click += new System.EventHandler(this.btnNewSearch_Click);
+            // 
+            // btnClearForm
+            // 
+            this.btnClearForm.BackColor = System.Drawing.Color.White;
+            this.btnClearForm.Image = global::CMS.Properties.Resources.ClearFormButton;
+            this.btnClearForm.Location = new System.Drawing.Point(3, 3);
+            this.btnClearForm.Name = "btnClearForm";
+            this.btnClearForm.Size = new System.Drawing.Size(144, 52);
+            this.btnClearForm.TabIndex = 0;
+            this.btnClearForm.Tag = "Clear Form";
+            this.ToolTips.SetToolTip(this.btnClearForm, "Clear all combo boxes.");
+            this.btnClearForm.UseVisualStyleBackColor = false;
+            this.btnClearForm.Click += new System.EventHandler(this.btnClearForm_Click);
+            // 
+            // btnRefineSearch
+            // 
+            this.btnRefineSearch.BackColor = System.Drawing.Color.White;
+            this.btnRefineSearch.Image = global::CMS.Properties.Resources.FilterButton;
+            this.btnRefineSearch.Location = new System.Drawing.Point(3, 3);
+            this.btnRefineSearch.Name = "btnRefineSearch";
+            this.btnRefineSearch.Size = new System.Drawing.Size(144, 52);
+            this.btnRefineSearch.TabIndex = 0;
+            this.ToolTips.SetToolTip(this.btnRefineSearch, "Refine the current search with additional conditions and new group by or count. ");
+            this.btnRefineSearch.UseVisualStyleBackColor = false;
+            this.btnRefineSearch.Click += new System.EventHandler(this.btnAddSearch_Click);
+            // 
+            // btnViewAll
+            // 
+            this.btnViewAll.BackColor = System.Drawing.Color.White;
+            this.btnViewAll.Image = global::CMS.Properties.Resources.ViewAllButton;
+            this.btnViewAll.Location = new System.Drawing.Point(3, 3);
+            this.btnViewAll.Name = "btnViewAll";
+            this.btnViewAll.Size = new System.Drawing.Size(144, 52);
+            this.btnViewAll.TabIndex = 0;
+            this.ToolTips.SetToolTip(this.btnViewAll, "Display everything from the currently selected tables.");
+            this.btnViewAll.UseVisualStyleBackColor = false;
+            this.btnViewAll.Click += new System.EventHandler(this.btnViewAll_Click);
             // 
             // assessmentToolStripMenuItem
             // 
@@ -271,17 +496,6 @@
             this.aboutToolStripMenuItem.Text = "About";
             this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
             // 
-            // cmbTables
-            // 
-            this.cmbTables.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmbTables.FormattingEnabled = true;
-            this.cmbTables.Location = new System.Drawing.Point(43, 47);
-            this.cmbTables.Name = "cmbTables";
-            this.cmbTables.Size = new System.Drawing.Size(160, 28);
-            this.cmbTables.TabIndex = 154;
-            this.ToolTips.SetToolTip(this.cmbTables, "Please select the form to obtain conditions from.");
-            this.cmbTables.SelectedIndexChanged += new System.EventHandler(this.cmbTables_SelectedIndexChanged);
-            // 
             // label2
             // 
             this.label2.AutoSize = true;
@@ -301,17 +515,6 @@
             this.label3.Size = new System.Drawing.Size(73, 21);
             this.label3.TabIndex = 157;
             this.label3.Text = "Column:";
-            // 
-            // cmbColumns
-            // 
-            this.cmbColumns.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmbColumns.FormattingEnabled = true;
-            this.cmbColumns.Location = new System.Drawing.Point(230, 47);
-            this.cmbColumns.Name = "cmbColumns";
-            this.cmbColumns.Size = new System.Drawing.Size(160, 28);
-            this.cmbColumns.TabIndex = 156;
-            this.ToolTips.SetToolTip(this.cmbColumns, "Please select the attribute of the form to condition.");
-            this.cmbColumns.SelectedIndexChanged += new System.EventHandler(this.cmbColumns_SelectedIndexChanged);
             // 
             // dgvSearch
             // 
@@ -338,116 +541,6 @@
             this.dgvTotals.Size = new System.Drawing.Size(794, 76);
             this.dgvTotals.TabIndex = 159;
             // 
-            // cmbGroupBy
-            // 
-            this.cmbGroupBy.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmbGroupBy.FormattingEnabled = true;
-            this.cmbGroupBy.Location = new System.Drawing.Point(417, 47);
-            this.cmbGroupBy.Name = "cmbGroupBy";
-            this.cmbGroupBy.Size = new System.Drawing.Size(160, 28);
-            this.cmbGroupBy.TabIndex = 161;
-            this.ToolTips.SetToolTip(this.cmbGroupBy, "Please select the attribute to group by.");
-            this.cmbGroupBy.SelectedIndexChanged += new System.EventHandler(this.cmbGroupBy_SelectedIndexChanged);
-            // 
-            // cmbColumns2
-            // 
-            this.cmbColumns2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmbColumns2.FormattingEnabled = true;
-            this.cmbColumns2.Location = new System.Drawing.Point(230, 81);
-            this.cmbColumns2.Name = "cmbColumns2";
-            this.cmbColumns2.Size = new System.Drawing.Size(160, 28);
-            this.cmbColumns2.TabIndex = 164;
-            this.ToolTips.SetToolTip(this.cmbColumns2, "Please select the attribute of the form to condition.");
-            this.cmbColumns2.SelectedIndexChanged += new System.EventHandler(this.cmbColumns2_SelectedIndexChanged);
-            // 
-            // cmbTables2
-            // 
-            this.cmbTables2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmbTables2.FormattingEnabled = true;
-            this.cmbTables2.Location = new System.Drawing.Point(43, 81);
-            this.cmbTables2.Name = "cmbTables2";
-            this.cmbTables2.Size = new System.Drawing.Size(160, 28);
-            this.cmbTables2.TabIndex = 162;
-            this.ToolTips.SetToolTip(this.cmbTables2, "Please select the form to obtain conditions from.");
-            this.cmbTables2.SelectedIndexChanged += new System.EventHandler(this.cmbTables2_SelectedIndexChanged);
-            // 
-            // cmbColumns3
-            // 
-            this.cmbColumns3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmbColumns3.FormattingEnabled = true;
-            this.cmbColumns3.Location = new System.Drawing.Point(230, 115);
-            this.cmbColumns3.Name = "cmbColumns3";
-            this.cmbColumns3.Size = new System.Drawing.Size(160, 28);
-            this.cmbColumns3.TabIndex = 168;
-            this.ToolTips.SetToolTip(this.cmbColumns3, "Please select the attribute of the form to condition.");
-            this.cmbColumns3.SelectedIndexChanged += new System.EventHandler(this.cmbColumns3_SelectedIndexChanged);
-            // 
-            // cmbTables3
-            // 
-            this.cmbTables3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmbTables3.FormattingEnabled = true;
-            this.cmbTables3.Location = new System.Drawing.Point(43, 115);
-            this.cmbTables3.Name = "cmbTables3";
-            this.cmbTables3.Size = new System.Drawing.Size(160, 28);
-            this.cmbTables3.TabIndex = 166;
-            this.ToolTips.SetToolTip(this.cmbTables3, "Please select the form to obtain conditions from.");
-            this.cmbTables3.SelectedIndexChanged += new System.EventHandler(this.cmbTables3_SelectedIndexChanged);
-            // 
-            // cmbColumns4
-            // 
-            this.cmbColumns4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmbColumns4.FormattingEnabled = true;
-            this.cmbColumns4.Location = new System.Drawing.Point(230, 149);
-            this.cmbColumns4.Name = "cmbColumns4";
-            this.cmbColumns4.Size = new System.Drawing.Size(160, 28);
-            this.cmbColumns4.TabIndex = 172;
-            this.ToolTips.SetToolTip(this.cmbColumns4, "Please select the attribute of the form to condition.");
-            this.cmbColumns4.SelectedIndexChanged += new System.EventHandler(this.cmbColumns4_SelectedIndexChanged);
-            // 
-            // cmbTables4
-            // 
-            this.cmbTables4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmbTables4.FormattingEnabled = true;
-            this.cmbTables4.Location = new System.Drawing.Point(43, 149);
-            this.cmbTables4.Name = "cmbTables4";
-            this.cmbTables4.Size = new System.Drawing.Size(160, 28);
-            this.cmbTables4.TabIndex = 170;
-            this.ToolTips.SetToolTip(this.cmbTables4, "Please select the form to obtain conditions from.");
-            this.cmbTables4.SelectedIndexChanged += new System.EventHandler(this.cmbTables4_SelectedIndexChanged);
-            // 
-            // cmbGroupBy2
-            // 
-            this.cmbGroupBy2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmbGroupBy2.FormattingEnabled = true;
-            this.cmbGroupBy2.Location = new System.Drawing.Point(417, 81);
-            this.cmbGroupBy2.Name = "cmbGroupBy2";
-            this.cmbGroupBy2.Size = new System.Drawing.Size(160, 28);
-            this.cmbGroupBy2.TabIndex = 175;
-            this.ToolTips.SetToolTip(this.cmbGroupBy2, "Please select the attribute to group by.");
-            this.cmbGroupBy2.SelectedIndexChanged += new System.EventHandler(this.cmbGroupBy2_SelectedIndexChanged);
-            // 
-            // cmbGroupBy3
-            // 
-            this.cmbGroupBy3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmbGroupBy3.FormattingEnabled = true;
-            this.cmbGroupBy3.Location = new System.Drawing.Point(417, 115);
-            this.cmbGroupBy3.Name = "cmbGroupBy3";
-            this.cmbGroupBy3.Size = new System.Drawing.Size(160, 28);
-            this.cmbGroupBy3.TabIndex = 177;
-            this.ToolTips.SetToolTip(this.cmbGroupBy3, "Please select the attribute to group by.");
-            this.cmbGroupBy3.SelectedIndexChanged += new System.EventHandler(this.cmbGroupBy3_SelectedIndexChanged);
-            // 
-            // cmbGroupBy4
-            // 
-            this.cmbGroupBy4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmbGroupBy4.FormattingEnabled = true;
-            this.cmbGroupBy4.Location = new System.Drawing.Point(417, 149);
-            this.cmbGroupBy4.Name = "cmbGroupBy4";
-            this.cmbGroupBy4.Size = new System.Drawing.Size(160, 28);
-            this.cmbGroupBy4.TabIndex = 179;
-            this.ToolTips.SetToolTip(this.cmbGroupBy4, "Please select the attribute to group by.");
-            this.cmbGroupBy4.SelectedIndexChanged += new System.EventHandler(this.cmbGroupBy4_SelectedIndexChanged);
-            // 
             // label13
             // 
             this.label13.AutoSize = true;
@@ -467,50 +560,6 @@
             this.label14.Size = new System.Drawing.Size(60, 21);
             this.label14.TabIndex = 181;
             this.label14.Text = "Count:";
-            // 
-            // cmbCount
-            // 
-            this.cmbCount.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmbCount.FormattingEnabled = true;
-            this.cmbCount.Location = new System.Drawing.Point(604, 47);
-            this.cmbCount.Name = "cmbCount";
-            this.cmbCount.Size = new System.Drawing.Size(160, 28);
-            this.cmbCount.TabIndex = 183;
-            this.ToolTips.SetToolTip(this.cmbCount, "Please select the attribute to count.");
-            this.cmbCount.SelectedIndexChanged += new System.EventHandler(this.cmbCount_SelectedIndexChanged);
-            // 
-            // cmbCount2
-            // 
-            this.cmbCount2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmbCount2.FormattingEnabled = true;
-            this.cmbCount2.Location = new System.Drawing.Point(604, 81);
-            this.cmbCount2.Name = "cmbCount2";
-            this.cmbCount2.Size = new System.Drawing.Size(160, 28);
-            this.cmbCount2.TabIndex = 184;
-            this.ToolTips.SetToolTip(this.cmbCount2, "Please select the attribute to count.");
-            this.cmbCount2.SelectedIndexChanged += new System.EventHandler(this.cmbCount2_SelectedIndexChanged);
-            // 
-            // cmbCount3
-            // 
-            this.cmbCount3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmbCount3.FormattingEnabled = true;
-            this.cmbCount3.Location = new System.Drawing.Point(604, 115);
-            this.cmbCount3.Name = "cmbCount3";
-            this.cmbCount3.Size = new System.Drawing.Size(160, 28);
-            this.cmbCount3.TabIndex = 186;
-            this.ToolTips.SetToolTip(this.cmbCount3, "Please select the attribute to count.");
-            this.cmbCount3.SelectedIndexChanged += new System.EventHandler(this.cmbCount3_SelectedIndexChanged);
-            // 
-            // cmbCount4
-            // 
-            this.cmbCount4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmbCount4.FormattingEnabled = true;
-            this.cmbCount4.Location = new System.Drawing.Point(604, 149);
-            this.cmbCount4.Name = "cmbCount4";
-            this.cmbCount4.Size = new System.Drawing.Size(160, 28);
-            this.cmbCount4.TabIndex = 188;
-            this.ToolTips.SetToolTip(this.cmbCount4, "Please select the attribute to count.");
-            this.cmbCount4.SelectedIndexChanged += new System.EventHandler(this.cmbCount4_SelectedIndexChanged);
             // 
             // panel7
             // 
@@ -544,7 +593,7 @@
             this.panel5.Location = new System.Drawing.Point(828, 27);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(156, 508);
-            this.panel5.TabIndex = 190;
+            this.panel5.TabIndex = 1;
             // 
             // label4
             // 
@@ -564,19 +613,7 @@
             this.panel1.Location = new System.Drawing.Point(3, 131);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(150, 58);
-            this.panel1.TabIndex = 20;
-            // 
-            // btnSearch
-            // 
-            this.btnSearch.BackColor = System.Drawing.Color.White;
-            this.btnSearch.Image = global::CMS.Properties.Resources.SearchButton;
-            this.btnSearch.Location = new System.Drawing.Point(3, 3);
-            this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(144, 52);
-            this.btnSearch.TabIndex = 18;
-            this.ToolTips.SetToolTip(this.btnSearch, "Start a new search with the selected condition, group by and count. ");
-            this.btnSearch.UseVisualStyleBackColor = false;
-            this.btnSearch.Click += new System.EventHandler(this.btnNewSearch_Click);
+            this.panel1.TabIndex = 0;
             // 
             // panel9
             // 
@@ -585,20 +622,7 @@
             this.panel9.Location = new System.Drawing.Point(3, 317);
             this.panel9.Name = "panel9";
             this.panel9.Size = new System.Drawing.Size(150, 58);
-            this.panel9.TabIndex = 110;
-            // 
-            // btnClearForm
-            // 
-            this.btnClearForm.BackColor = System.Drawing.Color.White;
-            this.btnClearForm.Image = global::CMS.Properties.Resources.ClearFormButton;
-            this.btnClearForm.Location = new System.Drawing.Point(3, 3);
-            this.btnClearForm.Name = "btnClearForm";
-            this.btnClearForm.Size = new System.Drawing.Size(144, 52);
-            this.btnClearForm.TabIndex = 60;
-            this.btnClearForm.Tag = "Clear Form";
-            this.ToolTips.SetToolTip(this.btnClearForm, "Clear all combo boxes.");
-            this.btnClearForm.UseVisualStyleBackColor = false;
-            this.btnClearForm.Click += new System.EventHandler(this.btnClearForm_Click);
+            this.panel9.TabIndex = 3;
             // 
             // panel6
             // 
@@ -607,19 +631,7 @@
             this.panel6.Location = new System.Drawing.Point(3, 193);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(150, 58);
-            this.panel6.TabIndex = 19;
-            // 
-            // btnRefineSearch
-            // 
-            this.btnRefineSearch.BackColor = System.Drawing.Color.White;
-            this.btnRefineSearch.Image = global::CMS.Properties.Resources.FilterButton;
-            this.btnRefineSearch.Location = new System.Drawing.Point(3, 3);
-            this.btnRefineSearch.Name = "btnRefineSearch";
-            this.btnRefineSearch.Size = new System.Drawing.Size(144, 52);
-            this.btnRefineSearch.TabIndex = 18;
-            this.ToolTips.SetToolTip(this.btnRefineSearch, "Refine the current search with additional conditions and new group by or count. ");
-            this.btnRefineSearch.UseVisualStyleBackColor = false;
-            this.btnRefineSearch.Click += new System.EventHandler(this.btnAddSearch_Click);
+            this.panel6.TabIndex = 1;
             // 
             // panel8
             // 
@@ -628,19 +640,7 @@
             this.panel8.Location = new System.Drawing.Point(3, 254);
             this.panel8.Name = "panel8";
             this.panel8.Size = new System.Drawing.Size(150, 58);
-            this.panel8.TabIndex = 22;
-            // 
-            // btnViewAll
-            // 
-            this.btnViewAll.BackColor = System.Drawing.Color.White;
-            this.btnViewAll.Image = global::CMS.Properties.Resources.ViewAllButton;
-            this.btnViewAll.Location = new System.Drawing.Point(3, 3);
-            this.btnViewAll.Name = "btnViewAll";
-            this.btnViewAll.Size = new System.Drawing.Size(144, 52);
-            this.btnViewAll.TabIndex = 21;
-            this.ToolTips.SetToolTip(this.btnViewAll, "Display everything from the currently selected tables.");
-            this.btnViewAll.UseVisualStyleBackColor = false;
-            this.btnViewAll.Click += new System.EventHandler(this.btnViewAll_Click);
+            this.panel8.TabIndex = 2;
             // 
             // button5
             // 
@@ -682,7 +682,7 @@
             this.pnlForm.Location = new System.Drawing.Point(0, 87);
             this.pnlForm.Name = "pnlForm";
             this.pnlForm.Size = new System.Drawing.Size(826, 448);
-            this.pnlForm.TabIndex = 191;
+            this.pnlForm.TabIndex = 0;
             // 
             // panel2
             // 
@@ -698,7 +698,7 @@
             this.searchInt.Location = new System.Drawing.Point(3, 3);
             this.searchInt.Name = "searchInt";
             this.searchInt.Size = new System.Drawing.Size(558, 168);
-            this.searchInt.TabIndex = 153;
+            this.searchInt.TabIndex = 0;
             // 
             // GlobalSearchForm
             // 

@@ -53,6 +53,8 @@
             this.deleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.updateToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.viewAllToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.logOutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.formsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mainMenuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.studentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -63,6 +65,8 @@
             this.skillsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.allocationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.globalSearchToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ToolTips = new System.Windows.Forms.ToolTip(this.components);
             this.dtpEnd = new System.Windows.Forms.DateTimePicker();
             this.dtpStart = new System.Windows.Forms.DateTimePicker();
@@ -90,10 +94,6 @@
             this.label13 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.panel9 = new System.Windows.Forms.Panel();
-            this.logOutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel5.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel8.SuspendLayout();
@@ -122,7 +122,7 @@
             this.panel5.Location = new System.Drawing.Point(828, 27);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(156, 508);
-            this.panel5.TabIndex = 77;
+            this.panel5.TabIndex = 1;
             // 
             // label10
             // 
@@ -142,7 +142,7 @@
             this.panel1.Location = new System.Drawing.Point(3, 445);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(150, 58);
-            this.panel1.TabIndex = 23;
+            this.panel1.TabIndex = 5;
             // 
             // btnClearForm
             // 
@@ -151,7 +151,7 @@
             this.btnClearForm.Location = new System.Drawing.Point(3, 3);
             this.btnClearForm.Name = "btnClearForm";
             this.btnClearForm.Size = new System.Drawing.Size(144, 52);
-            this.btnClearForm.TabIndex = 18;
+            this.btnClearForm.TabIndex = 0;
             this.btnClearForm.Tag = "Clear Form";
             this.btnClearForm.UseVisualStyleBackColor = false;
             this.btnClearForm.Click += new System.EventHandler(this.btnClearForm_Click);
@@ -163,7 +163,7 @@
             this.panel8.Location = new System.Drawing.Point(3, 382);
             this.panel8.Name = "panel8";
             this.panel8.Size = new System.Drawing.Size(150, 58);
-            this.panel8.TabIndex = 22;
+            this.panel8.TabIndex = 4;
             // 
             // btnViewAll
             // 
@@ -172,7 +172,7 @@
             this.btnViewAll.Location = new System.Drawing.Point(3, 3);
             this.btnViewAll.Name = "btnViewAll";
             this.btnViewAll.Size = new System.Drawing.Size(144, 52);
-            this.btnViewAll.TabIndex = 17;
+            this.btnViewAll.TabIndex = 0;
             this.btnViewAll.Tag = "View All";
             this.btnViewAll.UseVisualStyleBackColor = false;
             this.btnViewAll.Click += new System.EventHandler(this.btnViewAll_Click);
@@ -184,7 +184,7 @@
             this.panel4.Location = new System.Drawing.Point(3, 319);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(150, 58);
-            this.panel4.TabIndex = 21;
+            this.panel4.TabIndex = 3;
             // 
             // btnDelete
             // 
@@ -193,7 +193,7 @@
             this.btnDelete.Location = new System.Drawing.Point(3, 3);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(144, 52);
-            this.btnDelete.TabIndex = 16;
+            this.btnDelete.TabIndex = 0;
             this.btnDelete.Tag = "Delete";
             this.btnDelete.UseVisualStyleBackColor = false;
             this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
@@ -205,7 +205,7 @@
             this.panel3.Location = new System.Drawing.Point(3, 256);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(150, 58);
-            this.panel3.TabIndex = 21;
+            this.panel3.TabIndex = 2;
             // 
             // btnUpdate
             // 
@@ -214,7 +214,7 @@
             this.btnUpdate.Location = new System.Drawing.Point(3, 3);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(144, 52);
-            this.btnUpdate.TabIndex = 15;
+            this.btnUpdate.TabIndex = 0;
             this.btnUpdate.Tag = "Update";
             this.btnUpdate.UseVisualStyleBackColor = false;
             this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
@@ -226,7 +226,7 @@
             this.panel2.Location = new System.Drawing.Point(3, 130);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(150, 58);
-            this.panel2.TabIndex = 21;
+            this.panel2.TabIndex = 0;
             // 
             // btnAdd
             // 
@@ -235,7 +235,7 @@
             this.btnAdd.Location = new System.Drawing.Point(3, 3);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(144, 52);
-            this.btnAdd.TabIndex = 13;
+            this.btnAdd.TabIndex = 0;
             this.btnAdd.Tag = "Add";
             this.btnAdd.UseVisualStyleBackColor = false;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
@@ -247,7 +247,7 @@
             this.panel6.Location = new System.Drawing.Point(3, 193);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(150, 58);
-            this.panel6.TabIndex = 19;
+            this.panel6.TabIndex = 1;
             // 
             // btnSearch
             // 
@@ -256,7 +256,7 @@
             this.btnSearch.Location = new System.Drawing.Point(3, 3);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(144, 52);
-            this.btnSearch.TabIndex = 14;
+            this.btnSearch.TabIndex = 0;
             this.btnSearch.Tag = "Search";
             this.btnSearch.UseVisualStyleBackColor = false;
             this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
@@ -358,6 +358,19 @@
             this.viewAllToolStripMenuItem.Text = "&View All";
             this.viewAllToolStripMenuItem.Click += new System.EventHandler(this.viewAllToolStripMenuItem_Click);
             // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(154, 6);
+            // 
+            // logOutToolStripMenuItem
+            // 
+            this.logOutToolStripMenuItem.Name = "logOutToolStripMenuItem";
+            this.logOutToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.L)));
+            this.logOutToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
+            this.logOutToolStripMenuItem.Text = "&Log Out";
+            this.logOutToolStripMenuItem.Click += new System.EventHandler(this.logOutToolStripMenuItem_Click);
+            // 
             // formsToolStripMenuItem
             // 
             this.formsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -437,6 +450,21 @@
             this.globalSearchToolStripMenuItem.Text = "Global Search";
             this.globalSearchToolStripMenuItem.Click += new System.EventHandler(this.globalSearchToolStripMenuItem_Click);
             // 
+            // helpToolStripMenuItem
+            // 
+            this.helpToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.aboutToolStripMenuItem});
+            this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
+            this.helpToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
+            this.helpToolStripMenuItem.Text = "Help";
+            // 
+            // aboutToolStripMenuItem
+            // 
+            this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
+            this.aboutToolStripMenuItem.Text = "About";
+            this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
+            // 
             // dtpEnd
             // 
             this.dtpEnd.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -444,7 +472,7 @@
             this.dtpEnd.Location = new System.Drawing.Point(250, 154);
             this.dtpEnd.Name = "dtpEnd";
             this.dtpEnd.Size = new System.Drawing.Size(236, 26);
-            this.dtpEnd.TabIndex = 8;
+            this.dtpEnd.TabIndex = 4;
             this.dtpEnd.Tag = "End Date";
             this.ToolTips.SetToolTip(this.dtpEnd, "Select the End Date for the Course here");
             // 
@@ -455,7 +483,7 @@
             this.dtpStart.Location = new System.Drawing.Point(250, 190);
             this.dtpStart.Name = "dtpStart";
             this.dtpStart.Size = new System.Drawing.Size(236, 26);
-            this.dtpStart.TabIndex = 7;
+            this.dtpStart.TabIndex = 5;
             this.dtpStart.Tag = "Start Date";
             this.ToolTips.SetToolTip(this.dtpStart, "Select the starting Date for the Course");
             // 
@@ -465,7 +493,7 @@
             this.txtCourseCost.Location = new System.Drawing.Point(250, 82);
             this.txtCourseCost.Name = "txtCourseCost";
             this.txtCourseCost.Size = new System.Drawing.Size(236, 26);
-            this.txtCourseCost.TabIndex = 3;
+            this.txtCourseCost.TabIndex = 2;
             this.txtCourseCost.Tag = "Cost";
             this.ToolTips.SetToolTip(this.txtCourseCost, "Insert the Cost for the Course using Numeric Characters Only");
             // 
@@ -475,7 +503,7 @@
             this.txtCourseID.Location = new System.Drawing.Point(250, 10);
             this.txtCourseID.Name = "txtCourseID";
             this.txtCourseID.Size = new System.Drawing.Size(236, 26);
-            this.txtCourseID.TabIndex = 1;
+            this.txtCourseID.TabIndex = 0;
             this.txtCourseID.Tag = "Course ID";
             this.ToolTips.SetToolTip(this.txtCourseID, "Use for Search, Update and Delete functions only\r\n[Insert a Numeric value for the" +
         " ID]");
@@ -487,7 +515,7 @@
             this.rbtnFTF.Location = new System.Drawing.Point(3, 3);
             this.rbtnFTF.Name = "rbtnFTF";
             this.rbtnFTF.Size = new System.Drawing.Size(120, 22);
-            this.rbtnFTF.TabIndex = 4;
+            this.rbtnFTF.TabIndex = 0;
             this.rbtnFTF.TabStop = true;
             this.rbtnFTF.Tag = "Face To Face";
             this.rbtnFTF.Text = "Face-To-Face";
@@ -502,7 +530,7 @@
             this.cmbAreaOfStudy.Location = new System.Drawing.Point(250, 262);
             this.cmbAreaOfStudy.Name = "cmbAreaOfStudy";
             this.cmbAreaOfStudy.Size = new System.Drawing.Size(236, 28);
-            this.cmbAreaOfStudy.TabIndex = 10;
+            this.cmbAreaOfStudy.TabIndex = 7;
             this.cmbAreaOfStudy.Tag = "Area Of Study";
             this.ToolTips.SetToolTip(this.cmbAreaOfStudy, "Select from the list the Appropriate Area of Study for this Course");
             this.cmbAreaOfStudy.SelectedIndexChanged += new System.EventHandler(this.cboxAreaOfStudy_SelectedIndexChanged);
@@ -514,7 +542,7 @@
             this.txtCourseDescription.Multiline = true;
             this.txtCourseDescription.Name = "txtCourseDescription";
             this.txtCourseDescription.Size = new System.Drawing.Size(499, 68);
-            this.txtCourseDescription.TabIndex = 11;
+            this.txtCourseDescription.TabIndex = 8;
             this.txtCourseDescription.Tag = "Course Description";
             this.ToolTips.SetToolTip(this.txtCourseDescription, "Please Describe what this Course is about and what are the Goals");
             // 
@@ -528,7 +556,7 @@
             this.lstUnitslist.ScrollAlwaysVisible = true;
             this.lstUnitslist.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;
             this.lstUnitslist.Size = new System.Drawing.Size(499, 84);
-            this.lstUnitslist.TabIndex = 12;
+            this.lstUnitslist.TabIndex = 9;
             this.lstUnitslist.Tag = "Units Included";
             this.ToolTips.SetToolTip(this.lstUnitslist, "Select the Skill Appropriate for the currently selected Teacher");
             // 
@@ -539,7 +567,7 @@
             this.cmbCampus.Location = new System.Drawing.Point(250, 226);
             this.cmbCampus.Name = "cmbCampus";
             this.cmbCampus.Size = new System.Drawing.Size(236, 28);
-            this.cmbCampus.TabIndex = 9;
+            this.cmbCampus.TabIndex = 6;
             this.cmbCampus.Tag = "Campus";
             this.ToolTips.SetToolTip(this.cmbCampus, "Select from the list the Appropriate Area of Study for this Course");
             // 
@@ -549,7 +577,7 @@
             this.txtCourseName.Location = new System.Drawing.Point(250, 46);
             this.txtCourseName.Name = "txtCourseName";
             this.txtCourseName.Size = new System.Drawing.Size(499, 26);
-            this.txtCourseName.TabIndex = 2;
+            this.txtCourseName.TabIndex = 1;
             this.txtCourseName.Tag = "Course Name";
             this.ToolTips.SetToolTip(this.txtCourseName, "Insert the Name of the Course using Alphabetical Characters Only");
             // 
@@ -610,7 +638,7 @@
             this.pnlDeliveryType.Location = new System.Drawing.Point(250, 118);
             this.pnlDeliveryType.Name = "pnlDeliveryType";
             this.pnlDeliveryType.Size = new System.Drawing.Size(297, 29);
-            this.pnlDeliveryType.TabIndex = 93;
+            this.pnlDeliveryType.TabIndex = 3;
             this.pnlDeliveryType.Tag = "Delivery Type";
             // 
             // rbtnOnline
@@ -620,7 +648,7 @@
             this.rbtnOnline.Location = new System.Drawing.Point(168, 4);
             this.rbtnOnline.Name = "rbtnOnline";
             this.rbtnOnline.Size = new System.Drawing.Size(68, 22);
-            this.rbtnOnline.TabIndex = 5;
+            this.rbtnOnline.TabIndex = 1;
             this.rbtnOnline.TabStop = true;
             this.rbtnOnline.Tag = "Online";
             this.rbtnOnline.Text = "Online";
@@ -703,35 +731,7 @@
             this.panel9.Location = new System.Drawing.Point(1, 87);
             this.panel9.Name = "panel9";
             this.panel9.Size = new System.Drawing.Size(823, 442);
-            this.panel9.TabIndex = 101;
-            // 
-            // logOutToolStripMenuItem
-            // 
-            this.logOutToolStripMenuItem.Name = "logOutToolStripMenuItem";
-            this.logOutToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.L)));
-            this.logOutToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
-            this.logOutToolStripMenuItem.Text = "&Log Out";
-            this.logOutToolStripMenuItem.Click += new System.EventHandler(this.logOutToolStripMenuItem_Click);
-            // 
-            // toolStripSeparator1
-            // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(154, 6);
-            // 
-            // helpToolStripMenuItem
-            // 
-            this.helpToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.aboutToolStripMenuItem});
-            this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
-            this.helpToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
-            this.helpToolStripMenuItem.Text = "Help";
-            // 
-            // aboutToolStripMenuItem
-            // 
-            this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.aboutToolStripMenuItem.Text = "About";
-            this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
+            this.panel9.TabIndex = 0;
             // 
             // CourseForm
             // 

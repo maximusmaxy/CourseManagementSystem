@@ -502,9 +502,9 @@
             this.label2.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(39, 23);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(55, 21);
+            this.label2.Size = new System.Drawing.Size(82, 21);
             this.label2.TabIndex = 155;
-            this.label2.Text = "Table:";
+            this.label2.Text = "Selection:";
             // 
             // label3
             // 
@@ -512,9 +512,9 @@
             this.label3.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(226, 23);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(73, 21);
+            this.label3.Size = new System.Drawing.Size(52, 21);
             this.label3.TabIndex = 157;
-            this.label3.Text = "Column:";
+            this.label3.Text = "Filter:";
             // 
             // dgvSearch
             // 
@@ -547,9 +547,9 @@
             this.label13.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label13.Location = new System.Drawing.Point(413, 23);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(87, 21);
+            this.label13.Size = new System.Drawing.Size(70, 21);
             this.label13.TabIndex = 178;
-            this.label13.Text = "Group by:";
+            this.label13.Text = "Sort by:";
             // 
             // label14
             // 

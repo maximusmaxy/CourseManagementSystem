@@ -422,8 +422,8 @@
             this.dgvAllocations.Location = new System.Drawing.Point(250, 190);
             this.dgvAllocations.Name = "dgvAllocations";
             this.dgvAllocations.ReadOnly = true;
-            this.dgvAllocations.Size = new System.Drawing.Size(499, 64);
             this.dgvAllocations.TabIndex = 5;
+            this.dgvAllocations.Size = new System.Drawing.Size(499, 236);
             // 
             // panel1
             // 

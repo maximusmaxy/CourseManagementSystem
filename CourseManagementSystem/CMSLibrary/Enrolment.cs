@@ -182,7 +182,7 @@ namespace CmsLibrary
                     StringBuilder saInsert = new StringBuilder("insert into student_assessments values ");
                     int saLength = saInsert.Length;
                     int result = Types.CourseResults["Not Completed"];
-                    string courseSql = $"select * from course_units where courseid = {CourseId}";
+                    string courseSql = $"select unitId from course_units where courseid = {CourseId}";
                     foreach (var row in Database.ExecuteQuery(courseSql))
                     {
                         int unitId = Convert.ToInt32(row["unitId"]);
@@ -193,17 +193,17 @@ namespace CmsLibrary
                         suInsert.Append(", ");
                         suInsert.Append(result);
                         suInsert.Append("), ");
-                        string assessmentSql = $"select * from assessments where unitId = {unitId}";
+                        string assessmentSql = $"select assessmentId from assessments where unitId = {unitId}";
                         foreach (var row2 in Database.ExecuteQuery(assessmentSql))
                         {
-                            int assessmentId = Convert.ToInt32(row["assessmentId"]);
+                            int assessmentId = Convert.ToInt32(row2["assessmentId"]);
                             saInsert.Append("(");
                             saInsert.Append(studentId);
                             saInsert.Append(", ");
                             saInsert.Append(assessmentId);
-                            suInsert.Append(", ");
-                            suInsert.Append(result);
-                            suInsert.Append("), ");
+                            saInsert.Append(", ");
+                            saInsert.Append(result);
+                            saInsert.Append("), ");
                         }
                     }
                     if (suLength != suInsert.Length)

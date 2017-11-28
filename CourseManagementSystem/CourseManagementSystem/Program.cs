@@ -19,7 +19,7 @@ namespace CMS
  
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Database.ServerName = "MAXIMUMPENIS\\SQLEXPRESS";
+            //Database.ServerName = "MAXIMUMPENIS\\SQLEXPRESS";
             if (!Database.LoadDatabase())
             {
                 Application.Exit();

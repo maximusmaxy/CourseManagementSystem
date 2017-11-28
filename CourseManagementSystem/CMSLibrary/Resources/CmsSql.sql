@@ -16,6 +16,8 @@ if object_id('Teacher_Skills', 'U') is not null
 drop table Teacher_Skills;
 if object_id('Enrolments', 'U') is not null
 drop table Enrolments;
+if object_id('Student_Units', 'U') is not null
+drop table Student_Units
 if object_id('Student_Assessments', 'U') is not null
 drop table Student_Assessments
 

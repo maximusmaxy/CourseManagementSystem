@@ -629,6 +629,67 @@ namespace CmsLibrary
         }
 
         /// <summary>
+        /// Gets the result of a course
+        /// </summary>
+        public static int CourseResult(int studentId, int courseId)
+        {
+            string sql = "select Student_Assessments.results as result from " +
+                "Student_Assessments, Assessments, Courses, Enrolments, Course_Units, Units where " +
+                "Enrolments.courseId = Courses.courseId and Courses.courseId = Course_Units.courseId and " +
+                "Course_Units.unitId = Units.unitId and Units.unitId = Assessments.unitId and " +
+                "Student_Assessments.assessmentId = Assessments.assessmentId and " +
+                "Enrolments.studentId = " + studentId + " and Enrolments.courseId = " + courseId +
+                " and Student_Assessments.studentId = " + studentId;
+            DataTable table = CreateDataTable(sql);
+            if (table.Rows.Count == 0)
+                return Types.CourseResults["Not Completed"];
+            else if (table.AsEnumerable().Any(r => Convert.ToInt32(r["result"]) == Types.CourseResults["Fail"]))
+                return Types.CourseResults["Fail"];
+            else if (table.AsEnumerable().Any(r => Convert.ToInt32(r["result"]) == Types.CourseResults["Not Completed"]))
+                return Types.CourseResults["Not Completed"];
+            else
+                return Types.CourseResults["Pass"];
+        }
+
+        /// <summary>
+        /// Updates the course results for each enrolment.
+        /// </summary>
+        public static void UpdateCourseResults()
+        {
+            string sql = "select * from enrolments";
+            foreach (var row in ExecuteQuery(sql))
+            {
+                int studentId = Convert.ToInt32(row["studentId"]);
+                int courseId = Convert.ToInt32(row["courseId"]);
+                int result = CourseResult(studentId, courseId);
+                sql = $"update enrolments set results = {result} where studentId = {studentId} and courseId = {courseId}";
+                ExecuteNonQuery(sql);
+            }
+        }
+
+        /// <summary>
+        /// Gets the result of a unit
+        /// </summary>
+        public static int UnitResult(int studentId, int unitId)
+        {
+            string sql = "select Student_Assessments.results as result from " +
+                "Student_Assessments, Assessments, Units where " +
+                "Units.unitId = Assessments.unitId and " +
+                "Student_Assessments.assessmentId = Assessments.assessmentId and " +
+                " Units.unitId = " + unitId + 
+                " and Student_Assessments.studentId = " + studentId;
+            DataTable table = CreateDataTable(sql);
+            if (table.Rows.Count == 0)
+                return Types.CourseResults["Not Completed"];
+            else if (table.AsEnumerable().Any(r => Convert.ToInt32(r["result"]) == Types.CourseResults["Fail"]))
+                return Types.CourseResults["Fail"];
+            else if (table.AsEnumerable().Any(r => Convert.ToInt32(r["result"]) == Types.CourseResults["Not Completed"]))
+                return Types.CourseResults["Not Completed"];
+            else
+                return Types.CourseResults["Pass"];
+        }
+
+        /// <summary>
         /// Gets a user permission type based on username and password.
         /// </summary>
         /// <param name="username">The username.</param>

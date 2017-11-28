@@ -16,8 +16,6 @@ if object_id('Teacher_Skills', 'U') is not null
 drop table Teacher_Skills;
 if object_id('Enrolments', 'U') is not null
 drop table Enrolments;
-if object_id('Student_Units', 'U') is not null
-drop table Student_Units;
 if object_id('Student_Assessments', 'U') is not null
 drop table Student_Assessments
 
@@ -188,14 +186,6 @@ primary key(unitId,teacherId),
 constraint unit_teacher_unit_fk foreign key (unitId) references Units(unitId),
 constraint unit_teacher_teacher_fk foreign key (teacherId) references Teachers(teacherId));
 
-create table Student_Units(
-studentId smallint not null,
-unitId smallint not null,
-results tinyint not null,
-primary key(studentId,unitId),
-constraint student_unit_student_fk foreign key (studentId) references Students(studentId),
-constraint student_unit_unit_fk foreign key (unitId) references Units(unitId));
-
 create table Student_Assessments(
 studentId smallint not null,
 assessmentId smallint not null,
@@ -336,12 +326,7 @@ insert into Users values('Bob Saget', 'mRocQYnfs3/0/brrpSbyCHOVuFnIk16bNRJzZw4K4
 insert into Users values('Shubha Too', '2oM5JHkdUkw4Qvhc1XE8wqKlFGgrnasRvJIG1HqO6YM=', '3a9JMvojYWOTnUzhOHPo0Zh+dYdh48KWw65B1OcGcJQ=', 2, 2);
 insert into Users values('Ned Bond', 'YLG5i+xhYw6Nn5QinZtxisycNnRguB+sq8gjVvDGpLk=', 'Kyc2q1L2/AQsawwzkALAwqA5gXya4CPFlyDH3tsGCDY=', 3, 1);
 insert into Users values('admin', 'EqgnTjTef6LrMjVp6l8Fwu+Na4vvfLMYVVGMcJ931KM=', '8Z7tSOatw/EdpmY8u2ohjAhNA+WLkgLIG5+fUfMEGUM=', 4, null);
-insert into student_units values (1,1,1);
-insert into student_units values (1,3,2);
-insert into student_units values (2,2,1);
-insert into Student_Assessments values(1,1,1);
-insert into Student_Assessments values(1,5,2);
-insert into Student_Assessments values(2,2,1);
+insert into Student_Assessments values (1, 1, 1), (1, 2, 1), (1, 3, 1), (1, 4, 1), (1, 5, 1);
 SET IDENTITY_INSERT [dbo].[Units] ON
 INSERT INTO [dbo].[Units] ([unitId], [departmentId], [unitCode], [unitName], [unitType], [numOfHours], [unitDescription]) VALUES (22, 1, N'ICTICT307', N'Create user documentation', 1, 20, N'This Unit describes the skills and knowledge required to create user documentation that is clear to the target audience and easy to navigate.')
 INSERT INTO [dbo].[Units] ([unitId], [departmentId], [unitCode], [unitName], [unitType], [numOfHours], [unitDescription]) VALUES (23, 1, N'ICTICT409', N'Develop macros and templates for clients', 1, 20, N'This unit describes the skills and knowledge required to develop macros and templates for clients using industry recognised software applications.')

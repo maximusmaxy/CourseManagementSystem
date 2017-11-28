@@ -188,6 +188,14 @@ primary key(unitId,teacherId),
 constraint unit_teacher_unit_fk foreign key (unitId) references Units(unitId),
 constraint unit_teacher_teacher_fk foreign key (teacherId) references Teachers(teacherId));
 
+create table Student_Units(
+studentId smallint not null,
+unitId smallint not null,
+results tinyint not null,
+primary key(studentId,unitId),
+constraint student_unit_student_fk foreign key (studentId) references Students(studentId),
+constraint student_unit_unit_fk foreign key (unitId) references Units(unitId));
+
 create table Student_Assessments(
 studentId smallint not null,
 assessmentId smallint not null,

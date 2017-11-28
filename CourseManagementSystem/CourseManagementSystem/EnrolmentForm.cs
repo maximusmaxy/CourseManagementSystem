@@ -209,6 +209,7 @@ namespace CMS
 
         private void btnViewAll_Click(object sender, EventArgs e)
         {
+            Database.UpdateCourseResults();
             using (ViewAllForm form = new ViewAllForm("Enrolments"))
             {
                 form.ReplaceColumn("students", "studentId", "studentFirstName");
@@ -530,21 +531,23 @@ namespace CMS
                 total = course.Cost - discount;
                 txtTotal.Text = String.Format(ci, "{0:C}", total);
 
-                string sql = "select Student_Assessments.results as result from Student_Assessments, Assessments, Courses, Enrolments, Course_Units, Units where " +
-                    "Enrolments.courseId = Courses.courseId and Courses.courseId = Course_Units.courseId and " +
-                    "Course_Units.unitId = Units.unitId and Units.unitId = Assessments.unitId and " +
-                    "Student_Assessments.assessmentId = Assessments.assessmentId and " +
-                    "Enrolments.studentId = " + student.Id + " and Enrolments.courseId = " + course.Id +
-                    " and Student_Assessments.studentId = " + student.Id;
-                DataTable table = Database.CreateDataTable(sql);
-                if (table.Rows.Count == 0)
-                    Forms.CheckRadio(pnlCourseResults, "Not Completed");
-                else if (table.AsEnumerable().Any(r => Convert.ToInt32(r["result"]) == Types.CourseResults["Fail"]))
-                    Forms.CheckRadio(pnlCourseResults, "Fail");
-                else if (table.AsEnumerable().Any(r => Convert.ToInt32(r["result"]) == Types.CourseResults["Not Completed"]))
-                    Forms.CheckRadio(pnlCourseResults, "Not Completed");
-                else
-                    Forms.CheckRadio(pnlCourseResults, "Pass");
+                int result = Database.CourseResult(student.Id, course.Id);
+                Forms.CheckRadio(pnlCourseResults, Types.CourseResults, result);
+                //string sql = "select Student_Assessments.results as result from Student_Assessments, Assessments, Courses, Enrolments, Course_Units, Units where " +
+                //    "Enrolments.courseId = Courses.courseId and Courses.courseId = Course_Units.courseId and " +
+                //    "Course_Units.unitId = Units.unitId and Units.unitId = Assessments.unitId and " +
+                //    "Student_Assessments.assessmentId = Assessments.assessmentId and " +
+                //    "Enrolments.studentId = " + student.Id + " and Enrolments.courseId = " + course.Id +
+                //    " and Student_Assessments.studentId = " + student.Id;
+                //DataTable table = Database.CreateDataTable(sql);
+                //if (table.Rows.Count == 0)
+                //    Forms.CheckRadio(pnlCourseResults, "Not Completed");
+                //else if (table.AsEnumerable().Any(r => Convert.ToInt32(r["result"]) == Types.CourseResults["Fail"]))
+                //    Forms.CheckRadio(pnlCourseResults, "Fail");
+                //else if (table.AsEnumerable().Any(r => Convert.ToInt32(r["result"]) == Types.CourseResults["Not Completed"]))
+                //    Forms.CheckRadio(pnlCourseResults, "Not Completed");
+                //else
+                //    Forms.CheckRadio(pnlCourseResults, "Pass");
             }
             finally
             {

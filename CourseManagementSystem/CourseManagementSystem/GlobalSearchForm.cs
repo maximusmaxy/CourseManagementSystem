@@ -254,6 +254,7 @@ namespace CMS
         public GlobalSearchForm()
         {
             InitializeComponent();
+            Database.UpdateCourseResults();
             select = new StringBuilder();
             from = new StringBuilder();
             condition = new StringBuilder();

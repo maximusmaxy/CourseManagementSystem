@@ -1,5 +1,5 @@
 # CourseManagementSystem
-This was the course management system my team made for the Diploma of Software Development course at Granville tafe for the seccond semester of 2017.
+This was the course management system my team made for the Diploma of Software Development course at Granville tafe for the second semester of 2017. Send me an email at maxwelllittlejohn@gmail.com if you need anything.
 
 # Team
 Maxwell Littlejohn
